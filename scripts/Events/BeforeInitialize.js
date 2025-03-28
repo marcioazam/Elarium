@@ -10,7 +10,7 @@ import {
     ActionFormData
   } from "@minecraft/server-ui";
 
-import { connectedGlassComp } from '../connectedGlassComp.js'
+import { connectedGlassComp } from '../OthersMods/connectedGlassComp.js'
 
   
 world.beforeEvents.worldInitialize.subscribe(async (initEvent) => {

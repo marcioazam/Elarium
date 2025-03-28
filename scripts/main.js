@@ -26,7 +26,7 @@ import './Events/EntityEvent.js'
 import './Events/BeforeInitialize.js'
 
 import './Elarium/System/Manager/Entity.js'
-import './Elarium/System/Analisy.js'
+import './Elarium/System/Core/Analisy.js'
 
 // import './VFX/main.js'
 

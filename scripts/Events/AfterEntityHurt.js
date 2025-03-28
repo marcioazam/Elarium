@@ -15,7 +15,7 @@ import {
   healthParticle,
 } from "../SweepSlash/main/mathAndCalculations.js";
 
-import { DurabilityArmorViewer } from "../main_durability.js";
+import { DurabilityArmorViewer } from "../OthersMods/main_durability.js";
 
 const ignoreBlock = [
   "anvil",

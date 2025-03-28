@@ -1,6 +1,6 @@
 import { world, system, ItemTypes, ItemStack, EnchantmentType } from "@minecraft/server";
 import { Vector } from "./Vector3";
-import { getConfigValue } from "../Events/Interval_Functions/Roll.js";
+import { getConfigValue } from "../Events/IntervalFunctions/Roll.js";
 
 let resistance_data = {};
 
