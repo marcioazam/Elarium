@@ -1,0 +1,53 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:fume_fan"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "CNC",
+      "STS",
+      "SRS"
+    ],
+    "key": {
+      "T": {
+        "item": "minecraft:dispenser"
+      },
+      "N": {
+        "item": "minecraft:blaze_powder"
+      },
+      "C": {
+        "item": "edx:yellowstone"
+      },
+      "S": {
+        "item": "edx:volcano_stone"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:blaze_powder"
+      },
+      {
+        "item": "edx:yellowstone"
+      },
+      {
+        "item": "edx:volcano_stone"
+      },
+      {
+        "item": "minecraft:redstone"
+      },
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:fume_fan"
+    }
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    
+    "controller.animation.showcase_mode.runtime": {
+      "initial_state": "tick",
+      "states": {
+        "tick": {
+          "transitions": [ { "runtime": "q.property('xp:is_in_showcase_mode')" } ],
+          "on_exit": [
+            "/execute as @e[tag=sticky,tag=!force] at @s run tp @s ~~~",
+            "/execute as @e[tag=sticky,tag=force] at @s run tp @s ~~~ facing @a[tag=showcase_mode,c=1]"
+          ]
+        },
+
+        "runtime": {
+          "transitions": [ { "tick": "1" } ],
+          "on_entry": [
+            "/execute as @e[tag=sticky,tag=!force] at @s run tp @s ~~~",
+            "/execute as @e[tag=sticky,tag=force] at @s run tp @s ~~~ facing @a[tag=showcase_mode,c=1]"
+          ],
+          "on_exit": [
+            "/execute as @e[tag=sticky,tag=!force] at @s run tp @s ~~~",
+            "/execute as @e[tag=sticky,tag=force] at @s run tp @s ~~~ facing @a[tag=showcase_mode,c=1]"
+          ]
+        }
+      }
+    },
+
+    "controller.animation.showcase_mode.interaction": {
+      "initial_state": "initialize",
+      "states": {
+        "initialize": {
+          "transitions": [ { "non_showcase_mode": "q.is_alive" } ]
+        },
+
+        "non_showcase_mode": {
+          "transitions": [ { "enter_showcase_mode": "v.showcase_check_time = q.life_time; return q.property('xp:is_in_showcase_mode');" } ],
+          "on_entry": [ "/title @s actionbar xp_clear" ]
+        },
+
+        "enter_showcase_mode": {
+          "transitions": [
+            { "leave_showcase_mode": "!q.property('xp:is_in_showcase_mode')" },
+            { "showcase_mode": "q.life_time - v.showcase_check_time > 1.0" }
+          ],
+          "on_entry": [
+            /* run transition effect */
+            "/title @s actionbar xp_dev_showcase.in",
+
+            /* set default values */
+            "/scoreboard objectives add showcase_zoom dummy",
+            "/scoreboard players set @s showcase_zoom 0",
+            "/tag @s add showcase_view",
+
+            /* give showcase tools */
+            "/replaceitem entity @s slot.hotbar 0 minecraft:slime_ball 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "/replaceitem entity @s slot.hotbar 1 minecraft:ender_eye 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "/replaceitem entity @s slot.hotbar 2 minecraft:light_block 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "/replaceitem entity @s slot.hotbar 3 minecraft:barrier 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "/replaceitem entity @s slot.hotbar 4 minecraft:ender_pearl 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "/replaceitem entity @s slot.hotbar 5 minecraft:spyglass 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+
+            "/replaceitem entity @s slot.hotbar 7 minecraft:spider_eye 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}",
+            "/replaceitem entity @s slot.hotbar 8 minecraft:wooden_pickaxe 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}"
+          ]
+        },
+        "leave_showcase_mode": {
+          "transitions": [ { "non_showcase_mode": "q.life_time - v.showcase_check_time > 2.0" } ],
+          "on_entry": [ "/title @s actionbar xp_dev_showcase.out" ]
+        },
+
+        "showcase_mode": {
+          "transitions": [
+            { "leave_showcase_mode": "v.showcase_check_time = q.life_time; return !q.property('xp:is_in_showcase_mode');" },
+            { "hover.slimeball": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:slime_ball')" },
+            { "hover.eye_of_ender": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:ender_eye')" },
+            { "hover.light_block": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:light_block')" },
+            { "hover.barrier": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:barrier')" },
+            { "hover.wooden_pickaxe": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:wooden_pickaxe')" },
+            { "hover.ender_pearl": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:ender_pearl')" },
+            { "hover.spyglass": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:spyglass')" },
+            { "hover.spider_eye": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:spider_eye')" },
+            { "hover.unknown": "q.is_item_equipped" },
+            { "hover.none": "1" }
+          ]
+        },
+
+        "hover.slimeball": {
+          "transitions": [
+            { "on_use.slimeball": "v.attack_time > 0 && !q.is_sneaking" },
+            { "showcase_mode": "1" }
+          ],
+          "on_entry": [
+            "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.slimeball_hover",
+            "/effect @s weakness 1 255 true",
+            "/execute as @e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other] at @s run particle xp:hover_particle ~~~"
+          ]
+        },
+        "hover.eye_of_ender": {
+          "transitions": [
+            { "on_use.eye_of_ender": "v.attack_time > 0 && !q.is_sneaking" },
+            { "showcase_mode": "1" }
+          ],
+          "on_entry": [
+            "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.eye_hover",
+            "/effect @s weakness 1 255 true",
+            "/execute as @e[c=1,r=4,family=!player,family=!boss,tag=\"sticky\"] at @s run particle xp:hover_particle ~~~"
+          ]
+        },
+        "hover.light_block": {
+          "transitions": [ { "showcase_mode": "1" } ],
+          "on_entry": [ "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.lightblock_hover" ]
+        },
+        "hover.barrier": {
+          "transitions": [
+            { "on_use.barrier": "v.attack_time > 0" },
+            { "showcase_mode": "1" }
+          ],
+          "on_entry": [
+            "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.barrier_hover",
+            "/effect @s weakness 1 255 true",
+            "/execute as @e[c=1,r=6,family=!player] at @s run particle xp:hover_particle ~~~"
+          ]
+        },
+        "hover.wooden_pickaxe": {
+          "transitions": [
+            { "on_use.wooden_pickaxe": "v.attack_time > 0" },
+            { "showcase_mode": "1" }
+          ],
+          "on_entry": [ "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.woodpickaxe_hover" ]
+        },
+        "hover.ender_pearl": {
+          "transitions": [
+            { "on_use.ender_pearl": "v.attack_time > 0" },
+            { "showcase_mode": "1" }
+          ],
+          "on_entry": [
+            "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.enderpearl_hover",
+            "/effect @s weakness 1 255 true",
+            "/execute as @e[c=1,r=6,type=!ender_pearl,family=!player,family=!dummy,family=!inanimate,family=!item,family=!projectile] at @s run particle xp:hover_particle ~~~"
+          ]
+        },
+        "hover.spyglass": {
+          "transitions": [
+            { "on_use.spyglass": "v.attack_time > 0" },
+            { "showcase_mode": "1" }
+          ],
+          "on_entry": [
+            "/title @s[scores={showcase_zoom=0},tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spyglass_hover.normal",
+            "/title @s[scores={showcase_zoom=1},tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spyglass_hover.close",
+            "/title @s[scores={showcase_zoom=2},tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spyglass_hover.closer",
+            "/title @s[scores={showcase_zoom=3},tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spyglass_hover.closest",
+            "/title @s[scores={showcase_zoom=4},tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spyglass_hover.far",
+            "/title @s[scores={showcase_zoom=5},tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spyglass_hover.farther",
+            "/title @s[scores={showcase_zoom=6},tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spyglass_hover.farthest",
+
+            "/effect @s[scores={showcase_zoom=0}] slowness 0",
+            "/effect @s[scores={showcase_zoom=0}] speed 0",
+
+            "/effect @s[scores={showcase_zoom=1..3}] speed 0",
+            "/effect @s[scores={showcase_zoom=1}] slowness 9999 2 true",
+            "/effect @s[scores={showcase_zoom=2}] slowness 9999 4 true",
+            "/effect @s[scores={showcase_zoom=3}] slowness 9999 6 true",
+
+            "/effect @s[scores={showcase_zoom=4..6}] slowness 0",
+            "/effect @s[scores={showcase_zoom=4}] speed 9999 1 true",
+            "/effect @s[scores={showcase_zoom=5}] speed 9999 2 true",
+            "/effect @s[scores={showcase_zoom=6}] speed 9999 4 true"
+          ]
+        },
+        "hover.spider_eye": {
+          "transitions": [
+            { "on_use.spider_eye": "v.attack_time > 0" },
+            { "showcase_mode": "1" }
+          ],
+          "on_entry": [ "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.spidereye_hover" ]
+        },
+        "hover.unknown": {
+          "transitions": [ { "showcase_mode": "1" } ],
+          "on_entry": [ "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.unknown_hover" ]
+        },
+        "hover.none": {
+          "transitions": [ { "showcase_mode": "1" } ],
+          "on_entry": [ "/title @s[tag=\"showcase_view\"] actionbar xp_info.dev_showcase.no_hover" ]
+        },
+
+        "on_use.slimeball": {
+          "transitions": [ { "hover.slimeball": "!v.attack_time" } ],
+          "on_entry": [
+            "/tag @e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other,tag=\"sticky\"] add sticky_temp",
+
+            "/tag @e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other,tag=!\"sticky_temp\"] add sticky",
+            "/execute as @s at @s if entity @e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other,tag=!\"sticky_temp\"] run tellraw @s {\"rawtext\":[{\"text\":\"§aSlimeball§r used on \"},{\"selector\":\"@e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other,tag=!sticky_temp]\"}]}",
+
+            "/tag @e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other,tag=\"sticky_temp\"] remove sticky",
+            "/execute as @s at @s if entity @e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other,tag=\"sticky_temp\"] run tellraw @s {\"rawtext\":[{\"text\":\"§aSlimeball§r removed on \"},{\"selector\":\"@e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other,tag=sticky_temp]\"}]}",
+
+            "/tag @e[c=1,r=4,family=!player,family=!props,family=!utilities,family=!other] remove sticky_temp",
+
+            "/playsound random.click @s"
+          ]
+        },
+        "on_use.eye_of_ender": {
+          "transitions": [ { "hover.eye_of_ender": "!v.attack_time" } ],
+          "on_entry": [
+            "/execute as @s at @s if entity @e[c=1,r=4,family=boss] run tellraw @s {\"rawtext\":[{\"text\":\"§dEye of Ender§r cannot be used on bosses!\"}]}",
+
+            "/tag @e[c=1,r=4,family=!player,family=!boss,tag=\"sticky\",tag=\"force\"] add force_temp",
+
+            "/tag @e[c=1,r=4,family=!player,family=!boss,tag=\"sticky\",tag=!\"force_temp\"] add force",
+            "/execute as @s at @s if entity @e[c=1,r=4,family=!player,family=!boss,tag=\"sticky\",tag=!\"force_temp\"] run tellraw @s {\"rawtext\":[{\"text\":\"§dEye of Ender§r used on \"},{\"selector\":\"@e[c=1,r=4,family=!player,family=!boss,tag=sticky,tag=!force_temp]\"}]}",
+
+            "/tag @e[c=1,r=4,family=!player,family=!boss,tag=\"sticky\",tag=\"force_temp\"] remove force",
+            "/execute as @s at @s if entity @e[c=1,r=4,family=!player,family=!boss,tag=\"sticky\",tag=\"force_temp\"] run tellraw @s {\"rawtext\":[{\"text\":\"§dEye of Ender§r removed on \"},{\"selector\":\"@e[c=1,r=4,family=!player,family=!boss,tag=sticky,tag=force_temp]\"}]}",
+
+            "/tag @e[c=1,r=4,family=!player,family=!boss] remove force_temp",
+
+            "/playsound random.click @s",
+
+            "/kill @e[type=eye_of_ender_signal,c=1]"
+          ],
+          "on_exit": [ "/tag @e remove focus" ]
+        },
+        "on_use.barrier": {
+          "transitions": [ { "hover.barrier": "!v.attack_time" } ],
+          "on_entry": [
+            "/event entity @e[c=1,r=6,family=!player] xp:despawn",
+            "/event entity @e[c=1,r=6,family=!player] xp:instant_despawn",
+            "/event entity @e[c=1,r=6,family=!player] xp:action.despawn",
+            "/event entity @e[c=1,r=6,family=!player] action.despawn.set",
+            "/event entity @e[c=1,r=6,family=!player] action.despawn",
+            "/event entity @e[c=1,r=6,family=!player] despawn",
+            "/kill @e[c=1,r=6,family=!player]",
+            "/tp @e[c=1,r=6,family=!player] ~ -100 ~",
+
+            "/execute as @s at @s if entity @e[c=1,r=6,family=!player] run playsound mob.endermen.portal @s ~~~ 1.0 0.75",
+            "/playsound random.click @s"
+          ]
+        },
+        "on_use.ender_pearl": {
+          "transitions": [ { "hover.ender_pearl": "!v.attack_time" } ],
+          "on_entry": [
+            "v.item_use_time = q.life_time;",
+
+            "/tp @e[c=1,r=6,type=!ender_pearl,family=!player,family=!dummy,family=!inanimate,family=!item,family=!projectile] @s",
+            "/execute at @s if entity @e[c=1,r=6,type=!ender_pearl,family=!player,family=!dummy,family=!inanimate,family=!item,family=!projectile] run playsound mob.endermen.portal @s ~~~ 1.0 2.0",
+
+            "/kill @e[type=ender_pearl,c=1]"
+          ],
+          "on_exit": [ "/tag @e remove focus" ]
+        },
+        "on_use.spyglass": {
+          "transitions": [ { "hover.spyglass": "!v.attack_time" } ],
+          "on_entry": [
+            "/scoreboard players set @s[scores={showcase_zoom=6..}] showcase_zoom -1",
+            "/scoreboard players add @s[scores={showcase_zoom=..5}] showcase_zoom 1",
+
+            "/playsound random.click @s"
+          ],
+          "on_exit": [ "/tag @e remove focus" ]
+        },
+        "on_use.spider_eye": {
+          "transitions": [ { "hover.spider_eye": "!v.attack_time" } ],
+          "on_entry": [
+            "/tag @s remove showcase_view_temp",
+            "/tag @s[tag=\"showcase_view\"] add showcase_view_temp",
+
+            "/tag @s[tag=!\"showcase_view_temp\"] add showcase_view",
+            "/tag @s[tag=\"showcase_view_temp\"] remove showcase_view",
+            "/title @s[tag=\"showcase_view_temp\"] actionbar xp_clear",
+
+            "/playsound random.click @s"
+          ],
+          "on_exit": [ "/tag @e remove focus" ]
+        },
+        "on_use.wooden_pickaxe": {
+          "transitions": [ { "hover.wooden_pickaxe": "!v.attack_time" } ],
+          "on_entry": [
+            "/clear @s",
+
+            "/tag @e remove sticky",
+            "/tag @e remove sticky_temp",
+            "/tag @e remove focus",
+            "/tag @e remove no_tp",
+
+            "/tag @s remove showcase_view_temp",
+            "/tag @s remove showcase_mode",
+            "@s xp:remove_in_showcase_mode",
+
+            "/playsound random.click @s"
+          ]
+        }
+
+      }
+    }
+
+  }
+}

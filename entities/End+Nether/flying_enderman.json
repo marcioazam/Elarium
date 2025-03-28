@@ -1,0 +1,159 @@
+{
+	//ver depois
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:flying_enderman",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+			
+		},
+		"component_groups": {
+			"start": {
+			"minecraft:teleport": {
+				"random_teleports": false,
+				"max_random_teleport_time": 0.5,
+				"random_teleport_cube": [ 32, 32, 32 ],
+				"target_distance": 16,
+				"target_teleport_chance": 0.05,
+				"light_teleport_chance": 0.05
+			  },
+			  "minecraft:timer":{
+				"looping": true,
+				"randomInterval":false,
+				"time": 0.8,
+				"time_down_event": {
+					"event":"stop_start"
+				}
+			}
+		}
+		},
+		"components": {
+			"minecraft:teleport": {
+				"random_teleports": true,
+				"max_random_teleport_time": 30,
+				"random_teleport_cube": [ 32, 32, 32 ],
+				"target_distance": 16,
+				"target_teleport_chance": 0.05,
+				"light_teleport_chance": 0.05
+			  },
+			"minecraft:attack": {
+				"damage": 10
+			   },
+			   "minecraft:behavior.melee_attack": {
+				"priority": 1,
+				"speed_multiplier": 1.3,
+				"track_target": true,
+				"require_complete_path": true 
+			   },
+			"minecraft:health": {
+				"value": 110,
+				"max": 110
+			 },
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+			  "minecraft:behavior.look_at_target": {
+				"priority": 10,
+				"look_distance": 8
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": false
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 9,
+				"look_distance": 6.0
+			  },
+			  "minecraft:behavior.float": {
+				"priority": 15
+			 },
+			
+			 "minecraft:behavior.random_stroll": {
+				"priority": 4,
+				"speed_multiplier": 1.0
+			  },
+			  "minecraft:behavior.random_look_around": {
+				"priority": 5
+			  },
+			 "minecraft:breathable": {
+				"total_supply": 20,
+				"suffocate_time": 0
+			 },
+			 "minecraft:collision_box": {
+				"width": 0.7,
+				"height": 3.3
+			 },
+			 "minecraft:movement": {
+				"value": 0.30
+			 },
+			 "minecraft:flying_speed": {
+				"value": 0.30
+			 },
+			 "minecraft:navigation.hover": {
+				"can_path_over_water": true,
+				"can_sink": true,
+				"can_pass_doors": false,
+				"can_path_from_air": true,
+				"avoid_water": true,
+				"avoid_damage_blocks": false,
+				"avoid_sun": false,
+				"can_swim": true
+			 },
+			 "minecraft:game_event_movement_tracking": {
+				"emit_move": false,
+				"emit_swim": false
+			  },
+			 "minecraft:movement.hover": {},
+			 "minecraft:jump.static": {},
+			 "minecraft:can_fly": {},
+			 "minecraft:type_family": {
+				"family": [ "enderman", "monster", "mob" ]
+			  },
+			  "minecraft:loot": {
+				"table": "loot_tables/entities/enderman.json"
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			  },
+			 "minecraft:nameable": {},
+			  "minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"entity_types": [
+				  {
+					"filters": {  
+						"any_of": [
+						  { "test" :  "is_family", "subject" : "other", "value" :  "player"}
+						] 
+					},
+					"max_dist": 50
+				  }
+				 
+				],
+				"must_see": false
+			  }
+		},
+		"events": {
+		"minecraft:entity_spawned": {
+			"sequence": [
+				{
+			"add": {
+				"component_groups": ["start"]
+			}
+			}]
+		},
+		"stop_start": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["start"]
+			}
+			}]
+		}
+	}
+}
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "turtle_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "SSS",
+      "SsS",
+      "s s"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:turtle_scute"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:turtle_scute"
+      },
+      "s": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "dungeons:turtle_helmet",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:big_crimson_tree/shroomlight_crimson_tree_feature"
+      },
+      "places_block": "minecraft:shroomlight",
+      "enforce_placement_rules": true,
+      "enforce_survivability_rules": true,
+      "may_attach_to": {
+        "top":  [
+          "minecraft:nether_wart_block"
+      ]
+    },
+      "may_replace": [
+        "minecraft:air", "minecraft:nether_wart_block"
+      ]
+   }
+}

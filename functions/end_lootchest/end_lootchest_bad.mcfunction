@@ -1,0 +1,1 @@
+loot spawn ~ ~1 ~ loot "entity/end_chestloot/end_chestloot_bad.loot_table"

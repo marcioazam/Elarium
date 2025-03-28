@@ -1,0 +1,47 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "minecraft:enchanting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " B ",
+      "DED",
+      "###"
+    ], 
+    "key": {
+      "B": {
+        "item": "edx:diamond_book"
+      },
+      "#": {
+        "item": "minecraft:obsidian"
+      },
+      "E": {
+        "item": "edx:ruby"
+      },
+      "D": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:diamond_book"
+      },
+      {
+        "item": "minecraft:obsidian"
+      },
+      {
+        "item": "edx:ruby"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "result": {
+      "item": "minecraft:enchanting_table"
+    }
+  }
+}

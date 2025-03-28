@@ -1,0 +1,22 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:basalt_deltas/ceiling_features/fire_opal_scatter"
+    },
+    "iterations": 65,
+    "x": {
+      "distribution": "gaussian",
+      "extent": [ -8, 8 ]
+    },
+    "y": {
+      "distribution": "gaussian",
+      "extent": [ -2, 2]
+    },
+    "z": {
+      "distribution": "gaussian",
+      "extent": [ -8, 8]
+    },
+    "places_feature": "edx:basalt_deltas/ceiling_features/fire_opal"
+  }
+}

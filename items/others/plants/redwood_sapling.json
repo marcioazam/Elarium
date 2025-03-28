@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:redwood_sapling_it",
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.sapling"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"redwood_sapling"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:redwood_sapling",
+				"use_on" : ["grass", "dirt", "podzol", "mycelium", "dirt_with_roots", "moss_block", "mud", "farmland", "muddy_mangrove_roots"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

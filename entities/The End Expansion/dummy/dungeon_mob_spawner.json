@@ -1,0 +1,102 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:dungeon_mob_spawner",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "controller": "controller.animation.dungeon_mob_spawner.controller"
+            },
+            "scripts": {
+                "animate": [
+                    "controller"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:timer": {
+                "time": [5, 45],
+                "looping": true,
+                "time_down_event": {
+                    "event": "xp:spawn_mobs",
+                    "target": "self"
+                }
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "xp:spawn_mobs": {
+                "minecraft:is_stunned": {}
+            },
+            "xp:biome_echoing_forest": {
+                "minecraft:variant": {
+                    "value": 1
+                }
+            },
+            "xp:biome_ender_wilds": {
+                "minecraft:variant": {
+                    "value": 2
+                }
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            },
+            "xp:biome_echoing_forest": {
+                "add": {
+                    "component_groups": ["xp:biome_echoing_forest"]
+                }
+            },
+            "xp:biome_ender_wilds": {
+                "add": {
+                    "component_groups": ["xp:biome_ender_wilds"]
+                }
+            },
+            "xp:spawn_mobs": {
+                "add": {
+                    "component_groups": [
+                        "xp:spawn_mobs"
+                    ]
+                }
+            },
+            "xp:remove_spawn_mobs": {
+                "remove": {
+                    "component_groups": [
+                        "xp:spawn_mobs"
+                    ]
+                }
+            }
+        }
+    }
+}

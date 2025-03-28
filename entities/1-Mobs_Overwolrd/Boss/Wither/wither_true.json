@@ -1,0 +1,645 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:true_wither",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "wither"
+    },
+    "component_groups": {
+      "true_wither_before_start":{
+        "minecraft:type_family": {
+          "family": [ "void_mode" ]
+        },
+        "minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 5,
+					"time_down_event": {
+						"event": "novoid_mode"
+					}
+				}
+      },
+      "minecraft:despawn": {
+        "minecraft:instant_despawn": {
+         "remove_child_entities": true
+        }
+     },
+     "follow": {
+      "minecraft:attack": {
+        "damage": 6
+         },
+      "minecraft:behavior.melee_attack": {
+        "priority": 0,
+        "speed_multiplier": 1.6,
+        "track_target": true,
+        "require_complete_path": false
+         },
+         "minecraft:entity_sensor": {
+          "sensor_range": 20,
+          "relative_range": false,
+          "minimum_count": 1,
+          "event_filters": {
+						"test": "distance_to_nearest_player", "operator": "<=", "value": 20
+					  },
+          "event": "stop_follow"
+        }
+
+   },
+    "nofollow": {
+       
+        "minecraft:entity_sensor": {
+          "sensor_range": 20,
+          "relative_range": false,
+          "minimum_count": 1,
+          "event_filters": {
+            "test": "distance_to_nearest_player", "operator": ">", "value": 20
+            },
+          "event": "follow"
+        }
+   },
+"true_easy":{
+  "minecraft:timer":{
+    "looping": true,
+    "randomInterval":false,
+    "time": 10,
+    "time_down_event": {
+      "event": "tesummon"
+    }
+  },
+  "minecraft:health": {
+    "value": 800,
+    "max": 800
+   }
+},
+"true_normal":{
+  "minecraft:timer":{
+    "looping": true,
+    "randomInterval":false,
+    "time": 10,
+    "time_down_event": {
+      "event": "tnsummon"
+    }
+  },
+  "minecraft:health": {
+    "value": 800,
+    "max": 800
+   }
+},
+"true_hard_summon":{
+  "minecraft:timer":{
+    "looping": true,
+    "randomInterval":false,
+    "time": 10,
+    "time_down_event": {
+      "event": "thsummon"
+    }
+  }
+},
+"true_hard":{
+  "minecraft:timer":{
+    "looping": true,
+    "randomInterval":false,
+    "time": 2,
+    "time_down_event": {
+      "event": "regenhard"
+    }
+  },
+  "minecraft:health": {
+    "value": 800,
+    "max": 800
+   }
+ 
+},
+      "true_wither_start":{
+				"minecraft:health": {
+					"value": 10,
+					"max": 10
+				 },
+				"minecraft:environment_sensor":{
+					"triggers":[
+					   {
+						  "filters":{
+							 "all_of":[
+								{
+								   "test":"is_difficulty",
+								   "value":"easy"
+								}
+							 ]
+						  },
+						  "event":"true_easy"
+					   },
+					   {
+						"filters":{
+						   "all_of":[
+							  {
+								 "test":"is_difficulty",
+								 "value":"normal"
+							  }
+						   ]
+						},
+						"event":"true_normal"
+					 },
+					 {
+						"filters":{
+						   "all_of":[
+							  {
+								 "test":"is_difficulty",
+								 "value":"hard"
+							  }
+						   ]
+						},
+						"event":"true_hard"
+					 }
+					]
+				 }
+			}
+    },
+    "components": {
+      "minecraft:on_death":{
+        "event": "true_death",
+        "target": "self"
+      },
+      "minecraft:timer":{
+        "looping": true,
+        "randomInterval":false,
+        "time": 10,
+        "time_down_event": {
+          "event": "true_summon"
+        }
+      },
+      "minecraft:variant": {
+        "value": 1
+      },
+      "minecraft:scale": {
+        "value": 1.2
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+        },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "100"
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:boss": {
+        "should_darken_sky": true,
+        "name": "§6(Phase 1/1) §4The True Wither §6(BOSS)",
+        "hud_range": 55
+      },
+     
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "undead"
+            }
+          },
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 3
+      },
+      "minecraft:fire_immune": {
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/true_wither_boss.json"
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:movement.basic": {
+        "max_turn":  180.0
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:can_fly": {
+      },
+     
+    
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 2
+      },
+      "minecraft:follow_range": {
+        "value": 128,
+        "max": 128
+      },
+     
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 3,
+        "entity_types": [
+          {
+            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+            "max_dist": 70
+          },
+          {
+            "filters": {
+               "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "undead"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "inanimate"
+                }
+              ]
+            },
+            "max_dist": 100
+          }
+        ],
+        "must_see": true
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 5,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 5
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "look_distance": 8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      },
+      "minecraft:type_family": {
+        "family": ["true_wither", "skeleton", "monster", "undead", "mob" ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:behavior.wither_random_attack_pos_goal": {
+        "priority": 3
+      },
+      "minecraft:behavior.wither_target_highest_damage": {
+        "priority": 1
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "filters":{
+              "any_of": [
+                {
+              "all_of": [
+                {
+                  "test":"is_difficulty",
+                  "value":"easy"
+               }
+              ]
+              }
+            ]
+              },
+        "add": {
+          "component_groups": ["true_wither_start","true_easy"]
+        },
+        "queue_command": {
+          "command": [
+            "title @a[r=25] title §8The True Wither",
+            "title @a[r=25] subtitle The three head black hole",
+            "playsound beacon.deactivate @a ~~~ 10.00 0.5",
+            "particle edx:bomb_particle ~~~",
+            "event entity @e[r=10,type=minecraft:wither] minecraft:despawn"
+          ]
+        }
+      },
+      {
+        "filters":{
+          "any_of": [
+            {
+          "all_of": [
+            {
+              "test":"is_difficulty",
+              "value":"normal"
+           }
+          ]
+          }
+        ]
+          },
+    "add": {
+      "component_groups": ["true_wither_start","true_normal"]
+    },
+    "queue_command": {
+      "command": [
+        "title @a[r=25] title §8The True Wither",
+        "title @a[r=25] subtitle The three head black hole",
+        "playsound beacon.deactivate @a ~~~ 10.00 0.5",
+        "particle edx:bomb_particle ~~~",
+        "event entity @e[r=10,type=minecraft:wither] minecraft:despawn"
+      ]
+    }
+  },
+  {
+            "filters":{
+              "any_of": [
+                {
+              "all_of": [
+                {
+                  "test":"is_difficulty",
+                  "value":"hard"
+               }
+              ]
+              }
+            ]
+              },
+        "add": {
+          "component_groups": ["true_wither_start","true_hard"]
+        },
+        "queue_command": {
+          "command": [
+            "title @a[r=25] title §8The True Wither",
+            "title @a[r=25] subtitle The three head black hole",
+            "playsound beacon.deactivate @a ~~~ 10.00 0.5",
+            "particle edx:bomb_particle ~~~",
+            "event entity @e[r=10,type=minecraft:wither] minecraft:despawn"
+          ]
+        }
+      }
+  ]
+      },
+       "tesummon": {
+          "sequence": [
+            {
+           "randomize": [
+            {
+              "weight": 200,
+          "queue_command": {
+            "command": [
+              "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~5",
+              "execute as @p[m=!spectator,r=50] at @s run  summon edx:wither_embryo ~~2~-5",
+              "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~5~2~",
+              "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~",
+              "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~5",
+              "execute as @p[m=!spectator,r=50] at @s run  summon edx:wither_embryo ~~2~-5",
+              "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~5~2~",
+              "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~"
+            ]
+          }
+            
+            },
+            {
+              "weight": 100,
+              "queue_command": {
+                "command": [
+                  "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~5",
+                  "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~-5",
+                  "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~5",
+                  "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~-5"
+                ]
+              }
+                
+            },
+            {
+              "weight": 1,
+              "queue_command": {
+                "command": [
+                  "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_dysmorph ~~2~"
+                ]
+              }
+                
+            }
+          ]}]},
+          "tnsummon": {
+            
+                "sequence": [
+                  {
+                 "randomize": [
+                  {
+                    "weight": 200,
+                "queue_command": {
+                  "command": [
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~5",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~-5",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~5~2~",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~5",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~5",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~-5",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~5~2~",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~",
+                    "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~5"
+                  ]
+                }
+                  
+                  },
+                  {
+                    "weight": 100,
+                    "queue_command": {
+                      "command": [
+                        "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~5",
+                        "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~-5",
+                        "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~5~2~",
+                        "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~5",
+                        "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~-5",
+                        "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~5~2~"
+                      ]
+                    }
+                      
+                  },
+                  {
+                    "weight": 1,
+                    "queue_command": {
+                      "command": [
+                        "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_dysmorph ~~2~"
+                      ]
+                    }
+                      
+                  }
+                ]}]},
+                "thsummon": {
+            
+                  "sequence": [
+                    {
+                   "randomize": [
+                    {
+                      "weight": 200,
+                  "queue_command": {
+                    "command": [
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~5",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~-5",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~5~2~",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~5",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~5",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~~2~-5",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~5~2~",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~",
+                      "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_embryo ~-5~2~5"
+                    ]
+                  }
+                    
+                    },
+                    {
+                      "weight": 100,
+                      "queue_command": {
+                        "command": [
+                          "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~5",
+                          "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~-5",
+                          "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~5~2~",
+                          "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~5",
+                          "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~~2~-5",
+                          "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_foetus ~5~2~"
+                        ]
+                      }
+                        
+                    },
+                    {
+                      "weight": 1,
+                      "queue_command": {
+                        "command": [
+                          "execute as @p[m=!spectator,r=50] at @s run summon edx:wither_dysmorph ~~2~"
+                        ]
+                      }
+                        
+                    }
+                  ]}]},
+
+
+     
+      "regenhard": {
+        "queue_command": {
+          "command": [
+            "effect @s regeneration 5 0"
+          ]}
+    },
+      "follow": {
+        "sequence": [
+        {"add": {
+          "component_groups": ["follow"]
+        },
+        "remove": {
+          "component_groups": ["nofollow"]
+        }}
+      ]
+      },
+      "stop_follow": {
+        "sequence": [
+          {
+        "remove": {
+          "component_groups": ["follow"]
+        },
+        "add": {
+          "component_groups": ["nofollow"]
+        }}
+       
+      ]
+      },
+      "true_easy": {
+        "sequence": [
+          {
+        "remove": {
+          "component_groups": ["true_wither_start"]
+        }},
+  
+        {"queue_command": {
+          "command": [
+            "effect @s instant_health 3 255 true"
+          ]}},
+        {"add": {
+          "component_groups": ["true_easy"]
+        }}
+      ]
+      },
+      "true_normal": {
+        "sequence": [{
+        "remove": {
+          "component_groups": ["true_wither_start"]
+        }},
+        {"queue_command": {
+          "command": [
+            "effect @s instant_health 3 255 true"
+          ]}},
+          {"add": {
+        "component_groups": ["true_normal"]
+          }}]
+      },
+      "true_hard": {
+        "sequence": [
+        {"remove": {
+          "component_groups": ["true_wither_start"]
+        }},
+        {"queue_command": {
+          "command": [
+            "effect @s instant_health 3 255 true"
+          ]}},
+          {"add": {
+            "component_groups": ["true_hard","true_hard_summon"]
+          }}]
+      },		
+       "true_death":{
+        "sequence": [
+          {
+  
+          "queue_command": {
+          "command": [
+            "scoreboard players add @a[r=75,tag=!true_wither] max_health 4",
+            "tag @a[r=75] add true_wither" 
+          ]}
+          
+          },
+          {
+            "randomize": [
+              {
+                "weight": 1,
+                "queue_command": {
+                  "command": [
+                    "give @a[r=75] edx:corrupted_star"
+                  ]}
+              },
+              {
+                "weight": 1,
+                "queue_command": {
+                  "command": [
+                    "give @a[r=75] edx:corrupted_star"
+                  ]}
+              }
+              
+            ]
+          }
+        ]
+       }
+    }
+  }
+}

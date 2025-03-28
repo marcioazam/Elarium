@@ -1,0 +1,113 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:crimsonspire_stem_1",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			},
+			"states": {
+				"edx:placed": [false,true],
+				"edx:random_height": [1,2]
+			},
+			"traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": ["minecraft:cardinal_direction"]
+                }
+            }
+		},
+		"components": {
+            "minecraft:custom_components": ["edx:crimsonspire_stem_break"],
+			"minecraft:collision_box": {
+                "origin": [-4,0,-4],
+                "size": [8,16,8]
+            },
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+			"minecraft:loot": "loot_tables/blocks/crimsonspire_stem_2.json",
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 10
+            },
+			"minecraft:geometry": "geometry.crimsonspire_stem",
+		
+			"minecraft:selection_box": {
+                "origin": [-4,0,-4],
+                "size": [8,16,8]
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "crimsonspire_stem_1",
+					"render_method": "alpha_test"
+				}
+			}
+		},
+		"permutations": [
+            {
+                "condition": "query.block_state('edx:random_height') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "crimsonspire_stem_1",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('edx:random_height') == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "crimsonspire_stem_1_2",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+			{
+                "condition": "query.block_state('edx:placed') == false",
+                "components": {
+                    "minecraft:custom_components": ["edx:crimsonspire_stem_random","edx:crimsonspire_stem_break"],
+                    "minecraft:tick": {
+                        "looping": true,
+                        "interval_range": [1, 1]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 0, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 90, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 180, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, -90, 0]
+                    }
+                }
+            }
+        ]
+	}
+}

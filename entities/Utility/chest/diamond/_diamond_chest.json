@@ -1,0 +1,549 @@
+{
+  "format_version": "1.16.210",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:diamond_chest",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "dungeons:opened": {
+        "minecraft:is_baby": {},
+        "minecraft:timer": {
+          "looping": true,
+          "time": 120,
+          "time_down_event": {
+            "event": "dungeons:despawn"
+          }
+        }
+      },
+      "dungeons:redstone_monstrosity_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:redstone_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_redstone_monstrosity",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:fiery_forge_loot"
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:skeleton_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_redstone_monstrosity",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:spooky_monstrosity_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:nameless_one_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:nameless_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_nameless_one",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:nameless_one_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:mooshroom_monstrosity_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:questionable_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_mooshroom_monstrosity",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:mooshroom_monstrosity_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:wretched_wraith_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:wretched_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_wretched_wraith",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:wretched_wraith_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:corrupted_cauldron_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:corrupted_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_corrupted_cauldron",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:corrupted_cauldron_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:jungle_abomination_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:jungle_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_jungle_abomination",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:jungle_abomination_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:tempest_golem_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:tempest_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_tempest_golem",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:tempest_golem_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:ancient_guardian_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:ancient_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_ancient_guardian",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:ancient_guardian_loot"
+            }
+          ]
+        }
+      },
+      "dungeons:boss_wildfire_chest": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "dungeons:blaze_key"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_boss_wildfire",
+                "target": "self"
+              },
+              "interact_text": "action.interact.unlock_chest",
+              "cooldown": 10,
+              "use_item": true,
+              "spawn_entities": "dungeons:boss_wildfire_loot"
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "ignore",
+          "inanimate",
+          "gravity_immune",
+          "boss_proxy"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 0.9375
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:boss_proxy": {
+        "queue_command": {
+          "command": [
+            "tp @s ~~~ facing @e[type=dungeons:boss_proxy,c=1]"
+          ]
+        }
+      },
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      },
+      "dungeons:open_redstone_monstrosity": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:redstone_monstrosity_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_redstone_monstrosity": {
+        "add": {
+          "component_groups": [
+            "dungeons:redstone_monstrosity_chest"
+          ]
+        }
+      },
+      "dungeons:open_nameless_one": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:nameless_one_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_nameless_one": {
+        "add": {
+          "component_groups": [
+            "dungeons:nameless_one_chest"
+          ]
+        }
+      },
+      "dungeons:open_mooshroom_monstrosity": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:mooshroom_monstrosity_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_mooshroom_monstrosity": {
+        "add": {
+          "component_groups": [
+            "dungeons:mooshroom_monstrosity_chest"
+          ]
+        }
+      },
+      "dungeons:open_wretched_wraith": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:wretched_wraith_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_wretched_wraith": {
+        "add": {
+          "component_groups": [
+            "dungeons:wretched_wraith_chest"
+          ]
+        }
+      },
+      "dungeons:open_corrupted_cauldron": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:corrupted_cauldron_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_corrupted_cauldron": {
+        "add": {
+          "component_groups": [
+            "dungeons:corrupted_cauldron_chest"
+          ]
+        }
+      },
+      "dungeons:open_jungle_abomination": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:jungle_abomination_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_jungle_abomination": {
+        "add": {
+          "component_groups": [
+            "dungeons:jungle_abomination_chest"
+          ]
+        }
+      },
+      "dungeons:open_tempest_golem": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:tempest_golem_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_tempest_golem": {
+        "add": {
+          "component_groups": [
+            "dungeons:tempest_golem_chest"
+          ]
+        }
+      },
+      "dungeons:open_ancient_guardian": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:ancient_guardian_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_ancient_guardian": {
+        "add": {
+          "component_groups": [
+            "dungeons:ancient_guardian_chest"
+          ]
+        }
+      },
+      "dungeons:open_boss_wildfire": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:boss_wildfire_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_boss_wildfire": {
+        "add": {
+          "component_groups": [
+            "dungeons:boss_wildfire_chest"
+          ]
+        }
+      }
+    }
+  }
+}

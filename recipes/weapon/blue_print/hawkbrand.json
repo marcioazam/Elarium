@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_hawkbrand"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:hawkbrand"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:hawkbrand"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:hawkbrand", "count": 1 },
+      { "item": "dungeons:hawkbrand", "count": 1 }
+    ]
+  }
+}

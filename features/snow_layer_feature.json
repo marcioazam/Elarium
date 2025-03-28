@@ -1,0 +1,19 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:single_block_feature": {
+        "description": {
+          "identifier": "edx:snow_layer_feature"
+        },
+        "places_block": "minecraft:snow_layer",
+        "enforce_placement_rules": true,
+        "enforce_survivability_rules": true,
+        "may_attach_to": {
+          "bottom":  [
+            "edx:frozen_stone"
+        ]
+      },
+        "may_replace": [
+          "minecraft:air"
+        ]
+      }
+}

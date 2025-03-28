@@ -1,0 +1,1 @@
+event entity @e[type=xp:waypoint] xp:instant_despawn

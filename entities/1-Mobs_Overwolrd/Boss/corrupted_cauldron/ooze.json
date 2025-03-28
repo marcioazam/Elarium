@@ -1,0 +1,280 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "dungeons:corrupted_ooze",
+            "spawn_category": "monster",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "dungeons:time_to_despawn": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 0.5,
+                    "time_down_event": {
+                        "event": "dungeons:absorb"
+                    }
+                }
+            },
+            "dungeons:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "dungeons:angry": {
+                "minecraft:angry": {
+                    "duration": 30,
+                    "broadcast_anger": true,
+                    "broadcast_anger_on_attack": true,
+                    "broadcast_anger_on_being_attacked": true,
+                    "broadcast_range": 48,
+                    "broadcast_targets": [
+                        "corrupted_ooze"
+                    ],
+          "filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "corrupted_cauldron"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "corrupted_ooze"
+              }
+            ]
+          },
+                    "calm_event": {
+                        "event": "minecraft:become_calm",
+                        "target": "self"
+                    }
+                }
+            },
+            "minecraft:slime_small": {
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:health": {
+                    "value": 10,
+                    "max": 10
+                },
+                "minecraft:attack": {
+                    "damage": 5
+                },
+                "minecraft:area_attack": {
+                    "damage_range": 0.225,
+                    "damage_per_tick": 3,
+                    "damage_cooldown": 0.5,
+                    "cause": "entity_attack",
+                    "entity_filter": {
+                        "any_of": [
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            },
+                            {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "irongolem"
+                            }
+                        ]
+                    }
+                }
+            },
+            "minecraft:slime_calm": {},
+            "minecraft:slime_aggressive": {}
+        },
+        "components": {
+            "minecraft:timer": {
+                "looping": true,
+                "randomInterval": true,
+                "time": [
+                    8,
+                    12
+                ],
+                "time_down_event": {
+                    "event": "dungeons:despawn_timer"
+                }
+            },
+            "minecraft:collision_box": {
+                "width": 0.502,
+                "height": 0.502
+            },
+            "minecraft:scale": {
+                "value": 1.5
+            },
+            "minecraft:movement": {
+                "value": 0
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:experience_reward": {
+                "on_death": "0"
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "corrupted_ooze",
+                    "monster",
+                    "mob"
+                ]
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "breathes_lava": true
+            },
+            "minecraft:nameable": {},
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "fall",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:on_target_acquired": {
+                "event": "minecraft:become_aggressive",
+                "target": "self"
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+            "minecraft:knockback_resistance": {
+                "value": 0.33
+            },
+            "minecraft:persistent": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:shooter": {
+                "def": "dungeons:corrupted_shot"
+            },
+            "minecraft:behavior.ranged_attack": {
+                "priority": 0,
+                "attack_interval_min": 1.5,
+                "attack_interval_max": 2.333,
+                "attack_radius": 24
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 0,
+                "must_see": false,
+                "reselect_targets": true,
+                "within_radius": 24,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "snowgolem"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "irongolem"
+                                }
+                            ]
+                        },
+                        "max_dist": 24
+                    }
+                ]
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "dungeons:despawn_timer": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:time_to_despawn"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "playanimation @s animation.corrupted_ooze.despawn"
+                    ]
+                }
+            },
+            "dungeons:absorb": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:instant_despawn"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "particle dungeons:cauldron_slime_despawn ~~0.2~",
+                        "effect @e[type=dungeons:corrupted_cauldron,c=1,r=64] instant_health 1 0 true"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:slime_small",
+                        "minecraft:slime_calm"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "playanimation @s animation.corrupted_ooze.spawn"
+                    ]
+                }
+            },
+            "minecraft:become_calm": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:slime_calm"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "minecraft:slime_calm",
+                        "dungeons:angry"
+                    ]
+                }
+            },
+            "minecraft:become_aggressive": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:slime_aggressive",
+                        "dungeons:angry"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "playanimation @s animation.corrupted_ooze.target_acquired"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "minecraft:slime_calm"
+                    ]
+                }
+            }
+        }
+    }
+}

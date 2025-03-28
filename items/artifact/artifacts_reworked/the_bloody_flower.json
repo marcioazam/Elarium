@@ -1,0 +1,30 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:bloody_flower",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"undying_flower",
+				"bloody_bramble"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "bloody_flower"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dThe bloody flower \n§5Artifact\n§6Immobilise and inflict wither for 15 seconds to the nearest monster\n§6Slowly regenerate you health on daytime (work even underground, but only in the overworld), stackable with regeneration potions"
+			  }
+		}
+	}
+}

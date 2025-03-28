@@ -1,0 +1,72 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_marker.markers": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "center_path.move_tick_0": "q.variant == 1" },
+            { "center_point.tick_0": "q.variant == 2" },
+            { "ground_path.move_tick_0": "q.variant == 5" },
+            { "ground_point.tick_0": "q.variant == 6" }
+          ]
+        },
+
+        "center_path.move_tick_0": {
+          "transitions": [ { "center_path.move_tick_1": "1" } ],
+          "on_entry": [ "/tp @s ^^^0.15 facing @e[type=xp:end_cube_marker,c=1,family=marker_center_point]" ],
+          "on_exit": [ "/tp @s ^^^0.15 facing @e[type=xp:end_cube_marker,c=1,family=marker_center_point]" ]
+        },
+        "center_path.move_tick_1": {
+          "transitions": [ { "center_path.move_tick_0": "1" } ],
+          "on_entry": [ "/tp @s ^^^0.15 facing @e[type=xp:end_cube_marker,c=1,family=marker_center_point]" ],
+          "on_exit": [ "/tp @s ^^^0.15 facing @e[type=xp:end_cube_marker,c=1,family=marker_center_point]" ]
+        },
+        "center_point.tick_0": {
+          "transitions": [ { "center_point.tick_1": "1" } ],
+          "on_entry": [ "/execute unless entity @s[x=300,y=222,z=-549,dx=24,dy=23,dz=24] run tp @s 312 ~ -537" ]
+        },
+        "center_point.tick_1": {
+          "transitions": [ { "center_point.tick_2": "1" } ],
+          "on_entry": [ "/event entity @e[type=xp:end_cube,r=1,c=1] xp:boss_movement.staying" ],
+          "on_exit": [ "/event entity @e[type=xp:end_cube,r=1,c=1] xp:boss_movement.staying" ]
+        },
+        "center_point.tick_2": {
+          "transitions": [ { "center_point.tick_1": "1" } ],
+          "on_entry": [ "/event entity @e[type=xp:end_cube,r=1,c=1] xp:boss_movement.staying" ],
+          "on_exit": [ "/event entity @e[type=xp:end_cube,r=1,c=1] xp:boss_movement.staying" ]
+        },
+
+        "ground_path.move_tick_0": {
+          "transitions": [ { "ground_path.move_tick_1": "1" } ],
+          "on_entry": [ "/tp @s ^^^0.45 facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]" ],
+          "on_exit": [ "/tp @s ^^^0.45 facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]" ]
+        },
+        "ground_path.move_tick_1": {
+          "transitions": [ { "ground_path.move_tick_0": "1" } ],
+          "on_entry": [ "/tp @s ^^^0.45 facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]" ],
+          "on_exit": [ "/tp @s ^^^0.45 facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]" ]
+        },
+        "ground_point.tick_0": {
+          "transitions": [ { "ground_point.tick_1": "1" } ],
+          "on_entry": [
+            "/tp @s ~ 223 ~ facing @e[type=xp:end_cube,c=1]",
+            "/execute unless entity @s[x=300,y=222,z=-549,dx=24,dy=23,dz=24] run tp @s 312 223 -537",
+            "/execute if entity @s[x=300,y=222,z=-549,dx=24,dy=23,dz=24] run tp @s ^^^-8"
+          ]
+        },
+        "ground_point.tick_1": {
+          "transitions": [ { "ground_point.tick_2": "1" } ],
+          "on_entry": [ "/event entity @e[type=xp:end_cube,r=1.5,c=1] xp:boss_remove_ram" ],
+          "on_exit": [ "/event entity @e[type=xp:end_cube,r=1.5,c=1] xp:boss_remove_ram" ]
+        },
+        "ground_point.tick_2": {
+          "transitions": [ { "ground_point.tick_1": "1" } ],
+          "on_entry": [ "/event entity @e[type=xp:end_cube,r=1.5,c=1] xp:boss_remove_ram" ],
+          "on_exit": [ "/event entity @e[type=xp:end_cube,r=1.5,c=1] xp:boss_remove_ram" ]
+        }
+      }
+    }
+  }
+}

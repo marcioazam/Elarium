@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:platinium_leggings"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "XXX",
+      "X X",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "edx:platinium_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:platinium_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:platinium_leggings"
+    }
+  }
+}

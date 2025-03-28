@@ -1,0 +1,101 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:fireball",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"boom": {
+				"minecraft:explode": {
+					"fuse_length": 0,
+					"fuse_lit": true,
+					"power": 2.2,
+					"causes_fire": true,
+					"breaks_blocks": true,
+					"fire_affected_by_griefing": true,
+					"destroy_affected_by_griefing": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.25,
+				"height": 0.25
+			},
+			"minecraft:fire_immune": {
+			},
+			"minecraft:timer":{
+				"looping": true,
+				"randomInterval":false,
+				"time": [0.1, 0.15],
+				"time_down_event": {
+					"event":"effect"
+				}
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+				  "cause": "fall",
+				  "deals_damage": false
+				}
+			  },
+			"minecraft:projectile": {
+				"on_hit": {
+					
+					"definition_event": {
+						"affect_projectile": true,
+						"affect_shooter": false,
+						"event_trigger": {
+							"event": "boom",
+							"target": "self"
+						}
+					}
+				},
+				
+				"power": 5,
+				"offset": [0,0,0],
+				"inertia": 1,
+				"anchor": 1,
+				"gravity": 0.01,
+				"angle_offset": 0,
+				"liquid_inertia": 1,
+				"uncertainty_base": 0,
+				"uncertainty_multiplier": 0,
+				"reflect_on_hurt": false,
+				"catch_fire": false
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			"boom": {
+				  "add": {
+					"component_groups": [
+						"boom"
+					]
+				}
+			},
+			"effect": {
+				
+				"queue_command": {
+					"command": [
+					  "particle minecraft:lava_particle ~~~"
+					  
+					]
+				  }
+			}
+		}
+	}
+}

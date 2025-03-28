@@ -1,0 +1,44 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:fire_opal",
+			"places_feature": "edx:basalt_deltas/ceiling_features_random"
+		},
+
+		"conditions": {
+			"placement_pass": "underground_pass",
+
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "basalt_deltas"
+						}
+					]
+				}
+			]
+		},
+
+		"distribution": {
+			"iterations": 1,
+			"coordinate_eval_order": "zyx",
+			"x": {
+			  "distribution": "uniform",
+			  "extent": [ 0, 16 ]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [ 85, 110 ]
+			  },
+			"z": {
+			  "distribution": "uniform",
+			  "extent": [ 0, 16 ]
+			}
+		  }
+	}
+}

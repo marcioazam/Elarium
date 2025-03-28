@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:sulfur_biome/generation/sulfur_biome_biome_scatter7_feature"
+		},
+		"places_feature": "edx:sulfur_biome/lavastone_ground",
+		"iterations": "t.biome_idx == 7",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

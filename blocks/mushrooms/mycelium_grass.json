@@ -1,0 +1,43 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:mycelium_grass",
+			"category": "none"
+		},
+		"components": {
+			"minecraft:loot": "loot_tables/blocks/mycelium_grass_it.json",
+			"minecraft:geometry": "geometry.cross",
+            "minecraft:collision_box": false,
+		
+			"minecraft:selection_box": {
+                "origin": [-5,0,-5],
+                "size": [10,16,10]
+            },
+			"minecraft:destructible_by_mining": { 
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": { 
+                "explosion_resistance": 2
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "mycelium_grass",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+
+				}
+			},
+			
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+						"allowed_faces": ["up","down"],
+						"block_filter": ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_vine"]
+                    }
+                ]
+            }
+		}
+	}
+}

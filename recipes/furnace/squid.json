@@ -1,0 +1,16 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_squid"
+    }, 
+    "unlock": [
+      {
+        "item": "edx:squid_raw"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:squid_raw",
+    "output": "edx:squid_cooked"
+  }
+}

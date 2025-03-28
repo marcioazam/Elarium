@@ -1,0 +1,130 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:biomine_boom",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "ignore"
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+          "cause": "all",
+          "deals_damage": false
+        }]
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [{
+          "pivot": [
+            0,
+            1000,
+            0
+          ],
+          "width": 0,
+          "height": 0
+        }]
+      },
+      "minecraft:behavior.knockback_roar": {
+        "attack_time": 0.05,
+        "cooldown_time": 0,
+        "duration": 0.05,
+        "knockback_damage": 15,
+        "knockback_filters": {
+          "all_of": [{
+              "any_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "mob"
+                }
+              ]
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "not",
+              "value": "boss"
+            }
+          ]
+        },
+        "damage_filters": {
+          "all_of": [{
+              "any_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "mob"
+                }
+              ]
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "not",
+              "value": "monster"
+            }
+          ]
+        },
+        "knockback_height_cap": 10,
+        "knockback_horizontal_strength": 1,
+        "knockback_range": 4,
+        "knockback_vertical_strength": 1,
+        "on_roar_end": {
+          "event": "dungeons:despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:tick_world": {},
+      "minecraft:nameable": {
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "dungeons:despawn": {
+        "queue_command": {
+          "command": [
+            "particle dungeons:biomine_explosion",
+            "summon dungeons:biomine_poison"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

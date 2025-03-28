@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:lantern_with_crimson"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PPP",
+      "PDP",
+      "PPP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:iron_nugget",
+        "data": 0
+      },
+      "D": {
+        "item": "edx:crimson_torch_it",
+        "data": 0
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:crimson_torch_it",
+        "data": 0
+      },
+      {
+        "item": "minecraft:iron_nugget",
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "minecraft:lantern",
+      "count": 4
+    }
+  }
+  
+}

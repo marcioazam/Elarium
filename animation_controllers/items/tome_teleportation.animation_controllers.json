@@ -1,0 +1,105 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.tome_teleportation":{
+			"initial_state": "default",
+			"states": {
+				"default":{
+          "on_entry": [
+            "/tag @s remove tome_teleport"
+          ],
+					"transitions": [
+						{ "hold1": "q.get_equipped_item_name == 'tome_teleportation'" }
+					]
+				},
+        "hold1":{
+          "transitions": [
+            { "tome_release1": "q.is_using_item && q.get_equipped_item_name == 'tome_teleportation'" },
+            { "default": "q.get_equipped_item_name != 'tome_teleportation'" }
+          ]
+        },
+        "tome_release1":{
+          "on_entry": [
+            "@s xp:stage_tome_teleportation",
+            "v.tick_delay = q.life_time;",
+            "/tag @s add tome_teleport",
+            "/particle xp:healingpool_column.level ~ ~1.4 ~",
+            "/camerashake add @s 0.1 0.3 rotational",
+            "/playsound ender_smite.laser_stop @s ~ ~ ~ 1",
+
+            "/clear @s[m=!c] xp:tome_teleportation 0 1"
+          ],
+          "transitions": [
+            { "hold1": "!q.is_using_item && q.get_equipped_item_name == 'tome_teleportation' && (q.life_time - v.tick_delay) >= 0.2" },
+            { "default": "q.get_equipped_item_name != 'tome_teleportation' && (q.life_time - v.tick_delay) >= 5" }
+          ]
+        }
+			}
+		},
+
+    "controller.animation.tome_teleportation.mark":{
+      "initial_state": "default",
+			"states": {
+				"default":{
+					"transitions": [
+						{ "in_hand": "q.get_equipped_item_name == 'tome_teleportation'" }
+					]
+				},
+        "in_hand":{
+          "animations": [ "tome_teleport.mark" ],
+          "on_entry": [
+            "/summon xp:tome_teleport_mark ^ ^1.5 ^30"
+          ],
+          "on_exit": [
+            "/event entity @e[type=xp:tome_teleport_mark,c=1] xp:instant_despawn"
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'tome_teleportation'" }
+          ]
+        }
+			}
+    },
+
+    "controller.animation.tome_teleportation.projectile":{
+			"initial_state": "default",
+			"states": {
+				"default":{
+					"transitions": [
+						{ "tome_hit": "q.skin_id == 1" }
+					]
+				},
+        "tome_hit":{
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s align xyz run tp ~0.5 ~ ~0.5",
+            "/title @a[tag=tome_teleport,c=1] actionbar xp_hud.tp_vignette"
+          ],
+          "transitions": [
+            { "tome_teleport": "(q.life_time - v.tick_delay) >= 1" }
+          ]
+        },
+        "tome_teleport":{
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tp @e[tag=tome_teleport,c=1] ~ ~ ~",
+            "/execute as @a[tag=tome_teleport,c=1] at @s run /function clearchat"
+          ],
+          "on_exit": [
+            "/execute as @a[tag=tome_teleport,c=1] at @s align xyz run tp ~0.5 ~1 ~0.5",
+            "/playsound portal.travel @a[c=1] ~ ~ ~ 0.6 1.6",
+            "/particle xp:tome_teleport.end ~ ~ ~",
+            "/particle xp:tome_teleport.end1 ~ ~0.1 ~",
+
+            "/execute as @a[c=1,r=4] at @s run effect @s slow_falling 2 255",
+            "/damage @e[type=player,c=1] 3 entity_attack",
+            "/effect @e[type=player,c=1] blindness 3 1 true",
+            "/effect @e[type=player,c=1] nausea 7 2 true"
+          ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.1" }
+          ]
+        }
+			}
+		}
+  }
+}

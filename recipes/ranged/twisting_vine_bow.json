@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "twisting_vine_bow"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " /S",
+      "/ S",
+      " /S"
+    ],
+    "key": {
+      "/": {
+        "item": "minecraft:twisting_vines"
+      },
+      "S": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:twisting_vines"
+      }
+    ],
+    "result": {
+      "item": "dungeons:twisting_vine_bow",
+      "count": 1
+    }
+  }
+}

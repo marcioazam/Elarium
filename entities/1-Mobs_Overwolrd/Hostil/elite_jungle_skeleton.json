@@ -1,0 +1,760 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:elite_jungle_skeleton",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"blood_zombie":{
+				"minecraft:transformation": {
+				  "into": "edx:blood_zombie<minecraft:entity_spawned>"
+				}
+			  },
+			  "necromancer":{
+				"minecraft:transformation": {
+				  "into": "edx:necromancer<minecraft:entity_spawned>"
+				}
+			  },
+			"elite":{
+				"minecraft:transformation": {
+				  "into": "edx:elite_jungle_skeleton",
+				  "keep_level": false
+				}
+			  },
+			"minecraft:lightning_immune": {
+				"minecraft:damage_sensor": {
+					"triggers": {
+						"on_damage": {
+							"filters": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "==",
+									"value": "lightning"
+								}
+							]
+						},
+						"deals_damage": false
+					}
+				}
+			},
+			"minecraft:ranged_attack": {
+				"minecraft:behavior.ranged_attack": {
+					"priority": 0,
+					"burst_shots": 1,
+					"burst_interval": 0.1,
+					"attack_interval_min": 1.0,
+          "attack_interval_max": 1.2,
+					"attack_radius": 27
+				},
+				"minecraft:shooter": {
+					"def": "minecraft:arrow",
+					"aux_val":28,
+					"power": 2.0,
+					"magic": true
+				},
+				"minecraft:environment_sensor": {
+					"triggers": [
+						{
+							"filters": {
+								"test": "is_underwater",
+								"subject": "self",
+								"operator": "==",
+								"value": true
+							},
+							"event": "minecraft:melee_mode"
+						},
+						{
+							"filters": {
+								"test": "has_ranged_weapon",
+								"subject": "self",
+								"operator": "==",
+								"value": false
+							},
+							"event": "minecraft:melee_mode"
+						}
+					]
+				}
+			},
+			"minecraft:melee_attack": {
+				"minecraft:behavior.melee_attack": {
+					"priority": 4,
+					"track_target": true,
+					"speed_multiplier": 1.25
+				},
+				"minecraft:attack": {
+					"damage": {
+						"range_min": 5,
+						"range_max": 7
+					  },
+					"effect_name": "poison",
+					"effect_duration": 20
+				},
+				"minecraft:environment_sensor": {
+					"triggers": [
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "in_water",
+										"subject": "self",
+										"operator": "==",
+										"value": false
+									},
+									{
+										"test": "has_ranged_weapon",
+										"subject": "self",
+										"operator": "==",
+										"value": true
+									}
+								]
+							},
+							"event": "minecraft:ranged_mode"
+						}
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 3
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4 
+          }
+        ]
+      },
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"undead"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "undead"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "breeze"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "undead"
+          }
+        ]
+      }
+    }
+  ]
+},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
+			},
+			"minecraft:knockback_resistance": {
+				"value": 0.20
+			},
+			"minecraft:equip_item": {},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.8
+			},
+			"minecraft:type_family": {
+				"family": ["skeleton", "undead", "monster", "mob","blood_moon", "elite"]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_water": true
+			},
+			"minecraft:health": {
+				"value": 38,
+				"max": 38
+			},
+			
+			"minecraft:loot": {
+				"table": "loot_tables/entities/elite_jungle_skeleton.json"
+			},
+			"minecraft:movement": {
+				"value": 0.25
+			},
+		
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:nameable": {},
+			"minecraft:equipment": {
+				"table": "loot_tables/entities/elite_skeleton_gear.json"
+			},
+			"minecraft:shooter": {
+				"def": "minecraft:arrow",
+				"aux_val":28
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"filters": {
+							"test": "is_underwater",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"event": "minecraft:melee_mode"
+					},
+					{
+						"filters": {
+							"test": "has_ranged_weapon",
+							"subject": "self",
+							"operator": "==",
+							"value": false
+						},
+						"event": "minecraft:melee_mode"
+					}
+				]
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:shareables": {
+				"items": [
+					{
+						"item": "minecraft:netherite_sword",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 0
+					},
+					{
+						"item": "minecraft:diamond_sword",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 1
+					},
+					{
+						"item": "minecraft:iron_sword",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 2
+					},
+					{
+						"item": "minecraft:stone_sword",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 3
+					},
+					{
+						"item": "minecraft:golden_sword",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 4
+					},
+					{
+						"item": "minecraft:wooden_sword",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 5
+					},
+					{
+						"item": "minecraft:bow",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 6
+					},
+					{
+						"item": "minecraft:netherite_helmet",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 0
+					},
+					{
+						"item": "minecraft:diamond_helmet",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 1
+					},
+					{
+						"item": "minecraft:iron_helmet",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 2
+					},
+					{
+						"item": "minecraft:chainmail_helmet",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 3
+					},
+					{
+						"item": "minecraft:golden_helmet",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 4
+					},
+					{
+						"item": "minecraft:leather_helmet",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 5
+					},
+					{
+						"item": "minecraft:turtle_helmet",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 6
+					},
+					{
+						"item": "minecraft:skull:0",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 7
+					},
+					{
+						"item": "minecraft:skull:1",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 7
+					},
+					{
+						"item": "minecraft:carved_pumpkin",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 7
+					},
+					{
+						"item": "minecraft:netherite_chestplate",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 0
+					},
+					{
+						"item": "minecraft:diamond_chestplate",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 1
+					},
+					{
+						"item": "minecraft:iron_chestplate",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 2
+					},
+					{
+						"item": "minecraft:chainmail_chestplate",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 3
+					},
+					{
+						"item": "minecraft:golden_chestplate",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 4
+					},
+					{
+						"item": "minecraft:leather_chestplate",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 5
+					},
+					{
+						"item": "minecraft:netherite_leggings",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 0
+					},
+					{
+						"item": "minecraft:diamond_leggings",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 1
+					},
+					{
+						"item": "minecraft:iron_leggings",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 2
+					},
+					{
+						"item": "minecraft:chainmail_leggings",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 3
+					},
+					{
+						"item": "minecraft:golden_leggings",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 4
+					},
+					{
+						"item": "minecraft:leather_leggings",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 5
+					},
+					{
+						"item": "minecraft:netherite_boots",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 0
+					},
+					{
+						"item": "minecraft:diamond_boots",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 1
+					},
+					{
+						"item": "minecraft:iron_boots",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 2
+					},
+					{
+						"item": "minecraft:chainmail_boots",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 3
+					},
+					{
+						"item": "minecraft:golden_boots",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 4
+					},
+					{
+						"item": "minecraft:leather_boots",
+						"want_amount": 1,
+						"surplus_amount": 1,
+						"priority": 5
+					}
+				]
+			},
+			"minecraft:behavior.ranged_attack": {
+				"priority": 0,
+				"attack_interval_min": 1.0,
+          "attack_interval_max": 1.2,
+				"attack_radius": 25
+			},
+			
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"must_see": false,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 25
+					},
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "irongolem"
+						},
+						"max_dist": 25
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 25
+					}
+				]
+			},
+			"minecraft:behavior.equip_item": {
+				"priority": 3
+			},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 4,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "wolf"
+						},
+						"max_dist": 6,
+						"walk_speed_multiplier": 1.2,
+						"sprint_speed_multiplier": 1.2
+					}
+				]
+			},
+			
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"blood_variant":{
+				"sequence": [
+				  {
+					"filters": {
+					  "all_of": [
+						{
+						   "test": "is_underground",
+						"operator": "==",
+						"value": false
+						}
+					  ]
+					},
+					"randomize": [
+					  {
+						"weight": 30,
+						"add": {
+						  "component_groups": [
+							"necromancer"
+						  ]
+						} 
+					  },
+					  {
+						"weight": 70,
+						"add": {
+						  "component_groups": [
+							"blood_zombie"
+						  ]
+						} 
+					  }
+					]
+				  }
+				]
+			  },
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["minecraft:ranged_attack"]
+				}
+			},
+			"minecraft:spring_trap": {
+				"add": {
+					"component_groups": ["minecraft:lightning_immune"]
+				}
+			},
+			"minecraft:melee_mode": {
+				"remove": {
+					"component_groups": ["minecraft:ranged_attack"]
+				},
+				"add": {
+					"component_groups": ["minecraft:melee_attack"]
+				}
+			},
+			"minecraft:ranged_mode": {
+				"remove": {
+					"component_groups": ["minecraft:melee_attack"]
+				},
+				"add": {
+					"component_groups": ["minecraft:ranged_attack"]
+				}
+			}
+		}
+	}
+}

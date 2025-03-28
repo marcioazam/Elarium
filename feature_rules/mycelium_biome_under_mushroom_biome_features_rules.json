@@ -1,0 +1,44 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "edx:mycelium_biome_under_mushroom_biome_features_rules",
+      "places_feature": "edx:mycelium_biome_feature"
+    },
+    "conditions": {
+      "placement_pass": "first_pass",
+      "minecraft:biome_filter": [
+        {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mushroom_island"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mushroom_island_shore"
+            }
+          ]
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 75,
+      "coordinate_eval_order": "zyx",
+      "x": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      },
+      "y": {
+        "distribution": "uniform",
+        "extent": [ 0, 50 ]
+      },
+      "z": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:molten_gabbro",
+			"menu_category":
+			{
+				"category": "nature",
+				"group": "itemGroup.name.stone"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "molten_gabbro",
+					"render_method": "opaque",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"tag:edx:stone": {},
+			"minecraft:map_color": "#1c1212" ,
+			"minecraft:loot": "loot_tables/blocks/molten_gabbro.json" ,
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7.5
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            }
+		}
+	}
+} 

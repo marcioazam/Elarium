@@ -1,0 +1,411 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:wind_horn",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_wind_horn",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:ice_wand",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_ice_wand",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:satchel_of_elements",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_satchel_of_elements",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:diamond_dust",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:blue_print",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:torment_arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 25
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:lapis_lazuli",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 20,
+                "max": 35
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:winters_touch"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:doom_crossbow"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:slayer_crossbow"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:cursed_axe"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:whirlwind"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:freezing_foil"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:bee_stinger"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "diamond",
+              "pattern": "vex"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_helmet"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "diamond",
+              "pattern": "vex"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_chestplate"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "diamond",
+              "pattern": "vex"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "diamond",
+              "pattern": "vex"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_boots"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 8,
+           "name": "loot_tables/chests/diamond_chest/armor/frost/base.json"
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 10,
+                "max": 30
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:wraith_painting",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "dungeons:ice_crown_replica",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:vex_armor_trim_smithing_template",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "empty",
+          "weight": 7
+        }
+      ]
+    }
+  ]
+}

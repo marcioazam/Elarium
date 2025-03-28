@@ -1,0 +1,113 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:rippling.launch",
+			"is_summonable": true,
+			"is_spawnable": false,
+			"scripts": {
+				"animate": [
+					"rippling.launch"
+				]
+			},
+			"animations": {
+				"rippling.launch": "controller.animation.rippling.launch"
+			},
+			"runtime_identifier": "minecraft:arrow"
+		},
+		"component_groups": {
+			"xp:instant_despawn": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"rippling.launch",
+					"inanimate"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 0.5
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"definition_event": {
+						"affect_projectile": true,
+						"event_trigger": {
+							"event": "xp:instant_despawn",
+							"target": "self"
+						}
+					},
+					"impact_damage": {
+						"damage": 3,
+						"knockback": true
+					},
+					"stick_in_ground": {},
+					"freeze_on_hit": {}
+				},
+				"anchor": 1,
+				"power": 2,
+				"gravity": 0,
+				"angle_offset": 0,
+				"offset": [
+					0,
+					-1,
+					0
+				],
+				"uncertaintyBase": 6,
+				"reflectOnHurt": false,
+				"inertia": 1,
+				"catch_fire": false
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:rideable": {
+				"controlling_seat": 0,
+				"family_types": [
+					"rippling"
+				],
+				"seat_count": 1,
+				"seats": [
+					{
+						"max_rider_count": 1,
+						"position": [
+							0,
+							-1,
+							0
+						]
+					}
+				]
+			},
+			"minecraft:skin_id": {
+				"value": 0
+			},
+			"minecraft:timer": {
+				"time": 0.5,
+				"looping": false,
+				"time_down_event": {
+					"event": "xp:instant_despawn",
+					"target": "self"
+				}
+			}
+		},
+		"events": {
+			"xp:instant_despawn": {
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}

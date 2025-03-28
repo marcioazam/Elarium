@@ -1,0 +1,24 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "edx:mossed_stone",
+      "menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.log"
+			}
+    },
+    "components": {
+      "minecraft:loot": "loot_tables/blocks/mossy_stone.json" ,
+      "minecraft:map_color": "#647233" ,
+      "tag:minecraft:stone_crafting_materials":{},
+      "tag:stone": {},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 7
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 10
+      }
+    }
+  }
+}

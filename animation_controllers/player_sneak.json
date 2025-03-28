@@ -1,0 +1,26 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_sneak": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @s remove sneak"
+					  ],
+					"transitions":[
+						{"bow1":"query.is_sneaking == 1.0"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/tag @s add sneak"
+					  ],
+					"transitions":[
+						
+						{"default":"query.is_sneaking == 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

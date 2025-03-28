@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:mycelium_biome_scatter_feature"
+		},
+		"places_feature": "edx:mycelium_biome_feature",
+		"iterations": "t.biome_idx == 6",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

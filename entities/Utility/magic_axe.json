@@ -1,0 +1,145 @@
+{
+   "format_version": "1.16.0",
+   "minecraft:entity": {
+      "description": {
+         "identifier": "edx:magic_axe",
+         "is_spawnable": false,
+         "is_summonable": true,
+         "is_experimental": false
+      },
+      "component_groups": {
+         "tame": {
+            "minecraft:is_tamed": {},
+            "minecraft:behavior.follow_owner": {
+               "priority": 5,
+               "speed_multiplier": 1,
+               "start_distance": 6,
+               "stop_distance": 4
+            }
+         },
+         "minecraft:despawn": {
+            "minecraft:instant_despawn": {
+               "remove_child_entities": true
+            }
+         }
+      },
+      "components": {
+         "minecraft:attack": {
+            "damage": 3
+            },
+            "minecraft:behavior.melee_attack": {
+            "priority": 1,
+            "speed_multiplier": 1.3,
+            "track_target": true,
+            "require_complete_path": true 
+            },
+         "minecraft:behavior.float": {
+            "priority": 15
+         },
+        
+         "minecraft:breathable": {
+            "total_supply": 20,
+            "suffocate_time": 0
+         },
+         "minecraft:scale": {
+            "value": 0.9
+          },
+          "minecraft:equipment": {
+            "table": "loot_tables/entities/magic_axe.json",
+            "slot_drop_chance": [
+              {
+                "slot": "slot.weapon.mainhand",
+                "drop_chance": 0
+              }
+            ]
+          },
+          "minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"entity_types": [
+				  {
+					"filters": {  
+						"all_of": [
+                     { "test" :  "is_family", "subject" : "other", "value" :  "monster" },
+                     { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "creeper" }
+						] 
+					},
+					"max_dist": 15
+				  }
+				 
+				],
+				"must_see": true
+			  },
+         "minecraft:collision_box": {
+            "width": 0.9,
+            "height": 0.9
+         },
+         "minecraft:health": {
+            "value": 1000,
+            "max": 1000
+         },
+         "minecraft:movement": {
+            "value": 0.35
+         },
+         "minecraft:flying_speed": {
+            "value": 0.20
+         },
+         "minecraft:navigation.hover": {
+            "can_path_over_water": true,
+            "can_sink": false,
+            "can_pass_doors": false,
+            "can_path_from_air": true,
+            "avoid_water": false,
+            "avoid_damage_blocks": false,
+            "avoid_sun": false,
+            "can_swim": true
+         },
+         "minecraft:movement.hover": {},
+         "minecraft:jump.static": {},
+         "minecraft:can_fly": {},
+        
+         "minecraft:nameable": {},
+         "minecraft:physics": {},
+         "minecraft:pushable": {
+            "is_pushable": true,
+            "is_pushable_by_piston": true
+         },
+         "minecraft:timer": {
+            "looping": true,
+            "time": 30,
+            "randomInterval": false,
+            "time_down_event": {
+              "event": "minecraft:despawn"
+            }
+          },
+         "minecraft:type_family": {
+            "family": [
+               "pet"
+            ]
+         },
+         "minecraft:damage_sensor": {
+            "triggers": {
+               "on_damage": {
+                  "filters": {}
+               },
+               "deals_damage": false
+            }
+         }
+      },
+      "events": {
+         "minecraft:on_tame": {
+            "add": {
+               "component_groups": [
+                  "tame"
+               ]
+            }
+         },
+         "minecraft:despawn": {
+            "add": {
+               "component_groups": [
+                  "minecraft:despawn"
+               ]
+            }
+         }
+      }
+   }
+}

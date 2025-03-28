@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_mechanised_sawblade"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:mechanised_sawblade"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:mechanised_sawblade"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:mechanised_sawblade", "count": 1 },
+      { "item": "dungeons:mechanised_sawblade", "count": 1 }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:stone_peak_weighted_feature"
+    },
+    "features": [
+      ["edx:stone_peak1_feature",1 ],
+      ["edx:stone_peak2_feature",1 ],
+      ["edx:stone_peak3_feature",1 ],
+      ["edx:stone_peak4_feature",1 ],
+      ["edx:stone_peak5_feature",1 ],
+      ["edx:stone_peak6_feature",1 ],
+      ["edx:stone_peak7_feature",1 ],
+      ["edx:stone_peak8_feature",1 ],
+      ["edx:stone_peak9_feature",1 ]
+    ]
+  }
+}

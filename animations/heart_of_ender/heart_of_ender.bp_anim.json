@@ -1,0 +1,165 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.heart_of_ender_boss.turn_right": {
+            "animation_length": 1.8,
+            "timeline": {
+                "0": [
+                    "/event entity @s xp:turn_right"
+                ],
+                "1.75": [
+                    "/scoreboard players add direction endboss 1",
+                    "/execute if score direction endboss matches 8.. run scoreboard players set direction endboss 0",
+                    "/execute if score direction endboss matches 0 run event entity @s xp:dir0",
+                    "/execute if score direction endboss matches 1 run event entity @s xp:dir1",
+                    "/execute if score direction endboss matches 2 run event entity @s xp:dir2",
+                    "/execute if score direction endboss matches 3 run event entity @s xp:dir3",
+                    "/execute if score direction endboss matches 4 run event entity @s xp:dir4",
+                    "/execute if score direction endboss matches 5 run event entity @s xp:dir5",
+                    "/execute if score direction endboss matches 6 run event entity @s xp:dir6",
+                    "/execute if score direction endboss matches 7 run event entity @s xp:dir7",
+                    "/event entity @s xp:attack_state_none",
+                    "/event entity @s xp:turn_none"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.turn_left": {
+            "animation_length": 1.8,
+            "timeline": {
+                "0": [
+                    "/event entity @s xp:turn_left"
+                ],
+                "1.75": [
+                    "/scoreboard players remove direction endboss 1",
+                    "/execute if score direction endboss matches ..-1 run scoreboard players set direction endboss 7",
+                    "/execute if score direction endboss matches 0 run event entity @s xp:dir0",
+                    "/execute if score direction endboss matches 1 run event entity @s xp:dir1",
+                    "/execute if score direction endboss matches 2 run event entity @s xp:dir2",
+                    "/execute if score direction endboss matches 3 run event entity @s xp:dir3",
+                    "/execute if score direction endboss matches 4 run event entity @s xp:dir4",
+                    "/execute if score direction endboss matches 5 run event entity @s xp:dir5",
+                    "/execute if score direction endboss matches 6 run event entity @s xp:dir6",
+                    "/execute if score direction endboss matches 7 run event entity @s xp:dir7",
+                    "/event entity @s xp:attack_state_none",
+                    "/event entity @s xp:turn_none"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.bossbar_hurt": {
+            "animation_length": 0.5,
+            "loop": true,
+            "timeline": {
+                "0.4": [
+                    "/title @a[r=50] title _xp_clear_",
+                    "/event entity @s xp:remove_got_hurt"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.death": {
+            "animation_length": 10,
+            "timeline": {
+                "5": [
+                    "/event entity @e[type=xp:heart_of_ender.portal_glow] xp:hide"
+                ],
+                "7": [
+                    "/function endboss/loot",
+                    "/scoreboard players set boss_defeated endboss 1",
+
+                    "/event entity @a[r=64] xp:achievements.010"
+                ],
+                "8": [
+                    "/fill -157 220 2051 -175 220 2068 air",
+                    "/fill -160 181 2066 -172 181 2054 air 0 replace barrier",
+                    "/event entity @e[type=xp:heart_of_ender.portal_glow] xp:despawn",
+                    "/event entity @s xp:instant_despawn"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.spawn_delay": {
+            "animation_length": 9.0,
+            "timeline": {
+                "8.9": [
+                    "/event entity @s xp:stage_1"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.wait_before_lasthittable": {
+            "animation_length": 5,
+            "loop": false,
+            "timeline": {
+                "4.5": [
+                    "/camerashake add @a[r=50] 0.15 3 rotational",
+                    "/scoreboard players set awaiting_last_hit endboss 1",
+                    "/kill @e[family=endboss_unit]"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.splatter_attack": {
+            "animation_length": 6.5,
+            "timeline": {
+                "0.0": [
+                    "/tag @s add last_attack_was_splatter",
+                    "/execute if score direction endboss matches 0 rotated 0 0 run summon xp:splatter_attack_emitter ^ ^6 ^6",
+                    "/execute if score direction endboss matches 1 rotated 45 0 run summon xp:splatter_attack_emitter ^ ^6 ^6",
+                    "/execute if score direction endboss matches 2 rotated 90 0 run summon xp:splatter_attack_emitter ^ ^6 ^6",
+                    "/execute if score direction endboss matches 3 rotated 135 0 run summon xp:splatter_attack_emitter ^ ^6 ^6",
+                    "/execute if score direction endboss matches 4 rotated 180 0 run summon xp:splatter_attack_emitter ^ ^6 ^6",
+                    "/execute if score direction endboss matches 5 rotated 225 0 run summon xp:splatter_attack_emitter ^ ^6 ^6",
+                    "/execute if score direction endboss matches 6 rotated 270 0 run summon xp:splatter_attack_emitter ^ ^6 ^6",
+                    "/execute if score direction endboss matches 7 rotated 315 0 run summon xp:splatter_attack_emitter ^ ^6 ^6"
+                ],
+                "5.6": [
+                    "/function endboss/position_hitboxes_stage_1"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.prepare_slam_attack": {
+            "animation_length": 3,
+            "timeline": {
+                "0.0": [
+                    "/function endboss/position_hitboxes_beam_attack"
+                ],
+                "0.7": [
+                    "/function endboss/position_hitboxes_stage_2"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.slam_attack": {
+            "animation_length": 5.7,
+            "timeline": {
+                "0.0": [
+                    "/summon xp:slam_attack_emitter ~ ~ ~"
+                ],
+                "4.5": [
+                    "/function endboss/position_hitboxes_stage_2"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.beam": {
+            "animation_length": 9.1,
+            "timeline": {
+                "0.8": [
+                    "/summon xp:beam_attack_emitter ~ ~ ~"
+                ],
+                "9.0": [
+                    "/event entity @s xp:remove_attacking"
+                ]
+            }
+        },
+        "animation.heart_of_ender_boss.summon_units": {
+            "animation_length": 3.3,
+            "timeline": {
+                "0.0": [
+                    "/execute unless entity @a[tag=marketing] run summon xp:summon_units_emitter ~ ~ ~"
+                ],
+                "0.5": [
+                    "/title @a[r=30] actionbar xp_hud.end_boss_scream",
+                    "/camerashake add @a[r=30] 0.15 1.1 rotational"
+                ],
+                "1.5": [
+                    "/title @a[r=30] actionbar xp_hud.end_boss_scream"
+                ]
+            }
+        }
+    }
+}

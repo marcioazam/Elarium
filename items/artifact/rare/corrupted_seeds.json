@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:rare_corrupted_seeds",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "corrupted_seeds",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:custom_components": [
+        "dungeons:dynamic_cooldown",
+        "dungeons:use_artefact"
+      ],
+      "minecraft:cooldown": {
+        "category": "corrupted_seeds_rare",
+        "duration": 12
+      },
+      "minecraft:interact_button": "item.use.artefact",
+      "minecraft:use_modifiers": {
+        "use_duration": 0.0
+      }
+    }
+  }
+}

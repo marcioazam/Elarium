@@ -1,0 +1,3 @@
+# fog @s pop ...
+# tellraw @s[tag="dev"] {"rawtext":[{"text":"§cbroken sanctuary"}]}
+tag @s remove in_broken_sanctuary

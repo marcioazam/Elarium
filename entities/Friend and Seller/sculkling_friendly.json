@@ -1,0 +1,247 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:sculkling_friendly",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "tame": {
+        "minecraft:is_tamed": {},
+        
+      "minecraft:behavior.follow_owner": {
+        "priority": 6,
+        "speed_multiplier": 1.2,
+        "start_distance": 10,
+        "stop_distance": 4,
+        "can_teleport": true,
+        "ignore_vibration": true
+      }
+     },
+      "despawn": {
+        "minecraft:instant_despawn": {
+         "remove_child_entities": true
+        }
+     },
+      "notarget":{
+        "minecraft:timer": {
+          "time": [ 2.5, 10.0 ],
+          "looping": true,
+          "time_down_event": {
+            "event": "sniff_sniff",
+            "target": "self"
+          }
+        },
+        "minecraft:environment_sensor": {
+          "triggers":[
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_target",
+                    "operator": "==",
+                    "value": true
+                  }
+                ]
+              },
+              "event": "target"
+            }
+          ]},
+          "minecraft:behavior.nearest_attackable_target": {
+            "priority": 0,
+            "must_see": false,
+            "entity_types": [
+              {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject": "other", "value": "monster" },
+                { "operator": "not", "test": "is_family", "subject" : "other", "value" : "inanimate" }
+                  ]
+                },
+                "max_dist": 10
+              }
+            ]
+          }
+      },
+      "target":{
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 0,
+          "must_see": false,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "monster" },
+              { "operator": "not", "test": "is_family", "subject" : "other", "value" : "inanimate" }
+                ]
+              },
+              "max_dist": 15
+            }
+          ]
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 0,
+          "speed_multiplier": 1.2
+        },
+        "minecraft:environment_sensor": {
+          "triggers":[
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_target",
+                    "operator": "==",
+                    "value": false
+                  }
+                ]
+              },
+              "event": "untarget"
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "time": [ 0.7, 1.5 ],
+          "looping": true,
+          "time_down_event": {
+            "event": "sniff_sniff",
+            "target": "self"
+          }
+        }
+        
+      }
+    },
+    "components": {
+      "minecraft:behavior.avoid_mob_type": {
+				"priority": 0,
+				"remove_target": true,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "warden"
+								}
+							]
+						},
+						"sprint_speed_multiplier": 1
+					}
+				]
+			},
+      "minecraft:attack": {
+        "damage": {
+          "range_min": 3,
+          "range_max": 5
+        }
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "sculkling_friendly",
+          "mob"
+        ]
+      },
+      "minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "can_path_over_lava": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:preferred_path": {
+        "max_fall_blocks": 20
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 0.6
+      },
+      "minecraft:health": {
+        "value": 10,
+        "max": 10
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.8
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 0,
+        "speed_multiplier": 1.2
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 9,
+        "speed_multiplier": 0.9
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 11
+      },
+      "minecraft:physics": {},
+     
+      "minecraft:follow_range": 20,
+      "minecraft:fire_immune": {},
+      "minecraft:nameable": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "notarget"
+          ]
+        }
+      },
+      "sniff_sniff":{
+        "queue_command": {
+          "command": [
+           "playsound mob.sculkling.sniff @a[r=100] ~~~ 2 1"
+          ]}
+      },
+     
+      "target": {
+				"remove": {
+					"component_groups": ["notarget"]
+				},
+				"add": {
+					"component_groups": ["target"]
+				}
+			},
+      "untarget": {
+				"remove": {
+					"component_groups": ["target"]
+				},
+				"add": {
+					"component_groups": ["notarget"]
+				}
+			},
+      "minecraft:on_tame": {
+        "add": {
+           "component_groups": [
+              "tame","notarget"
+           ]
+        }
+     },
+      "despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			}
+    }
+  }
+}

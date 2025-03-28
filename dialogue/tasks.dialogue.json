@@ -1,0 +1,939 @@
+{
+  "format_version": "1.14.0",
+  "minecraft:npc_dialogue": {
+
+    "scenes": [
+
+      {
+        "scene_tag": "_xp:tasks_advancements_unclaimed_1",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ab_Ba_Ca_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/advancements" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_unclaimed_2",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bb_Ca_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/advancements" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_unclaimed_3",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cb_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/advancements" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_unclaimed_4",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Db_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/advancements" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_unclaimed_5",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Eb",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/advancements" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_completed",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.completed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Ec",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_1",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.1",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Aa_Ba_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_2",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.2",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Ba_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_3",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.3",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_4",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.4",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_advancements_5",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_advancements.5",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Ea",
+            "commands": []
+          }
+        ]
+      },
+
+
+      {
+        "scene_tag": "_xp:tasks_challenges_unclaimed_1",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ab_Ba_Ca_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/challenges" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_unclaimed_2",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bb_Ca_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/challenges" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_unclaimed_3",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cb_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/challenges" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_unclaimed_4",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Db_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/challenges" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_unclaimed_5",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Eb",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/challenges" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_completed",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.completed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Ec",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_1",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.1",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Aa_Ba_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_2",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.2",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Ba_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_3",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.3",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_4",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.4",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_challenges_5",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_challenges.5",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2_selected",
+            "commands": []
+          },
+          {
+            "name": "tab_3",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_goals" ]
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Ea",
+            "commands": []
+          }
+        ]
+      },
+
+
+      {
+        "scene_tag": "_xp:tasks_goals_unclaimed_1",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ab_Ba_Ca_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/goals" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_unclaimed_2",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bb_Ca_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/goals" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_unclaimed_3",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bc_Cb_Da_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/goals" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_unclaimed_4",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bc_Cc_Db_Ea",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/goals" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_unclaimed_5",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.unclaimed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Eb",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/rewards/goals" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_completed",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.completed",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Ec",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_1",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.1",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Aa_Ba_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_2",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.2",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Ba_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_3",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.3",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bc_Ca_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_4",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.4",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bc_Cc_Da_Ea",
+            "commands": []
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:tasks_goals_5",
+        "npc_name": "_xp:tasks",
+        "text": "_xp:tasks.tab_goals.5",
+        "on_open_commands": [ "/function farlander/tasks/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/tasks/ui/back" ]
+          },
+          {
+            "name": "tab_1",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_advancements" ]
+          },
+          {
+            "name": "tab_2",
+            "commands": [ "/execute as @initiator at @s run function farlander/tasks/ui/calc_challenges" ]
+          },
+          {
+            "name": "tab_3_selected",
+            "commands": []
+          },
+          {
+            "name": "Ac_Bc_Cc_Dc_Ea",
+            "commands": []
+          }
+        ]
+      }      
+
+    ]
+
+  }
+}

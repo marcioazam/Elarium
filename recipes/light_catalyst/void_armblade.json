@@ -1,0 +1,54 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:light_armblade"
+    },
+
+    "tags": [ "light_catalyst" ],
+    "pattern": [
+      "CLC",
+      "LEL",
+      "CDC"
+    ],
+    "key": {
+      "C": {
+        "item": "edx:light_crystal"
+      },
+      "D": {
+        "item": "minecraft:netherStar"
+      },
+      "L": {
+        "item": "edx:liquid_light"
+      },
+      "E": {
+        "item": "edx:old_armblade"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:light_crystal"
+      },
+      {
+        "item": "edx:dragon_essence"
+      },
+      {
+        "item": "edx:liquid_light"
+      },
+      {
+        "item": "minecraft:netherstar"
+      },
+      {
+        "item": "edx:ancient_armor_plan"
+      },
+      {
+        "item": "edx:ancient_armor_debris"
+      }
+    ],
+    "result": {
+      "item": "edx:light_armblade"
+    }
+  }
+  
+}

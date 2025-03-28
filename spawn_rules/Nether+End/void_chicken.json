@@ -1,0 +1,27 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:end_chicken",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:weight": {
+          "default": 15
+        },
+        "minecraft:spawns_on_block_filter": ["edx:void_dust", "edx:void_grass"],
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 2
+        },
+        "minecraft:biome_filter": [
+          {
+            "test": "has_biome_tag", "operator": "==", "value": "the_end"
+          }
+        ]
+      }
+    ]
+  }
+}

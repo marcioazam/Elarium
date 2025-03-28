@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.void_cloak":{
+			"initial_state": "default",
+			"states": {
+				"default":{
+					"transitions": [
+						{
+							"void_cloak_use": "q.is_using_item && q.get_equipped_item_name == 'void_cloak'"
+						}
+					]
+				},
+        "void_cloak_use":{
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:stage_void_cloak",
+            "/clear @s xp:void_cloak 0 1",
+            "/title @s actionbar xp_hud.black_vignette",
+            "/tag @s add void_cloak",
+            "/playsound mob.shulker.teleport @e[type=player,r=8] ~ ~ ~ 1 1.8",
+            "/playsound mob.shulker.teleport @e[type=player,r=8] ~ ~ ~ 1 2.4",
+            "/particle xp:void_cloak.start ~ ~1 ~",
+            "/playsound random.break @s ~ ~ ~"
+          ],
+          "transitions": [
+            {
+              "void_cloak_end": "(q.life_time - v.tick_delay) >= 7"
+            }
+          ]
+        },
+        "void_cloak_end":{
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/particle xp:void_cloak.end ~ ~1 ~"
+          ],
+          "on_exit": [
+            "@s xp:stage_remove_void_cloak",
+            "/tag @s remove void_cloak",
+            "/playsound mob.shulker.teleport @e[type=player,r=8] ~ ~ ~ 1 1.8",
+            "/playsound mob.shulker.teleport @e[type=player,r=8] ~ ~ ~ 1 2.4"
+          ],
+
+          "transitions": [
+            {
+              "default": "(q.life_time - v.tick_delay) >= 1"
+            }
+          ]
+        }
+			}
+		}
+  }
+}

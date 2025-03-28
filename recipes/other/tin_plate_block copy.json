@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:tin_plate_block2"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "T"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:tin_plate_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:tin_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:tin_plate",
+      "count": 4
+    }
+  }
+}

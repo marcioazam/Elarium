@@ -1,0 +1,74 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:ceiling_lights",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": { "animate": [ "drop", "light" ] },
+      "animations": { 
+        "drop": "controller.animation.ceiling_light.drop",
+        "light": "animation.torch.light"
+       }
+    },
+    "components": {
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "player" },
+                  { "test": "has_damage", "subject": "self", "value": "attack" },
+                  { "test": "is_variant", "value": 0 }
+                ]
+              },
+              "event": "xp:item_drop",
+              "target": "self"
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:type_family": {
+        "family": [ "xp_dummy","xp_prop", "dummy", "prop" ]
+      },
+      "minecraft:knockback_resistance":{ "value": 1 },
+      "minecraft:fire_immune": {},
+      "minecraft:collision_box": {
+        "width": 1.25,
+        "height": 1
+      },
+      "minecraft:health": {
+        "value": 99999,
+        "max": 99999
+      },
+      "minecraft:nameable": {},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": true
+			}
+    },
+    "component_groups": {
+      "xp:item_drop": {
+        "minecraft:variant": { "value": 1 },
+        "minecraft:timer": {
+            "time": 0.05,
+            "looping": false,
+            "time_down_event": { "event": "xp:despawn" }
+        }
+      },
+      "xp:despawn":{ "minecraft:instant_despawn": {} }
+    },
+    "events": {
+      "xp:item_drop": { "add": { "component_groups": [ "xp:item_drop" ] } },
+      "xp:despawn": { "add": { "component_groups": [ "xp:despawn" ] }
+      }
+    }
+  }
+}

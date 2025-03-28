@@ -1,0 +1,44 @@
+{
+	"pools": [
+		  {
+			  "rolls": 1,
+			  "entries": [
+				  {
+					  "type": "item",
+					  "name": "xp:echoing_pome",
+					  "weight": 1,
+					  "functions": [
+						  {
+							  "function": "set_count",
+							  "count": {
+								  "min": 1,
+								  "max": 2
+							  }
+						  }
+					  ]
+				  },
+				  {
+					  "type": "item",
+					  "name": "xp:echoing_pome_leaves",
+					  "weight": 2147483583,
+					  "conditions": [
+						  {
+							  "condition": "match_tool",
+							  "item": "minecraft:shears",
+							  "count": 1
+						  }
+					  ],
+					  "functions": [
+						  {
+							  "function": "set_count",
+							  "count": {
+								  "min": 1,
+								  "max": 1
+							  }
+						  }
+					  ]
+				  }
+			  ]
+		  }
+	  ]
+  }

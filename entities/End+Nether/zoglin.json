@@ -1,0 +1,541 @@
+{
+	//nether
+	"format_version": "1.18.30",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "minecraft:zoglin",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"zoglin_baby": {
+				"minecraft:type_family": {
+					"family": [
+						"zoglin",
+						"zoglin_baby",
+						"undead",
+						"mob",
+						"monster"
+					]
+				},
+				"minecraft:is_baby": {},
+				"minecraft:attack": {
+					"damage": 1,
+					"effect_name": "poison",
+					"effect_duration": 10
+				},
+				"minecraft:scale": {
+					"value": 0.5
+				},
+				"minecraft:collision_box": {
+					"width": 0.85,
+					"height": 0.85
+				},
+				"minecraft:custom_hit_test": {
+					"hitboxes": [
+						{
+							"width": 1,
+							"height": 0.85,
+							"pivot": [
+								0,
+								0.5,
+								0
+							]
+						}
+					]
+				}
+			},
+			"zoglin_adult": {
+				"minecraft:type_family": {
+					"family": [
+						"zoglin",
+						"zoglin_adult",
+						"undead",
+						"mob",
+						"monster"
+					]
+				},
+				"minecraft:collision_box": {
+					"width": 1.4,
+					"height": 1.4
+				},
+				"minecraft:custom_hit_test": {
+					"hitboxes": [
+						{
+							"width": 2,
+							"height": 1.75,
+							"pivot": [
+								0,
+								1,
+								0
+							]
+						}
+					]
+				},
+				"minecraft:behavior.hurt_by_target": {
+					"priority": 1
+				},
+				"minecraft:attack": {
+					"damage": [
+						1,
+						4
+					],
+					"effect_name": "poison",
+					"effect_duration": 10
+				}
+			},
+			"angry": {
+				"minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 32,
+					"broadcastRange": 32,
+					"broadcast_targets": [
+						"zoglin"
+					],
+					"duration": 20,
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					},
+					"angry_sound": "angry",
+					"sound_interval": {
+						"range_min": 2,
+						"range_max": 5
+					}
+				}
+			},
+			"calm": {
+				"minecraft:on_target_acquired": {
+					"event": "angry",
+					"target": "self"
+				}
+			},
+			"op_mob": {
+				"minecraft:spell_effects": {
+					"add_effects": [
+						{
+							"effect": "strength",
+							"duration": 20,
+							"amplifier": 2
+						},
+						{
+							"effect": "speed",
+							"duration": 20,
+							"amplifier": 1
+						},
+						{
+							"effect": "health_boost",
+							"duration": 20,
+							"amplifier": 2
+						}
+					]
+				}
+			},
+			"piglin_jockey": {
+				"minecraft:addrider": {
+					"entity_type": "minecraft:zombie_pigman",
+					"spawn_event": "spawn_adult"
+				},
+				"minecraft:rideable": {
+					"seat_count": 1,
+					"family_types": [
+						"zombie_pigman", "monster"
+					],
+					"seats": {
+						"position": [
+							0,
+							1.45,
+							-0.5
+						]
+					}
+				}
+			},
+			"angry_piglin_jockey": {
+				"minecraft:angry": {
+					"duration": 25,
+					"broadcast_anger": true,
+					"broadcast_range": 20,
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					},
+					"angry_sound": "angry",
+					"sound_interval": {
+						"range_min": 2,
+						"range_max": 5
+					},
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					
+					"broadcast_targets": [
+						"zoglin",
+						"zombie_pigman"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:nameable": {},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/zoglin.json"
+			},
+			"minecraft:experience_reward": {
+				"on_bred": "math.random(1,7)",
+				"on_death": "query.last_hit_by_player?5:0"
+			},
+			"minecraft:health": {
+				"value": 40,
+				"max": 40
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 3,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "undead"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "creeper"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "inanimate"
+								}
+							]
+						},
+						"max_dist": 32
+					}
+				]
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 4,
+				"reach_multiplier": 2.15,
+				"speed_multiplier": 1.4,
+				"track_target": true
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_water": true
+			},
+			"minecraft:movement": {
+				"value": 0.25
+			},
+			"minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"can_path_over_water": false,
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:fire_immune": {},
+			"minecraft:leashable": {
+				"soft_distance": 4,
+				"hard_distance": 6,
+				"max_distance": 10
+			},
+			"minecraft:balloonable": {},
+			"minecraft:despawn": {
+				"filters": {
+					"any_of": [
+						{
+							"all_of": [
+								{
+									"test": "is_persistent",
+									"value": false
+								},
+								{
+									"test": "distance_to_nearest_player",
+									"operator": ">",
+									"value": 54
+								}
+							]
+						},
+						{
+							"all_of": [
+								{
+									"test": "is_persistent",
+									"value": false
+								},
+								{
+									"test": "inactivity_timer",
+									"subject": "self",
+									"value": 30
+								},
+								{
+									"test": "random_chance",
+									"value": 800
+								},
+								{
+									"test": "distance_to_nearest_player",
+									"operator": ">",
+									"value": 32
+								}
+							]
+						}
+					]
+				}
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 7,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 9
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 8,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:follow_range": {
+				"value": 64
+			},
+			"minecraft:mob_effect": {
+				"effect_range": 6,
+				"mob_effect": "poison",
+				"entity_filter": {
+					"test": "is_family",
+					"subject": "other",
+					"operator": "!=",
+					"value": "zoglin"
+				},
+				"effect_time": 10
+			},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+"redstone_torch",
+"torch",
+"glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door"
+				]
+			},
+			"minecraft:equipment": {
+				"table": "loot_tables/entities/break_shield_gear.json",
+				"slot_drop_chance": [
+					{
+						"slot": "slot.weapon.mainhand",
+						"drop_chance": 0
+					}
+				]
+			},
+			"minecraft:on_death": {
+				"event": "minecraft:on_death",
+				"target": "self"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			}
+		},
+		"events": {
+			"minecraft:entity_transformed": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "has_component",
+							"subject": "other",
+							"value": "minecraft:is_baby"
+						},
+						"add": {
+							"component_groups": [
+								"zoglin_baby"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_component",
+							"subject": "other",
+							"operator": "!=",
+							"value": "minecraft:is_baby"
+						},
+						"add": {
+							"component_groups": [
+								"zoglin_adult"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:entity_spawned": {
+				"randomize": [
+					{
+						"weight": 95,
+						"add": {
+							"component_groups": [
+								"zoglin_adult",
+								"calm"
+							]
+						}
+					},
+					{
+						"weight": 5,
+						"add": {
+							"component_groups": [
+								"zoglin_baby",
+								"calm"
+							]
+						}
+					},
+					{
+						"add": {
+							"component_groups": [
+								"zoglin_adult",
+								"calm",
+								"op_mob"
+							]
+						},
+						"weight": 10
+					}
+				]
+			},
+			"minecraft:as_adult": {
+				"add": {
+					"component_groups": [
+						"zoglin_adult",
+						"calm"
+					]
+				}
+			},
+			"minecraft:as_baby": {
+				"add": {
+					"component_groups": [
+						"zoglin_baby",
+						"calm"
+					]
+				}
+			},
+			"calm": {
+				"add": {
+					"component_groups": [
+						"calm"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"minecraft:on_death": {
+				"randomize": [
+					{
+						"weight": 5,
+						"queue_command": {
+							"command": [
+								"summon wither_skeleton",
+								"summon wither_skeleton"
+							]
+						}
+					},
+					{
+						"weight": 80
+					},
+					{
+						"weight": 15,
+						"queue_command": {
+							"command": [
+								"summon wither_skeleton"
+							]
+						}
+					}
+				]
+			},
+			"angry": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "has_component",
+							"operator": "!=",
+							"value": "minecraft:addrider"
+						},
+						"add": {
+							"component_groups": [
+								"angry"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_component",
+							"value": "minecraft:addrider"
+						},
+						"add": {
+							"component_groups": [
+								"angry_piglin_jockey"
+							]
+						}
+					}
+				]
+			},
+			"spawn_piglin_jockey": {
+				"add": {
+					"component_groups": [
+						"zoglin_adult",
+						"piglin_jockey"
+					]
+				}
+			}
+		}
+	}
+}

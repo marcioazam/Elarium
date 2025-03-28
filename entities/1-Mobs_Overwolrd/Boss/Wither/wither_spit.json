@@ -1,0 +1,70 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:wither_spit",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "despawn": {
+        "minecraft:instant_despawn": {
+         "remove_child_entities": true
+        }
+     }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.11,
+        "height": 0.11
+      },
+      "minecraft:projectile": {
+
+        "on_hit": {
+          "mob_effect": {
+            "effect": "wither",
+            "durationeasy": 0,
+            "durationnormal": 200,
+            "durationhard": 800,
+            "amplifier": 1
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "despawn",
+              "target": "self"
+            }
+          },
+          "impact_damage": {
+            "damage": 9,
+            "knockback": false
+          }
+        },
+        "power": 1.8,
+        "gravity": 0.02,
+        "inertia": 1,
+        "uncertainty_base": 10,
+        "uncertainty_multiplier": 4,
+        "anchor": 1,
+        "offset": [ 0, -0.1, 0 ],
+        "reflect_on_hurt": false
+      },
+	    "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "despawn": {
+        "sequence": [
+        {"add": {
+          "component_groups": ["despawn"]
+        }}
+      ]
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_firebrand"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:firebrand"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:firebrand"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:firebrand", "count": 1 },
+      { "item": "dungeons:firebrand", "count": 1 }
+    ]
+  }
+}

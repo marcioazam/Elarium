@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:copper_spear"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " XX",
+      "SWX",
+      "WS "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      },
+      {
+        "item": "minecraft:string"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:copper_ingot"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "W": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "edx:copper_spear_i"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:broken_old_helmet",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"broken_old_helmet"
+         }
+			},
+			"minecraft:display_name": {
+				"value": "Broken Old Helmet"
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:tree_bark",
+			"menu_category": {
+				"category":"nature"
+			}
+		},
+		"components": {
+      "minecraft:custom_components": ["edx:tree_bark"],
+			"minecraft:icon": {
+				"textures":{
+               "default":"tree_bark"
+         }
+			},
+			"minecraft:fuel": {
+				"duration": 10
+			  },
+			"minecraft:display_name": {
+				"value": "Tree Bark"
+			}
+		}
+	}
+}

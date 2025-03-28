@@ -1,0 +1,56 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "edx:light_leggings",
+      "menu_category": {
+        "category": "equipment",
+				"group": "itemGroup.name.leggings"
+			}
+		},
+		"components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "armor_legs"
+      },
+      "minecraft:icon": {
+        "textures":{
+               "default":"light_leggings"
+         }
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items":[
+              "edx:light_leggings"
+            ],
+            "repair_amount": "context.other->query.remaining_durability + 0.05 * context.other->query.remaining_durability"
+          },
+          {
+            "items":[
+              "minecraft:end_crystal"
+            ],
+            "repair_amount": "q.max_durability/4"
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "Light Leggings"
+      },
+      "minecraft:tags": {
+				"tags": [
+					"minecraft:trimmable_armors",
+          "minecraft:is_armor"
+				]
+			},
+      "minecraft:durability": {
+        "max_durability": 1195
+      },
+      "minecraft:wearable": {
+        "protection": 9,
+        "slot": "slot.armor.legs"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "longbow"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " /S",
+      "- S",
+      " /S"
+    ],
+    "key": {
+      "-": {
+        "item": "minecraft:iron_ingot"
+      },
+      "/": {
+        "item": "minecraft:stick"
+      },
+      "S": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "result": {
+      "item": "dungeons:longbow",
+      "count": 1
+    }
+  }
+}

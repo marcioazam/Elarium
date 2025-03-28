@@ -1,0 +1,51 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "dungeons:illager_camp"
+    },
+    "biome_filters": [{
+      "all_of": [
+        {
+          "none_of": [ //some places it may make sense for a forge, but not a camp, to generate
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "river"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "ocean"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mountains"
+            }
+          ]
+        },
+        {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "overworld"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "overworld_generation"
+            }
+          ]
+        }
+      ]
+    }],
+    "heightmap_projection": "world_surface",
+    "max_depth": 1,
+    "start_height": 2,
+    "start_pool": "dungeons:illager_camp",
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin"
+  }
+}

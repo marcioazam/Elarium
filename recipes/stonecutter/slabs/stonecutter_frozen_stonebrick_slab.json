@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_frozen_stonebrick_slab"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 3,
+    "ingredients": [
+      {
+        "item": "edx:frozen_stonebrick"
+      }
+    ],
+    "result": {
+      "item": "edx:frozen_stonebrick_slab",
+      "count": 2
+    }
+  }
+}

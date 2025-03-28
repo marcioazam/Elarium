@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:void_cloak",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"void_cloak"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "void_cloak"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dVoid cloak \n§5Artifact\n§6Destroy non-player arrow around you"
+			  }
+		}
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:blue_shroom_bulb",
+		"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+		}
+	  },
+	  "components": {
+		"minecraft:light_dampening": 0, 
+		"minecraft:light_emission": 14,
+		"minecraft:collision_box": false,
+		"minecraft:material_instances": {
+			"*": {
+			"texture": "blue_shroom_bulb",
+			"render_method": "alpha_test",
+			"face_dimming": false,
+			"ambient_occlusion": false
+		}
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.blue_shroom_bulb"
+		},
+		"minecraft:selection_box": {
+			"origin": [-4,4,-4],
+			"size": [8,8,8]
+		},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  }, 
+		  "minecraft:placement_filter": {
+			"conditions": [
+				{
+					"allowed_faces": ["up"],
+					"block_filter": ["edx:mycelium_vine","edx:mycelium_grass"]
+				}
+			]
+		}
+	  }
+	}
+}

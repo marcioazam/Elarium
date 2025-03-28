@@ -1,0 +1,42 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:biome": {
+    "description": {
+      "identifier": "jungle_edge"
+    },
+    "components": {
+      "minecraft:climate": {
+        "downfall": 0.8,
+        "snow_accumulation": [
+          0.0,
+          0.125
+        ],
+        "temperature": 0.95,
+        "blue_spores": 0,
+        "red_spores": 0,
+        "white_ash": 0,
+        "ash": 0
+      },
+      "minecraft:overworld_height": {
+        "noise_type": "default"
+      },
+      "minecraft:overworld_generation_rules": {
+        "mutate_transformation": "jungle_edge_mutated"
+      },
+      "animal": {},
+      "edge": {},
+      "jungle": {},
+      "monster": {},
+      "overworld": {},
+      "jungle_edge": {},
+      "minecraft:surface_parameters": {
+        "sea_floor_depth": 7,
+        "sea_floor_material": "minecraft:gravel",
+        "foundation_material": "minecraft:stone",
+        "mid_material": "minecraft:stone",
+        "top_material": "edx:mossed_stone",
+        "sea_material": "minecraft:water"
+      }
+    }
+  }
+}

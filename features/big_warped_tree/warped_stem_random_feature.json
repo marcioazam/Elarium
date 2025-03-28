@@ -1,0 +1,14 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:big_warped_tree/warped_stem_random_feature"
+    },
+    "features": [
+      [ "edx:big_warped_tree/warped_stem1_feature", 1 ],
+      [ "edx:big_warped_tree/warped_stem2_feature", 1 ],
+      [ "edx:big_warped_tree/warped_stem3_feature", 1 ],
+      [ "edx:big_warped_tree/warped_stem4_feature", 1 ]
+    ]
+  }
+}

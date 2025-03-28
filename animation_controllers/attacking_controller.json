@@ -1,0 +1,64 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.attacking": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attacking": "variable.attack_time"
+						}
+					]
+				},
+				"attacking": {
+					"on_entry": [
+						"/scriptevent jc:attacking"
+					],
+					"transitions": [
+						{
+							"default": "!variable.attack_time"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.blocking": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"blocking": "query.blocking && !variable.attack_time"
+						},
+						{
+							"not_blocking": "!query.blocking"
+						}
+					]
+				},
+				"blocking": {
+					"transitions": [
+						{
+							"default": "(1.0)"
+						}
+					],
+					"on_entry": [
+						"/tag @s add jc:blocking"
+					
+					]
+				},
+				"not_blocking": {
+					"transitions": [
+						{
+							"default": "(1.0)"
+						}
+					],
+					"on_entry": [
+						"/tag @s remove jc:blocking"
+					
+						
+					]
+				}
+			}
+		}
+    }
+}

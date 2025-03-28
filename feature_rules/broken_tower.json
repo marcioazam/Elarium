@@ -1,0 +1,36 @@
+
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:broken_tower",
+			"places_feature": "edx:broken_tower_random"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+					"any_of": [
+						
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "forest"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "flower_forest"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": -16,
+			"y": "query.heightmap(variable.worldx, variable.worldz) - 1",
+			"z": -16
+		}
+	}
+}

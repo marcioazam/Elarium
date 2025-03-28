@@ -1,0 +1,94 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:stalker_return",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "xp:instant_despawn":{
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ 
+          "stalker_return",
+          "inanimate"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:timer": {
+        "time": 1,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:instant_despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          },
+          {
+            "cause": "entity_attack",
+            "on_damage": {
+              "filters": [
+                {
+                  "all_of": [
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "xp:the_touched_ends"
+                    }
+                  ]
+                }
+              ],
+              "target": "other",
+              "event": "xp:regeneration_value_1"
+            },
+            "deals_damage": true
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn":{
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			}
+    }
+  }
+}

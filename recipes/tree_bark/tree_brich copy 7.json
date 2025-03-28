@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:tree_bark_acacia"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XX"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:acacia_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:acacia_log"
+      }
+    ],
+    "result":[ {
+
+      "item": "edx:tree_bark", "count": 2
+    },
+    { "item": "minecraft:stripped_acacia_log", "count": 2 }
+  ]
+  }
+}

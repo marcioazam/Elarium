@@ -1,0 +1,101 @@
+{
+    "format_version": "1.14.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:void_hammer_leap",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:type_family": { "family": [ "xp_dummy" ] },
+            "minecraft:timer": {
+                "time": 0.1,
+                "looping": false,
+                "time_down_event": {
+                  "event": "xp:despawn"
+                }
+              },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:health": {
+                "min": 1,
+                "max": 1
+            }
+        },
+        "component_groups": {
+            "xp:despawn": { "minecraft:instant_despawn": {} },
+            "xp:default": {
+                "minecraft:behavior.knockback_roar": {
+                    "attack_time": 0.1,
+                    "cooldown_time": 9999,
+                    "duration": 0.1,
+                    "knockback_damage": 0,
+                    "knockback_horizontal_strength": 2,
+                    "knockback_range": 5,
+                    "knockback_vertical_strength": 1,
+                    "track_target": false,
+                    "knockback_strength": 1,
+                    "knockback_filters": {
+                        "none_of": [
+                            { "test": "is_family", "subject": "other", "value": "player" },
+                            { "test": "is_family", "subject": "other", "value": "item" },
+                            { "test": "is_family", "subject": "other", "value": "xp_boss" }
+                        ]
+                    },
+                    "damage_filters": {
+                        "none_of": [
+                            { "test": "is_family", "subject": "other", "value": "player" },
+                            { "test": "is_family", "subject": "other", "value": "item" },
+                            { "test": "is_family", "subject": "other", "value": "xp_boss" }
+                        ]
+                    }
+                }
+            },
+            "xp:enchanted": {
+                "minecraft:behavior.knockback_roar": {
+                    "attack_time": 0.1,
+                    "cooldown_time": 9999,
+                    "duration": 0.1,
+                    "knockback_damage": 5,
+                    "knockback_horizontal_strength": 4,
+                    "knockback_range": 7,
+                    "knockback_vertical_strength": 1,
+                    "track_target": false,
+                    "knockback_strength": 2,
+                    "knockback_filters": {
+                        "none_of": [
+                            { "test": "is_family", "subject": "other", "value": "player" },
+                            { "test": "is_family", "subject": "other", "value": "item" },
+                            { "test": "is_family", "subject": "other", "value": "xp_boss" }
+                        ]
+                    },
+                    "damage_filters": {
+                        "none_of": [
+                            { "test": "is_family", "subject": "other", "value": "player" },
+                            { "test": "is_family", "subject": "other", "value": "item" },
+                            { "test": "is_family", "subject": "other", "value": "xp_boss" }
+                        ]
+                    }
+                }
+            }
+        },
+        "events": {
+            "xp:despawn": { "add": { "component_groups": [ "xp:despawn" ] } },
+            "xp:default": { "add": { "component_groups": [ "xp:default" ] } },
+            "xp:enchanted": { "add": { "component_groups": [ "xp:enchanted" ] } }
+        }
+    }
+}

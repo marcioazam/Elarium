@@ -1,0 +1,42 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:single_block_feature": {
+    "description": {
+      "identifier": "edx:swamp_tallgrass_feature"
+    },
+    "places_block": {
+      "name": "minecraft:tallgrass",
+      "states": {
+        "tall_grass_type": "tall"
+      }
+    },
+    "enforce_survivability_rules": true,
+    "enforce_placement_rules": false,
+    "may_replace": [
+      "minecraft:air"
+    ],
+    "may_attach_to": {
+            "bottom": [
+              {
+          "tags": "query.any_tag('grassed_stones')"
+        },
+              {
+          "tags": "query.any_tag('grassed_woods')"
+        },
+              {
+          "tags": "query.any_tag('mossed_stones')"
+        },
+              {
+          "tags": "query.any_tag('mossed_woods')"
+        },
+              "minecraft:dirt",
+              "minecraft:dirt_with_roots",
+              "minecraft:grass",
+              "minecraft:moss_block",
+              "minecraft:mud",
+              "minecraft:muddy_mangrove_roots",
+              "minecraft:podzol"
+            ]
+        }
+  }
+}

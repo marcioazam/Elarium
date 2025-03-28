@@ -1,0 +1,2 @@
+execute in the_end at @e[type=xp:end_cube,c=1] run event entity @e[type=xp:waypoint,r=128] xp:instant_despawn
+execute in the_end at @e[type=xp:end_cube,c=1] as @e[type=xp:end_cube_crystal,r=128] at @s run summon xp:waypoint ~ ~4 ~ 

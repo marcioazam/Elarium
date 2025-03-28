@@ -1,0 +1,31 @@
+
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:pill_outpost_desert_f_rule",
+			"places_feature": "edx:pill_outp_desert_random"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "desert"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": -16,
+			"y": "query.heightmap(variable.worldx, variable.worldz) - 37",
+			"z": -16
+		}
+	}
+}

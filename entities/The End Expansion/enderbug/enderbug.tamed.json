@@ -1,0 +1,489 @@
+{
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:enderbug.tamed",
+      "is_summonable": true,
+      "is_spawnable": false,
+
+      "scripts": {
+        "animate": [
+          "enderbug.panic",
+          "enderbug.riding",
+          "enderbug.fly",
+          "enderbug.fly_speed"
+        ]
+      },
+      "animations": {
+        "enderbug.panic": "controller.animation.enderbug.panic",
+        "enderbug.riding": "controller.animation.enderbug.riding",
+        "enderbug.fly_speed": "controller.animation.enderbug.fly_speed",
+        "enderbug.fly": "controller.animation.enderbug.fly"
+      }
+    },
+    "component_groups": {
+      //default mode
+      "xp:stage.baby": {
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:scale": {
+          "value": 0.4
+        },
+        "minecraft:is_baby": {},
+        "minecraft:ageable": {
+          "duration": 1200,
+          "feed_items": ["minecraft:wheat_seeds"],
+          "grow_up": {
+            "event": "minecraft:ageable_grow_up",
+            "target": "self"
+          }
+        },
+        "minecraft:behavior.follow_parent": {
+          "priority": 5,
+          "speed_multiplier": 1.1
+        }
+      },
+      "xp:stage.adult": {
+        "minecraft:experience_reward": {
+          "on_bred": "Math.Random(1,7)",
+          "on_death": "query.last_hit_by_player ? Math.Random(1,1.4) : 0"
+        },
+        "minecraft:breedable": {
+          "require_tame": false,
+          "breeds_with": {
+            "mate_type": "xp:enderbug",
+            "baby_type": "xp:enderbug",
+            "breed_event": {
+              "event": "minecraft:entity_born",
+              "target": "baby"
+            }
+          },
+          "breed_items": ["minecraft:wheat_seeds"]
+        },
+        "minecraft:behavior.breed": {
+          "priority": 3,
+          "speed_multiplier": 1
+        }
+      },
+
+      //panic mode
+      "xp:stage.panic": {
+        "minecraft:is_saddled": {},
+        "minecraft:behavior.random_hover": {
+          "priority": 0,
+          "xz_dist": 22,
+          "y_dist": 12,
+          "y_offset": 1,
+          "interval": 0,
+          "hover_height": [1, 12],
+          "speed_multiplier": 2.5
+        },
+        "minecraft:timer": {
+          "time": 10,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:stage_remove_panic",
+            "target": "self"
+          }
+        }
+      },
+
+      //rider mode
+      "xp:stage.mov_default": {
+        "minecraft:spell_effects": {
+          "remove_effects": ["levitation", "slow_falling"]
+        },
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": true
+        },
+        "minecraft:jump.static": {},
+        "minecraft:movement": {
+          "value": 0.25
+        },
+        "minecraft:movement.basic": {},
+        "minecraft:navigation.walk": {
+          "can_path_over_water": false,
+          "avoid_water": true
+        },
+        "minecraft:behavior.look_at_player": {
+          "priority": 8,
+          "look_distance": 8.0,
+          "probability": 8.0
+        },
+        "minecraft:behavior.random_look_around": {
+          "priority": 6,
+          "look_distance": 8.0,
+          "probability": 8.0
+        }
+      },
+      "xp:stage.mount": {
+        "minecraft:movement": {
+          "value": 0.1
+        },
+        "minecraft:horse.jump_strength": {
+          "value": {
+            "range_min": 1.0,
+            "range_max": 1.0
+          }
+        },
+        "minecraft:navigation.walk": {
+          "can_path_over_water": true
+        },
+        "minecraft:movement.basic": {},
+        "minecraft:input_ground_controlled": {},
+        "minecraft:behavior.player_ride_tamed": {},
+        "minecraft:can_power_jump": {},
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": true
+        }
+      },
+
+      //scale mode
+      "xp:scale.tiny": {
+        "minecraft:scale": {
+          "value": 0.6
+        },
+        "minecraft:variant": {
+          "value": 1
+        }
+      },
+      "xp:scale.small": {
+        "minecraft:scale": {
+          "value": 0.7
+        },
+        "minecraft:variant": {
+          "value": 2
+        }
+      },
+      "xp:scale.medium": {
+        "minecraft:scale": {
+          "value": 0.8
+        },
+        "minecraft:variant": {
+          "value": 3
+        }
+      },
+      "xp:scale.large": {
+        "minecraft:scale": {
+          "value": 0.9
+        },
+        "minecraft:variant": {
+          "value": 4
+        }
+      },
+      "xp:scale.big": {
+        "minecraft:scale": {
+          "value": 1.0
+        },
+        "minecraft:variant": {
+          "value": 5
+        }
+      },
+
+      //death mode
+      "xp:stage.death.baby": {
+        "minecraft:transformation": {
+          "into": "xp:enderbug.death<xp:death_baby>"
+        }
+      },
+      "xp:stage.death.tiny": {
+        "minecraft:transformation": {
+          "into": "xp:enderbug.death<xp:death_tiny>"
+        }
+      },
+      "xp:stage.death.small": {
+        "minecraft:transformation": {
+          "into": "xp:enderbug.death<xp:death_small>"
+        }
+      },
+      "xp:stage.death.medium": {
+        "minecraft:transformation": {
+          "into": "xp:enderbug.death<xp:death_medium>"
+        }
+      },
+      "xp:stage.death.large": {
+        "minecraft:transformation": {
+          "into": "xp:enderbug.death<xp:death_large>"
+        }
+      },
+      "xp:stage.death.big": {
+        "minecraft:transformation": {
+          "into": "xp:enderbug.death<xp:death_big>"
+        }
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:nameable": {},
+      "minecraft:breathable": {
+        "totalSupply": 15,
+        "suffocateTime": 0
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 9 : 0"
+      },
+      //health = 12
+      "minecraft:health": {
+        "value": 24
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 1.2,
+            "height": 1,
+            "pivot": [0, 0.5, 0]
+          }
+        ]
+      },
+      "minecraft:follow_range": {
+        "value": 12
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "test": "has_damage",
+                "subject": "self",
+                "value": "fatal"
+              },
+              "event": "xp:stage_death",
+              "target": "self"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "==",
+                    "value": "enderbug"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "==",
+                    "value": "enderbug.launch"
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "cause": "fire",
+            "deals_damage": false
+          },
+          {
+            "cause": "entity_attack",
+            "on_damage": {
+              "filters": [
+                {
+                  "all_of": [
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "xp:the_touched_ends"
+                    }
+                  ]
+                }
+              ],
+              "target": "other",
+              "event": "xp:regeneration_value_1"
+            },
+            "deals_damage": true
+          }
+        ]
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_contact_with_water",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "drowning",
+            "damage_per_tick": 1
+          }
+        ]
+      },
+      "minecraft:skin_id": {
+        "value": 0
+      },
+      "minecraft:sittable": {},
+      "minecraft:is_tamed": {},
+      "minecraft:rideable": {
+        "crouching_skip_interact": true,
+        "interact_text": "action.interact.ride.enderbug",
+        "rider_can_interact": true,
+        "seat_count": 1,
+        "family_types": ["player"],
+        "seats": {
+          "position": [0, 0.5, -0.8]
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      //default events
+      "xp:tamed_baby": {
+        "add": {
+          "component_groups": ["xp:stage.baby"]
+        },
+        "trigger": "xp:stage_remove_panic"
+      },
+      "xp:tamed_tiny": {
+        "add": {
+          "component_groups": ["xp:scale.tiny"]
+        },
+        "trigger": "xp:stage_remove_panic"
+      },
+      "xp:tamed_small": {
+        "add": {
+          "component_groups": ["xp:scale.small"]
+        },
+        "trigger": "xp:stage_remove_panic"
+      },
+      "xp:tamed_medium": {
+        "add": {
+          "component_groups": ["xp:scale.medium"]
+        },
+        "trigger": "xp:stage_remove_panic"
+      },
+      "xp:tamed_large": {
+        "add": {
+          "component_groups": ["xp:scale.large"]
+        },
+        "trigger": "xp:stage_remove_panic"
+      },
+      "xp:tamed_big": {
+        "add": {
+          "component_groups": ["xp:scale.big"]
+        },
+        "trigger": "xp:stage_remove_panic"
+      },
+
+      //panic mode
+      "xp:stage_remove_panic": {
+        "remove": {
+          "component_groups": ["xp:stage.panic"]
+        }
+      },
+      "xp:stage_panic": {
+        "add": {
+          "component_groups": ["xp:stage.panic"]
+        }
+      },
+
+      //rider event
+      "xp:stage_mov_default": {
+        "add": {
+          "component_groups": ["xp:stage.mov_default"]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:stage.mount",
+            "xp:mov.fly",
+            "xp:mov.idle",
+            "xp:mov.fall"
+          ]
+        }
+      },
+      "xp:stage_mount": {
+        "add": {
+          "component_groups": ["xp:stage.mount"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.mov_default"]
+        }
+      },
+
+      //death
+      "xp:stage_death": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_variant",
+              "subject": "self",
+              "operator": "==",
+              "value": 0
+            },
+            "add": {
+              "component_groups": ["xp:stage.death.baby"]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_variant",
+              "subject": "self",
+              "operator": "==",
+              "value": 1
+            },
+            "add": {
+              "component_groups": ["xp:stage.death.tiny"]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_variant",
+              "subject": "self",
+              "operator": "==",
+              "value": 2
+            },
+            "add": {
+              "component_groups": ["xp:stage.death.small"]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_variant",
+              "subject": "self",
+              "operator": "==",
+              "value": 3
+            },
+            "add": {
+              "component_groups": ["xp:stage.death.medium"]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_variant",
+              "subject": "self",
+              "operator": "==",
+              "value": 4
+            },
+            "add": {
+              "component_groups": ["xp:stage.death.large"]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_variant",
+              "subject": "self",
+              "operator": "==",
+              "value": 5
+            },
+            "add": {
+              "component_groups": ["xp:stage.death.big"]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:whip",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_sword"
+        ]
+      },
+      "minecraft:icon": "whip",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:durability": {
+        "max_durability": 100
+      },
+      "minecraft:repairable": {
+        "repair_items": [{
+            "items": [
+              "minecraft:string"
+            ],
+            "repair_amount": "q.max_durability * 0.25"
+          },
+          {
+            "items": [
+              "dungeons:whip"
+            ],
+            "repair_amount": "c.other -> q.remaining_durability + 0.12 * c.other -> q.max_durability"
+          }
+        ]
+      },
+     
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      }
+    }
+  }
+}

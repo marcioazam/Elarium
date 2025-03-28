@@ -1,0 +1,191 @@
+{
+  "format_version": "1.19.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:farlander_spawn",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [
+          "dialogue_set",
+          "quick_travel"
+        ]
+      },
+      "animations": {
+        "dialogue_set": "animation.farlander.dialogue_set",
+
+        "quick_travel": "controller.animation.farlander.quick_travel",
+        "quick_travel.travel": "animation.farlander.teleport_sequence"
+      },
+      "properties": {
+        "xp:is_quick_travelling": {
+          "type": "bool",
+          "default": false,
+          "client_sync": false
+        },
+        "xp:stay_put": {
+          "type": "bool",
+          "default": false,
+          "client_sync": false
+        }
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+
+      "xp:npc_reset": {
+        "minecraft:npc": {}
+      },
+      "xp:npc": {
+        "minecraft:variant": { "value": 0 },
+        "minecraft:npc": {
+          "npc_data": {
+            "portrait_offsets": {
+              "translate": [ -7, 50, 0 ],
+              "scale": [ 1.75, 1.75, 1.75 ]
+            },
+            "picker_offsets": {
+              "translate": [ 0, 20, 0 ],
+              "scale": [ 1.7, 1.7, 1.7 ]
+            },
+            "skin_list": [
+              { "variant": 0 },
+              { "variant": 1 },
+              { "variant": 2 }
+            ]
+          }
+        }
+      },
+
+      "xp:talking": {
+        "minecraft:is_illager_captain": {}
+      },
+      "xp:transform_to_original": {
+        "minecraft:transformation": {
+          "into": "xp:farlander<xp:spawn_stay_put>"
+        }
+      }
+
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "farlander", "spawn" ]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:physics": {},
+      "minecraft:nameable": {
+        "allow_name_tag_renaming": false,
+        "always_show": true
+      },
+
+      "minecraft:behavior.look_at_player": {
+        "priority": 0,
+        "probability": 1.0,
+        "look_distance": 16,
+        "look_time": [ 3, 6 ],
+        "angle_of_view_vertical": 360,
+        "angle_of_view_horizontal": 360
+      },
+
+      "minecraft:interact": {
+        /* override default NPC interaction */
+        "interactions": {
+          "interact_text": "action.interact.talk",
+          "swing": true,
+          "on_interact": {
+            "filters": {
+              "all_of": [
+                { "test": "bool_property", "domain": "xp:is_quick_travelling", "value": false },
+                { "test": "is_family", "subject": "other", "value": "player" }
+              ]
+            },
+            "event": "xp:open_farlander_dialogue",
+            "target": "other"
+          }
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "entity_attack",
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "has_damage", "value": "attack" },
+                  { "test": "bool_property", "domain": "xp:is_quick_travelling", "value": false },
+                  { "test": "is_family", "subject": "other", "value": "player" }
+                ]
+              },
+              "event": "xp:open_farlander_dialogue",
+              "target": "other"
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "distance_to_nearest_player",
+                  "operator": "<",
+                  "value": 5
+                },
+                {
+                  "test": "has_component",
+                  "operator": "!=",
+                  "value": "minecraft:is_illager_captain"
+                }
+              ]
+            },
+            "event": "xp:begin_talking",
+            "target": "self"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "distance_to_nearest_player",
+                  "operator": ">",
+                  "value": 5
+                },
+                {
+                  "test": "has_component",
+                  "value": "minecraft:is_illager_captain"
+                }
+              ]
+            },
+            "event": "xp:stop_talking",
+            "target": "self"
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": { "add": { "component_groups": [ "xp:npc" ] } },
+
+      "xp:transform_to_original": { "add": { "component_groups": [ "xp:transform_to_original" ] } },
+      "xp:instant_despawn": { "add": { "component_groups": [ "xp:instant_despawn" ] } },
+
+      "xp:npc_reset": { "remove": { "component_groups": [ "xp:npc_reset" ] }, "add": { "component_groups": [ "xp:npc" ] } },
+
+      "xp:begin_talking": { "add": { "component_groups": [ "xp:talking" ] } },
+      "xp:stop_talking": { "remove": { "component_groups": [ "xp:talking" ] } }
+    }
+  }
+}

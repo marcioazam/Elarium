@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_jailors_scythe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:jailors_scythe"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:jailors_scythe"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:jailors_scythe", "count": 1 },
+      { "item": "dungeons:jailors_scythe", "count": 1 }
+    ]
+  }
+}

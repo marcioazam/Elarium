@@ -1,0 +1,433 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.hammer_of_void.remove_first_user": {
+      "initial_state": "no_weapon",
+      "states": {
+        "no_weapon": {
+          "transitions": [
+            { "has_hammer": "q.get_equipped_item_name == 'hammer_of_void'" }
+          ]
+        },
+        "has_hammer": {
+          "on_entry": [
+            "/scoreboard objectives add h_charge_timer dummy h_charge_timer",
+            "/scoreboard players set @s h_charge_timer 30",
+            "/scoreboard objectives add hammer_mana dummy hammer_mana",
+            "/scoreboard players set @s hammer_mana 201",
+            "v.hammer_mana = 201;"
+          ]
+        }
+      }
+    },
+    "controller.animation.hammer_of_void": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            { "hammer_of_void.mana_regen": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:hammer_of_void') || q.is_item_name_any('slot.hotbar', t.i, 'xp:hammer_of_void')) ? {return true;}; t.i = t.i+1;});" }
+          ],
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'hammer_of_void'" }
+          ],
+          "on_entry": [
+            "/tag @s remove xp_dash",
+            "/camerashake stop @s",
+            "/stopsound @s boost.in_air",
+            "@s xp:default_physics",
+            "@s xp:attack_value_1",
+            "/tag @s remove hammer_of_void",
+            "@s xp:yes_fall_damage",
+            "/scoreboard objectives remove h_charge_timer"
+          ]
+        },
+
+        "hold": {
+          "animations": [
+            "hammer_of_void.mana_regen",
+            "hammer_of_void.mana_regen_display"
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void'" },
+            { "basic_attack": "v.attack_time > 0.0f" },
+            { "charge": "q.is_using_item && v.hammer_mana >= 200 && q.get_equipped_item_name == 'hammer_of_void'" },
+            { "no_mana": "(q.life_time - v.tick_delay) >= 0.5 && q.is_using_item && v.hammer_mana < 200 && q.get_equipped_item_name == 'hammer_of_void'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s remove xp_dash",
+            "/stopsound @a[r=60] hammer_of_void.activate",
+            "/stopsound @a[r=60] hammer_of_void.activate_1",
+            "/tag @s add hammer_of_void",
+            "@s xp:attack_value_12"
+          ]
+        },
+
+        "basic_attack": {
+          "transitions": [
+            { "hold": "(q.life_time - v.tick_delay) >= 0.25 && q.get_equipped_item_name == 'hammer_of_void'" },
+            { "default": "q.get_equipped_item_name != 'hammer_of_void'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.randomize = math.random_integer(1, 10);",
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "@s xp:unset_attack"
+          ]
+        },
+
+        "no_mana": {
+          "animations": ["hammer_of_void.mana_regen"],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void'" },
+            { "hold": "(q.life_time - v.tick_delay) >= 1.25 && q.get_equipped_item_name == 'hammer_of_void'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/camerashake add @s 0.25 0.2 positional",
+            "/playsound note.bassattack @s ~~~ 0.9 0.5 0.01",
+            "/playsound note.bassattack @s ~~~ 0.75 0.25 0.01",
+            "/playsound note.iron_xylophone @s ~~~ 0.5 0.5 0.01"
+          ]
+        },
+
+        "charge": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void'" },
+            { "hold": "!q.is_using_item && (q.life_time - v.tick_delay) < 1.45 && q.get_equipped_item_name == 'hammer_of_void'" },
+            { "leap": "q.is_using_item && (q.life_time - v.tick_delay) >= 1.45" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run playsound hammer_of_void.activate @a[r=30] ~~~ 0.75 1 0.05",
+            "/execute at @s run playsound hammer_of_void.activate_1 @a[r=30] ~~~ 0.75 1 0.05",
+            "/scoreboard objectives add h_charge_timer dummy h_charge_timer",
+            "/scoreboard players set @s h_charge_timer 30",
+            "/camerashake add @s 0.01 99999 rotational",
+            "/tag @s add charging_hammer"
+          ],
+          "on_exit": [
+            "@s xp:default_physics",
+            "/camerashake stop @s",
+            "/tag @s remove charging_hammer"
+          ]
+        },
+
+        "leap": {
+          "animations": [
+            "hammer_of_void.leap",
+            { "hammer_of_void.hold_leap": "(q.life_time - v.tick_delay) >= 0.85" },
+            { "hammer_of_void.charge_timer_countdown": "(q.life_time - v.tick_delay) >= 0.85" },
+            { "hammer_of_void.charge_timer_display": "(q.life_time - v.tick_delay) >= 0.85" },
+            //{ "hammer_of_void.targeter": "(q.life_time - v.tick_delay) >= 0.75 && q.cardinal_player_facing != 1" },
+            { "hammer_of_void.spin_sfx": "(q.life_time - v.tick_delay) >= 0.5" }
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void'" },
+            { "dash": "(!q.is_using_item && (q.life_time - v.tick_delay) >= 0.85) || (q.life_time - v.tick_delay) >= 3.85" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run playsound ender_staff.spin3 @a[r=90] ~~~ 0.75 0.75 0.05",
+            "/summon xp:void_hammer_leap ~~~ xp:default",
+            "/scoreboard players set @s hammer_mana -25",
+            "v.hammer_mana = 0;",
+            "/camerashake add @s 0.35 0.075 positional",
+            "/camerashake add @s 0.025 99999 rotational"
+          ],
+          "on_exit": [
+            "@s xp:default_physics",
+            "/effect @s levitation 0 0 true",
+            "/execute at @s run playsound hammer_of_void.thunder @a[r=90] ~~~ 1 1.0 0.05",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=90] ~~~ 0.15 2.05 0.075",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.65 0.15 0.075",
+            "/event entity @e[type=xp:void_hammer_targeter,c=1] xp:despawn",
+            "/camerashake stop @s",
+            "/stopsound @a[r=60] hammer_of_void.activate",
+            "/stopsound @a[r=60] hammer_of_void.activate_1",
+            "/stopsound @a[r=60] hammer_of_void.activate_2",
+            "/stopsound @a[r=15] hammer_of_void.spin_loop"
+          ]
+        },
+
+        "dash": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void' || !q.is_alive" },
+            { "impact": "q.is_on_ground" }
+          ],
+          "on_entry": [
+            //"/title @s title xp_vfx.speedlines",
+					  "@s xp:default_physics",
+            "/tag @s add xp_dash",
+            "/summon xp:void_hammer_dash ^^^-1",
+            "/playsound boost.in_air @s",
+            "/camerashake add @s 0.035 99999 rotational"
+          ],
+          "on_exit": [
+            "/camerashake add @s 0.85 0.125 positional"
+          ]
+        },
+
+        "impact": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void' || !q.is_alive" },
+            { "hold": "(q.life_time - v.tick_delay) >= 0.15" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/damage @e[rm=0.1,r=3] 4",
+            "/summon xp:void_hammer_impact ~~~ xp:default",
+            "/stopsound @s boost.in_air",
+            "/tag @s remove xp_dash",
+            "/camerashake add @s 0.25 0.1 rotational",
+            "/function weapons/hammer_impact_vfx",
+            "/execute at @s run playsound hammer_of_void.thunder1 @a[r=90] ~~~ 0.75 1.1 0.05",
+            "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.95 0.85 0.075",
+            "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.5 1.5 0.075",
+            "/execute at @s run playsound hammer_of_void.impact @a[r=15] ~~~ 0.75 1 0.05",
+            "/execute at @s run playsound hammer_of_void.impact1 @a[r=15] ~~~ 0.5 1 0.05",
+            "/execute at @s run playsound block.turtle_egg.break @a[r=15] ~~~ 0.45 2 0.001",
+            "/execute at @s run playsound dig.bone_block @a[r=15] ~~~ 0.5 0.75 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.5 0.25 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.35 0.5 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 1 0.75 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.5 0.001"
+          ],
+          "on_exit": ["/camerashake stop @s"]
+        }
+      }
+    },
+    "controller.animation.hammer_of_void.mana_trigger": {
+      "initial_state": "has_mana",
+      "states": {
+        "no_mana": {
+          "transitions": [ { "has_mana": "q.get_equipped_item_name == 'hammer_of_void' && v.hammer_mana > 200" } ],
+          "on_entry": [ "@s xp:hammer_of_void.no_mana" ]
+        },
+        "has_mana": {
+          "transitions": [ { "no_mana": "q.get_equipped_item_name != 'hammer_of_void' || v.hammer_mana < 200" } ],
+          "on_entry": [ "@s xp:hammer_of_void.has_mana" ],
+          "on_exit": [ "@s xp:hammer_of_void.no_mana" ]
+        }
+      }
+    },
+    "controller.animation.hammer_of_void_enchanted.remove_first_user": {
+      "initial_state": "no_weapon",
+      "states": {
+        "no_weapon": {
+          "transitions": [
+            { "has_hammer": "q.get_equipped_item_name == 'hammer_of_void_enchanted'" }
+          ]
+        },
+        "has_hammer": {
+          "on_entry": [
+            "/scoreboard objectives add h1_charge_timer dummy h1_charge_timer",
+            "/scoreboard players set @s h1_charge_timer 30",
+            "/scoreboard objectives add hammer1_mana dummy hammer1_mana",
+            "/scoreboard players set @s hammer1_mana 201",
+            "v.hammer1_mana = 201;"
+          ]
+        }
+      }
+    },
+    "controller.animation.hammer_of_void_enchanted": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            { "hammer_of_void_enchanted.mana_regen": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:hammer_of_void_enchanted') || q.is_item_name_any('slot.hotbar', t.i, 'xp:hammer_of_void_enchanted')) ? {return true;}; t.i = t.i+1;});" }
+          ],
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'hammer_of_void_enchanted'" }
+          ],
+          "on_entry": [
+            "/tag @s remove xp_dash",
+            "/camerashake stop @s",
+            "/stopsound @s boost.in_air",
+            "@s xp:default_physics",
+            "@s xp:attack_value_1",
+            "/tag @s remove hammer_of_void_enchanted",
+            "@s xp:yes_fall_damage",
+            "/scoreboard objectives remove h1_charge_timer"
+          ]
+        },
+
+        "hold": {
+          "animations": [
+            "hammer_of_void_enchanted.mana_regen",
+            "hammer_of_void_enchanted.mana_regen_display"
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void_enchanted'" },
+            { "basic_attack": "v.attack_time > 0.0f" },
+            { "charge": "q.is_using_item && v.hammer1_mana >= 200 && q.get_equipped_item_name == 'hammer_of_void_enchanted'" },
+            { "no_mana": "(q.life_time - v.tick_delay) >= 0.5 && q.is_using_item && v.hammer1_mana < 200 && q.get_equipped_item_name == 'hammer_of_void'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s remove xp_dash",
+            "/stopsound @a[r=60] hammer_of_void.activate",
+            "/stopsound @a[r=60] hammer_of_void.activate_1",
+            "/tag @s add hammer_of_void_enchanted",
+            "@s xp:attack_value_15"
+          ]
+        },
+
+        "basic_attack": {
+          "transitions": [
+            { "hold": "(q.life_time - v.tick_delay) >= 0.25 && q.get_equipped_item_name == 'hammer_of_void_enchanted'" },
+            { "default": "q.get_equipped_item_name != 'hammer_of_void_enchanted'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.randomize = math.random_integer(1, 10);",
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "@s xp:unset_attack"
+          ]
+        },
+
+        "no_mana": {
+          "animations": ["hammer_of_void_enchanted.mana_regen"],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void_enchanted'" },
+            { "hold": "(q.life_time - v.tick_delay) >= 1.25 && q.get_equipped_item_name == 'hammer_of_void_enchanted'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/camerashake add @s 0.25 0.2 positional",
+            "/playsound note.bassattack @s ~~~ 0.9 0.5 0.01",
+            "/playsound note.bassattack @s ~~~ 0.75 0.25 0.01",
+            "/playsound note.iron_xylophone @s ~~~ 0.5 0.5 0.01"
+          ]
+        },
+
+        "charge": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void_enchanted'" },
+            { "hold": "!q.is_using_item && (q.life_time - v.tick_delay) < 1.45 && q.get_equipped_item_name == 'hammer_of_void_enchanted'" },
+            { "leap": "q.is_using_item && (q.life_time - v.tick_delay) >= 1.45" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run playsound hammer_of_void.activate @a[r=30] ~~~ 0.75 1 0.05",
+            "/execute at @s run playsound hammer_of_void.activate_1 @a[r=30] ~~~ 0.75 1 0.05",
+            "/scoreboard objectives add h1_charge_timer dummy h1_charge_timer",
+            "/scoreboard players set @s h1_charge_timer 30",
+            "/camerashake add @s 0.01 99999 rotational",
+            "/tag @s add charging_hammer_enchanted"
+          ],
+          "on_exit": [
+            "@s xp:default_physics",
+            "/camerashake stop @s",
+            "/tag @s remove charging_hammer_enchanted"
+          ]
+        },
+
+        "leap": {
+          "animations": [
+            "hammer_of_void_enchanted.leap",
+            { "hammer_of_void_enchanted.hold_leap": "(q.life_time - v.tick_delay) >= 0.85" },
+            { "hammer_of_void_enchanted.charge_timer_countdown": "(q.life_time - v.tick_delay) >= 0.85" },
+            { "hammer_of_void_enchanted.charge_timer_display": "(q.life_time - v.tick_delay) >= 0.85" },
+            //{ "hammer_of_void.targeter": "(q.life_time - v.tick_delay) >= 0.75 && q.cardinal_player_facing != 1" },
+            { "hammer_of_void_enchanted.spin_sfx": "(q.life_time - v.tick_delay) >= 0.5" }
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void_enchanted'" },
+            { "dash": "(!q.is_using_item && (q.life_time - v.tick_delay) >= 0.85) || (q.life_time - v.tick_delay) >= 3.85" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run playsound ender_staff.spin2 @a[r=90] ~~~ 0.75 0.75 0.05",
+            "/summon xp:void_hammer_leap ~~~ xp:enchanted",
+            "/scoreboard players set @s hammer1_mana -25",
+            "v.hammer1_mana = 0;",
+            "/camerashake add @s 0.35 0.075 positional",
+            "/camerashake add @s 0.025 99999 rotational"
+          ],
+          "on_exit": [
+            "@s xp:default_physics",
+            "/effect @s levitation 0 0 true",
+            "/execute at @s run playsound hammer_of_void.thunder @a[r=90] ~~~ 1 1.0 0.05",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=90] ~~~ 0.15 2.05 0.075",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.65 0.15 0.075",
+            "/event entity @e[type=xp:void_hammer_targeter,c=1] xp:despawn",
+            "/camerashake stop @s",
+            "/stopsound @a[r=60] hammer_of_void.activate",
+            "/stopsound @a[r=60] hammer_of_void.activate_1",
+            "/stopsound @a[r=60] hammer_of_void.activate_2",
+            "/stopsound @a[r=15] hammer_of_void.spin_loop"
+          ]
+        },
+
+        "dash": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void_enchanted' || !q.is_alive" },
+            { "impact": "q.is_on_ground" }
+          ],
+          "on_entry": [
+            //"/title @s title xp_vfx.speedlines",
+					  "@s xp:default_physics",
+            "/tag @s add xp_dash",
+            "/summon xp:void_hammer_dash ^^^-1",
+            "/playsound boost.in_air @s",
+            "/camerashake add @s 0.035 99999 rotational"
+          ],
+          "on_exit": [
+            "/camerashake add @s 0.85 0.125 positional"
+          ]
+        },
+
+        "impact": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'hammer_of_void_enchanted' || !q.is_alive" },
+            { "hold": "(q.life_time - v.tick_delay) >= 0.15" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/damage @e[rm=0.1,r=3] 7",
+            "/summon xp:void_hammer_impact ~~~ xp:enchanted",
+            "/stopsound @s boost.in_air",
+            "/tag @s remove xp_dash",
+            "/camerashake add @s 0.25 0.1 rotational",
+            "/function weapons/hammer_impact_vfx",
+            "/execute at @s run playsound hammer_of_void.thunder1 @a[r=90] ~~~ 0.75 1.1 0.05",
+            "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.95 0.85 0.075",
+            "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.5 1.5 0.075",
+            "/execute at @s run playsound hammer_of_void.impact @a[r=15] ~~~ 0.75 1 0.05",
+            "/execute at @s run playsound hammer_of_void.impact1 @a[r=15] ~~~ 0.5 1 0.05",
+            "/execute at @s run playsound block.turtle_egg.break @a[r=15] ~~~ 0.45 2 0.001",
+            "/execute at @s run playsound dig.bone_block @a[r=15] ~~~ 0.5 0.75 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.5 0.25 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.35 0.5 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 1 0.75 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.5 0.001"
+          ],
+          "on_exit": ["/camerashake stop @s"]
+        }
+      }
+    },
+    "controller.animation.hammer_of_void_enchanted.mana_trigger": {
+      "initial_state": "has_mana",
+      "states": {
+        "no_mana": {
+          "transitions": [ { "has_mana": "q.get_equipped_item_name == 'hammer_of_void_enchanted' && v.hammer1_mana > 200" } ],
+          "on_entry": [ "@s xp:hammer_of_void_enchanted.no_mana" ]
+        },
+        "has_mana": {
+          "transitions": [ { "no_mana": "q.get_equipped_item_name != 'hammer_of_void_enchanted' || v.hammer1_mana < 200" } ],
+          "on_entry": [ "@s xp:hammer_of_void_enchanted.has_mana" ],
+          "on_exit": [ "@s xp:hammer_of_void_enchanted.no_mana" ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,983 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.dev.ender_wilds_placement": {
+            "loop": false,
+            "animation_length": 43,
+            "timeline": {
+                "0.05": [
+                    "/tp @a -101 39 -64"
+                ],
+                "0.35": [
+                    "/execute positioned -101 39 -64 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad -101 39 -64"
+                ],
+                "0.4": [
+                    "/tp @a -107 39 -80"
+                ],
+                "0.7": [
+                    "/setblock -107 39 -80 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -107 39 -80"
+                ],
+                "0.75": [
+                    "/tp @a -107 39 -85"
+                ],
+                "1.05": [
+                    "/setblock -107 39 -85 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -107 39 -85"
+                ],
+                "1.1": [
+                    "/tp @a -110 43 -82"
+                ],
+                "1.4": [
+                    "/setblock -110 43 -82 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -110 43 -82"
+                ],
+                "1.45": [
+                    "/tp @a -106 43 -86"
+                ],
+                "1.75": [
+                    "/execute positioned -106 43 -86 run function loot/end_city_treasure"
+                ],
+                "1.8": [
+                    "/tp @a -114 47 -78"
+                ],
+                "2.1": [
+                    "/setblock -114 47 -78 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -114 47 -78"
+                ],
+                "2.15": [
+                    "/tp @a -105 47 -78"
+                ],
+                "2.45": [
+                    "/setblock -105 47 -78 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -105 47 -78"
+                ],
+                "2.5": [
+                    "/tp @a -105 67 -87"
+                ],
+                "2.8": [
+                    "/execute positioned -105 67 -87 run function loot/end_city_treasure"
+                ],
+                "2.85": [
+                    "/tp @a -105 67 -78"
+                ],
+                "3.15": [
+                    "/setblock -105 67 -78 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -105 67 -78"
+                ],
+                "3.2": [
+                    "/tp @a -114 67 -78"
+                ],
+                "3.5": [
+                    "/setblock -114 67 -78 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -114 67 -78"
+                ],
+                "3.55": [
+                    "/tp @a -106 72 -111"
+                ],
+                "3.85": [
+                    "/fill -107 71 -112 -105 73 -110 air",
+                    "/execute positioned -106 72 -111 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian -106 72 -111"
+                ],
+                "3.9": [
+                    "/tp @a -106 51 -111"
+                ],
+                "4.2": [
+                    "/setblock -106 51 -111 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -106 51 -111"
+                ],
+                "4.25": [
+                    "/tp @a -109 51 -130"
+                ],
+                "4.55": [
+                    "/say event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/say summon xp:respawn_auger -109 51 -130"
+                ],
+                "4.6": [
+                    "/tp @a -129 51 -121"
+                ],
+                "4.9": [
+                    "/setblock -129 51 -121 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -129 51 -121"
+                ],
+                "4.95": [
+                    "/tp @a -129 51 -126"
+                ],
+                "5.25": [
+                    "/setblock -129 51 -126 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -129 51 -126"
+                ],
+                "5.3": [
+                    "/tp @a -131 81 -123"
+                ],
+                "5.6": [
+                    "/setblock -131 81 -123 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -131 81 -123"
+                ],
+                "5.65": [
+                    "/tp @a -128 71 -103"
+                ],
+                "5.95": [
+                    "/setblock -128 71 -103 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -128 71 -103"
+                ],
+                "6.0": [
+                    "/tp @a -127 75 -109"
+                ],
+                "6.3": [
+                    "/setblock -127 75 -109 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -127 75 -109"
+                ],
+                "6.35": [
+                    "/tp @a -127 75 -102"
+                ],
+                "6.65": [
+                    "/execute positioned -127 75 -102 run function loot/end_city_treasure"
+                ],
+                "6.7": [
+                    "/tp @a -109 47 -79"
+                ],
+                "7.0": [
+                    "/execute positioned -109 47 -79 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -109 47 -79 xp:biome_ender_wilds"
+                ],
+                "7.05": [
+                    "/tp @a -107 67 -83"
+                ],
+                "7.35": [
+                    "/execute positioned -107 67 -83 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -107 67 -83 xp:biome_ender_wilds"
+                ],
+                "7.4": [
+                    "/tp @a -132 71 -106"
+                ],
+                "7.7": [
+                    "/execute positioned -132 71 -106 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -132 71 -106 xp:biome_ender_wilds"
+                ],
+                "7.75": [
+                    "/tp @a -316 86 -170"
+                ],
+                "8.05": [
+                    "/setblock -316 86 -170 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -316 86 -170"
+                ],
+                "8.1": [
+                    "/tp @a -316 96 -184"
+                ],
+                "8.4": [
+                    "/setblock -316 96 -184 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -316 96 -184"
+                ],
+                "8.45": [
+                    "/tp @a -316 86 -196"
+                ],
+                "8.75": [
+                    "/setblock -316 86 -196 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -316 86 -196"
+                ],
+                "8.8": [
+                    "/tp @a -313 66 -200"
+                ],
+                "9.1": [
+                    "/setblock -313 66 -200 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -313 66 -200"
+                ],
+                "9.15": [
+                    "/tp @a -319 66 -200"
+                ],
+                "9.45": [
+                    "/setblock -319 66 -200 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -319 66 -200"
+                ],
+                "9.5": [
+                    "/tp @a -318 66 -204"
+                ],
+                "9.8": [
+                    "/execute positioned -318 66 -204 run function loot/end_city_treasure"
+                ],
+                "9.85": [
+                    "/tp @a -314 66 -204"
+                ],
+                "10.15": [
+                    "/execute positioned -314 66 -204 run function loot/end_city_treasure"
+                ],
+                "10.2": [
+                    "/tp @a -316 63 -194"
+                ],
+                "10.5": [
+                    "/setblock -316 63 -194 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -316 63 -194"
+                ],
+                "10.55": [
+                    "/tp @a -313 60 -180"
+                ],
+                "10.85": [
+                    "/setblock -313 60 -180 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -313 60 -180"
+                ],
+                "10.9": [
+                    "/tp @a -319 60 -180"
+                ],
+                "11.2": [
+                    "/setblock -319 60 -180 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -319 60 -180"
+                ],
+                "11.25": [
+                    "/tp @a -320 63 -165"
+                ],
+                "11.55": [
+                    "/setblock -320 63 -165 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -320 63 -165"
+                ],
+                "11.6": [
+                    "/tp @a -312 63 -165"
+                ],
+                "11.9": [
+                    "/setblock -312 63 -165 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -312 63 -165"
+                ],
+                "11.95": [
+                    "/tp @a -316 55 -174"
+                ],
+                "12.25": [
+                    "/setblock -316 55 -174 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -316 55 -174"
+                ],
+                "12.3": [
+                    "/tp @a -316 59 -161"
+                ],
+                "12.6": [
+                    "/setblock -316 59 -161 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -316 59 -161"
+                ],
+                "12.65": [
+                    "/tp @a -313 59 -160"
+                ],
+                "12.95": [
+                    "/execute positioned -313 59 -160 run function loot/end_city_treasure"
+                ],
+                "13.0": [
+                    "/tp @a -316 59 -159"
+                ],
+                "13.3": [
+                    "/execute positioned -316 59 -159 run function loot/end_city_treasure"
+                ],
+                "13.35": [
+                    "/tp @a -319 59 -160"
+                ],
+                "13.65": [
+                    "/execute positioned -319 59 -160 run function loot/end_city_treasure"
+                ],
+                "13.7": [
+                    "/tp @a -127 56 -364"
+                ],
+                "14.0": [
+                    "/say event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/say summon xp:respawn_auger -127 56 -364"
+                ],
+                "14.05": [
+                    "/tp @a -137 56 -409"
+                ],
+                "14.35": [
+                    "/setblock -137 56 -409 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -137 56 -409"
+                ],
+                "14.4": [
+                    "/tp @a -132 56 -409"
+                ],
+                "14.7": [
+                    "/setblock -132 56 -409 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -132 56 -409"
+                ],
+                "14.75": [
+                    "/tp @a -136 60 -408"
+                ],
+                "15.05": [
+                    "/execute positioned -136 60 -408 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -136 60 -408 xp:biome_ender_wilds"
+                ],
+                "15.1": [
+                    "/tp @a -139 64 -411"
+                ],
+                "15.4": [
+                    "/setblock -139 64 -411 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -139 64 -411"
+                ],
+                "15.45": [
+                    "/tp @a -134 86 -407"
+                ],
+                "15.75": [
+                    "/setblock -134 86 -407 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -134 86 -407"
+                ],
+                "15.8": [
+                    "/tp @a -103 56 -424"
+                ],
+                "16.1": [
+                    "/execute positioned -103 56 -424 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad -103 56 -424"
+                ],
+                "16.15": [
+                    "/tp @a -97 56 -374"
+                ],
+                "16.45": [
+                    "/setblock -97 56 -374 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -97 56 -374"
+                ],
+                "16.5": [
+                    "/tp @a -92 56 -369"
+                ],
+                "16.8": [
+                    "/setblock -92 56 -369 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -92 56 -369"
+                ],
+                "16.85": [
+                    "/tp @a -94 60 -371"
+                ],
+                "17.15": [
+                    "/setblock -94 60 -371 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -94 60 -371"
+                ],
+                "17.2": [
+                    "/tp @a -90 64 -367"
+                ],
+                "17.5": [
+                    "/setblock -90 64 -367 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -90 64 -367"
+                ],
+                "17.55": [
+                    "/tp @a -92 64 -372"
+                ],
+                "17.85": [
+                    "/execute positioned -92 64 -372 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -92 64 -372 xp:biome_ender_wilds"
+                ],
+                "17.9": [
+                    "/tp @a -99 64 -376"
+                ],
+                "18.2": [
+                    "/setblock -99 64 -376 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -99 64 -376"
+                ],
+                "18.25": [
+                    "/tp @a -95 97 -372"
+                ],
+                "18.55": [
+                    "/fill -96 96 -373 -94 98 -371 air",
+                    "/execute positioned -95 97 -372 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian -95 97 -372"
+                ],
+                "18.6": [
+                    "/tp @a -97 76 -398"
+                ],
+                "18.9": [
+                    "/execute positioned -97 76 -398 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -97 76 -398 xp:biome_ender_wilds"
+                ],
+                "18.95": [
+                    "/tp @a -98 76 -400"
+                ],
+                "19.25": [
+                    "/setblock -98 76 -400 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -98 76 -400"
+                ],
+                "19.3": [
+                    "/tp @a -99 80 -394"
+                ],
+                "19.6": [
+                    "/setblock -99 80 -394 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -99 80 -394"
+                ],
+                "19.65": [
+                    "/tp @a -99 80 -401"
+                ],
+                "19.95": [
+                    "/execute positioned -99 80 -401 run function loot/end_city_treasure"
+                ],
+                "20.0": [
+                    "/tp @a -67 80 -375"
+                ],
+                "20.3": [
+                    "/setblock -67 80 -375 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -67 80 -375"
+                ],
+                "20.35": [
+                    "/tp @a -72 80 -370"
+                ],
+                "20.65": [
+                    "/execute positioned -72 80 -370 run function loot/end_city_treasure"
+                ],
+                "20.7": [
+                    "/tp @a 98 57 -379"
+                ],
+                "21.0": [
+                    "/execute positioned 98 57 -379 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 98 57 -379"
+                ],
+                "21.05": [
+                    "/tp @a 83 64 -409"
+                ],
+                "21.35": [
+                    "/setblock 83 64 -409 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 83 64 -409"
+                ],
+                "21.4": [
+                    "/tp @a 88 64 -409"
+                ],
+                "21.7": [
+                    "/setblock 88 64 -409 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 88 64 -409"
+                ],
+                "21.75": [
+                    "/tp @a 86 68 -406"
+                ],
+                "22.05": [
+                    "/setblock 86 68 -406 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 86 68 -406"
+                ],
+                "22.1": [
+                    "/tp @a 86 68 -408"
+                ],
+                "22.4": [
+                    "/execute positioned 86 68 -408 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 86 68 -408 xp:biome_ender_wilds"
+                ],
+                "22.45": [
+                    "/tp @a 82 68 -410"
+                ],
+                "22.75": [
+                    "/execute positioned 82 68 -410 run function loot/end_city_treasure"
+                ],
+                "22.8": [
+                    "/tp @a 90 72 -411"
+                ],
+                "23.1": [
+                    "/setblock 90 72 -411 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 90 72 -411"
+                ],
+                "23.15": [
+                    "/tp @a 90 72 -402"
+                ],
+                "23.45": [
+                    "/setblock 90 72 -402 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 90 72 -402"
+                ],
+                "23.5": [
+                    "/tp @a 90 92 -411"
+                ],
+                "23.8": [
+                    "/setblock 90 92 -411 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 90 92 -411"
+                ],
+                "23.85": [
+                    "/tp @a 90 92 -402"
+                ],
+                "24.15": [
+                    "/setblock 90 92 -402 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 90 92 -402"
+                ],
+                "24.2": [
+                    "/tp @a 81 92 -411"
+                ],
+                "24.5": [
+                    "/execute positioned 81 92 -411 run function loot/end_city_treasure"
+                ],
+                "24.55": [
+                    "/tp @a 79 50 -467"
+                ],
+                "24.85": [
+                    "/say event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/say summon xp:respawn_auger 79 50 -467"
+                ],
+                "24.9": [
+                    "/tp @a 97 50 -460"
+                ],
+                "25.2": [
+                    "/setblock 97 50 -460 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 97 50 -460"
+                ],
+                "25.25": [
+                    "/tp @a 97 71 -460"
+                ],
+                "25.55": [
+                    "/fill 96 70 -461 98 72 -459 air",
+                    "/execute positioned 97 71 -460 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 97 71 -460"
+                ],
+                "25.6": [
+                    "/tp @a 104 49 -432"
+                ],
+                "25.9": [
+                    "/setblock 104 49 -432 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 104 49 -432"
+                ],
+                "25.95": [
+                    "/tp @a 99 49 -432"
+                ],
+                "26.25": [
+                    "/setblock 99 49 -432 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 99 49 -432"
+                ],
+                "26.3": [
+                    "/tp @a 103 53 -433"
+                ],
+                "26.6": [
+                    "/execute positioned 103 53 -433 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 103 53 -433 xp:biome_ender_wilds"
+                ],
+                "26.65": [
+                    "/tp @a 106 57 -430"
+                ],
+                "26.95": [
+                    "/setblock 106 57 -430 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 106 57 -430"
+                ],
+                "27.0": [
+                    "/tp @a 101 79 -434"
+                ],
+                "27.3": [
+                    "/setblock 101 79 -434 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 101 79 -434"
+                ],
+                "27.35": [
+                    "/tp @a 84 69 -436"
+                ],
+                "27.65": [
+                    "/execute positioned 84 69 -436 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 84 69 -436 xp:biome_ender_wilds"
+                ],
+                "27.7": [
+                    "/tp @a 81 69 -431"
+                ],
+                "28.0": [
+                    "/setblock 81 69 -431 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 81 69 -431"
+                ],
+                "28.05": [
+                    "/tp @a 87 73 -430"
+                ],
+                "28.35": [
+                    "/setblock 87 73 -430 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 87 73 -430"
+                ],
+                "28.4": [
+                    "/tp @a 80 73 -430"
+                ],
+                "28.7": [
+                    "/execute positioned 80 73 -430 run function loot/end_city_treasure"
+                ],
+                "28.75": [
+                    "/tp @a 291 67 -300"
+                ],
+                "29.05": [
+                    "/setblock 291 67 -300 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 291 67 -300"
+                ],
+                "29.1": [
+                    "/tp @a 291 77 -288"
+                ],
+                "29.4": [
+                    "/setblock 291 77 -288 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 291 77 -288"
+                ],
+                "29.45": [
+                    "/tp @a 291 67 -274"
+                ],
+                "29.75": [
+                    "/setblock 291 67 -274 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 291 67 -274"
+                ],
+                "29.8": [
+                    "/tp @a 287 44 -269"
+                ],
+                "30.1": [
+                    "/setblock 287 44 -269 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 287 44 -269"
+                ],
+                "30.15": [
+                    "/tp @a 295 44 -269"
+                ],
+                "30.45": [
+                    "/setblock 295 44 -269 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 295 44 -269"
+                ],
+                "30.5": [
+                    "/tp @a 288 41 -284"
+                ],
+                "30.8": [
+                    "/setblock 288 41 -284 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 288 41 -284"
+                ],
+                "30.85": [
+                    "/tp @a 294 41 -284"
+                ],
+                "31.15": [
+                    "/setblock 294 41 -284 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 294 41 -284"
+                ],
+                "31.2": [
+                    "/tp @a 294 47 -304"
+                ],
+                "31.5": [
+                    "/setblock 294 47 -304 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 294 47 -304"
+                ],
+                "31.55": [
+                    "/tp @a 288 47 -304"
+                ],
+                "31.85": [
+                    "/setblock 288 47 -304 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 288 47 -304"
+                ],
+                "31.9": [
+                    "/tp @a 291 44 -298"
+                ],
+                "32.2": [
+                    "/setblock 291 44 -298 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 291 44 -298"
+                ],
+                "32.25": [
+                    "/tp @a 291 36 -278"
+                ],
+                "32.55": [
+                    "/setblock 291 36 -278 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 291 36 -278"
+                ],
+                "32.6": [
+                    "/tp @a 291 40 -265"
+                ],
+                "32.9": [
+                    "/setblock 291 40 -265 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 291 40 -265"
+                ],
+                "32.95": [
+                    "/tp @a 289 47 -308"
+                ],
+                "33.25": [
+                    "/execute positioned 289 47 -308 run function loot/end_city_treasure"
+                ],
+                "33.3": [
+                    "/tp @a 293 47 -308"
+                ],
+                "33.6": [
+                    "/execute positioned 293 47 -308 run function loot/end_city_treasure"
+                ],
+                "33.65": [
+                    "/tp @a 294 40 -264"
+                ],
+                "33.95": [
+                    "/execute positioned 294 40 -264 run function loot/end_city_treasure"
+                ],
+                "34.0": [
+                    "/tp @a 291 40 -263"
+                ],
+                "34.3": [
+                    "/execute positioned 291 40 -263 run function loot/end_city_treasure"
+                ],
+                "34.35": [
+                    "/tp @a 288 40 -264"
+                ],
+                "34.65": [
+                    "/execute positioned 288 40 -264 run function loot/end_city_treasure"
+                ],
+                "34.7": [
+                    "/tp @a 264 63 -203"
+                ],
+                "35.0": [
+                    "/fill 263 62 -204 265 64 -202 air",
+                    "/execute positioned 264 63 -203 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 264 63 -203"
+                ],
+                "35.05": [
+                    "/tp @a 264 42 -203"
+                ],
+                "35.35": [
+                    "/setblock 264 42 -203 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 264 42 -203"
+                ],
+                "35.4": [
+                    "/tp @a 228 49 -185"
+                ],
+                "35.7": [
+                    "/execute positioned 228 49 -185 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 228 49 -185"
+                ],
+                "35.75": [
+                    "/tp @a 238 42 -190"
+                ],
+                "36.05": [
+                    "/setblock 238 42 -190 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 238 42 -190"
+                ],
+                "36.1": [
+                    "/tp @a 243 42 -190"
+                ],
+                "36.4": [
+                    "/setblock 243 42 -190 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 243 42 -190"
+                ],
+                "36.45": [
+                    "/tp @a 240 46 -189"
+                ],
+                "36.75": [
+                    "/execute positioned 240 46 -189 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 240 46 -189 xp:biome_ender_wilds"
+                ],
+                "36.8": [
+                    "/tp @a 236 50 -192"
+                ],
+                "37.1": [
+                    "/setblock 236 50 -192 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 236 50 -192"
+                ],
+                "37.15": [
+                    "/tp @a 241 72 -188"
+                ],
+                "37.45": [
+                    "/setblock 241 72 -188 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 241 72 -188"
+                ],
+                "37.5": [
+                    "/tp @a 258 62 -187"
+                ],
+                "37.8": [
+                    "/execute positioned 258 62 -187 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 258 62 -187 xp:biome_ender_wilds"
+                ],
+                "37.85": [
+                    "/tp @a 261 62 -191"
+                ],
+                "38.15": [
+                    "/setblock 261 62 -191 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 261 62 -191"
+                ],
+                "38.2": [
+                    "/tp @a 255 66 -192"
+                ],
+                "38.5": [
+                    "/setblock 255 66 -192 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 255 66 -192"
+                ],
+                "38.55": [
+                    "/tp @a 262 66 -192"
+                ],
+                "38.85": [
+                    "/execute positioned 262 66 -192 run function loot/end_city_treasure"
+                ],
+                "38.9": [
+                    "/tp @a -194 52 -80"
+                ],
+                "39.2": [
+                    "/execute positioned -194 52 -80 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -194 52 -80"
+                ],
+                "39.25": [
+                    "/tp @a -272 49 -194"
+                ],
+                "39.55": [
+                    "/execute positioned -272 49 -194 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -272 49 -194"
+                ],
+                "39.6": [
+                    "/tp @a -175 69 -305"
+                ],
+                "39.9": [
+                    "/execute positioned -175 69 -305 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -175 69 -305"
+                ],
+                "39.95": [
+                    "/tp @a -62 87 -266"
+                ],
+                "40.25": [
+                    "/execute positioned -62 87 -266 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -62 87 -266"
+                ],
+                "40.3": [
+                    "/tp @a 124 43 -288"
+                ],
+                "40.6": [
+                    "/execute positioned 124 43 -288 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 124 43 -288"
+                ],
+                "40.65": [
+                    "/tp @a 166 50 -444"
+                ],
+                "40.95": [
+                    "/execute positioned 166 50 -444 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 166 50 -444"
+                ],
+                "41.0": [
+                    "/tp @a 172 50 -297"
+                ],
+                "41.3": [
+                    "/execute positioned 172 50 -297 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 172 50 -297"
+                ],
+                "41.35": [
+                    "/tp @a 150 72 -173"
+                ],
+                "41.65": [
+                    "/execute positioned 150 72 -173 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 150 72 -173"
+                ],
+                "41.7": [
+                    "/tp @a 212 51 -90"
+                ],
+                "42.0": [
+                    "/execute positioned 212 51 -90 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 212 51 -90"
+                ],
+                "42.05": [
+                    "/tp @a ~ ~ ~"
+                ],
+                "42.35": [
+                    "/gamemode creative @a",
+                    "/event entity @s xp:despawn"
+                ]
+            }
+        }
+    }
+}

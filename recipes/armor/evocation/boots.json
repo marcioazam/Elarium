@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "evocation_boots"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "B B",
+      "I I"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:wool"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:wool"
+      },
+      "I": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:evocation_boots",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_corrupted_crossbow"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:corrupted_crossbow"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:corrupted_crossbow"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:corrupted_crossbow", "count": 1 },
+      { "item": "dungeons:corrupted_crossbow", "count": 1 }
+    ]
+  }
+}

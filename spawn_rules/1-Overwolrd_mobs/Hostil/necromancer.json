@@ -1,0 +1,55 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:necromancer",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        
+          "minecraft:spawns_underground": {},
+          "minecraft:difficulty_filter": {
+            "max": "hard"
+          },
+          "minecraft:height_filter": {
+            "min": -63,
+            "max": 0
+          },
+          
+          "minecraft:weight": {
+            "default": 10
+          },
+          "minecraft:density_limit": {
+            "surface": 4,
+            "underground": 4
+          },
+          "minecraft:herd": {
+            "min_size": 1,
+            "max_size": 1
+          },
+          "minecraft:brightness_filter": {
+            "min": 0,
+            "max": 7,
+            "adjust_for_weather": true
+          },
+        "minecraft:biome_filter": [
+          {
+            "any_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "caves"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "dripstone_caves"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

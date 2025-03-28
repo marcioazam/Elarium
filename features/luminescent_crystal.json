@@ -1,0 +1,38 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "edx:luminescent_crystal"
+		},
+
+		"places_block": "edx:luminescent_crystal",
+		"may_attach_to": {
+			"bottom":  [
+			  "edx:shulk_grass",
+			  "edx:luminescent_crystal"
+		  ]
+		},
+        "may_replace": [
+            "minecraft:air",
+			"edx:shulk_grass",
+			"minecraft:end_stone",
+			"edx:sun_cactaceae",
+			"edx:blue_lycaephytus",
+			"edx:blue_lycaephytus_small",
+			"edx:blue_lycaephytus_small_ball",
+			"edx:blue_lycaephytus_no_ball",
+			"edx:purple_lycaephytus",
+			"edx:purple_lycaephytus_small",
+			"edx:purple_lycaephytus_small_ball",
+			"edx:purple_lycaephytus_no_ball",
+			"edx:blue_lycaephytus",
+			"edx:blue_lycaephytus_small",
+			"edx:blue_lycaephytus_small_ball",
+			"edx:chlorobulbus",
+			"edx:bicolor_lichen"
+          ],
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false
+	}
+}

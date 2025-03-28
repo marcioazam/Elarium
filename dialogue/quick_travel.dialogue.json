@@ -1,0 +1,285 @@
+{
+  "format_version": "1.14.0",
+  "minecraft:npc_dialogue": {
+
+    "scenes": [
+
+      {
+        "scene_tag": "_xp:quick_travel",
+        "npc_name": "_xp:quick_travel",
+        "text": "_xp:quick_travel",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "button 0",
+            "commands": [ "/function farlander/quick_travel/ui/select_0" ]
+          },
+          {
+            "name": "button 1",
+            "commands": [ "/function farlander/quick_travel/ui/select_1" ]
+          },
+          {
+            "name": "button 2",
+            "commands": [ "/function farlander/quick_travel/ui/select_2" ]
+          },
+          {
+            "name": "button 3",
+            "commands": [ "/function farlander/quick_travel/ui/select_3" ]
+          },
+          {
+            "name": "button 4",
+            "commands": [ "/function farlander/quick_travel/ui/select_4" ]
+          },
+          {
+            "name": "button 5",
+            "commands": [ "/function farlander/quick_travel/ui/select_5" ]
+          }
+        ]
+      },
+
+      {
+        "scene_tag": "_xp:quick_travel_0",
+        "npc_name": "_xp:quick_travel_0",
+        "text": "_xp:quick_travel_0",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "button 0",
+            "commands": [ "/event entity @s xp:quick_travel.teleport" ]
+          },
+          {
+            "name": "button 1",
+            "commands": [ "/function farlander/quick_travel/ui/select_1" ]
+          },
+          {
+            "name": "button 2",
+            "commands": [ "/function farlander/quick_travel/ui/select_2" ]
+          },
+          {
+            "name": "button 3",
+            "commands": [ "/function farlander/quick_travel/ui/select_3" ]
+          },
+          {
+            "name": "button 4",
+            "commands": [ "/function farlander/quick_travel/ui/select_4" ]
+          },
+          {
+            "name": "button 5",
+            "commands": [ "/function farlander/quick_travel/ui/select_5" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_1",
+        "npc_name": "_xp:quick_travel_1",
+        "text": "_xp:quick_travel_1",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "button 0",
+            "commands": [ "/function farlander/quick_travel/ui/select_0" ]
+          },
+          {
+            "name": "button 1",
+            "commands": [ "/event entity @s xp:quick_travel.teleport" ]
+          },
+          {
+            "name": "button 2",
+            "commands": [ "/function farlander/quick_travel/ui/select_2" ]
+          },
+          {
+            "name": "button 3",
+            "commands": [ "/function farlander/quick_travel/ui/select_3" ]
+          },
+          {
+            "name": "button 4",
+            "commands": [ "/function farlander/quick_travel/ui/select_4" ]
+          },
+          {
+            "name": "button 5",
+            "commands": [ "/function farlander/quick_travel/ui/select_5" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_2",
+        "npc_name": "_xp:quick_travel_2",
+        "text": "_xp:quick_travel_2",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "button 0",
+            "commands": [ "/function farlander/quick_travel/ui/select_0" ]
+          },
+          {
+            "name": "button 1",
+            "commands": [ "/function farlander/quick_travel/ui/select_1" ]
+          },
+          {
+            "name": "button 2",
+            "commands": [ "/event entity @s xp:quick_travel.teleport" ]
+          },
+          {
+            "name": "button 3",
+            "commands": [ "/function farlander/quick_travel/ui/select_3" ]
+          },
+          {
+            "name": "button 4",
+            "commands": [ "/function farlander/quick_travel/ui/select_4" ]
+          },
+          {
+            "name": "button 5",
+            "commands": [ "/function farlander/quick_travel/ui/select_5" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_3",
+        "npc_name": "_xp:quick_travel_3",
+        "text": "_xp:quick_travel_3",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "button 0",
+            "commands": [ "/function farlander/quick_travel/ui/select_0" ]
+          },
+          {
+            "name": "button 1",
+            "commands": [ "/function farlander/quick_travel/ui/select_1" ]
+          },
+          {
+            "name": "button 2",
+            "commands": [ "/function farlander/quick_travel/ui/select_2" ]
+          },
+          {
+            "name": "button 3",
+            "commands": [ "/event entity @s xp:quick_travel.teleport" ]
+          },
+          {
+            "name": "button 4",
+            "commands": [ "/function farlander/quick_travel/ui/select_4" ]
+          },
+          {
+            "name": "button 5",
+            "commands": [ "/function farlander/quick_travel/ui/select_5" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_4",
+        "npc_name": "_xp:quick_travel_4",
+        "text": "_xp:quick_travel_4",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "button 0",
+            "commands": [ "/function farlander/quick_travel/ui/select_0" ]
+          },
+          {
+            "name": "button 1",
+            "commands": [ "/function farlander/quick_travel/ui/select_1" ]
+          },
+          {
+            "name": "button 2",
+            "commands": [ "/function farlander/quick_travel/ui/select_2" ]
+          },
+          {
+            "name": "button 3",
+            "commands": [ "/function farlander/quick_travel/ui/select_3" ]
+          },
+          {
+            "name": "button 4",
+            "commands": [ "/event entity @s xp:quick_travel.teleport" ]
+          },
+          {
+            "name": "button 5",
+            "commands": [ "/function farlander/quick_travel/ui/select_5" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_5",
+        "npc_name": "_xp:quick_travel_5",
+        "text": "_xp:quick_travel_5",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "button 0",
+            "commands": [ "/function farlander/quick_travel/ui/select_0" ]
+          },
+          {
+            "name": "button 1",
+            "commands": [ "/function farlander/quick_travel/ui/select_1" ]
+          },
+          {
+            "name": "button 2",
+            "commands": [ "/function farlander/quick_travel/ui/select_2" ]
+          },
+          {
+            "name": "button 3",
+            "commands": [ "/function farlander/quick_travel/ui/select_3" ]
+          },
+          {
+            "name": "button 4",
+            "commands": [ "/function farlander/quick_travel/ui/select_4" ]
+          },
+          {
+            "name": "button 5",
+            "commands": [ "/event entity @s xp:quick_travel.teleport" ]
+          }
+        ]
+      },
+
+
+      {
+        "scene_tag": "_xp:quick_travel_0_teleport",
+        "npc_name": "_xp:quick_travel_0_teleport",
+        "text": "_xp:quick_travel_0_teleport",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open_teleport" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_1_teleport",
+        "npc_name": "_xp:quick_travel_1_teleport",
+        "text": "_xp:quick_travel_1_teleport",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open_teleport" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_2_teleport",
+        "npc_name": "_xp:quick_travel_2_teleport",
+        "text": "_xp:quick_travel_2_teleport",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open_teleport" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_3_teleport",
+        "npc_name": "_xp:quick_travel_3_teleport",
+        "text": "_xp:quick_travel_3_teleport",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open_teleport" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_4_teleport",
+        "npc_name": "_xp:quick_travel_4_teleport",
+        "text": "_xp:quick_travel_4_teleport",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open_teleport" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ]
+      },
+      {
+        "scene_tag": "_xp:quick_travel_5_teleport",
+        "npc_name": "_xp:quick_travel_5_teleport",
+        "text": "_xp:quick_travel_5_teleport",
+        "on_open_commands": [ "/function farlander/quick_travel/ui/open_teleport" ],
+        "on_close_commands": [ "/function farlander/quick_travel/ui/close_check" ]
+      }
+    ]
+  }
+}

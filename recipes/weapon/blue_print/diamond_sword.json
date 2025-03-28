@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_diamond_sword"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:diamond_sword"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:diamond_sword"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:diamond_sword", "count": 1 },
+      { "item": "dungeons:diamond_sword", "count": 1 }
+    ]
+  }
+}

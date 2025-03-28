@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "evocation_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "BGB",
+      "B B"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:wool"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:wool"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:evocation_leggings",
+      "count": 1
+    }
+  }
+}

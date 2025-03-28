@@ -1,0 +1,101 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:wraith_fire_strong",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+	"dungeons:despawn": {
+		"minecraft:instant_despawn": {}
+	  }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate"
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:timer": {
+                "looping": false,
+                "time": 5,
+                "time_down_event": {
+                  "event": "dungeons:despawn"
+                }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "pivot": [0, 1000, 0],
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      "minecraft:tick_world": {},
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "in_water",
+                    "subject": "self",
+                    "operator": "==",
+                    "value": true
+                  }
+                ]
+              },
+              "event": "dungeons:despawn"
+            }
+          ]
+        }
+    },
+		"events": {
+      "minecraft:entity_spawned": {
+        "queue_command":{
+              "command":[
+                "function wraith_fire_spawn",
+                "particle dungeons:new_wraith_smoke"
+          ]
+        }
+      },
+			"dungeons:despawn": {
+				"add": {
+					"component_groups": [
+						"dungeons:despawn"
+					]
+				}
+			}
+		}
+	}
+}

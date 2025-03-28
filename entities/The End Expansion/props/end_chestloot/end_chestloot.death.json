@@ -1,0 +1,95 @@
+{
+  "format_version": "1.17.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_chestloot.death",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "xp:stage.dissaper_open":{
+        "minecraft:skin_id": {
+          "value": 0
+        }
+      },
+      "xp:stage.dissaper":{
+        "minecraft:skin_id": {
+          "value": 1
+        }
+      },
+      "xp:instant_despawn":{
+        "minecraft:instant_despawn":{}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ 
+          "dummy"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:variant": {
+        "value": 1
+      },
+      "minecraft:timer": {
+        "time": 1,
+        "looping": true,
+        "time_down_event": {
+          "event": "xp:instant_despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "xp:stage_dissaper_open":{
+        "add": {
+          "component_groups": [
+            "xp:stage.dissaper_open"
+          ]
+        }
+      },
+      "xp:stage_dissaper":{
+        "add": {
+          "component_groups": [
+            "xp:stage.dissaper"
+          ]
+        }
+      },
+      "xp:instant_despawn":{
+        "add": {
+          "component_groups": [
+              "xp:instant_despawn"
+          ]
+      }
+			}
+    }
+  }
+}

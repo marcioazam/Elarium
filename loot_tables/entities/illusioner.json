@@ -1,0 +1,47 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 1,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                    "min": 1,
+                    "max": 7
+                }
+            }
+        ]
+        }
+      
+      ]
+    },
+    {
+      "conditions": [
+          {
+              "condition": "killed_by_player_or_pets"
+          }
+      ],
+      "rolls": 1,
+      "entries": [
+          {
+              "type": "item",
+              "name": "edx:copper_coin",
+              "functions": [
+                  {
+                      "function": "set_count",
+                      "count":  {
+                          "min": 0,
+                          "max": 4
+                      }
+                  }
+              ]
+          }
+      ]
+  }
+  ]
+}

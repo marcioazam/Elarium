@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ender_artifact":{
+			"initial_state": "default",
+			"states": {
+				"default":{
+          "on_entry": [
+            "@s xp:strength_value_0"
+          ],
+					"transitions": [
+						{
+							"strength": "q.is_using_item && q.get_equipped_item_name == 'ender_artifact'"
+						}
+					]
+				},
+        "strength":{
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/effect @s strength 15 2 true",
+            "/effect @s speed 15 2 true",
+            "/effect @s resistance 15 2 true",
+            "/camerashake add @s 0.1 0.3 rotational",
+            "/playsound ender_smite.eye_blink @s ~ ~ ~",
+            "/playsound ender_smite.mana_recharged @s ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~1 ~",
+            "/clear @s xp:ender_artifact 0 1"
+          ],
+          "on_exit": [
+            "/effect @s strength 0 0",
+            "/effect @s speed 0 0",
+            "/effect @s resistance 0 0"
+          ],
+          "transitions": [
+            {
+              "default": "(q.life_time - v.tick_delay) >= 15"
+            }
+          ]
+        }
+			}
+		}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "dungeons:gale_sanctum"
+    },
+    "biome_filters": [{
+      "any_of": [{
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "extreme_hills"
+        },
+        {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "mountains"
+        }
+      ]
+    }],
+    "heightmap_projection": "world_surface",
+    "max_depth": 1,
+    "start_height": -1,
+    "start_pool": "dungeons:gale_sanctum",
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_box"
+  }
+}

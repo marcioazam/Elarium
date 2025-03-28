@@ -1,0 +1,25 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.player.knockback_reset": {
+            "states": {
+                "default.before": {
+                    "on_entry": ["@s xp:property.knockback.set.none"],
+                    "transitions": [
+                        {"default": "true"}
+                    ]
+                },
+                "default": {
+                    "transitions": [
+                        {"knocked_back": "q.property('xp:knockback') != 'none'"}
+                    ]
+                },
+                "knocked_back": {
+                    "transitions": [
+                        {"default.before": "q.is_on_ground"}
+                    ]
+                }
+            }
+        }
+    }
+}

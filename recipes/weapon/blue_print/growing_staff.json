@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_growing_staff"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:growing_staff"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:growing_staff"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:growing_staff", "count": 1 },
+      { "item": "dungeons:growing_staff", "count": 1 }
+    ]
+  }
+}

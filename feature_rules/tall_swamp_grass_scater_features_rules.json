@@ -1,0 +1,39 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:feature_rules": {
+      "description": {
+        "identifier": "edx:tall_swamp_grass_scater_features_rules",
+        "places_feature": "edx:tall_swamp_grass_scater_feature"
+      },
+      "conditions": {
+        "placement_pass": "final_pass",
+        "minecraft:biome_filter": [
+          {
+            "any_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "swampland"
+              }
+            ]
+          }
+        ]
+      },
+      "distribution": {
+        "iterations": 20,
+        "scatter_chance":  100.0,
+        "x": {
+          "distribution": "uniform",
+          "extent": [ 0, 16 ]
+        },
+        "y": {
+          "distribution": "uniform",
+          "extent": [ 30, 130 ]
+        },
+        "z": {
+          "distribution": "uniform",
+          "extent": [ 0, 16 ]
+        }
+      }
+    }
+  }

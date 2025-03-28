@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "edx:brew_blindness_long_potion"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "edx:blindness_throwing_potion",
+    "reagent": "minecraft:redstone", 
+    "output": "edx:long_blindness_throwing_potion"
+  }
+
+}

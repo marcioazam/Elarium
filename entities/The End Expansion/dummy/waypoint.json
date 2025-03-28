@@ -1,0 +1,189 @@
+{
+  "format_version": "1.19.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:waypoint",
+      //"runtime_identifier": "minecraft:ender_dragon",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [
+          "stay_put",
+          { "hide": "q.is_saddled && q.is_chested" },
+          { "despawn": "q.is_saddled && !q.is_chested" }
+        ]
+      },
+      "animations": {
+        "stay_put": "animation.waypoint.stay_put",
+        "hide": "animation.waypoint.hide",
+        "despawn": "animation.waypoint.despawn"
+      },
+
+      "properties": {
+        "xp:persist_waypoint": {
+          "client_sync": true,
+          "type": "bool",
+          "default": false
+        }
+      }
+
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+
+      "xp:hide_waypoint": {
+        "minecraft:is_saddled": {},
+        "minecraft:is_chested": {},
+        "minecraft:environment_sensor": {
+          "triggers": {
+            "filters": {
+              "test": "distance_to_nearest_player",
+              "operator": ">",
+              "value": 7
+            },
+            "event": "xp:show_waypoint",
+            "target": "self"
+          }
+        }
+      },
+      "xp:show_waypoint": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:waypoint",
+            "spawn_event": "xp:set_persist",
+            "single_use": true,
+            "num_to_spawn": 1
+          }
+        },
+        "minecraft:instant_despawn": {
+        }
+      },
+
+      "xp:hidden": {
+        "minecraft:is_illager_captain": {}
+      },
+      "xp:remove_waypoint": {
+        "minecraft:is_saddled": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "waypoint", "dummy" ]
+      },
+      "minecraft:health": {
+        "min": 1,
+        "max": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 0,
+            "height": 0,
+            "pivot": [ 0, 100, 0 ]
+          }
+        ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "distance_to_nearest_player",
+                  "operator": "<=",
+                  "value": 6
+                },
+                {
+                  "test": "bool_property",
+                  "domain": "xp:persist_waypoint",
+                  "value": false
+                }
+              ]
+            },
+            "event": "xp:remove_waypoint",
+            "target": "self"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "distance_to_nearest_player",
+                  "operator": "<=",
+                  "value": 6
+                },
+                {
+                  "test": "bool_property",
+                  "domain": "xp:persist_waypoint",
+                  "value": true
+                }
+              ]
+            },
+            "event": "xp:hide_waypoint",
+            "target": "self"
+          }
+        ]
+      },
+      "minecraft:tick_world": {
+        "never_despawn": true,
+        "radius": 2
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "xp:set_persist": {
+        "set_property": {
+          "xp:persist_waypoint": true
+        }
+      },
+
+      "xp:instant_despawn": {
+        "add": { "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+
+      "xp:hide_waypoint": {
+        "add": { "component_groups": [ "xp:hide_waypoint" ]
+        }
+      },
+      "xp:show_waypoint": {
+        "add": { "component_groups": [ "xp:show_waypoint" ]
+        }
+      },
+
+      "xp:hidden": {
+        "add": { "component_groups": [ "xp:hidden" ]
+        }
+      },
+      "xp:remove_waypoint": {
+        "add": { "component_groups": [ "xp:remove_waypoint" ]
+        },
+        "remove": { "component_groups": [ "xp:hide_waypoint" ]
+        }
+      }
+    }
+  }
+}

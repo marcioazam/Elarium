@@ -1,0 +1,42 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:void_grass_rule",
+			"places_feature": "edx:void_grass_scatter"
+		},
+
+		"conditions": {
+			"placement_pass": "before_sky_pass",
+
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"any_of": [
+							{
+								"test": "has_biome_tag",
+								"operator": "==",
+								"value": "the_end"
+							}
+						]
+					}
+				]
+			}
+		},
+
+		"distribution": {
+			"iterations": 25,
+
+			"x": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ]
+			  },
+			"z": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ]
+			  },
+			"y": "query.heightmap(variable.originx , variable.originz)"
+		}
+	}
+}

@@ -1,0 +1,249 @@
+{
+  "format_version": "1.16.210",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:false_king",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "dungeons:damaged": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        },
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 3,
+          "time_down_event": {
+            "event": "dungeons:despawn"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:scale": {
+        "value": 1.22
+      },
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 8,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:type_family": {
+        "family": [
+          "boss",
+          "nameless_one",
+          "gravity_immune",
+          "false_king"
+        ]
+      },
+      "minecraft:behavior.timer_flag_1": {
+        "priority": 0,
+        "cooldown_range": 8,
+        "duration_range": [
+          4.75,
+          5.66
+        ],
+        "on_end": {
+          "event": "dungeons:begin_despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.65,
+        "height": 2.15
+      },
+      "minecraft:health": {
+        "value": 2000,
+        "max": 2000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+            "filters": {
+              "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                {
+                  "test": "is_variant",
+                  "subject": "self",
+                  "value": 0
+                }
+              ]
+            },
+              "event": "dungeons:damaged"
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+            "filters": {
+              "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "nameless_one"
+                  },
+                {
+                  "test": "is_variant",
+                  "subject": "self",
+                  "value": 0
+                }
+              ]
+            },
+              "event": "dungeons:damaged"
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+            "filters": {
+              "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "not",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "not",
+                    "value": "nameless_one"
+                  },
+                {
+                  "test": "is_variant",
+                  "subject": "self",
+                  "value": 0
+                }
+              ]
+            }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:shooter": {
+        "def": "dungeons:nameless_false_shot"
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 0,
+        "attack_interval_min": 1.8,
+        "attack_interval_max": 2.2,
+        "attack_radius": 12
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 0,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 24,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 24
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:begin_despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:damaged"
+          ]
+        },
+        "queue_command": {
+          "command": []
+        }
+      },
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      },
+      "dungeons:damaged": {
+        "queue_command": {
+          "command": [
+            "event entity @e[c=1,rm=0.2,family=false_king] dungeons:begin_despawn",
+            "particle dungeons:blindness",
+            "effect @a[r=4] blindness 3 0 true",
+            "playsound mob.nameless_one.laugh @a[r=4]"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:damaged"
+          ]
+        }
+      }
+    }
+  }
+}

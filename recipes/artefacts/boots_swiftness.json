@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "boots_of_swiftness"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "PDB",
+      "DED",
+      "BDP"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "B": {
+        "item": "minecraft:sugar"
+      },
+      "P": {
+        "item": "minecraft:feather"
+      },
+      "E": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "result": {
+      "item": "dungeons:boots_of_swiftness",
+      "count": 1
+    }
+  }
+}

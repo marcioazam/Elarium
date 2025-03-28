@@ -1,0 +1,349 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+      "description": {
+    "identifier": "edx:spotter",
+    "menu_category": {
+      "category": "construction"
+    },
+    "states": {
+        "edx:ten_xp": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        "edx:xp": [0, 1, 2, 3 ,4 ,5 ,6 ,7 ,8 ,9 ,10],
+        "edx:type": [
+          "none",
+          "fire_opal",
+          "lapis",
+          "diamond",
+          "emerald",
+          "amethyst",
+          "quartz",
+          "ruby"
+        ],
+        "edx:enabled": [
+          false,true
+        ]
+      },
+    "traits": {
+      "minecraft:placement_direction": {
+        "enabled_states": ["minecraft:facing_direction"]
+      }
+    }
+  },
+  "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 8
+      },
+      "minecraft:material_instances": {
+          "*": {
+            "texture": "spotter_empty",
+            "render_method": "opaque"
+          }
+        },
+      "tag:edx:stone": {},
+      "minecraft:geometry": {
+        "identifier": "geometry.spotter"
+      }
+      
+  },
+  "permutations": [
+      {
+        "condition": "q.block_state('edx:type') == 'none' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on","edx:spotter_interact"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_empty_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'none' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off","edx:spotter_interact"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_empty_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'fire_opal' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_fire_opal_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'fire_opal' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_fire_opal_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'lapis' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on","edx:lapis_spotter_interact"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_lapis_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'lapis' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off","edx:lapis_spotter_interact"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_lapis_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'diamond' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_diamond_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'diamond' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_diamond_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'ruby' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_ruby_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'ruby' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_ruby_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'quartz' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_quartz_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'quartz' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_quartz_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'emerald' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_emerald_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'emerald' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_emerald_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'amethyst' && q.block_state('edx:enabled') == true",
+        "components": {
+          "minecraft:custom_components": ["edx:spotter_on"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_amethyst_open",
+              "render_method": "opaque"
+            }
+          },
+          "minecraft:tick": {
+              "looping": true,
+              "interval_range": [5,5]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:type') == 'amethyst' && q.block_state('edx:enabled') == false ",
+        "components": {
+        "minecraft:custom_components": ["edx:spotter_off"],
+        "minecraft:material_instances": {
+            "*": {
+              "texture": "spotter_amethyst_close",
+              "render_method": "opaque"
+            }
+        },
+        "minecraft:tick": {
+            "looping": true,
+            "interval_range": [5,5]
+        }
+        }
+      },
+      // Facing down
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'down'",
+        "components": {
+          "minecraft:transformation": { "rotation": [-90, 0, 0] }
+        }
+      },
+      // Facing up
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'up'",
+        "components": {
+          "minecraft:transformation": { "rotation": [90, 0, 0] }
+        }
+      },
+      // Facing north
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 0, 0] }
+        }
+      },
+      // Facing west
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 90, 0] }
+        }
+      },
+      // Facing south
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 180, 0] }
+        }
+      },
+      // Facing east
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, -90, 0] }
+        }
+      }
+  ]
+    }
+  }

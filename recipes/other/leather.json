@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:leather"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "XXX",
+      "XXX"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:rotten_flesh"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:rotten_flesh"
+      }
+    ],
+    "result": {
+      "item": "minecraft:leather"
+    }
+  }
+}

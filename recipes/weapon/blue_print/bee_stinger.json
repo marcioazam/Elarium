@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_bee_stinger"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:bee_stinger"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:bee_stinger"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:bee_stinger", "count": 1 },
+      { "item": "dungeons:bee_stinger", "count": 1 }
+    ]
+  }
+}

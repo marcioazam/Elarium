@@ -1,0 +1,137 @@
+{
+  // ver depois
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:shulkers_king",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "shulker" 
+    },
+    "component_groups": {
+     "attack":{
+      "minecraft:timer": {
+        "looping": true,
+        "time": 5,
+        "randomInterval": false,
+        "time_down_event": {
+          "event": "summon"
+        }
+      }
+     },
+     "ready":{
+      "minecraft:entity_sensor": {
+        "sensor_range": 150, 
+        "relative_range": false,
+        "require_all": false,
+        "event_filters": {
+          "all_of": [
+            { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+            { "test" :  "has_ability","subject" : "other", "operator": "!=","value" :  "instabuild"}
+           
+          ]
+        },
+        "event": "attack"
+      }
+     }
+    },
+
+    "components": {
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "name": "§5Shulkers king §6(mini boss)",
+        "hud_range": 200
+        },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 : 0"
+      },
+      "minecraft:type_family": {
+        "family": [ "shulker", "monster", "mob" ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_lava": false,
+        "breathes_water": false
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:health": {
+        "value": 400,
+        "max": 400
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:movement": {
+        "value": 0.0,
+        "max": 0.0
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/shulker_king.json"
+      },
+      "minecraft:peek": {
+        "on_open": {
+          "event": "minecraft:on_open"
+        },
+        "on_close": {
+          "event": "minecraft:on_close"
+        },
+        "on_target_open": {
+          "event": "minecraft:on_open"
+        }
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 2,
+        "entity_types": {
+          "filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "shulker"
+          }
+        }
+      },
+    
+      "minecraft:navigation.walk": {
+      },
+      "minecraft:movement.basic": {
+      },
+      "minecraft:physics": {
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "weight": 5,
+            "add": {
+              "component_groups": ["ready"]
+            }
+          }
+        ]
+     },
+        "summon": {
+          "queue_command": {
+            "command": [
+              "summon edx:shulkers_king_bullet ~~1~"
+            ]},
+            "remove": {
+              "component_groups": ["attack"]
+            },
+            "add": {
+              "component_groups": ["ready"]
+            }
+        },
+        "attack": {
+          "add": {
+            "component_groups": ["attack"]
+          },
+          "remove": {
+            "component_groups": ["ready"]
+          }
+        }
+    }
+  }
+}

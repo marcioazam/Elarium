@@ -1,0 +1,64 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.redstone_monstrosity.attack": {
+      "initial_state": "default",
+      "states": {
+        "attacking": {
+          "animations": [
+            "attack"
+          ],
+          "on_entry": [
+            "/effect @s slowness 3 9 true"
+          ],
+          "transitions": [
+            {
+              "finish": "query.all_animations_finished"
+            }
+          ]
+        },
+        "default": {
+          "on_entry": [
+          ],
+          "transitions": [
+            {
+              "attacking": "query.is_delayed_attacking == 1.0"
+            }
+          ]
+        },
+        "finish": {
+          "on_entry": [
+            "/summon dungeons:monstrosity_knockback"
+          ],
+          "transitions": [
+            {
+              "default": "query.is_delayed_attacking == 0.0"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.redstone_monstrosity.casting": {
+      "initial_state": "default",
+      "states": {
+        "attacking": {
+          "on_entry": [
+            "/effect @s resistance 3 3 true"
+          ],
+          "transitions": [
+            {
+              "default": "query.is_casting == 0.0"
+            }
+          ]
+        },
+        "default": {
+          "transitions": [
+            {
+              "attacking": "query.is_casting == 1.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

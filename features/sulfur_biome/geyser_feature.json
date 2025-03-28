@@ -1,0 +1,19 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:growing_plant_feature": {
+	  "description": {
+		"identifier": "edx:sulfur_biome/geyser_feature"
+	  },
+	  "height_distribution":  [
+		[{"range_min": 2, "range_max": 5},1]
+	  ],
+	  "growth_direction": "UP",
+	  "body_blocks" : [
+		["edx:volcano_stone", 1]
+	  ],
+	  "head_blocks" : [
+		["edx:geyser", 1],
+		["edx:volcano_stone_wall", 8 ]
+	  ]
+	}
+  }

@@ -1,0 +1,107 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:red_sandstone_feature"
+        },
+        "count": 50,
+        "replace_rules": [
+            {
+                "places_block": "edx:hard_red_sandstone",
+                "may_replace": [
+                    {
+                        "name": "minecraft:stone"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:hard_red_sandstone",
+                "may_replace": [
+                    {
+                        "name": "minecraft:sandstone"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:hard_red_sandstone",
+                "may_replace": [
+                    {
+                        "name": "minecraft:tuff"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:hard_red_sandstone",
+                "may_replace": [
+                    {
+                        "name": "minecraft:dirt"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:coal_red",
+                "may_replace": [
+                    {
+                        "name": "minecraft:coal_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:copper_red",
+                "may_replace": [
+                    {
+                        "name": "minecraft:copper_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:iron_red",
+                "may_replace": [
+                    {
+                        "name": "minecraft:iron_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:gold_red",
+                "may_replace": [
+                    {
+                        "name": "minecraft:gold_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:redstone_red",
+                "may_replace": [
+                    {
+                        "name": "minecraft:redstone_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:emerald_red",
+                "may_replace": [
+                    {
+                        "name": "minecraft:emerald_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:lapis_red",
+                "may_replace": [
+                    {
+                        "name": "minecraft:lapis_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:tin_red",
+                "may_replace": [
+                    {
+                        "name": "edx:tin_ore"
+                    }
+                ]
+            }
+        ]
+    }
+}

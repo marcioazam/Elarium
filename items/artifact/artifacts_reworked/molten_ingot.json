@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:molten_ingot",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"molten_ingot"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "molten_ingot"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dMolten ingot \n§5Artifact\n§6Auto smelt ores in your inventory\nI'm still waiting for it to cool"
+			  }
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_eye.runtime": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "on_impact": "q.is_powered" } ]
+        },
+
+        "on_impact": {
+          "on_entry": [
+            "/summon xp:end_cube_marker ~~1~ xp:marker_type.pull_point",
+            "/summon xp:end_cube_marker ~~~ xp:marker_type.explosion_point",
+
+            "/playsound mob.endermen.portal @a ~~1~ 1.0 0.75",
+            "/particle xp:end_cube48 ~~1~",
+            "/particle xp:end_cube49 ~~1~",
+
+            "@s xp:instant_despawn"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:abyss_grass_bushy",
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:geometry": "geometry.abyss_grass_bushy",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": true,
+          "face_dimming": true,
+          "texture": "abyss_grass_bushy",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:map_color": "#272336",
+      "minecraft:light_dampening": 5,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.4
+      }
+    }
+  }
+}

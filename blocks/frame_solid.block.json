@@ -1,0 +1,23 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "xp:frame_solid"
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [ -8.0, 0, -8.0 ],
+				"size": [ 16, 13, 16 ]
+			},
+			"minecraft:geometry": "geometry.frame_solid",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "frame_solid",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:map_color": "#478a38"
+		}
+	}
+}

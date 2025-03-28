@@ -1,0 +1,15 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "edx:liquid_light"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "minecraft:dragon_breath",
+    "reagent": "edx:light_allay_bottle",
+    "output": "edx:liquid_light"
+  }
+
+}

@@ -1,0 +1,20 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "item": "minecraft:shears",
+          "count": 1
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:soul_plant_it"
+        }
+      ]
+    }
+  ]
+}

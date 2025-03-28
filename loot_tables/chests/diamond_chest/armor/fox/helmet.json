@@ -1,0 +1,56 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:fox_helmet",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:fox_chestplate",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:fox_leggings",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:fox_boots",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+execute in the_end run tp @a -143 58 15

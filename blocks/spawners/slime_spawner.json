@@ -1,0 +1,34 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:slime_spawner",
+			"menu_category":
+			{
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "slime_spawner",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": "geometry.spawner",
+            "minecraft:custom_components": ["edx:spawner"],
+			"minecraft:tick": {
+  					"looping": true,
+  					"interval_range": [1000,1000]
+			},
+			"tag:edx:wooden_pick": {},
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 10
+            },
+			"minecraft:loot": "loot_tables/blocks/spawner.json"
+		}
+	}
+}

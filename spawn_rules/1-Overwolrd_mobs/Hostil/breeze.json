@@ -1,0 +1,33 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:spawn_rules": {
+      "description": {
+        "identifier": "minecraft:breeze",
+        "population_control": "monster"
+      },
+      "conditions": [
+        {
+          "minecraft:spawns_underground": {},
+
+          "minecraft:biome_filter": [
+            
+              {
+              "test": "has_biome_tag", "operator": "==", "value": "caves"
+            },
+            {
+                "test": "has_biome_tag", "operator": "==", "value": "lush_caves"
+            },
+            {
+                "test": "has_biome_tag", "operator": "==", "value": "dripstone_caves"
+            }],
+          "minecraft:weight": {
+            "default": 30
+          },
+          "minecraft:herd": {
+            "min_size": 1,
+            "max_size": 1
+          }
+        }
+      ]
+    }
+  }

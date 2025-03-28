@@ -1,0 +1,19 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:volcano_feature"
+        },
+        "count": 50,
+        "replace_rules": [
+            {
+                "places_block": "edx:volcano_stone",
+                "may_replace": [
+                    {
+                        "name": "minecraft:netherrack"
+                    }
+                ]
+            }
+        ]
+    }
+}

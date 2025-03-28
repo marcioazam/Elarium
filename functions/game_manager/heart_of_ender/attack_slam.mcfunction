@@ -1,0 +1,1 @@
+scoreboard players set forced_attack endboss 2

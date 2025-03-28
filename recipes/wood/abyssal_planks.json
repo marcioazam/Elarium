@@ -1,0 +1,20 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "xp:abyssal_planks.recipe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "ingredients": [
+            {
+                "item": "xp:abyssal_log"
+            }
+        ],
+        "result": {
+            "item": "xp:abyssal_planks",
+            "count": 4
+        }
+    }
+}

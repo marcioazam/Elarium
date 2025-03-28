@@ -1,0 +1,69 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:spirit_bomb",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"boom": {
+				"minecraft:explode": {
+					"fuse_length": 0,
+					"fuse_lit": true,
+					"power": 0.5,
+					"causes_fire": false,
+					"breaks_blocks": false,
+					"fire_affected_by_griefing": true,
+					"destroy_affected_by_griefing": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.25,
+				"height": 0.25
+			},
+			"minecraft:fire_immune": {
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"on_damage": {
+					   "filters": {}
+					},
+					"deals_damage": false
+				 }
+			  },
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			},
+			"minecraft:timer":{
+				"looping": false,
+				"randomInterval":false,
+				"time": 3,
+				"time_down_event": {
+					"event":"boom"
+				}
+			}
+		},
+		"events": {
+			"boom": {
+			  "add": {
+				"component_groups": [
+					"boom"
+				]
+			}
+		}
+		}
+	}
+}

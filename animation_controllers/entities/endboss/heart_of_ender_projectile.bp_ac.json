@@ -1,0 +1,158 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.heart_of_ender.projectile": {
+            "initial_state": "in_air",
+            "states": {
+                "in_air": {
+                    "transitions": [
+                        {
+                            "hit": "q.variant == 1 && (q.life_time > 1)"
+                        },
+                        {
+                            "reset_hit": "q.variant == 1 && (q.life_time <= 1)"
+                        },
+                        {
+                            "hit_ground_0": "q.is_on_ground && q.life_time < 1.75"
+                        },
+                        {
+                            "hit_ground_1": "q.is_on_ground && q.life_time >= 1.75 && q.life_time < 4"
+                        },
+                        {
+                            "hit_ground_2": "(q.is_on_ground && q.life_time >= 4) || q.life_time >= 13.5"
+                        },
+                        {
+                            "hit_water": "q.is_in_water"
+                        }
+                    ],
+                    "on_entry": ["v.tick_delay = q.life_time;"]
+                },
+                "reset_hit": {
+                    "transitions": [{ "in_air": "1.0" }],
+                    "on_entry": ["@s xp:reset_impact"]
+                },
+                "hit": {
+                    "transitions": [{
+                            "hit_ground_0": "q.is_on_ground && q.life_time < 1.75"
+                        },
+                        {
+                            "hit_ground_1": "q.is_on_ground && q.life_time >= 1.75 && q.life_time < 4"
+                        },
+                        {
+                            "hit_ground_2": "(q.is_on_ground && q.life_time >= 4) || q.life_time >= 13.5"
+                        },
+                        {
+                            "in_air": "!q.is_on_ground && (q.life_time - v.tick_delay) >= 0.1"
+                        }
+                    ],
+                    "on_entry": [
+                        "v.tick_delay = q.life_time;",
+                        "@s xp:reset_impact",
+                        "/execute at @s run playsound ender_smite.laser_impact @a[r=40] ~~~ 0.95 1.35 0.01",
+                        "/particle xp:heart_impact_bits ~~~"
+                        // "/particle xp:electric_heart1 ~~~",
+                        // "/particle xp:electric3 ~~~"
+                    ]
+                },
+                "hit_ground_0": {
+                    "on_entry": [
+                        "/camerashake add @a[r=3] 0.15 0.2 rotational",
+                        "/camerashake add @a[r=5] 0.1 0.2 rotational",
+                        "/camerashake add @a[r=7] 0.075 0.2 rotational",
+                        "/camerashake add @a[r=9] 0.05 0.2 rotational",
+                        "/camerashake add @a[r=11] 0.025 0.1 rotational",
+                        "/camerashake add @a[r=15] 0.01 0.1 rotational",
+                        "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.95 1.35 0.05",
+                        "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.75 0.35 0.05",
+                        "/execute at @s run playsound mob.warden.angry @a[r=90] ~~~ 0.25 0.35 0.05",
+                        "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.5 0.75 0.05",
+                        "/execute at @s run playsound mob.warden.sonic_boom @a[r=90] ~~~ 0.35 0.85 0.05",
+                        "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.75 1.1 0.05",
+                        "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.5 0.75 0.05",
+                        "/particle xp:heart_impact_pulse ~~0.1~",
+                        "/particle xp:heart_impact_ripple ~~0.1~",
+                        "/particle xp:heart_impact_flash ~~-0.2~",
+                        "/particle xp:heart_impact_glow ~~-0.2~",
+                        "/particle xp:heart_impact_sprout ~~~",
+                        "/particle xp:electric_heart2 ~~~",
+                        "/particle xp:electric3 ~~~",
+                        "/particle xp:heart_smoke3 ~~~",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=4] 2",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=3] 5",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=2] 9",
+                        "@s xp:despawn"
+                    ]
+                },
+                "hit_ground_1": {
+                    "on_entry": [
+                        "/camerashake add @a[r=7] 0.2 0.2 rotational",
+                        "/camerashake add @a[r=9] 0.175 0.2 rotational",
+                        "/camerashake add @a[r=11] 0.15 0.2 rotational",
+                        "/camerashake add @a[r=13] 0.1 0.2 rotational",
+                        "/camerashake add @a[r=15] 0.05 0.1 rotational",
+                        "/camerashake add @a[r=17] 0.01 0.1 rotational",
+                        "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.95 1.35 0.075",
+                        "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.75 0.35 0.075",
+                        "/execute at @s run playsound mob.warden.angry @a[r=90] ~~~ 0.75 0.35 0.075",
+                        "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.95 0.5 0.075",
+                        "/execute at @s run playsound mob.warden.sonic_boom @a[r=90] ~~~ 0.85 0.65 0.075",
+                        "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.75 1.1 0.075",
+                        "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.5 0.75 0.075",
+                        "/particle xp:heart_impact_pulse1 ~~0.1~",
+                        "/particle xp:heart_impact_ripple1 ~~0.1~",
+                        "/particle xp:heart_impact_flash1 ~~-0.2~",
+                        "/particle xp:heart_impact_glow1 ~~-0.2~",
+                        "/particle xp:heart_impact_sprout1 ~~0.15~",
+                        "/particle xp:electric_heart2 ~~~",
+                        "/particle xp:electric_heart3 ~~~",
+                        "/particle xp:electric4 ~~~",
+                        "/particle xp:heart_smoke2 ~~~",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=5] 2",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=4] 7",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=2] 12",
+                        "@s xp:despawn"
+                    ]
+                },
+                "hit_ground_2": {
+                    "animations": ["enders_heart_blast.attack_stage_1"],
+                    "on_entry": [
+                        "/camerashake add @a[r=9] 0.25 0.2 rotational",
+                        "/camerashake add @a[r=11] 0.2 0.2 rotational",
+                        "/camerashake add @a[r=13] 0.15 0.2 rotational",
+                        "/camerashake add @a[r=15] 0.1 0.2 rotational",
+                        "/camerashake add @a[r=17] 0.05 0.1 rotational",
+                        "/camerashake add @a[r=20] 0.01 0.1 rotational",
+                        "/execute at @s run playsound ender_smite.laser_impact @a[r=120] ~~~ 0.95 1.35 0.125",
+                        "/execute at @s run playsound ender_smite.laser_impact @a[r=120] ~~~ 0.75 0.35 0.125",
+                        "/execute at @s run playsound mob.warden.angry @a[r=120] ~~~ 0.85 0.35 0.075",
+                        "/execute at @s run playsound mob.warden.attack @a[r=120] ~~~ 0.75 0.75 0.075",
+                        "/execute at @s run playsound mob.warden.sonic_boom @a[r=120] ~~~ 0.5 0.85 0.075",
+                        "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.75 1.1 0.1",
+                        "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.5 0.75 0.1",
+                        "/particle xp:heart_impact_pulse2 ~~0.1~",
+                        "/particle xp:heart_impact_ripple2 ~~0.1~",
+                        "/particle xp:heart_impact_flash2 ~~-0.2~",
+                        "/particle xp:heart_impact_glow2 ~~-0.2~",
+                        "/particle xp:heart_impact_sprout2 ~~0.15~",
+                        "/particle xp:heart_impact_sprout1 ~~0.1~",
+                        "/particle xp:electric_heart2 ~~~",
+                        "/particle xp:electric_heart3 ~~~",
+                        "/particle xp:electric_heart4 ~~~",
+                        "/particle xp:electric3 ~~~",
+                        "/particle xp:electric5 ~~~",
+                        "/particle xp:heart_smoke1 ~~~",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=5.5] 7",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=4] 12",
+                        "/damage @e[tag=!enders_heart_blast,type=!xp:endboss_hitbox,r=3] 15"
+                    ]
+                },
+                "hit_water": {
+                    "on_entry": [
+                        "/execute at @s run playsound mob.axolotl.splash @a[r=20] ~~~ 0.9 1.0 0.01",
+                        "@s xp:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

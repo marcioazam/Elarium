@@ -1,0 +1,73 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "edx:crocus_features_rules",
+      "places_feature": "edx:crocus_feature"
+    },
+    "conditions": {
+      "placement_pass": "after_surface_pass",
+      "minecraft:biome_filter": [
+        {
+          "all_of": [
+            {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "taiga"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "taiga_hills"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "taiga_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mega_taiga"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mega_taiga_hills"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "redwood_taiga_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "redwood_taiga_hills_mutated"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 50,
+      "coordinate_eval_order": "zyx",
+      "x": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      },
+      "y": {
+        "distribution": "uniform",
+        "extent": [ 60, 150 ]
+      },
+      "z": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      }
+    }
+  }
+}

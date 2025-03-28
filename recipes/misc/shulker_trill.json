@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:shulker_trill_recipe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X",
+      "G",
+      "X"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:shulker_shell"
+      },
+      "G": {
+        "item": "minecraft:chorus_fruit"
+      }
+    },
+    "result": {
+      "item": "xp:shulker_trill"
+    }
+  }
+}

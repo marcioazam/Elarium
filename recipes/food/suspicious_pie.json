@@ -1,0 +1,77 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:suspicious_pie"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "#CQ",
+      "BDE",
+      "FGH"
+  ],
+  "key": {
+      "#": {
+          "item": "minecraft:sugar"
+      },
+      "C": {
+          "item": "minecraft:egg"
+      },
+      "Q": {
+          "item": "minecraft:brown_mushroom"
+      },
+      "B": {
+          "item": "minecraft:red_mushroom"
+      },
+      "D": {
+        "item": "edx:yellow_mushroom_it"
+    },
+    "E": {
+      "item": "edx:blue_mushroom_it"
+  },
+  "F": {
+    "item": "edx:cordyceps_it"
+},
+"G": {
+  "item": "edx:green_mushroom_it"
+},
+"H": {
+  "item": "edx:white_mushroom_it"
+}
+  },
+    "unlock": [
+      {
+        "item": "minecraft:egg"
+      },
+      {
+        "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+  },
+  {
+    "item": "minecraft:red_mushroom"
+},
+{
+  "item": "edx:yellow_mushroom_it"
+},
+{
+  "item": "edx:blue_mushroom_it"
+},
+{
+  "item": "edx:cordyceps_it"
+},
+{
+  "item": "edx:green_mushroom_it"
+},
+{
+  "item": "edx:white_mushroom_it"
+}
+    ],
+    "result": {
+      "item": "edx:suspicious_pie"
+    }
+  }
+}

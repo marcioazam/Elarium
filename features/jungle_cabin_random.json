@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:jungle_cabin_random"
+    },
+    "features": [
+      [ "edx:junglec1", 1 ],
+      [ "edx:junglec2", 1 ],
+      [ "edx:nothing_feature", 20 ]
+    ]
+  }
+}

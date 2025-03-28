@@ -1,0 +1,87 @@
+{
+   //nether
+   "format_version": "1.16.0",
+   "minecraft:entity": {
+      "description": {
+         "identifier": "edx:blazeblade_off",
+         "is_spawnable": false,
+         "is_summonable": true,
+         "is_experimental": false
+      },
+      "component_groups": {
+         "revive": {
+            "minecraft:transformation": {
+              "into": "edx:blazeblade<minecraft:entity_spawned>"
+            }
+          },
+         "start_revive":{
+            "minecraft:timer": {
+              "looping": false,
+              "time": 3,
+              "time_down_event": {
+                "event": "revive"
+              }
+            }
+          }
+      },
+      "components": {
+         "minecraft:interact": {
+            "interactions": {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    { "test": "has_equipment", "domain": "hand", "subject": "other", "value": "edx:blaze_heart" }
+                  ]
+                },
+                "event": "start_revive",
+                "target": "self"
+              },
+              "use_item": true, 
+              "interact_text": "action.interact.revive"
+            }
+          },
+         "minecraft:collision_box": {
+            "width": 0.95,
+            "height": 0.95
+         },
+         "minecraft:health": {
+            "value": 1000,
+            "max": 1000
+         },
+         "minecraft:physics": {},
+         "minecraft:pushable": {
+            "is_pushable": false,
+            "is_pushable_by_piston": false
+         },
+         "minecraft:damage_sensor": {
+            "triggers": {
+               "on_damage": {
+                  "filters": {}
+               },
+               "deals_damage": false
+            }
+         }
+      },
+      "events": {
+         "start_revive": {
+            "queue_command": {
+               "command": [
+                 "playanimation @s animation.blazeblade.wake_up"
+               ]
+              },
+            "add": {
+               "component_groups": [
+                  "start_revive"
+               ]
+            }
+         },
+         "revive": {
+            "add": {
+               "component_groups": [
+                  "revive"
+               ]
+            }
+         }
+      }
+   }
+}

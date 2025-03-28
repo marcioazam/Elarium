@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "dungeons:piglin_fungus_thrower",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+
+        "minecraft:spawns_on_block_prevented_filter": [
+          "minecraft:nether_wart_block",
+          "minecraft:shroomlight"
+        ],
+        "minecraft:difficulty_filter": {
+          "min": "peaceful",
+          "max": "hard"
+        },
+
+        "minecraft:weight": {
+          "default": 3
+        },
+
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 3
+        },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "spawn_piglin"
+        }
+      }
+    ]
+  }
+}

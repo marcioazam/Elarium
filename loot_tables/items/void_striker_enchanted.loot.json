@@ -1,0 +1,28 @@
+{
+    "pools": [{
+        "rolls": 1,
+        "entries": [{
+            "type": "item",
+            "name": "xp:void_striker_enchanted",
+            "weight": 1,
+            "functions": [
+                {
+                    "function": "set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 1
+                    }
+                },
+                {
+                    "function": "set_lore",
+                    "lore": [
+                        "§r§l[//]§r to §5Cast a projectile§r and TP to it",
+                        "",
+                        "§r§9+13 Attack Damage§r§o",
+                        "§r§9+16 Ranged Damage§r§o"
+                    ]
+                }
+            ]
+        }]
+    }]
+}

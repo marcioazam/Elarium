@@ -1,0 +1,167 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+
+    "controller.animation.eye_of_guardian.shield": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "lost_shield": "q.health <= 66 && q.skin_id == 0"
+            }
+          ]
+        },
+
+        "lost_shield": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:stage_lost_ring"
+          ],
+          "transitions": [
+            {
+              "unshield": "(q.life_time - v.tick_delay) >= 1.25"
+            }
+          ]
+        },
+        "unshield": {
+          "on_entry": [
+            "@s xp:stage_unshield"
+          ],
+          "on_exit": [
+            "@s xp:stage_shield"
+          ],
+          "transitions": [
+            {
+              "default": "q.health > 66"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.eye_of_guardian.regeneration": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "regeneration": "q.skin_id == 1"
+            }
+          ]
+        },
+
+        "regeneration": {
+          "animations": [
+            "eye_guardian.regeneration"
+          ],
+          "on_exit": [
+            "@s xp:remove_regeneration",
+            "/effect @s regeneration 0 0 true"
+          ],
+          "transitions": [
+            {
+              "default": "q.health >= 87"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.eye_of_guardian.pull": {
+      "initial_state": "default",
+      "states": {
+        
+        "default": {
+          "transitions": [ { "target.check_1": "!q.is_stunned && q.has_target" } ]
+        },
+
+        "target.check_1": {
+          "on_entry": [
+            "/execute as @a[tag=elytra_flying,tag=!riding,r=75] unless entity @s[x=~,y=~-55,z=~,r=55] unless entity @s[x=~,y=~35,z=~,r=35] at @s run function eye_of_guardian/track_player",
+            "/execute if score \"#eye_of_guardian_target\" var matches 1 run function eye_of_guardian/valid_target"
+          ],
+          "transitions": [
+            { "lost_target": "!q.has_target" },
+            { "target.valid": "q.is_stunned" },
+            { "target.check_2": "1" }
+          ]
+        },
+        "target.check_2": {
+          "on_entry": [
+            "/execute as @a[tag=elytra_flying,tag=!riding,r=75] unless entity @s[x=~,y=~-55,z=~,r=55] unless entity @s[x=~,y=~35,z=~,r=35] at @s run function eye_of_guardian/track_player",
+            "/execute if score \"#eye_of_guardian_target\" var matches 1 run function eye_of_guardian/valid_target"
+          ],
+          "transitions": [
+            { "lost_target": "!q.has_target" },
+            { "target.valid": "q.is_stunned" },
+            { "target.check_1": "1" }
+          ]
+        },
+
+        "target.valid": {
+          "on_entry": [
+            "v.laser_delay = q.life_time + 0.7;"
+          ],
+          "transitions": [ { "target.laser": "q.life_time > v.laser_delay" } ]
+        },
+
+        "target.laser": {
+          "on_entry": [
+            "v.laser_delay = q.life_time + 12.0;"
+          ],
+          "transitions": [ { "lost_target": "!q.is_stunned || q.life_time > v.laser_delay" } ]
+        },
+
+        "lost_target": {
+          "on_entry": [
+            "/event entity @e[type=xp:eye_of_guardian.rider,c=1,r=85] xp:instant_despawn",
+            "/tag @s remove track_player",
+            "/event entity @s xp:remove_track_player"
+          ],
+          "transitions": [ { "default": "1" } ]
+        }
+
+      }
+    },
+
+    "controller.animation.eye_of_guardian.facing": {
+      "initial_state": "init",
+      "states": {
+        
+        "init": {
+          "transitions": [ { "default": "q.is_alive" } ],
+          "on_exit": [ "/tp @s ~ ~-0.01 ~" ]
+        },
+
+        "default": {
+          "transitions": [
+            { "north": "q.mark_variant == 1" },
+            { "south": "q.mark_variant == 2" },
+            { "west": "q.mark_variant == 3" },
+            { "east": "q.mark_variant == 4" }
+          ]
+        },
+
+        "north": {
+          "on_entry": [ "/tp @s ~ ~ ~ 180 0", "/tp @s ~ ~ ~ 180 0" ],
+          "transitions": [ { "default": "q.mark_variant != 1" } ]
+        },
+        "south": {
+          "on_entry": [ "/tp @s ~ ~ ~ 0 0", "/tp @s ~ ~ ~ 0 0" ],
+          "transitions": [ { "default": "q.mark_variant != 2" } ]
+        },
+        "west": {
+          "on_entry": [ "/tp @s ~ ~ ~ 90 0", "/tp @s ~ ~ ~ 90 0" ],
+          "transitions": [ { "default": "q.mark_variant != 3" } ]
+        },
+        "east": {
+          "on_entry": [ "/tp @s ~ ~ ~ 270 0", "/tp @s ~ ~ ~ 270 0" ],
+          "transitions": [ { "default": "q.mark_variant != 4" } ]
+        }
+
+      }
+    }
+
+  }
+}

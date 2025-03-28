@@ -1,0 +1,25 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:moss_carpet_feature"
+      },
+      "places_block": "minecraft:moss_carpet",
+      "enforce_placement_rules": true,
+      "enforce_survivability_rules": true,
+      "may_attach_to": {
+        "bottom":  [
+          "minecraft:dirt",
+          "edx:mossed_stone",
+          "minecraft:grass",
+          "minecraft:podzol",
+          "minecraft:dirt_with_roots",
+          "minecraft:moss_block"
+
+      ]
+    },
+      "may_replace": [
+        "minecraft:air"
+      ]
+    }
+  }

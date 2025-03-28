@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "enchanters_tome"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "PDB",
+      "DED",
+      "BDP"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "B": {
+        "item": "minecraft:lapis_lazuli"
+      },
+      "P": {
+        "item": "minecraft:gold_ingot"
+      },
+      "E": {
+        "item": "minecraft:book"
+      }
+    },
+    "result": {
+      "item": "dungeons:enchanters_tome",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:nether_cave_carver_feature": {
+        "description": {
+            "identifier": "edx:nether_caves_feature"
+        },
+        "fill_with": "minecraft:air",
+        "width_modifier": 3
+    }
+}

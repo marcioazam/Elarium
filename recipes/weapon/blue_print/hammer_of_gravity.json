@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_hammer_of_gravity"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:hammer_of_gravity"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:hammer_of_gravity"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:hammer_of_gravity", "count": 1 },
+      { "item": "dungeons:hammer_of_gravity", "count": 1 }
+    ]
+  }
+}

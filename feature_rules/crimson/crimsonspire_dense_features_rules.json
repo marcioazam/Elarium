@@ -1,0 +1,45 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:crimsonspire_dense_features_rules",
+			"places_feature": "edx:crimson/dense/crimsonspire_first_biome_check"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": [
+				{
+				  "any_of": [
+					
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "crimson_forest"
+					}
+				  ]
+				}
+			  ]
+		},
+		"distribution": {
+			"iterations": 10,
+			"x": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					15
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [ 5, 250 ]
+			  },
+			"z": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					15
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "xp:bulb_blossom",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.grass"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [ -8.0, 0, -8.0 ],
+				"size": [ 0.1, 0.1, 0.1 ]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 1.7
+			},
+			"minecraft:light_emission": 12,
+			"minecraft:geometry": "geometry.bulb_blossom",
+			"minecraft:material_instances": {
+				"*": {
+					"ambient_occlusion": false,
+					"face_dimming": false,
+					"texture": "bulb_blossom",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:map_color": "#eaa0ff"
+		}
+	}
+}

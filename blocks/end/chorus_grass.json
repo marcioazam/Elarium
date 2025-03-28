@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+	"identifier": "edx:chorus_grass",
+	"menu_category": {
+	  "category": "nature"
+	}
+  },
+  "components": { 
+	  "minecraft:destructible_by_mining": {
+		"seconds_to_destroy": 9
+	  }, 
+	  "tag:edx:stone": {},
+	  "minecraft:destructible_by_explosion": {
+		"explosion_resistance": 20
+	  },
+	  "minecraft:map_color": "#6a476a",
+	  "minecraft:collision_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  },
+	  "minecraft:selection_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  }
+  }
+	}
+}

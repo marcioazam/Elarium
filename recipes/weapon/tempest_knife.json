@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "tempest_knife"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " II",
+      " I ",
+      "S  "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:tempest_knife",
+      "count": 1
+    }
+  }
+}

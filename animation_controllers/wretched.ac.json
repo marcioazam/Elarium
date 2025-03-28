@@ -1,0 +1,21 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.wretched_wraith.death":{
+    "states":{
+        "default":{
+            "transitions":[
+                {
+                    "dead":"q.is_alive == 0"
+                }
+            ]
+        },
+        "dead":{
+            "on_entry":[
+                "/event entity @s dungeons:start_death"
+            ]
+        }
+    }
+}
+}
+}

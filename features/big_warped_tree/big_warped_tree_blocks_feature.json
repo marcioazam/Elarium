@@ -1,0 +1,12 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:aggregate_feature": {
+		"description": {
+		  "identifier": "edx:big_warped_tree/big_warped_tree_blocks_feature"
+		},
+		"features": [
+			"edx:big_warped_tree/shroomlight_warped_tree_scatter_feature",
+			"edx:big_warped_tree/warped_stem_random_scatter_feature" 
+		]
+	}
+}

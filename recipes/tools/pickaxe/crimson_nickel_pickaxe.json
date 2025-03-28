@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:crimson_nickel_pickaxe"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "XXX",
+      " # ",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "edx:crimson_stick"
+      },
+      "X": {
+        "item": "edx:nickel_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:nickel_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:crimson_nickel_pickaxe"
+    }
+  }
+}

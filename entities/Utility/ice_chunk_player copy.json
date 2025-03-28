@@ -1,0 +1,159 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:ice_chunk_player",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:hit": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate"
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:scale": {
+        "value": 1.8
+      },
+      "minecraft:behavior.timer_flag_1": {
+        "priority": 0,
+        "cooldown_range": 0,
+        "duration_range": [
+          4,
+          4
+        ],
+        "on_end": {
+          "event": "dungeons:stop",
+          "target": "self"
+        }
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "time": 4.9,
+        "time_down_event": {
+          "event": "dungeons:hit"
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+          "cause": "all",
+          "deals_damage": false
+        }]
+      },
+      "minecraft:movement": {
+        "value": 0.36
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": true
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "entity_types": [{
+            "filters": {
+              "all_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                }
+              ]
+            },
+            "max_dist": 24
+          }
+        ],
+        "must_see": false
+      },
+      "minecraft:attack": {
+        "damage": 0
+      },
+      "minecraft:body_rotation_blocked": {
+      },
+      "minecraft:behavior.delayed_attack": {
+        "priority": 1,
+        "track_target": true,
+        "require_complete_path": false,
+        "random_stop_interval": 0,
+        "reach_multiplier": 0,
+        "cooldown_time": 0.01,
+        "speed_multiplier": 1,
+        "attack_duration": 999999,
+        "hit_delay_pct": 1
+      },
+      "minecraft:behavior.move_towards_target": {
+        "priority": 0,
+        "within_radius": 0,
+        "speed_multiplier": 2
+      },
+      "minecraft:variable_max_auto_step": {
+        "base_value": 1.0625, // 1 block + 1 pixel
+        "jump_prevented_value": 0.5625 // 0.5 blocks + 1 pixel
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:follow_range": {
+        "value": 64
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 4.5
+      }
+    },
+    "events": {
+     "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "effect @s weakness 989999 99 true"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tp @s @e[r=4,family=monster,c=1]",
+            "tp ~~4.5 ~"
+          ]
+        }
+      },
+      "dungeons:stop": {
+        "queue_command": {
+          "command": [
+            "effect @s slowness 989999 99 true"
+          ]
+        }
+      },
+      "dungeons:hit": {
+        "queue_command": {
+          "command": [
+            "playsound random.glass @a[r=64] ~~~",
+            "summon dungeons:player_ice_knockback ~~-1~",
+            "effect @e[type=!item,family=!inanimate,type=!item,r=2.5] slowness 1 8 true",
+            "damage @e[type=!item,type=!dungeons:iceologer,family=!inanimate,type=!item,r=2.5] 10 freezing"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:hit"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:block": {
+    "description": {
+      "identifier": "connected_glasses:connected_magenta_stained_glass",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "connected_glasses:up": [false, true],
+        "connected_glasses:down": [false, true],
+        "connected_glasses:north": [false, true],
+        "connected_glasses:east": [false, true],
+        "connected_glasses:south": [false, true],
+        "connected_glasses:west": [false, true],
+        "connected_glasses:north_east": [false, true],
+        "connected_glasses:east_south": [false, true],
+        "connected_glasses:south_west": [false, true],
+        "connected_glasses:west_north": [false, true]
+      }
+    },
+    "components": {
+     
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.45
+      },
+      "minecraft:custom_components": [
+        "connected_glasses:connectedGlassComp"
+      ],
+      "minecraft:light_dampening": 0,
+      "minecraft:display_name": "tile.connected_glasses:connected_magenta_stained_glass.name",
+      
+      // Textures
+      "minecraft:material_instances": {
+        "block": {
+          "texture": "connected_magenta_stained_glass",
+          "render_method": "blend",
+          "ambient_occlusion": false
+        },
+        "*": {
+          "texture": "connected_magenta_stained_glass_border",
+          "render_method": "blend",
+          "ambient_occlusion": false
+        }
+      },
+      
+      // Geometry
+      "minecraft:geometry": {
+        "identifier": "geometry.connected_texture",
+        "bone_visibility": {
+// Block
+          "b_north": "!q.block_state('connected_glasses:north')",
+          "b_east": "!q.block_state('connected_glasses:east')",
+          "b_south": "!q.block_state('connected_glasses:south')",
+          "b_west": "!q.block_state('connected_glasses:west')",
+          "b_up": "!q.block_state('connected_glasses:up')",
+          "b_down": "!q.block_state('connected_glasses:down')",
+// North
+          "n_up": "!q.block_state('connected_glasses:up') && !q.block_state('connected_glasses:north')",
+          "n_down": "!q.block_state('connected_glasses:down') && !q.block_state('connected_glasses:north')",
+          "n_left": "!q.block_state('connected_glasses:west') && !q.block_state('connected_glasses:north')",
+          "n_right": "!q.block_state('connected_glasses:east') && !q.block_state('connected_glasses:north')",
+// East
+          "e_up": "!q.block_state('connected_glasses:up') && !q.block_state('connected_glasses:east')",
+          "e_down": "!q.block_state('connected_glasses:down') && !q.block_state('connected_glasses:east')",
+          "e_left": "!q.block_state('connected_glasses:north') && !q.block_state('connected_glasses:east')",
+          "e_right": "!q.block_state('connected_glasses:south') && !q.block_state('connected_glasses:east')",
+// South
+          "s_up": "!q.block_state('connected_glasses:up') && !q.block_state('connected_glasses:south')",
+          "s_down": "!q.block_state('connected_glasses:down') && !q.block_state('connected_glasses:south')",
+          "s_left": "!q.block_state('connected_glasses:east') && !q.block_state('connected_glasses:south')",
+          "s_right": "!q.block_state('connected_glasses:west') && !q.block_state('connected_glasses:south')",
+// West
+          "w_up": "!q.block_state('connected_glasses:up') && !q.block_state('connected_glasses:west')",
+          "w_down": "!q.block_state('connected_glasses:down') && !q.block_state('connected_glasses:west')",
+          "w_left": "!q.block_state('connected_glasses:south') && !q.block_state('connected_glasses:west')",
+          "w_right": "!q.block_state('connected_glasses:north') && !q.block_state('connected_glasses:west')",
+// Up
+          "u_up": "!q.block_state('connected_glasses:south') && !q.block_state('connected_glasses:up')",
+          "u_down": "!q.block_state('connected_glasses:north') && !q.block_state('connected_glasses:up')",
+          "u_left": "!q.block_state('connected_glasses:west') && !q.block_state('connected_glasses:up')",
+          "u_right": "!q.block_state('connected_glasses:east') && !q.block_state('connected_glasses:up')",
+          "u_up_right": "(!q.block_state('connected_glasses:east') || !q.block_state('connected_glasses:south') || !q.block_state('connected_glasses:east_south')) && !q.block_state('connected_glasses:up')",
+          "u_up_left": "(!q.block_state('connected_glasses:west') || !q.block_state('connected_glasses:south') || !q.block_state('connected_glasses:south_west')) && !q.block_state('connected_glasses:up')",
+          "u_down_right": "(!q.block_state('connected_glasses:east') || !q.block_state('connected_glasses:north') || !q.block_state('connected_glasses:north_east')) && !q.block_state('connected_glasses:up')",
+          "u_down_left": "(!q.block_state('connected_glasses:west') || !q.block_state('connected_glasses:north') || !q.block_state('connected_glasses:west_north')) && !q.block_state('connected_glasses:up')",
+// Down
+          "d_up": "!q.block_state('connected_glasses:south') && !q.block_state('connected_glasses:down')",
+          "d_down": "!q.block_state('connected_glasses:north') && !q.block_state('connected_glasses:down')",
+          "d_left": "!q.block_state('connected_glasses:west') && !q.block_state('connected_glasses:down')",
+          "d_right": "!q.block_state('connected_glasses:east') && !q.block_state('connected_glasses:down')",
+          "d_up_right": "(!q.block_state('connected_glasses:east') || !q.block_state('connected_glasses:south') || !q.block_state('connected_glasses:east_south')) && !q.block_state('connected_glasses:down')",
+          "d_up_left": "(!q.block_state('connected_glasses:west') || !q.block_state('connected_glasses:south') || !q.block_state('connected_glasses:south_west')) && !q.block_state('connected_glasses:down')",
+          "d_down_right": "(!q.block_state('connected_glasses:east') || !q.block_state('connected_glasses:north') || !q.block_state('connected_glasses:north_east')) && !q.block_state('connected_glasses:down')",
+          "d_down_left": "(!q.block_state('connected_glasses:west') || !q.block_state('connected_glasses:north') || !q.block_state('connected_glasses:west_north')) && !q.block_state('connected_glasses:down')"
+        }
+      }
+    }
+  }
+}

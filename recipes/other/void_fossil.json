@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:void_fossil"
+    },
+
+    
+    "tags": [ "crafting_table","workbench" ],
+    "pattern": [
+      "T"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:void_fossil_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:void_fossil"
+      }
+    ],
+    "result": {
+      "item": "edx:void_fossil",
+      "count":9
+    }
+  }
+}

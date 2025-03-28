@@ -1,0 +1,56 @@
+{
+    "format_version": "1.14.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:touched_ends.attack.explode",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:behavior.knockback_roar": {
+                "duration": 1,
+                "attack_time": 0.1,
+                "knockback_damage": 0,
+                "knockback_horizontal_strength": 3,
+                "knockback_vertical_strength": 3,
+                "knockback_range": 3
+            },
+            "minecraft:timer": {
+              "time": 0.75,
+              "looping": false,
+              "time_down_event": {
+                "event": "xp:despawn"
+              }
+            },
+			"minecraft:breathable": { "breathes_solids": true },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                  "cause": "all",
+                  "deals_damage": false
+                }
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "width": 0.0001,
+                "height": 0.0001
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            }
+        },
+        "component_groups": {
+            "xp:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "events": {
+            "xp:despawn": { "add": { "component_groups": [ "xp:despawn" ] } }
+        }
+    }
+}

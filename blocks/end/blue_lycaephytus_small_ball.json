@@ -1,0 +1,48 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:blue_lycaephytus_small_ball",
+		"menu_category": {
+		  "category": "none"
+		}
+	  },
+	  "components": {
+		"minecraft:light_dampening": 0,
+		"minecraft:light_emission": 0,
+		"minecraft:collision_box": false,
+		"tag:no_silktouch": {},
+		"minecraft:selection_box": {
+			"origin": [-5,0,-5],
+			"size": [10,16,10]
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.double_cross"
+		},
+		"minecraft:loot": "loot_tables/blocks/blue_lycaephytus_small.json",
+		"minecraft:material_instances": {
+		  "*": {
+			"texture": "blue_lycaephytus_small_ball",
+			"render_method": "alpha_test",
+			"ambient_occlusion": false,
+			"face_dimming": false
+		  }
+		},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  }, 
+		"minecraft:placement_filter": {
+		  "conditions": [
+			{
+			  "allowed_faces": [
+				"up"
+			  ],
+			  "block_filter": [
+				"edx:shulk_grass"
+			  ]
+			}
+		  ]
+		}
+	  }
+	}
+}

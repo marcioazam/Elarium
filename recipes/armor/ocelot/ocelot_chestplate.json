@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ocelot_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "L L",
+      "LLL",
+      "BBB"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "B": {
+        "item": "minecraft:cocoa_beans"
+      }
+    },
+    "result": {
+      "item": "dungeons:ocelot_chestplate",
+      "count": 1
+    }
+  }
+}

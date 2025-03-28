@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/titans_shroud/helmet.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/titans_shroud/chestplate.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/titans_shroud/leggings.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/titans_shroud/boots.json"
+        }
+      ]
+    }
+  ]
+}

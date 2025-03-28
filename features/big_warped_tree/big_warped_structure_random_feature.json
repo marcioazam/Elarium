@@ -1,0 +1,16 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:aggregate_feature": {
+    "description": {
+      "identifier": "edx:big_warped_tree/big_warped_structure_random_feature"
+    },
+    "features": [
+       "edx:big_warped_tree/big_warped6_structure_feature",
+       "edx:big_warped_tree/big_warped5_structure_feature", 
+       "edx:big_warped_tree/big_warped4_structure_feature",      
+       "edx:big_warped_tree/big_warped3_structure_feature", 
+       "edx:big_warped_tree/big_warped2_structure_feature",
+       "edx:big_warped_tree/big_warped1_structure_feature"
+    ]
+  }
+}

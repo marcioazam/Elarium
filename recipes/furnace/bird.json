@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_bird"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:raw_bird_wings"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:raw_bird_wings",
+    "output": "edx:cooked_bird_wings"
+  }
+  
+}

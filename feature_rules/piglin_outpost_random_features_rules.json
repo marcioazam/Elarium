@@ -1,0 +1,33 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:piglin_outpost_random_features_rules",
+			"places_feature": "edx:piglin_outposts/piglin_outpost_random_feature"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+				  "any_of": [
+					
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "crimson_forest"
+					}
+				  ]
+				}
+			  ]
+		},
+		"distribution": { 
+			"iterations": 1000,
+			"x": -16,
+			"y": {
+				"distribution": "uniform",
+				"extent": [ 5, 250 ]
+			  },
+			  "z": -16
+		}
+	}
+}

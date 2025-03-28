@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "battlestaff"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "  S",
+      " L ",
+      "S  "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:battlestaff",
+      "count": 1
+    }
+  }
+}

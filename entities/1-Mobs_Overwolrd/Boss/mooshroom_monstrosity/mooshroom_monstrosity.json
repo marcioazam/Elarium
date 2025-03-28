@@ -1,0 +1,411 @@
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:mooshroom_monstrosity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "attack_controller",
+          "cast_controller"
+        ]
+      },
+      "animations": {
+        "cast_controller": "controller.animation.mooshroom_monstrosity.cast",
+        "cast": "animation.mooshroom_casting",
+        "attack_controller": "controller.animation.mooshroom_monstrosity.attack",
+        "attack": "animation.mooshroom_areadamage"
+      }
+    },
+    "component_groups": {
+      "dungeons:summon_ready": {
+      "minecraft:behavior.summon_entity": {
+        "priority": 2,
+        "summon_choices": [
+          {
+            "weight": 1,
+            "cooldown_time": 30,
+            "cast_duration": 2.125,
+            "start_sound_event": "cast.spell",
+            "sequence": [
+              {
+                "shape": "circle",
+                "target": "self",
+                "base_delay": 1.5,
+                "num_entities_spawned": 3,
+                "delay_per_summon": 0.17,
+                "entity_type": "dungeons:angry_mooshroom",
+                "summon_cap": 4,
+                "summon_cap_radius": 64,
+                "size": 6
+              }
+            ]
+          }
+        ]
+      },
+        "minecraft:entity_sensor": {
+          "sensor_range": 64,
+          "maximum_count": -1,
+          "minimum_count": 8,
+          "require_all": false,
+          "event_filters": {
+            "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "mooshroom_minion"
+                }
+              ]
+          },
+          "event": "dungeons:stop_summon"
+        }
+      },
+      "dungeons:summon_cap": {
+      "minecraft:entity_sensor": {
+          "sensor_range": 64,
+          "maximum_count": 5,
+          "minimum_count": 0,
+          "require_all": false,
+          "event_filters": {
+            "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "mooshroom_minion"
+                }
+              ]
+          },
+          "event": "dungeons:start_summon"
+        }
+      },
+      "dungeons:melee": {
+        "minecraft:variant":{
+          "value": 0
+         },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 2,
+          "cooldown_time": 0.075,
+          "speed_multiplier": 1.4,
+          "attack_duration": 1.2,
+          "hit_delay_pct": 0.8
+        }
+      },
+      "dungeons:ranged": {
+        "minecraft:variant":{
+          "value": 1
+         },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_radius": 32,
+          "charge_shoot_trigger": 2.25,
+          "charge_charged_trigger": 1.5,
+          "burst_shots": 8,
+          "burst_interval": 0.5
+        },
+        "minecraft:shooter": {
+          "def": "dungeons:mushroom_rocket"
+        }
+      }
+    },
+    "components": {
+      "minecraft:mob_effect": {
+        "mob_effect": "strength",
+        "effect_range": 12,
+        "effect_time": 10,
+        "cooldown_time": 60,
+        "entity_filter": [{
+          "test": "is_family",
+          "subject": "other",
+          "value": "monster"
+        },
+        {
+          "test": "is_family",
+          "subject": "other",
+          "value": "mob"
+        }]
+      },
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 24,
+          "outside_range": 24,
+          "must_see": false,
+          "on_inside_range": {
+            "event": "dungeons:start_melee",
+            "target": "self"
+          },
+          "on_outside_range": {
+            "event": "dungeons:start_ranged",
+            "target": "self"
+          }
+        },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 1500 : 750"
+      },
+      "minecraft:attack": {
+        "damage": 33
+      },
+       "minecraft:breathable": {
+        "suffocate_time": 0,
+        "total_supply": 150,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:collision_box": {
+        "height": 4.7,
+        "width": 3.5
+      },
+      "minecraft:health": {
+        "max": 1600,
+        "value": 1600
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "cause": "entity_explosion",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:jump.static": {},
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "bamboo",
+          "bamboo_sapling",
+          "beetroot",
+          "brown_mushroom",
+          "carrots",
+          "carved_pumpkin",
+          "chorus_flower",
+          "chorus_plant",
+          "deadbush",
+          "double_plant",
+          "leaves",
+          "leaves2",
+          "lit_pumpkin",
+          "melon_block",
+          "melon_stem",
+          "potatoes",
+          "pumpkin",
+          "pumpkin_stem",
+          "red_flower",
+          "red_mushroom",
+          "crimson_fungus",
+          "warped_fungus",
+          "reeds",
+          "sapling",
+          "snow_layer",
+          "sweet_berry_bush",
+          "tallgrass",
+          "turtle_egg",
+          "vine",
+          "waterlily",
+          "wheat",
+          "yellow_flower",
+          "azalea",
+          "flowering_azalea",
+          "azalea_leaves",
+          "azalea_leaves_flowered",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf",
+          "spore_blossom",
+          "hanging_roots",
+          "mangrove_leaves",
+          "brown_mushroom_block",
+          "red_mushroom_block"
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/mooshroom_monstrosity.json"
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 5,
+        "angle_of_view_vertical": 75,
+        "look_distance": 28
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "angle_of_view_vertical": 75,
+        "look_distance": 28
+      },
+      "minecraft:movement": {
+        "value": 0.18
+      },
+      "minecraft:lava_movement": {
+        "value": 0.18
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:movement.basic": {},
+      "minecraft:nameable": {},
+      "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:physics": {},
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 48,
+        "name": " §5Mooshroom Monstrosity§r "
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "boss" }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 32,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 48
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:follow_range": {
+        "value": 64
+      },
+      "minecraft:type_family": {
+        "family": [
+          "mooshroom_monstrosity",
+          "monster",
+          "monstrosity",
+          "mob",
+          "boss",
+          "gravity_immune",
+          "redstone",
+          "mooshroom"
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:summon_ready"
+          ]
+        }
+      },
+      "minecraft:entity_transformed": {
+        "add": {
+          "component_groups": [
+            "dungeons:summon_ready"
+          ]
+        }
+      },
+      "dungeons:start_summon": {
+        "add": {
+          "component_groups": [
+            "dungeons:summon_ready"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:summon_cap"
+          ]
+        }
+      },
+      "dungeons:stop_summon": {
+        "add": {
+          "component_groups": [
+            "dungeons:summon_cap"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:summon_ready"
+          ]
+        }
+      },
+      "dungeons:start_melee": {
+        "add": {
+          "component_groups": [
+            "dungeons:melee"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:ranged"
+          ]
+        }
+      },
+      "dungeons:start_ranged": {
+        "add": {
+          "component_groups": [
+            "dungeons:ranged"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:melee"
+          ]
+        }
+      },
+      "dungeons:knockback_enemies": {
+        "queue_command": {
+          "command": [
+            "summon dungeons:monstrosity_knockback ~~~"
+          ]
+        }
+      }
+    }
+  }
+}

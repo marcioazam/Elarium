@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:snow_cabin_random"
+    },
+    "features": [
+      [ "edx:snowc1", 1 ],
+      [ "edx:snowc2", 1 ],
+      [ "edx:nothing_feature", 60 ]
+    ]
+  }
+}

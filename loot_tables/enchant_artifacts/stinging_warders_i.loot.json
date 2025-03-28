@@ -1,0 +1,26 @@
+{
+    "pools": [{
+        "rolls": 1,
+        "entries": [{
+            "type": "item",
+            "name": "xp:stinging_warders_enchant_i",
+            "weight": 1,
+            "functions": [
+                {
+                    "function": "set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 1
+                    }
+                },
+                {
+                    "function": "set_lore",
+                    "lore": [
+                        "§6§oSpawns §l§51 Friendly Warder§r§o",
+                        "§6§oFor a short time"
+                    ]
+                }
+            ]
+        }]
+    }]
+}

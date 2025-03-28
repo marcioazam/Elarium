@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:pure_crystal",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"crystal_of_bravery",
+				"crystal_of_youth",
+				"crystal_of_rage",
+				"crystal_of_fear"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "pure_crystal"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dPure crystal \n§5Artifact\n§6Grant speed 1 when you have less than 3 hearts\n§6Grant regeneration 1 when you have less than 3 hearts\n§6Grant strength 1 when you have less than 3 hearts\n§6Grant resistance 1 when you have less than 3 hearts"
+			  }
+		}
+	}
+}

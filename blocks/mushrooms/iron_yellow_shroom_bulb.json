@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:iron_yellow_shroom_bulb",
+			"category": "items"
+		},
+		"components": {
+			"tag:edx:stone":{},
+			"minecraft:geometry": "geometry.yellow_shroom_bulb",
+            "minecraft:collision_box": false,
+			"minecraft:selection_box": {
+                "origin": [-4,4,-4],
+                "size": [8,8,8]
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "iron_yellow_shroom_bulb",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:light_emission": 14,
+			"minecraft:destructible_by_mining": { 
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": { 
+                "explosion_resistance": 2
+            },
+			"minecraft:light_dampening": 0.0,
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": ["up"]
+                    }
+                ]
+            }
+		}
+	}
+}

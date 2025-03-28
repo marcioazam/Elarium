@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:crimson_stick"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "b",
+      "b"
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:crimson_planks"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:crimson_planks"
+      }
+    ],
+    "result": {
+      "item": "edx:crimson_stick",
+      "count":4
+    }
+  }
+}

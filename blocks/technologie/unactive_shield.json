@@ -1,0 +1,21 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:unactive_shield"
+		,"menu_category":
+			{
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:unactive_shield"],
+			"tag:edx:wooden_pick": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 10
+			},
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:loot": "loot_tables/blocks/unact_shield.json"
+		}
+	}
+}

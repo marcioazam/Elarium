@@ -1,0 +1,125 @@
+{
+    "format_version": "1.19.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:particle_displayer",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "manage_particles": "controller.animation.particle_displayer.manage_particles"
+            },
+            "scripts": {
+                "animate": [
+                    "manage_particles"
+                ]
+            },
+            "properties": {
+                "xp:update": {
+                    "type": "bool",
+                    "default": false
+                },
+                "xp:control": {
+                    "type": "enum",
+                    "values": [ "next", "previous", "none" ],
+                    "default": "none"
+                },
+                "xp:particle": {
+                    "type": "int",
+                    "range": [0, 15],
+                    "default": 0,
+                    "client_sync": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:health": {
+                "min": 1,
+                "max": 1000
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "set_property": { "xp:particle": 1 }
+            },
+            "xp:control_none": {
+                "set_property": { "xp:control": "none" }
+            },
+            "xp:control_next": {
+                "set_property": { "xp:control": "next" }
+            },
+            "xp:control_previous": {
+                "set_property": { "xp:control": "previous" }
+            },
+            "xp:particle_1": {
+                "set_property": { "xp:particle": 1 }
+            },
+            "xp:particle_2": {
+                "set_property": { "xp:particle": 2 }
+            },
+            "xp:particle_3": {
+                "set_property": { "xp:particle": 3 }
+            },
+            "xp:particle_4": {
+                "set_property": { "xp:particle": 4 }
+            },
+            "xp:particle_5": {
+                "set_property": { "xp:particle": 5 }
+            },
+            "xp:particle_6": {
+                "set_property": { "xp:particle": 6 }
+            },
+            "xp:particle_7": {
+                "set_property": { "xp:particle": 7 }
+            },
+            "xp:particle_8": {
+                "set_property": { "xp:particle": 8 }
+            },
+            "xp:particle_9": {
+                "set_property": { "xp:particle": 9 }
+            },
+            "xp:particle_10": {
+                "set_property": { "xp:particle": 10 }
+            },
+            "xp:particle_11": {
+                "set_property": { "xp:particle": 11 }
+            },
+            "xp:particle_12": {
+                "set_property": { "xp:particle": 12 }
+            },
+            "xp:particle_13": {
+                "set_property": { "xp:particle": 13 }
+            }
+        }
+    }
+}

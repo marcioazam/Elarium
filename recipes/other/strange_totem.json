@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:strange_totem"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " R ",
+      " X ",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:gold_ingot"
+      },
+      "R": {
+        "item": "edx:ruby"
+      },
+      "X": {
+        "item": "edx:weakened_totem"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:weakened_totem"
+      }
+    ],
+    "result": {
+      "item": "edx:abomination_totem"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:iron_sword",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 2
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/entities/wretched_zombie_snow.json",
+          "weight": 2
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/entities/wretched_zombie_frost.json",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

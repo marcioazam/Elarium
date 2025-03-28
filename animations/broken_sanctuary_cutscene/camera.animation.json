@@ -1,0 +1,24 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.broken_sanctuary_cutscene_camera.tp_players": {
+            "loop": true,
+            "animation_length": 0.01,
+            "timeline": {
+                "0.0": [
+                    "/tp @a[tag=in_sanctuary_cutscene] @s",
+                    "/execute if entity @s[x=573,y=113,z=869,r=3] run tp @a[tag=in_sanctuary_cutscene] 573.5 113.5 869.5 45 38",
+                    "/execute if entity @s[x=577,y=185,z=863,r=3] run tp @a[tag=in_sanctuary_cutscene] 577.5 185.5 863.5 65 10",
+                    "/execute if entity @s[x=433,y=213,z=805,r=3] run tp @a[tag=in_sanctuary_cutscene] 433 213 805 15 10",
+                    "/execute if entity @s[x=398,y=213,z=805,r=3] run tp @a[tag=in_sanctuary_cutscene] 398 213 805 -25 10",
+                    "/execute if entity @s[x=419,y=113,z=1029,r=3] run tp @a[tag=in_sanctuary_cutscene] 419.5 113.5 1029.5 -225 38",
+                    "/execute if entity @s[x=424,y=185,z=1034,r=3] run tp @a[tag=in_sanctuary_cutscene] 424.5 185.5 1034.5 158 10",
+                    "/execute if entity @s[x=374,y=186,z=838,r=3] run tp @a[tag=in_sanctuary_cutscene] 374 186 838 -50 -23",
+                    "/execute if entity @s[x=444,y=185,z=833,r=3] run tp @a[tag=in_sanctuary_cutscene] 444 185 833 35 -25",
+                    "/execute if entity @s[x=259,y=113,z=875.5,r=3] run tp @a[tag=in_sanctuary_cutscene] 259.5 113.5 875.5 -135 38",
+                    "/execute if entity @s[x=256,y=185,z=878,r=3] run tp @a[tag=in_sanctuary_cutscene] 256.5 185.5 878.5 -108 10"
+                ]
+            }
+        }
+    }
+}

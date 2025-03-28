@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:tree_bark_redwood"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XX"
+    ],
+    "key": {
+      "X": {
+        "item": "edx:redwood_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:redwood_log"
+      }
+    ],
+    "result":[ {
+
+      "item": "edx:tree_bark", "count": 2
+    },
+    { "item": "edx:redwood_stripped_log", "count": 2 }
+  ]
+  }
+}

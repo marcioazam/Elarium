@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_diorite_brick"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 1,
+    "ingredients": [
+      {
+        "item": "minecraft:stone",
+        "data": 4
+      }
+    ],
+    "result": {
+      "item": "edx:diorite_brick",
+      "count": 1
+    }
+  }
+} 

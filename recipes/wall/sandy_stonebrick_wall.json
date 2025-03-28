@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:sandy_stonebrick_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:sandy_stonebrick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:sandy_stonebrick"
+            }
+        ],
+        "result": {
+            "item": "edx:sandy_stonebrick_wall",
+            "count": 6
+        }
+    }
+}

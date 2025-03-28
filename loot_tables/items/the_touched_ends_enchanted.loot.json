@@ -1,0 +1,29 @@
+{
+    "pools": [{
+        "rolls": 1,
+        "entries": [{
+            "type": "item",
+            "name": "xp:the_touched_ends_enchanted",
+            "weight": 1,
+            "functions": [
+                {
+                    "function": "set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 1
+                    }
+                },
+                {
+                    "function": "set_lore",
+                    "lore": [
+                        "§r§l[//]§r to §5Sonic Boom",
+                        "§r§7Grants Swiftness",
+                        "",
+                        "§r§9+11 Attack Damage§r§o",
+                        "§r§9+15 Ranged Damage§r§o"
+                    ]
+                }
+            ]
+        }]
+    }]
+}

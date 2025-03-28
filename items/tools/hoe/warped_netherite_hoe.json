@@ -1,0 +1,148 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+	"description": {
+      "identifier": "edx:warped_netherite_hoe"
+,     "menu_category": {
+          "category": "equipment",
+          "group": "itemGroup.name.hoe"
+      }
+		},
+    "components": {
+      "minecraft:custom_components": ["edx:durability","edx:hoe_use"], 
+      "minecraft:max_stack_size": 1,
+      "minecraft:durability": {
+        "max_durability": 953
+      },
+      "minecraft:icon": {
+        "textures":{
+               "default":"warped_netherite_hoe"
+         }
+      },
+     
+      "minecraft:hand_equipped": true,
+       
+      "minecraft:display_name": {
+        "value": "Netherite Hoe"
+        },
+        "minecraft:tags": {
+			"tags": [
+				"minecraft:is_hoe"
+			]
+		  },
+      "minecraft:enchantable": {
+        "value": 12,
+        "slot": "hoe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items":[
+              "edx:netherite_hammer"
+            ],
+            "repair_amount": "q.max_durability/2"
+            },
+          {
+            "items":[
+              "minecraft:netherite_ingot"
+            ],
+            "repair_amount": "q.max_durability/4"
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:pale_moss_block",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:pale_moss_carpet",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:sculk_catalyst",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:sculk_shrieker",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:sculk_sensor",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:sponge",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:nether_wart_block",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:warped_wart_block",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:shroomlight",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:hay_block",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:target",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:dried_kelp_block",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:leaves",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:leaves2",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:azalea_leaves",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:azalea_leaves_flowered",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:mangrove_leaves",
+            "speed": 9
+          },
+          {
+            "block": "minecraft:moss_block",
+            "speed": 9
+          },
+          {
+            "block": "edx:cave_mycelium",
+            "speed": 9
+          },
+          {
+            "block": "edx:green_mushroom_block",
+            "speed": 9
+          },
+          {
+            "block": "edx:white_mushroom_block",
+            "speed": 9
+          },
+          {
+            "block": "edx:cordyceps_block",
+            "speed": 9
+          }
+          ]
+        }
+  }
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "edx:spawner_fragment",
+                    "weight":250,
+                    "count": {
+						"min": 4,
+						"max": 4
+					}
+                   
+                }
+            ]
+        }
+    ]
+}

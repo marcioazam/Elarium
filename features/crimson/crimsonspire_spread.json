@@ -1,0 +1,28 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:vegetation_patch_feature": {
+      "description": {
+        "identifier": "edx:crimson/crimsonspire_spread"
+      },
+      "replaceable_blocks": [
+        "minecraft:crimson_nylium"
+      ],
+      "ground_block": "minecraft:crimson_nylium",
+      "vegetation_feature": "edx:crimson/crimsonspire_plant",
+      "surface": "floor",
+      "depth": {
+        "range_min": 1,
+        "range_max": 1
+      },
+      "vertical_range": 1,
+      "vegetation_chance": 0.15,
+      "horizontal_radius": {
+        "range_min": 5,
+        "range_max": 10
+      },
+      
+      "extra_deep_block_chance": 0.0,
+      
+      "extra_edge_column_chance": 0.0
+    }
+  }

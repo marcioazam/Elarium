@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:chorus_grass_it",
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.flower"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"chorus_grass"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:chorus_grass2",
+				"use_on" : ["edx:chorus_grass"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

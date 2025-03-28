@@ -1,0 +1,70 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:sinister_sword",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:hand_equipped": true,
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.5,
+        "use_duration": 999
+      },
+      "minecraft:use_animation": "none",
+      "minecraft:cooldown": {
+        "category": "dungeons_sword",
+        "duration": 0.25
+      },
+
+      "minecraft:tags": {
+        "tags": [
+        
+          "minecraft:is_axe",
+      
+          "dungeons:blockable_weapon"
+        ]
+      },
+      "minecraft:icon": "sinister_sword",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:durability": {
+        "max_durability": 1400
+      },
+      "minecraft:hover_text_color": {
+        "value": "light_purple"
+      },
+      "minecraft:repairable": {
+        "repair_items": [{
+            "items": [
+              "minecraft:iron_ingot"
+            ],
+            "repair_amount": "q.max_durability * 0.25"
+          },
+          {
+            "items": [
+              "dungeons:sword"
+            ],
+            "repair_amount": "c.other -> q.remaining_durability + 0.12 * c.other -> q.max_durability"
+          }
+        ]
+      },
+      
+      "minecraft:digger": {
+        "destroy_speeds": [
+          { "block": { "tags": "q.any_tag('sword_mine', 'minecraft:is_sword_item_destructible')" }, "speed": 15 },
+          { "block": "minecraft:bamboo", "speed": 60 },
+          { "block": "minecraft:web", "speed": 15 }
+        ],
+        "use_efficiency": true
+      },
+      "minecraft:enchantable": {
+        "value": 14,
+        "slot": "sword"
+      }
+    }
+  }
+}

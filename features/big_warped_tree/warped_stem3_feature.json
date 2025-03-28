@@ -1,0 +1,39 @@
+{
+    "format_version": "1.13.0",
+      "minecraft:single_block_feature": {
+        "description": {
+          "identifier": "edx:big_warped_tree/warped_stem3_feature"
+        },
+        "places_block": {
+          "name": "warped_stem",
+          "states": {
+              "pillar_axis": "y"
+          }
+      },
+        "enforce_placement_rules": false,
+        "enforce_survivability_rules": false,
+        "may_attach_to": {
+          "top":  [
+            "minecraft:air"
+          ],
+          "north":  [
+            "minecraft:air"
+          ],
+          "south":  [
+            "minecraft:warped_stem"
+          ],
+          "east":  [
+            "minecraft:warped_stem"
+          ],
+          "west":  [
+            "minecraft:air"
+          ],
+          "bottom":  [
+            "minecraft:air"
+          ]
+      },
+        "may_replace": [
+          "minecraft:air"
+        ]
+      }
+    }

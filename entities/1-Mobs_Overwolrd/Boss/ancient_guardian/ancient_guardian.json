@@ -1,0 +1,626 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:ancient_guardian",
+      "spawn_category": "monster",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "on_land": {
+        "minecraft:environment_sensor": {
+          "triggers": [{
+            "filters": {
+              "all_of": [{
+                "test": "in_water"
+              }]
+            },
+            "event": "dungeons:in_water"
+          }]
+        },
+        "minecraft:movement.jump": {
+          "jump_delay": [
+            0.1,
+            0.12
+          ]
+        },
+        "minecraft:behavior.slime_keep_on_jumping": {
+          "priority": 5,
+          "speed_multiplier": 1
+        },
+        "minecraft:jump.static": {},
+        "minecraft:navigation.generic": {
+          "is_amphibious": true,
+          "can_path_over_water": true,
+          "can_swim": true,
+          "can_walk": true,
+          "can_breach": false,
+          "can_sink": false
+        }
+      },
+      "in_water": {
+        "minecraft:navigation.generic": {
+          "is_amphibious": true,
+          "can_path_over_water": false,
+          "can_swim": true,
+          "can_walk": false,
+          "can_breach": false,
+          "can_sink": false
+        },
+        "minecraft:movement.sway": {},
+        "minecraft:jump.static": {},
+        "minecraft:behavior.random_swim": {
+          "priority": 7,
+          "speed_multiplier": 0.5,
+          "avoid_surface": true
+        }
+      },
+      "not_shooting": {
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 20,
+          "outside_range": 24,
+          "must_see": false,
+          "on_inside_range": {
+            "event": "dungeons:start_loading",
+            "target": "self"
+          },
+          "on_outside_range": {
+            "event": "dungeons:stop_shooting",
+            "target": "self"
+          },
+          "on_vision_lost_inside_range": {
+            "event": "dungeons:stop_shooting",
+            "target": "self"
+          }
+        },
+        "minecraft:shooter": {
+          "def": "dungeons:ancient_guardian_ammo"
+        },
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:timer": {},
+        "minecraft:entity_sensor": {},
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "burst_shots": 2,
+          "burst_interval": 0.112,
+          "charge_charged_trigger": 100,
+          "charge_shoot_trigger": 1,
+          "attack_interval_min": 100,
+          "attack_interval_max": 100,
+          "attack_radius": 32
+        }
+      },
+      "loading": {
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 20,
+          "outside_range": 24,
+          "must_see": false,
+          "on_inside_range": {
+            "event": "dungeons:start_loading",
+            "target": "self"
+          },
+          "on_outside_range": {
+            "event": "dungeons:stop_shooting",
+            "target": "self"
+          },
+          "on_vision_lost_inside_range": {
+            "event": "dungeons:stop_shooting",
+            "target": "self"
+          }
+        },
+        "minecraft:shooter": {
+          "def": "dungeons:ancient_guardian_ammo"
+        },
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:entity_sensor": {},
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "burst_shots": 2,
+          "burst_interval": 0.12,
+          "charge_charged_trigger": 100,
+          "charge_shoot_trigger": 1,
+          "attack_interval_min": 100,
+          "attack_interval_max": 100,
+          "attack_radius": 32,
+          "speed_multiplier": 0
+        },
+        "minecraft:timer": {
+          "looping": true,
+          "time": 0.4,
+          "time_down_event": {
+            "event": "dungeons:finish_loading"
+          }
+        }
+      },
+      "shooting": {
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 20,
+          "outside_range": 24,
+          "must_see": false,
+          "on_inside_range": {
+            "event": "dungeons:start_loading",
+            "target": "self"
+          },
+          "on_outside_range": {
+            "event": "dungeons:stop_shooting",
+            "target": "self"
+          },
+          "on_vision_lost_inside_range": {
+            "event": "dungeons:stop_shooting",
+            "target": "self"
+          }
+        },
+        "minecraft:shooter": {
+          "def": "dungeons:ancient_guardian_ammo"
+        },
+        "minecraft:timer": {
+          "looping": true,
+          "time": 8,
+          "time_down_event": {
+            "event": "dungeons:reload"
+          }
+        },
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:entity_sensor": {
+          "sensor_range": 40,
+          "maximum_count": -1,
+          "minimum_count": -1,
+          "require_all": true,
+          "event_filters": {
+            "test": "is_target",
+            "subject": "other",
+            "operator": "equals",
+            "value": false
+          },
+          "event": "dungeons:reload"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "burst_shots": 20,
+          "burst_interval": 0.1,
+          "charge_charged_trigger": 0.01,
+          "charge_shoot_trigger": 0.01,
+          "attack_interval_min": 0.21,
+          "attack_interval_max": 0.21,
+          "attack_radius": 24,
+          "speed_multiplier": 0
+        }
+      },
+      "reload": {
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 12,
+          "damage_cooldown": 0.66,
+          "cause": "thorns",
+          "entity_filter": {
+            "all_of": [{
+                "any_of": [{
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "mob"
+                  }
+                ]
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "not",
+                "value": "monster"
+              }
+            ]
+          }
+        },
+        "minecraft:is_saddled": {},
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 20,
+          "outside_range": 24,
+          "must_see": false
+        },
+        "minecraft:entity_sensor": {},
+        "minecraft:behavior.ranged_attack": {},
+        "minecraft:timer": {
+          "looping": true,
+          "time": 6,
+          "time_down_event": {
+            "event": "dungeons:stop_shooting"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:mob_effect": {
+        "mob_effect": "weakness",
+        "effect_range": 12,
+        "effect_time": 15,
+        "cooldown_time": 60,
+        "entity_filter": [{
+          "test": "is_family",
+          "subject": "other",
+          "value": "player"
+        }]
+      },
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "bamboo",
+          "bamboo_sapling",
+          "beetroot",
+          "brown_mushroom",
+          "carrots",
+          "carved_pumpkin",
+          "chorus_flower",
+          "chorus_plant",
+          "deadbush",
+          "double_plant",
+          "leaves",
+          "leaves2",
+          "lit_pumpkin",
+          "melon_block",
+          "melon_stem",
+          "potatoes",
+          "pumpkin",
+          "pumpkin_stem",
+          "red_flower",
+          "red_mushroom",
+          "crimson_fungus",
+          "warped_fungus",
+          "reeds",
+          "sapling",
+          "snow_layer",
+          "sweet_berry_bush",
+          "tallgrass",
+          "turtle_egg",
+          "vine",
+          "waterlily",
+          "wheat",
+          "yellow_flower",
+          "azalea",
+          "flowering_azalea",
+          "azalea_leaves",
+          "azalea_leaves_flowered",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf",
+          "spore_blossom",
+          "hanging_roots",
+          "mangrove_leaves",
+          "horn_coral",
+          "horn_coral_block",
+          "kelp",
+          "seagrass"
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+            "cause": "magma",
+            "deals_damage": false
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "event": "dungeons:hurt_animation"
+            },
+            "deals_damage": true
+          }
+        ]
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 48,
+        "name": " §eAncient Guardian§r "
+      },
+      "minecraft:behavior.summon_entity": {
+        "priority": 2,
+        "summon_choices": [{
+            "min_activation_range": 0,
+            "max_activation_range": 38,
+            "cooldown_time": 17,
+            "weight": 3,
+            "cast_duration": 0.54,
+            "start_sound_event": "cast.spell",
+            "sequence": [{
+              "shape": "circle",
+              "target": "target",
+              "base_delay": 1,
+              "delay_per_summon": 0,
+              "num_entities_spawned": 2,
+              "entity_type": "minecraft:guardian",
+              "size": 1.8,
+              "entity_lifespan": 45
+            }]
+          },
+          {
+            "min_activation_range": 0,
+            "max_activation_range": 38,
+            "weight": 3,
+            "cooldown_time": 17,
+            "cast_duration": 0.54,
+            "sequence": [{
+              "shape": "circle",
+              "target": "target",
+              "base_delay": 1,
+              "delay_per_summon": 0.25,
+              "num_entities_spawned": 4,
+              "entity_type": "dungeons:biomine",
+              "size": 8,
+              "entity_lifespan": 33
+            }]
+          }
+        ]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 750 : 375"
+      },
+      "minecraft:collision_box": {
+        "width": 5.51,
+        "height": 5.85
+      },
+      "minecraft:nameable": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/ancient_guardian.json"
+      },
+      "minecraft:health": {
+        "value": 1000,
+        "max": 1000
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [{
+          "filters": {
+            "test": "in_lava",
+            "subject": "self",
+            "operator": "==",
+            "value": true
+          },
+          "cause": "lava",
+          "damage_per_tick": 4
+        }]
+      },
+      "minecraft:movement": {
+        "value": 0.28
+      },
+      "minecraft:underwater_movement": {
+        "value": 0.28
+      },
+      "minecraft:attack": {
+        "damage": 20,
+        "effect_name": "darkness",
+        "effect_duration": 15
+      },
+      "minecraft:follow_range": {
+        "value": 64,
+        "max": 64
+      },
+      "minecraft:breathable": {
+        "breathes_water": true,
+        "generates_bubbles": false
+      },
+      "minecraft:home": {
+        "restriction_radius": 32
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [{
+          "filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "boss"
+          }
+        }]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "entity_types": [{
+          "filters": {
+            "any_of": [{
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            }]
+          },
+          "max_dist": 64
+        }],
+        "attack_interval_min": 1,
+        "must_see": false
+      },
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 1,
+        "entity_types": [{
+          "filters": {
+            "any_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              }
+            ]
+          },
+          "max_dist": 4,
+          "max_flee": 5,
+          "walk_speed_multiplier": 1.2,
+          "sprint_speed_multiplier": 1.2
+        }]
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 5,
+        "look_distance": 64
+      },
+      "minecraft:behavior.move_towards_home_restriction": {
+        "priority": 5,
+        "speed_multiplier": 1.3
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 12,
+        "probability": 0.01
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:type_family": {
+        "family": [
+          "ancient_guardian",
+          "boss",
+          "guardian",
+          "gravity_immune",
+          "monster",
+          "mob"
+        ]
+      },
+      "minecraft:physics": {},
+      "minecraft:home": {
+        "restriction_radius": 84,
+        "restriction_type": "random_movement"
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:hurt_animation": {
+        "queue_command": {
+          "command": [
+            "playanimation @s animation.ancient_guardian.hurt"
+          ]
+        }
+      },
+      "minecraft:entity_transformed": {
+        "add": {
+          "component_groups": [
+            "not_shooting",
+            "in_water"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "not_shooting",
+            "in_water"
+          ]
+        }
+      },
+      "dungeons:in_water": {
+        "add": {
+          "component_groups": [
+            "in_water"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "on_land"
+          ]
+        }
+      },
+      "dungeons:on_land": {
+        "add": {
+          "component_groups": [
+            "on_land"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "in_water"
+          ]
+        }
+      },
+      "dungeons:stop_shooting": {
+        "add": {
+          "component_groups": [
+            "not_shooting"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "loading",
+            "shooting",
+            "reload"
+          ]
+        }
+      },
+      "dungeons:stop_reload": {
+        "add": {
+          "component_groups": [
+            "not_shooting"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "reload"
+          ]
+        }
+      },
+      "dungeons:reload": {
+        "add": {
+          "component_groups": [
+            "reload"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "loading",
+            "shooting"
+          ]
+        }
+      },
+      "dungeons:start_loading": {
+        "add": {
+          "component_groups": [
+            "loading"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "not_shooting",
+            "shooting"
+          ]
+        }
+      },
+      "dungeons:finish_loading": {
+        "add": {
+          "component_groups": [
+            "shooting"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "loading",
+            "not_shooting"
+          ]
+        }
+      }
+    }
+  }
+}

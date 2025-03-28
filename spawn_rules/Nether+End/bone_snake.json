@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:bone_snake",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        
+        "minecraft:spawns_underground": {},
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard"
+        },
+        "minecraft:height_filter": {
+          "min": 1,
+          "max": 32
+        },
+        "minecraft:weight": {
+          "default": 40
+        },
+
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+
+        "minecraft:density_limit": {
+          "surface": 5
+        },
+
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "nether"
+        }
+      }
+    ]
+  }
+}

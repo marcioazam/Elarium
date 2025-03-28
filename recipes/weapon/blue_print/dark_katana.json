@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_dark_katana"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:dark_katana"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:dark_katana"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:dark_katana", "count": 1 },
+      { "item": "dungeons:dark_katana", "count": 1 }
+    ]
+  }
+}

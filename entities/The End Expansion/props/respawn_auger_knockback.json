@@ -1,0 +1,66 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:respawn_auger_knockback",
+      "is_experimental": false,
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "despawn": { "minecraft:instant_despawn": {} }
+    },
+    "components": {
+      "minecraft:type_family": { "family": ["immobile"] },
+      "minecraft:behavior.knockback_roar": {
+        "attack_time": 0.1,
+        "cooldown_time": 0,
+        "duration": 0.1,
+        "knockback_damage": 0,
+        "knockback_horizontal_strength": 1,
+        "knockback_range": 7,
+        "knockback_vertical_strength": 1,
+        "knockback_filters": {
+          "all_of": [
+            {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "!=",
+              "value": "player"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "!=",
+              "value": "respawn_auger"
+            },
+            {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "!=",
+              "value": "immobile"
+            }
+          ]
+        }
+      },
+      "minecraft:push_through": { "value": 0 },
+      "minecraft:health": {
+        "value": 1,
+        "min": 1,
+        "max": 1
+      },
+      "minecraft:timer": {
+        "time": 0.3,
+        "looping": true,
+        "time_down_event": {
+          "event": "xp:instant_despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:damage_sensor": { "triggers": [{ "cause": "all", "deals_damage": false }] }
+    },
+    "events": {
+      "xp:instant_despawn": { "add": { "component_groups": ["despawn"] } }
+    }
+  }
+}

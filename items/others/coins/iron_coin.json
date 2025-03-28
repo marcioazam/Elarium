@@ -1,0 +1,26 @@
+
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:iron_coin",
+		"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.coin"
+			}
+				
+			
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:coin"],
+			"minecraft:icon": {
+				"textures":{
+               "default":"iron_coin"
+         }
+			},
+			"minecraft:display_name": {
+				"value": "Iron coin\nRight click with 10 to upgrade it\nShift + right click to downgrade it"
+				}
+		}
+	}
+}

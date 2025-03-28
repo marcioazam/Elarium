@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:daffodils_it",
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.flower"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"daffodils"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:daffodils",
+				"use_on" : ["dirt","grass","moss_block","dirt_with_roots"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

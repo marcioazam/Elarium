@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:big_crimson_tree/big_crimson_structure_random_scatter3_feature"
+		},
+		"places_feature": "edx:big_crimson_tree/big_crimson_structure_random_feature",
+		"iterations": "t.biome_idx == 3",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

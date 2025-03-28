@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:mossy_andesite_bricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:andesite_brick"
+      },
+      "F": {
+        "item": "minecraft:moss_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:andesite_brick"
+      },
+      {
+        "item": "minecraft:moss_block"
+      }
+    ],
+    "result": {
+      "item": "edx:mossy_andesite_brick"
+    }
+  }
+  
+}

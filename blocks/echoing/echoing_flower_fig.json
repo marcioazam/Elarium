@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:echoing_flower_fig",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:map_color": "#a45c94",
+      "minecraft:loot": "loot_tables/biomes/echoing_flower_fig.json",
+      "minecraft:destroy_time": 0.5,
+      "minecraft:explosion_resistance": 25,
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      }
+    }
+  }
+}

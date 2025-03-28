@@ -1,0 +1,39 @@
+{
+    "format_version": "1.13.0",
+      "minecraft:single_block_feature": {
+        "description": {
+          "identifier": "edx:big_crimson_tree/crimson_stem2_feature"
+        },
+        "places_block": {
+          "name": "crimson_stem",
+          "states": {
+              "pillar_axis": "y"
+          }
+      },
+        "enforce_placement_rules": false,
+        "enforce_survivability_rules": false,
+        "may_attach_to": {
+          "top":  [
+            "minecraft:air"
+          ],
+          "north":  [
+            "minecraft:crimson_stem"
+          ],
+          "south":  [
+            "minecraft:air"
+          ],
+          "east":  [
+            "minecraft:air"
+          ],
+          "west":  [
+            "minecraft:crimson_stem"
+          ],
+          "bottom":  [
+            "minecraft:air"
+          ]
+      },
+        "may_replace": [
+          "minecraft:air"
+        ]
+      }
+    }

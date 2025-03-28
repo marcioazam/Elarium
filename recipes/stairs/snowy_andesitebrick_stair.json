@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:snowy_andesitebrick_stairs"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "W",
+            "WW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:snowy_andesitebrick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:snowy_andesitebrick"
+            }
+        ],
+        "result": {
+            "item": "edx:snowy_andesitebrick_stairs",
+            "count": 4
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.block_sensor": {
+			"animation_length": 0.02,
+			"loop": true,
+			"timeline": {
+				"0.01": [ "/function block_sensor"]
+			}
+		},
+		"animation.block_sensor_below": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.01": [ 
+					"/execute at @s if block ~ ~-1 ~ air 0 run event entity @s xp:instant_despawn"
+				]
+			}
+		}
+	}
+}

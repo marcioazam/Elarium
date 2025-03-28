@@ -1,0 +1,23 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:scatter_feature": {
+      "description": {
+        "identifier": "edx:swamp_grass_scater_feature"
+      },
+      "iterations": 25,
+      "x": {
+        "distribution": "triangle",
+        "extent": [ -4, 4 ]
+      },
+      "y": {
+        "distribution": "triangle",
+        "extent": [ -4, 4 ]
+      },
+      "z": {
+        "distribution": "triangle",
+        "extent": [ -4, 4 ]
+      },
+      "coordinate_eval_order": "zyx",
+      "places_feature": "edx:swamp_grass_feature"
+    }
+  }

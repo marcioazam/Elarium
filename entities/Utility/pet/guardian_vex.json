@@ -1,0 +1,262 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:guardian_vex",
+      "runtime_identifier": "minecraft:vex",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:enchanted": {
+        "minecraft:is_saddled": {},
+        "minecraft:health": {
+          "value": 100,
+          "max": 100
+        },
+      "minecraft:movement": {
+        "value": 1.2
+      },
+        "minecraft:scale": {
+          "value": 1.1
+        },
+        "minecraft:type_family": {
+        "family": [ "guardian_vex", "artefact", "mob", "enchanted" ]
+        },
+        "minecraft:attack": {
+          "damage": 9 // more then double to account for its weapon
+        }
+      },
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "dungeons:tamed": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": 32,
+          "time_down_event": {
+            "event": "dungeons:despawn"
+          }
+        },
+        "minecraft:is_tamed": {},
+        "minecraft:behavior.follow_owner": {
+          "priority": 6,
+          "speed_multiplier": 1,
+          "start_distance": 10,
+          "stop_distance": 2
+        },
+        "minecraft:behavior.owner_hurt_by_target": {
+          "priority": 1
+        },
+        "minecraft:behavior.owner_hurt_target": {
+          "priority": 2
+        }
+      },
+      "dungeons:not_tamed": {
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 3,
+          "must_see": true,
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "monster"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "creeper"
+                  }
+                ]
+              },
+              "max_dist": 70
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "hoglin"
+                  },
+                  {
+                    "test": "is_difficulty",
+                    "operator": "!=",
+                    "value": "peaceful"
+                  }
+                ]
+              },
+              "max_dist": 70
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "zoglin"
+                  },
+                  {
+                    "test": "is_difficulty",
+                    "operator": "!=",
+                    "value": "peaceful"
+                  }
+                ]
+              },
+              "max_dist": 70
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:experience_reward": {
+        "on_death": "0"
+      },
+      "minecraft:nameable": {},
+      "minecraft:type_family": {
+        "family": [
+          "guardian_vex",
+          "mob",
+          "artefact",
+          "enchantable_pet"
+        ]
+      },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/guardian_vex_gear.json",
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": -1
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 50,
+        "max": 50
+      },
+      "minecraft:attack": {
+        "damage": 3
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.8
+      },
+      "minecraft:movement": {
+        "value": 1
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:fire_immune": {},
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.charge_attack": {
+        "priority": 4,
+        "success_rate": 0.8
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 9,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:tameable": {
+        "probability": 1.0,
+        "tame_event": {
+          "event": "minecraft:on_tame",
+          "target": "self"
+        }
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:game_event_movement_tracking": {
+        "emit_move": false,
+        "emit_swim": false
+      }
+    },
+    "events": {
+      "dungeons:pet_become_enchanted": {
+        "add": {
+          "component_groups": [
+            "dungeons:enchanted"
+          ]
+        }
+      },
+      "dungeons:pet_remove_enchanted": {
+        "remove": {
+          "component_groups": [
+            "dungeons:enchanted"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:not_tamed"
+          ]
+        }
+      },
+      "minecraft:on_tame": {
+        "add": {
+          "component_groups": [
+            "dungeons:tamed"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:not_tamed"
+          ]
+        }
+      },
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

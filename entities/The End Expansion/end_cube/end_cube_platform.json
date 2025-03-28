@@ -1,0 +1,98 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_platform",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [ "runtime" ]
+      },
+      "animations": {
+        "runtime": "controller.animation.end_cube_platform.runtime"
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "xp:remove_platform": {
+        "minecraft:out_of_control": {}
+      },
+
+      "xp:jump_pad": {
+        "minecraft:type_family": {
+          "family": [ "end_cube", "platform", "jump_pad", "inanimate" ]
+        },
+        "minecraft:is_stackable": {},
+        "minecraft:is_saddled": {}
+      }
+    },
+
+    "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "end_cube", "platform", "inanimate" ]
+      },
+      "minecraft:health": {
+        "min": 1,
+        "max": 1,
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 0.01,
+            "height": 0.01,
+            "pivot": [0, -2, 0]
+          }
+        ]
+      },
+      "minecraft:persistent": {
+      },
+	    "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+      "xp:remove_platform": {
+        "add": {
+          "component_groups": [ "xp:remove_platform" ]
+        }
+      },
+
+      "xp:jump_pad": {
+        "add": {
+          "component_groups": [ "xp:jump_pad" ]
+        }
+      }
+    }
+  }
+}

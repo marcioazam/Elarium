@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:battle_cry_orb",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"battle_cry"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "battle_cry_orb"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dBattle cry orb \n§5Artifact\n§6You emit a shockwave when you reach 3 hearts or less\nInflict 10 damage to monsters\n§430 seconds cooldown"
+			  }
+		}
+	}
+}

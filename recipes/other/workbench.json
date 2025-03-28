@@ -1,0 +1,44 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:workbench"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "LLL",
+      "LBL",
+      "TPT"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:tin_ingot"
+      },
+      "L": {
+        "item": "minecraft:iron_ingot"
+      },
+      "B": {
+        "item": "minecraft:copper_ingot"
+      },
+      "P": {
+        "item": "edx:platinium_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:tin_ingot"
+      },
+      {
+        "item": "minecraft:iron_ingot"
+      },
+      {
+        "item": "minecraft:copper_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:workbench"
+    }
+  }
+}

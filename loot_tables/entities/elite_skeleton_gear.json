@@ -1,0 +1,90 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:bow",
+          "weight": 50,
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bow",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            },
+            {
+              "function": "specific_enchants",
+              "enchants": [
+                  {
+                      "id": "punch",
+                      "level": 1
+                  }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bow",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            },
+            {
+              "function": "specific_enchants",
+              "enchants": [
+                  {
+                      "id": "power",
+                      "level": 3
+                  }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                  "min": 10,
+                  "max": 30.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

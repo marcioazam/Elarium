@@ -1,0 +1,614 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 1,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:beetroot_seeds",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 10
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:saddle",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_horse_armor",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_horse_armor",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_horse_armor",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_sword",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_boots",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_chestplate",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_leggings",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_helmet",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_pickaxe",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_shovel",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_sword",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_boots",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_chestplate",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_leggings",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_helmet",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_pickaxe",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_shovel",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_enderite_axe",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:enderite_hoe",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_enderite_sword",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:enderite_pickaxe",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:enderite_shovel",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:enderite_ingot",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:void_crystal_ingot",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_void_crystal_axe",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:void_crystal_hoe",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_void_crystal_sword",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:void_crystal_pickaxe",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:void_crystal_shovel",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:enderite_dust",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:ender_artifact",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:ender_chips",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:conduits_heart",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:echoing_pome",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:elders_auricle",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:elytra_shard",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:ender_goop",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:end_grub",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:rift_goop",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:wild_chorus",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_enderite_cutter",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_enderite_cutter_enchanted",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_ender_curved_blade",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_ender_curved_blade_enchanted",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_hammer_of_void",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_hammer_of_void_enchanted",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_obsidian_blade",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_obsidian_blade_enchanted",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_the_touched_ends",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_the_touched_ends_enchanted",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_void_blade",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_void_blade_enchanted",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_void_striker",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "xp:no_lore_void_striker_enchanted",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

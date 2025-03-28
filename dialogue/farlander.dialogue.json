@@ -1,0 +1,125 @@
+{
+  "format_version": "1.14.0",
+  "minecraft:npc_dialogue": {
+
+    "scenes": [
+
+      {
+        "scene_tag": "_xp:farlander_main",
+        "npc_name": "_xp:farlander_main",
+        "text": "_xp:farlander_main",
+        "on_open_commands": [ "/function farlander/ui/open" ],
+        "on_close_commands": [ "/function farlander/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/dialogue open @s @initiator _xp:farlander_main", "/scoreboard players add .page dialogue 1", "/execute as @initiator run function farlander/dialogue" ]
+          },
+          {
+            "name": "dialogue_button",
+            "commands": [ "/dialogue open @s @initiator _xp:farlander_main", "/scoreboard players add .page dialogue 1", "/execute as @initiator run function farlander/dialogue" ]
+          }
+        ]
+      },
+
+      {
+        "scene_tag": "_xp:farlander_chat_0",
+        "npc_name": "_xp:farlander_chat_0",
+        "text": "_xp:farlander_chat_0",
+        "on_open_commands": [ "/function farlander/ui/open" ],
+        "on_close_commands": [ "/function farlander/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": []
+          },
+          {
+            "name": "dialogue_button",
+            "commands": [ "/function farlander/ui/chat" ]
+          }
+        ]
+      },
+
+      {
+        "scene_tag": "_xp:farlander_chat_1",
+        "npc_name": "_xp:farlander_chat_1",
+        "text": "_xp:farlander_chat_1",
+        "on_open_commands": [ "/function farlander/ui/open" ],
+        "on_close_commands": [ "/function farlander/ui/close_check" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": []
+          },
+          {
+            "name": "dialogue_button",
+            "commands": []
+          },
+          {
+            "name": "accept_quest_button",
+            "commands": [ "/function farlander/ui/accept_quest" ]
+          }
+        ]
+      },
+
+      {
+        "scene_tag": "_xp:farlander_chat_2",
+        "npc_name": "_xp:farlander_chat_2",
+        "text": "_xp:farlander_chat_2",
+        "on_open_commands": [ "/function farlander/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/ui/close" ]
+          },
+          {
+            "name": "dialogue_button",
+            "commands": []
+          },
+          {
+            "name": "accept_quest_button",
+            "commands": []
+          },
+          {
+            "name": "quick_travel_button",
+            "commands": [ "/function farlander/quick_travel/ui/open_initial" ]
+          },
+          {
+            "name": "trade_button",
+            "commands": [ "/function farlander/tasks/ui/open_initial" ]
+          }
+        ]
+      },
+      {
+        "scene_tag": "_xp:farlander_chat_3",
+        "npc_name": "_xp:farlander_chat_2",
+        "text": "_xp:farlander_chat_2",
+        "on_open_commands": [ "/function farlander/ui/open" ],
+        "buttons": [
+          {
+            "name": "close_button",
+            "commands": [ "/function farlander/ui/close" ]
+          },
+          {
+            "name": "dialogue_button",
+            "commands": []
+          },
+          {
+            "name": "accept_quest_button",
+            "commands": []
+          },
+          {
+            "name": "quick_travel_button",
+            "commands": [ "/function farlander/quick_travel/ui/locked" ]
+          },
+          {
+            "name": "trade_button",
+            "commands": [ "/function farlander/tasks/ui/open_initial" ]
+          }
+        ]
+      }
+
+    ]
+
+  }
+}

@@ -1,0 +1,82 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:sanctuary_encounter_spawner",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "controller": "controller.animation.sanctuary_encounter_spawner.spawn_controller"
+            },
+            "scripts": {
+                "animate": [
+                    "controller"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "xp:detection": {
+                "minecraft:is_stunned": {},
+                "minecraft:timer": {
+                    "time": [ 40, 60 ],
+                    "looping": false,
+                    "time_down_event": {
+                        "event": "xp:cooldown_end",
+                        "target": "self"
+                    }
+                }
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            },
+            "xp:detection": {
+                "add": {
+                    "component_groups": [
+                        "xp:detection"
+                    ]
+                }
+            },
+            "xp:cooldown_end": {
+                "remove": {
+                    "component_groups": [
+                        "xp:detection"
+                    ]
+                }
+            }
+        }
+    }
+}

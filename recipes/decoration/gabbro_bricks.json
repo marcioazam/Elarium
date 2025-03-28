@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:gabbro_bricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:gabbro"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:gabbro"
+      }
+    ],
+    "result": {
+      "item": "edx:gabbro_bricks",
+      "count": 4
+    }
+  }
+  
+}

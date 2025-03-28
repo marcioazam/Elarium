@@ -1,0 +1,26 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_hand": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @s remove ground"
+					  ],
+					"transitions":[
+						{"bow1":"query.is_on_ground == 1.0"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/tag @s add ground"
+					  ],
+					"transitions":[
+						
+						{"default":"query.is_on_ground == 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

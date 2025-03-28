@@ -1,0 +1,120 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.particle_displayer.manage_particles": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "particle_1": "q.property('xp:particle') == 1" },
+                        { "particle_2": "q.property('xp:particle') == 2" },
+                        { "particle_3": "q.property('xp:particle') == 3" },
+                        { "particle_4": "q.property('xp:particle') == 4" },
+                        { "particle_5": "q.property('xp:particle') == 5" },
+                        { "particle_6": "q.property('xp:particle') == 6" },
+                        { "particle_7": "q.property('xp:particle') == 7" },
+                        { "particle_8": "q.property('xp:particle') == 8" },
+                        { "particle_9": "q.property('xp:particle') == 9" },
+                        { "particle_10": "q.property('xp:particle') == 10" },
+                        { "particle_11": "q.property('xp:particle') == 11" },
+                        { "particle_12": "q.property('xp:particle') == 12" },
+                        { "particle_13": "q.property('xp:particle') == 13" }
+                    ]
+                },
+                "update": {
+                    "transitions": [
+                        { "next_particle": "q.property('xp:control') == 'next'" },
+                        { "previous_particle": "q.property('xp:control') == 'previous'" }
+                    ],
+                    "on_exit": [
+                        "/event entity @s xp:control_none"
+                    ]
+                },
+                "next_particle": {
+                    "transitions": [
+                        { "particle_2": "q.property('xp:particle') == 1" },
+                        { "particle_3": "q.property('xp:particle') == 2" },
+                        { "particle_4": "q.property('xp:particle') == 3" },
+                        { "particle_5": "q.property('xp:particle') == 4" },
+                        { "particle_6": "q.property('xp:particle') == 5" },
+                        { "particle_7": "q.property('xp:particle') == 6" },
+                        { "particle_8": "q.property('xp:particle') == 7" },
+                        { "particle_9": "q.property('xp:particle') == 8" },
+                        { "particle_10": "q.property('xp:particle') == 9" },
+                        { "particle_11": "q.property('xp:particle') == 10" },
+                        { "particle_12": "q.property('xp:particle') == 11" },
+                        { "particle_13": "q.property('xp:particle') == 12" }
+                    ]
+                },
+                "previous_particle": {
+                    "transitions": [
+                        { "particle_1": "q.property('xp:particle') == 2" },
+                        { "particle_2": "q.property('xp:particle') == 3" },
+                        { "particle_3": "q.property('xp:particle') == 4" },
+                        { "particle_4": "q.property('xp:particle') == 5" },
+                        { "particle_5": "q.property('xp:particle') == 6" },
+                        { "particle_6": "q.property('xp:particle') == 7" },
+                        { "particle_7": "q.property('xp:particle') == 8" },
+                        { "particle_8": "q.property('xp:particle') == 9" },
+                        { "particle_9": "q.property('xp:particle') == 10" },
+                        { "particle_10": "q.property('xp:particle') == 11" },
+                        { "particle_11": "q.property('xp:particle') == 12" },
+                        { "particle_12": "q.property('xp:particle') == 13" }
+                    ]
+                },
+                "particle_1": {
+                    "on_entry": [ "/event entity @s xp:particle_1" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_2": {
+                    "on_entry": [ "/event entity @s xp:particle_2" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_3": {
+                    "on_entry": [ "/event entity @s xp:particle_3" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_4": {
+                    "on_entry": [ "/event entity @s xp:particle_4" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_5": {
+                    "on_entry": [ "/event entity @s xp:particle_5" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_6": {
+                    "on_entry": [ "/event entity @s xp:particle_6" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_7": {
+                    "on_entry": [ "/event entity @s xp:particle_7" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_8": {
+                    "on_entry": [ "/event entity @s xp:particle_8" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_9": {
+                    "on_entry": [ "/event entity @s xp:particle_9" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_10": {
+                    "on_entry": [ "/event entity @s xp:particle_10" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_11": {
+                    "on_entry": [ "/event entity @s xp:particle_11" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_12": {
+                    "on_entry": [ "/event entity @s xp:particle_12" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                },
+                "particle_13": {
+                    "on_entry": [ "/event entity @s xp:particle_13" ],
+                    "transitions": [{ "update": "q.property('xp:control') != 'none'" }]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_sculk_inlaid_stairs"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "edx:sculk_inlaid"
+      }
+    ],
+    "result": {
+      "item": "edx:sculk_inlaid_stairs",
+      "count": 1
+    }
+  }
+}

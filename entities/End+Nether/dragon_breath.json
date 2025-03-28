@@ -1,0 +1,198 @@
+{
+
+    "format_version": "1.18.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "edx:dragon_breath",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {
+                   "remove_child_entities": true
+                }
+             },
+            "explode": {
+                "minecraft:area_attack" : {
+                    "damage_range": 0.5,
+                    "damage_per_tick": 8,
+                    "cause": "contact",
+                    "entity_filter": {
+                      "any_of": [
+                        { "test": "is_family", "subject": "other", "operator": "==", "value": "monster" },
+                        { "test": "is_family", "subject": "other", "operator": "!=", "value": "creeper" }
+                      ]
+                    }
+                  },
+                  "minecraft:timer": {
+                    "looping": true,
+                    "time": 0.01,
+                    "randomInterval": false,
+                    "time_down_event": {
+                      "event": "despawn"
+                    }
+                  }
+            }
+        },
+        "components": {
+          "minecraft:timer": {
+            "looping": true,
+            "time": 20,
+            "randomInterval": false,
+            "time_down_event": {
+              "event": "despawn"
+            }
+          },
+          "minecraft:damage_sensor": {
+            "triggers": {
+              "cause": "all",
+              "deals_damage": false
+            }
+          },
+          "minecraft:knockback_resistance": {
+            "value": 1.0
+            },
+          "minecraft:physics": {
+            "has_gravity": false,
+            "has_collision": false
+          },
+          "minecraft:pushable": {
+            "is_pushable": false
+          },
+            "minecraft:behavior.float": {
+            "priority": 15
+           },
+           "minecraft:attack": {
+            "damage": 1
+             },
+             "minecraft:follow_range": {
+              "value": 32,
+              "max": 32
+            },
+             "minecraft:behavior.melee_attack": {
+            "priority": 0,
+            "speed_multiplier": 1,
+            "track_target": true,
+            "reach_multiplier":  0.0,
+            "require_complete_path": false
+             },
+           "minecraft:behavior.random_stroll": {
+            "priority": 4,
+            "speed_multiplier": 1.0
+            },
+            "minecraft:behavior.random_look_around": {
+            "priority": 5
+            },
+           "minecraft:breathable": {
+            "total_supply": 20,
+            "suffocate_time": 0
+           },
+           "minecraft:collision_box": {
+            "width": 0,
+            "height": 0
+           },
+           "minecraft:movement": {
+            "value": 0.20
+           },
+           "minecraft:flying_speed": {
+            "value": 0.2
+           },
+           "minecraft:navigation.hover": {
+            "can_path_over_water": true,
+            "can_sink": true,
+            "can_pass_doors":  true,
+            "can_path_from_air": true,
+            "avoid_water": false,
+            "avoid_damage_blocks": false,
+            "avoid_sun": false,
+            "can_swim": false
+           },
+           "minecraft:game_event_movement_tracking": {
+            "emit_move": false,
+            "emit_swim": false
+            },
+           "minecraft:movement.hover": {},
+           "minecraft:jump.static": {},
+           "minecraft:can_fly": {},
+           "minecraft:type_family": {
+            "family": ["inanimate"]
+          },
+          "minecraft:despawn": {
+            "despawn_from_distance": {}
+            },
+            "minecraft:behavior.random_hover": {
+              "priority": 3,
+              "xz_dist": 5,
+              "y_dist": 0,
+              "y_offset": -1,
+              "interval": 1,
+              "hover_height": [-0, 2]
+          },
+           "minecraft:nameable": {},
+           "minecraft:behavior.nearest_attackable_target": {
+            "priority": 0,
+            "entity_types": [
+              
+              {
+                "filters": {
+                   "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "==",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "inanimate"
+                    }, 
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "creeper"
+                    }
+                  ]
+                },
+                "max_dist": 100
+              }
+            ],
+            "must_see": false
+          },
+            "minecraft:entity_sensor": {
+                "sensor_range": 0.3, 
+                "relative_range": false,
+                "require_all": true,
+                "event_filters": {
+                  "any_of": [
+                    { "test": "is_family", "subject": "other", "value": "monster" }
+                   
+                  ]
+                },
+                "event": "explode"
+              },
+            "minecraft:fire_immune": {
+            }
+        },
+        "events": {
+            "explode": {
+                                "add": {
+                                    "component_groups": [
+                                        "explode"
+                                    ]
+                                }
+            },
+            "despawn": {
+                "add": {
+                   "component_groups": [
+                      "despawn"
+                   ]
+                }
+             }
+        }
+    }
+}

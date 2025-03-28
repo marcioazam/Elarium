@@ -1,0 +1,224 @@
+{
+	//ver depois
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:gloopine",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"fat":{
+			"minecraft:loot": {
+				"table": "loot_tables/entities/gloopine.json"
+			},
+				"minecraft:physics": {
+					"has_gravity": true
+				},
+				"minecraft:scale": {
+					"value": 3
+				},
+				"minecraft:collision_box": {
+					"width": 0.9,
+					"height": 0.9
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"time": 15,
+					"time_down_event": {
+						"event": "go_small"
+					}
+				},
+				"minecraft:area_attack": {
+					"damage_range": 0.4,
+					"damage_per_tick": 10,
+					"damage_cooldown": 0.5,
+					"cause": "fire",
+					"entity_filter": {
+						"any_of": [
+						{ "test": "is_family", "subject": "other", "value": "player" },
+						{ "test": "is_family", "subject": "other", "value": "monster" }
+						]
+					}
+				},
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+						"test": "on_ground",
+						"subject": "self",
+						"operator": "==",
+						"value": true
+						},
+						"event": "jump"
+					}
+        		}
+			},
+			"small":{
+				"minecraft:scale": {
+					"value": 1.3
+				},
+				"minecraft:collision_box": {
+					"width": 0.4,
+					"height": 0.4
+				},
+				"minecraft:physics": {
+					"has_gravity": false,
+					"has_collision": true
+				},
+				"minecraft:behavior.random_hover": {
+					"priority": 0,
+					"xz_dist": 10,
+					"y_dist": 8,
+					"y_offset": -1,
+					"interval": 1,
+					"hover_height": [2, 10]
+				},
+				"minecraft:movement.hover": {},
+				"minecraft:movement": {
+					"value": 0.20
+				},
+				"minecraft:flying_speed": {
+					"value": 0.15
+				},
+				"minecraft:navigation.hover": {
+					"can_path_over_water": true,
+					"can_sink": true,
+					"can_pass_doors":  true,
+					"can_path_from_air": true,
+					"avoid_water": false,
+					"avoid_damage_blocks": false,
+					"avoid_sun": false,
+					"can_swim": false
+				},
+				"minecraft:variant": {
+					"value": 0
+				},
+				"minecraft:area_attack": {
+					"damage_range": 0.2,
+					"damage_per_tick": 4,
+					"damage_cooldown": 0.5,
+					"cause": "fire",
+					"entity_filter": {
+						"any_of": [
+						{ "test": "is_family", "subject": "other", "value": "player" },
+						{ "test": "is_family", "subject": "other", "value": "monster" }
+						]
+					}
+				}
+			}
+		},
+		"components": { 
+			
+			"minecraft:collision_box": {
+					"width": 0.4,
+					"height": 0.4
+				},
+			"minecraft:damage_sensor": {
+				"triggers": {
+				"cause": "fall",
+				"deals_damage": false
+				}
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 10 : 0"
+			},
+			
+			"minecraft:nameable": {},
+			"minecraft:health": {
+				"value": 1000,
+				"max": 1000
+			},
+			"minecraft:type_family": {
+          "family": [ "gloopine", "mob","sulfur" ]
+        },
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_contact_with_water",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "drowning",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.4
+			},
+			"minecraft:fire_immune": {
+      		},
+			"minecraft:jump.static": {},
+			
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.panic": {
+				"priority": 0,
+				"speed_multiplier": 1.25
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			
+			"minecraft:leashable": {
+				"soft_distance": 4,
+				"hard_distance": 6,
+				"max_distance": 10 
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"small"
+					]
+				}
+			},
+			"jump": {
+				"sequence": [
+				{
+				"queue_command": {
+				"command": [
+					"scriptevent edx:gloopine_jump"
+				]
+				}
+				}
+				]
+			},
+			"go_small": {
+				"add": {
+					"component_groups": [
+						"small"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"fat"
+					]
+				}
+			},
+			"go_fat": {
+				"remove": {
+					"component_groups": [
+						"small"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"fat"
+					]
+				}
+			}
+		}
+	}
+}

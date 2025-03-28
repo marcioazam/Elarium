@@ -1,0 +1,1 @@
+camerashake add @a[r=6.5] 0.8 1 positional

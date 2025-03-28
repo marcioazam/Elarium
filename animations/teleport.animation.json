@@ -1,0 +1,188 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.elderman.teleport_random": {
+      "animation_length": 9.2,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "@s xp:stage_remove_teleport"
+        ],
+        "9": [
+          "/tag @s[tag=\"sticky\"] add no_tp",
+          "/execute if entity @a[tag=\"showcase_mode\"] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+          "/event entity @s[tag=!\"no_tp\"] @s xp:stage_teleport",
+
+          "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+          "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 8 @s"
+        ],
+        "9.1":[
+          "@s xp:stage_remove_teleport"
+        ]
+      }
+    },
+    "animation.endergob.teleport_random": {
+      "animation_length": 9.2,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "@s xp:stage_remove_teleport"
+        ],
+        "9": [
+          "/tag @s[tag=\"sticky\"] add no_tp",
+          "/execute if entity @a[tag=\"showcase_mode\"] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+          "/event entity @s[tag=!\"no_tp\"] @s xp:stage_teleport",
+
+          "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+          "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 6 @s",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.walk",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.pre_attack",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.attack"
+        ],
+        "9.1":[
+          "@s xp:stage_remove_teleport",
+          "/stopsound @a entity.endergob.walk",
+          "/stopsound @a entity.endergob.pre_attack",
+          "/stopsound @a entity.endergob.attack"
+        ]
+      }
+    },
+    "animation.enderslug.teleport_random": {
+      "animation_length": 9.2,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "@s xp:stage_remove_teleport"
+        ],
+        "9": [
+          "/tag @s[tag=\"sticky\"] add no_tp",
+          "/execute if entity @a[tag=\"showcase_mode\"] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+          "/event entity @s[tag=!\"no_tp\"] xp:stage_calm",
+          "/event entity @s[tag=!\"no_tp\"] xp:stage_teleport",
+
+          "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+          "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 8 @s",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.enderslug.walk",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.enderslug.pre_attack",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.enderslug.attack"
+        ],
+        "9.1":[
+          "@s xp:stage_remove_teleport",
+
+          "/stopsound @a entity.enderslug.walk",
+          "/stopsound @a entity.enderslug.pre_attack",
+          "/stopsound @a entity.enderslug.attack"
+        ]
+      }
+    },
+
+    
+    "animation.enderslime.teleport_random": {
+      "animation_length": 9.2,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "@s xp:stage_remove_teleport"
+        ],
+        "9": [
+          "/tag @s[tag=\"sticky\"] add no_tp",
+          "/execute if entity @a[tag=\"showcase_mode\"] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+          "/event entity @s[tag=!\"no_tp\"] xp:stage_calm",
+          "/event entity @s[tag=!\"no_tp\"] xp:stage_teleport",
+
+          "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+          "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 8 @s",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.enderslug.walk",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.enderslug.pre_attack",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.enderslug.attack"
+        ],
+        "9.1":[
+          "@s xp:stage_remove_teleport",
+
+          "/stopsound @a entity.enderslug.walk",
+          "/stopsound @a entity.enderslug.pre_attack",
+          "/stopsound @a entity.enderslug.attack"
+        ]
+      }
+    },
+
+    "animation.warder.teleport_random": {
+      "animation_length": 9.2,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "@s xp:stage_remove_teleport"
+        ],
+        "9": [
+          "/tag @s[tag=\"sticky\"] add no_tp",
+          "/execute if entity @a[tag=\"showcase_mode\"] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+          "/event entity @s[tag=!\"no_tp\"] xp:stage_calm",
+          "/event entity @s[tag=!\"no_tp\"] xp:stage_teleport",
+
+          "/spreadplayers ~~ 1 5 @s[tag=!\"no_tp\"]",
+          "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.warder.walk",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.warder.pre_attack",
+          "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.warder.attack"
+        ],
+        "9.1":[
+          "@s xp:stage_remove_teleport",
+
+          "/stopsound @a entity.warder.walk",
+          "/stopsound @a entity.warder.pre_attack",
+          "/stopsound @a entity.warder.attack"
+        ]
+      }
+    },
+
+    "animation.rippling.teleport_random": {
+      "animation_length": 9.2,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "@s xp:stage_remove_teleport"
+        ],
+        "9": [
+          "/tag @s[tag=\"sticky\"] add no_tp",
+          "/execute if entity @a[tag=\"showcase_mode\"] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+          "/event entity @s[tag=!\"no_tp\"] @s xp:stage_teleport",
+
+          "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+          "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 8 @s"
+        ],
+        "9.1":[
+          "@s xp:stage_remove_teleport"
+        ]
+      }
+    },
+
+    "animation.stalker.teleport_random": {
+      "animation_length": 14.2,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "@s xp:stage_remove_teleport"
+        ],
+        "13": [
+          "/tag @s[tag=\"sticky\"] add no_tp",
+          "/execute if entity @a[tag=\"showcase_mode\"] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+          "/event entity @s[tag=!\"no_tp\"] @s xp:stage_teleport"
+        ],
+        "14": [
+          "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+          "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 8 @s"
+        ],
+        "14.1":[
+          "@s xp:stage_remove_teleport"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:small_blue_lycaephytus_it",
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.flower"
+			}
+		},
+		"components": {
+			"menu_category": {
+				"parent": "itemGroup.name.grass"
+		},
+			"minecraft:icon": {
+				"textures":{
+               "default":"small_blue_lycaephytus"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:blue_lycaephytus_small",
+				"use_on" : ["edx:shulk_grass"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

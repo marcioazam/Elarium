@@ -1,0 +1,49 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:end_catalyst"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "T T",
+      "LEL",
+      "BBB"
+    ],
+    "key": {
+      "T": {
+        "item": "minecraft:end_rod"
+      },
+      "L": {
+        "item": "minecraft:purpur_block"
+      },
+      "E": {
+        "item": "minecraft:ender_eye"
+      },
+      "B": {
+        "item": "minecraft:prismarine",
+        "data": 1
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:end_rod"
+      },
+      {
+        "item": "minecraft:purpur_block"
+      },
+      {
+        "item": "minecraft:ender_eye"
+      },
+      {
+        "item": "minecraft:prismarine",
+        "data": 1
+      }
+    ],
+    "result": {
+      "item": "edx:end_catalyst"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:hard_sandstone_bricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:hard_sandstone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:hard_sandstone"
+      }
+    ],
+    "result": {
+      "item": "edx:hard_sandstone_bricks",
+      "count": 4
+    }
+  }
+  
+}

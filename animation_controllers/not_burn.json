@@ -1,0 +1,19 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.not_burn": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"light":"query.is_name_any('C\na')"} 
+					]
+				},
+				"light": {
+					"on_entry": [
+						"/event entity @s not_burn"
+					  ]
+			}
+	 	}
+		}
+	}
+}

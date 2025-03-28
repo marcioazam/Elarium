@@ -1,0 +1,32 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:spawn_rules": {
+      "description": {
+        "identifier": "edx:warped_creeper",
+        "population_control": "monster"
+      },
+      "conditions": [
+       
+        {
+          "minecraft:spawns_underground": {},
+          "minecraft:spawns_on_block_filter": ["minecraft:warped_nylium","minecraft:warped_wart_block"],
+          "minecraft:weight": {
+            "default": 50
+          },
+          "minecraft:difficulty_filter": {
+            "min": "peaceful",
+            "max": "hard"
+          },
+          "minecraft:herd": {
+            "min_size": 1,
+            "max_size": 3
+          },
+          "minecraft:biome_filter": {
+            "all_of": [
+              {"test": "has_biome_tag", "operator": "==", "value": "warped_forest"}
+            ]
+          }
+        }
+      ]
+    }
+  }

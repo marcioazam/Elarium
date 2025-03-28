@@ -1,0 +1,21 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "xp:echoing_planks_to_chest.recipe"
+        },
+        "tags": [ "crafting_table" ],
+        "pattern": [
+            "AAA",
+            "A A",
+            "AAA"
+        ],
+        "key": {
+            "A": { "item": "xp:echoing_planks" }
+        },
+        "result": {
+            "item": "minecraft:chest",
+            "count": 1
+        }
+    }
+}

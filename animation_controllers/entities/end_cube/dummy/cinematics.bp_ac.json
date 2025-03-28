@@ -1,0 +1,183 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_marker.cinematics": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "arena.intro.start": "q.property('xp:cutscene_id') == 1" },
+
+            /* unused */
+            { "boss.stage_transition": "q.property('xp:cutscene_id') == 2" },
+            { "boss.final_death": "q.property('xp:cutscene_id') == 3" }
+          ]
+        },
+
+
+        "arena.intro.start": {
+          "transitions": [
+            { "arena.intro.start.1": "(q.life_time - v.cutscene_time) > 1.5" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            // "/inputpermission set @a[r=256] camera disabled",
+            // "/inputpermission set @a[r=256] movement disabled",
+
+            "/effect @a[r=256] invisibility 99999 2 true",
+            "/event entity @a[r=256] xp:remove_name_tags",
+            "/event entity @a[r=256] xp:cutscene.end_portal",
+
+            "/tag @a[r=256] add ender_sanctuary_cutscene",
+            "/tag @a[r=256] add in_cutscene",
+
+            "@s xp:cinematics_handler.reset_cutscene_id",
+
+            "/scoreboard objectives add frame1 dummy",
+            "/scoreboard players set @s frame1 0",
+            "/title @a[tag=\"ender_sanctuary_cutscene\"] title xp_cutscene;xp_fade"
+          ],
+          "on_exit": [
+            "/tp @a[tag=\"ender_sanctuary_cutscene\"] @e[type=xp:end_cube_barrier,c=1]",
+
+            "/execute as @a[r=128] run music queue entity.end_cube.music_bgm 1.0 1.0 loop",
+
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] invisibility 9999 255 true",
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] resistance 9999 255 true",
+
+            "/gamemode spectator @a[tag=\"ender_sanctuary_cutscene\"]",
+            "/tp @a[tag=\"ender_sanctuary_cutscene\"] 330.500 228.760 -536.500 facing @e[type=xp:end_cube,c=1]"
+          ]
+        },
+        "arena.intro.start.1": {
+          "transitions": [ { "arena.intro.start.2": "q.property('xp:cutscene_positioning_done') == true" } ],
+          "animations": [
+            "cutscenes.arena.intro_camera",
+            "cutscenes.arena.intro_effects"
+          ]
+        },
+        "arena.intro.start.2": {
+          "transitions": [ { "default": "(q.life_time - v.cutscene_time) > 2" } ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            "/tp @a[tag=\"ender_sanctuary_cutscene\"] 312.528 111.268 -520.297 179.213 -12.957",
+            "/title @a[tag=\"ender_sanctuary_cutscene\"] title xp_fade_sudden",
+
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] invisibility 0",
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] resistance 0",
+
+            "/gamemode survival @a[tag=\"ender_sanctuary_cutscene\"]"
+          ],
+          "on_exit": [
+            // "/inputpermission set @a[r=256] camera enabled",
+            // "/inputpermission set @a[r=256] movement enabled",
+
+            "/effect @a[r=256] invisibility 0 0 true",
+            "/event entity @a[r=256] xp:leave_cutscene",
+            "/event entity @a[r=256] xp:name_tags",
+
+            "/tag @a[r=256] remove in_cutscene",
+            "/tag @a[r=256] remove ender_sanctuary_cutscene",
+
+            "/execute as @a[tag=\"ender_sanctuary_cutscene\"] at @s run playsound entity.end_cube.scream @s ~~~ 1 0.75",
+            "/execute as @a[tag=\"ender_sanctuary_cutscene\"] at @s run function objectives/05",
+
+            "@s xp:instant_despawn"
+          ]
+        },
+
+        "boss.stage_transition": {
+          "transitions": [
+            { "boss.stage_transition.1": "(q.life_time - v.cutscene_time) > 1.5" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            "@s xp:cinematics_handler.reset_cutscene_id",
+            "/tag @a[r=256] add ender_sanctuary_cutscene",
+
+            "/title @a[tag=\"ender_sanctuary_cutscene\"] title xp_cutscene;xp_fade"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] invisibility 9999 255 true",
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] resistance 9999 255 true",
+
+            "/gamemode spectator @a[tag=\"ender_sanctuary_cutscene\"]",
+            "/tp @a[tag=\"ender_sanctuary_cutscene\"] 330.500 228.760 -536.500 facing @e[type=xp:end_cube,c=1]"
+          ]
+        },
+        "boss.stage_transition.1": {
+          "transitions": [ { "boss.stage_transition.2": "q.property('xp:cutscene_positioning_done') == true" } ],
+          "animations": [ "cutscenes.boss.stage_transition" ]
+        },
+        "boss.stage_transition.2": {
+          "transitions": [ { "default": "(q.life_time - v.cutscene_time) > 2" } ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            "/tp @a[tag=\"ender_sanctuary_cutscene\"] 317.776 223.245 -536.494 90.000 -0.262",
+            "/title @a[tag=\"ender_sanctuary_cutscene\"] title xp_fade_sudden",
+
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] invisibility 0",
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] resistance 0",
+
+            "/gamemode survival @a[tag=\"ender_sanctuary_cutscene\"]"
+          ],
+          "on_exit": [
+            "/tag @a remove ender_sanctuary_cutscene",
+            "@s xp:instant_despawn"
+          ]
+        },
+
+        "boss.final_death": {
+          "transitions": [
+            { "boss.final_death.1": "(q.life_time - v.cutscene_time) > 1.5" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            "@s xp:cinematics_handler.reset_cutscene_id",
+            "/tag @a[r=256] add ender_sanctuary_cutscene",
+
+            "/title @a[tag=\"ender_sanctuary_cutscene\"] title xp_cutscene;xp_fade"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] invisibility 9999 255 true",
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] resistance 9999 255 true",
+
+            "/gamemode spectator @a[tag=\"ender_sanctuary_cutscene\"]",
+            "/tp @a[tag=\"ender_sanctuary_cutscene\"] 330.500 228.760 -536.500 facing @e[type=xp:end_cube,c=1]"
+          ]
+        },
+        "boss.final_death.1": {
+          "transitions": [ { "boss.final_death.2": "q.property('xp:cutscene_positioning_done') == true" } ],
+          "animations": [ "cutscenes.boss.final_death" ]
+        },
+        "boss.final_death.2": {
+          "transitions": [ { "default": "(q.life_time - v.cutscene_time) > 2" } ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            "/tp @a[tag=\"ender_sanctuary_cutscene\"] 317.776 223.245 -536.494 90.000 -0.262",
+            "/title @a[tag=\"ender_sanctuary_cutscene\"] title xp_fade_sudden",
+
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] invisibility 0",
+            "/effect @a[tag=\"ender_sanctuary_cutscene\"] resistance 0",
+
+            "/gamemode survival @a[tag=\"ender_sanctuary_cutscene\"]"
+          ],
+          "on_exit": [
+            "/tag @a remove ender_sanctuary_cutscene",
+            "@s xp:instant_despawn"
+          ]
+        }
+      }
+    }
+  }
+}

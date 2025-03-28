@@ -1,0 +1,40 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:dry_dirt_feature"
+        },
+        "count": 37,
+        "replace_rules": [
+            {
+                "places_block": "edx:dry_dirt",
+                "may_replace": [
+                    {
+                        "name": "minecraft:dirt"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:dry_dirt",
+                "may_replace": [
+                    {
+                        "name": "minecraft:grass"
+                    }
+                ]
+            },
+            {
+                "places_block": {
+                    "name": "minecraft:dirt",
+                    "states": {
+                        "dirt_type": "coarse"
+                    }
+                },
+                "may_replace": [
+                    {
+                        "name": "minecraft:stone"
+                    }
+                ]
+            }
+        ]
+    }
+}

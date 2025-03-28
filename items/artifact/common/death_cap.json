@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:death_cap_mushroom",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "death_cap",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:custom_components": [
+        "dungeons:dynamic_cooldown",
+        "dungeons:use_artefact"
+      ],
+      "minecraft:cooldown": {
+        "category": "death_cap_common",
+        "duration": 40
+      },
+      "minecraft:interact_button": "item.use.artefact",
+      "minecraft:use_modifiers": {
+        "use_duration": 0.0
+      }
+    }
+  }
+}

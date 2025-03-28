@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "edx:brew_levitation_long_potion_throw"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "edx:long_levitation_potion",
+    "reagent": "minecraft:gunpowder",
+    "output": "edx:long_levitation_throwing_potion"
+  }
+}

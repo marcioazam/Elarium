@@ -1,0 +1,42 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+      "description": {
+          "identifier": "xp:respawn",
+          "is_spawnable": false,
+          "is_summonable": true
+      },
+      "components": {
+        "minecraft:type_family": {
+          "family": [ "dummy", "ambient" ]
+        },
+        "minecraft:breathable": { "breathes_solids": true },
+        "minecraft:damage_sensor": {
+            "triggers": {
+              "cause": "all",
+              "deals_damage": false
+            }
+          },
+        "minecraft:knockback_resistance": {
+            "value": 1,
+            "max": 1
+        },
+        "minecraft:collision_box": {
+            "width": 0.0001,
+            "height": 0.0001
+        },
+        "minecraft:health": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        }
+      },
+      "component_groups": {
+        "xp:despawn":{"minecraft:instant_despawn": { "remove_child_entities": true }}
+      },
+      "events": {
+        "xp:despawn":{ "add": { "component_groups": [ "xp:despawn" ] } }
+      }
+      
+  }
+}

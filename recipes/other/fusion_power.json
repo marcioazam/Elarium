@@ -1,0 +1,53 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:fusion_powder"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "sgs",
+      "bpb",
+      "srs"
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:blaze_powder"
+      },
+      "p": {
+        "item": "minecraft:gunpowder"
+      },
+      "s": {
+        "item": "edx:sulfur"
+      },
+      "r": {
+        "item": "minecraft:redstone"
+      },
+      "g": {
+        "item": "minecraft:glowstone_dust"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:blaze_powder"
+      },
+      {
+        "item": "minecraft:gunpowder"
+      },
+      {
+        "item": "edx:sulfur"
+      },
+      {
+        "item": "minecraft:redstone"
+      },
+      {
+        "item": "minecraft:glowstone_dust"
+      }
+    ],
+    "result": {
+      "item": "edx:fusion_powder"
+    }
+  }
+}

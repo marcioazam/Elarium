@@ -1,0 +1,78 @@
+{
+  "format_version": "1.18.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:touched_ends_sonic_boom",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:physics": {
+        "has_collision": true
+      },
+      "minecraft:type_family": {
+        "family": [
+          "sonic_beam",
+          "projectile"
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 11,
+            "knockback": true,
+            "catch_fire": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": true
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": "xp:instant_despawn"
+          },
+          "remove_on_hit": {}
+        },
+        "power": 3.0,
+        "gravity": 0.00,
+        "inertia": 1,
+        "liquid_inertia": 1
+      },
+      "minecraft:timer": {
+        "time": 3,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:instant_despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [
+            "xp:instant_despawn"
+          ]
+        }
+      }
+    }
+  }
+}

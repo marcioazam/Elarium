@@ -1,0 +1,318 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:pet_iron_golem",
+      "runtime_identifier": "minecraft:iron_golem",
+      "is_summonable": true
+    },
+    "component_groups": {
+      "dungeons:enchanted": {
+        "minecraft:is_saddled": {},
+        "minecraft:health": {
+          "value": 200,
+          "max": 200
+        },
+        "minecraft:movement": {
+          "value": 0.3
+        },
+        "minecraft:scale": {
+          "value": 1.1
+        },
+        "minecraft:type_family": {
+          "family": ["irongolem", "mob", "artefact", "enchanted"]
+        },
+        "minecraft:attack": {
+          "damage": {
+            "range_min": 15,
+            "range_max": 28
+          }
+        }
+      },
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": ["irongolem", "mob", "artefact", "enchantable_pet"]
+      },
+      "minecraft:nameable": {},
+      "minecraft:collision_box": {
+        "width": 1.4,
+        "height": 2.9
+      },
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [{
+          "filters": {
+            "test": "in_lava",
+            "subject": "self",
+            "operator": "==",
+            "value": true
+          },
+          "cause": "lava",
+          "damage_per_tick": 4
+        }]
+      },
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:interact": {
+        "interactions": [{
+          "on_interact": {
+            "filters": {
+              "all_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "has_equipment",
+                  "domain": "hand",
+                  "subject": "other",
+                  "value": "iron_ingot"
+                },
+                {
+                  "test": "is_missing_health",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "use_item": true,
+          "health_amount": 25,
+          "play_sounds": "irongolem.repair",
+          "interact_text": "action.interact.repair"
+        }]
+      },
+      "minecraft:attack": {
+        "damage": {
+          "range_min": 7,
+          "range_max": 21
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [{
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0
+      },
+      "minecraft:balloonable": {
+        "mass": 2.0
+      },
+      "minecraft:behavior.target_when_pushed": {
+        "priority": 1,
+        "percent_chance": 5.0,
+        "entity_types": [{
+          "filters": {
+            "all_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "monster"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "creeper"
+              }
+            ]
+          }
+        }]
+      },
+      "minecraft:behavior.melee_box_attack": {
+        "priority": 1,
+        "track_target": true
+      },
+      "minecraft:behavior.move_towards_target": {
+        "priority": 2,
+        "speed_multiplier": 0.9,
+        "within_radius": 32
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.6,
+        "xz_dist": 16
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 6.0,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 3,
+        "must_reach": true,
+        "must_see": true,
+        "entity_types": [{
+            "filters": {
+              "all_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "creeper"
+                }
+              ]
+            },
+            "within_default": 10
+          },
+          {
+            "filters": {
+              "all_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "hoglin"
+                },
+                {
+                  "test": "is_difficulty",
+                  "operator": "!=",
+                  "value": "peaceful"
+                }
+              ]
+            },
+            "max_dist": 16
+          },
+          {
+            "filters": {
+              "all_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "zoglin"
+                },
+                {
+                  "test": "is_difficulty",
+                  "operator": "!=",
+                  "value": "peaceful"
+                }
+              ]
+            },
+            "max_dist": 16
+          }
+        ]
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 2,
+        "entity_types": {
+          "filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "creeper"
+          }
+        }
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:follow_range": {
+        "value": 64
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:timer": {
+        "looping": false,
+        "time": 50,
+        "time_down_event": {
+          "event": "dungeons:despawn"
+        }
+      },
+      "minecraft:is_tamed": {},
+      "minecraft:behavior.follow_owner": {
+        "priority": 6,
+        "speed_multiplier": 1.1,
+        "start_distance": 10,
+        "stop_distance": 2
+      },
+      "minecraft:behavior.owner_hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.owner_hurt_target": {
+        "priority": 2
+      },
+      "minecraft:tameable": {
+        "probability": 1.0,
+        "tame_event": {
+          "event": "minecraft:on_tame",
+          "target": "self"
+        }
+      }
+    },
+    "events": {
+      "dungeons:pet_become_enchanted": {
+        "add": {
+          "component_groups": [
+            "dungeons:enchanted"
+          ]
+        }
+      },
+      "dungeons:pet_remove_enchanted": {
+        "remove": {
+          "component_groups": [
+            "dungeons:enchanted"
+          ]
+        }
+      },
+      "dungeons:despawn": {
+        "queue_command": {
+          "command": [
+            "particle dungeons:golem_despawn"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.reset_broken_sanctuary": {
+            "loop": false,
+            "animation_length": 10,
+            "timeline": {
+                "0.0": [
+                    "/gamemode spectator @a",
+                    "/execute in the_end run tp @a 262 110 872",
+                    "/execute in the_end run tp @s 262 110 872"
+                ],
+                "1.0": [
+                    "/execute at @s rotated 0 0 run function broken_sanctuary/summon/activator",
+                    "/scoreboard players set west_tower sanctuary 0",
+                    "/scoreboard players set east_tower sanctuary 0",
+                    "/scoreboard players set south_tower sanctuary 0",
+                    "/scoreboard players set portal_activated sanctuary 0"
+                ],
+                "1.1": [
+                    "/execute in the_end run tp @a 416 110 1026",
+                    "/execute in the_end run tp @s 416 110 1026"
+                ],
+                "2.0": [
+                    "/execute at @s rotated 0 0 run function broken_sanctuary/summon/activator"
+                ],
+                "2.1": [
+                    "/execute in the_end run tp @a 570 110 872",
+                    "/execute in the_end run tp @s 570 110 872"
+                ],
+                "3.0": [
+                    "/execute at @s rotated 0 0 run function broken_sanctuary/summon/activator"
+                ],
+                "3.1": [
+                    "/tp @a 570 110 867",
+                    "/gamemode creative @a",
+                    "/event entity @s xp:despawn"
+                ]
+            }
+        }
+    }
+}

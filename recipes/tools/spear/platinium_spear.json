@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:platinium_spear"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      " XX",
+      "SWX",
+      "WS "
+    ],
+    "key": {
+      "X": {
+        "item": "edx:platinium_ingot"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "W": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:platinium_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:platinium_spear_i"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:tempest_painting",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:hover_text_color": {
+        "value": "aqua"
+      },
+      "minecraft:icon": "tempest_painting",
+      "minecraft:block_placer": {
+        "block": "dungeons:tempest_painting_block"
+      }
+    }
+  }
+}

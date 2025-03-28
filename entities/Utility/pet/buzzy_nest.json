@@ -1,0 +1,176 @@
+{
+  "format_version": "1.16.210",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:buzzy_nest",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn_clock": {
+        "minecraft:behavior.timer_flag_1": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            5,
+            10
+          ],
+          "on_end": {
+            "event": "dungeons:spawn_bee",
+            "target": "self"
+          }
+        },
+        "minecraft:timer": {
+          "looping": true,
+          "time": 30.1,
+          "time_down_event": {
+            "event": "dungeons:damaged"
+          }
+        }
+      },
+      "dungeons:damaged": {
+        "minecraft:is_saddled": {},
+        "minecraft:timer": {
+          "looping": true,
+          "time": 1.745,
+          "time_down_event": {
+            "event": "dungeons:despawn"
+          }
+        }
+      },
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "artefact",
+          "inanimate",
+          "gravity_immune"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 1.8
+      },
+      "minecraft:scale": {
+        "value": 1.05
+      },
+      "minecraft:health": {
+        "value": 999,
+        "max": 9999
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+        "minecraft:behavior.owner_hurt_by_target": {
+          "priority": 1
+        },
+        "minecraft:behavior.owner_hurt_target": {
+          "priority": 2
+        },
+      "minecraft:tameable": {
+        "probability": 1.0,
+        "tame_event": {
+          "event": "minecraft:on_tame",
+          "target": "self"
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_owner",
+                    "subject": "other",
+                    "value": false
+                  }
+                ]
+              },
+              "event": "dungeons:chance_damaged"
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:spawn_bee": {
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn_clock"
+          ]
+        }
+      },
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      },
+      "dungeons:damaged": {
+        "queue_command": {
+          "command": [
+            "playanimation @s animation.buzzy_nest.fall"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:damaged"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:despawn_clock"
+          ]
+        }
+      },
+      "dungeons:chance_damaged": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 10
+              },
+              {
+                "weight": 1,
+                "trigger": "dungeons:damaged"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

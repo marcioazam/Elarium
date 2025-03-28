@@ -1,0 +1,45 @@
+{
+   "format_version": "1.10.0",
+   "animation_controllers": {
+      "controller.animation.stalker.death":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "death": "query.health <= 26 && !q.is_baby"
+                  }
+               ]
+            },
+            "death":{
+               "on_entry": [
+                  "v.tick_delay = q.life_time;",
+                  //"/event entity @e[type=xp:stalker_bullet,c=1,r=2] xp:instant_despawn",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "@s xp:stage_death"
+               ],
+               "on_exit": [
+                  "@s xp:instant_despawn"
+               ],
+               "transitions": [
+                  {
+                     "death_end": "(q.life_time - v.tick_delay) >= 1"
+                  }
+               ]
+            },
+            "death_end":{
+            }
+         }
+      }
+   }
+}

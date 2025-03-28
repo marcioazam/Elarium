@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:dead_plant_it",
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.flower"
+			}
+
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"dead_plant"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:dead_plant",
+				"use_on" : ["dirt","sand","grass"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:long_spear_scroll",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"long_spear"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "long_spear_scroll"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dHussars knowledge scroll \n§5Artifact\n§6Increase your spears reach by 1.5 blocks while on mount"
+			  }
+		}
+	}
+}

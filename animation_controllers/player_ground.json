@@ -1,0 +1,23 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_ground": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"bow1":"query.is_on_ground == 1.0"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/execute as @s at @s run scriptevent edx:player_hit_ground"
+					  ],
+					"transitions":[
+						
+						{"default":"query.is_on_ground == 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

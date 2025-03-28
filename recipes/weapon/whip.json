@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "whip"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " ss",
+      " Is",
+      "S s"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "s": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "dungeons:whip",
+      "count": 1
+    }
+  }
+}

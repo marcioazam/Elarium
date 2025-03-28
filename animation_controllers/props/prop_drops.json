@@ -1,0 +1,66 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.torch.drop": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "transitions": [
+            { "drop_item": "q.variant == 1 || q.health <= 1" }
+          ]
+        },
+        "drop_item": {
+          "on_entry": [
+            "/fill ~~~ ~~~ air 0 replace light_block",
+            "/particle xp:skeleton.hit ~~~",
+            "/particle xp:dummy.hit_sparks ~~0.25~",
+            "/playsound mob.blaze.hit @a ~~~ 0.25 0.5 0.001",
+            "/playsound mob.blaze.hit @a ~~~ 0.5 1.5 0.001",
+            "/structure load mystructure:torch_drop ~~~"
+          ]
+        }
+      }
+    },
+    "controller.animation.ceiling_light.drop": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "transitions": [
+            { "drop_item": "q.variant == 1 || q.health <= 1" }
+          ]
+        },
+        "drop_item": {
+          "on_entry": [
+            "/fill ~~~ ~~~ air 0 replace light_block",
+            "/particle xp:skeleton.hit ~~~",
+            "/particle xp:dummy.hit_sparks ~~0.25~",
+            "/playsound mob.blaze.hit @a ~~~ 0.25 0.5 0.001",
+            "/playsound mob.blaze.hit @a ~~~ 0.5 1.5 0.001",
+            "/structure load mystructure:ceiling_light ~~~"
+          ]
+        }
+      }
+    },
+    "controller.animation.fire_pit.drop": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "transitions": [
+            { "drop_item": "q.variant == 1 || q.health <= 1" }
+          ]
+        },
+        "drop_item": {
+          "on_entry": [
+            "/fill ~~~ ~~~ air 0 replace light_block",
+            "/particle xp:skeleton.hit ~~~",
+            "/particle xp:dummy.hit_sparks ~~0.25~",
+            "/playsound mob.blaze.hit @a ~~~ 0.25 0.5 0.001",
+            "/playsound mob.blaze.hit @a ~~~ 0.35 0.25 0.001",
+            "/playsound mob.blaze.hit @a ~~~ 0.5 1.5 0.001",
+            "/structure load mystructure:fire_pit ~~~"
+          ]
+        }
+      }
+    }
+  }
+}

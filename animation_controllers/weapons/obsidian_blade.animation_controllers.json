@@ -1,0 +1,251 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.obsidian_blade": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'obsidian_blade'" },
+            { "hold1": "q.get_equipped_item_name == 'obsidian_blade_enchanted'" }
+          ],
+          "on_entry": [
+            "/tag @s remove xp_dash",
+            "@s xp:attack_value_1",
+            "/tag @s remove obsidian_blade_user",
+            "/scoreboard players set @s obsidian_blade 0",
+            "/scoreboard objectives remove obsidian_blade",
+            "@s xp:default_exhaustion_values"
+          ],
+          "on_exit": [
+            "/scoreboard objectives add obsidian_blade dummy obsidian_blade"
+          ]
+        },
+
+        "hold": {
+          "animations": ["regen_stamina"],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'obsidian_blade'" },
+            { "basic_attack": "v.attack_time > 0.0f" },
+            {
+              "charge": "q.is_using_item && q.get_equipped_item_name == 'obsidian_blade'"
+            }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s remove xp_dash",
+            "/tag @s add obsidian_blade_user",
+            "/effect @s levitation 0 0 true",
+            "/effect @s slowness 0 0 true",
+            "@s xp:obsidian_blade_exhaustion_values",
+            "@s xp:attack_value_0"
+          ]
+        },
+
+        "charge": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'obsidian_blade'" },
+            { "hold": "!q.is_using_item && (q.life_time - v.tick_delay) <= 0.83 && q.get_equipped_item_name == 'obsidian_blade'" },
+            { "jump": "!q.is_using_item && (q.life_time - v.tick_delay) >= 0.8325 && q.get_equipped_item_name == 'obsidian_blade'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/camerashake add @s 0.0075 9999 rotational"
+          ],
+          "on_exit": ["/camerashake stop @s"]
+        },
+
+        "jump": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'obsidian_blade'" },
+            { "hold": "(q.life_time - v.tick_delay) >= 0.55 && q.get_equipped_item_name == 'obsidian_blade' && (q.is_on_ground || q.is_in_water)" },
+            { "hold": "(q.life_time - v.tick_delay) >= 3.75" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:obsidian_blade.dash_attack",
+            "/tag @s add xp_dash",
+            "/camerashake add @s 0.05 3 rotational",
+            "/playsound boost.in_air @s",
+            "/effect @s levitation 1 6 true",
+            "/effect @s slowness 1 1 true",
+            "/summon xp:obsidian_blade_boost ^^-0.25^-0.5"
+          ],
+          "on_exit": [
+            "/summon xp:obsidian_blade_impact ~~~",
+            "@s xp:remove_obsidian_blade.dash_attack",
+            "/effect @s levitation 0 0 true",
+            "/camerashake stop @s",
+            "/particle xp:nether_sword.lava_burst ~~0.15~",
+            "/particle xp:light_sword.impact ~~0.25~",
+            "/effect @s slowness 0 0 true",
+            "/stopsound @s boost.in_air",
+            "/execute at @s run playsound block.turtle_egg.break @a[r=15] ~~~ 0.45 2 0.001",
+            "/execute at @s run playsound dig.bone_block @a[r=15] ~~~ 0.5 0.75 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.5 0.25 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.35 0.5 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 1 0.75 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.5 0.001",
+            "/execute at @s run camerashake add @a[r=6] 0.25 0.35 rotational",
+            "/tag @s remove xp_dash"
+          ]
+        },
+
+        "basic_attack": {
+          "animations": ["obsidian_blade_attack.sfx"],
+          "transitions": [
+            {
+              "hold": "(q.life_time - v.tick_delay) >= 1.125 && q.get_equipped_item_name == 'obsidian_blade'"
+            },
+            { "default": "q.get_equipped_item_name != 'obsidian_blade'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/scoreboard players add @s obsidian_blade 1",
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "/execute as @s[scores={obsidian_blade=5..}] at @s run titleraw @s actionbar {\"rawtext\":[{\"translate\":\"action.hint.weapon_tiredness\"}]}",
+            "/execute as @s[scores={obsidian_blade=4}] at @s run effect @s nausea 4 1",
+            "/execute as @s[scores={obsidian_blade=7}] at @s run effect @s nausea 6 2",
+            "/execute as @s[scores={obsidian_blade=10}] at @s run effect @s nausea 8 3",
+            "/execute as @s[scores={obsidian_blade=15..99999}] at @s run effect @s nausea 12 4",
+            "@s xp:unset_attack"
+          ]
+        },
+
+        "hold1": {
+          "animations": ["regen_stamina"],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'obsidian_blade_enchanted'"
+            },
+            { "basic_attack1": "v.attack_time > 0.0f" },
+            {
+              "charge1": "q.is_using_item && q.get_equipped_item_name == 'obsidian_blade_enchanted'"
+            }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s remove xp_dash",
+            "/tag @s add obsidian_blade_user",
+            "/effect @s levitation 0 0 true",
+            "/effect @s slowness 0 0 true",
+            "@s xp:obsidian_blade_exhaustion_values",
+            "@s xp:attack_value_0"
+          ]
+        },
+
+        "charge1": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'obsidian_blade_enchanted'" },
+            { "hold1": "!q.is_using_item && (q.life_time - v.tick_delay) <= 0.83 && q.get_equipped_item_name == 'obsidian_blade_enchanted'" },
+            { "jump1": "!q.is_using_item && (q.life_time - v.tick_delay) >= 0.8325 && q.get_equipped_item_name == 'obsidian_blade_enchanted'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/camerashake add @s 0.0075 9999 rotational"
+          ],
+          "on_exit": ["/camerashake stop @s"]
+        },
+
+        "jump1": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'obsidian_blade_enchanted'" },
+            { "hold1": "(q.life_time - v.tick_delay) >= 0.55 && q.get_equipped_item_name == 'obsidian_blade_enchanted' && (q.is_on_ground || q.is_in_water)" },
+            { "hold1": "(q.life_time - v.tick_delay) >= 3.75" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:obsidian_blade.dash_attack",
+            "/tag @s add xp_dash",
+            "/camerashake add @s 0.05 3 rotational",
+            "/playsound boost.in_air @s",
+            "/effect @s levitation 1 10 true",
+            "/effect @s slowness 1 1 true",
+            "/summon xp:obsidian_blade_boost ^^-0.25^-0.5"
+          ],
+          "on_exit": [
+            "/summon xp:obsidian_blade_impact ~~~",
+            "/execute at @s run playsound respawn_anchor.deplete @a[r=20] ~~~ 0.95 0.75 0.1",
+            "/execute at @s run playsound respawn_anchor.deplete @a[r=20] ~~~ 0.75 0.5 0.1",
+            "@s xp:remove_obsidian_blade.dash_attack",
+            "/effect @s levitation 0 0 true",
+            "/camerashake stop @s",
+            "/particle xp:obsidian_blade.impact ~~~",
+            "/particle xp:nether_sword.lava_burst ~~0.15~",
+            "/particle xp:light_sword.impact ~~0.25~",
+            "/effect @s slowness 0 0 true",
+            "/stopsound @s boost.in_air",
+            "/execute at @s run playsound block.turtle_egg.break @a[r=15] ~~~ 0.45 2 0.001",
+            "/execute at @s run playsound dig.bone_block @a[r=15] ~~~ 0.5 0.75 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.5 0.25 0.001",
+            "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.35 0.5 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 1 0.75 0.001",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.5 0.001",
+            "/execute at @s run camerashake add @a[r=6] 0.25 0.35 rotational",
+            "/tag @s remove xp_dash"
+          ]
+        },
+
+        "basic_attack1": {
+          "animations": ["obsidian_blade_attack.sfx1"],
+          "transitions": [
+            { "hold1": "(q.life_time - v.tick_delay) >= 1.125 && q.get_equipped_item_name == 'obsidian_blade_enchanted'" },
+            { "default": "q.get_equipped_item_name != 'obsidian_blade_enchanted'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/scoreboard players add @s obsidian_blade 1"
+          ],
+          "on_exit": [
+            "/execute as @s[scores={obsidian_blade=5..}] at @s run titleraw @s actionbar {\"rawtext\":[{\"translate\":\"action.hint.weapon_tiredness\"}]}",
+            "/execute as @s[scores={obsidian_blade=4}] at @s run effect @s nausea 4 1",
+            "/execute as @s[scores={obsidian_blade=7}] at @s run effect @s nausea 6 2",
+            "/execute as @s[scores={obsidian_blade=10}] at @s run effect @s nausea 8 3",
+            "/execute as @s[scores={obsidian_blade=15..99999}] at @s run effect @s nausea 12 4"
+          ]
+        }
+      }
+    },
+    "controller.animation.obsidian_blade.attack": {
+      "initial_state": "alive",
+      "states": {
+        "alive": {
+          "on_entry": [
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.25 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.25 0.25 0.001",
+            "/execute at @s run camerashake add @a[r=4] 0.0075 0.15 rotational",
+            "/execute at @s run playsound hit.ancient_debris @a ~~~ 10.4 0.25 0.005",
+            "/execute at @s run playsound hit.ancient_debris @a ~~~ 0.8 0.75 0.005",
+            "/execute at @s run playsound hit.ancient_debris @a ~~~ 0.8 1.75 0.005",
+            "/particle xp:nether_sword.lava_burst1 ~~-0.25~"
+          ]
+        }
+      }
+    },
+    "controller.animation.obsidian_blade.enchanted_attack": {
+      "initial_state": "alive",
+      "states": {
+        "alive": {
+          "on_entry": [
+            "/particle xp:obsidian_blade.impact_attack ~~~",
+            "/execute at @s run playsound respawn_anchor.deplete @a[r=20] ~~~ 0.95 2.75 0.1",
+            "/execute at @s run playsound respawn_anchor.deplete @a[r=20] ~~~ 0.75 2.25 0.1",
+            "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.25 0.25 0.001",
+            "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.25 0.25 0.001",
+            "/execute at @s run camerashake add @a[r=4] 0.015 0.15 rotational",
+            "/execute at @s run playsound hit.ancient_debris @a ~~~ 10.4 0.25 0.005",
+            "/execute at @s run playsound hit.ancient_debris @a ~~~ 0.8 0.75 0.005",
+            "/execute at @s run playsound hit.ancient_debris @a ~~~ 0.8 1.75 0.005",
+            "/particle xp:nether_sword.lava_burst1 ~~-0.25~"
+          ]
+        }
+      }
+    }
+  }
+}

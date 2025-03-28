@@ -1,0 +1,16 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:lab_random"
+    },
+    "features": [
+      [ "edx:lab_feature", 1 ],
+      [ "edx:void_ruin1", 10 ],
+      [ "edx:void_ruin2", 10 ],
+      [ "edx:void_ruin3", 10 ],
+      [ "edx:void_ruin4", 10 ],
+      [ "edx:nothing_feature", 10500 ]
+    ]
+  }
+}

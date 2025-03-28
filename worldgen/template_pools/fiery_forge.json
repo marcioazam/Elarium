@@ -1,0 +1,19 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "dungeons:fiery_forge"
+        },
+        
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "fiery_forge/structure",
+                    "processors": "dungeons:processor_default"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

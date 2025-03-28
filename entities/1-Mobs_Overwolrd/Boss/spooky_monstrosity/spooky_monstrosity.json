@@ -1,0 +1,313 @@
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:spooky_monstrosity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+         "scripts":{
+            "animate":[
+               "attack_controller",
+               "cast_controller"
+            ]
+         },
+         "animations":{
+            "attack_controller":"controller.animation.spooky_monstrosity.attack",
+"cast_controller":"controller.animation.redstone_monstrosity.casting",
+            "attack":"animation.monstrosity_areadamage"
+         }
+    },
+    "components": {
+      "minecraft:mob_effect": {
+        "mob_effect": "blindness",
+        "effect_range": 5,
+        "effect_time": 6,
+        "cooldown_time": 45,
+        "entity_filter": [{
+          "test": "is_family",
+          "subject": "other",
+          "value": "player"
+        }]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 750 : 375"
+      },
+      "minecraft:attack": {
+        "damage": 28
+      },
+       "minecraft:breathable": {
+        "suffocate_time": 0,
+        "total_supply": 150,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:collision_box": {
+        "height": 4.7,
+        "width": 3.5
+      },
+      "minecraft:health": {
+        "max": 1350,
+        "value": 1350
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "cause": "entity_explosion",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:behavior.summon_entity": {
+        "priority": 2,
+        "summon_choices": [
+          {
+            "weight": 1,
+            "cooldown_time": 15,
+            "cast_duration": 2.25,
+            "start_sound_event": "cast.spell",
+            "sequence": [
+              {
+                "shape": "circle",
+                "target": "target",
+                "base_delay": 0.444,
+                "num_entities_spawned": 1,
+                "delay_per_summon": 0.0,
+                "entity_type": "dungeons:spooky_monstrosity_warn",
+                "summon_cap": 30,
+                "summon_cap_radius": 64,
+                "size": 0.1
+              },
+              {
+                "shape": "circle",
+                "target": "target",
+                "base_delay": 1.5,
+                "num_entities_spawned": 9,
+                "delay_per_summon": 0.11,
+                "entity_type": "dungeons:spooky_monstrosity_boom",
+                "summon_cap": 30,
+                "summon_cap_radius": 64,
+                "size": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      "minecraft:jump.static": {},
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "bamboo",
+          "bamboo_sapling",
+          "beetroot",
+          "brown_mushroom",
+          "carrots",
+          "carved_pumpkin",
+          "chorus_flower",
+          "chorus_plant",
+          "deadbush",
+          "double_plant",
+          "leaves",
+          "leaves2",
+          "lit_pumpkin",
+          "melon_block",
+          "melon_stem",
+          "potatoes",
+          "pumpkin",
+          "pumpkin_stem",
+          "red_flower",
+          "red_mushroom",
+          "crimson_fungus",
+          "warped_fungus",
+          "reeds",
+          "sapling",
+          "snow_layer",
+          "sweet_berry_bush",
+          "tallgrass",
+          "turtle_egg",
+          "vine",
+          "waterlily",
+          "wheat",
+          "yellow_flower",
+          "azalea",
+          "flowering_azalea",
+          "azalea_leaves",
+          "azalea_leaves_flowered",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf",
+          "spore_blossom",
+          "hanging_roots",
+          "mangrove_leaves"
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/spooky_monstrosity.json"
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 5,
+        "angle_of_view_vertical":75,
+        "look_distance": 28
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "angle_of_view_vertical":75,
+        "look_distance": 28
+      },
+      "minecraft:movement": {
+        "value": 0.17017
+      },
+      "minecraft:lava_movement": {
+        "value": 0.17
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:movement.basic": {},
+      "minecraft:nameable": {},
+      "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:physics": {},
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 48,
+        "name": " §uHaunted Monstrosity§r "
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:behavior.delayed_attack": {
+        "priority": 3,
+        "track_target": true,
+        "require_complete_path": false,
+        "random_stop_interval": 0,
+        "reach_multiplier": 2,
+        "cooldown_time": 0.075,
+        "speed_multiplier": 1.5,
+        "attack_duration": 2.00,
+        "hit_delay_pct": 0.8
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "boss" }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 32,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 48
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:follow_range": {
+        "value": 64
+      },
+            "minecraft:spell_effects": {
+                "add_effects": [
+                    {
+                        "effect": "regeneration",
+                        "duration": 999999,
+                        "amplifier": 0,
+                        "visible": false
+                    }
+                ]
+            },
+      "minecraft:home": {
+        "restriction_radius": 64,
+        "restriction_type": "random_movement"
+      },
+      "minecraft:type_family": {
+        "family": [
+          "spooky_monstrosity",
+          "monster",
+          "monstrosity",
+          "mob",
+          "boss",
+          "gravity_immune",
+          "spooky"
+        ]
+      }
+    },
+    "events": {
+      "dungeons:harmed": {
+        "randomize": [
+          {
+            "weight": 1,
+            "trigger": "dungeons:spawn_cubes"
+          },
+          {
+            "weight": 4
+          }
+        ]
+      },
+      "dungeons:spawn_cubes": {
+        "queue_command": {
+          "command": [
+            "summon dungeons:redstone_cube ~~~",
+            "summon dungeons:redstone_cube ~~~",
+            "summon dungeons:redstone_cube ~~~"
+          ]
+        }
+      },
+      "dungeons:knockback_enemies": {
+        "queue_command": {
+          "command": [
+            "summon dungeons:monstrosity_knockback ~~~"
+          ]
+        }
+      }
+    }
+  }
+}

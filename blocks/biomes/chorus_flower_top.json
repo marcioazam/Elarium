@@ -1,0 +1,36 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "xp:chorus_flower_top",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.flower"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [ -8.0, 0, -8.0 ],
+				"size": [ 0, 0, 1 ]
+			},
+			"minecraft:loot": "loot_tables/biomes/chorus_flower_top.json",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:geometry": "geometry.chorus_flower_top",
+			"minecraft:material_instances": {
+				"*": {
+					"ambient_occlusion": true,
+					"face_dimming": true,
+					"texture": "xp_chorus_flower_top",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:map_color": "#562e56"
+		}
+	}
+}

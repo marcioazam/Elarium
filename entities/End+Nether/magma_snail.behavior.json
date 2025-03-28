@@ -1,0 +1,70 @@
+{
+	//ver depois
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:magma_snail",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 5 : 0"
+			},
+			"minecraft:type_family": {
+				"family": ["snail", "mob"]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:nameable": {},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/magma_snail.json"
+			},
+			"minecraft:health": {
+				"value": 4,
+				"max": 4
+			},
+			"minecraft:movement": {
+				"value": 0.05
+			},
+			"minecraft:fire_immune": {
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": false
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:collision_box": {
+				"width": 0.4,
+				"height": 0.3
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			  },
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.float": {
+				"priority": 1
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 4,
+				"speed_multiplier": 1.0
+			  },
+			  "minecraft:behavior.random_look_around": {
+				"priority": 5
+			  },
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		}
+		
+	}
+}

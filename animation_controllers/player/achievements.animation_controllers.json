@@ -1,0 +1,386 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.achievements": {
+      "states": {
+        "default": {
+          "transitions": [ { "init": "1" } ]
+        },
+
+        "init": {
+          "animations": [
+            "player.achievements.trigger",
+            "player.achievements.item_detection",
+            "player.achievements.levitation_detection",
+            "player.achievements.elytra_detection",
+            "player.achievements.jump_detection",
+            "player.achievements.walk_distance_detection"
+          ]
+        }
+      }
+
+    },
+
+    "controller.animation.player.achievements.trigger": {
+      "states": {
+        "default": {
+          "transitions": [ { "watcher": "true" } ]
+        },
+
+        "watcher": {
+          "transitions": [
+            { "ach_001": "q.property('xp:achievements_id') == 1" },
+            { "ach_005": "q.property('xp:achievements_id') == 5" },
+            { "ach_006": "q.property('xp:achievements_id') == 6" },
+            { "ach_007": "q.property('xp:achievements_id') == 7" },
+            { "ach_008": "q.property('xp:achievements_id') == 8" },
+            { "ach_009": "q.property('xp:achievements_id') == 9" },
+            { "ach_010": "q.property('xp:achievements_id') == 10" },
+            { "ach_050": "q.property('xp:achievements_id') == 50" },
+            { "ach_051": "q.property('xp:achievements_id') == 51" },
+            { "ach_052": "q.property('xp:achievements_id') == 52" },
+            { "ach_053": "q.property('xp:achievements_id') == 53" },
+            { "ach_054": "q.property('xp:achievements_id') == 54" },
+            { "ach_055": "q.property('xp:achievements_id') == 55" },
+            { "ach_056": "q.property('xp:achievements_id') == 56" },
+            { "ach_057": "q.property('xp:achievements_id') == 57" },
+            { "ach_058": "q.property('xp:achievements_id') == 58" },
+            { "ach_059": "q.property('xp:achievements_id') == 59" },
+            { "ach_060": "q.property('xp:achievements_id') == 60" },
+            { "ach_100": "q.property('xp:achievements_id') == 100" },
+            { "ach_101": "q.property('xp:achievements_id') == 101" },
+            { "ach_102": "q.property('xp:achievements_id') == 102" },
+            { "ach_103": "q.property('xp:achievements_id') == 103" },
+            { "ach_104": "q.property('xp:achievements_id') == 104" },
+            { "ach_105": "q.property('xp:achievements_id') == 105" },
+            { "ach_108": "q.property('xp:achievements_id') == 108" },
+            { "ach_109": "q.property('xp:achievements_id') == 109" },
+            { "ach_110": "q.property('xp:achievements_id') == 110" },
+            { "ach_111": "q.property('xp:achievements_id') == 111" },
+            { "ach_112": "q.property('xp:achievements_id') == 112" },
+            { "ach_113": "q.property('xp:achievements_id') == 113" },
+            { "ach_114": "q.property('xp:achievements_id') == 114" },
+            { "ach_115": "q.property('xp:achievements_id') == 115" },
+            { "ach_116": "q.property('xp:achievements_id') == 116" },
+            { "ach_117": "q.property('xp:achievements_id') == 117" },
+            { "ach_118": "q.property('xp:achievements_id') == 118" }
+          ],
+          "on_entry": [ "@s xp:achievements.reset" ],
+          "on_exit": [ "v.achievement_recheck_tick = q.life_time;" ]
+        },
+
+        "ach_001": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/advancements/001" ] },
+        "ach_005": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/advancements/005" ] },
+        "ach_006": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/advancements/006" ] },
+        "ach_007": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/advancements/007" ] },
+        "ach_008": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/advancements/008" ] },
+        "ach_009": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/advancements/009" ] },
+        "ach_010": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/advancements/010" ] },
+        "ach_050": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/050" ] },
+        "ach_051": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/051" ] },
+        "ach_052": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/052" ] },
+        "ach_053": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/053" ] },
+        "ach_054": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/054" ] },
+        "ach_055": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/055" ] },
+        "ach_056": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/056" ] },
+        "ach_057": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/057" ] },
+        "ach_058": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/058" ] },
+        "ach_059": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/059" ] },
+        "ach_060": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/challenges/060" ] },
+        "ach_100": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/100" ] },
+        "ach_101": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/101" ] },
+        "ach_102": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/102" ] },
+        "ach_103": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/103" ] },
+        "ach_104": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/104" ] },
+        "ach_105": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/105" ] },
+        "ach_108": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/108" ] },
+        "ach_109": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/109" ] },        
+        "ach_110": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/110" ] },
+        "ach_111": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/111" ] },
+        "ach_112": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/112" ] },
+        "ach_113": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/113" ] },
+        "ach_114": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/114" ] },
+        "ach_115": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/115" ] },
+        "ach_116": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/116" ] },
+        "ach_117": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/117" ] },
+        "ach_118": { "transitions": [ { "default": "q.life_time - v.achievement_recheck_tick > 0.1" } ], "on_entry": [ "/function achievements/goals/118" ] }
+
+      }
+    },
+
+    "controller.animation.player.achievements.item_detection": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:abyssal_log') || q.is_item_name_any('slot.hotbar', t.i, 'xp:abyssal_log')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:abyssal_log_full') || q.is_item_name_any('slot.hotbar', t.i, 'xp:abyssal_log_full')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:abyssal_log_roots') || q.is_item_name_any('slot.hotbar', t.i, 'xp:abyssal_log_roots')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:echoing_log') || q.is_item_name_any('slot.hotbar', t.i, 'xp:echoing_log')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:echoing_log_full') || q.is_item_name_any('slot.hotbar', t.i, 'xp:echoing_log_full')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:echoing_root_log') || q.is_item_name_any('slot.hotbar', t.i, 'xp:echoing_root_log')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:wilds_log') || q.is_item_name_any('slot.hotbar', t.i, 'xp:wilds_log')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:wilds_log_full') || q.is_item_name_any('slot.hotbar', t.i, 'xp:wilds_log_full')) ? {return true;}; t.i = t.i+1;});" },
+            { "ach_002": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:wilds_vein_log') || q.is_item_name_any('slot.hotbar', t.i, 'xp:wilds_vein_log')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "ach_003": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:enderite_ingot') || q.is_item_name_any('slot.hotbar', t.i, 'xp:enderite_ingot')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "ach_004": "(q.armor_texture_slot(0) == 4 || q.armor_texture_slot(1) == 4 || q.armor_texture_slot(2) == 4 || q.armor_texture_slot(3) == 4)" },
+
+            { "ach_106": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:dragon_egg')" },
+
+            { "ach_107": "q.armor_texture_slot(1) == 5" },
+
+            { "ach_108": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'minecraft:dragon_breath') || q.is_item_name_any('slot.hotbar', t.i, 'minecraft:dragon_breath')) ? {return true;}; t.i = t.i+1;});" }
+          ]
+        },
+
+        "ach_002": {
+          "transitions": [ { "ach_002.transitions": "1" } ],
+          "on_entry": [ "/function achievements/advancements/002" ]
+        },
+        "ach_002.transitions": {
+          "transitions": [
+            { "ach_003": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:enderite_ingot') || q.is_item_name_any('slot.hotbar', t.i, 'xp:enderite_ingot')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "ach_004": "(q.armor_texture_slot(0) == 4 || q.armor_texture_slot(1) == 4 || q.armor_texture_slot(2) == 4 || q.armor_texture_slot(3) == 4)" },
+
+            { "ach_106": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:dragon_egg')" },
+
+            { "ach_107": "q.armor_texture_slot(1) == 5" },
+
+            { "ach_108": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'minecraft:dragon_breath') || q.is_item_name_any('slot.hotbar', t.i, 'minecraft:dragon_breath')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "default": "1" }
+          ]
+        },
+
+        "ach_003": {
+          "transitions": [ { "ach_003.transitions": "1" } ],
+          "on_entry": [ "/function achievements/advancements/003" ]
+        },
+        "ach_003.transitions": {
+          "transitions": [
+            { "ach_004": "(q.armor_texture_slot(0) == 4 || q.armor_texture_slot(1) == 4 || q.armor_texture_slot(2) == 4 || q.armor_texture_slot(3) == 4)" },
+
+            { "ach_106": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:dragon_egg')" },
+
+            { "ach_107": "q.armor_texture_slot(1) == 5" },
+
+            { "ach_108": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'minecraft:dragon_breath') || q.is_item_name_any('slot.hotbar', t.i, 'minecraft:dragon_breath')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "default": "1" }
+          ]
+        },
+
+        "ach_004": {
+          "transitions": [ { "ach_004.transitions": "1" } ],
+          "on_entry": [ "/function achievements/advancements/004" ]
+        },
+        "ach_004.transitions": {
+          "transitions": [
+            { "ach_106": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:dragon_egg')" },
+
+            { "ach_107": "q.armor_texture_slot(1) == 5" },
+
+            { "ach_108": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'minecraft:dragon_breath') || q.is_item_name_any('slot.hotbar', t.i, 'minecraft:dragon_breath')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "default": "1" }
+          ]
+        },
+
+        "ach_106": {
+          "transitions": [ { "ach_106.transitions": "1" } ],
+          "on_entry": [ "/function achievements/goals/106" ]
+        },
+        "ach_106.transitions": {
+          "transitions": [
+            { "ach_107": "q.armor_texture_slot(1) == 5" },
+
+            { "ach_108": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'minecraft:dragon_breath') || q.is_item_name_any('slot.hotbar', t.i, 'minecraft:dragon_breath')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "default": "1" }
+          ]
+        },
+
+        "ach_107": {
+          "transitions": [ { "ach_107.transitions": "1" } ],
+          "on_entry": [ "/function achievements/goals/107" ]
+        },
+        "ach_107.transitions": {
+          "transitions": [
+            { "ach_108": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'minecraft:dragon_breath') || q.is_item_name_any('slot.hotbar', t.i, 'minecraft:dragon_breath')) ? {return true;}; t.i = t.i+1;});" },
+
+            { "default": "1" }
+          ]
+        },
+
+        "ach_108": {
+          "transitions": [ { "default": "1" } ],
+          "on_entry": [ "/function achievements/goals/108" ]
+        }
+
+      }
+    },
+
+    "controller.animation.player.achievements.levitation_detection": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [ { "on_levitate": "q.is_levitating" } ]
+        },
+
+        "on_levitate": {
+          "transitions": [ { "diff_pos": "1" } ],
+          "on_entry": [ "v.y_position = (q.position(1) - 4);" ]
+        },
+
+        "diff_pos": {
+          "transitions": [
+            { "test_pos": "q.is_levitating || v.y_position_diff >= 1" },
+            { "on_detect": "!q.is_levitating || v.y_position_diff <= 0" }
+          ],
+          "on_entry": [ "v.y_position_diff = Math.floor((q.position(1) - v.y_position));" ]
+        },
+        "test_pos": {
+          "transitions": [
+            { "distance_travelled": "v.y_position_diff > 53" },
+            { "diff_pos": "v.y_position_diff < 54" },
+            { "on_detect": "!q.is_levitating || v.y_position_diff <= 0" }
+          ]
+        },
+
+        "distance_travelled": {
+          "transitions": [ { "on_detect": "1" } ],
+          "on_entry": [ "/event entity @s xp:achievements.050" ]
+        }
+
+      }
+    },
+
+    "controller.animation.player.achievements.elytra_detection": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [ { "on_glide": "q.is_gliding" } ]
+        },
+
+        "on_glide": {
+          "transitions": [ { "diff_pos": "1" } ],
+          "on_entry": [
+            "v.x_position = (q.position(0) * 1);",
+            "v.z_position = (q.position(2) * 1);"
+          ]
+        },
+        "diff_pos": {
+          "transitions": [ { "test_pos": "1" } ],
+          "on_entry": [
+            "v.x_position_diff = (Math.abs(Math.floor((q.position(0) - v.x_position))));",
+            "v.z_position_diff = (Math.abs(Math.floor((q.position(2) - v.z_position))));"
+          ]
+        },
+        "test_pos": {
+          "transitions": [
+            { "distance_traveled": "(v.x_position_diff > 999 || v.z_position_diff > 999)" },
+            { "diff_pos": "(v.x_position_diff < 1000 || v.z_position_diff < 1000) && q.is_gliding" },
+            { "on_detect": "(v.x_position_diff < 1000 || v.z_position_diff < 1000) && !q.is_gliding" }
+          ]
+        },
+
+        "distance_traveled": {
+          "transitions": [ { "on_detect": "1" } ],
+          "on_entry": [ "/event entity @s xp:achievements.056" ]
+        }
+      }
+
+    },
+
+    "controller.animation.player.achievements.jump_detection": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [ { "on_jump": "!q.is_on_ground || q.is_jumping" } ]
+        },
+
+        "on_jump": {
+          "transitions": [ { "on_detect": "q.is_on_ground && !q.is_jumping" } ],
+          "on_entry": [
+            "/execute at @s positioned ~ ~-1 ~ if entity @e[type=xp:wild_chorus,r=1] run event entity @s xp:achievements.057"
+          ]
+        }
+
+      }
+    },
+
+    "controller.animation.player.achievements.mob_death_detection": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "elderman": "q.has_any_family('elderman') && (!q.is_alive && q.last_hit_by_player)" },
+            { "enderbug": "q.has_any_family('enderbug') && (!q.is_alive && q.last_hit_by_player)" },
+            { "endergob": "q.has_any_family('endergob') && (!q.is_alive && q.last_hit_by_player)" },
+            { "enderslime": "q.has_any_family('enderslime') && (!q.is_alive && q.last_hit_by_player)" },
+            { "enderslug": "q.has_any_family('enderslug') && (!q.is_alive && q.last_hit_by_player)" },
+            { "eye_of_guardian": "q.has_any_family('eye_of_guardian') && (!q.is_alive && q.last_hit_by_player)" },
+            { "mimic": "q.has_any_family('mimic') && (!q.is_alive && q.last_hit_by_player)" },
+            { "rippling": "q.has_any_family('rippling') && (!q.is_alive && q.last_hit_by_player)" },
+            { "stalker": "q.has_any_family('stalker') && (!q.is_alive && q.last_hit_by_player)" },
+            { "warder": "q.has_any_family('warder') && (!q.is_alive && q.last_hit_by_player)" }
+          ]
+        },
+
+        "elderman": {
+          "on_entry": [ "/tag @a[r=12] add killed_elderman", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_elderman\"}]}" ]
+        },
+        "enderbug": {
+          "on_entry": [ "/tag @a[r=12] add killed_enderbug", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_enderbug\"}]}" ]
+        },
+        "endergob": {
+          "on_entry": [ "/tag @a[r=12] add killed_endergob", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_endergob\"}]}" ]
+        },
+        "enderslime": {
+          "on_entry": [ "/tag @a[r=12] add killed_enderslime", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_enderslime\"}]}" ]
+        },
+        "enderslug": {
+          "on_entry": [ "/tag @a[r=12] add killed_enderslug", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_enderslug\"}]}" ]
+        },
+        "eye_of_guardian": {
+          "on_entry": [ "/tag @a[r=12] add killed_eye_of_guardian", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_eye_of_guardian\"}]}" ]
+        },
+        "mimic": {
+          "on_entry": [ "/tag @a[r=12] add killed_mimic", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_mimic\"}]}" ]
+        },
+        "rippling": {
+          "on_entry": [ "/tag @a[r=12] add killed_rippling", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_rippling\"}]}" ]
+        },
+        "stalker": {
+          "on_entry": [ "/tag @a[r=12] add killed_stalker", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_stalker\"}]}" ]
+        },
+        "warder": {
+          "on_entry": [ "/tag @a[r=12] add killed_warder", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cachievements §7->§r killed_warder\"}]}" ]
+        }
+
+      }
+    },
+
+    "controller.animation.player.achievements.walk_distance_detection": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "on_step": "v.walk_time = q.life_time; return (q.is_moving && q.is_on_ground);" }
+          ]
+        },
+        "on_step": {
+          "on_entry":[
+            "/scoreboard players add @s walkDistance 1",
+            "/event entity @s[scores={walkDistance=100000..},tag=!\"ach_060\"] xp:achievements.060"
+          ],
+          "transitions": [
+            { "default": "(q.life_time - v.walk_time >= 0.25) && q.is_alive" }
+          ]
+        }
+
+      }
+    }
+
+  }
+}

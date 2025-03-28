@@ -1,0 +1,256 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ender_smite.remove_first_user": {
+      "initial_state": "no_weapon",
+      "states": {
+        "no_weapon": {
+          "transitions": [
+            { "has_weapon": "q.get_equipped_item_name == 'enders_smite'" }
+          ],
+          "on_entry": [
+            "/scoreboard objectives add ender_smite_mana dummy ender_smite_mana"
+          ],
+          "on_exit": ["/scoreboard players reset @s ender_smite_mana"]
+        },
+        "has_weapon": {
+          "on_entry": [
+            "v.ender_smite_mana = 180;",
+            "/scoreboard players set @s ender_smite_mana 180"
+          ]
+        }
+      }
+    },
+    "controller.animation.enders_smite": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            { "ender_smite.mana_regen": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:enders_smite') || q.is_item_name_any('slot.hotbar', t.i, 'xp:enders_smite')) ? {return true;}; t.i = t.i+1;});" }
+          ],
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'enders_smite'" }
+          ],
+          "on_entry": [
+            "@s xp:attack_value_1",
+            "/tag @s remove ender_smite",
+            "/stopsound @a[r=25] ender_smite.laser_start",
+            "/stopsound @a[r=25] ender_smite.laser_loop",
+            "/stopsound @a[r=25] ender_smite.laser_fire",
+            "/stopsound @s ender_smite.eye_idle"
+          ]
+        },
+
+        "hold": {
+          "animations": [
+            "ender_smite.mana_regen",
+            "ender_smite.mana_display",
+            "ender_smite.stop_fire_sfx"
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'enders_smite'" },
+            { "charge": "!q.is_angry && q.is_using_item && v.ender_smite_mana >= 21 && (q.life_time - v.tick_delay) >= 0.5" },
+            { "no_mana": "q.is_angry && q.is_using_item && v.ender_smite_mana <= 179 && (q.life_time - v.tick_delay) >= 0.2" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s add ender_smite",
+            "/stopsound @a[r=25] ender_smite.laser_loop",
+            "/stopsound @a[r=25] ender_smite.laser_fire",
+            "/scoreboard objectives add ender_smite_mana dummy ender_smite_mana",
+            "@s xp:attack_value_0",
+            "/execute at @s run playsound ender_smite.laser_stop @a[r=20] ~~~ 0.25 1.5 0.01"
+          ]
+        },
+        "no_mana": {
+          "animations": ["ender_smite.mana_regen", "ender_smite.stop_fire_sfx"],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'enders_smite'" },
+            { "hold": "(q.life_time - v.tick_delay) >= 2.0" },
+            { "charge": "!q.is_angry && v.ender_smite_mana >= 21 && q.is_using_item && (q.life_time - v.tick_delay) >= 1.8" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/stopsound @a[r=25] ender_smite.laser_start",
+            "/stopsound @a[r=25] ender_smite.laser_loop",
+            "/stopsound @a[r=25] ender_smite.laser_fire",
+            "/playsound note.bassattack @s[tag=!from_fire_stop] ~~~ 0.9 0.5 0.01",
+            "/playsound note.bassattack @s[tag=!from_fire_stop] ~~~ 0.75 0.25 0.01",
+            "/playsound note.iron_xylophone @s[tag=!from_fire_stop] ~~~ 0.5 0.5 0.01"
+          ],
+          "on_exit": ["/tag @s remove from_fire_stop"]
+        },
+        "charge": {
+          "animations": ["ender_smite.mana_regen", "ender_smite.mana_display"],
+          "transitions": [
+            { "hold": "!q.is_using_item" },
+            { "fire": "q.is_using_item && (q.life_time - v.tick_delay) >= 2.3 && v.ender_smite_mana >= 21" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/stopsound @a[r=25] ender_smite.laser_loop",
+            "/stopsound @a[r=25] ender_smite.laser_fire",
+
+            "/event entity @s xp:achievements.109"
+          ],
+          "on_exit": ["/tag @s remove used_entire_ender_mana"]
+        },
+        "fire": {
+          "animations": [
+            { "ender_smite.laser": "q.cardinal_player_facing != 0" },
+            { "ender_smite.laser_down": "q.cardinal_player_facing == 0" },
+            "ender_smite.mana_countdown",
+            "ender_smite.mana_display"
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'enders_smite'" },
+            { "fire_stop": "(v.ender_smite_mana <= 21 && (q.life_time - v.tick_delay) >= 0.5) || ((!q.is_using_item && (q.life_time - v.tick_delay) >= 0.5) || (q.life_time - v.tick_delay) >= 10.25)" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/effect @s slowness 9999 1 true",
+            "/camerashake add @s 0.025 9999 rotational"
+          ],
+          "on_exit": [
+            "/effect @s slowness 0 0 true",
+            "v.ender_smite_mana = v.ender_smite_mana - 20;",
+            "/scoreboard players add @s[scores={ender_smite_mana=..9999}] ender_smite_mana -20",
+            "/camerashake stop @s",
+            "/stopsound @a[r=25] ender_smite.laser_loop",
+            "/stopsound @a[r=25] ender_smite.laser_fire"
+          ]
+        },
+        "fire_stop": {
+          "animations": [
+            "ender_smite.mana_display",
+            "ender_smite.stop_fire_sfx"
+          ],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'enders_smite'" },
+            { "hold": "((q.life_time - v.tick_delay) >= 0.25 && v.ender_smite_mana >= 21) || ((q.life_time - v.tick_delay) >= 0.5 && v.ender_smite_mana <= 20)" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/event entity @s[scores={ender_smite_mana=..1}] xp:achievements.053",
+
+            "/tag @s[scores={ender_smite_mana=..20}] add from_fire_stop",
+            "/execute as @s[scores={ender_smite_mana=..20}] at @s run camerashake add @s 0.175 0.35 rotational",
+            "/stopsound @a[r=25] ender_smite.laser_start",
+            "/stopsound @a[r=25] ender_smite.laser_loop",
+            "/stopsound @a[r=25] ender_smite.laser_fire"
+          ]
+        }
+      }
+    },
+    "controller.animation.ender_smite_laser.projectile": {
+      "initial_state": "in_air",
+      "states": {
+        "in_air": {
+          "transitions": [
+            { "hit": "(q.is_on_ground || q.variant == 1) && v.randomize == 1" },
+            { "hit1": "(q.is_on_ground || q.variant == 1) && v.randomize == 2" },
+            { "hit_water": "q.is_in_water" }
+          ],
+          "on_entry": ["v.randomize = math.random_integer(1, 2);"]
+        },
+        "hit": {
+          "on_entry": [
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=60] ~~~ 0.35 1.35 0.01",
+            "/particle xp:laser_impact1 ~~~",
+            "/particle xp:laser_impact_flash ~~~",
+            "/particle xp:laser_impact_flash1 ~~~",
+            "/particle xp:electric_impact ~~~",
+            "/particle xp:electric_impact1 ~~~",
+            "/particle xp:laser_impact ~~~",
+            "@s xp:despawn"
+          ]
+        },
+        "hit1": {
+          "on_entry": [
+            "/particle xp:laser_impact1 ~~~",
+            "/particle xp:electric_impact ~~~",
+            "/particle xp:electric_impact1 ~~~",
+            "/particle xp:laser_impact ~~~",
+            "@s xp:despawn"
+          ]
+        },
+        "hit_water": {
+          "on_entry": [
+            "/execute at @s run playsound mob.axolotl.splash @a[r=30] ~~~ 0.9 1.0 0.01",
+            "/execute at @s run playsound random.fizz @a[r=30] ~~~ 0.75 1.25 0.01",
+            "@s xp:despawn"
+          ]
+        }
+      }
+    },
+    "controller.animation.ender_smite.mana_controller": {
+      "initial_state": "has_mana",
+      "states": {
+        "has_mana": {
+          "transitions": [{ "no_mana": "v.ender_smite_mana <= 21" }],
+          "on_entry": [
+            "@s xp:recharged_entire_ender_mana",
+            "@s xp:has_ender_mana"
+          ],
+          "on_exit": [
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=20] ~~~ 0.7 1.0 0.01",
+            "/execute at @s run playsound ender_smite.eye_hurt @a[r=20] ~~~ 1 1 0.01"
+          ]
+        },
+        "no_mana": {
+          "transitions": [{ "has_mana": "v.ender_smite_mana >= 171" }],
+          "on_entry": [
+            "@s xp:no_ender_mana",
+            "@s xp:used_entire_ender_mana",
+            "/tag @s add used_entire_ender_mana",
+            "v.ender_smite_mana = 0;",
+            "/scoreboard players set @s ender_smite_mana 0"
+          ],
+          "on_exit": [
+            "/execute at @s run playsound ender_smite.mana_recharged @a[r=20] ~~~ 1 0.75 0.01",
+            "/execute as @s[tag=ender_smite] at @s run playsound ender_smite.eye_hurt @a[r=20] ~~~ 0.9 1.25 0.01"
+          ]
+        }
+      }
+    },
+    "controller.animation.ender_smite.levitate": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "charge": "q.get_equipped_item_name == 'enders_smite' && q.is_using_item" }
+          ],
+          "on_entry": [
+            "/execute at @s run effect @s levitate 0 0 true",
+            "/tag @s remove enders_smite_detected_air"
+          ]
+        },
+        "charge": {
+          "transitions": [
+            { "default": "!q.is_using_item || q.get_equipped_item_name != 'enders_smite'" },
+            { "levitate": "(q.life_time - v.tick_delay) >= 2.25 && q.is_using_item && q.cardinal_player_facing == 0.0" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s if block ~ ~2 ~ air 0 run tag @s add enders_smite_detected_air"
+          ]
+        },
+        "levitate": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'enders_smite'" },
+            { "pre_stop": "!q.is_using_item || q.cardinal_player_facing >= 0.2 || v.ender_smite_mana <= 20" }
+          ],
+          "on_entry": [ "/execute as @s[tag=enders_smite_detected_air] at @s run effect @s levitation 9999 3 true" ],
+          "on_exit": [ "/execute as @s[tag=enders_smite_detected_air] at @s run effect @s levitation 0 0 true" ]
+        },
+        "pre_stop": {
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'enders_smite' || !q.is_using_item" },
+            { "levitate": "q.is_using_item && q.cardinal_player_facing == 0.0 && v.ender_smite_mana >= 20" }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:block": {
+    "description": {
+      "identifier": "dungeons:ministrosity_statue_block",
+      "menu_category": {
+        "category": "none"
+      },
+      "traits": {
+        "minecraft:placement_position": {
+          "enabled_states": [
+            "minecraft:block_face"
+          ]
+        }
+      },
+      "states": {
+        "dungeons:rotation": {
+          "values": {
+            "min": 0,
+            "max": 15
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "origin": [
+          -4,
+          0,
+          -3
+        ],
+        "size": [
+          7,
+          15,
+          7
+        ]
+      },
+      "minecraft:custom_components": [
+        "dungeons:precise_rotation"
+      ],
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 4
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.redstone_ministrosity",
+        "bone_visibility": {
+          "bone": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation'), 4)",
+          "bone2": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation'), 4)",
+          "bone3": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation'), 4)",
+          "rotate_22_5": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 1, 4)",
+          "bone5": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 1, 4)",
+          "bone6": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 1, 4)",
+          "rotate_45": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 2, 4)",
+          "bone7": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 2, 4)",
+          "bone8": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 2, 4)",
+          "rotate_67_5": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 3, 4)",
+          "bone9": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 3, 4)",
+          "bone10": "q.block_state('minecraft:block_face') == 'up' && !math.mod(q.block_state('dungeons:rotation') - 3, 4)"
+        }
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:loot": "loot_tables/blocks/ministrosity.json",
+      "minecraft:map_color": "#777777",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "ministrosity",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:placement_filter": {
+        "conditions": [{
+          "allowed_faces": [
+            "up"
+          ]
+        }]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -4,
+          0,
+          -3
+        ],
+        "size": [
+          7,
+          15,
+          7
+        ]
+      }
+    },
+    "permutations": [{
+        "condition": "q.block_state('dungeons:rotation') >= 4 || q.block_state('minecraft:block_face') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('dungeons:rotation') >= 8 || q.block_state('minecraft:block_face') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('dungeons:rotation') >= 12 || q.block_state('minecraft:block_face') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') != 'up'",
+        "components": {
+          "minecraft:collision_box": {
+            "origin": [
+              -3,
+              5,
+              5
+            ],
+            "size": [
+              6,
+              6,
+              3
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -3,
+              5,
+              5
+            ],
+            "size": [
+              6,
+              6,
+              3
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

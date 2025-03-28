@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:aggregate_feature": {
+		"description": {
+		  "identifier": "edx:magma_chamber/generation/magma_chamber_biome_feature"
+		},
+		"features": [
+			"edx:magma_chamber/other",
+			"edx:magma_chamber/gabbro_feature",
+			"edx:magma_chamber/molten_gabbro_feature"
+		]
+	}
+}

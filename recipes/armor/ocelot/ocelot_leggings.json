@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ocelot_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "LLL",
+      "B B"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "B": {
+        "item": "minecraft:cocoa_beans"
+      }
+    },
+    "result": {
+      "item": "dungeons:ocelot_leggings",
+      "count": 1
+    }
+  }
+}

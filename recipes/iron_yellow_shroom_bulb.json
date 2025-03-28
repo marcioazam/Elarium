@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:iron_yellow_shroom_bulb"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "NNN",
+      "NXN",
+      "   "
+    ],
+    "key": {
+      "X": {
+        "item": "edx:yellow_shroom_bulb"
+      },
+      "N": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:yellow_shroom_bulb"
+      },
+      {
+        "item": "minecraft:iron_nugget"
+      }
+    ],
+    "result": {
+      "item": "edx:iron_yellow_shroom_bulb"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:frozen_stonebrick_stairs"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "W",
+            "WW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:frozen_stonebrick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:frozen_stonebrick"
+            }
+        ],
+        "result": {
+            "item": "edx:frozen_stonebrick_stairs",
+            "count": 4
+        }
+    }
+}

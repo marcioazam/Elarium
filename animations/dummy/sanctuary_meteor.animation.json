@@ -1,0 +1,27 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.sanctuary_meteor.main": {
+            "loop": true,
+            "animation_length": 4.1,
+            "timeline": {
+                "0": [
+                    "/playsound ender_heart.fire_1 @a ~ ~5 ~",
+                    "/particle xp:sanctuary_meteor_trail ~ ~ ~"
+                ],
+                "0.7": [
+                    "/playsound ender_heart.charge @a ~ ~2 ~"
+                ],
+                "2.3": [
+                    "/playsound ender_heart.heart_beat @a ~ ~2 ~"
+                ],
+                "3.0": [
+                    "/event entity @s xp:explode"
+                ],
+                "3.1": [
+                    "/event entity @s xp:instant_despawn"
+                ]
+            }
+        }
+    }
+}

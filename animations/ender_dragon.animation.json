@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.ender_dragon.fog": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/fog @a[r=150] push xp:dragon_fog dragon_fog",
+          "/fog @a[r=500,rm=150] remove dragon_fog"
+        ]
+      }
+    },
+    "animation.ender_dragon.ticking": {
+      "animation_length": 1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          // show particles
+          "/execute in the_end run particle xp:dragon.cylinder 0 59 0",
+          "/execute in the_end run particle xp:dragon.cylinder_1 0 59 0",
+
+          // achievements handler
+          "/execute in the_end run event entity @a[tag=\"ach_005\",r=128] xp:achievements.006",
+
+          // objectives handler
+          "/execute in the_end as @a[x=0,y=63,z=0,r=64,tag=!\"in_cutscene\"] run function objectives/03"
+        ]
+      }
+    },
+    "animation.ender_dragon.on_death": {
+      "animation_length": 1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/execute in the_end run event entity @a[r=128] xp:achievements.005"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.bramble": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"light":"query.has_rider"} 
+					]
+				},
+				"light": {
+					"on_exit": [
+						"/event entity @s despawn"
+					  ],
+					"transitions":[{"default":"!query.has_rider"} ]
+			}
+	 	}
+		}
+	}
+}

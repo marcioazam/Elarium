@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "thief_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "S S",
+      "SGS",
+      " S "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:gunpowder"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:thief_chestplate",
+      "count": 1
+    }
+  }
+}

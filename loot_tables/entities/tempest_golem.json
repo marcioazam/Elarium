@@ -1,0 +1,91 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:tempest_key",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 4,
+                "max": 9
+              }
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 20,
+                "max": 30
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:amethyst_shard",
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 5,
+                "max": 8
+              }
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 6,
+                "max": 18
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "minecraft:gold_block",
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

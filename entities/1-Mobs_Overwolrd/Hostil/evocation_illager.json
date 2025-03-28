@@ -1,0 +1,579 @@
+{
+	"format_version": "1.19.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "minecraft:evocation_illager",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"minecraft:celebrate": {
+				"minecraft:behavior.celebrate": {
+					"priority": 5,
+					"celebration_sound": "celebrate",
+					"sound_interval": {
+						"range_min": 2,
+						"range_max": 7
+					},
+					"jump_interval": {
+						"range_min": 1,
+						"range_max": 3.5
+					},
+					"duration": 30,
+					"on_celebration_end_event": {
+						"event": "minecraft:stop_celebrating",
+						"target": "self"
+					}
+				}
+			},
+			"minecraft:raid_configuration": {
+				"minecraft:dweller": {
+					"dwelling_type": "village",
+					"dweller_role": "hostile",
+					"update_interval_base": 60,
+					"update_interval_variant": 40,
+					"can_find_poi": false,
+					"can_migrate": true,
+					"first_founding_reward": 0
+				},
+				"minecraft:behavior.move_to_village": {
+					"priority": 6,
+					"speed_multiplier": 0.7
+				},
+				"minecraft:ambient_sound_interval": {
+					"value": 2,
+					"range": 4,
+					"event_name": "ambient.in.raid"
+				}
+			},
+			"minecraft:raid_persistence": {
+				"minecraft:persistent": {}
+			},
+			"minecraft:raid_despawn": {
+				"minecraft:despawn": {
+					"despawn_from_distance": {}
+				}
+			},
+			"angry": {
+				"minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"filters": {
+						"all_of": [
+							{
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "illager"
+							}
+						]
+					},
+					"broadcast_targets": [
+						"illager"
+					],
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					},
+					"duration": 20
+				}
+			},
+			"ravager_jockey": {
+				"minecraft:transformation": {
+					"into": "minecraft:ravager<minecraft:spawn_with_evoker_rider>"
+				}
+			},
+			"ravager_jockey_for_raid": {
+				"minecraft:transformation": {
+					"into": "minecraft:ravager<minecraft:spawn_for_raid_with_evoker_rider>"
+				}
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:experience_reward": {
+				"on_death": "10"
+			},
+			"minecraft:type_family": {
+				"family": [
+					"evocation_illager",
+					"monster",
+					"illager",
+					"mob"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:nameable": {},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/evocation_illager.json"
+			},
+			"minecraft:health": {
+				"value": 36,
+				"max": 36
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:movement": {
+				"value": 0.5
+			},
+			"minecraft:navigation.climb": {
+				"can_path_over_water": true,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				"avoid_water": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.summon_entity": {
+				"priority": 2,
+				"summon_choices": [
+					{
+						"min_activation_range": 0,
+						"max_activation_range": 3,
+						"cooldown_time": 4,
+						"weight": 3,
+						"cast_duration": 1,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+							{
+								"shape": "circle",
+								"target": "self",
+								"base_delay": 1,
+								"delay_per_summon": 0,
+								"num_entities_spawned": 10,
+								"entity_type": "minecraft:evocation_fang",
+								"size": 2,
+								"entity_lifespan": 1.1,
+								"sound_event": "prepare.attack"
+							},
+							{
+								"shape": "circle",
+								"target": "self",
+								"base_delay": 0.15,
+								"delay_per_summon": 0,
+								"num_entities_spawned": 16,
+								"entity_type": "minecraft:evocation_fang",
+								"size": 3.75,
+								"entity_lifespan": 1.1
+							}
+						]
+					},
+					{
+						"min_activation_range": 3,
+						"weight": 3,
+						"cooldown_time": 4,
+						"cast_duration": 1,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+							{
+								"shape": "line",
+								"target": "self",
+								"base_delay": 1,
+								"delay_per_summon": 0.05,
+								"num_entities_spawned": 32,
+								"entity_type": "minecraft:evocation_fang",
+								"size": 30,
+								"entity_lifespan": 1.1
+							}
+						]
+					},
+					{
+						"weight": 1,
+						"cooldown_time": 10,
+						"cast_duration": 3,
+						"particle_color": "#FFB3B3CC",
+						"sequence": [
+							{
+								"shape": "circle",
+								"target": "self",
+								"base_delay": 5,
+								"num_entities_spawned": 6,
+								"entity_type": "minecraft:vex",
+								"summon_cap": 8,
+								"summon_cap_radius": 24,
+								"size": 1,
+								"sound_event": "prepare.summon"
+							}
+						]
+					}
+				]
+			},
+			"minecraft:behavior.send_event": {
+				"priority": 3,
+				"event_choices": [
+					{
+						"min_activation_range": 0,
+						"max_activation_range": 16,
+						"cooldown_time": 5,
+						"cast_duration": 3,
+						"particle_color": "#FFB38033",
+						"weight": 3,
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "sheep"
+								},
+								{
+									"test": "is_color",
+									"subject": "other",
+									"value": "blue"
+								}
+							]
+						},
+						"start_sound_event": "cast.spell",
+						"sequence": [
+							{
+								"base_delay": 2,
+								"event": "wololo",
+								"sound_event": "prepare.wololo"
+							}
+						]
+					}
+				]
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 8,
+				"speed_multiplier": 0.6
+			},
+			"minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 2
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "has_component",
+									"subject": "other",
+									"operator": "!=",
+									"value": "minecraft:is_baby"
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 1
+					},
+					{
+						"priority": 0,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32
+					},
+					{
+						"priority": 3,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 9,
+				"look_distance": 3,
+				"probability": 1
+			},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 10,
+				"look_distance": 8,
+				"filters": {
+					"test": "is_family",
+					"subject": "other",
+					"value": "mob"
+				}
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1,
+				"entity_types": {
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "illager"
+					},
+					"max_dist": 64
+				}
+			},
+			"minecraft:persistent": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:mob_effect": {
+				"effect_range": 10,
+				"mob_effect": "speed",
+				"effect_time": 5,
+				"entity_filter": {
+					"test": "is_family",
+					"subject": "other",
+					"value": "monster"
+				},
+				"cooldown_time": 2
+			},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+			"minecraft:on_death": {
+				"event": "minecraft:on_death",
+				"target": "self"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 5,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 8,
+						"walk_speed_multiplier": 0.6,
+						"sprint_speed_multiplier": 1
+					},
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "creaking"
+						},
+						"max_dist": 8,
+						"sprint_speed_multiplier": 1.2
+					}
+				]
+			}
+		},
+		"events": {
+			"minecraft:start_celebrating": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"minecraft:celebrate"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_nametag",
+							"value": false
+						},
+						"remove": {
+							"component_groups": [
+								"minecraft:raid_persistence"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:stop_celebrating": {
+				"remove": {
+					"component_groups": [
+						"minecraft:celebrate"
+					]
+				}
+			},
+			"minecraft:raid_expired": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "has_nametag",
+							"value": false
+						},
+						"remove": {
+							"component_groups": [
+								"minecraft:raid_persistence"
+							]
+						}
+					}
+				]
+			},
+			"calm": {
+				"remove": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"angry": {
+				"add": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"minecraft:on_death": {
+				"randomize": [
+					{
+						"weight": 75
+					},
+					{
+						"weight": 25,
+						"queue_command": {
+							"command": [
+								"summon evocation_illager"
+							]
+						}
+					}
+				]
+			},
+			"raid_spawn": {
+				"add": {
+					"component_groups": [
+						"minecraft:raid_configuration",
+						"minecraft:raid_despawn",
+						"minecraft:raid_persistence"
+					]
+				}
+			},
+			"default_spawn": {
+				"randomize": [
+					{
+						"weight": 90
+					}
+				]
+			},
+			"minecraft:spawn_for_raid": {
+				"randomize": [
+					{
+						"weight": 25,
+						"add": {
+							"component_groups": [
+								"ravager_jockey_for_raid"
+							]
+						}
+					},
+					{
+						"weight": 75,
+						"add": {
+							"component_groups": [
+								"minecraft:raid_configuration",
+								"minecraft:raid_despawn",
+								"minecraft:raid_persistence"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

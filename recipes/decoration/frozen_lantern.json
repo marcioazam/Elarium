@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:frozen_lantern"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PPP",
+      "PBP",
+      "PPP"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:ice_brick",
+        "data": 0
+      },
+      "B": {
+        "item": "minecraft:sea_lantern",
+        "data": 0
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:ice_brick",
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "edx:frozen_lantern",
+      "count": 1
+    }
+  }
+  
+}

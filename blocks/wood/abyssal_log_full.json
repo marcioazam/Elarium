@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:abyssal_log_full",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { 
+        "category": "nature",
+				"group": "itemGroup.name.log"
+      }
+    },
+    "components": {
+      "minecraft:map_color": "#5a5349",
+      "minecraft:loot": "loot_tables/wood/abyssal_log_full.json",
+      "minecraft:destroy_time": 0.65,
+      "minecraft:explosion_resistance": 20,
+      "minecraft:flammable": {
+        "flame_odds": 50,
+        "burn_odds": 50
+      }
+    }
+  }
+}

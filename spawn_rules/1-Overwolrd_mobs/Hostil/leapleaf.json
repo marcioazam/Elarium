@@ -1,0 +1,58 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "dungeons:leapleaf",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        
+        "minecraft:spawns_on_surface": {},
+       "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 10,
+          "adjust_for_weather": true
+        },
+        "minecraft:difficulty_filter": {
+          "max": "hard"
+        },
+        "minecraft:density_limit": {
+          "surface": 2,
+          "underground": 2
+        },
+        "minecraft:weight": {
+          "default": 15
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+        "minecraft:biome_filter": {
+          "all_of": [{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "jungle"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "edge"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "caves"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "lush_caves"
+          }
+        ]
+      }
+    }
+    ]
+  }
+}

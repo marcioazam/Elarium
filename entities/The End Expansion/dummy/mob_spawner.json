@@ -1,0 +1,216 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:mob_spawner",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "animations": {
+        "spawn_conduit": "animation.mob_spawner.spawn_conduit",
+        "spawn_elderman": "animation.mob_spawner.spawn_elderman",
+        "spawn_echoing_forest_enderman": "animation.mob_spawner.spawn_echoing_forest_enderman",
+        "spawn_endermite": "animation.mob_spawner.spawn_endermite",
+        "spawn_enderslime": "animation.mob_spawner.spawn_enderslime",
+        "spawn_allay": "animation.mob_spawner.spawn_allay",
+        "spawn_stalker": "animation.mob_spawner.spawn_stalker",
+        "spawn_enderman": "animation.mob_spawner.spawn_enderman",
+        "spawn_mimic": "animation.mob_spawner.spawn_mimic",
+        "spawn_rippling": "animation.mob_spawner.spawn_rippling",
+        "spawn_endergob": "animation.mob_spawner.spawn_endergob",
+        "spawn_enderslug": "animation.mob_spawner.spawn_enderslug",
+        "spawn_shulker": "animation.mob_spawner.spawn_shulker",
+        "spawn_warder": "animation.mob_spawner.spawn_warder",
+        "spawn_enderbug": "animation.mob_spawner.spawn_enderbug"
+      },
+      "scripts": {
+        "animate": [
+          { "spawn_conduit": "q.variant == 1" },
+          { "spawn_elderman": "q.variant == 2" },
+          { "spawn_echoing_forest_enderman": "q.variant == 3" },
+          { "spawn_endermite": "q.variant == 4" },
+          { "spawn_enderslime": "q.variant == 5" },
+          { "spawn_allay": "q.variant == 6" },
+          { "spawn_stalker": "q.variant == 7" },
+          { "spawn_enderman": "q.variant == 8" },
+          { "spawn_mimic": "q.variant == 9" },
+          { "spawn_rippling": "q.variant == 10" },
+          { "spawn_endergob": "q.variant == 11" },
+          { "spawn_enderslug": "q.variant == 12" },
+          { "spawn_shulker": "q.variant == 13" },
+          { "spawn_warder": "q.variant == 14" },
+          { "spawn_enderbug": "q.variant == 15" }
+        ]
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "time": 1,
+        "looping": true,
+        "time_down_event": {
+          "event": "xp:despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:tick_world": {
+        "never_despawn": true,
+        "radius": 2
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:health": {
+        "value": 1,
+        "min": 1,
+        "max": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      }
+    },
+
+    "component_groups": {
+      "xp:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "xp:teleport_randomly": {
+        "minecraft:teleport": {
+          "dark_teleport_chance": 1,
+          "light_teleport_chance": 1,
+          "max_random_teleport_time": 1,
+          "min_random_teleport_time": 1,
+          "random_teleport_cube": [32, 32, 32],
+          "random_teleports": true,
+          "target_teleport_chance": 0
+        }
+      },
+      "xp:place_conduit": {
+        "minecraft:variant": { "value": 1 },
+        "minecraft:teleport": {
+          "dark_teleport_chance": 1,
+          "light_teleport_chance": 1,
+          "max_random_teleport_time": 1,
+          "min_random_teleport_time": 1,
+          "random_teleport_cube": [32, -32, 32],
+          "random_teleports": true,
+          "target_teleport_chance": 0
+        }
+      },
+      "xp:place_elderman": { "minecraft:variant": { "value": 2 } },
+      "xp:place_echoing_forest_enderman": {
+        "minecraft:variant": { "value": 3 }
+      },
+      "xp:place_endermite": { "minecraft:variant": { "value": 4 } },
+      "xp:place_enderslime": { "minecraft:variant": { "value": 5 } },
+      "xp:place_allay": { "minecraft:variant": { "value": 6 } },
+      "xp:place_stalker": { "minecraft:variant": { "value": 7 } },
+      "xp:place_enderman": { "minecraft:variant": { "value": 8 } },
+      "xp:place_mimic": { "minecraft:variant": { "value": 9 } },
+      "xp:place_rippling": { "minecraft:variant": { "value": 10 } },
+      "xp:place_endergob": { "minecraft:variant": { "value": 11 } },
+      "xp:place_enderslug": { "minecraft:variant": { "value": 12 } },
+      "xp:place_shulker": { "minecraft:variant": { "value": 13 } },
+      "xp:place_warder": { "minecraft:variant": { "value": 14 } },
+      "xp:place_enderbug": { "minecraft:variant": { "value": 15 } }
+    },
+
+    "events": {
+      "xp:despawn": {
+        "add": {
+          "component_groups": ["xp:despawn"]
+        }
+      },
+      "xp:place_conduit": {
+        "add": {
+          "component_groups": ["xp:place_conduit"]
+        }
+      },
+      "xp:place_elderman": {
+        "add": {
+          "component_groups": ["xp:place_elderman", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_echoing_forest_enderman": {
+        "add": {
+          "component_groups": [
+            "xp:place_echoing_forest_enderman",
+            "xp:teleport_randomly"
+          ]
+        }
+      },
+      "xp:place_endermite": {
+        "add": {
+          "component_groups": ["xp:place_endermite", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_enderslime": {
+        "add": {
+          "component_groups": ["xp:place_enderslime", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_allay": {
+        "add": {
+          "component_groups": ["xp:place_allay", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_stalker": {
+        "add": {
+          "component_groups": ["xp:place_stalker", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_enderman": {
+        "add": {
+          "component_groups": ["xp:place_enderman", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_mimic": {
+        "add": {
+          "component_groups": ["xp:place_mimic", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_rippling": {
+        "add": {
+          "component_groups": ["xp:place_rippling", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_endergob": {
+        "add": {
+          "component_groups": ["xp:place_endergob", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_enderslug": {
+        "add": {
+          "component_groups": ["xp:place_enderslug", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_shulker": {
+        "add": {
+          "component_groups": ["xp:place_shulker", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_warder": {
+        "add": {
+          "component_groups": ["xp:place_warder", "xp:teleport_randomly"]
+        }
+      },
+      "xp:place_enderbug": {
+        "add": {
+          "component_groups": ["xp:place_enderbug", "xp:teleport_randomly"]
+        }
+      }
+    }
+  }
+}

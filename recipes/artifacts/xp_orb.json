@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:xp_orb"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "PD ",
+      "DP ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:magic_axe"
+      },
+      "D": {
+        "item": "minecraft:diamond_block"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:gold_block"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:magic_axe"
+      },
+      {
+        "item": "minecraft:diamond_block"
+      }
+    ],
+    "result": {
+      "item": "edx:xp_orb"
+    }
+  }
+  
+}

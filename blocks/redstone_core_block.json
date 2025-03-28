@@ -1,0 +1,48 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:block": {
+    "description": {
+      "identifier": "dungeons:redstone_core_block",
+      "menu_category": {
+        "category": "none"
+      }
+    },
+    "components": {
+      "minecraft:custom_components": [
+        "dungeons:redstone_core"
+      ],
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 999999
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 25
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:light_dampening": 0,
+      "minecraft:loot": "loot_tables/blocks/redstone_core.json",
+      "minecraft:map_color": "#777777",
+      "minecraft:placement_filter": {
+        "conditions": [{
+          "allowed_faces": [
+            "up"
+          ]
+        }]
+      },
+      "tag:pickaxe_mine": {},
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "minecraft:tick": {
+        "looping": true,
+        "interval_range": [
+          40,
+          40
+        ]
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "empty",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

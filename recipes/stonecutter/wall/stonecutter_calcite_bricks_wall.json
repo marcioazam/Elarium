@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_calcite_bricks_wall"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "edx:calcite_bricks"
+      }
+    ],
+    "result": {
+      "item": "edx:calcite_bricks_wall",
+      "count": 1
+    }
+  }
+}

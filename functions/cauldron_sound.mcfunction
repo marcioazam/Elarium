@@ -1,0 +1,1 @@
+stopsound @a[r=32] mob.corrupted_cauldron.charge

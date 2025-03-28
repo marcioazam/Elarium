@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/fox/helmet.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/fox/chestplate.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/fox/leggings.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/fox/boots.json"
+        }
+      ]
+    }
+  ]
+}

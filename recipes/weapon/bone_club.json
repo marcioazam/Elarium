@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "bone_club"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "BbB",
+      "LbL",
+      " S "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:basalt"
+      }
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "B": {
+        "item": "minecraft:basalt"
+      },
+      "b": {
+        "item": "minecraft:bone_block"
+      }
+    },
+    "result": {
+      "item": "dungeons:bone_club",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:snap_to_surface_feature": {
+      "description": {
+        "identifier": "edx:warped/oozeshroom/oozeshroom_dense_snap"
+      },
+      "feature_to_snap":  "edx:warped/oozeshroom/oozeshroom_dense_spread",
+      "vertical_search_range":  12,
+      "surface": "floor"
+    }
+  } 

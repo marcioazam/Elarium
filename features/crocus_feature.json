@@ -1,0 +1,20 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:single_block_feature": {
+        "description": {
+          "identifier": "edx:crocus_feature"
+        },
+        "places_block": "edx:crocus",
+        "enforce_placement_rules": true,
+        "enforce_survivability_rules": true,
+        "may_attach_to": {
+          "bottom":  [
+            "minecraft:dirt",
+            "minecraft:grass"
+        ]
+      },
+        "may_replace": [
+          "minecraft:air"
+        ]
+      }
+}

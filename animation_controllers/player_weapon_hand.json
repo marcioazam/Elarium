@@ -1,0 +1,29 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_weapon_hand": {
+			"states": {
+				"default": {
+                    "transitions": [
+                        {
+                            "attack": "query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:spear') || query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_sword') "
+                        }
+                    ],
+					"on_entry": [
+                        "/tag @s remove sword_spear_hand"
+                    ]
+                },
+                "attack": {
+                    "transitions": [
+                        {
+                            "default": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:spear') && !query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_sword') "
+                        }
+                    ],
+                    "on_entry": [
+                        "/tag @s add sword_spear_hand"
+                    ]
+                }
+	 	}
+		}
+	}
+}

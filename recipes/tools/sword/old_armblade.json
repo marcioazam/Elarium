@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:old_armblade"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "d d",
+      "dad",
+      "d d"
+    ],
+    "key": {
+      "d": {
+        "item": "edx:ancient_armor_debris"
+      },
+
+   "a": {
+        "item": "edx:ancient_armor_plan"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherstar"
+      },
+      {
+        "item": "edx:ancient_armor_plan"
+      },
+      {
+        "item": "edx:ancient_armor_debris"
+      }
+    ],
+    "result":[ {
+
+      "item": "edx:old_armblade"
+    },
+    { "item": "edx:ancient_armor_plan", "count": 1 }
+  ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.sanctuary_spawner.check_for_player_5x5": {
+            "loop": true,
+            "animation_length": 0.5,
+            "timeline": {
+                "0.1": [
+                    "/execute if entity @p[x=~-2,y=~-4,z=~-2,dx=4,dy=8,dz=4] run event entity @s xp:detected_player"
+                ]
+            }
+        },
+        "animation.sanctuary_spawner.check_for_player_7x7": {
+            "loop": true,
+            "animation_length": 0.5,
+            "timeline": {
+                "0.1": [
+                    "/execute if entity @p[x=~-3,y=~-4,z=~-3,dx=6,dy=8,dz=6] run event entity @s xp:detected_player"
+                ]
+            }
+        },
+        "animation.sanctuary_spawner.check_for_player_9x9": {
+            "loop": true,
+            "animation_length": 0.5,
+            "timeline": {
+                "0.1": [
+                    "/execute if entity @p[x=~-4,y=~-4,z=~-4,dx=8,dy=8,dz=8] run event entity @s xp:detected_player"
+                ]
+            }
+        },
+        "animation.sanctuary_spawner.check_for_player_3x3_ruins": {
+            "loop": true,
+            "animation_length": 0.5,
+            "timeline": {
+                "0.1": [
+                    "/execute if entity @p[x=~-4,y=~-4,z=~-4,dx=8,dy=8,dz=8] run event entity @s xp:detected_player"
+                ]
+            }
+        },
+        "animation.sanctuary_spawner.spawn_cooldown": {
+            "loop": false,
+            "animation_length": 10,
+            "timeline": {
+                "9.9": [
+                    "/event entity @s xp:remove_detected_player"
+                ]
+            }
+        }
+    }
+}

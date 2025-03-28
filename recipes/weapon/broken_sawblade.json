@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "broken_sawblade"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " II",
+      "ICI",
+      "SI "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "C": {
+        "item": "minecraft:copper_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:broken_sawblade",
+      "count": 1
+    }
+  }
+}

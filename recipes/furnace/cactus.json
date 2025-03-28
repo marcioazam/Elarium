@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_mini_cactus"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:mini_cactus_it"
+      }
+    ],
+    "tags": ["furnace"],
+    "input": "edx:mini_cactus_it",
+    "output": "minecraft:green_dye"
+  }
+  
+}

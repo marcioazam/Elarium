@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "emerald_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "EEE",
+      "E E"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:emerald"
+      }
+    ],
+    "key": {
+      "E": {
+        "item": "minecraft:emerald"
+      }
+    },
+    "result": {
+      "item": "dungeons:emerald_helmet",
+      "count": 1
+    }
+  }
+}

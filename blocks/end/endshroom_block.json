@@ -1,0 +1,39 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+	"identifier": "edx:endshroom_block",
+	"menu_category": {
+	  "category": "nature"
+	}
+  },
+  "components": {
+	"minecraft:geometry": "minecraft:geometry.full_block",
+	"minecraft:material_instances": {
+		"*": {
+		  "texture": "chorus_cap",
+		  "render_method": "blend",
+		  "face_dimming": false,
+		  "ambient_occlusion": false 
+		}
+	  },
+	  "minecraft:light_emission": 3,
+	  "minecraft:destructible_by_mining": {
+		"seconds_to_destroy": 1
+	  }, 
+	  "tag:wood": {},
+	  "minecraft:destructible_by_explosion": {
+		"explosion_resistance": 6
+	  },
+	  "minecraft:map_color": "#d5aae4" ,
+	  "minecraft:collision_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  },
+	  "minecraft:selection_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  }
+  }
+	}
+}

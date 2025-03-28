@@ -1,0 +1,42 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:chorus_rule",
+			"places_feature": "edx:chorus_feature"
+		},
+
+		"conditions": {
+			"placement_pass": "after_surface_pass",
+
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"any_of": [
+							{
+								"test": "has_biome_tag",
+								"operator": "==",
+								"value": "the_end"
+							}
+						]
+					}
+				]
+			}
+		},
+
+		"distribution": {
+			"iterations": "(q.noise(v.originx / 1024, v.originz / 1024) > 0.53 && (math.abs(v.originx) > 200 || math.abs(v.originz) > 200))*80",
+
+			"x": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ]
+			  },
+			"z": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ]
+			  },
+			"y": "query.heightmap(variable.worldx , variable.worldz) -2"
+		}
+	}
+}

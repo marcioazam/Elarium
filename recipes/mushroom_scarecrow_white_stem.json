@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:mushroom_scarecrow_white_stem"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " X ",
+      "NNN",
+      "HNH"
+    ],
+    "key": {
+      "X": {
+        "item": "edx:green_mushroom_block"
+      },
+      "N": {
+        "item": "edx:white_mushroom_stem"
+      },
+      "H": {
+        "item": "edx:hyphae_it"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:green_mushroom_block"
+      },
+      {
+        "item": "edx:white_mushroom_stem"
+      },
+      {
+        "item": "edx:hyphae_it"
+      }
+    ],
+    "result": {
+      "item": "edx:mushroom_scarecrow_it"
+    }
+  }
+}

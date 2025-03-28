@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:double_charred_grass",
+			"category": "nature"
+		},
+		"components": {
+			
+			"minecraft:geometry": "geometry.cross",
+            "minecraft:collision_box": false,
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0
+            },
+			"minecraft:selection_box": {
+                "origin": [-7,0,-7],
+                "size": [14,14,14]
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "double_charred_grass",
+					"render_method": "alpha_test"
+				}
+			},
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": ["up"],
+						"block_filter": ["edx:gabbro"]
+                    }
+                ]
+            }
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:volley_bomb"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " b ",
+      "bpb",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:string"
+      },
+      "p": {
+        "item": "minecraft:gunpowder"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+    "result": {
+      "item": "edx:volley_bomb"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:fire_agave_feature"
+      },
+      "places_block": "edx:fire_agave",
+      "enforce_placement_rules": true,
+      "enforce_survivability_rules": true,
+      "may_attach_to": {
+        "bottom":  [
+          "edx:molten_gabbro"
+      ]
+    },
+      "may_replace": [
+        "minecraft:air"
+      ]
+    }
+  }

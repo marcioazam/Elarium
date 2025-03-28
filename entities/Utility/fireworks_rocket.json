@@ -1,0 +1,73 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:fireworks_rocket",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "attract":{
+        "minecraft:timer": {
+          "time": 0.1,
+          "looping": true,
+          "time_down_event": {
+            "event": "tp",
+            "target": "self"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "filters": {  "all_of":[
+              {
+                "test": "has_equipment",
+                "subject": "other",
+                "domain": "hand",
+                "operator": "==",
+                "value": "crossbow"
+              },
+              {"test": "has_tag","subject": "other", "operator": "==", "value": "magnetic_firework"},
+              {"test": "is_family", "subject": "other", "value": "player"}
+            ]
+          },
+            "add": {
+              "component_groups" : [ "attract" ]
+            }
+          }
+        ]
+      },
+      "tp":{
+        "queue_command": {
+					"command": [
+					  "tp @e[c=2,family=monster,r=5] @s"
+					  
+					]
+				  }
+      }
+    }
+  } 
+}

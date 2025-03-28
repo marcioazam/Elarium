@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:aggregate_feature": {
+		"description": {
+		  "identifier": "edx:soulsand_valley_variant_scatter_aggregate_feature"
+		},
+		"features": [
+			"edx:soulsand_valley_variant_scatter1_feature",
+			"edx:soulsand_valley_variant_scatter2_feature",
+			"edx:soulsand_valley_variant_scatter3_feature"  
+		]
+	}
+}

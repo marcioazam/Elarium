@@ -1,0 +1,269 @@
+{
+	"format_version": "1.17.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "minecraft:silverfish",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"minecraft:silverfish_calm": {
+				"minecraft:on_target_acquired": {
+					"event": "minecraft:become_angry",
+					"target": "self"
+				}
+			},
+			"minecraft:silverfish_angry": {
+				"minecraft:angry": {
+					"duration": 20,
+					"broadcast_anger": true,
+					"broadcast_range": 16,
+					"calm_event": {
+						"event": "minecraft:on_calm",
+						"target": "self"
+					},
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_targets": [
+						"silverfish"
+					]
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 4,
+					"track_target": true
+				},
+				"minecraft:behavior.silverfish_wake_up_friends": {
+					"priority": 1
+				}
+			}
+		},
+		"components": {
+			"minecraft:mob_effect": {
+		  "effect_range": 2,
+		  "mob_effect": "infested",
+		  "effect_time": 60,
+		  "entity_filter": {
+			"test": "is_family",
+			"subject": "other",
+			"operator": "!=",
+			"value": "monster"
+		  },
+		  "cooldown_time": 0
+		},
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player?5:0"
+			},
+			"minecraft:type_family": {
+				"family": [
+					"silverfish",
+					"monster",
+					"lightweight",
+					"mob",
+					"arthropod"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:nameable": {},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/silverfish.json"
+			},
+			"minecraft:health": {
+				"value": 16,
+				"max": 16
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 1
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.33
+			},
+			"minecraft:navigation.climb": {
+				"can_path_over_water": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:attack": {
+				"damage": {
+					"range_min": 1,
+					"range_max": 3
+				},
+				"effect_name": "haste",
+				"effect_duration": 60
+			},
+			"minecraft:collision_box": {
+				"width": 0.4,
+				"height": 0.3
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.silverfish_merge_with_stone": {
+				"priority": 5
+			},
+			"minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 1
+					},
+					{
+						"priority": 0,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1,
+				"alert_same_type": true
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:block_climber": {},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+			"minecraft:on_death": {
+				"event": "minecraft:on_death",
+				"target": "self"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"remove": {},
+				"add": {
+					"component_groups": [
+						"minecraft:silverfish_calm"
+					]
+				}
+			},
+			"minecraft:become_angry": {
+				"remove": {
+					"component_groups": [
+						"minecraft:silverfish_calm"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"minecraft:silverfish_angry"
+					]
+				}
+			},
+			"minecraft:on_calm": {
+				"remove": {
+					"component_groups": [
+						"minecraft:silverfish_angry"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"minecraft:silverfish_calm"
+					]
+				}
+			}
+		}
+	}
+}

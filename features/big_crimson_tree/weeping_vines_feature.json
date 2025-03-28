@@ -1,0 +1,20 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:growing_plant_feature": {
+    "description": {
+      "identifier": "edx:big_crimson_tree/weeping_vines_feature"
+    },
+    "height_distribution":  [
+      [{"range_min": 2, "range_max": 8}, 1],
+      [{"range_min": 3, "range_max": 10}, 2]
+    ],
+    "growth_direction": "DOWN",
+    "body_blocks": [
+      ["minecraft:weeping_vines", 1]
+    ],
+    "head_blocks": [
+      ["minecraft:weeping_vines", 1]
+    ], 
+    "allow_water": false
+  }
+}

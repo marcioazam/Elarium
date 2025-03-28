@@ -1,0 +1,38 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:biome": {
+    "description": {
+      "identifier": "ice_mountains"
+    },
+    "components": {
+      "minecraft:climate": {
+        "downfall": 0.5,
+        "snow_accumulation": [
+          0.375,
+          1.5
+        ],
+        "temperature": 0,
+        "blue_spores": 0,
+        "red_spores": 0,
+        "white_ash": 0,
+        "ash": 0
+      },
+      "minecraft:overworld_height": {
+        "noise_type": "mountains"
+      },
+      "frozen": {},
+      "ice": {},
+      "mountain": {},
+      "overworld": {},
+      "ice_mountains": {},
+      "minecraft:surface_parameters": {
+        "sea_floor_depth": 7,
+        "sea_floor_material": "minecraft:gravel",
+        "foundation_material": "minecraft:stone",
+        "mid_material": "minecraft:dirt",
+        "top_material": "minecraft:grass",
+        "sea_material": "minecraft:water"
+      }
+    }
+  }
+}

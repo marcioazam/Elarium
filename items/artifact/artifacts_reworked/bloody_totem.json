@@ -1,0 +1,30 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:bloody_totem",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			
+			"minecraft:tags": {
+				"tags": [
+				"bloody_totem_tag"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "bloody_totem"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+                "value": "§4Flesh totem\n§5Artifact\n§6Grants strength and speed to all players within a 6 block radius\n§6Grants resistance and regeneration to all players within a 2 block radius\n§4Only other players receive these effect, not you"
+              }
+		}
+	}
+}

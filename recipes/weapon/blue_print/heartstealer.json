@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_heartstealer"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:heartstealer"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:heartstealer"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:heartstealer", "count": 1 },
+      { "item": "dungeons:heartstealer", "count": 1 }
+    ]
+  }
+}

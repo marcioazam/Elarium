@@ -1,0 +1,222 @@
+{
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:enderbug.death",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "scripts": {
+        "animate": [
+          "player.achievements"
+        ],
+        "animations": {
+          "player.achievements": "controller.animation.player.achievements.mob_death_detection"
+        }
+      }
+    },
+    "component_groups": {
+      "xp:death.baby":{
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "time": 1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        },
+        "minecraft:scale": {
+					"value": 0.4
+				}
+      },
+      "xp:death.tiny":{
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "time": 1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        },
+        "minecraft:scale": {
+					"value": 0.6
+				}
+      },
+      "xp:death.small":{
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "time": 1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        },
+        "minecraft:scale": {
+					"value": 0.7
+				}
+      },
+      "xp:death.medium":{
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "time": 1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        },
+        "minecraft:scale": {
+					"value": 0.8
+				}
+      },
+      "xp:death.large":{
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "time": 1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        },
+        "minecraft:scale": {
+					"value": 0.9
+				}
+      },
+      "xp:death.big":{
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "time": 1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        },
+        "minecraft:scale": {
+					"value": 1.0
+				}
+      },
+
+
+      "xp:instant_despawn":{
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ 
+          "enderbug",
+          "inanimate"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:spawn_entity": {
+        "entities":{
+          "single_use": true,
+          "max_wait_time": 0,
+          "min_wait_time": 0,
+          "num_to_spawn": 1,
+          "spawn_item": "xp:elytra_shard"
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "xp:death_baby":{
+        "add": {
+          "component_groups": [
+            "xp:death.baby"
+          ]
+        }
+      },
+      "xp:death_tiny":{
+        "add": {
+          "component_groups": [
+            "xp:death.tiny"
+          ]
+        }
+      },
+      "xp:death_small":{
+        "add": {
+          "component_groups": [
+            "xp:death.small"
+          ]
+        }
+      },
+      "xp:death_medium":{
+        "add": {
+          "component_groups": [
+            "xp:death.medium"
+          ]
+        }
+      },
+      "xp:death_large":{
+        "add": {
+          "component_groups": [
+            "xp:death.large"
+          ]
+        }
+      },
+      "xp:death_big":{
+        "add": {
+          "component_groups": [
+            "xp:death.big"
+          ]
+        }
+      },
+
+
+      "xp:instant_despawn":{
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			}
+    }
+  }
+}

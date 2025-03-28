@@ -1,0 +1,56 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "edx:void_helmet",
+      "menu_category": {
+        "category": "equipment",
+				"group": "itemGroup.name.helmet"
+			}
+		},
+		"components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "armor_head"
+      },
+      "minecraft:icon": {
+        "textures":{
+               "default":"void_helmet"
+         }
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items":[
+              "edx:void_helmet"
+            ],
+            "repair_amount": "context.other->query.remaining_durability + 0.05 * context.other->query.remaining_durability"
+          },
+          {
+            "items":[
+              "edx:void_essence"
+            ],
+            "repair_amount": "q.max_durability/4"
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "Void Helmet"
+      },
+      "minecraft:tags": {
+				"tags": [
+					"minecraft:trimmable_armors",
+          "minecraft:is_armor"
+				]
+			},
+      "minecraft:durability": {
+        "max_durability": 2228
+      },
+      "minecraft:wearable": {
+        "protection": 5,
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}

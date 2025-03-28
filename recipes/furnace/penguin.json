@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_penguin"
+    }, 
+    "unlock": [
+      {
+        "item": "edx:raw_penguin"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:raw_penguin",
+    "output": "edx:cooked_penguin"
+  }
+  
+}

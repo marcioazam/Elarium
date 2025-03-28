@@ -1,0 +1,12 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:aggregate_feature": {
+		"description": {
+		  "identifier": "edx:magma_chamber/generation/magma_chamber_biome_scatter_agg_feature"
+		},
+		"features": [
+			"edx:magma_chamber/generation/magma_chamber_biome_scatter3_feature",
+			"edx:magma_chamber/generation/magma_chamber_biome_scatter4_feature"
+		]
+	}
+}

@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:vegetation_patch_feature": {
+      "description": {
+        "identifier": "edx:cave_mycelium_patch_feature"
+      },
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:moss_block",
+        "minecraft:gravel",
+        "minecraft:dirt",
+        "minecraft:dirt_with_roots",
+        "minecraft:cave_vines"
+      ],
+      "ground_block": "edx:cave_mycelium",
+      "vegetation_feature": "edx:vegetation_random",
+      "surface": "floor",
+      "depth": 3,
+      "vertical_range": 50,
+      "vegetation_chance": 0.005,
+      "horizontal_radius": { 
+        "range_min": 13,
+        "range_max": 14
+      },
+      "extra_deep_block_chance": 0.45,
+      "extra_edge_column_chance": 0.55,
+      "waterlogged": false
+    }
+  }

@@ -1,0 +1,114 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_platform.runtime": {
+      "initial_state": "default",
+      "states": {
+
+        "default": {
+          "transitions": [
+            { "on_place": "!q.is_saddled" },
+            { "on_place_launcher": "q.is_saddled" }
+          ]
+        },
+
+        "on_place": {
+          "transitions": [ { "check_tick_a": "1" } ],
+          "on_entry": [
+            "/fill ~~1~ ~1~1~-1 barrier 0 replace air",
+            "/execute align xyz run tp @s ~~~",
+
+            "/particle xp:end_cube_platform1 ~0.5~0.5~-0.5",
+            "/playsound entity.illusioner.prepare_mirror @a ~~~ 1.0 1.2"
+          ]
+        },
+        "on_place_launcher": {
+          "transitions": [ { "check_tick_launcher_a": "1" } ],
+          "on_entry": [
+            "/execute align xyz run tp @s ~0.5~~0.5",
+            "/playsound entity.illusioner.prepare_mirror @a ~~~ 1.0 1.2"
+          ]
+        },
+
+        "check_tick_a": {
+          "transitions": [
+            { "shake_platform": "q.out_of_control" },
+            { "check_tick_b": "1" }
+          ],
+          "on_entry": [
+            "/execute as @a[x=~,y=~,z=~,dx=1,dy=2,dz=-1] at @s run event entity @e[type=xp:end_cube_platform,c=1] xp:remove_platform",
+            "/execute align xyz run tp @s ~~~"
+          ]
+        },
+        "check_tick_b": {
+          "transitions": [
+            { "shake_platform": "q.out_of_control" },
+            { "check_tick_a": "1" }
+          ],
+          "on_entry": [
+            "/execute as @a[x=~,y=~,z=~,dx=1,dy=2,dz=-1] at @s run event entity @e[type=xp:end_cube_platform,c=1] xp:remove_platform",
+            "/execute align xyz run tp @s ~~~"
+          ]
+        },
+
+        "check_tick_launcher_a": {
+          "transitions": [
+            { "launch_player": "q.out_of_control" },
+            { "check_tick_launcher_b": "1" }
+          ],
+          "on_entry": [
+            "/execute as @a[r=2,c=1] at @s run event entity @e[type=xp:end_cube_platform,c=1] xp:remove_platform",
+            "/execute align xz run tp @s ~ 221.25 ~"
+          ]
+        },
+        "check_tick_launcher_b": {
+          "transitions": [
+            { "launch_player": "q.out_of_control" },
+            { "check_tick_launcher_a": "1" }
+          ],
+          "on_entry": [
+            "/execute as @a[r=2,c=1] at @s run event entity @e[type=xp:end_cube_platform,c=1] xp:remove_platform",
+            "/execute align xz run tp @s ~ 221.25 ~"
+          ]
+        },
+
+        "launch_player": {
+          "transitions": [ { "shake_platform": "1"} ],
+          "on_entry": [
+            "/effect @a[r=2,c=1] levitation 1 7",
+            "/playsound firework.launch @a ~~~",
+            "/tag @a[r=6] add shown_tip_3"
+          ] 
+        },
+
+        "shake_platform": {
+          "transitions": [ { "remove_platform": "(math.abs(q.life_time - v.t)) > 1.4" } ],
+          "on_entry": [
+            "v.t = q.life_time;",
+
+            "/playanimation @s on_jump",
+            "/playsound respawn_anchor.charge @a ~~~ 1.0 1.25"
+          ],
+          "on_exit": [
+            "/particle xp:end_cube_platform1 ~0.5~0.5~-0.5",
+            "/playsound entity.illusioner.prepare_mirror @a ~~~ 1.0 1.2"
+          ]
+        },
+        "remove_platform": {
+          "transitions": [ { "despawn": "(math.abs(q.life_time - v.t)) > 0.27" } ],
+          "on_entry": [
+            "v.t = q.life_time;",
+            "/playanimation @s disappear",
+            "/fill ~~1~ ~1~1~-1 air 0 replace barrier"
+          ]
+        },
+        "despawn": {
+          "on_entry": [
+            "@s xp:instant_despawn",
+            "/playsound mob.irongolem.crack @a ~~~ 1.0 0.75"
+          ]
+        }
+      }
+    }
+  }
+}

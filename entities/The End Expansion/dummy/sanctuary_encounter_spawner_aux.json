@@ -1,0 +1,57 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:sanctuary_encounter_spawner_aux",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "spawn_mob": "animation.sanctuary_encounter_spawner_aux.spawn_mob"
+            },
+            "scripts": {
+                "animate": [
+                    "spawn_mob"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:magnum_crystallite",
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:loot": "loot_tables/misc/magnum_crystallite.json",
+      "minecraft:geometry": "geometry.end_glass",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": true,
+          "face_dimming": true,
+          "texture": "magnum_crystallite",
+          "render_method": "blend"
+        }
+      },
+      "minecraft:map_color": "#7d00c1",
+      "minecraft:light_dampening": 0,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.4
+      }
+    }
+  }
+}

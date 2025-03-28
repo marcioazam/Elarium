@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_sponge_striker"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:sponge_striker"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:sponge_striker"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:sponge_striker", "count": 1 },
+      { "item": "dungeons:sponge_striker", "count": 1 }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:small_stonebrick"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:stonebrick",
+        "data": 0
+      }
+    },
+    "unlock": [ 
+      {
+        "item": "minecraft:stonebrick",
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "edx:small_stonebrick",
+      "count": 4
+    }
+  }
+  
+}

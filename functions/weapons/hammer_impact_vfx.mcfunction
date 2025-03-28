@@ -1,0 +1,23 @@
+particle xp:hammer_impact ~~~
+particle xp:heart_impact_pulse ~~~
+particle xp:hammer_impact ~1~~
+particle xp:heart_impact_pulse ~1~~
+particle xp:hammer_impact ~-1~~
+particle xp:heart_impact_pulse ~-1~~
+particle xp:hammer_impact ~~~1
+particle xp:heart_impact_pulse ~~~1
+particle xp:hammer_impact ~~~-1
+particle xp:heart_impact_pulse ~~~-1
+particle xp:hammer_impact ~2~~
+particle xp:heart_impact_pulse ~2~~
+particle xp:hammer_impact ~-2~~
+particle xp:heart_impact_pulse ~-2~~
+particle xp:hammer_impact ~~~2
+particle xp:heart_impact_pulse ~~~2
+particle xp:hammer_impact ~~~-2
+particle xp:heart_impact_pulse ~~~-2
+
+particle xp:hammer_electric ~~1~
+particle xp:hammer_electric1 ~~1~
+particle xp:hammer_electric ~~1~
+particle xp:hammer_electric1 ~~1~

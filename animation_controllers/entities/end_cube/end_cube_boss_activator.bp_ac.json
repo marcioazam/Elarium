@@ -1,0 +1,95 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube.boss_activator.runtime": {
+      "initial_state": "initialize",
+      "states": {
+        "initialize": {
+          "transitions": [
+            { "hidden": "q.variant >= 2" },
+            { "check_interact": "q.is_saddled || q.is_powered" },
+            { "on_spawn": "true" }
+          ]
+        },
+        "on_spawn": {
+          "transitions": [ { "check_interact": "q.life_time - v.on_spawn_tick > 3.8" } ],
+          "on_entry": [ "v.on_spawn_tick = q.life_time;" ],
+          "on_exit": [ "@s xp:on_spawn" ]
+        },
+
+        "check_interact": {
+          "transitions": [
+            { "interactor": "q.is_powered" },
+            { "inactive": "1" }
+          ]
+        },
+        "interactor": {
+          "transitions": [
+            { "activate_other": "q.variant == 1" },
+            { "deactivate_other": "q.variant == 0" }
+          ]
+        },
+        "activate_other": {
+          "transitions": [ { "initialize": "1" } ],
+          "on_entry": [ 
+            "/event entity @e[type=xp:end_cube_boss_activator,tag=!activated,family=!\"interaction\",r=4] xp:end_cube_boss_activator_activate",
+            "/tag @e[type=xp:end_cube_boss_activator,family=!\"interaction\",r=4] add activated"
+          ]
+        },
+        "deactivate_other": {
+          "transitions": [ { "interactor": "q.variant != 0" } ],
+          "on_entry": [ "/event entity @e[type=xp:end_cube_boss_activator,family=!\"interaction\",r=4] xp:end_cube_boss_activator_deactivate" ]
+        },
+
+        "inactive": {
+          "transitions": [
+            { "activated": "q.variant == 1" }
+          ],
+          "on_entry": [
+            "/scoreboard players set @s end_cube_boss 0",
+            "/scoreboard players set @e[type=xp:end_cube] end_cube_boss 0",
+            "/scoreboard players operation @e[type=xp:end_cube] end_cube_boss += @e[type=xp:end_cube_boss_activator] end_cube_boss"
+          ],
+          "on_exit": [
+            "/scoreboard players set @s end_cube_boss 1",
+            "/scoreboard players set @e[type=xp:end_cube] end_cube_boss 0",
+            "/scoreboard players operation @e[type=xp:end_cube] end_cube_boss += @e[type=xp:end_cube_boss_activator] end_cube_boss"
+          ]
+        },
+
+        "activated": {
+          "transitions": [
+            { "inactive": "q.variant == 0" },
+            { "hiding": "q.variant == 2" }
+          ],
+          "on_entry": [
+            "/playsound respawn_anchor.charge @a ~~~",
+            "/playsound respawn_anchor.deplete @a ~~~ 1.0 2.0",
+            "/playsound beacon.activate @a ~~~ 1.0 2.0",
+            "/playsound block.end_portal_frame.fill @a ~~~",
+
+            "/execute as @s[tag=!\"ender_eye_boss_activated\"] at @s run execute as @e[type=xp:end_cube,scores={end_cube_boss=3..},c=1] at @s run event entity @a[r=128] xp:achievements.008",
+            "/execute as @s[tag=!\"ender_eye_boss_activated\"] at @s run execute as @e[type=xp:end_cube,scores={end_cube_boss=3..},c=1] at @s run event entity @s xp:boss_stage.one",
+            "/execute as @s[tag=!\"ender_eye_boss_activated\"] at @s run execute as @e[type=xp:end_cube,scores={end_cube_boss=3..},c=1] at @s run playsound block.end_portal.spawn @a ~~~",
+            "/execute as @s[tag=!\"ender_eye_boss_activated\"] at @s run execute as @e[type=xp:end_cube,scores={end_cube_boss=3..},c=1] at @s run tag @e[type=xp:end_cube_boss_activator,r=32] add ender_eye_boss_activated",
+            "/execute as @s[tag=!\"ender_eye_boss_activated\"] at @s run execute as @e[type=xp:end_cube,scores={end_cube_boss=3..},c=1] at @s run event entity @e[type=xp:end_cube_boss_activator] xp:end_cube_boss_activator_hiding"
+          ]
+        },
+
+        "hiding": {
+          "transitions": [ { "hidden": "q.life_time - v.hide_delay > 3.8" } ],
+          "on_entry": [
+            "v.hide_delay = q.life_time;",
+            "/event entity @e[type=xp:end_cube_boss_activator,family=\"interaction\",r=4] xp:instant_despawn"
+          ]
+        },
+        "hidden": {
+          "on_entry": [
+            "@s xp:end_cube_boss_activator_hidden",
+            "/fill ~1~4~1~-1~1~-1 air 0 replace barrier"
+          ]
+        }
+      }
+    }
+  }
+}

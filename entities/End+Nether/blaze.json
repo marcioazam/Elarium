@@ -1,0 +1,328 @@
+{
+	//nether
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "minecraft:blaze",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"mode_switcher": {
+				"minecraft:target_nearby_sensor": {
+					"inside_range": 2,
+					"outside_range": 3,
+					"must_see": true,
+					"on_inside_range": {
+						"event": "switch_to_melee",
+						"target": "self"
+					},
+					"on_outside_range": {
+						"event": "switch_to_ranged",
+						"target": "self"
+					}
+				}
+			},
+			"ranged_mode": {
+				"minecraft:shooter": {
+					"def": "minecraft:small_fireball",
+					"power": 1.5
+				},
+				"minecraft:behavior.ranged_attack": {
+					"priority": 3,
+					"burst_shots": 6,
+					"burst_interval": 0.15,
+					"charge_charged_trigger": 0,
+					"charge_shoot_trigger": 2,
+					"attack_interval_min": 0.75,
+					"attack_interval_max": 1.25,
+					"attack_radius": 26
+				}
+			},
+			"melee_mode": {
+				"minecraft:attack": {
+					"damage": 6
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 3
+				},
+				"minecraft:equipment": {
+					"table": "loot_tables/entities/break_shield_gear.json",
+					"slot_drop_chance": [
+						{
+							"slot": "slot.weapon.mainhand",
+							"drop_chance": 0
+						}
+					]
+				}
+			},
+			"angry": {
+				"minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 32,
+					"broadcastRange": 32,
+					"broadcast_targets": [
+						"blaze"
+					],
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					},
+					"duration": 20,
+					"filters": {
+						"all_of": [
+							{
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "blaze"
+							}
+						]
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 10 : 0"
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/blaze.json"
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 1.8
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": false
+					},
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.23
+			},
+			"minecraft:navigation.climb": {
+				"can_path_over_water": true,
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:health": {
+				"value": 60,
+				"max": 60
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_contact_with_water",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "drowning",
+						"damage_per_tick": 1
+					}
+				]
+			},
+			"minecraft:follow_range": {
+				"value": 48,
+				"max": 48
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:nameable": {},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"must_see": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 56,
+						"priority": 0
+					},
+					{
+						"max_dist": 56,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 56
+					}
+				]
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 4,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 5
+			},
+			"minecraft:type_family": {
+				"family": [
+					"blaze",
+					"monster",
+					"mob"
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:on_hurt": {
+				"event": "minecraft:on_hurt_event",
+				"target": "self"
+			},
+			"minecraft:on_hurt_by_player": {
+				"event": "minecraft:on_hurt_event",
+				"target": "self"
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+"redstone_torch",
+"torch",
+"glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door"
+				]
+			},
+			"minecraft:on_death": {
+				"event": "minecraft:on_death",
+				"target": "self"
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"mode_switcher"
+					]
+				}
+			},
+			"switch_to_melee": {
+				"remove": {
+					"component_groups": [
+						"ranged_mode"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"melee_mode"
+					]
+				}
+			},
+			"switch_to_ranged": {
+				"remove": {
+					"component_groups": [
+						"melee_mode"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"ranged_mode"
+					]
+				}
+			},
+			"minecraft:on_hurt_event": {
+				"add": {
+					"component_groups": [
+						"mode_switcher"
+					]
+				}
+			},
+			
+			"calm": {
+				"remove": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"angry": {
+				"add": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			}
+		}
+	}
+}

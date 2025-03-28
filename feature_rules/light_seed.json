@@ -1,0 +1,42 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:light_seed",
+			"places_feature": "edx:light_seed_feature"
+		},
+
+		"conditions": {
+			"placement_pass": "after_surface_pass",
+
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"any_of": [
+							{
+								"test": "has_biome_tag",
+								"operator": "==",
+								"value": "the_end"
+							}
+						]
+					}
+				]
+			}
+		},
+
+		"distribution": {
+			"iterations": 1,
+
+			"x": {
+				"distribution": "fixed_grid",
+				"extent": [0, 15]
+			},
+			"z": {
+				"distribution": "fixed_grid",
+				"extent": [0, 15]
+			},
+			"y": "(q.noise((v.originx / 1024), (v.originz / 1024)) + q.noise(v.originx, v.originz) * 0.05 > -0.2 && q.noise((v.originx / 1024), (v.originz / 1024)) + q.noise(v.originx, v.originz) * 0.05 < 0.4 && (math.random(0,100) > 30) && (math.abs(v.worldx) > 200 || math.abs(v.worldz) > 200)) ? (q.heightmap(v.worldx, v.worldz) - math.random( 2, 40)) : -1"
+		}
+	}
+}

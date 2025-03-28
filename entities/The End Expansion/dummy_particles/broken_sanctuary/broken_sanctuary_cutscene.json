@@ -1,0 +1,78 @@
+{
+  "format_version": "1.17.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:broken_sanctuary_cutscene",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "scripts": {
+        "animate": [
+          { "east_tower": "q.variant == 1" },
+          { "south_tower": "q.variant == 2" },
+          { "west_tower": "q.variant == 3" },
+          { "east_tower_last": "q.variant == 4" },
+          { "south_tower_last": "q.variant == 5" },
+          { "west_tower_last": "q.variant == 6" },
+          { "enter_portal": "q.variant == 7" },
+          { "enter_portal.tick": "q.variant == 7" }
+        ]
+      },
+      "animations": {
+        "east_tower": "animation.cutscene.sanctuary.east_tower",
+        "south_tower": "animation.cutscene.sanctuary.south_tower",
+        "west_tower": "animation.cutscene.sanctuary.west_tower",
+        "east_tower_last": "animation.cutscene.sanctuary.east_tower_last",
+        "south_tower_last": "animation.cutscene.sanctuary.south_tower_last",
+        "west_tower_last": "animation.cutscene.sanctuary.west_tower_last",
+        "enter_portal": "animation.cutscene.sanctuary.enter_portal",
+        "enter_portal.tick": "animation.cutscene.sanctuary.enter_portal.tick"
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "broken_sanctuary_cutscene", "dev", "dummy" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+            "cause": "all",
+            "deals_damage": false
+          }]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      },
+      "minecraft:tick_world": {
+        "never_despawn": true,
+        "radius": 2
+      }
+    },
+
+    "component_groups": {
+      "xp:despawn": { "minecraft:instant_despawn": {} },
+      "xp:east_tower": { "minecraft:variant": { "value": 1 } },
+      "xp:south_tower": { "minecraft:variant": { "value": 2 } },
+      "xp:west_tower": { "minecraft:variant": { "value": 3 } },
+      "xp:east_tower_last": { "minecraft:variant": { "value": 4 } },
+      "xp:south_tower_last": { "minecraft:variant": { "value": 5 } },
+      "xp:west_tower_last": { "minecraft:variant": { "value": 6 } },
+      "xp:enter_portal": { "minecraft:variant": { "value": 7 } }
+    },
+
+    "events": {
+      "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } },
+      "xp:east_tower": { "add": { "component_groups": ["xp:east_tower"] } },
+      "xp:south_tower": { "add": { "component_groups": ["xp:south_tower"] } },
+      "xp:west_tower": { "add": { "component_groups": ["xp:west_tower"] } },
+      "xp:east_tower_last": { "add": { "component_groups": ["xp:east_tower_last"] } },
+      "xp:south_tower_last": { "add": { "component_groups": ["xp:south_tower_last"] } },
+      "xp:west_tower_last":{ "add": { "component_groups": ["xp:west_tower_last"] } },
+      "xp:enter_portal":{ "add": { "component_groups": ["xp:enter_portal"] } }
+    }
+  }
+}

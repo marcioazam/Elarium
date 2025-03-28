@@ -1,0 +1,103 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+  "identifier": "edx:charged_copper",
+  "traits": {
+    "minecraft:placement_direction": {
+      "enabled_states": ["minecraft:facing_direction"], 
+      "y_rotation_offset": 0
+    }
+  }
+},
+"components": { 
+  "minecraft:material_instances": {
+    "*": {
+      "texture": "charged_copper_block"
+    }
+  },
+    "minecraft:destructible_by_mining": {
+      "seconds_to_destroy": 10
+    },
+    "tag:no_silktouch": {},
+    "tag:stone": {},
+    "minecraft:map_color": "#c87456",
+    "tag:charged_copper": {},
+   
+    "minecraft:geometry": {
+      "identifier": "geometry.block"
+    },
+    "minecraft:collision_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:selection_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:tick": {
+      "interval_range": [
+        2,
+        2
+      ]
+    },
+    "minecraft:custom_components": [
+      "edx:copper_particle",
+      "edx:convert_to_charged_copper_block"
+    ]
+},
+"permutations": [
+  // Facing down
+  {
+    "condition": "q.block_state('minecraft:facing_direction') == 'down'",
+    "components": {
+      "minecraft:transformation": { "rotation": [-90, 0, 0] }
+    ,
+    "tag:charged_copper_up": {}
+    
+    }
+  },
+  // Facing up
+  {
+    "condition": "q.block_state('minecraft:facing_direction') == 'up'",
+    "components": {
+      "minecraft:transformation": { "rotation": [90, 0, 0] }
+    ,
+    "tag:charged_copper_up": {}
+    }
+  },
+  // Facing north
+  {
+    "condition": "q.block_state('minecraft:facing_direction') == 'north'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, 0, 0] }
+    
+    }
+  },
+  
+  // Facing west
+  {
+    "condition": "q.block_state('minecraft:facing_direction') == 'west'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, 90, 0] }
+    }
+  },
+  // Facing south
+  {
+    "condition": "q.block_state('minecraft:facing_direction') == 'south'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, 180, 0] }
+    }
+  },
+  // Facing east
+  {
+    "condition": "q.block_state('minecraft:facing_direction') == 'east'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, -90, 0] }
+    }
+  }
+
+
+]
+  }
+}

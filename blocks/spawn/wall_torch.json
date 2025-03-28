@@ -1,0 +1,35 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "xp:wall_torch_block",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [ -8.0, 0, -8.0 ],
+				"size": [ 0, 0, 0 ]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 99999
+			},
+			"minecraft:geometry": "geometry.wall_torch_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "wall_torch_block",
+					"render_method": "alpha_test"
+				},
+				"light": {
+					"ambient_occlusion": false,
+					"face_dimming": false,
+					"texture": "fire",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_emission": 15,
+			"minecraft:map_color": "#ffcd17"
+		}
+	}
+}

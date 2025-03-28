@@ -1,0 +1,70 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:geyser",
+			"category": "nature",
+			"states": {
+				"edx:discharge": [false,true]
+			}
+		},
+		"components": {
+			"tag:edx:stone": {},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "geyser",
+					"render_method": "alpha_test"
+				}
+			},
+			
+			"minecraft:geometry": "geometry.geyser",
+            "minecraft:selection_box": {
+                "origin": [-5,0,-5],
+                "size": [10,16,10]
+            },
+			"minecraft:collision_box": {
+                "origin": [-5,0,-5], 
+                "size": [10,16,10]
+            },
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 30
+            },
+			"minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": ["up"],
+						"block_filter": ["edx:volcano_stone","edx:sulfur_ore"] 
+                    }
+                ]
+            },
+			"minecraft:loot": "loot_tables/blocks/geyser.json"
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('edx:discharge') == true",
+				"components": {
+					"minecraft:tick": {
+  					"looping": true,
+  					"interval_range": [1, 1]
+					},
+					"minecraft:custom_components": ["edx:geyser_discharge"]
+					  
+				}
+			},
+			{
+				"condition": "query.block_state('edx:discharge') == false",
+				"components": {
+					"minecraft:tick": {
+  					"looping": true,
+  					"interval_range": [10, 160]
+					},
+					"minecraft:custom_components": ["edx:geyser"]
+					  
+				}
+			}
+		]
+	}
+}

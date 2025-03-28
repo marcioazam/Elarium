@@ -1,0 +1,49 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:firebrand",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+  
+          "minecraft:is_sword"
+        ]
+      },
+      "minecraft:icon": "firebrand",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:durability": {
+        "max_durability": 1100
+      },
+      "minecraft:hover_text_color": {
+        "value": "light_purple"
+      },
+      "minecraft:repairable": {
+        "repair_items": [{
+            "items": [
+              "minecraft:iron_ingot"
+            ],
+            "repair_amount": "q.max_durability * 0.25"
+          },
+          {
+            "items": [
+              "dungeons:axe"
+            ],
+            "repair_amount": "c.other -> q.remaining_durability + 0.12 * c.other -> q.max_durability"
+          }
+        ]
+      },
+     
+      "minecraft:enchantable": {
+        "value": 8,
+        "slot": "sword"
+      }
+    }
+  }
+}

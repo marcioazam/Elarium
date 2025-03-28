@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.nameless_one.invisible": {
+      "initial_state": "default",
+      "states": {
+        "attacking": {
+          "animations": [
+            "casting_timer"
+          ],
+          "transitions": [
+            {
+              "finish": "query.all_animations_finished"
+            }
+          ]
+        },
+        "default": {
+          "on_entry": [
+          ],
+          "transitions": [
+            {
+              "attacking": "q.variant == 1.0 && query.is_casting == 1.0"
+            }
+          ]
+        },
+        "finish": {
+          "on_entry": [
+            "/particle dungeons:nameless_awaken ~~1~",
+            "/effect @s invisibility 7 0 true",
+            "/effect @s resistance 5 3 true"
+          ],
+          "transitions": [
+            {
+              "default": "query.is_casting == 0.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

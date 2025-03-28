@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "axe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "II",
+      "IS",
+      "S "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:axe",
+      "count": 1
+    }
+  }
+}

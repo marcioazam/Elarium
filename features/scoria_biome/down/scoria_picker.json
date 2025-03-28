@@ -1,0 +1,17 @@
+{
+	"format_version": "1.20.20",
+	"minecraft:aggregate_feature": {
+		"description": {
+		  "identifier": "edx:scoria_biome/down/scoria_picker"
+		  /*
+		  places the block associated with this biome
+		  see the conditions folder for the conditions
+		  to add more biomes, add more conditions (make sure to also make an entry in the conditions folder)
+		  */
+		},
+		"features": [
+			"edx:scoria_biome/down/scoria_condition"
+		],
+		"early_out": "first_success"
+	}
+}

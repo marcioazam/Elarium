@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "piglin_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "L L",
+      "LBL",
+      "B B"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:quartz"
+      }
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "B": {
+        "item": "minecraft:quartz"
+      }
+    },
+    "result": {
+      "item": "dungeons:piglin_helmet",
+      "count": 1
+    }
+  }
+}

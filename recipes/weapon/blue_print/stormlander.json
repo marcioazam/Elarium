@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_stormlander"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:stormlander"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:stormlander"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:stormlander", "count": 1 },
+      { "item": "dungeons:stormlander", "count": 1 }
+    ]
+  }
+}

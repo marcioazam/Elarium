@@ -1,0 +1,113 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:diamond_dust",
+          "weight": 2
+        },
+        {
+          "type": "empty",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:redstone_golem_head",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 4
+        }
+      ],
+      "conditions": [{
+        "condition": "killed_by_player_or_pets"
+      }]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 6
+              },
+              "limit": 24
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 14,
+                "max": 15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 3,
+                "max": 6
+              }
+            },
+            {
+              "function": "set_count",
+              "count": {
+                "min": 6,
+                "max": 14
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "minecraft:iron_block",
+          "functions": [
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            },
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

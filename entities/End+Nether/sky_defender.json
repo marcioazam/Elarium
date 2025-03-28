@@ -1,0 +1,122 @@
+{
+	  //ver depois
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:sky_defender",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+      		"runtime_identifier": "shulker" 
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/shulker.json"
+			  },
+			"minecraft:type_family": {
+			  "family": [ "mob","shulker","monster" ]
+			},
+			"minecraft:nameable": {
+			},
+			"minecraft:collision_box": {
+			  "width": 0.9,
+			  "height": 0.9
+			},
+			"minecraft:health": {
+			  "value": 50,
+			  "max": 50
+			},
+			"minecraft:peek": {
+				"on_open": {
+				  "event": "minecraft:on_open"
+				},
+				"on_close": {
+				  "event": "minecraft:on_close"
+				},
+				"on_target_open": {
+				  "event": "minecraft:on_open"
+				}
+			  },
+			"minecraft:movement": {
+				"value": 0.0
+			  },
+			  "minecraft:navigation.walk": {
+			  },
+			  "minecraft:movement.basic": {
+			  },
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+			"minecraft:attack": {
+			  "damage": 1
+			},
+			"minecraft:damage_sensor": {
+			  "triggers": {
+				"cause": "fall",
+				"deals_damage": false
+			  }
+			},
+			"minecraft:hurt_on_condition": {
+			  "damage_conditions": [
+				{
+				  "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+				  "cause": "lava",
+				  "damage_per_tick": 4
+				}
+			  ]
+			},
+			"minecraft:balloonable": {
+			},
+			"minecraft:behavior.ranged_attack": {
+				"priority": 1,
+				"burst_shots": 1,
+				"attack_interval_min": 10.0,
+				"attack_interval_max": 15,
+				"attack_radius": 100.0
+			  },
+			"minecraft:shooter": {
+			  "def": "edx:sky_defender_bullet"
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			  },
+			"minecraft:behavior.nearest_attackable_target": {
+			  "priority": 0,
+			  "must_see": false,
+			  "entity_types": [
+				{
+				  "filters": {
+					"all_of": [
+						{
+						  "subject": "other",
+						  "test": "is_family",
+						  "value": "player"
+						},
+						{
+						  "test": "has_equipment",
+						  "domain": "torso",
+						  "subject": "other",
+						  "value": "elytra"
+						}
+					  ]
+				},
+				  
+				  "max_dist": 150
+				}
+			  ]
+			},
+			"minecraft:persistent": {
+			},
+			"minecraft:physics": {
+			},
+			"minecraft:pushable": {
+			  "is_pushable": false,
+			  "is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+			}
+		}
+	}
+}

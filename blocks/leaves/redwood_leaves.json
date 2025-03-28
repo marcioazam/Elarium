@@ -1,0 +1,90 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:redwood_leaves",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.leaves"
+			},
+			"states": {
+				"edx:decay_tier": [8,7,6,5,4, 3, 2, 1, 0],
+				"edx:can_despawn": [
+					true,
+					false
+				]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:leaves"],
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:flammable": {
+				"catch_chance_modifier": 20,
+				"destroy_chance_modifier": 80
+			},
+			
+			"minecraft:map_color": "#C467A2",
+			"minecraft:light_dampening": 1,
+			"minecraft:light_emission": 0,
+			"tag:redwood_leaves": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('edx:decay_tier') == 0 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_0": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 1 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_1": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 2 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_2": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 3 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_3": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 4 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_4": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 5 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_5": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 6 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_6": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 7 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_7": {}
+				}
+			  },
+			  {
+				"condition": "q.block_state('edx:decay_tier') == 8 && query.block_state('edx:can_despawn') == true",
+				"components": {
+				  "tag:decay_tier_8": {}
+				}
+			  }
+		]
+	}
+}

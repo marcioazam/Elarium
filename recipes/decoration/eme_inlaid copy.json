@@ -1,0 +1,38 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:sculk_inlaid"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " P ",
+      "PDP",
+      " P "
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:deepslate_bricks",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:sculk"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:deepslate_bricks",
+        "data": 0
+      },
+      {
+        "item": "minecraft:sculk"
+      }
+    ],
+    "result": {
+      "item": "edx:sculk_inlaid",
+      "count": 4
+    }
+  }
+  
+}

@@ -1,0 +1,59 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:block_breaker"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "CNC",
+      "ITI",
+      "SRS"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:tin_block"
+      },
+      "N": {
+        "item": "edx:nickel_block"
+      },
+      "C": {
+        "item": "minecraft:chain"
+      },
+      "S": {
+        "item": "minecraft:copper_ingot"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:tin_block"
+      },
+      {
+        "item": "edx:nickel_block"
+      },
+      {
+        "item": "minecraft:chain"
+      },
+      {
+        "item": "minecraft:copper_ingot"
+      },
+      {
+        "item": "minecraft:redstone"
+      },
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:block_breaker"
+    }
+  }
+}

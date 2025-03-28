@@ -1,0 +1,58 @@
+{
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:sanctuary_activator",
+      "is_summonable": true
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "xp:filled": {
+        "minecraft:is_stunned": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "sanctuary_activator", "inanimate" ]
+      },
+      "minecraft:health": {
+        "min": 1,
+        "max": 1,
+        "value": 1
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{ "deals_damage": false }]
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+      "xp:filled": {
+        "add": {
+          "component_groups": [ "xp:filled" ]
+        }
+      }
+    }
+  }
+}

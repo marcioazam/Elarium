@@ -1,0 +1,86 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+
+    "animation.farlander.dialogue_set": {
+      "animation_length": 1.0,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute at @s as @a[r=18] unless score @s dialogueId matches 04100 run scoreboard players set @s dialogueId 01300"
+        ]
+      }
+    },
+
+		"animation.farlander.teleport_sequence": {
+			"animation_length": 6.9,
+			"loop": false,
+			"timeline": {
+        "0.0": [
+          "/particle xp:farlander.prepare_quick_travel ~~~",
+          "/playsound ender_heart.charge @a[tag=\"dialogue_quick_travel\",r=8] ~~~ 1.0 0.75",
+
+          "/title @a[tag=\"dialogue_quick_travel\",r=8] title _xp:npc:farlander:1:31002",
+          "/execute as @a[tag=\"dialogue_quick_travel\",r=8] at @s run function achievements/goals/110"
+        ],
+
+        "2.25": "/playanimation @s teleport_out",
+        "2.95": [
+          "/particle xp:respawn.2",
+          "/playsound mob.endermen.portal @a ~~~",
+
+          "/execute as @a[tag=\"dialogue_quick_travel\",r=8] at @s run particle xp:respawn.2",
+          "/execute as @a[tag=\"dialogue_quick_travel\",r=8] at @s run playsound mob.endermen.portal @a ~~~",
+
+          "/effect @s invisibility 10 255 true",
+          "/effect @s resistance 100 255 true",
+
+          "/effect @a[tag=\"dialogue_quick_travel\",r=8] invisibility 3 255 true",
+          "/effect @a[tag=\"dialogue_quick_travel\",r=8] resistance 15 255 true"
+        ],
+
+        "3.0": [
+          "/title @a[tag=\"dialogue_quick_travel\",r=8] title xp_fade_sudden;xp_quick_travel",
+          "/effect @a[tag=\"dialogue_quick_travel\",r=8] nausea 10 1 true",
+          "/particle xp:farlander.quick_travel ~~~",
+
+          "/tag @a[tag=\"dialogue_quick_travel\",r=8] remove dialogue_quick_travel",
+
+          "/event entity @a[tag=\"to_ender_wilds\",r=8] xp:farlander.quick_travel.1",
+          "/event entity @a[tag=\"to_echoing_forest\",r=8] xp:farlander.quick_travel.2",
+          "/event entity @a[tag=\"to_ender_arena\",r=8] xp:farlander.quick_travel.3",
+          "/event entity @a[tag=\"to_ender_abyss\",r=8] xp:farlander.quick_travel.4",
+          "/event entity @a[tag=\"to_riftlands\",r=8] xp:farlander.quick_travel.5",
+          "/event entity @a[tag=\"to_broken_sanctuary\",r=8] xp:farlander.quick_travel.6"
+        ],
+        "3.1": [
+          "/event entity @s[family=!\"stay_put\"] xp:instant_despawn",
+          "/effect @s[family=\"stay_put\"] invisibility 4 255 true"
+        ],
+        "6.8": [
+          "/particle xp:respawn.2 ~~-1~",
+          "/particle xp:respawn.3 ~~-0.5~",
+          "/particle xp:respawn.3 ~~1~",
+
+          "/playanimation @s teleport_in",
+
+          "/playsound horn.call.0 @a ~~~ 1.0 1.5",
+          "/playsound mob.endermen.portal @a ~~~"
+        ]
+			}
+		},
+
+    "animation.farlander.despawn_sequence": {
+			"animation_length": 0.75,
+			"loop": true,
+      "timeline": {
+        "0.0": "/playanimation @s teleport_out",
+        "0.65": [
+          "/effect @s invisibility 10 255 true",
+          "/playsound horn.call.1 @a ~~~ 1.0 0.75"
+        ],
+        "0.7": "@s xp:instant_despawn"
+      }
+    }
+	}
+}

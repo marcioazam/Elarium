@@ -1,0 +1,55 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:magmroll",
+      "population_control": "monster"
+    },
+    "conditions": [
+     
+      {
+        
+          "minecraft:spawns_underground": {},
+          "minecraft:difficulty_filter": {
+            "max": "hard"
+          },
+          "minecraft:height_filter": {
+            "min": -63,
+            "max": 0
+          },
+          
+          "minecraft:weight": {
+            "default": 17
+          },
+          "minecraft:density_limit": {
+            "surface": 3,
+            "underground": 3
+          },
+          "minecraft:herd": {
+            "min_size": 1,
+            "max_size": 1
+          },
+          "minecraft:brightness_filter": {
+            "min": 0,
+            "max": 7,
+            "adjust_for_weather": true
+          },
+          "minecraft:biome_filter": [
+          
+            {
+            "test": "has_biome_tag", "operator": "==", "value": "caves"
+          },
+          {
+              "test": "has_biome_tag", "operator": "==", "value": "lush_caves"
+          },
+          {
+              "test": "has_biome_tag", "operator": "==", "value": "dripstone_caves"
+          },
+          {"test": "has_biome_tag", "operator": "==", "value": "crimson_forest"}
+        ]
+
+        
+      }
+    ]
+  }
+}

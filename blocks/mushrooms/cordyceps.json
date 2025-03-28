@@ -1,0 +1,45 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:cordyceps",
+		"menu_category": {
+		  "category": "none"
+		}
+	  },
+	  "components": {
+		"minecraft:light_dampening": 0,
+		"minecraft:collision_box": false,
+		"minecraft:selection_box": {
+			"origin": [-5,0,-5],
+			"size": [10,14,10]
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.cross"
+		},
+		"minecraft:loot": "loot_tables/blocks/cordyceps_it.json",
+		"minecraft:material_instances": {
+			"*": {
+				"texture": "cordyceps",
+				"render_method": "alpha_test",
+				"face_dimming": false,
+				"ambient_occlusion": false
+			}
+		},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  },
+    "minecraft:custom_components": [
+      "cordyceps:interact"
+    ],
+		  "minecraft:placement_filter": {
+			"conditions": [
+				{
+					"allowed_faces": ["up"],
+					"block_filter": ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_grass"]
+				}
+			]
+		}
+	  }
+	}
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:acacia_direction_sign"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:acacia_fence"
+      },
+      {
+        "item": "minecraft:acacia_sign"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:acacia_fence"
+      },
+      {
+        "item": "minecraft:acacia_sign"
+      }
+    ],
+    "result": {
+      "item": "edx:acacia_sign_it"
+    }
+  }
+}

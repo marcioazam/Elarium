@@ -1,0 +1,137 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:eye_bulb",
+			"states": {
+				"edx:stage": [0,1,2,3,4]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:eye_tick"],
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0
+            },
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": {
+				"origin": [-8, 0, -8],
+				"size": [16, 16, 16]
+			  },
+			  "tag:no_silktouch": {},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": ["soul_soil"]
+					}
+				]
+			},
+			"minecraft:light_dampening": 0
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('edx:stage') == 0",
+				"components": {
+					"minecraft:geometry": "geometry.eye_bulb1",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "eye_bulb1",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false 
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 4, 16]
+					  },
+					  "minecraft:loot": "loot_tables/blocks/eye_blub.json"
+					  
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 1",
+				"components": {
+					
+					"minecraft:geometry": "geometry.eye_bulb2",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "eye_bulb2",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 8, 16]
+					  },
+					  "minecraft:loot": "loot_tables/blocks/eye_blub.json"
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 2",
+				"components": {
+					
+					"minecraft:geometry": "geometry.eye_bulb3",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "eye_bulb3",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 14, 16]
+					  },
+					  "minecraft:loot": "loot_tables/blocks/eye_blub.json"
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 3",
+				"components": {
+					
+					"minecraft:geometry": "geometry.eye_bulb4",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "eye_bulb4",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 12, 16]
+					  },
+					  "minecraft:loot": "loot_tables/blocks/eye_blub_grow.json"
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 4",
+				"components": {
+					
+					"minecraft:geometry": "geometry.eye_bulb4",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "blue_eye_bulb4", 
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 12, 16]
+					  },
+					  "minecraft:loot": "loot_tables/blocks/blue_eye_blub_grow.json"
+				}
+			}
+		]
+	}
+}

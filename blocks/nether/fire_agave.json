@@ -1,0 +1,42 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:fire_agave",
+			"category": "nature"
+		},
+		"components": {
+			"minecraft:loot": "loot_tables/blocks/fire_agave.json",
+			"minecraft:geometry": "geometry.cross",
+            "minecraft:collision_box": false,
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0
+            },
+			"minecraft:selection_box": {
+                "origin": [-7,0,-7],
+                "size": [14,14,14]
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "fire_agave",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+
+				}
+			},
+			"tag:no_silktouch": {},
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": ["up"],
+						"block_filter": ["edx:gabbro","edx:molten_gabbro","netherrack"]
+                    }
+                ]
+            }
+		}
+	}
+}

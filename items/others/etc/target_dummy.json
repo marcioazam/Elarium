@@ -1,0 +1,20 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:target_dummy",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "target_dummy",
+      "minecraft:entity_placer": {
+        "entity": "dungeons:target_dummy"
+      },
+      "minecraft:fuel": {
+        "duration": 2
+      }
+    }
+  }
+}

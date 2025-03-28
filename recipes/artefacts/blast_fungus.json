@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "blast_fungus"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "PDB",
+      "DED",
+      "BDP"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "B": {
+        "item": "minecraft:nether_wart_block"
+      },
+      "P": {
+        "item": "minecraft:warped_wart_block"
+      },
+      "E": {
+        "item": "minecraft:tnt"
+      }
+    },
+    "result": {
+      "item": "dungeons:blast_fungus",
+      "count": 1
+    }
+  }
+}

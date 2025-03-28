@@ -1,0 +1,356 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 2,
+        "max": 6
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:nickel_ingot",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:chorus_stew",
+          "weight": 8
+        },
+        {
+          "type": "item",
+          "name": "edx:endshroom_stem",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "edx:chorus_socks",
+          "weight": 2
+      },
+        {
+          "type": "item",
+          "functions": [
+              {
+                  "function": "set_count",
+                  "count": {
+                      "min": 1,
+                      "max": 1
+                  }
+              }
+          ],
+          "name": "edx:runestone",
+          "weight": 5
+      },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:beetroot_seeds",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 10
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:saddle",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_horse_armor",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_horse_armor",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_horse_armor",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:warped_nickel_sword",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:nickel_boots",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:nickel_chestplate",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:nickel_leggings",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:nickel_helmet",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:warped_nickel_pickaxe",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:warped_nickel_shovel",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_sword",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_boots",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_chestplate",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_leggings",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_helmet",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_pickaxe",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_shovel",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 20,
+                "max": 39
+              }
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "empty",
+          "weight": 14
+        },
+        {
+          "type": "item",
+          "name": "minecraft:spire_armor_trim_smithing_template",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

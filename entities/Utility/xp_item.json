@@ -1,0 +1,380 @@
+{
+  "format_version": "1.17.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:drop_item",
+      "is_summonable": false,
+      "is_spawnable": false,
+      "is_experimental": false,
+
+      "scripts": {
+        "animate": [
+          "root.rippling.item"
+        ]
+      },
+
+      "animations": {
+        "root.rippling.item": "controller.animation.rippling.item"
+      }
+    },
+    "component_groups": {
+      "xp:despawn_item": { "minecraft:instant_despawn": {} },
+
+      "xp:enderite_cutter": { "minecraft:skin_id": { "value": 12 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:enderite_cutter_enchanted": { "minecraft:skin_id": { "value": 1 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:ender_curved_blade": { "minecraft:skin_id": { "value": 2 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:ender_curved_blade_enchanted": { "minecraft:skin_id": { "value": 3 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:obsidian_blade": { "minecraft:skin_id": { "value": 4 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:obsidian_blade_enchanted": { "minecraft:skin_id": { "value": 5 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:ender_smite": { "minecraft:skin_id": { "value": 6 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:enders_heart_blast": { "minecraft:skin_id": { "value": 7 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:the_touched_ends": { "minecraft:skin_id": { "value": 8 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:the_touched_ends_enchanted": { "minecraft:skin_id": { "value": 17 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:ender_staff": { "minecraft:skin_id": { "value": 9 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:void_blade": { "minecraft:skin_id": { "value": 18 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:void_blade_enchanted": { "minecraft:skin_id": { "value": 19 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:void_striker": { "minecraft:skin_id": { "value": 20 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:void_striker_enchanted": { "minecraft:skin_id": { "value": 21 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:void_hammer": { "minecraft:skin_id": { "value": 22 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:void_hammer_enchanted": { "minecraft:skin_id": { "value": 23 }, "minecraft:scale": { "value": 0.5 } },
+      "xp:loot": {
+        "minecraft:skin_id": {
+          "value": 10
+        },
+        "minecraft:type_family": {
+          "family": [
+            "rippling_item",
+            "xp_dummy",
+            "xp_item",
+            "item"
+          ]
+        },
+        "minecraft:entity_sensor": {
+          "sensor_range": 0.6,
+          "minimum_count": 1,
+          "require_all": false,
+          "event_filters": {
+            "any_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "==",
+                "value": "rippling.launch"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "==",
+                "value": "rippling"
+              }
+            ]
+          },
+          "event": "xp:loot_grab"
+        },
+        "minecraft:scale": { "value": 0.5 }
+      },
+      "xp:loot_grab": {
+        "minecraft:skin_id": {
+          "value": 11
+        },
+        "minecraft:type_family": {
+          "family": [
+            "xp_dummy",
+            "xp_item",
+            "item"
+          ]
+        },
+        "minecraft:is_illager_captain": {},
+        "minecraft:scale": { "value": 0.5 },
+        "minecraft:timer": {
+          "time": 0.1,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:despawn_item",
+            "target": "self"
+          }
+        }
+      },
+      "xp:wild_chorus": { "minecraft:skin_id": { "value": 13 }, "minecraft:scale": { "value": 0.35 } },
+      "xp:rift_plant": { "minecraft:skin_id": { "value": 14 }, "minecraft:scale": { "value": 0.35 } },
+      "xp:echoing_larp": { "minecraft:skin_id": { "value": 15 }, "minecraft:scale": { "value": 0.35 } },
+      "xp:echoing_wart": { "minecraft:skin_id": { "value": 16 }, "minecraft:scale": { "value": 0.35 } }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "xp_dummy",
+          "xp_item",
+          "item"
+        ]
+      },
+      "minecraft:collision_box": {
+        "height": 0.7,
+        "width": 0.7
+      },
+      "minecraft:nameable": {},
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [ { "test": "is_riding", "operator": "==", "subject": "self", "value": false } ]
+            },
+            "event": "xp:despawn_item"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "enderite_cutter" }
+              ]
+            },
+            "event": "xp:enderite_cutter"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "enderite_cutter_enchanted" }
+              ]
+            },
+            "event": "xp:enderite_cutter_enchanted"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "ender_curved_blade" }
+              ]
+            },
+            "event": "xp:ender_curved_blade"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "ender_curved_blade_enchanted" }
+              ]
+            },
+            "event": "xp:ender_curved_blade_enchanted"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "obsidian_blade" }
+              ]
+            },
+            "event": "xp:obsidian_blade"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "obsidian_blade_enchanted" }
+              ]
+            },
+            "event": "xp:obsidian_blade_enchanted"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "ender_smite" }
+              ]
+            },
+            "event": "xp:ender_smite"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "enders_heart_blast" }
+              ]
+            },
+            "event": "xp:enders_heart_blast"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "the_touched_ends" }
+              ]
+            },
+            "event": "xp:the_touched_ends"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "the_touched_ends_enchanted" }
+              ]
+            },
+            "event": "xp:the_touched_ends_enchanted"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "ender_staff" }
+              ]
+            },
+            "event": "xp:ender_staff"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "loot" },
+                { "test": "has_component", "operator": "!=", "subject": "self", "value": "minecraft:is_illager_captain" },
+
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "ender_staff" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "the_touched_ends" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "the_touched_ends_enchanted" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "enders_heart_blast" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "ender_smite" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "obsidian_blade_enchanted" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "obsidian_blade" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "ender_curved_blade_enchanted" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "ender_curved_blade" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "enderite_cutter_enchanted" },
+                { "test": "has_tag", "operator": "!=", "subject": "other", "value": "enderite_cutter" }
+              ]
+            },
+            "event": "xp:loot"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "wild_chorus" }
+              ]
+            },
+            "event": "xp:wild_chorus"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "rift_plant" }
+              ]
+            },
+            "event": "xp:rift_plant"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "echoing_larp" }
+              ]
+            },
+            "event": "xp:echoing_larp"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "echoing_wart" }
+              ]
+            },
+            "event": "xp:echoing_wart"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "void_blade" }
+              ]
+            },
+            "event": "xp:void_blade"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "void_blade_enchanted" }
+              ]
+            },
+            "event": "xp:void_blade_enchanted"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "void_striker" }
+              ]
+            },
+            "event": "xp:void_striker"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "void_striker_enchanted" }
+              ]
+            },
+            "event": "xp:void_striker_enchanted"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "void_hammer" }
+              ]
+            },
+            "event": "xp:void_hammer"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_riding", "operator": "==", "subject": "self", "value": true },
+                { "test": "has_tag", "operator": "==", "subject": "other", "value": "void_hammer_enchanted" }
+              ]
+            },
+            "event": "xp:void_hammer_enchanted"
+          }
+        ]
+      }
+    },
+    "events": {
+      "xp:despawn_item": { "add": { "component_groups": [ "xp:despawn_item" ] } },
+      "xp:enderite_cutter": { "add": { "component_groups": [ "xp:enderite_cutter" ] } },
+      "xp:enderite_cutter_enchanted": { "add": { "component_groups": [ "xp:enderite_cutter_enchanted" ] } },
+      "xp:ender_curved_blade": { "add": { "component_groups": [ "xp:ender_curved_blade" ] } },
+      "xp:ender_curved_blade_enchanted": { "add": { "component_groups": [ "xp:ender_curved_blade_enchanted" ] } },
+      "xp:obsidian_blade": { "add": { "component_groups": [ "xp:obsidian_blade" ] } },
+      "xp:obsidian_blade_enchanted": { "add": { "component_groups": [ "xp:obsidian_blade_enchanted" ] } },
+      "xp:ender_smite": { "add": { "component_groups": [ "xp:ender_smite" ] } },
+      "xp:enders_heart_blast": { "add": { "component_groups": [ "xp:enders_heart_blast" ] } },
+      "xp:the_touched_ends": { "add": { "component_groups": [ "xp:the_touched_ends" ] } },
+      "xp:the_touched_ends_enchanted": { "add": { "component_groups": [ "xp:the_touched_ends_enchanted" ] } },
+      "xp:ender_staff": { "add": { "component_groups": [ "xp:ender_staff" ] } },
+      "xp:loot": { "add": { "component_groups": [ "xp:loot" ] } },
+      "xp:loot_grab": { "add": { "component_groups": [ "xp:loot_grab" ] }, "remove": { "component_groups": ["xp:loot"] } },
+      "xp:wild_chorus": { "add": { "component_groups": [ "xp:wild_chorus" ] } },
+      "xp:rift_plant": { "add": { "component_groups": [ "xp:rift_plant" ] } },
+      "xp:echoing_larp": { "add": { "component_groups": [ "xp:echoing_larp" ] } },
+      "xp:echoing_wart": { "add": { "component_groups": [ "xp:echoing_wart" ] } },
+      "xp:void_blade": { "add": { "component_groups": [ "xp:void_blade" ] } },
+      "xp:void_blade_enchanted": { "add": { "component_groups": [ "xp:void_blade_enchanted" ] } },
+      "xp:void_striker": { "add": { "component_groups": [ "xp:void_striker" ] } },
+      "xp:void_striker_enchanted": { "add": { "component_groups": [ "xp:void_striker_enchanted" ] } },
+      "xp:void_hammer": { "add": { "component_groups": [ "xp:void_hammer" ] } },
+      "xp:void_hammer_enchanted": { "add": { "component_groups": [ "xp:void_hammer_enchanted" ] } }
+    }
+  }
+}

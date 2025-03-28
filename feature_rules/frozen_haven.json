@@ -1,0 +1,41 @@
+
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:frozen_haven",
+			"places_feature": "edx:frozen_haven_random"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+					"any_of": [
+						
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "cold_taiga"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "ice_plains"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "ice_plains_spikes"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": -16,
+			"y": "query.heightmap(variable.worldx, variable.worldz) - 5",
+			"z": -16
+		}
+	}
+}

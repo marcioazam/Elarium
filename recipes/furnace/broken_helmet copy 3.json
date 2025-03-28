@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:broken_chestplate"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:broken_old_chestplate"
+      }
+    ],
+    "tags": ["furnace", "blast_furnace"],
+    "input": "edx:broken_old_chestplate",
+    "output": "edx:ancient_armor_debris"
+  }
+  
+}

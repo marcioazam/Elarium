@@ -1,0 +1,35 @@
+{
+  "pools": [
+    {
+      "rolls": 10,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:void_dust",
+          "weight": 200
+        },
+        {
+          "type": "item",
+          "name": "minecraft:ender_pearl",
+          "weight": 60
+        },
+        {
+          "type": "item",
+          "name": "edx:instable_enderpearl",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "edx:void_fossil",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:void_socks",
+          "weight": 1
+        }
+      ]
+    }
+   
+  ]
+}

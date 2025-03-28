@@ -1,0 +1,147 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.conduit.annoyance": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "delay": "q.is_chested" },
+            { "no_tp": "q.is_illager_captain && q.mark_variant == 1" },
+            { "tp_delay": "q.is_illager_captain && q.mark_variant == 2" },
+            {
+              "broadcast": "q.is_illager_captain && !q.is_chested  && q.mark_variant == 3"
+            },
+            { "cooldown": "q.variant == 2" }
+          ],
+          "on_exit": ["/scoreboard players set @s conduit_cooldown 32"]
+        },
+        "no_tp": {
+          "transitions": [{ "default": "!q.is_illager_captain" }],
+          "on_entry": [
+            "/playsound entity.conduit.hurt @a ~~~"
+          ]
+        },
+        "tp_delay": {
+          "animations": ["neighbor_annoyed_timer"],
+          "transitions": [{ "tp": "q.any_animation_finished" }],
+          "on_entry": [
+            "/playsound entity.conduit.hurt @a ~~~",
+            "/scoreboard players add @s conduit_hits 1",
+            "/tag @s[scores={conduit_hits=4..}] add maxHitsTaken"
+          ]
+        },
+        "delay": {
+          "animations": ["neighbor_annoyed_timer"],
+          "transitions": [{ "tp": "q.any_animation_finished" }]
+        },
+        "tp": {
+          "transitions": [{ "default": "!q.is_illager_captain" }],
+          "on_entry": [
+            "/playsound entity.conduit.portal_use @a[r=16] ~~~ 1 1.1 0.025",
+            "/playsound mob.endermen.portal @a ~~~",
+            "/particle xp:endergob.teleport ~~~",
+            "/spreadplayers ~~ 1 10 @s"
+          ]
+        },
+        "broadcast": {
+          // "transitions": [{ "cooldown": "1.0" }],
+          "on_entry": [
+            "/event entity @e[type=xp:conduit,rm=0.1,r=30] xp:neighbor_annoyed"
+          ]
+        },
+        "cooldown": {
+          "transitions": [
+            { "tp_delay": "q.is_illager_captain && q.mark_variant == 2" },
+            { "default": "!q.is_illager_captain && q.variant != 2" },
+            { "delay": "q.is_chested" }
+          ]
+        }
+      }
+    },
+    "controller.animation.conduit.stationed": {
+      "states": {
+        "default": {
+          "transitions": [{ "stationed": "q.variant >= 1" }],
+          "on_entry": ["/tag @s remove stationed"]
+        },
+        "stationed": {
+          "animations": ["stationed"],
+          "transitions": [{ "default": "q.variant < 1" }],
+          "on_entry": [
+            "/camerashake add @a[r=7,rm=5.5] 0.2 0.05 positional",
+            "/camerashake add @a[r=5.5,rm=4] 0.4 0.05 positional",
+            "/camerashake add @a[r=4] 0.6 0.05 positional",
+            "/tag @s add stationed",
+            "/playsound entity.conduit.portal_use @a[r=16] ~~~ 1 1 0.025",
+            // "/function align_position",
+            "/teleport ~~0.2~"
+          ],
+          "on_exit": [
+            "/playsound entity.conduit.portal_use @a[r=16] ~~~ 1 0.9 0.025"
+          ]
+        }
+      }
+    },
+    "controller.animation.conduit.teleport_cooldown": {
+      "states": {
+        "default": {
+          "transitions": [{ "cooldown": "q.is_ignited" }],
+          "on_exit": ["/tag @s add can_teleport"]
+        },
+        "cooldown": {
+          "transitions": [{ "default": "q.anim_time-v.teleport_start > 10" }],
+          "on_entry": [
+            "/tag @s remove can_teleport",
+            "v.teleport_start=q.anim_time;"
+          ]
+        }
+      }
+    },
+    "controller.animation.conduit.teleport": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "agro_teleport": "q.mark_variant <= 2 && !q.is_leashed && q.is_ignited"
+            // },
+            // {
+            //   "teleport": "q.mark_variant <= 2 && !q.is_leashed && !q.is_ignited && q.is_saddled && q.life_time - (v.next_teleport ?? q.life_time + 1) >= 0"
+            }
+          ],
+          "on_entry": ["v.next_teleport = q.life_time + math.random(10, 20);"]
+        },
+        "teleport": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "/execute if entity @s[tag=!\"sticky\"] run playsound mob.endermen.portal @a ~~~",
+            "/execute if entity @s[tag=!\"sticky\"] run particle xp:endergob.teleport ~~~",
+            "/spreadplayers ~~ 1 7 @s[tag=!\"sticky\"]"
+          ]
+        },
+        "agro_teleport": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "@s xp:unteleport",
+            "/execute if entity @s[tag=!\"sticky\"] run playsound mob.endermen.portal @a ~~~",
+            "/execute if entity @s[tag=!\"sticky\"] run particle xp:endergob.teleport ~~~",
+            "/spreadplayers ~~ 1 7 @s[tag=!\"sticky\"]"
+          ]
+        }
+      }
+    },
+    "controller.animation.conduit.collision": {
+      "states": {
+        "default": {
+          "transitions": [{ "reset_collision": "q.is_shaking" }]
+        },
+        "reset_collision": {
+          "transitions": [{ "default": "!q.is_shaking" }, { "reset": "q.is_shaking" }],
+          "on_entry": ["/function conduit/reset_collision"]
+        },
+        "reset": {
+          "transitions": [{ "default": "!q.is_shaking" }, { "reset_collision": "q.is_shaking" }]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_pride_of_the_piglins"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:pride_of_the_piglins"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:pride_of_the_piglins"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:pride_of_the_piglins", "count": 1 },
+      { "item": "dungeons:pride_of_the_piglins", "count": 1 }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:vegetation_patch_feature": {
+      "description": {
+        "identifier": "edx:cave_mycelium_patch_to_ceiling_feature"
+      },
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:moss_block",
+        "minecraft:dirt",
+        "minecraft:gravel",
+        "minecraft:dirt_with_roots",
+        "minecraft:cave_vines"
+      ],
+      "ground_block": {
+        "name": "edx:cave_mycelium"
+    },
+      "vegetation_feature": "edx:vegetation_random_ceiling",
+      "surface": "ceiling",
+      "depth": 3,
+      "vertical_range": 50,
+      "vegetation_chance": 0.005,
+      "horizontal_radius": {
+        "range_min": 13,
+        "range_max": 15
+      },
+      "extra_deep_block_chance": 0.45,
+      "extra_edge_column_chance": 0.5,
+      "waterlogged": false
+    }
+  }

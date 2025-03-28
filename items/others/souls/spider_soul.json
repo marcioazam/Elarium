@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:spider_soul",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"soul"
+				]
+			},
+			"minecraft:icon": {
+				"textures":{
+               "default":"spider_soul"
+         }
+			},
+			"minecraft:display_name": {},
+			"minecraft:max_stack_size": 1
+		}
+	}
+}

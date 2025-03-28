@@ -1,0 +1,103 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:heretic_bullet",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "shulker_bullet"
+    },
+
+    "component_groups":{
+      "minecraft:despawn": {
+        "minecraft:instant_despawn": {
+         "remove_child_entities": true
+        }
+     }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.625,
+        "height": 0.625
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject" : "other", "value" :  "player"},
+                  { "test": "has_equipment", "domain": "hand", "subject": "other", "value": "glass_bottle"}
+                ]
+              },
+              
+              
+            "event": "minecraft:despawn",
+            "target": "self"
+            },
+            "use_item": true,
+            "transform_to_item": "edx:blindness_potion",
+            "cooldown": 2.5,
+            "vibration": "shear",
+            "interact_text": "action.interact.take_allay"
+          }
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 5,
+            "knockback": true,
+            "should_bounce": true
+          },
+          "mob_effect": {
+            "effect": "blindness",
+            "durationeasy": 1,
+            "durationnormal": 2,
+            "durationhard": 3,
+            "amplifier": 0
+          },
+          "remove_on_hit": {
+          },
+          "particle_on_hit": {
+            "particle_type": "largeexplode",
+            "on_other_hit": true
+          }
+        },
+        "hit_sound": "bullet.hit",
+        "destroy_on_hurt": true,
+        "crit_particle_on_hurt": true,
+        "power": 8.6,
+        "gravity": 0.05,
+        "uncertainty_base": 16,
+        "uncertainty_multiplier": 4,
+        "anchor": 1,
+        "offset": [ 0, -0.1, 0 ],
+        "homing": true
+      },
+      "minecraft:physics": {
+        "has_collision": false
+      },
+      "minecraft:scale": {
+        "value": 0.8
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events":{
+      "minecraft:despawn": {
+        "add": {
+           "component_groups": [
+              "minecraft:despawn"
+           ]
+        }
+     }
+    }
+  }
+}

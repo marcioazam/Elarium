@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:tin_shovel"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X",
+      "#",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "edx:tin_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:tin_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:tin_shovel"
+    }
+  }
+}

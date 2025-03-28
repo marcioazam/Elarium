@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:dark_oak_direction_sign"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:dark_oak_fence"
+      },
+      {
+        "item": "minecraft:dark_oak_sign"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:dark_oak_fence"
+      },
+      {
+        "item": "minecraft:dark_oak_sign"
+      }
+    ],
+    "result": {
+      "item": "edx:dark_oak_sign_it"
+    }
+  }
+}

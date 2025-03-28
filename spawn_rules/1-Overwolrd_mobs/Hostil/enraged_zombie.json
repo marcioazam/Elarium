@@ -1,0 +1,40 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:enraged_zombie",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        
+          "minecraft:spawns_underground": {},
+          "minecraft:spawns_on_surface": {},
+          "minecraft:difficulty_filter": {
+            "max": "hard"
+          },
+        
+          "minecraft:weight": {
+            "default": 35
+          },
+  
+          "minecraft:herd": {
+            "min_size": 1,
+            "max_size": 1
+          },
+  "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 8,
+          "adjust_for_weather": true
+        },
+          "minecraft:density_limit": {
+            "underground": 10,
+            "surface": 10
+          },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag", "operator": "==", "value": "monster"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.friendly_warder.despawn": {
+      "animation_length": 21,
+      "timeline": {
+        "2.0": [
+          "/event entity @s xp:invulnerable"
+        ],
+        "19.8": [
+          "/summon xp:sanctuary_mob_spawn ~ ~ ~"
+        ],
+        "20.0": [
+          "/event entity @s xp:instant_despawn"
+        ]
+      }
+    },
+    "animation.warder.despawn": {
+      "animation_length": 1.2,
+      "loop": false,
+      "timeline": {
+        "1": [ "@s xp:instant_despawn" ]
+      }
+    }
+  }
+}

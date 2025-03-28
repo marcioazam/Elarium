@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:mesa_cabin_random"
+    },
+    "features": [
+      [ "edx:mesac1", 1 ],
+      [ "edx:mesac2", 1 ],
+      [ "edx:nothing_feature", 25 ]
+    ]
+  }
+}

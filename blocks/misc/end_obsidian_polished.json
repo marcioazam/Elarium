@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:end_obsidian_polished",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "construction" }
+    },
+    "components": {
+      "minecraft:map_color": "#1c1134",
+      "minecraft:loot": "loot_tables/misc/end_obsidian_polished.json",
+      "minecraft:destroy_time": 2.5,
+      "minecraft:explosion_resistance": 100,
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      },
+      "minecraft:block_light_absorption": 1
+    }
+  }
+}

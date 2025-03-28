@@ -1,0 +1,520 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:copper_golem",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+				"animate": [
+					"block_breaker",
+          "copper"
+				] 
+			}, 
+			"animations": {
+				"copper": "controller.animation.copper",
+        "block_breaker": "controller.animation.block_breaker"
+			}
+    },
+    "component_groups": {
+      "stage1_off":{
+        "minecraft:skin_id": {
+          "value": 0
+        },
+        "minecraft:type_family": {
+          "family": [ "copper_golem", "mob", "off","stage1" ]
+        }
+      },
+      "stage1_on":{
+        "minecraft:skin_id": {
+          "value": 1
+        },
+        "minecraft:type_family": {
+          "family": [ "copper_golem", "mob", "on","stage1" ]
+        }
+      },
+
+      "stage2_off":{
+        "minecraft:skin_id": {
+          "value": 2
+        },
+        "minecraft:type_family": {
+          "family": [ "copper_golem", "mob", "off","stage2" ]
+        }
+      },
+      "stage2_on":{
+        "minecraft:skin_id": {
+          "value": 3
+        },
+        "minecraft:type_family": {
+          "family": [ "copper_golem", "mob", "on","stage2" ]
+        }
+      },
+
+      "stage3_off":{
+        "minecraft:skin_id": {
+          "value": 4
+        },
+        "minecraft:type_family": {
+          "family": [ "copper_golem", "mob", "off","stage3" ]
+        }
+      },
+      "stage3_on":{
+        "minecraft:skin_id": {
+          "value": 5
+        },
+        "minecraft:type_family": {
+          "family": [ "copper_golem", "mob", "on","stage3" ]
+        }
+      },
+
+      "stage4_off":{
+        "minecraft:skin_id": {
+          "value": 6
+        },
+        "minecraft:type_family": {
+          "family": [ "mob", "off","stage4" ]
+        }
+      },
+      "reverse": {
+				"minecraft:mark_variant": {
+					"value": 1
+				}
+			},
+      "no_reverse": {
+				"minecraft:mark_variant": {
+					"value": 0
+				}
+			},
+      "no_climb": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+      "climb_up": {
+				"minecraft:variant": {
+					"value": 4
+				}
+			},
+      "climb_down": {
+				"minecraft:variant": {
+					"value": 3
+				}
+			}
+    },
+    "components": {
+      "minecraft:timer":{
+        "looping": true,
+        "randomInterval":false,
+        "time": 1,
+        "time_down_event": {
+          "event":"test_on"
+        }
+      },
+      "minecraft:persistent": {
+			},
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:health": {
+        "value": 55,
+        "max": 55
+      },
+      "minecraft:loot": {
+				"table": "loot_tables/entities/copper_golem.json"
+			},
+      "minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [ 
+          {
+            "filters": { "test": "in_lava", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          },
+          {
+            "filters": { "test": "in_water",  "operator": "==", "value": true },
+            "cause": "drowning",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 1.2
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:nameable": {
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned":{
+        "add": {
+          "component_groups": [
+             "stage1_off","no_reverse","no_climb"
+          ]
+       },
+       "trigger": "test_on"
+      },
+      "aaa":{
+        "queue_command": {
+          "command": [
+             "say aaa"
+          ]}
+      },
+      "on": {
+        "sequence" : [
+                    {
+                        "filters": { "any_of": [
+                          { "test": "is_skin_id", "operator": "==", "value": 0 }
+                          ]
+                        },
+                        
+                  "remove": {
+                    "component_groups": ["stage1_off"]
+                  },
+                  "add": {
+                    "component_groups": ["stage1_on"]
+                  }
+                    },
+                    {
+                    "filters": { "any_of": [
+                      { "test": "is_skin_id", "operator": "==", "value": 2 }
+                      ]
+                    },
+                
+                  "remove": {
+                "component_groups": ["stage2_off"]
+              },
+              "add": {
+                "component_groups": ["stage2_on"]
+              }
+                    },
+                    {
+                    "filters": { "any_of": [
+                      { "test": "is_skin_id", "operator": "==", "value": 4 }
+                      ]
+                    },
+                
+                  "remove": {
+                "component_groups": ["stage3_off"]
+              },
+              "add": {
+                "component_groups": ["stage3_on"]
+              }
+                    }
+      ]
+			},
+
+      "off": {
+        "sequence" : [
+                  {
+                      "filters": { "any_of": [
+                        { "test": "is_skin_id", "operator": "==", "value": 1 }
+                        ]
+                      },
+                  
+                "remove": {
+                  "component_groups": ["stage1_on"]
+                },
+                "add": {
+                  "component_groups": ["stage1_off"]
+                }
+                  },
+                  {
+                  "filters": { "any_of": [
+                    { "test": "is_skin_id", "operator": "==", "value": 3 }
+                    ]
+                  },
+              
+                "remove": {
+              "component_groups": ["stage2_on"]
+            },
+            "add": {
+              "component_groups": ["stage2_off"]
+            }
+                  },
+                  {
+                  "filters": { "any_of": [
+                    { "test": "is_skin_id", "operator": "==", "value": 5 }
+                    ]
+                  },
+              
+                "remove": {
+              "component_groups": ["stage3_on"]
+            },
+            "add": {
+              "component_groups": ["stage3_off"]
+            }
+                  }
+      ]
+			},
+
+  "stage1": { 
+        "sequence" : [
+          {
+              "filters": { "any_of": [
+                { "test": "is_skin_id", "operator": "==", "value": 0 },
+                { "test": "is_skin_id", "operator": "==", "value": 2 },
+                { "test": "is_skin_id", "operator": "==", "value": 4 },
+                { "test": "is_skin_id", "operator": "==", "value": 6 }
+                ]
+              },
+          
+              "remove": {
+                "component_groups": ["stage2_on","stage3_on","stage4_off","stage2_off","stage3_off","stage1_on"]
+              },
+              "add": {
+                "component_groups": ["stage1_off"]
+              },
+              "queue_command": {
+                "command": [
+                  "scoreboard players set @s oxidise 0"
+                ]}
+          },
+          {
+            "filters": { "any_of": [
+              { "test": "is_skin_id", "operator": "==", "value": 1 },
+              { "test": "is_skin_id", "operator": "==", "value": 3 },
+              { "test": "is_skin_id", "operator": "==", "value": 5 },
+              { "test": "is_skin_id", "operator": "==", "value": 7 }
+              ]
+            },
+        
+            "remove": {
+              "component_groups": ["stage2_on","stage3_on","stage4_off","stage2_off","stage3_off","stage1_off"]
+            },
+            "add": {
+              "component_groups": ["stage1_on"]
+            },
+            "queue_command": {
+              "command": [
+                "scoreboard players set @s oxidise 0"
+              ]}
+          }
+        ]
+				
+			},
+  "stage2": { 
+        "sequence" : [
+          {
+              "filters": { "any_of": [
+                { "test": "is_skin_id", "operator": "==", "value": 0 },
+                { "test": "is_skin_id", "operator": "==", "value": 2 },
+                { "test": "is_skin_id", "operator": "==", "value": 4 },
+                { "test": "is_skin_id", "operator": "==", "value": 6 }
+                ]
+              },
+          
+              "remove": {
+                "component_groups": ["stage1_on","stage3_on","stage4_off","stage2_on","stage3_off","stage1_off"]
+              },
+              "add": {
+                "component_groups": ["stage2_off"]
+              },
+              "queue_command": {
+                "command": [
+                  "scoreboard players set @s oxidise 300"
+                ]}
+          },
+          {
+            "filters": { "any_of": [
+              { "test": "is_skin_id", "operator": "==", "value": 1 },
+              { "test": "is_skin_id", "operator": "==", "value": 3 },
+              { "test": "is_skin_id", "operator": "==", "value": 5 },
+              { "test": "is_skin_id", "operator": "==", "value": 7 }
+              ]
+            },
+        
+            "remove": {
+              "component_groups": ["stage2_off","stage3_on","stage4_off","stage1_on","stage3_off","stage1_off"]
+            },
+            "add": {
+              "component_groups": ["stage2_on"]
+            },
+            "queue_command": {
+              "command": [
+                "scoreboard players set @s oxidise 300"
+              ]}
+          }
+        ]
+				
+			},
+  "stage3": { 
+        "sequence" : [
+          {
+              "filters": { "any_of": [
+                { "test": "is_skin_id", "operator": "==", "value": 0 },
+                { "test": "is_skin_id", "operator": "==", "value": 2 },
+                { "test": "is_skin_id", "operator": "==", "value": 4 },
+                { "test": "is_skin_id", "operator": "==", "value": 6 }
+                ]
+              },
+          
+              "remove": {
+                "component_groups": ["stage1_on","stage2_on","stage4_off","stage2_off","stage3_on","stage1_off"]
+              },
+              "add": {
+                "component_groups": ["stage3_off"]
+              },
+              "queue_command": {
+                "command": [
+                  "scoreboard players set @s oxidise 600"
+                ]}
+          },
+          {
+            "filters": { "any_of": [
+              { "test": "is_skin_id", "operator": "==", "value": 1 },
+              { "test": "is_skin_id", "operator": "==", "value": 3 },
+              { "test": "is_skin_id", "operator": "==", "value": 5 },
+              { "test": "is_skin_id", "operator": "==", "value": 7 }
+              ]
+            },
+        
+            "remove": {
+              "component_groups": ["stage3_off","stage2_on","stage4_off","stage1_on","stage2_off","stage1_off"]
+            },
+            "add": {
+              "component_groups": ["stage3_on"]
+            },
+            "queue_command": {
+              "command": [
+                "scoreboard players set @s oxidise 600"
+              ]}
+          }
+        ]
+				
+			},
+  "stage4": { 
+				"remove": {
+					"component_groups": ["stage2_on","stage3_on","stage2_off","stage1_on","stage3_off","stage1_off"]
+				},
+				"add": {
+					"component_groups": ["stage4_off"]
+				},
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s oxidise 900"
+          ]}
+			},
+      "climb_down": { 
+				"remove": {
+					"component_groups": ["climb_up","no_climb"]
+				},
+				"add": {
+					"component_groups": ["climb_down"]
+				}
+			},
+      "no_climb": { 
+				"remove": {
+					"component_groups": ["climb_up","climb_down"]
+				},
+        "add": {
+					"component_groups": ["no_climb"]
+				}
+			},
+      "climb_up": {
+				"remove": {
+					"component_groups": ["climb_down","no_climb"]
+				},
+				"add": {
+					"component_groups": ["climb_up"]
+				}
+			},
+      "reverse": {
+				"add": {
+					"component_groups": ["reverse"]
+				},
+        "remove": {
+					"component_groups": ["no_reverse"]
+				}
+			},
+      "unreverse": {
+				"remove": {
+					"component_groups": ["reverse"]
+				},
+        "add": {
+					"component_groups": ["no_reverse"]
+				}
+			},
+      "test_on": { 
+        "sequence" : [
+          {
+            "filters": { "all_of": [
+              { "test": "is_family", "value": "stage1" },
+              { "test": "has_tag", "value": "block_breaker" }
+              ]
+            },
+            "queue_command": {
+              "command": [
+                "scoreboard players set @s oxidise 0",
+                "particle edx:unwax  ~~~"
+              ]}
+          },
+          {
+            "filters": { "all_of": [
+              { "test": "is_family", "value": "stage2" },
+              { "test": "has_tag", "value": "block_breaker" }
+              ]
+            },
+            "queue_command": {
+              "command": [
+                "particle edx:unwax  ~~~"
+              ]},
+              "trigger": "stage1"
+          },
+          {
+            "filters": { "all_of": [
+              { "test": "is_family", "value": "stage3" },
+              { "test": "has_tag", "value": "block_breaker" }
+              ]
+            },
+            "queue_command": {
+              "command": [
+                "particle edx:unwax  ~~~"
+              ]},
+              "trigger": "stage2"
+          },
+          {
+            "filters": { "all_of": [
+              { "test": "is_family", "value": "stage4" },
+              { "test": "has_tag", "value": "block_breaker" }
+              ]
+            },
+            "queue_command": {
+              "command": [
+                "particle edx:unwax  ~~~"
+              ]},
+              "trigger": "stage3"
+          },
+          {
+            "filters": { "all_of": [
+              { "test": "has_tag", "value": "reversed" }
+              ]
+            },
+              "trigger": "reverse"
+          },
+          {
+            "filters": { "all_of": [
+              { "test": "has_tag", "value": "unreversed" }
+              ]
+            },
+              "trigger": "unreverse"
+          }
+        ]
+			}
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:snap_to_surface_feature": {
+      "description": {
+        "identifier": "edx:magma_chamber/ground_feature"
+      },
+      "feature_to_snap":  "edx:magma_chamber/ground_features/all",
+      "vertical_search_range":  12,
+      "surface": "floor"
+    }
+  }

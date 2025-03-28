@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_red_snake"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:red_snake"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:red_snake"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:red_snake", "count": 1 },
+      { "item": "dungeons:red_snake", "count": 1 }
+    ]
+  }
+}

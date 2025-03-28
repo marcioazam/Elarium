@@ -1,0 +1,58 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "edx:mesa_cabin",
+      "places_feature": "edx:mesa_cabin_random"
+    },
+    "conditions": {
+      "placement_pass": "surface_pass",
+      "minecraft:biome_filter": [
+        {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mesa_plateau"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mesa_plateau_stone"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mesa_plateau_stone_mutated"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mesa_bryce"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mesa_plateau_mutated"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mesa"
+            }
+          ]
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 1,
+      "coordinate_eval_order": "zyx",
+      "x": -16,
+      "y": {
+        "distribution": "uniform",
+        "extent": [ 0, 55 ]
+      },
+      "z": -16
+    }
+  }
+}

@@ -1,0 +1,474 @@
+{
+  "pools": [
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "quality": 1,
+          "name": "minecraft:experience_bottle",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 6
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 10,
+          "quality": 1,
+          "name": "xp:enderite_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 6
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 15,
+          "quality": 1,
+          "name": "xp:wild_chorus",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 8
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "quality": 1,
+          "name": "xp:ender_goop",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2,
+                "max": 6
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "quality": 1,
+          "name": "minecraft:potato",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 32
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "quality": 1,
+          "name": "minecraft:carrot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 32
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 7,
+          "name": "minecraft:arrow",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 8,
+                "max": 32
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 10,
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 16
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 8,
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 8
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:iron_sword",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:iron_boots",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:iron_chestplate",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:iron_leggings",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:iron_helmet",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:iron_pickaxe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:iron_shovel",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_enderite_axe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:enderite_hoe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:enderite_pickaxe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:enderite_shovel",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_enderite_sword",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_void_crystal_sword",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_void_crystal_axe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:void_crystal_pickaxe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:void_crystal_hoe",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:void_crystal_shovel",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:golden_boots",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:golden_chestplate",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:golden_leggings",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "name": "minecraft:golden_helmet",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 20,
+                "max": 39
+              },
+              "treasure": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:hard_red_sandstone",
+			"menu_category":
+			{
+				"group": "itemGroup.name.stone",
+				"category": "nature"
+			}
+		},
+		"components": {
+			"tag:edx:stone": {},
+			"tag:minecraft:stone_crafting_materials":{},
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 30
+            },
+			"minecraft:map_color": "#924d18" ,
+			"minecraft:loot": "loot_tables/blocks/hard_red_sandstone.json"
+		}
+	}
+}

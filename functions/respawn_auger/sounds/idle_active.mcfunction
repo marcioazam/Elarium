@@ -1,0 +1,1 @@
+playsound beacon.power @a[r=32] ~~~ 1 0.5 0.02

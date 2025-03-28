@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ice_chunk":{
+    "states":{
+        "ground":{
+            "transitions":[
+                {
+                    "air":"!q.is_on_ground"
+                }
+            ],
+            "on_entry":[
+                "/event entity @s[tag=ready] dungeons:hit"
+            ]
+        },
+        "air":{
+            "transitions":[
+                {
+                    "ground":"q.is_on_ground"
+                }
+            ]
+        }
+    }
+}
+}
+}

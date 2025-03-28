@@ -1,0 +1,72 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:mycelium_biome_scatter_generation_features_rules",
+			"places_feature": "edx:mycelium_biome_scatter_generation_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"test": "has_biome_tag",
+						"value": "nether",
+						"operator": "not"
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "the_end",
+						"operator": "not"
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "lush_caves",
+						"operator": "not"
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "frozen",
+						"operator": "not"
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "mesa",
+						"operator": "not"
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "desert",
+						"operator": "not"
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "savanna",
+						"operator": "not"
+					}
+				]
+			}
+		},
+		"distribution": {
+			"iterations": 16,
+			"x": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					15
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [ 18, 50 ]
+			  },
+			"z": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					15
+				]
+			}
+		}
+	}
+}

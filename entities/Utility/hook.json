@@ -1,0 +1,127 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:hook",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "noattract":{
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "any_of": [
+                {
+              "test": "on_ground",
+              "operator": "!=",
+              "value": false
+                }
+              ]
+            },
+            "event": "attract"
+          }
+        ]
+      }
+      }
+    },
+
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+           "on_damage": {
+              "filters": {}
+           },
+           "deals_damage": false
+        }
+     },
+      "minecraft:projectile": {
+        "on_hit": {
+          "stick_in_ground": {
+            "shake_time" : 2
+          }
+        },
+        "power": 1.6,
+        "gravity": 0.04,
+        "uncertainty_base": 2,
+        "uncertainty_multiplier": 1,
+        "anchor": 1,
+        "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:spawn_entity": {
+        "entities": [
+          {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "edx:hook_player",
+            "spawn_event": "spawn",
+            "single_use": true,
+            "num_to_spawn": 1,
+            "should_leash": true
+          }
+        ]
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "attract": {
+        "sequence": [
+          {
+            "queue_command": {
+              "command": [
+                "event entity @e[c=1,family=noattract] attract"
+              ]}
+          },
+          {
+            "remove": {
+              "component_groups": [
+                "noattract"
+              ]
+            }
+          }
+      ]
+      },
+      "spawn": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "noattract"
+              ]
+            }
+          }
+      ]
+      }
+    }
+
+  }
+}

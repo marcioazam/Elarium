@@ -1,0 +1,1165 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    //Portal Sequence
+    "animation.cutscene.end_portal.scene_0_mode": {
+      "animation_length": 1,
+      "loop": false,
+      "timeline": {
+        "0.0": [
+          "/tp @a -1353.500 4.750 -1409.500 -179.235 31.504",
+          "/gamemode spectator @a"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.scene_0_fade_pause": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/tp @a -1353.500 4.750 -1409.500 -179.235 31.504"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.scene_0": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/tp @a ~~0.025~0.05 facing -1354 3 -1413"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.scene_0_0": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute as @a[tag=scene_0,scores={frame=0..100}] run function cutscenes/portal/0",
+          "/execute as @a[tag=scene_0,scores={frame=101..200}] run function cutscenes/portal/1",
+          "/execute as @a[tag=scene_0,scores={frame=201..268}] run function cutscenes/portal/2",
+          "/scoreboard players add @a[scores={frame=0..268}] frame 1"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.scene_0_effects": {
+      "animation_length": 20,
+      "loop": false,
+      "timeline": {
+        "0.0":[
+          "/event entity @e[type=xp:end_portal_frame] xp:despawn",
+          "/event entity @e[type=xp:end_portal_glow] xp:despawn",
+
+          "/execute rotated 0 0 run summon xp:end_portal_frame -1354 3 -1412",
+          "/execute at @e[type=xp:game_manager.spawn] run structure load frame_cb -1356 4 -1414"
+          // "/execute at @e[type=xp:game_manager.spawn] run fill -1356 4 -1414 -1352 4 -1410 air 0 0 replace end_portal_frame"
+        ],
+        "3.7":[
+          "/execute rotated 0 0 run summon xp:eyes_glow -1354 4 -1410",
+          "/execute at @e[type=xp:game_manager.spawn] run playsound end_portal.eye_place @a[r=25] -1354 4.9 -1412 0.85 1.5 0.1",
+          "/execute at @e[type=xp:game_manager.spawn] run playsound end_portal.eye_place_1 @a[r=25] -1354 4.9 -1412 0.75 0.75 0.1",
+          "/execute at @e[type=xp:game_manager.spawn] run playsound end_portal.eye_place_2 @a[r=25] -1354 4.9 -1412 0.9 0.5 0.1"
+        ],
+        "3.8":[
+          "/execute rotated 0 0 run summon xp:eyes_glow -1353 4 -1410",
+          "/execute rotated 0 0 run summon xp:eyes_glow -1355 4 -1410"
+        ],
+        "3.9":[
+          "/execute rotated 0 0 run summon xp:eyes_glow -1352 4 -1411",
+          "/execute rotated 0 0 run summon xp:eyes_glow -1356 4 -1411"
+        ],
+        "4":[
+          "/execute rotated 0 0 run summon xp:eyes_glow -1352 4 -1412",
+          "/execute rotated 0 0 run summon xp:eyes_glow -1356 4 -1412"
+        ],
+        "4.1":[
+          "/execute rotated 0 0 run summon xp:eyes_glow -1352 4 -1413",
+          "/execute rotated 0 0 run summon xp:eyes_glow -1356 4 -1413"
+        ],
+        "4.2": [
+          "/execute rotated 0 0 run summon xp:eyes_glow -1353 4 -1414",
+          "/execute rotated 0 0 run summon xp:eyes_glow -1355 4 -1414",
+          
+          "/execute rotated 0 0 run summon xp:end_portal_glow -1354 4.8 -1412",
+          "/execute at @e[type=xp:game_manager.spawn] run particle xp:end_portal.spawn_glow ~~6.75~",
+          "/execute at @e[type=xp:game_manager.spawn] run particle xp:end_portal.spawn ~~6.25~",
+          "/execute at @e[type=xp:game_manager.spawn] run title @a[r=75] actionbar xp_hud.end_portal_vignette"
+        ],
+        "4.25": [
+          "/execute at @e[type=xp:game_manager.spawn] run playsound end_portal.thunder @a[r=75] -1354 5 -1412 0.75 1 1",
+          "/execute at @e[type=xp:game_manager.spawn] run playsound end_portal.spawn @a[r=75] -1354 5 -1412 0.975 0.65 1",
+          "/execute at @e[type=xp:game_manager.spawn] run playsound end_portal.shriek @a[r=75] -1354 5 -1412 0.95 0.5 0.75",
+          "/execute at @e[type=xp:game_manager.spawn] run playsound end_portal.shriek_1 @a[r=75] -1354 5 -1412 0.8 0.35 0.5",
+
+          "/execute at @e[type=xp:game_manager.spawn] run camerashake add @a[r=75] 0.02 1.5 rotational"
+        ],
+        "4.3": [
+          "/execute rotated 0 0 run summon xp:eyes_glow -1354 4 -1414"
+        ],
+        "4.5": [
+          "/execute at @e[type=xp:game_manager.spawn] run structure load end_portal.portal -1356 4 -1414",
+          "/execute at @e[type=xp:game_manager.spawn] run event entity @e[type=xp:end_portal_frame] xp:despawn"
+        ],
+        "6.75":[
+          "/playsound end_portal.pause @a ~~~ 0.75 1 0.5"
+        ],
+        "9.75": [
+          "/playsound end_portal.pre_tp @a ~~~ 0.75 1 0.5"
+        ],
+        "12.5": [
+          "/summon xp:end_portal_rays -1354 4.75 -1412",
+          "/particle xp:end_portal.tp_spin -1354 4.9 -1412",
+          "/particle xp:end_portal.pre_tp -1354 4.5 -1412",
+          "/music stop 2"
+        ],
+        "12.75": [ 
+          "/playsound end_portal.tp_2 @a ~~~ 0.75 1 0.5",
+          "/title @a[r=75] actionbar xp_hud.end_portal_vignette"
+        ],
+        "13.6": [ 
+          "/playsound end_portal.tp_1 @a ~~~ 0.65 1 0.5"
+        ],
+        "13.8": [ 
+          "/title @a[r=75] actionbar xp_hud.laser_vignette"
+        ],
+        "13.9": [ 
+          "/fog @a remove spawn_fog",
+          "/playsound end_portal.tp @a ~~~ 0.5 0.75 0.5"
+        ],
+        "14.25": [
+          //"/event entity @e[type=xp:game_manager.spawn] xp:reset"
+        ]
+      }
+    },
+
+    //Teleport Effects
+    "animation.cutscene.end_portal.end_scene_0": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end run tp @a -21 150.5 344 facing 0 151 344",
+          "/title @a title xp_cutscene",
+          "/execute in the_end run fill -10 140 335 -30 160 355 xp:black_block 0 hollow"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_0_effects": {
+      "animation_length": 15,
+      "loop": false,
+      "timeline": {
+        "0.15": [
+          "/execute in the_end run particle xp:end_portal.tp_spin_1 -12 150 344",
+          "/execute in the_end run fill -10 140 335 -30 160 355 xp:black_block 0 hollow"
+        ],
+        "0.25": [
+          "/playsound end_portal.tp_3 @a ~~~ 0.95 0.75 0.5",
+          "/playsound end_portal.tp_1_1 @a ~~~ 0.95 0.75 0.5",
+          "/execute in the_end run particle xp:end_portal.tp_lines -12 151.75 344",
+          "/execute in the_end run particle xp:end_portal.tp_lines_1 -8 151.75 344",
+          "/execute in the_end run fill -10 140 335 -30 160 355 xp:black_block 0 hollow"
+        ],
+        "1": [
+          "/playsound ender_crystal_riftlands.ambient_fade @a ~~~ 0.3 0.715 0.5",
+          "/playsound end_portal.tp_1_4 @a ~~~ 0.75 0.5 0.5"
+        ],
+        "1.15": [
+          "/playsound end_portal.tp_1_2 @a ~~~ 0.65 0.75 0.5",
+          "/title @a actionbar xp_hud.end_portal_vignette_1"
+        ],
+        "2": [
+          "/playsound end_portal.tp @a ~~~ 0.75 0.25 0.5",
+          "/playsound end_portal.pause @a ~~~ 0.65 0.65 0.5",
+          "/playsound end_portal.pre_tp @a ~~~ 0.5 0.85 0.5"
+        ],
+        "2.5": [
+          "/playsound end_portal.tp @a ~~~ 0.95 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @a ~~~ 0.75 0.5 0.5"
+        ],
+        "4": [
+          "/playsound end_portal.tp_1_2 @a ~~~ 0.75 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @a ~~~ 0.5 0.65 0.5"
+        ],
+        "7": [
+          "/playsound end_portal.tp_1_3 @a ~~~ 0.75 0.25 0.5",
+          "/playsound end_portal.tp_1 @a ~~~ 0.5 0.5 0.5"
+        ],
+        "8.75": [
+          "/playsound end_portal.tp_success @a ~~~ 0.85 0.25 0.5",
+          "/playsound end_portal.tp_success1 @a ~~~ 0.75 0.35 0.5"
+        ],
+        "9": [
+          "/playsound end_portal.tp_success_1 @a ~~~ 0.95 1 0.5"
+        ],
+        "9.05": [
+          "/playsound end_portal.tp_success_1_1 @a ~~~ 0.7 0.65 0.5"
+        ],
+        "9.1": [
+          "/playsound end_portal.tp_success_1_2 @a ~~~ 0.5 0.35 0.5"
+        ],
+        "9.45": [
+          "/title @a actionbar xp_hud.end_portal_transition_fade"
+        ]
+      }
+    },
+
+    //Echoing Forest
+    "animation.cutscene.end_portal.end_scene_0_fade_pause": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/execute in the_end run tp @a -117.167 52.427 402.357 -159.045 1.464" ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_1": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/execute as @a[tag=scene_1,scores={frame=0..100}] run function cutscenes/echoing/0",
+          "/execute as @a[tag=scene_1,scores={frame=101..200}] run function cutscenes/echoing/1",
+          "/execute as @a[tag=scene_1,scores={frame=201..}] run function cutscenes/echoing/2",
+          "/scoreboard players add @a[scores={frame=0..323}] frame 1"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_1_effects": {
+      "animation_length": 15,
+      "loop": false,
+      "timeline": {
+        "0.0": [
+          "/event entity @e[type=xp:allay.cutscene] xp:despawn",
+          "/event entity @e[type=xp:enderman.cutscene] xp:despawn",
+          "/event entity @e[type=xp:endermite.cutscene] xp:despawn",
+          "/execute in the_end rotated 0 0 run summon xp:allay.cutscene -122.5 53.25 385.5",
+          "/execute in the_end rotated 0 0 run summon xp:endermite.cutscene -97 52 375",
+
+          "/execute in the_end run particle xp:bulb_blossom.glow -140 52 388",
+          "/execute in the_end run particle xp:bulb_blossom.glow -119 52 368",
+          "/execute in the_end run particle xp:bulb_blossom.glow -104 52 384",
+          "/execute in the_end run particle xp:bulb_blossom.glow -113 52 373",
+          "/execute in the_end run particle xp:bulb_blossom.glow -118 52 354",
+          "/execute in the_end run particle xp:bulb_blossom.glow -114 52 351",
+
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -140 52 388",
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -119 52 368",
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -104 52 384",
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -113 52 373",
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -118 52 354",
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -114 52 351",
+
+          "/execute in the_end run particle xp:biome_blue_firefly.1_5 -119 75 385",
+          "/execute in the_end run particle xp:wind_blue_leaf.2 -95 69 355",
+          "/execute in the_end run particle xp:biome_blue_wind.2 -106 40 372"
+        ],
+        "0.25": [
+          "/execute in the_end run particle xp:bulb_blossom.glow -96 52 369",
+          "/execute in the_end run particle xp:bulb_blossom.glow -97 52 358",
+
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -96 52 369",
+          "/execute in the_end run particle xp:bulb_blossom.twinkle -97 52 358",
+
+          "/execute in the_end run particle xp:biome_blue_firefly.1_5 -119 75 385"
+        ],
+        "0.35": [
+          //"/playsound echoing_forest.music_fade @a ~~~ 0.7 0.85 1",
+        ],
+        "4.85": [
+          "/execute in the_end run playsound allay_cutscene.idle @a[x=-93,y=52,z=377,r=50] -120 52 382 0.85 0.9 0.85"
+        ],
+        "6.8575": [
+          "/execute in the_end run playsound allay_cutscene.hurt @a[x=-93,y=52,z=377,r=50] -110 52 382 0.85 0.9 0.85",
+          "/execute in the_end run playsound allay_cutscene.death @a[x=-93,y=52,z=377,r=50] -110 52 382 0.5 1.1 0.85",
+          "/execute in the_end run playsound allay_cutscene.idle_1 @a[x=-93,y=52,z=377,r=50] -105 52 375 0.45 0.9 0.85"
+        ],
+        "7.7": [
+          "/execute in the_end rotated 0 0 run summon xp:enderman.cutscene -93 52 377",
+          "/execute in the_end run tp @e[type=xp:enderman.cutscene,x=-93,y=52,z=377,r=5] -93 52 377 facing -97 52 375"
+        ],
+        "8.2": [
+          "/execute in the_end run particle xp:enderman_echo.spawn -93 52 377",
+          "/execute in the_end run particle xp:enderman_echo.spawn_smoke -93 52 377",
+          "/execute in the_end run particle xp:enderman_echo.spawn_twinkle -93 52 377",
+          "/execute in the_end run particle xp:enderman.tp -93 52 377",
+
+          "/execute in the_end run playsound tp2 @a[x=-93,y=52,z=377,r=50] -103 52 380 0.9 0.5 0.125",
+          "/execute in the_end run playsound enderman_echo.rocks @a[x=-93,y=52,z=377,r=50] -103 52 380 0.85 0.5 0.95",
+          "/execute in the_end run playsound enderman_echo.rocks_1 @a[x=-93,y=52,z=377,r=50] -103 52 380 0.75 0.25 0.95"
+        ],
+        "8.5": [
+          "/execute in the_end run playsound allay_cutscene.idle @a[x=-93,y=52,z=377,r=50] -105 52 375 0.35 0.9 0.85"
+        ],
+        "9.25": [
+          "/execute in the_end run event entity @e[type=xp:enderman.cutscene,x=-93,y=52,z=377,r=5] xp:attack_mite"
+        ],
+        "12": [
+          "/title @a actionbar xp_hud.biome_fade_transition"
+        ],
+        "13": [
+          "/fog @a remove echoing_forest_biome_fog",
+          "/music stop 3"
+        ]
+      }
+    },
+
+    //Wilds
+    "animation.cutscene.end_portal.end_scene_1_fade_pause": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/execute in the_end run tp @a -209.428 49.630 -159.850 -70.073 0.808" ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_2": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/execute as @a[tag=scene_2,scores={frame=0..100}] run function cutscenes/wilds/0",
+          "/execute as @a[tag=scene_2,scores={frame=101..200}] run function cutscenes/wilds/1",
+          "/execute as @a[tag=scene_2,scores={frame=201..}] run function cutscenes/wilds/2",
+          "/scoreboard players add @a[scores={frame=0..323}] frame 1"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_2_effects": {
+      "animation_length": 15,
+      "loop": false,
+      "timeline": {
+        "0.0": [
+          "/event entity @e[type=xp:elderman.cutscene] xp:despawn",
+          "/event entity @e[type=xp:enderman_wilds.cutscene] xp:despawn",
+          "/event entity @e[type=xp:look_at] xp:despawn",
+          "/execute in the_end run kill @e[x=-175,y=50,z=-150,r=15,type=item]",
+
+          "/execute in the_end run setblock -175 50 -150 xp:lantern_lily_top",
+          
+          //Eldermen
+          "/execute in the_end rotated 0 0 run summon xp:elderman.cutscene -175 49 -151 xp:no_spawn",
+          "/execute in the_end run particle xp:elderman.tp -175 49 -151",
+
+          //Endermen
+          "/execute in the_end rotated 0 0 run summon xp:enderman_wilds.cutscene -136 63 -129",
+          "/execute in the_end run particle xp:elderman.tp -136 63 -129",
+
+          "/execute in the_end rotated 0 0 run summon xp:enderman_wilds.cutscene -131 51 -139",
+          "/execute in the_end run particle xp:elderman.tp -131 51 -139",
+          
+          //Look_at Dummies
+          "/execute in the_end run summon xp:look_at -190 51 -145",
+          "/execute in the_end run summon xp:look_at -172 51 -133",
+          
+          //Music & Ambient Particles
+          "/execute in the_end run particle xp:biome_yellow_ambient_cutscene -165 55 -135",
+
+          "/execute in the_end run particle xp:lily_glow1 -174.63 51 -149.29",
+
+          "/execute in the_end run particle xp:lily_glow -176.56 51 -165.30",
+          "/execute in the_end run particle xp:lily_glow -162.66 51 -146.29",
+          "/execute in the_end run particle xp:lily_glow -156.70 51 -143.23",
+          "/execute in the_end run particle xp:lily_glow -156.59 52 -149.4",
+
+          "/execute in the_end run particle xp:lily_glow -156.70 51 -115.29",
+          "/execute in the_end run particle xp:lily_glow -158.58 50 -117.26",
+
+          "/execute in the_end run particle xp:biome_yellow_leaf.2 -160 44 -135",
+          "/execute in the_end run particle xp:biome_yellow_leaf.2 -133 69 -132",
+          "/execute in the_end run particle xp:biome_yellow_leaf.2 -136 90 -122",
+          "/execute in the_end run particle xp:biome_yellow_leaf.2 -133 88 -101",
+          "/execute in the_end run particle xp:biome_yellow_leaf.2 -149 56 -99",
+
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -174 49 -161",
+
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -176 49 -165",
+
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -158 49 -147",
+
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -146 48 -114",
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -148 48 -109",
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -156 47 -107",
+
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -141 51 -168",
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -136 50 -151",
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -121 50 -148",
+
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -178 50 -107",
+          "/execute in the_end run particle xp:biome_yellow_smoke.4 -184 51 -102"
+
+          //"/music play wilds_biome.ambient 1 2 play_once"
+        ],
+        "1.75": [
+          "/execute in the_end run playanimation @e[x=-175,y=49,z=-151,r=7,type=xp:elderman.cutscene] animation.elderman.scream"
+        ],
+        "3.2": [
+          "/camerashake add @a 0.025 2.25 rotational"
+        ],
+        "3.3": [
+          "/execute in the_end run fill -175 50 -150 -175 50 -150 air destroy",
+          "/execute in the_end run particle xp:lantern_lily.break_top -175 50 -150",
+          "/execute in the_end run particle xp:lantern_lily.break_top2 -175 50.75 -150"
+        ],
+        "5.1": [
+          "/execute in the_end run playsound entity.elderman.idle2 @a[x=-175,y=49,z=-151,r=50] -175 50 -151 0.45 0.9 0.85"
+        ],
+        "6.2": [
+          "/execute in the_end rotated 0 0 run summon xp:elderman.cutscene -160 46 -135"
+        ],
+        "6.5": [
+          "/execute in the_end run event entity @e[x=-160,y=46,z=-135,r=5,type=xp:elderman.cutscene] xp:scream_2",
+          "/execute in the_end run particle xp:elderman.tp -160 46 -135"
+        ],
+        "8.45": [
+          "/execute in the_end rotated 0 0 run summon xp:elderman.cutscene -155 48 -119"
+        ],
+        "8.75": [
+          "/execute in the_end run event entity @e[x=-155,y=48,z=-119,r=5,type=xp:elderman.cutscene] xp:scream_1",
+          "/execute in the_end run particle xp:elderman.tp -155 48 -119"
+        ],
+        "9.5": [
+          "/execute in the_end rotated 0 0 run summon xp:elderman.cutscene -132 51 -133 xp:scream_2",
+          "/execute in the_end run particle xp:elderman.tp -132 51 -133"
+        ],
+        "10": [
+          "/execute in the_end rotated 0 0 run summon xp:elderman.cutscene -135 83 -127 xp:scream_1",
+          "/execute in the_end run particle xp:elderman.tp -135 83 -127"
+        ],
+        "10.5": [
+          "/execute in the_end rotated 0 0 run summon xp:elderman.cutscene -141 50 -142 xp:scream_1",
+          "/execute in the_end run particle xp:elderman.tp -141 50 -142"
+        ],
+        "10.75": [
+          "/execute in the_end rotated 0 0 run summon xp:elderman.cutscene -159 49 -102 xp:scream_2.rot",
+          "/execute in the_end run particle xp:elderman.tp -159 49 -102"
+        ],
+        "11.5": [
+          "/title @a actionbar xp_hud.biome_fade_transition"
+        ],
+        "12.5": [
+          "/execute in the_end run playsound entity.elderman.scream_stream @a ~~~ 0.8 0.9 1",
+          "/fog @a remove wilds_biome_fog",
+          "/music stop 2"
+        ],
+        "13.5": [
+          "/event entity @e[type=xp:elderman.cutscene] xp:fade",
+          "/event entity @e[type=xp:enderman_wilds.cutscene] xp:despawn",
+          "/event entity @e[type=xp:look_at] xp:despawn"
+        ]
+      }
+    },
+
+    //Sanctuary
+    "animation.cutscene.end_portal.end_scene_2_fade_pause": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/execute in the_end run tp @a 388.607 100.107 748.342 -12.047 -18.629" ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_3": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/execute as @a[tag=scene_3,scores={frame=0..100}] run function cutscenes/sanctuary/0",
+          "/execute as @a[tag=scene_3,scores={frame=101..200}] run function cutscenes/sanctuary/1",
+          "/execute as @a[tag=scene_3,scores={frame=201..300}] run function cutscenes/sanctuary/2",
+          "/execute as @a[tag=scene_3,scores={frame=301..}] run function cutscenes/sanctuary/3",
+          "/scoreboard players add @a[scores={frame=0..388}] frame 1"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_3_effects": {
+      "animation_length": 19,
+      "loop": false,
+      "timeline": {
+        "0.0": [
+          "/kill @e[type=minecraft:xp_orb]",
+          "/event entity @e[type=xp:broken_sanctuary_ring.cutscene] xp:despawn",
+          "/event entity @e[type=xp:broken_sanctuary.laser_long] xp:despawn",
+          "/event entity @e[type=xp:broken_sanctuary_laser_final.cutscene] xp:despawn",
+          "/playsound sanctuary.portal_idle @a ~~~ 0.85 1 0.1",
+
+          "/execute in the_end run setblock 416 160 815 light_block 8",
+          "/execute at @e[type=xp:game_manager.spawn] in the_end run summon xp:broken_sanctuary_ring.cutscene 416 160.95 815",
+          
+          //Light Rays
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays 360 90 872",
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays 380 110 872",
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays 400 135 872",
+          
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays2 397 100 875",
+
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays3 426 140 883",
+
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays4 420 120 884",
+          
+          //Pillars
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.1 430 201 858",
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.2 430 201 858",
+          
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.1 430 201 886",
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.2 430 201 886",
+
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.1 402 201 886",
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.2 402 201 886",
+
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.1 402 201 858",
+          "/execute in the_end run particle xp:broken_sanctuary_pillar.2 402 201 858",
+
+          //Final Laser
+          "/execute in the_end run particle xp:cutscene_final1_1 416 222.75 872.65",
+          "/execute in the_end run particle xp:cutscene_final1_2 416 222.5 872",
+
+          //Long Lasers
+          //"/execute in the_end rotated 0 0 run summon xp:broken_sanctuary.laser_long 390 197 872",
+          //"/execute in the_end rotated 0 0 run summon xp:broken_sanctuary.laser_long 442 197 872 xp:rotate_180",
+          //"/execute in the_end rotated 0 0 run summon xp:broken_sanctuary.laser_long 416 197 898 xp:rotate_90",
+
+          "/execute in the_end run particle xp:beacon_cutscene.3_1 442 197 872",
+          "/execute in the_end run particle xp:beacon_cutscene.3_2 390 197 872",
+          "/execute in the_end run particle xp:beacon_cutscene.3_3 416 197 898",
+
+          "/execute in the_end run fill 390 196 872 390 197 872 light_block 15",
+          "/execute in the_end run fill 442 196 872 442 197 872 light_block 15",
+          "/execute in the_end run fill 416 196 898 416 197 898 light_block 15",
+
+          //Cone Lasers
+          "/execute in the_end run particle xp:beacon_cutscene.7_1 442 197 872",
+          "/execute in the_end run particle xp:beacon_cutscene.7_2 390 197 872",
+          "/execute in the_end run particle xp:beacon_cutscene.7_3 416 197 898",
+
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_levitation.1 416 195 872",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_levitation.2 416 195 872",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_levitation.3 416 195 872",
+
+          //Portal
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_portal.1 416 231 872",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_portal.2 416 231 872",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_portal.4 416 231 872",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_portal.5 416 231 872",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_portal.6 416 231 872",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_portal.8 416 231 872"
+        ],
+        "0.25": [
+          "/playsound ender_crystal_riftlands.ambient_fade @a ~~~ 0.2 0.8 0.1"
+        ],
+        "4": [
+          "/kill @e[type=minecraft:xp_orb]",
+          "/playsound end_portal.tp_5 @a ~~~ 0.25 0.35 0.5"
+        ],
+        "9": [
+          "/playsound end_portal.tp_4 @a ~~~ 0.85 0.6 0.5"
+        ],
+        "11.0": [
+          "/execute in the_end run particle xp:broken_sanctuary_portal.dots 416.114 240 872.826"
+        ],
+        "11.75": [
+          //"/playsound sanctuary.lasers_release @a ~~~ 0.5 0.85 0.5",
+          "/playsound sanctuary.lasers_release_1 @a ~~~ 0.45 0.35 0.5"
+        ],
+        "12.5": [
+          "/playsound end_portal.tp_5 @a ~~~ 0.85 1 0.5"
+        ],
+        "12.9": [
+          "/execute in the_end run particle xp:broken_sanctuary_portal.dots_quick 416.114 250 872.826"
+        ],
+        "14.45": [
+          "/execute in the_end run particle xp:broken_sanctuary_portal.dots 416.114 242 872.826"
+
+          //"/playsound sanctuary.pre_enter_portal @a ~~~ 1 0.85 0.75"
+        ],
+        "14.4": [
+          "/title @a actionbar xp_hud.end_boss_portal_enter"
+        ],
+        "14.5": [
+          "/execute in the_end run particle xp:broken_sanctuary_portal.dots_bob 416.114 230 872.826",
+          "/playsound sanctuary.enter_portal @a ~~~ 0.85 0.9 0.75"
+        ],
+        "15.25": [
+          "/playsound sanctuary.tp_idle @a ~~~ 0.85 0.75 0.5"
+        ],
+        "17.25": [
+          "/title @a actionbar xp_hud.biome_fade_1_transition"
+        ],
+        "17.5": [
+          "/playsound sanctuary.tp_idle @a ~~~ 0.85 0.75 0.5"
+        ],
+        "18.25": [
+          "/fog @a remove sanctuary_biome_fog",
+          "/music stop 2",
+          
+          "/execute in the_end run setblock 416 160 815 air 0",
+          "/execute in the_end run fill 390 196 872 390 197 872 air 0",
+          "/execute in the_end run fill 442 196 872 442 197 872 air 0",
+          "/execute in the_end run fill 416 196 898 416 197 898 air 0",
+
+          "/event entity @e[type=xp:broken_sanctuary.laser_long] xp:despawn",
+          "/event entity @e[type=xp:broken_sanctuary_ring.cutscene] xp:despawn",
+          "/event entity @e[type=xp:broken_sanctuary_laser_final.cutscene] xp:despawn"
+        ]
+      }
+    },
+    
+    //Heart of Ender
+    "animation.cutscene.end_portal.end_scene_3_fade_pause": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/execute in the_end run tp @a -156.744 181.083 60.498 90.000 3.333" ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_4": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/execute as @a[tag=scene_4,scores={frame=0..100}] run function cutscenes/end_boss/0",
+          "/execute as @a[tag=scene_4,scores={frame=101..200}] run function cutscenes/end_boss/1",
+          "/execute as @a[tag=scene_4,scores={frame=201..258}] run function cutscenes/end_boss/2",
+          "/scoreboard players add @a[scores={frame=0..258}] frame 1"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.end_scene_4_effects": {
+      "animation_length": 13,
+      "loop": false,
+      "timeline": {
+        "0.0": [
+          "/event entity @e[type=xp:look_at] xp:despawn",
+          "/event entity @e[type=xp:heart_of_ender.cutscene] xp:despawn",
+          "/event entity @e[type=xp:heart_of_ender.portal_glow] xp:despawn",
+
+          "/event entity @e[type=xp:heart_of_ender.eye] xp:look_at",
+          
+          "/execute in the_end rotated 0 0 run summon xp:look_at -148 181 60",
+
+          //Portal
+          "/execute at @e[type=xp:game_manager.spawn] in the_end run summon xp:heart_of_ender.portal_glow -166 180.99 60",
+          
+          //Ambient
+          "/execute in the_end run particle xp:heartofender.arena_ambient -166 181 60",
+
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays -193 160 80",
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays -200 167 60",
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays -193 170 95",
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays3 -193 160 80",
+
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays4 -210 165 15",
+          "/execute in the_end run particle xp:broken_sanctuary_lightrays -185 167 31",
+          
+          //Beacons
+          "/execute in the_end run particle xp:end_boss.beacon_beam -160 183 39",
+          "/execute in the_end run particle xp:end_boss.beacon_beam -172 183 39",
+
+          "/execute in the_end run particle xp:end_boss.beacon_beam -160 183 81",
+          "/execute in the_end run particle xp:end_boss.beacon_beam -172 183 81",
+
+          "/execute in the_end run particle xp:end_boss.beacon_beam -187 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_beam -187 183 54",
+
+          "/execute in the_end run particle xp:end_boss.beacon_beam -145 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_beam -145 183 54",
+          
+
+          "/execute in the_end run particle xp:end_boss.beacon_bits -160 183 39",
+          "/execute in the_end run particle xp:end_boss.beacon_bits -172 183 39",
+
+          "/execute in the_end run particle xp:end_boss.beacon_bits -160 183 81",
+          "/execute in the_end run particle xp:end_boss.beacon_bits -172 183 81",
+
+          "/execute in the_end run particle xp:end_boss.beacon_bits -187 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_bits -187 183 54",
+
+          "/execute in the_end run particle xp:end_boss.beacon_bits -145 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_bits -145 183 54",
+
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact -160 183 39",
+          "/execute in the_end run particle xp:end_boss.beacon_impact -172 183 39",
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact -160 183 81",
+          "/execute in the_end run particle xp:end_boss.beacon_impact -172 183 81",
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact -187 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_impact -187 183 54",
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact -145 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_impact -145 183 54",
+
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -160 183 39",
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -172 183 39",
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -160 183 81",
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -172 183 81",
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -187 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -187 183 54",
+
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -145 183 66",
+          "/execute in the_end run particle xp:end_boss.beacon_impact_1 -145 183 54"
+
+
+        ],
+        "0.15": [
+          "/event entity @e[type=xp:heart_of_ender.eye] xp:look_at_boss",
+          "/playsound sanctuary.tp_idle @a ~~~ 0.75 0.7 0.5"
+        ],
+        "0.85": [
+          "/playsound ender_boss.spawn_1 @a ~~~ 1 1 1",
+
+          "/execute in the_end run particle xp:heartofender.spawn.flame.arms -165 180 57",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.arms1_1 -162.5 180 57.75"
+        ],
+        "1": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.cutscene -166 182.25 60.5 xp:play_spawn",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.arms -165 180 63",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.arms1_1 -162.5 180 63.75"
+        ],
+        "2.35": [
+          "/execute in the_end run particle xp:heartofender.arm_goo.impact -162 181 51",
+          "/execute in the_end run particle xp:heartofender.splat -162 181 51",
+          "/camerashake add @a 0.05 0.15 rotational"
+        ],
+        //"2.65": [ "/playsound defeat_1 @a ~~~ 0.95 0.8 1" ],
+        "2.9": [
+          "/execute in the_end run playsound ender_boss.step @a[x=-165,y=182.25,z=62,r=100] -165 182.25 62 0.8 0.6 1",
+          "/camerashake add @a 0.05 0.15 rotational",
+
+          "/execute in the_end run particle xp:heartofender.arm_goo.impact -162 181 68.85",
+          "/execute in the_end run particle xp:heartofender.splat -162 181 68.85",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.body -166 180 60",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.body2 -166 180 60",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.body3 -166 180 60",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.arms -162 180 60",
+          "/execute in the_end run particle xp:heartofender.spawn.flame.arms -164 180 60"
+        ],
+        "7.5": [
+          "/title @a actionbar xp_hud.end_boss_scream",
+          "/camerashake add @a 0.15 1.1 rotational"
+        ],
+        "9.3": [
+          "/event entity @e[type=xp:heart_of_ender.eye] xp:look_at"
+        ],
+        "9.4": [
+          "/execute in the_end run playsound ender_boss.step @a[x=-165,y=182.25,z=58,r=100] -165 182.25 58 0.8 0.8 1",
+          "/execute in the_end run playsound ender_boss.step @a[x=-165,y=182.25,z=62,r=100] -165 182.25 62 0.8 0.8 1",
+          "/camerashake add @a 0.1 0.15 rotational",
+
+          "/execute in the_end run particle xp:heartofender.splat -159 181 65.95",
+          "/execute in the_end run particle xp:heartofender.splat -159 181 55",
+          "/execute in the_end run particle xp:heartofender.arm_goo.impact -159 181.25 65.95",
+          "/execute in the_end run particle xp:heartofender.arm_goo.impact -159 181.25 55"
+        ],
+        "10.5": [
+          "/title @a actionbar xp_hud.biome_fade_1_transition"
+        ],
+        "11.5": [
+          "/fog @a remove end_boss_fog",
+          "/music stop 3",
+          "/function game_manager/end_spawn/reset",
+
+          "/event entity @e[type=xp:look_at] xp:despawn"
+        ],
+        "12": [
+          "/event entity @e[type=xp:heart_of_ender.eye] xp:despawn"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.spawn_eyes": {
+      "animation_length": 5,
+      "loop": false,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -149.0 187.0 40.0 xp:scale.3",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -192.02 189 55.9 xp:scale.7"
+        ],
+        "0.1": [
+          "/playsound end_portal.pause @a ~~~ 0.9 1 0.5",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -165 196.5 94.99 xp:scale.2",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -186.0 186.65 77.0 xp:scale.2",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -171 189.5 86.99 xp:scale.4"
+        ],
+        "0.2": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -152 187.5 86.99 xp:scale.5",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -186.0 187.0 44.0 xp:scale.2"
+        ],
+        "0.3": [
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 -198 175 28",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 -218 173 70",
+          "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 -176 177 106",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -198.05 194.85 71.99 xp:scale.4",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -162 189.5 86.99 xp:scale.7"
+        ],
+        "0.4": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -192.02 190 64.9 xp:scale.2",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -170.05 189.5 33.98 xp:scale.4"
+        ],
+        "0.5": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -182.0 187.0 81.0 xp:scale.3",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -167 196.75 27.99 xp:scale.2"
+        ],
+        "0.6": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -187.05 196.35 33.98 xp:scale.7",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -182.0 187.0 40.0 xp:scale.5"
+        ],
+        "0.7": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -198.02 196 52 xp:scale.2",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -161 189.5 33.99 xp:scale.2"
+        ],
+        "0.8": [
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -184.05 195.25 87.98 xp:scale.4",
+          "/execute in the_end rotated 0 0 run summon xp:heart_of_ender.eye -193.0 190.35 43.0 xp:scale.6"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.spawn_boss_arena": {
+      "animation_length": 5,
+      "loop": false,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end run structure load end_boss_arena_full -199 170 28 0_degrees none layer_by_layer"
+          //"/execute in the_end run structure load end_boss_arena.1 -199 170 25"
+        ],
+        "0.15": [ 
+          //"/execute in the_end run structure load end_boss_arena.2 -167 170 25"
+        ],
+        "0.3": [ 
+          //"/execute in the_end run structure load end_boss_arena.3 -199 170 57"
+        ],
+        "0.45": [ 
+          //"/execute in the_end run structure load end_boss_arena.4 -167 170 57"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.spawn_boss_arena.islands": {
+      "animation_length": 5,
+      "loop": false,
+      "timeline": {
+        "0.0": [ 
+          "/execute in the_end run structure load boss_island.1 -211 167 65 0_degrees none layer_by_layer"
+        ],
+        "0.1": [ 
+          "/execute in the_end run structure load boss_island.2 -172 171 9 0_degrees none layer_by_layer"
+        ],
+        "0.2": [ 
+          "/execute in the_end run structure load boss_island.3 -137 176 25 0_degrees none layer_by_layer"
+        ],
+        "0.3": [ 
+          "/execute in the_end run structure load boss_island.4 -131 169 65 0_degrees none layer_by_layer"
+        ],
+        "0.4": [ 
+          "/execute in the_end run structure load boss_island.5 -133 231 78 0_degrees none layer_by_layer"
+        ],
+        "0.5": [ 
+          "/execute in the_end run structure load boss_island.6 -147 163 88 0_degrees none layer_by_layer"
+        ],
+        "0.6": [ 
+          "/execute in the_end run structure load boss_island.7 -183 178 105 0_degrees none layer_by_layer"
+        ],
+        "0.7": [ 
+          "/execute in the_end run structure load boss_island.8 -207 171 81 0_degrees none layer_by_layer"
+        ],
+        "0.8": [
+          "/execute in the_end run structure load boss_island.9 -217 216 36 0_degrees none layer_by_layer"
+        ]
+      }
+    },
+    "animation.cutscene.end_portal.clear_boss_arena": {
+      "animation_length": 2.5,
+      "loop": false,
+      "timeline": {
+        "0.0": [ 
+          // "/execute at @e[type=xp:game_manager.end_spawn] in the_end run fill -122 231 109 -218 233 9 air 0",
+          "/execute in the_end run fill -122 231 109 -218 233 9 air",
+          "/execute in the_end run fill -181 225 110 -183 220 110 air"
+        ],
+        "0.1": [ 
+          "/execute in the_end run fill -122 230 109 -218 228 9 air"
+        ],
+        "0.2": [ 
+          "/execute in the_end run fill -122 225 109 -218 227 9 air"
+        ],
+        "0.3": [ 
+          "/execute in the_end run fill -122 224 109 -218 222 9 air"
+        ],
+        "0.4": [ 
+          "/execute in the_end run fill -122 219 109 -218 221 9 air"
+        ],
+        "0.5": [ 
+          "/execute in the_end run fill -122 218 109 -218 216 9 air"
+        ],
+        "0.6": [ 
+          "/execute in the_end run fill -122 213 109 -218 215 9 air"
+        ],
+        "0.7": [ 
+          "/execute in the_end run fill -122 212 109 -218 210 9 air"
+        ],
+        "0.8": [ 
+          "/execute in the_end run fill -122 207 109 -218 209 9 air"
+        ],
+        "0.9": [ 
+          "/execute in the_end run fill -122 206 109 -218 204 9 air"
+        ],
+        "1.0": [ 
+          "/execute in the_end run fill -122 201 109 -218 203 9 air"
+        ],
+        "1.1": [ 
+          "/execute in the_end run fill -122 200 109 -218 198 9 air"
+        ],
+        "1.2": [ 
+          "/execute in the_end run fill -122 195 109 -218 197 9 air"
+        ],
+        "1.3": [ 
+          "/execute in the_end run fill -122 194 109 -218 192 9 air"
+        ],
+        "1.4": [ 
+          "/execute in the_end run fill -122 189 109 -218 191 9 air"
+        ],
+        "1.5": [ 
+          "/execute in the_end run fill -122 188 109 -218 186 9 air"
+        ],
+        "1.6": [ 
+          "/execute in the_end run fill -122 183 109 -218 185 9 air"
+        ],
+        "1.7": [ 
+          "/execute in the_end run fill -122 182 109 -218 180 9 air"
+        ],
+        "1.8": [ 
+          "/execute in the_end run fill -122 177 109 -218 179 9 air"
+        ],
+        "1.9": [ 
+          "/execute in the_end run fill -122 176 109 -218 174 9 air"
+        ],
+        "2.0": [ 
+          "/execute in the_end run fill -122 171 109 -218 173 9 air"
+        ],
+        "2.1": [ 
+          "/execute in the_end run fill -122 170 109 -218 168 9 air"
+        ],
+        "2.2": [ 
+          "/execute in the_end run fill -122 165 109 -218 167 9 air"
+        ],
+        "2.3": [ 
+          "/execute in the_end run fill -122 164 109 -218 162 9 air"
+        ]
+      }
+    },
+
+    //End Spawn
+    "animation.cutscene.end_portal.end_scene_4_fade_pause": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/execute in the_end run tp @a -147 58 15 facing -126 58.5 15" ]
+      }
+    },
+
+    //End Travel
+    "animation.cutscene.end_travel.travel": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end run tp @s -8 2 0 facing 10 1.5 0",
+          "/title @s title xp_cutscene"
+        ]
+      }
+    },
+
+    //Respawn Auger Travel
+    "animation.cutscene.respawn_auger_travel.travel": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/execute in the_end run tp @s -175 10 2082 90 0" ]
+      }
+    },
+    "animation.cutscene.respawn_auger_travel.travel_effects": {
+      "animation_length": 15,
+      "loop": false,
+      "timeline": {
+        "0.15": [
+          "/playsound end_portal.tp_success_1 @s ~~~ 0.5 1.25 0.5",
+          "/execute in the_end run particle xp:end_portal.tp_spin_auger -174 9.75 2082"
+        ],
+        "0.25": [
+          "/execute in the_end run fill -170 0 2072 -195 20 2092 xp:black_block 0 hollow",
+          "/playsound end_portal.tp_3 @s ~~~ 0.95 0.75 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.95 0.75 0.5",
+          "/execute in the_end run particle xp:end_portal.tp_lines_auger -174 10.75 2082"
+        ],
+        "1": [
+          "/playsound end_portal.tp_1_4 @s ~~~ 0.75 0.5 0.5"
+        ],
+        "1.15": [
+          //"/playsound end_portal.tp_1_2 @s ~~~ 0.65 0.75 0.5",
+          "/title @s actionbar xp_hud.end_travel_vignette_auger"
+        ],
+        "2": [
+          "/execute unless entity @s[tag=just_killed_boss] rotated 0 0 run summon xp:heart_of_ender_respawn_auger -187 4 2082",
+          "/playsound end_portal.pause @s ~~~ 0.65 0.65 0.5",
+          "/playsound end_portal.pre_tp @s ~~~ 0.5 0.85 0.5"
+        ],
+        "2.5": [
+          "/playsound end_portal.tp @s ~~~ 0.95 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.75 0.5 0.5"
+        ],
+        "4": [
+          "/playsound end_portal.tp_1_2 @s ~~~ 0.75 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.5 0.65 0.5"
+        ],
+        "7": [
+          "/playsound end_portal.tp_1_3 @s ~~~ 0.75 0.25 0.5",
+          "/playsound end_portal.tp_1 @s ~~~ 0.5 0.5 0.5"
+        ],
+        "8.5": [
+          "/execute unless entity @s[tag=just_killed_boss] run playsound ender_boss.scream @s ~-3 ~ ~ 1 1 1",
+          "/execute unless entity @s[tag=just_killed_boss] run title @s actionbar xp_hud.end_boss_scream"
+        ],
+        "8.75": [
+          "/playsound end_portal.tp_success @s ~~~ 0.85 0.25 0.5",
+          "/playsound end_portal.tp_success1 @s ~~~ 0.75 0.35 0.5"
+        ],
+        "9": [
+          "/playsound end_portal.tp_success_1 @s ~~~ 0.95 1 0.5",
+          "/execute unless entity @s[tag=just_killed_boss] run camerashake add @s 0.25 1 rotational"
+        ],
+        "9.05": [
+          "/playsound end_portal.tp_success_1_1 @s ~~~ 0.7 0.65 0.5"
+        ],
+        "9.1": [
+          "/playsound end_portal.tp_success_1_2 @s ~~~ 0.5 0.35 0.5"
+        ],
+        "9.45": [
+          "/title @s actionbar xp_hud.end_travel_fade"
+        ]
+      }
+    },
+
+
+    //Endboss Travel
+    "animation.cutscene.endboss_travel.travel": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/execute in the_end run tp @s -163 10 2082 90 0" ]
+      }
+    },
+    
+    "animation.cutscene.endboss_travel.travel_effects": {
+      "animation_length": 15,
+      "loop": false,
+      "timeline": {
+        "0.15": [
+          "/execute if score ongoing_battle endboss matches 0 run music stop 2",
+          "/playsound end_portal.tp_success_1 @s ~~~ 0.5 1.25 0.5",
+          "/execute in the_end run particle xp:end_portal.tp_spin_1 -162 9.62 2082"
+        ],
+        "0.25": [
+          "/execute in the_end run fill -10 0 10 11 10 -10 xp:black_block 0 hollow",
+          "/playsound end_portal.tp_3 @s ~~~ 0.95 0.75 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.95 0.75 0.5",
+          "/execute in the_end run particle xp:end_portal.tp_lines -163 10 2082",
+          "/execute in the_end run particle xp:end_portal.tp_lines_1 -163 10 2082"
+        ],
+        "1": [
+          "/playsound end_portal.tp_1_4 @s ~~~ 0.75 0.5 0.5"
+        ],
+        "1.15": [
+          //"/playsound end_portal.tp_1_2 @s ~~~ 0.65 0.75 0.5",
+          "/title @s actionbar xp_hud.end_travel_vignette"
+        ],
+        "2": [
+          "/playsound end_portal.pause @s ~~~ 0.65 0.65 0.5",
+          "/playsound end_portal.pre_tp @s ~~~ 0.5 0.85 0.5"
+        ],
+        "2.5": [
+          "/playsound end_portal.tp @s ~~~ 0.95 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.75 0.5 0.5"
+        ],
+        "4": [
+          "/playsound end_portal.tp_1_2 @s ~~~ 0.75 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.5 0.65 0.5"
+        ],
+        "7": [
+          "/playsound end_portal.tp_1_3 @s ~~~ 0.75 0.25 0.5",
+          "/playsound end_portal.tp_1 @s ~~~ 0.5 0.5 0.5"
+        ],
+        "8.75": [
+          "/playsound end_portal.tp_success @s ~~~ 0.85 0.25 0.5",
+          "/playsound end_portal.tp_success1 @s ~~~ 0.75 0.35 0.5"
+        ],
+        "9": [
+          "/playsound end_portal.tp_success_1 @s ~~~ 0.95 1 0.5"
+        ],
+        "9.05": [
+          "/playsound end_portal.tp_success_1_1 @s ~~~ 0.7 0.65 0.5"
+        ],
+        "9.1": [
+          "/playsound end_portal.tp_success_1_2 @s ~~~ 0.5 0.35 0.5"
+        ],
+        "9.45": [
+          "/title @s actionbar xp_hud.end_travel_fade"
+        ]
+      }
+    },
+    "animation.cutscene.end_travel.travel_effects": {
+      "animation_length": 15,
+      "loop": false,
+      "timeline": {
+        "0.15": [
+          "/execute if score ongoing_battle endboss matches 0 run music stop 2",
+          "/playsound end_portal.tp_success_1 @s ~~~ 0.5 1.25 0.5",
+          "/execute in the_end run particle xp:end_portal.tp_spin_1 1 1.35 0"
+        ],
+        "0.25": [
+          "/execute in the_end run fill -10 0 10 11 10 -10 xp:black_block 0 hollow",
+          "/playsound end_portal.tp_3 @s ~~~ 0.95 0.75 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.95 0.75 0.5",
+          "/execute in the_end run particle xp:end_portal.tp_lines 2 3.25 0",
+          "/execute in the_end run particle xp:end_portal.tp_lines_1 4 3.25 0"
+        ],
+        "1": [
+          "/playsound end_portal.tp_1_4 @s ~~~ 0.75 0.5 0.5"
+        ],
+        "1.15": [
+          //"/playsound end_portal.tp_1_2 @s ~~~ 0.65 0.75 0.5",
+          "/title @s actionbar xp_hud.end_travel_vignette"
+        ],
+        "2": [
+          "/playsound end_portal.pause @s ~~~ 0.65 0.65 0.5",
+          "/playsound end_portal.pre_tp @s ~~~ 0.5 0.85 0.5"
+        ],
+        "2.5": [
+          "/playsound end_portal.tp @s ~~~ 0.95 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.75 0.5 0.5"
+        ],
+        "4": [
+          "/playsound end_portal.tp_1_2 @s ~~~ 0.75 0.85 0.5",
+          "/playsound end_portal.tp_1_1 @s ~~~ 0.5 0.65 0.5"
+        ],
+        "7": [
+          "/playsound end_portal.tp_1_3 @s ~~~ 0.75 0.25 0.5",
+          "/playsound end_portal.tp_1 @s ~~~ 0.5 0.5 0.5"
+        ],
+        "8.75": [
+          "/playsound end_portal.tp_success @s ~~~ 0.85 0.25 0.5",
+          "/playsound end_portal.tp_success1 @s ~~~ 0.75 0.35 0.5"
+        ],
+        "9": [
+          "/playsound end_portal.tp_success_1 @s ~~~ 0.95 1 0.5"
+        ],
+        "9.05": [
+          "/playsound end_portal.tp_success_1_1 @s ~~~ 0.7 0.65 0.5"
+        ],
+        "9.1": [
+          "/playsound end_portal.tp_success_1_2 @s ~~~ 0.5 0.35 0.5"
+        ],
+        "9.45": [
+          "/title @s actionbar xp_hud.end_travel_fade"
+        ]
+      }
+    }
+  }
+}

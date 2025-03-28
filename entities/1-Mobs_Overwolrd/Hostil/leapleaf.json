@@ -1,0 +1,559 @@
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:leapleaf",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "dungeons:abomination_despawn": {
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 50,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [{
+          "filters": {
+            "any_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              }
+            ]
+          },
+          "max_dist": 50
+        }]
+      },
+        "minecraft:persistent": {
+        },
+        "minecraft:entity_sensor": {
+          "sensor_range": 48,
+          "relative_range": false,
+          "minimum_count": 0,
+          "maximum_count": 0,
+          "event_filters": {
+            "any_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "jungle_abomination"
+              }
+            ]
+          },
+          "event": "dungeons:instant_despawn"
+        }
+      },
+      "dungeons:standard_despawn": {
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 24,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [{
+          "filters": {
+            "any_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              }
+            ]
+          },
+          "max_dist": 20
+        }]
+      },
+        "minecraft:despawn": {
+          "despawn_from_distance": {}
+        },
+        "minecraft:experience_reward": {
+          "on_death": "query.last_hit_by_player ? 15 : 0"
+        }
+      },
+      "dungeons:hostile": {
+      "minecraft:ravager_blocked": {
+        "knockback_strength": 2.5,
+        "reaction_choices": [{
+            "weight": 1,
+            "value": {
+              "event": "dungeons:become_stunned",
+              "target": "self"
+            }
+          }
+        ]
+      },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 1.95,
+          "cooldown_time": 0.05,
+          "speed_multiplier": 1.3,
+          "attack_duration": 1,
+          "hit_delay_pct": 0.65
+        }
+      },
+      "dungeons:passive": {
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 0.0,
+          "cooldown_time": 0.05,
+          "speed_multiplier": 0.0,
+          "attack_duration": 90,
+          "hit_delay_pct": 0.65
+        }
+      },
+      "dungeons:stun_timer": {
+        "minecraft:is_stunned":{},
+        "minecraft:behavior.timer_flag_2": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            2.5,
+            2.5
+          ],
+          "on_end": {
+            "event": "dungeons:end_stunned",
+            "target": "self"
+          }
+        }
+      },
+
+      "dungeons:roar_ready": {
+        "minecraft:on_target_acquired": {
+          "event": "dungeons:roar_start",
+          "target": "self"
+        }
+      },
+      "dungeons:roar_cooldown": {
+
+        "minecraft:attack_cooldown": {
+          "attack_cooldown_time": 10,
+          "attack_cooldown_complete_event": {
+            "event": "dungeons:end_roar_cooldown",
+            "target": "self"
+          }
+        }
+      },
+      "dungeons:roaring": {
+        "minecraft:behavior.timer_flag_1": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            1.2083,
+            1.2083
+          ],
+          "on_end": {
+            "event": "dungeons:roar_end",
+            "target": "self"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4 
+          }
+        ]
+      },
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"plant"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "plant"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "breeze"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "plant"
+          }
+        ]
+      }
+    }
+  ]
+},
+"minecraft:absorption": {
+  "value": 1,
+  "max": 1
+},
+"minecraft:combat_regeneration": {
+  "apply_to_family": true,
+  "apply_to_self": true,
+  "regeneration_duration": 30
+},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:attack": {
+        "damage": {
+          "range_min": 6,
+          "range_max": 9
+        },
+        "effect_name": "poison",
+        "effect_duration": 5
+      },
+      "minecraft:breathable": {
+        "suffocate_time": 0,
+        "total_supply": 15
+      },
+      "minecraft:collision_box": {
+        "height": 2,
+        "width": 2.1
+      },
+      "minecraft:health": {
+        "max": 75,
+        "value": 75
+      },
+      "minecraft:jump.static": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/leapleaf.json"
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:movement": {
+        "value": 0.27
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:nameable": {},
+     
+      
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/leapleaf_axe.json", 
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": -1
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+    
+      "minecraft:type_family": {
+        "family": [
+          "monster",
+          "leapleaf",
+          "mob","plant"
+        ]
+      }
+    },
+    "events": {
+      "dungeons:instant_despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:instant_despawn"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle dungeons:vanguard_despawn"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:roar_ready",
+            "dungeons:hostile",
+            "dungeons:standard_despawn"
+          ]
+        }
+      },
+      "dungeons:abomination_minion": {
+        "add": {
+          "component_groups": [
+            "dungeons:roar_ready",
+            "dungeons:hostile",
+            "dungeons:abomination_despawn"
+          ]
+        }
+      },
+      "dungeons:end_roar_cooldown": {
+        "add": {
+          "component_groups": [
+            "dungeons:roar_ready"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:roar_cooldown"
+          ]
+        }
+      },
+      "dungeons:roar_start": {
+        "add": {
+          "component_groups": [
+            "dungeons:roaring",
+            "dungeons:passive"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:roar_ready",
+            "dungeons:hostile"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playsound mob.leapleaf.charge @a ~~~ 1.5 1.0"
+          ]
+        }
+      },
+      "dungeons:roar_end": {
+        "add": {
+          "component_groups": [
+            "dungeons:roar_cooldown",
+            "dungeons:hostile"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:roaring",
+            "dungeons:passive"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @s speed 7 1 true",
+            "effect @s strength 7 0 true"
+          ]
+        }
+      },
+      "dungeons:become_stunned": {
+        "add": {
+          "component_groups": [
+            "dungeons:passive",
+            "dungeons:stun_timer"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:hostile"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle dungeons:leapleaf_smoke ~~~"
+          ]
+        }
+      },
+      "dungeons:end_stunned": {
+        "remove": {
+          "component_groups": [
+            "dungeons:passive",
+            "dungeons:stun_timer"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:hostile"
+          ]
+        }
+      }
+    }
+  }
+}

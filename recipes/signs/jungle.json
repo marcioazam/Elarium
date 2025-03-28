@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:jungle_direction_sign"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:jungle_fence"
+      },
+      {
+        "item": "minecraft:jungle_sign"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:jungle_fence"
+      },
+      {
+        "item": "minecraft:jungle_sign"
+      }
+    ],
+    "result": {
+      "item": "edx:jungle_sign_it"
+    }
+  }
+}

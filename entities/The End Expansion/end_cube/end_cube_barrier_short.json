@@ -1,0 +1,60 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_barrier_short",
+      "is_summonable": true,
+      "animations": {
+        "barrier_short": "controller.animation.end_cube_barrier.barrier_short"
+      },
+      "scripts": {
+        "animate": [
+          "barrier_short"
+        ]
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "end_cube", "barrier", "inanimate" ]
+      },
+      "minecraft:health": {
+        "max": 1,
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+	    "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      }
+    }
+  }
+}

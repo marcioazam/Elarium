@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:frozen_stonebricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " P ",
+      "PSP",
+      " P "
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:stonebrick",
+        "data": 0
+      },
+      "S": {
+        "item": "minecraft:ice"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stone",
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "edx:frozen_stonebrick",
+      "count": 4
+    }
+  }
+  
+}

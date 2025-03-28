@@ -1,0 +1,602 @@
+{
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:eye_of_guardian",
+      "is_spawnable": false,
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [
+          "player.achievements",
+
+          { "eye_guardian.death": "q.is_baby" },
+          "root.eye_of_guardian.facing",
+          "root.eye_of_guardian.regeneration",
+          "root.eye_of_guardian.pull",
+          "root.eye_of_guardian_shield"
+        ]
+      },
+      "animations": {
+        "player.achievements": "controller.animation.player.achievements.mob_death_detection",
+
+        "eye_guardian.regeneration": "animation.eye_guardian.regeneration",
+        "eye_guardian.death": "animation.eye_guardian.death",
+
+        "root.eye_of_guardian.facing": "controller.animation.eye_of_guardian.facing",
+        "root.eye_of_guardian.regeneration": "controller.animation.eye_of_guardian.regeneration",
+        "root.eye_of_guardian.pull": "controller.animation.eye_of_guardian.pull",
+        "root.eye_of_guardian_shield": "controller.animation.eye_of_guardian.shield"
+      }
+    },
+
+    "component_groups": {
+      
+      // shield stage
+      "xp:stage.shield": {
+        "minecraft:skin_id": {
+          "value": 0
+        },
+
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:custom_hit_test": {
+          "hitboxes": [{
+            "width": 4.2,
+            "height": 5,
+            "pivot": [
+              0,
+              2.5,
+              0
+            ]
+          }]
+        },
+        "minecraft:collision_box": {
+          "width": 0,
+          "height": 0
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "filters": [
+                  {
+                    "test": "has_damage",
+                    "value": "attack"
+                  }
+                ],
+                "target": "self",
+                "event": "xp:hurt"
+              }
+            }
+          ]
+        }
+      },
+      "xp:stage.lost_ring": {
+        "minecraft:skin_id": {
+          "value": 1
+        },
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "target": "self",
+                "event": "xp:stage_death"
+              }
+            },
+            {
+              "on_damage": {
+                "filters": [
+                  {
+                    "test": "has_damage",
+                    "value": "attack"
+                  }
+                ],
+                "target": "self",
+                "event": "xp:hurt"
+              }
+            }
+          ]
+        },
+        "minecraft:custom_hit_test": {
+          "hitboxes": [{
+            "width": 4.2,
+            "height": 5,
+            "pivot": [
+              0,
+              2.5,
+              0
+            ]
+          }]
+        },
+        "minecraft:collision_box": {
+          "width": 0,
+          "height": 0
+        }
+      },
+      "xp:stage.unshield": {
+        "minecraft:skin_id": {
+          "value": 1
+        },
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "target": "self",
+                "event": "xp:stage_death"
+              }
+            },
+            {
+              "on_damage": {
+                "filters": [
+                  {
+                    "test": "has_damage",
+                    "value": "attack"
+                  }
+                ],
+                "target": "self",
+                "event": "xp:hurt"
+              }
+            }
+          ]
+        },
+        
+        "minecraft:custom_hit_test": {
+          "hitboxes": [{
+            "width": 2.2,
+            "height": 3,
+            "pivot": [
+              0,
+              2,
+              0
+            ]
+          }]
+        },
+        "minecraft:collision_box": {
+          "width": 0,
+          "height": 0
+        }
+      },
+
+      "xp:regeneration": {
+        "minecraft:is_saddled": {}
+      },
+      "xp:hurt": {
+        "minecraft:is_illager_captain": {},
+        "minecraft:timer": {
+					"time": 0,
+					"looping": true,
+					"time_down_event": {
+						"event": "xp:remove_hurt"
+					}
+				}
+      },
+
+      "xp:track_player": {
+        "minecraft:is_stunned": {},
+        "minecraft:behavior.look_at_player": {
+          "look_distance": 85,
+          "look_time": 0.1,
+          "probability": 1,
+          "priority": 0,
+          "angle_of_view_horizontal": 180,
+          "angle_of_view_vertical": 180
+        }
+      },
+
+      //angry
+      "xp:close_attack": {
+      },
+      "xp:far_attack": {
+        "minecraft:is_sheared": {}
+      },
+
+      //facing mode
+      "xp:facing.north": {
+        "minecraft:mark_variant": {
+          "value": 1
+        }
+      },
+      "xp:facing.south": {
+        "minecraft:mark_variant": {
+          "value": 2
+        }
+      },
+      "xp:facing.east": {
+        "minecraft:mark_variant": {
+          "value": 3
+        }
+      },
+      "xp:facing.west": {
+        "minecraft:mark_variant": {
+          "value": 4
+        }
+      },
+
+      //death mode
+      "xp:stage.death": {
+        "minecraft:type_family": {
+          "family": ["inanimate"]
+        },
+        "minecraft:collision_box": {
+          "width": 0,
+          "height": 0
+        },
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "single_use": true,
+              "max_wait_time": 0,
+              "min_wait_time": 0,
+              "num_to_spawn": 1,
+              "spawn_item": "ender_eye"
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        },
+        "minecraft:is_baby": {},
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 255,
+              "duration": 999,
+              "effect": "slowness",
+              "visible": false
+            }
+          ]
+        },
+        "minecraft:explode": {
+          "fuse_length": 0.35,
+          "fuse_lit": true,
+          "power": 3,
+          "causes_fire": false,
+          "destroy_affected_by_griefing": true
+        }
+      },
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+    
+    "components": {
+      
+      "minecraft:type_family": {
+        "family": ["eye_of_guardian", "monster", "mob" ]
+      },
+      //heath == 22
+      "minecraft:health": {
+        "value": 88
+      },
+      "minecraft:scale": {
+        "value": 1.8
+      },
+      "minecraft:breathable": {
+        "totalSupply": 0,
+        "suffocateTime": 0,
+        "generates_bubbles": false
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          
+          {
+            "filters": {
+              "all_of": [
+                { "test": "has_component", "operator": "not", "value": "minecraft:is_sheared" },
+                { "test": "distance_to_nearest_player", "operator": ">", "value": 10 }
+              ]
+            },
+            "event": "xp:far_attack"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_skin_id", "operator": "==", "value": 1 },
+                { "test": "distance_to_nearest_player", "operator": "<", "value": 8 }
+              ]
+            },
+            "event": "xp:close_attack"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "distance_to_nearest_player", "operator": "<", "value": 8 }
+              ]
+            },
+            "event": "xp:close_attack"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "distance_to_nearest_player", "operator": ">", "value": 85 }
+              ]
+            },
+            "event": "xp:remove_track_player"
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": [
+                {
+                  "test": "has_damage",
+                  "value": "attack"
+                }
+              ],
+              "target": "self",
+              "event": "xp:hurt"
+            }
+          },
+          {
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "cause": "projectile",
+            "deals_damage": false
+          },
+          {
+            "cause": "entity_attack",
+            "on_damage": {
+              "filters": [
+                {
+                  "all_of": [
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "xp:the_touched_ends"
+                    }
+                  ]
+                }
+              ],
+              "target": "other",
+              "event": "xp:regeneration_value_1"
+            },
+            "deals_damage": true
+          }
+        ]
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:knockback_resistance": {
+        "value": 100
+      },
+      "minecraft:follow_range": {
+        "value": 85
+      },
+      "minecraft:movement": {
+        "value": 0
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:is_stackable": {},
+
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "must_see_forget_duration": 17,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "has_mob_effect",
+                  "subject": "target",
+                  "operator": "!=",
+                  "value": "invisible"
+                },
+                {
+                  "test": "has_component",
+                  "subject": "self",
+                  "operator": "!=",
+                  "value": "minecraft:is_baby"
+                }
+              ]
+            },
+            "max_dist": 85
+          }
+        ]
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 3
+      },
+
+      "minecraft:behavior.ranged_attack": {
+        "priority": 1,
+        "x_max_rotation": 360,
+        "y_max_head_rotation": 60,
+        "charge_charged_trigger": 1.0,
+        "charge_shoot_trigger": 2.0,
+        "attack_interval_min": 1,
+        "attack_interval_max": 2,
+        "attack_radius": 8
+      },
+      "minecraft:shooter": {
+        "def": "xp:eye_of_guardian_bullet"
+      },
+
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 140.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+
+    },
+
+    "events": {
+      
+      //default event
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "trigger": "xp:stage_shield"
+          },
+          {
+            "add": { "component_groups": ["xp:facing.north"] }
+          }
+        ]
+      },
+
+      "xp:track_player": {
+        "add": {
+          "component_groups": ["xp:track_player"]
+        },
+        "remove": {
+          "component_groups": ["xp:close_attack"]
+        }
+      },
+      "xp:remove_track_player": {
+        "remove": {
+          "component_groups": ["xp:track_player"]
+        }
+      },
+
+      //shield event
+      "xp:stage_shield": {
+        "add": {
+          "component_groups": ["xp:stage.shield"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.unshield"]
+        }
+      },
+      "xp:stage_lost_ring": {
+        "add": {
+          "component_groups": ["xp:stage.lost_ring"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.shield"]
+        }
+      },
+      "xp:stage_unshield": {
+        "add": {
+          "component_groups": ["xp:stage.unshield"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.shield", "xp:stage.lost_ring"]
+        }
+      },
+
+      "xp:regeneration": {
+        "add": {
+          "component_groups": ["xp:regeneration"]
+        }
+      },
+      "xp:remove_regeneration": {
+        "remove": {
+          "component_groups": ["xp:regeneration"]
+        }
+      },
+
+      "xp:hurt": {
+        "add": {
+          "component_groups": ["xp:hurt"]
+        }
+      },
+      "xp:remove_hurt": {
+        "remove": {
+          "component_groups": ["xp:hurt"]
+        }
+      },
+
+      //angry
+      "xp:stage_calm": {
+        "remove": {
+          "component_groups": ["xp:close_attack"]
+        }
+      },
+      "xp:close_attack": {
+        "add": {
+          "component_groups": ["xp:close_attack"]
+        },
+        "remove": {
+          "component_groups": ["xp:far_attack", "xp:track_player"]
+        }
+      },
+      "xp:far_attack": {
+        "add": {
+          "component_groups": ["xp:far_attack"]
+        },
+        "remove": {
+          "component_groups": ["xp:close_attack"]
+        }
+      },
+
+      //facing event
+      "xp:facing_north": {
+        "add": {
+          "component_groups": ["xp:facing.north"]
+        }
+      },
+      "xp:facing_south": {
+        "add": {
+          "component_groups": ["xp:facing.south"]
+        }
+      },
+      "xp:facing_east": {
+        "add": {
+          "component_groups": ["xp:facing.east"]
+        }
+      },
+      "xp:facing_west": {
+        "add": {
+          "component_groups": ["xp:facing.west"]
+        }
+      },
+
+      //death event
+      "xp:stage_death": {
+        "add": {
+          "component_groups": ["xp:stage.death"]
+        }
+      },
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": ["xp:instant_despawn"]
+        }
+      }
+
+    }
+
+  }
+}

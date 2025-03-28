@@ -1,0 +1,74 @@
+{
+   "pools": [
+     {
+        "rolls": 1,
+       "entries": [
+         {
+           "type": "item",
+           "name": "minecraft:shulker_shell",
+           "weight": 1,
+           "functions": [
+             {
+               "function": "set_count",
+               "count": {
+                 "min": 0,
+                 "max": 1
+               }
+             },
+             {
+               "function": "looting_enchant",
+               "count": {
+                 "min": 0,
+                 "max": 1
+               }
+             }
+           ]
+         },
+         {
+          "type": "item",
+          "name": "minecraft:popped_chorus_fruit",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+       ]
+     },
+     {
+      "conditions": [
+          {
+              "condition": "killed_by_player_or_pets"
+          }
+      ],
+      "rolls": 1,
+      "entries": [
+          {
+              "type": "item",
+              "name": "edx:copper_coin",
+              "functions": [
+                  {
+                      "function": "set_count",
+                      "count":  {
+                          "min": 0,
+                          "max": 3
+                      }
+                  }
+              ]
+          }
+      ]
+  }
+   ]
+ } 

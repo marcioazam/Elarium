@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:blue_spore_bag_it",
+      "menu_category": {
+				"category":"nature",
+        "group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+      "minecraft:custom_components": ["edx:blue_spore_bag"],
+			"minecraft:icon": {
+				"textures":{
+               "default":"blue_spore_bag_it"
+         }
+			},
+      		"minecraft:max_stack_size": 64
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:chorusair_scatter"
+		},
+		"iterations": "query.heightmap(variable.worldx , variable.worldz)  + (q.noise(v.originz/64,v.originx/64))*10 && query.heightmap(variable.worldx , variable.worldz) > 50",
+		"places_feature": "edx:chorusair_f",
+		"x": 0,
+		"z": 0,
+		"y": {
+			"extent": ["query.heightmap(variable.worldx , variable.worldz)", "query.heightmap(variable.worldx , variable.worldz) + (q.noise(v.originz/64,v.originx/64))*10"],
+			"distribution": "fixed_grid"
+		}
+	}
+}

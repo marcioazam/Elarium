@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_dolphin"
+    }, 
+    "unlock": [
+      {
+        "item": "edx:dolphin_raw"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:dolphin_raw",
+    "output": "edx:dolphin_cooked"
+  }
+  
+}

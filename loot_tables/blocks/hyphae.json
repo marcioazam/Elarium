@@ -1,0 +1,44 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "minecraft:shears",
+					"count": 1
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:hyphae_it"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:warped_nickel_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "silk_touch",
+							"levels":{
+								"max_range" : 1
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:hyphae_it"
+				}
+			]
+		}
+	]
+}

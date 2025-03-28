@@ -1,0 +1,19 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "dungeons:corrupt_coven"
+        },
+        
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "corrupt_coven/structure",
+                    "processors": "dungeons:processor_default"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "format_version": "1.14.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:obsidian_blade_impact",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "xp:boost": {
+                "minecraft:behavior.knockback_roar": {
+                    "duration": 1,
+                    "attack_time": 0.1,
+                    "knockback_damage": 6,
+                    "knockback_horizontal_strength": 5,
+                    "knockback_vertical_strength": 12,
+                    "knockback_range": 5,
+                    "knockback_filters": {
+                        "none_of": [
+                            { "test": "has_tag", "subject": "other", "value": "obsidian_blade_user" },
+                            // { "test": "is_family", "subject": "other", "value": "xp_boss" },
+                            { "test": "is_family", "subject": "other", "value": "item" }
+                        ]
+                    },
+                    "damage_filters": {
+                        "none_of": [
+                            { "test": "has_tag", "subject": "other", "value": "obsidian_blade_user" },
+                            { "test": "is_family", "subject": "other", "value": "item" }
+                        ]
+                    }
+                },
+                "minecraft:timer": {
+                    "time": 0.125,
+                    "looping": false,
+                    "time_down_event": {
+                        "event": "xp:remove_boost"
+                    }
+                }
+            },
+
+            "xp:remove_boost": {
+                "minecraft:instant_despawn":{}
+            }
+        },
+        "components": {
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "dummy"
+                ]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 100,
+                "max": 100
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:nameable": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "xp:boost"
+                    ]
+                }
+            },
+            "xp:remove_boost": {
+                "add": {
+                    "component_groups": [
+                        "xp:remove_boost"
+                    ]
+                }
+            }
+        }
+    }
+}

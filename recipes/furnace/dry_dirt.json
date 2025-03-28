@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:dry_dirt"
+    },
+
+    "unlock": [
+      {
+        "item": "minecraft:dirt"
+      }
+    ],
+    "tags": ["furnace"],
+    "input": "minecraft:dirt",
+    "output": "edx:dry_dirt"
+  }
+  
+}

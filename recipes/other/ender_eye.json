@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "minecraft:ender_eye"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "ingredients": [ 
+      {
+        "item": "minecraft:ender_pearl"
+      },
+      {
+        "item": "minecraft:blaze_powder"
+      },
+      {
+        "item": "edx:star_dust"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:ender_pearl"
+      },
+      {
+        "item": "minecraft:blaze_powder"
+      },
+      {
+        "item": "edx:star_dust"
+      }
+    ],
+    "result": {
+      "item": "minecraft:ender_eye"
+    }
+  }
+}

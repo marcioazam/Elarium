@@ -1,0 +1,566 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:boss_wildfire",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "dungeons:shields": {
+          "type": "int",
+          "client_sync": true,
+          "range": [
+            0,
+            4
+          ],
+          "default": 4
+        },
+        "dungeons:durability": {
+          "type": "int",
+          "client_sync": false,
+          "range": [
+            0,
+            8
+          ],
+          "default": 8
+        }
+      }
+    },
+    "component_groups": {
+      "dungeons:shockwave_cooldown": {
+        "minecraft:shooter": {
+          "def": "dungeons:boss_wildfire_fireball"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "burst_shots": 6,
+          "burst_interval": 0.3,
+          "charge_charged_trigger": 0,
+          "charge_shoot_trigger": 1,
+          "attack_interval_min": 0.5,
+          "attack_interval_max": 1.0,
+          "attack_radius": 20
+        },
+        "minecraft:behavior.avoid_mob_type": {
+          "priority": 2,
+          "entity_types": [{
+            "filters": {
+              "any_of": [{
+                "test": "is_target",
+                "subject": "other"
+              }]
+            },
+            "max_dist": 6,
+            "max_flee": 5,
+            "walk_speed_multiplier": 1.5,
+            "sprint_speed_multiplier": 1.5
+          }]
+        },
+        "minecraft:behavior.timer_flag_1": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            15,
+            20
+          ],
+          "on_end": {
+            "event": "dungeons:end_cooldown",
+            "target": "self"
+          }
+        }
+      },
+      "dungeons:shockwave_ready": {
+        "minecraft:shooter": {
+          "def": "dungeons:boss_wildfire_fireball"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "burst_shots": 6,
+          "burst_interval": 0.3,
+          "charge_charged_trigger": 0,
+          "charge_shoot_trigger": 1,
+          "attack_interval_min": 0.5,
+          "attack_interval_max": 1.0,
+          "attack_radius": 20
+        },
+        "minecraft:behavior.avoid_mob_type": {},
+        "minecraft:entity_sensor": {
+          "sensor_range": 4,
+          "maximum_count": -1,
+          "minimum_count": 1,
+          "require_all": false,
+          "event_filters": {
+            "any_of": [{
+                "all_of": [{
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "none_of": {
+                      "test": "has_ability",
+                      "subject": "other",
+                      "value": "instabuild"
+                    }
+                  }
+                ]
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              }
+            ]
+          },
+          "event": "dungeons:begin_shockwave"
+        }
+      },
+      "dungeons:shockwave_action": {
+        "minecraft:behavior.avoid_mob_type": {},
+        "minecraft:behavior.timer_flag_2": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            0.51,
+            0.51
+          ],
+          "on_end": {
+            "event": "dungeons:shockwave_damage",
+            "target": "self"
+          }
+        },
+        "minecraft:behavior.timer_flag_3": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            1,
+            1
+          ],
+          "on_end": {
+            "event": "dungeons:shockwave_end",
+            "target": "self"
+          }
+        }
+      },
+      "dungeons:shielded": {
+        "minecraft:damage_sensor": {
+          "triggers": [{
+              "on_damage": {
+                "filters": {
+                  "all_of": [{
+                      "any_of": [{
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "mob"
+                        },
+                        {
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "player"
+                        },
+                        {
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "artefact"
+                        }
+                      ]
+                    },
+                    {
+                      "test": "int_property",
+                      "subject": "self",
+                      "domain": "dungeons:durability",
+                      "operator": ">=",
+                      "value": 1
+                    }
+                  ]
+                },
+                "event": "dungeons:harm_shield"
+              },
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [{
+                      "any_of": [{
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "mob"
+                        },
+                        {
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "player"
+                        },
+                        {
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "artefact"
+                        }
+                      ]
+                    },
+                    {
+                      "test": "int_property",
+                      "subject": "self",
+                      "domain": "dungeons:durability",
+                      "operator": "==",
+                      "value": 0
+                    }
+                  ]
+                },
+                "event": "dungeons:destroy_shield"
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": false
+            }
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.9
+        },
+        "minecraft:reflect_projectiles": {
+          "reflected_projectiles": [
+            "experience_bottle",
+            "thrown_trident",
+            "shulker_bullet",
+            "dragon_fireball",
+            "arrow",
+            "snowball",
+            "thrownegg",
+            "fireball",
+            "splash_potion",
+            "ender_pearl",
+            "thrownenderpearl",
+            "wither_skull",
+            "small_fireball",
+            "lingering_potion",
+            "llama_spit",
+            "evocation_fang",
+            "ice_bomb",
+            "thrownicebomb"
+          ],
+          "azimuth_angle": "180.0 + Math.random(-20.0, 20.0)",
+          "reflection_scale": "0.25"
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [{
+            "filters": {
+              "all_of": [{
+                "test": "int_property",
+                "subject": "self",
+                "domain": "dungeons:shields",
+                "operator": "==",
+                "value": 0
+              }]
+            },
+            "event": "dungeons:shields_down"
+          }]
+        }
+      },
+      "dungeons:no_shield": {
+        "minecraft:environment_sensor": {
+          "triggers": [{
+            "filters": {
+              "all_of": [{
+                "test": "int_property",
+                "subject": "self",
+                "domain": "dungeons:shields",
+                "operator": ">=",
+                "value": 1
+              }]
+            },
+            "event": "dungeons:shields_up"
+          }]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [{
+            "cause": "fall",
+            "deals_damage": false
+          }]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 0.75
+        },
+        "minecraft:reflect_projectiles": {}
+      }
+    },
+    "components": {
+      "minecraft:mob_effect": {
+        "mob_effect": "wither",
+        "effect_range": 4,
+        "effect_time": 4,
+        "cooldown_time": 60,
+        "entity_filter": [{
+          "test": "is_family",
+          "subject": "other",
+          "value": "player"
+        }]
+      },
+      "minecraft:collision_box": {
+        "width": 0.73,
+        "height": 1.96
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 200 : 50"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/boss_wildfire.json"
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.5
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:health": {
+        "value": 700,
+        "max": 700
+      },
+      "minecraft:spell_effects": {
+        "add_effects": [{
+          "effect": "slow_falling",
+          "duration": 999999,
+          "visible": false
+        }]
+      },
+      "minecraft:follow_range": {
+        "value": 32,
+        "max": 32
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 48,
+        "name": " §eHovering Inferno§r "
+      },
+      "minecraft:scale": {
+        "value": 2.2
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:nameable": {},
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "entity_types": [{
+          "filters": {
+            "any_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              }
+            ]
+          },
+          "max_dist": 24
+        }]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 4,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 5
+      },
+      "minecraft:type_family": {
+        "family": [
+          "blaze",
+          "monster",
+          "mob",
+          "boss",
+          "boss_wildfire",
+          "wildfire"
+        ]
+      },
+      "minecraft:physics": {},
+      "minecraft:movement": {
+        "value": 0.21
+      },
+      "minecraft:home": {
+        "restriction_radius": 32,
+        "restriction_type": "random_movement"
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:harm_shield": {
+        "randomize": [{
+            "weight": 2,
+            "trigger": "dungeons:harm_shield_1"
+          },
+          {
+            "weight": 1,
+            "trigger": "dungeons:harm_shield_2"
+          }
+        ]
+      },
+      "dungeons:harm_shield_1": {
+        "set_property": {
+          "dungeons:durability": "query.property('dungeons:durability') - 1"
+        },
+        "queue_command": {
+          "command": [
+            "particle minecraft:lava_particle ~~1~",
+            "playsound mob.wildfire.shield_impact @a ~~~ 1.0 0.8"
+          ]
+        }
+      },
+      "dungeons:harm_shield_2": {
+        "set_property": {
+          "dungeons:durability": "query.property('dungeons:durability') - 2"
+        },
+        "queue_command": {
+          "command": [
+            "particle minecraft:lava_particle ~~1~",
+            "playsound mob.wildfire.shield_impact @a ~~~ 1.0 0.8"
+          ]
+        }
+      },
+      "dungeons:destroy_shield": {
+        "set_property": {
+          "dungeons:shields": "query.property('dungeons:shields') - 1",
+          "dungeons:durability": "8"
+        },
+        "queue_command": {
+          "command": [
+            "playsound random.explode @a ~~~ 1.2",
+            "summon dungeons:boss_wildfire_blast",
+            "particle dungeons:wildfire_flames ~~1~",
+            "playsound mob.wildfire.shield_break @a ~~~ 1.0 1.5"
+          ]
+        }
+      },
+      "dungeons:shields_down": {
+        "remove": {
+          "component_groups": [
+            "dungeons:shielded"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:no_shield"
+          ]
+        }
+      },
+      "dungeons:shields_up": {
+        "add": {
+          "component_groups": [
+            "dungeons:shielded"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:no_shield"
+          ]
+        }
+      },
+      "dungeons:shockwave_damage": {
+        "queue_command": {
+          "command": [
+            "playsound random.explode @a ~~~ 1.2",
+            "summon dungeons:boss_wildfire_blast",
+            "summon dungeons:wildfire_blaze ~~~2",
+            "summon dungeons:wildfire_blaze ~~~-2"
+          ]
+        }
+      },
+      "dungeons:shockwave_end": {
+        "add": {
+          "component_groups": [
+            "dungeons:shockwave_cooldown"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shockwave_action"
+          ]
+        }
+      },
+      "dungeons:end_cooldown": {
+        "add": {
+          "component_groups": [
+            "dungeons:shockwave_ready"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shockwave_cooldown"
+          ]
+        }
+      },
+      "dungeons:begin_shockwave": {
+        "set_property": {
+          "dungeons:durability": "query.property('dungeons:durability') + 1"
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:shockwave_action"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shockwave_ready"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playsound mob.wither.ambient @a ~~~ 1.0 0.5",
+            "effect @s slowness 1 9 true",
+            "effect @s resistance 1 9 true",
+            "effect @s regeneration 2 4 true",
+            "playanimation @s animation.wildfire2.slam"
+          ]
+        }
+      },
+      "minecraft:entity_transformed": {
+        "add": {
+          "component_groups": [
+            "dungeons:shielded",
+            "dungeons:shockwave_ready"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:shielded",
+            "dungeons:shockwave_ready"
+          ]
+        }
+      }
+    }
+  }
+}

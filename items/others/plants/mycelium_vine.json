@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:mycelium_vine_it",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"mycelium_vine_it"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:mycelium_vine",
+				"use_on" : ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_vine"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

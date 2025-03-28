@@ -1,0 +1,59 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "eu:dummy_torch_off_timer",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"eu:despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"inanimate"
+				]
+			},
+			//Para que no haga despawn otro modo es darle un nametag y hacerlo invisible XD
+			"minecraft:persistent": {},
+			//Collision muy pequeña para que no nos tape al bloque XD
+			"minecraft:collision_box": {
+				"height": 0.01,
+				"width": 0.01
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:timer": {
+				"time": [
+					45,
+					60
+				],
+				"looping": false,
+				"time_down_event": {
+					"event": "eu:despawn"
+				}
+			}
+		},
+		"events": {
+			"eu:despawn": {
+				"add": {
+					"component_groups": [
+						"eu:despawn"
+					]
+				}
+			}
+		}
+	}
+}

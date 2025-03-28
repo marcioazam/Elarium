@@ -1,0 +1,19 @@
+{
+  "format_version": "1.19.5",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:stone",
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:map_color": "#f6fabd",
+    
+			"minecraft:destructible_by_mining": { "seconds_to_destroy": 1.45 },
+			"minecraft:destructible_by_explosion": { "explosion_resistance": 45 },
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      }
+    }
+  }
+}

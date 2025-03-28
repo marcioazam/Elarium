@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:daffodils"
+    },
+
+    
+    "tags": [ "crafting_table"],
+    "pattern": [
+      "T"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:daffodils_it"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:daffodils_it"
+      }
+    ],
+    "result": {
+      "item": "minecraft:yellow_dye"
+    }
+  }
+}

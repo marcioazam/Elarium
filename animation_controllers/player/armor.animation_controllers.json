@@ -1,0 +1,142 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.void_armor.helmet": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(0) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "void_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(0) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 0.6 0.01",
+            "/particle xp:storm_armor.helmet ~~1.65~"
+          ],
+          "on_exit": [ "/playsound xp_armor.equip_1 @a[r=25] ~~~ 0.25 1.5 0.01" ]
+        }
+      }
+    },
+    "controller.animation.void_armor.chestplate": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(1) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "void_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(1) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 0.6 0.01",
+            "/particle xp:storm_armor.helmet ~~1.0~"
+          ],
+          "on_exit": [ "/playsound xp_armor.equip_1 @a[r=25] ~~~ 0.25 1.5 0.01" ]
+        }
+      }
+    },
+    "controller.animation.void_armor.leggings": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(2) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "void_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(2) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 0.6 0.01",
+            "/particle xp:storm_armor.helmet ~~0.5~"
+          ],
+          "on_exit": [ "/playsound xp_armor.equip_1 @a[r=25] ~~~ 0.25 1.5 0.01" ]
+        }
+      }
+    },
+    "controller.animation.void_armor.boots": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(3) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "void_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(3) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 0.6 0.01",
+            "/particle xp:storm_armor.helmet ~~~"
+          ],
+          "on_exit": [ "/playsound xp_armor.equip_1 @a[r=25] ~~~ 0.25 1.5 0.01" ]
+        }
+      }
+    },
+
+    "controller.animation.enderite_armor.helmet": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(0) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "enderite_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(0) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 1.0 0.01",
+            "/particle xp:storm_armor.helmet ~~1.65~"
+          ],
+          "on_exit": [ "/playsound storm_axe.hit_1 @a[r=25] ~~~ 0.25 1.0 0.01" ]
+        }
+      }
+    },
+    "controller.animation.enderite_armor.chestplate": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(1) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "enderite_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(1) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 1.0 0.01",
+            "/particle xp:storm_armor.helmet ~~1.0~"
+          ],
+          "on_exit": [ "/playsound storm_axe.hit_1 @a[r=25] ~~~ 0.25 1.0 0.01" ]
+        }
+      }
+    },
+    "controller.animation.enderite_armor.leggings": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(2) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "enderite_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(2) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 1.0 0.01",
+            "/particle xp:storm_armor.helmet ~~0.5~"
+          ],
+          "on_exit": [ "/playsound storm_axe.hit_1 @a[r=25] ~~~ 0.25 1.0 0.01" ]
+        }
+      }
+    },
+    "controller.animation.enderite_armor.boots": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "has_armor_on": "q.armor_texture_slot(3) == 1" } ]
+        },
+        "has_armor_on": {
+          "animations": [ "enderite_armor.powers" ],
+          "transitions": [ { "default": "q.armor_texture_slot(3) != 1" } ],
+          "on_entry": [
+            "/playsound xp_armor.equip @a[r=25] ~~~ 0.75 1.0 0.01",
+            "/particle xp:storm_armor.helmet ~~~"
+          ],
+          "on_exit": [ "/playsound storm_axe.hit_1 @a[r=25] ~~~ 0.25 1.0 0.01" ]
+        }
+      }
+    }
+  }
+}

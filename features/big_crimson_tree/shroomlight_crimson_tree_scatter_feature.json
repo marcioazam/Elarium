@@ -1,0 +1,23 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:scatter_feature": {
+      "description": {
+        "identifier": "edx:big_crimson_tree/shroomlight_crimson_tree_scatter_feature"
+      },
+      "iterations": 3,
+      "x": {
+        "distribution": "triangle",
+        "extent": [ -10, 10 ]
+      },
+      "y": {
+        "distribution": "triangle",
+        "extent": [ -4, 40 ]
+      },
+      "z": {
+        "distribution": "triangle",
+        "extent": [ -10, 10 ]
+      },
+      "coordinate_eval_order": "zyx",
+      "places_feature": "edx:big_crimson_tree/shroomlight_crimson_tree_feature"
+    }
+  }

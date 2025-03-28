@@ -1,0 +1,22 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:fossilized_light_seed",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"fossilized_light_seed"
+         }
+			},
+			"minecraft:display_name": {
+				"value": "Fossilized light seed\n§5A soul shaped seed"
+			  }
+		}
+
+	}
+}

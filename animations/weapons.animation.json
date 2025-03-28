@@ -1,0 +1,906 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+        "animation.ender_tp_dummy.sfx": {
+            "animation_length": 0.15,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/playsound shriek.sculk_shrieker @a[r=50] ~~~ 0.5 4.25 0.005"
+                ]
+            }
+        },
+		"animation.regen_stamina": {
+			"animation_length": 0.55,
+			"loop": true,
+			"timeline": { "0.5": [ 
+				"/execute as @s[tag=enderite_cutter_user,scores={enderite_cutter=0..9999}] at @s run scoreboard players add @s enderite_cutter -1",
+				"/execute as @s[tag=obsidian_blade_user,scores={obsidian_blade=0..9999}] at @s run scoreboard players add @s obsidian_blade -1",
+				"/execute as @s[tag=touched_ends_user,scores={touched_ends=0..9999}] at @s run scoreboard players add @s touched_ends -2"
+				] 
+			}
+		},
+		"animation.enderite_cutter.attack": {
+			"animation_length": 2,
+			"loop": true,
+			"timeline": {
+				"0.05": [ "/execute at @s run playsound swing @a[r=15] ~~~ 0.9 0.5 0.1" ],
+				"0.2": [ "@s xp:enderite_cutter_attack" ],
+				"0.25": [ "/execute at @s run playsound swing @a[r=15] ~~~ 0.7 0.35 0.1" ],
+				"0.5": [ "@s xp:enderite_cutter_attack1" ]
+			}
+		},
+		"animation.enderite_cutter.attack1": {
+			"animation_length": 2,
+			"loop": true,
+			"timeline": {
+				"0.05": [
+					"/execute at @s run playsound swing @a[r=15] ~~~ 0.9 0.5 0.1",
+					"/execute at @s run playsound respawn_anchor.set_spawn @a[r=15] ~~~ 0.5 5.35 0.1"
+				],
+				"0.2": [
+					"@s xp:enderite_cutter_attack2"
+				],
+				"0.25": [
+					"/execute at @s run playsound swing @a[r=15] ~~~ 0.7 0.35 0.1",
+					"/execute at @s run playsound respawn_anchor.set_spawn @a[r=15] ~~~ 0.35 4.35 0.1"
+				],
+				"0.3": [
+					"/execute at @s run playsound respawn_anchor.set_spawn @a[r=15] ~~~ 0.15 3.75 0.1"
+				],
+				"0.5": [
+					"@s xp:enderite_cutter_attack3"
+				]
+			}
+		},
+		"animation.enderite_cutter.enchanted_sfx": {
+			"animation_length": 2.0,
+			"loop": true,
+			"timeline": {
+				"0.0": [ "/execute at @s run playsound chime.amethyst_block @a[r=15] ~~~ 0.2 0.75 0.1" ],
+				"0.2": [ "/execute at @s run playsound chime.amethyst_block @a[r=15] ~~~ 0.25 1.75 0.1" ]
+			}
+		},
+		"animation.xp.reg_attack": {
+			"animation_length": 1,
+			"loop": true,
+			"timeline": { "0.1": [ "@s xp:attack_value_1", "@s xp:default_exhaustion_values" ] }
+		},
+		"animation.ender_curved_blade.projectile.sfx": {
+			"animation_length": 0.26,
+			"loop": true,
+			"timeline": {
+				"0.1": [ "/execute at @s run playsound swing @a[r=25] ~~~ 0.9 0.35 0.15" ],
+				"0.25": [ "/execute at @s run playsound swing @a[r=25] ~~~ 0.9 0.5 0.15" ]
+			}
+		},
+		"animation.ender_curved_blade.projectile.sfx1": {
+			"animation_length": 0.26,
+			"loop": true,
+			"timeline": {
+				"0.1": [ 
+					"/execute at @s run playsound swing @a[r=25] ~~~ 0.9 0.35 0.15",
+					"/execute at @s run playsound respawn_anchor.set_spawn @a[r=25] ~~~ 0.3 7.25 0.1"
+				],
+				"0.25": [ 
+					"/execute at @s run playsound swing @a[r=25] ~~~ 0.9 0.5 0.15",
+					"/execute at @s run playsound respawn_anchor.set_spawn @a[r=25] ~~~ 0.3 7.75 0.1"
+			]
+			}
+		},
+		"animation.ender_curved_blade.projectile.pick_up": {
+			"animation_length": 0.25,
+			"loop": true,
+			"timeline": { "0.1": [ "/execute as @p[r=1.75] at @s run function weapons/curved_blade_pick_up" ] }
+		},
+		"animation.ender_curved_blade.projectile.pick_up1": {
+			"animation_length": 0.25,
+			"loop": true,
+			"timeline": { "0.1": [ "/execute as @p[r=1.75] at @s run function weapons/curved_blade_pick_up_enchanted" ] }
+		},
+		"animation.ender_curved_blade.enchanted_tf": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": { "0.05": [ "/tag @s add curved_blade_enchanted" ] }
+		},
+		"animation.obsidian_blade_attack.sfx": {
+		  "animation_length": 1,
+		  "timeline": {
+			"0.525": [ "/execute at @s run playsound swing @a[r=25] ~~~ 0.9 0.35 0.15" ],
+			"0.5": [ 
+				"/summon xp:obsidian_blade.attack ^^^0.5",
+				"/summon xp:obsidian_blade.target ^^5^7" 
+			],
+			"0.8": [
+			  "/camerashake add @a[r=5] 0.25 0.05 rotational",
+			  "/execute at @s run particle xp:ender_curved_blade.impact ^^0.75^1.35",
+			  "/execute at @s run particle xp:ender_curved_blade.impact_smoke ^^0.75^1.35",
+			  "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 1 1.5 0.001",
+			  "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.75 0.5 0.001",
+			  "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 1 0.75 0.001",
+			  "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.75 0.25 0.001",
+			  "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.25 0.001"
+			]
+		  }
+		},
+		"animation.obsidian_blade_attack.sfx1": {
+		  "animation_length": 1,
+		  "timeline": {
+			"0.525": [ 
+				"/execute at @s run playsound swing @a[r=25] ~~~ 0.9 0.35 0.15", 
+				"/execute at @s run playsound respawn_anchor.set_spawn @a[r=25] ~~~ 0.3 7.25 0.1" 
+			],
+			"0.45": [ 
+				"/summon xp:obsidian_blade.enchanted_attack ^^^0.5 xp:enchanted",
+				"/summon xp:obsidian_blade.target ^^5^7" 
+			],
+			"0.7": [
+			  "/camerashake add @a[r=5] 0.25 0.05 rotational",
+			  "/execute at @s run particle xp:obsidian_blade.flash ^^0.65^1.35",
+			  "/execute at @s run particle xp:ender_curved_blade.impact_smoke ^^0.65^1.35",
+			  "/execute at @s run playsound respawn_anchor.deplete @a[r=15] ~~~ 1 1.5 0.001",
+			  "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 1 1.5 0.001",
+			  "/execute at @s run playsound block.lantern.break @a[r=15] ~~~ 0.75 0.5 0.001",
+			  "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 1 0.75 0.001",
+			  "/execute at @s run playsound fall.netherrack @a[r=15] ~~~ 0.75 0.25 0.001",
+			  "/execute at @s run playsound fall.nether_gold_ore @a[r=15] ~~~ 0.75 0.25 0.001"
+			]
+		  }
+		},
+		"animation.enders_heart_blast.shock": {
+			"animation_length": 0.4,
+			"loop": true,
+			"timeline": {
+				"0.0": [ 
+					"/tag @s add enders_heart_blast",
+					"/execute as @s[tag=stage_0] at @s run tag @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,r=3,c=3] add found_target",
+					"/execute as @s[tag=stage_1] at @s run tag @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,r=4,c=4] add found_target1",
+					"/execute as @s[tag=stage_2] at @s run tag @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,r=5,c=5] add found_target2",
+					"/execute as @s[tag=stage_3] at @s run tag @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,r=6,c=6] add found_target3",
+					"/execute as @s[tag=stage_4] at @s run tag @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,r=7,c=7] add found_target4"
+				],
+				"0.01": [ 
+					"/execute as @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,tag=found_target,r=7,c=3] at @s run summon xp:heart_blast_shocker ~~~",
+					"/execute as @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,tag=found_target1,r=9,c=4] at @s run summon xp:heart_blast_shocker ~~~",
+					"/execute as @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,tag=found_target2,r=9,c=5] at @s run summon xp:heart_blast_shocker ~~~",
+					"/execute as @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,tag=found_target3,r=11,c=6] at @s run summon xp:heart_blast_shocker ~~~",
+					"/execute as @e[family=!xp_dummy,family=!projectile,tag=!enders_heart_blast,tag=found_target4,r=11,c=7] at @s run summon xp:heart_blast_shocker ~~~"
+				]
+			}
+		},
+		"animation.enders_heart_blast.projectile_sfx": {
+			"animation_length": 0.25,
+			"loop": true,
+			"timeline": {
+				"0.1": [
+					"/execute at @s run playsound ender_smite.laser_impact @a[r=50] ~~~ 0.8 2.0 0.025",
+					"/execute at @s run playsound ender_smite.laser_impact @a[r=50] ~~~ 0.6 1.75 0.025"
+				]
+			}
+		},
+		"animation.heart_blast_shocker.remove_tag": {
+			"animation_length": 1.2,
+			"loop": true,
+			"timeline": {
+				"1.175": [ 
+					"/tag @e[r=5] remove found_target",
+					"/tag @e[r=5] remove found_target1",
+					"/tag @e[r=5] remove found_target2",
+					"/tag @e[r=5] remove found_target3",
+					"/tag @e[r=5] remove found_target4"
+				]
+			}
+		},
+		"animation.heart_blast_shocker.tp": {
+			"animation_length": 0.001,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute at @s run tp @e[tag=found_target,r=1]",
+					"/execute at @s run tp @e[tag=found_target1,r=1]",
+					"/execute at @s run tp @e[tag=found_target2,r=1]",
+					"/execute at @s run tp @e[tag=found_target3,r=1]",
+					"/execute at @s run tp @e[tag=found_target4,r=1]"
+				]
+			}
+		},
+		"animation.heart_blast_shocker": {
+			"animation_length": 0.25,
+			"loop": true,
+			"timeline": {
+				"0.0": [ 
+					"/camerashake add @a[r=5] 0.025 0.05 rotational",
+					"/execute at @s run particle xp:heart_fade_dots ~~1.25~",
+					"/execute at @s run playsound ender_heart.heart_beat @a[r=15] ~~~ 0.45 1 0.1"
+				]
+			}
+		},
+		"animation.heart_blast_shocker.damage": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [ 
+					"/damage @e[tag=!enders_heart_blast,r=1.75] 4"
+				]
+			}
+		},
+		"animation.enders_heart_blast.attack_stage_1": {
+			"animation_length": 1,
+			"timeline": {
+				"0.4": [ 
+					"/execute at @s run playsound ender_smite.laser_impact @a[r=120] ~~~ 0.95 2.35 0.125",
+					"/execute at @s run playsound ender_smite.laser_impact @a[r=120] ~~~ 0.75 1.5 0.125",
+					"/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.75 1.1 0.075",
+					"/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.5 0.75 0.075",
+					"/particle xp:electric_heart2 ~~~",
+					"/particle xp:electric_heart3 ~~~",
+					"/particle xp:electric_heart4 ~~~",
+					"/damage @e[tag=!enders_heart_blast,r=4] 5",
+					"/damage @e[tag=!enders_heart_blast,r=3] 8",
+					"/damage @e[tag=!enders_heart_blast,r=2] 10"
+				],
+				"0.41": [ 
+					"@s xp:despawn"
+				]
+			}
+		},
+		"animation.enders_heart_blast.charge": {
+			"animation_length": 2.75,
+			"loop": true,
+			"timeline": {
+				"0.0": [ "/camerashake add @s 0.02 0.5" ],
+				"0.5": [ 
+					"/camerashake add @s 0.04 0.5",
+					"/execute at @s run playsound ender_heart.charge @a[r=15] ~~~ 1 0.85 0.01" ,
+					"/execute at @s run playsound ender_heart.charge @a[r=15] ~~~ 0.75 0.5 0.01" 
+				],
+				"0.55": [ "/tag @s add from_charging" ],
+				"1.0": [ "/camerashake add @s 0.06 0.5" ],
+				"1.5": [ "/camerashake add @s 0.08 0.5" ],
+				"2.0": [ "/camerashake add @s 0.1 0.5" ],
+				"2.5": [ "/camerashake add @s 0.12 0.5" ]
+			}
+		},
+		"animation.enders_heart_blast.charge_sfx": {
+			"animation_length": 0.025,
+			"loop": true,
+			"timeline": {
+				"0.0": [ 
+					"/execute at @s run playsound hit.amethyst_cluster @a[r=15] 0.5 2.75 0.01",
+					"/execute at @s run playsound fall.amethyst_cluster @a[r=15] 0.35 2.75 0.01"
+			]
+			}
+		},
+		"animation.enders_heart_blast.heart_beat_charge": {
+			"animation_length": 2.75,
+			"loop": true,
+			"timeline": {
+				"0.04": [ "/execute at @s run playsound ender_heart.heart_beat_2 @a[r=15] ~~~ 1 1 0.01" ],
+				"0.45": [ "/execute at @s run playsound ender_heart.heart_beat_3 @a[r=15] ~~~ 1 1 0.01" ],
+
+				"0.75": [ "/execute at @s run playsound ender_heart.heart_beat_2 @a[r=15] ~~~ 1 1 0.01" ],
+				"1.0": [ "/execute at @s run playsound ender_heart.heart_beat_3 @a[r=15] ~~~ 1 1 0.01" ],
+				
+				"1.4": [ "/execute at @s run playsound ender_heart.heart_beat_2 @a[r=15] ~~~ 1 1 0.01" ],
+				"1.6": [ "/execute at @s run playsound ender_heart.heart_beat_3 @a[r=15] ~~~ 1 1 0.01" ],
+				
+				"1.7": [ "/execute at @s run playsound ender_heart.heart_beat_2 @a[r=15] ~~~ 1 1 0.01" ],
+				"1.9": [ "/execute at @s run playsound ender_heart.heart_beat_3 @a[r=15] ~~~ 1 1 0.01" ],
+				
+				"2.1": [ "/execute at @s run playsound ender_heart.heart_beat_2 @a[r=15] ~~~ 1 1 0.01" ],
+				"2.3": [ "/execute at @s run playsound ender_heart.heart_beat_3 @a[r=15] ~~~ 1 1 0.01" ],
+				
+				"2.5": [ "/execute at @s run playsound ender_heart.heart_beat_2 @a[r=15] ~~~ 1 1 0.01" ],
+				"2.7": [ "/execute at @s run playsound ender_heart.heart_beat_3 @a[r=15] ~~~ 1 1 0.01" ]
+			}
+		},
+		"animation.enders_heart_blast.charge_timer_display": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[scores={charge_timer=27}] at @s run title @s actionbar §d2§f:§d7",
+					"/execute as @s[scores={charge_timer=26}] at @s run title @s actionbar §d2§f:§d6",
+					"/execute as @s[scores={charge_timer=25}] at @s run title @s actionbar §d2§f:§d5",
+					"/execute as @s[scores={charge_timer=24}] at @s run title @s actionbar §d2§f:§d4",
+					"/execute as @s[scores={charge_timer=23}] at @s run title @s actionbar §d2§f:§d3",
+					"/execute as @s[scores={charge_timer=22}] at @s run title @s actionbar §d2§f:§d2",
+					"/execute as @s[scores={charge_timer=21}] at @s run title @s actionbar §d2§f:§d1",
+					"/execute as @s[scores={charge_timer=20}] at @s run title @s actionbar §d2§f:§d0",
+					"/execute as @s[scores={charge_timer=19}] at @s run title @s actionbar §d1§f:§d9",
+					"/execute as @s[scores={charge_timer=18}] at @s run title @s actionbar §d1§f:§d8",
+					"/execute as @s[scores={charge_timer=17}] at @s run title @s actionbar §d1§f:§d7",
+					"/execute as @s[scores={charge_timer=16}] at @s run title @s actionbar §d1§f:§d6",
+					"/execute as @s[scores={charge_timer=15}] at @s run title @s actionbar §d1§f:§d5",
+					"/execute as @s[scores={charge_timer=14}] at @s run title @s actionbar §d1§f:§d4",
+					"/execute as @s[scores={charge_timer=13}] at @s run title @s actionbar §d1§f:§d3",
+					"/execute as @s[scores={charge_timer=12}] at @s run title @s actionbar §d1§f:§d2",
+					"/execute as @s[scores={charge_timer=11}] at @s run title @s actionbar §d1§f:§d1",
+					"/execute as @s[scores={charge_timer=10}] at @s run title @s actionbar §d1§f:§d0",
+					"/execute as @s[scores={charge_timer=9}] at @s run title @s actionbar §c0§f:§c9",
+					"/execute as @s[scores={charge_timer=8}] at @s run title @s actionbar §c0§f:§c8",
+					"/execute as @s[scores={charge_timer=7}] at @s run title @s actionbar §c0§f:§c7",
+					"/execute as @s[scores={charge_timer=6}] at @s run title @s actionbar §c0§f:§c6",
+					"/execute as @s[scores={charge_timer=5}] at @s run title @s actionbar §c0§f:§c5",
+					"/execute as @s[scores={charge_timer=4}] at @s run title @s actionbar §c0§f:§c4",
+					"/execute as @s[scores={charge_timer=3}] at @s run title @s actionbar §c0§f:§c3",
+					"/execute as @s[scores={charge_timer=2}] at @s run title @s actionbar §c0§f:§c2",
+					"/execute as @s[scores={charge_timer=1}] at @s run title @s actionbar §c0§f:§c1",
+					"/execute as @s[scores={charge_timer=..0}] at @s run title @s actionbar §c0§f:§c0"
+				]
+			}
+		},
+		"animation.enders_heart_blast.charge_timer_countdown": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={charge_timer=0..}] charge_timer -1"
+				]
+			}
+		},
+		"animation.enders_heart_blast.mana_display": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[scores={ender_heart_mana=100..}] at @s run title @s actionbar §d████",
+					"/execute as @s[scores={ender_heart_mana=75..99}] at @s run title @s actionbar §d███§5█",
+					"/execute as @s[scores={ender_heart_mana=50..74}] at @s run title @s actionbar §d██§5██",
+					"/execute as @s[scores={ender_heart_mana=25..49}] at @s run title @s actionbar §d█§5███",
+					"/execute as @s[scores={ender_heart_mana=..24}] at @s run title @s actionbar §5████" ,
+					"/execute as @s[scores={ender_heart_mana=25..30}] at @s run event entity @s xp:enders_heart.heart_beat" ,
+					"/execute as @s[scores={ender_heart_mana=..24}] at @s run event entity @s xp:remove_enders_heart.heart_beat" 
+				]
+			}
+		},
+		"animation.enders_heart_blast.mana_regen": {
+			"animation_length": 0.25,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={ender_heart_mana=..100}] ender_heart_mana 1",
+					"v.ender_heart_mana = (v.ender_heart_mana <= 100) ? v.ender_heart_mana + 1 : v.ender_heart_mana;",
+
+					"/execute as @s[tag=enders_heart_blast,scores={ender_heart_mana=25}] at @s run playsound ender_heart.heart_beat @a[r=15] ~~~ 0.3 1.85 0.01",
+					"/execute as @s[tag=enders_heart_blast,scores={ender_heart_mana=50}] at @s run playsound ender_heart.heart_beat @a[r=15] ~~~ 0.3 1.85 0.01",
+					"/execute as @s[tag=enders_heart_blast,scores={ender_heart_mana=75}] at @s run playsound ender_heart.heart_beat @a[r=15] ~~~ 0.3 1.85 0.01",
+					"/execute as @s[tag=enders_heart_blast,scores={ender_heart_mana=100}] at @s run playsound ender_heart.heart_beat @a[r=15] ~~~ 0.3 1.85 0.01", 
+
+					"/execute as @s[tag=enders_heart_blast,scores={ender_heart_mana=25..}] at @s run event entity @s xp:enders_heart.has_mana",
+					"/execute as @s[tag=enders_heart_blast,scores={ender_heart_mana=..24}] at @s run event entity @s xp:enders_heart.no_mana"
+				]
+			}
+		},
+		"animation.enders_heart_blast.idle_sfx": {
+			"animation_length": 10,
+			"loop": true,
+			"timeline": {
+				"0.0": [ "/playsound ender_heart.idle @s ~~~ 1 1 1" ]
+			}
+		},
+		"animation.enders_heart_blast.heart_beat": {
+			"animation_length": 1.2,
+			"loop": true,
+			"timeline": {
+				"0.04": [
+					"/execute at @s run playsound dig.stone @a[r=15] ~~~ 0.95 0.4 0.001"
+				],
+				"0.45": [
+					"/execute at @s run playsound dig.stone @a[r=15] ~~~ 0.85 0.3 0.001"
+				]
+			}
+		},
+		"animation.ender_smite.idle_sfx": {
+			"animation_length": 3,
+			"loop": true,
+			"timeline": {
+				"0.0": [ "/playsound ender_smite.eye_idle @s" ]
+			}
+		},
+		"animation.ender_smite.laser": {
+			"animation_length": 0.0125,
+			"loop": true,
+			"timeline": {
+				"0.0": [ "@s xp:ender_smite.laser" ]
+			}
+		},
+		"animation.ender_smite.laser_down": {
+			"animation_length": 0.0125,
+			"loop": true,
+			"timeline": {
+				"0.0": [ "@s xp:ender_smite.laser_down" ]
+			}
+		},
+		"animation.ender_smite.mana_countdown": {
+			"animation_length": 0.005,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={ender_smite_mana=0..}] ender_smite_mana -2",
+					"/scoreboard players set @s[scores={ender_smite_mana=0..21}] ender_smite_mana -20",
+					"v.ender_smite_mana = v.ender_smite_mana - 2;" 
+				]
+			}
+		},
+		"animation.ender_smite.mana_display": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[tag=used_entire_ender_mana,scores={ender_smite_mana=180..}] at @s run tag @s remove used_entire_ender_mana",
+					"/execute as @s[tag=used_entire_ender_mana,scores={ender_smite_mana=179..}] at @s run title @s actionbar §a██████",
+					"/execute as @s[tag=used_entire_ender_mana,scores={ender_smite_mana=179}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.85 0.01",
+					"/execute as @s[tag=used_entire_ender_mana,scores={ender_smite_mana=177..178}] at @s run title @s actionbar §2██████",
+					"/execute as @s[tag=used_entire_ender_mana,scores={ender_smite_mana=175..176}] at @s run title @s actionbar §a██████",
+					"/execute as @s[tag=used_entire_ender_mana,scores={ender_smite_mana=175}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.85 0.01",
+					"/execute as @s[tag=used_entire_ender_mana,scores={ender_smite_mana=173..174}] at @s run title @s actionbar §2██████",
+					"/execute as @s[tag=!used_entire_ender_mana,scores={ender_smite_mana=171..}] at @s run title @s actionbar §a██████",
+					"/execute as @s[scores={ender_smite_mana=140..170}] at @s run title @s actionbar §a█████§2█",
+					"/execute as @s[scores={ender_smite_mana=110..139}] at @s run title @s actionbar §a████§2██",
+					"/execute as @s[scores={ender_smite_mana=80..109}] at @s run title @s actionbar §a███§2███",
+					"/execute as @s[scores={ender_smite_mana=50..79}] at @s run title @s actionbar §a██§2████",
+					"/execute as @s[scores={ender_smite_mana=21..49}] at @s run title @s actionbar §a█§2█████",
+					"/execute as @s[scores={ender_smite_mana=..20}] at @s run title @s actionbar §2██████" 
+				]
+			}
+		},
+		"animation.ender_smite.mana_regen": {
+			"animation_length": 0.15,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={ender_smite_mana=..180}] ender_smite_mana 1",
+					"v.ender_smite_mana = (v.ender_smite_mana <= 180) ? v.ender_smite_mana + 1 : v.ender_smite_mana;",
+
+					"/execute as @s[tag=ender_smite,scores={ender_smite_mana=21}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=ender_smite,scores={ender_smite_mana=50}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=ender_smite,scores={ender_smite_mana=80}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=ender_smite,scores={ender_smite_mana=110}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=ender_smite,scores={ender_smite_mana=140}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=ender_smite,scores={ender_smite_mana=171}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01"
+				]
+			}
+		},
+		"animation.ender_smite.stop_fire_sfx": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/stopsound @s ender_smite.laser_start",
+					"/stopsound @s ender_smite.laser_loop",
+					"/stopsound @s ender_smite.laser_fire"
+				]
+			}
+		},
+		"animation.ender_staff_teleport": {
+			"animation_length": 31,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"/title @s actionbar §d████"
+				],
+				"1": [
+					"/title @s actionbar §d███§5█"
+				],
+				"1.5": [
+					"/title @s actionbar §d██§5██",
+					"/tag @e[type=xp:ender_staff_mark,c=1] add teleport"
+				],
+				"2": [
+					"/title @s actionbar §d█§5███"
+				],
+				"2.5": [
+					"/title @s actionbar §5████"
+				],
+				"3": [
+					"/summon xp:ender_staff_mark ^^0.6^3"
+				],
+				"3.25": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^3"
+				],
+				"4": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^4"
+				],
+				"5": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^5"
+				],
+				"6": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^6"
+				],
+				"7": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^7"
+				],
+				"8": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^8"
+				],
+				"9": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^9"
+				],
+				"10": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^10"
+				],
+				"11": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^11"
+				],
+				"12": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^12"
+				],
+				"13": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^13"
+				],
+				"14": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^14"
+				],
+				"15": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^15"
+				],
+				"16": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^16"
+				],
+				"17": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^17"
+				],
+				"18": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^18"
+				],
+				"19": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^19"
+				],
+				"20": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^20"
+				],
+				"21": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^21"
+				],
+				"22": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^22"
+				],
+				"23": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^23"
+				],
+				"24": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^24"
+				],
+				"25": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^25"
+				],
+				"26": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^26"
+				],
+				"27": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^27"
+				],
+				"28": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^28"
+				],
+				"29": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^29"
+				],
+				"30": [
+					"/tp @e[type=xp:ender_staff_mark] ^^0.6^30"
+				],
+				"31": [
+					"/event entity @e[type=xp:ender_staff_mark,c=1,tag=teleport] xp:despawn_delay"
+				]
+			}
+		},
+		"animation.ender_staff_teleport_block": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.1": [
+					"/execute at @s if block ~ ~ ~ minecraft:bedrock 0 run event entity @s xp:despawn_delay",
+					"/execute at @s if block ~ ~ ~ minecraft:bedrock 0 run event entity @a[tag=ender_staff_user,c=1] xp:ender_staff_teleport_cooldown",
+					"/execute at @s if block ~ ~ ~ minecraft:bedrock 0 run scoreboard players set @a[tag=ender_staff_user,c=1] ender_staff_cd 20",
+
+					"/execute at @s if block ~ ~ ~ minecraft:obsidian 0 run event entity @s xp:despawn_delay",
+					"/execute at @s if block ~ ~ ~ minecraft:obsidian 0 run event entity @a[tag=ender_staff_user,c=1] xp:ender_staff_teleport_cooldown",
+					"/execute at @s if block ~ ~ ~ minecraft:obsidian 0 run scoreboard players set @a[tag=ender_staff_user,c=1] ender_staff_cd 20",
+
+					"/execute at @s if block ~ ~ ~ minecraft:reinforced_deepslate 0 run event entity @s xp:despawn_delay",
+					"/execute at @s if block ~ ~ ~ minecraft:reinforced_deepslate 0 run scoreboard players set @a[tag=ender_staff_user,c=1] ender_staff_cd 20",
+					"/execute at @s if block ~ ~ ~ minecraft:reinforced_deepslate 0 run event entity @a[tag=ender_staff_user,c=1] xp:ender_staff_teleport_cooldown"
+				]
+			}
+		},
+		"animation.ender_staff_teleport_cooldown_decrease": {
+			"animation_length": 1,
+			"loop": true,
+			"timeline": { 
+				"0.9": [
+					"v.ender_staff_cd = v.ender_staff_cd - 1;", 
+					"/execute as @s[scores={ender_staff_cd=0..20}] at @s run scoreboard players add @s ender_staff_cd -1"
+			  	]
+			}
+		},
+		"animation.ender_staff_teleport_cooldown_display": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[scores={ender_staff_cd=16..}] at @s run title @s actionbar §d████",
+					"/execute as @s[scores={ender_staff_cd=11..15}] at @s run title @s actionbar §d███§5█",
+					"/execute as @s[scores={ender_staff_cd=6..10}] at @s run title @s actionbar §d██§5██",
+					"/execute as @s[scores={ender_staff_cd=1..5}] at @s run title @s actionbar §d█§5███",
+					"/execute as @s[scores={ender_staff_cd=..0}] at @s run event entity @s xp:ender_staff_teleport_remove_cooldown"
+				]
+			}
+		},
+		"animation.ender_staff.projectile.no_target": {
+			"animation_length": 0.1,
+			"loop": false,
+			"timeline": {
+				"0.0": [
+					"@s xp:stage_explode"
+				 ]
+			}
+		},
+		"animation.hammer_of_void.mana_regen_display": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[scores={hammer_mana=200..}] at @s run title @s actionbar §d▬▬▬▬▬",
+					"/execute as @s[scores={hammer_mana=160..199}] at @s run title @s actionbar §d▬▬▬▬§5▬",
+					"/execute as @s[scores={hammer_mana=120..159}] at @s run title @s actionbar §d▬▬▬§5▬▬",
+					"/execute as @s[scores={hammer_mana=80..119}] at @s run title @s actionbar §d▬▬§5▬▬▬",
+					"/execute as @s[scores={hammer_mana=40..79}] at @s run title @s actionbar §d▬§5▬▬▬▬",
+					"/execute as @s[scores={hammer_mana=..39}] at @s run title @s actionbar §5▬▬▬▬▬" 
+				]
+			}
+		},
+		"animation.hammer_of_void.mana_regen": {
+			"animation_length": 0.25,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={hammer_mana=..200}] hammer_mana 5",
+					"v.hammer_mana = (v.hammer_mana <= 200) ? v.hammer_mana + 5 : v.hammer_mana;",
+
+					"/execute as @s[scores={hammer_mana=200..}] at @s run event entity @s xp:hammer_of_void.has_mana",
+					"/execute as @s[scores={hammer_mana=..199}] at @s run event entity @s xp:hammer_of_void.no_mana",
+					"/execute as @s[tag=hammer_of_void,scores={hammer_mana=40}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void,scores={hammer_mana=80}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void,scores={hammer_mana=120}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void,scores={hammer_mana=160}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void,scores={hammer_mana=200}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01"
+				]
+			}
+		},
+		"animation.hammer_of_void.charge_timer_display": {
+			"animation_length": 0.25,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[scores={h_charge_timer=30}] at @s run title @s actionbar §d3§f:§d0",
+					"/execute as @s[scores={h_charge_timer=29}] at @s run title @s actionbar §d2§f:§d9",
+					"/execute as @s[scores={h_charge_timer=28}] at @s run title @s actionbar §d2§f:§d8",
+					"/execute as @s[scores={h_charge_timer=27}] at @s run title @s actionbar §d2§f:§d7",
+					"/execute as @s[scores={h_charge_timer=26}] at @s run title @s actionbar §d2§f:§d6",
+					"/execute as @s[scores={h_charge_timer=25}] at @s run title @s actionbar §d2§f:§d5",
+					"/execute as @s[scores={h_charge_timer=24}] at @s run title @s actionbar §d2§f:§d4",
+					"/execute as @s[scores={h_charge_timer=23}] at @s run title @s actionbar §d2§f:§d3",
+					"/execute as @s[scores={h_charge_timer=22}] at @s run title @s actionbar §d2§f:§d2",
+					"/execute as @s[scores={h_charge_timer=21}] at @s run title @s actionbar §d2§f:§d1",
+					"/execute as @s[scores={h_charge_timer=20}] at @s run title @s actionbar §d2§f:§d0",
+					"/execute as @s[scores={h_charge_timer=19}] at @s run title @s actionbar §d1§f:§d9",
+					"/execute as @s[scores={h_charge_timer=18}] at @s run title @s actionbar §d1§f:§d8",
+					"/execute as @s[scores={h_charge_timer=17}] at @s run title @s actionbar §d1§f:§d7",
+					"/execute as @s[scores={h_charge_timer=16}] at @s run title @s actionbar §d1§f:§d6",
+					"/execute as @s[scores={h_charge_timer=15}] at @s run title @s actionbar §d1§f:§d5",
+					"/execute as @s[scores={h_charge_timer=14}] at @s run title @s actionbar §d1§f:§d4",
+					"/execute as @s[scores={h_charge_timer=13}] at @s run title @s actionbar §d1§f:§d3",
+					"/execute as @s[scores={h_charge_timer=12}] at @s run title @s actionbar §d1§f:§d2",
+					"/execute as @s[scores={h_charge_timer=11}] at @s run title @s actionbar §d1§f:§d1",
+					"/execute as @s[scores={h_charge_timer=10}] at @s run title @s actionbar §d1§f:§d0",
+					"/execute as @s[scores={h_charge_timer=9}] at @s run title @s actionbar §c0§f:§c9",
+					"/execute as @s[scores={h_charge_timer=8}] at @s run title @s actionbar §c0§f:§c8",
+					"/execute as @s[scores={h_charge_timer=7}] at @s run title @s actionbar §c0§f:§c7",
+					"/execute as @s[scores={h_charge_timer=6}] at @s run title @s actionbar §c0§f:§c6",
+					"/execute as @s[scores={h_charge_timer=5}] at @s run title @s actionbar §c0§f:§c5",
+					"/execute as @s[scores={h_charge_timer=4}] at @s run title @s actionbar §c0§f:§c4",
+					"/execute as @s[scores={h_charge_timer=3}] at @s run title @s actionbar §c0§f:§c3",
+					"/execute as @s[scores={h_charge_timer=2}] at @s run title @s actionbar §c0§f:§c2",
+					"/execute as @s[scores={h_charge_timer=1}] at @s run title @s actionbar §c0§f:§c1",
+					"/execute as @s[scores={h_charge_timer=..0}] at @s run title @s actionbar §c0§f:§c0"
+				]
+			}
+		},
+		"animation.hammer_of_void.charge_timer_countdown": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={h_charge_timer=0..}] h_charge_timer -1"
+				]
+			}
+		},
+		"animation.hammer_of_void.spin_sfx": {
+			"animation_length": 3.28,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute at @s run playsound hammer_of_void.activate_2 @s ~~~ 0.75 1.5 0.05",
+					"/execute at @s run playsound hammer_of_void.spin_loop @a[r=15] ~~~ 0.75 1 0.05"
+				]
+			}
+		},
+		"animation.hammer_of_void.leap": {
+			"animation_length": 3.85,
+			"loop": true,
+			"timeline": {
+				"0.15": [
+					"/effect @s levitation 1 25 true"
+				],
+				"0.65": [
+					"/teleport @s ~~~"
+				],
+				"0.7": [
+					"/teleport @s ~~~",
+					"@s xp:is_leaping",
+					"/effect @s levitation 0 0 true",
+					"/teleport @s ~~~"
+				],
+				"0.75": [
+					"/effect @s levitation 0 0 true",
+					//"/summon xp:void_hammer_targeter ^^^20",
+					"/teleport @s ~~~"
+				],
+				"3.7": [
+					"@s xp:default_physics"
+				]
+			}
+		},
+		"animation.hammer_of_void.hold_leap": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+				]
+			}
+		},
+		"animation.void_hammer_targeter": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute at @s run tp @e[type=xp:void_hammer_targeter,c=1] ^^-3^25"
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted.mana_regen_display": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[scores={hammer1_mana=200..}] at @s run title @s actionbar §d▬▬▬▬▬",
+					"/execute as @s[scores={hammer1_mana=160..199}] at @s run title @s actionbar §d▬▬▬▬§5▬",
+					"/execute as @s[scores={hammer1_mana=120..159}] at @s run title @s actionbar §d▬▬▬§5▬▬",
+					"/execute as @s[scores={hammer1_mana=80..119}] at @s run title @s actionbar §d▬▬§5▬▬▬",
+					"/execute as @s[scores={hammer1_mana=40..79}] at @s run title @s actionbar §d▬§5▬▬▬▬",
+					"/execute as @s[scores={hammer1_mana=..39}] at @s run title @s actionbar §5▬▬▬▬▬" 
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted.mana_regen": {
+			"animation_length": 0.175,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={hammer1_mana=..200}] hammer1_mana 5",
+					"v.hammer1_mana = (v.hammer1_mana <= 200) ? v.hammer1_mana + 5 : v.hammer1_mana;",
+
+					"/execute as @s[scores={hammer1_mana=200..}] at @s run event entity @s xp:hammer_of_void_enchanted.has_mana",
+					"/execute as @s[scores={hammer1_mana=..199}] at @s run event entity @s xp:hammer_of_void_enchanted.no_mana",
+					"/execute as @s[tag=hammer_of_void_enchanted,scores={hammer1_mana=40}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void_enchanted,scores={hammer1_mana=80}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void_enchanted,scores={hammer1_mana=120}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void_enchanted,scores={hammer1_mana=160}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01",
+					"/execute as @s[tag=hammer_of_void_enchanted,scores={hammer1_mana=200}] at @s run playsound ender_smite.laser_stop @a[r=15] ~~~ 0.3 1.75 0.01"
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted.charge_timer_display": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s[scores={h1_charge_timer=30}] at @s run title @s actionbar §d3§f:§d0",
+					"/execute as @s[scores={h1_charge_timer=29}] at @s run title @s actionbar §d2§f:§d9",
+					"/execute as @s[scores={h1_charge_timer=28}] at @s run title @s actionbar §d2§f:§d8",
+					"/execute as @s[scores={h1_charge_timer=27}] at @s run title @s actionbar §d2§f:§d7",
+					"/execute as @s[scores={h1_charge_timer=26}] at @s run title @s actionbar §d2§f:§d6",
+					"/execute as @s[scores={h1_charge_timer=25}] at @s run title @s actionbar §d2§f:§d5",
+					"/execute as @s[scores={h1_charge_timer=24}] at @s run title @s actionbar §d2§f:§d4",
+					"/execute as @s[scores={h1_charge_timer=23}] at @s run title @s actionbar §d2§f:§d3",
+					"/execute as @s[scores={h1_charge_timer=22}] at @s run title @s actionbar §d2§f:§d2",
+					"/execute as @s[scores={h1_charge_timer=21}] at @s run title @s actionbar §d2§f:§d1",
+					"/execute as @s[scores={h1_charge_timer=20}] at @s run title @s actionbar §d2§f:§d0",
+					"/execute as @s[scores={h1_charge_timer=19}] at @s run title @s actionbar §d1§f:§d9",
+					"/execute as @s[scores={h1_charge_timer=18}] at @s run title @s actionbar §d1§f:§d8",
+					"/execute as @s[scores={h1_charge_timer=17}] at @s run title @s actionbar §d1§f:§d7",
+					"/execute as @s[scores={h1_charge_timer=16}] at @s run title @s actionbar §d1§f:§d6",
+					"/execute as @s[scores={h1_charge_timer=15}] at @s run title @s actionbar §d1§f:§d5",
+					"/execute as @s[scores={h1_charge_timer=14}] at @s run title @s actionbar §d1§f:§d4",
+					"/execute as @s[scores={h1_charge_timer=13}] at @s run title @s actionbar §d1§f:§d3",
+					"/execute as @s[scores={h1_charge_timer=12}] at @s run title @s actionbar §d1§f:§d2",
+					"/execute as @s[scores={h1_charge_timer=11}] at @s run title @s actionbar §d1§f:§d1",
+					"/execute as @s[scores={h1_charge_timer=10}] at @s run title @s actionbar §d1§f:§d0",
+					"/execute as @s[scores={h1_charge_timer=9}] at @s run title @s actionbar §c0§f:§c9",
+					"/execute as @s[scores={h1_charge_timer=8}] at @s run title @s actionbar §c0§f:§c8",
+					"/execute as @s[scores={h1_charge_timer=7}] at @s run title @s actionbar §c0§f:§c7",
+					"/execute as @s[scores={h1_charge_timer=6}] at @s run title @s actionbar §c0§f:§c6",
+					"/execute as @s[scores={h1_charge_timer=5}] at @s run title @s actionbar §c0§f:§c5",
+					"/execute as @s[scores={h1_charge_timer=4}] at @s run title @s actionbar §c0§f:§c4",
+					"/execute as @s[scores={h1_charge_timer=3}] at @s run title @s actionbar §c0§f:§c3",
+					"/execute as @s[scores={h1_charge_timer=2}] at @s run title @s actionbar §c0§f:§c2",
+					"/execute as @s[scores={h1_charge_timer=1}] at @s run title @s actionbar §c0§f:§c1",
+					"/execute as @s[scores={h1_charge_timer=..0}] at @s run title @s actionbar §c0§f:§c0"
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted.charge_timer_countdown": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/scoreboard players add @s[scores={h1_charge_timer=0..}] h1_charge_timer -1"
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted.spin_sfx": {
+			"animation_length": 3.28,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute at @s run playsound hammer_of_void.activate_2 @s ~~~ 0.75 1.5 0.05",
+					"/execute at @s run playsound hammer_of_void.spin_loop @a[r=15] ~~~ 0.75 1 0.05"
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted.leap": {
+			"animation_length": 3.85,
+			"loop": true,
+			"timeline": {
+				"0.15": [
+					"/effect @s levitation 1 30 true"
+				],
+				"0.65": [
+					"/teleport @s ~~~"
+				],
+				"0.7": [
+					"/teleport @s ~~~",
+					"@s xp:is_leaping",
+					"/effect @s levitation 0 0 true",
+					"/teleport @s ~~~"
+				],
+				"0.75": [
+					"/effect @s levitation 0 0 true",
+					//"/summon xp:void_hammer_targeter ^^^20",
+					"/teleport @s ~~~"
+				],
+				"3.7": [
+					"@s xp:default_physics"
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted.hold_leap": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+				]
+			}
+		},
+		"animation.hammer_of_void_enchanted": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute at @s run tp @e[type=xp:void_hammer_targeter,c=1] ^^-3^25"
+				]
+			}
+		}
+	}
+}

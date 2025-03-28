@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_frost_scythe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:frost_scythe"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:frost_scythe"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:frost_scythe", "count": 1 },
+      { "item": "dungeons:frost_scythe", "count": 1 }
+    ]
+  }
+}

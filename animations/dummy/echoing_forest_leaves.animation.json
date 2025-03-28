@@ -1,0 +1,19 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.echoing_forest_particle.check_for_leaves": {
+            "loop": true,
+            "animation_length": 15,
+            "timeline": {
+                "0.1": [
+                    "/scoreboard players set leavesDespawn math 1",
+                    "/execute if block ~ ~1 ~ xp:echoing_thick_leaves run scoreboard players set leavesDespawn math 0",
+                    "/execute if block ~ ~1 ~ xp:echoing_leaves run scoreboard players set leavesDespawn math 0",
+                    "/execute if block ~ ~1 ~ xp:echoing_pome_leaves run scoreboard players set leavesDespawn math 0",
+                    "/execute if block ~ ~1 ~ xp:echoing_pome_thick_leaves run scoreboard players set leavesDespawn math 0",
+                    "/execute if score leavesDespawn math matches 1 run event entity @s xp:instant_despawn"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:mushroom_scarecrow_it",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+            "minecraft:max_stack_size":16,
+			"minecraft:icon": {
+				"textures":{
+               "default":"mushroom_scarecrow_it"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:mushroom_scarecrow",
+				"use_on" : ["minecraft:mycelium","edx:cave_mycelium"]
+			},
+			"minecraft:display_name": {
+                "value": "Mushroom Scarecrow\n§2Cause plant to grow in a 5x5 area when you feed him bonemeal. (can only be placed on mycelium)."
+              }
+		}
+	}
+}

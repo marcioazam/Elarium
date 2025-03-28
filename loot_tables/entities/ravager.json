@@ -1,0 +1,42 @@
+{
+  "pools": [
+    {
+        "rolls": 1,
+        "entries": [
+            {
+                "type": "item",
+                "name": "minecraft:saddle"
+            }
+        ],
+        "conditions": [
+            {
+                "condition": "killed_by_player"
+            }
+        ]
+    },
+    {
+        "conditions": [
+            {
+                "condition": "killed_by_player_or_pets"
+            }
+        ],
+        "rolls": 1,
+        "entries": [
+            {
+                "type": "item",
+                "name": "edx:tin_coin",
+                "functions": [
+                    {
+                        "function": "set_count",
+                        "count":  {
+                            "min": 0,
+                            "max": 2
+
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+  ]
+}

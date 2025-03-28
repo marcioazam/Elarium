@@ -1,0 +1,82 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:mooshroom_monstrosity_awaken_boom",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+	"dungeons:explode": {
+	  "minecraft:explode": {
+		"power": 4,
+		"breaks_blocks": false,
+		"destroy_affected_by_griefing": false,
+		"causes_fire": false,
+		"fire_affected_by_griefing": false,
+		"fuse_length": 0.001,
+		"fuse_lit": true
+        }
+	}
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate"
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "pivot": [0, 1000, 0],
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval":true,
+        "time": [0.1, 0.2],
+        "time_down_event": {
+          "event": "dungeons:explode"
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:collision_box": {
+        "width": 0.001,
+        "height": 0.001
+      },
+      "minecraft:tick_world": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "dungeons:explode": {
+          "add": {
+            "component_groups": [
+              "dungeons:explode"
+            ]
+          }
+        }
+      }
+   }
+}

@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:magic_axe",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"magic_axe"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "magic_axe"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dMagic axe \n§5Artifact\n§6Summon a flying axe that attacks monsters when you reach 3 hearts or less\n§430 seconds cooldown"
+			  }
+		}
+	}
+}

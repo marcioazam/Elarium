@@ -1,0 +1,16 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "edx:void_fossil_feature"
+		},
+
+		"places_block": "edx:void_fossil_ore",
+		"may_replace": [
+			"minecraft:end_stone","edx:void_stone"
+		  ],
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false
+	}
+}

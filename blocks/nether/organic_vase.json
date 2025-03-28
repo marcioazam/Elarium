@@ -1,0 +1,133 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:organic_vase",
+			"states": {
+				"edx:stage": [0,1,2,3,4]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:organic_vase_tick"],
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0
+            },
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": {
+				"origin": [-8, 0, -8],
+				"size": [16, 16, 16]
+			  }, 
+			  "tag:no_silktouch": {},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": ["soul_soil"]
+					}
+				]
+			},
+			"minecraft:light_dampening": 0
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('edx:stage') == 0",
+				"components": {
+					"minecraft:geometry": "geometry.organic_vase0",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "organic_vase0",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-5, 0, -5],
+						"size": [10, 7, 10]
+					  }
+					  
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 1",
+				"components": {
+					
+					"minecraft:geometry": "geometry.organic_vase1",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "organic_vase1",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-5, 0, -5],
+						"size": [10, 12, 10]
+					  }
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 2",
+				"components": {
+					
+					"minecraft:geometry": "geometry.organic_vase2",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "organic_vase2",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-5, 0, -5],
+						"size": [10, 16, 10]
+					  }
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 3",
+				"components": {
+					
+					"minecraft:geometry": "geometry.organic_vase3",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "organic_vase3",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-5, 0, -5],
+						"size": [10, 16, 10]
+					  }
+				}
+			},
+			{
+				"condition": "query.block_state('edx:stage') == 4",
+				"components": {
+					"minecraft:custom_components": ["edx:organic_vase_destroy"],
+					"minecraft:geometry": "geometry.organic_vase4",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "organic_vase4", 
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [-6, 0, -6],
+						"size": [12, 16, 12]
+					  },
+					  "minecraft:loot": "loot_tables/blocks/organic_vase.json"
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_winters_touch"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:winters_touch"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:winters_touch"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:winters_touch", "count": 1 },
+      { "item": "dungeons:winters_touch", "count": 1 }
+    ]
+  }
+}

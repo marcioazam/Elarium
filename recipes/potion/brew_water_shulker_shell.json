@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "edx:brew_water_shulker_shell"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "minecraft:potion_type:water",
+    "reagent": "minecraft:shulker_shell",
+    "output": "minecraft:potion_type:mundane"
+  }
+
+}

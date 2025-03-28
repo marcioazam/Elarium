@@ -1,0 +1,58 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+      "description": {
+          "identifier": "xp:echo_rays",
+          "is_spawnable": false,
+          "is_summonable": true
+      },
+      "components": {
+          "minecraft:physics": {"has_collision": false, "has_gravity": false},
+          "minecraft:scale": { "value": 1 },
+          "minecraft:type_family": {
+              "family": [
+                  "dummy", "ambient"
+              ]
+          },
+          "minecraft:health": {
+              "value": 1,
+              "min": 1,
+              "max": 1
+          },
+          "minecraft:damage_sensor": {
+            "triggers": [
+                {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            ]
+          },
+          "minecraft:knockback_resistance": {
+              "value": 1,
+              "max": 1
+          },
+          "minecraft:collision_box": {
+              "height": 0,
+              "width": 0
+          },
+          "minecraft:timer": {
+            "time": 120,
+            "looping": true,
+            "time_down_event": {
+                "event": "xp:despawn",
+                "target": "self"
+            }
+          }
+      },
+
+      "component_groups": {
+        "xp:despawn": { "minecraft:instant_despawn": {} },
+        "xp:rot_1": { "minecraft:is_baby": {} }
+      },
+  
+      "events": {
+        "xp:rot_1": { "add": { "component_groups": ["xp:rot_1"] } },
+        "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } }
+      }
+  }
+}

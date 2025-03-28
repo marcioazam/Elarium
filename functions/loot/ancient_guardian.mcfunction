@@ -1,0 +1,1 @@
+loot spawn ~~2~ loot "chests/diamond_chest/ancient_guardian"

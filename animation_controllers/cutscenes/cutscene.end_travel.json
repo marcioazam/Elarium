@@ -1,0 +1,360 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    //To End
+    "controller.animation.cutscene.end_travel.to_end": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "travel": "q.property('xp:end_travel.to_end')" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "v.travel_time = q.life_time;",
+
+            "/inputpermission set @s camera disabled",
+            "/inputpermission set @s movement disabled",
+
+            "/playsound end_portal.tp_success_1 @s ~~~ 1 1 0.5",
+            "/title @s title xp_cutscene",
+            "/title @s actionbar xp_hud.end_travel_fade",
+            "/execute in the_end run tickingarea add -10 0 10 11 10 -10 black_box true",
+            "/execute in the_end run fill -10 0 10 11 10 -10 xp:black_block 0 hollow",
+            "/gamemode spectator @s",
+            
+            "/execute at @e[type=xp:game_manager.spawn] run particle xp:end_portal.spawn_glow ~~6.75~",
+            "/execute at @e[type=xp:game_manager.spawn] run particle xp:end_portal.spawn ~~6.25~",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15",
+
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15"
+          ]
+        },
+
+        //Reset
+        "reset": {
+          "transitions": [
+            { "default": "(q.life_time - v.travel_time) > 0.15" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "v.travel_time = q.life_time;",
+
+            "/inputpermission set @a camera enabled",
+            "/inputpermission set @a movement enabled",
+
+            "/playanimation @e[type=xp:gateway] animation.spawn_warp.teleport_in",
+            "/gamemode s @s",
+            "/title @s title xp_clear",
+            "/tag @s remove in_cutscene",
+            "/tag @a remove to_end",
+            "/tickingarea remove black_box",
+            "@s xp:end_travel.reset_to_end",
+
+            "/particle xp:gateway.enter_bits ~~2.25~",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15",
+
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15"
+          ]
+        },
+
+        //Travel Sequence
+        "travel": {
+          "animations": [
+            "end_travel.travel",
+            "end_travel.travel_effects"
+          ],
+          "transitions": [
+            { "reset": "!q.property('xp:end_travel.to_end') || (q.life_time - v.travel_time) >= 10.25" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;",
+            "/playsound end_portal.travel_ambient @s ~~~ 1 1.35 0.1",
+
+            "/title @s title xp_cutscene",
+            "/tag @s add in_cutscene",
+            "/tag @s add to_end",
+            "/execute in the_end run tickingarea add -10 0 10 11 10 -10 black_box true"
+          ],
+          "on_exit": [
+            "/execute in the_end run tp @s -151 61.75 15 facing -130 55.5 15"
+          ]
+        }
+      }
+    },
+
+    //To Endboss
+    "controller.animation.cutscene.end_travel.to_endboss": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "travel": "q.property('xp:end_travel.to_endboss')" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "v.travel_time = q.life_time;",
+
+            "/inputpermission set @s camera disabled",
+            "/inputpermission set @s movement disabled",
+
+            "/playsound end_portal.tp_success_1 @s ~~~ 1 1 0.5",
+            "/title @s title xp_cutscene",
+            "/title @s actionbar xp_hud.end_travel_fade",
+            "/execute in the_end run tickingarea add -160 9 2080 -170 15 2090 black_box true",
+            "/execute in the_end run fill -160 9 2080 -170 15 2090 xp:black_block [] hollow",
+            "/execute in the_end run tp @s -163 10 2082 90 0",
+            "/gamemode spectator @s"
+          ]
+        },
+
+        //Reset
+        "reset": {
+          "transitions": [
+            { "default": "(q.life_time - v.travel_time) > 0.15" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "v.travel_time = q.life_time;",
+
+            "/inputpermission set @a camera enabled",
+            "/inputpermission set @a movement enabled",
+
+            "/gamemode s @s",
+            "/title @s title xp_clear",
+            "/tag @s remove in_cutscene",
+            "/tag @s remove to_endboss",
+            "/tickingarea remove black_box",
+            "@s xp:end_travel.reset_to_endboss",
+
+            "/particle xp:gateway.enter_bits ~~2.25~"
+          ]
+        },
+
+        //Travel Sequence
+        "travel": {
+          "animations": [
+            "endboss_travel.travel",
+            "endboss_travel.travel_effects"
+          ],
+          "transitions": [
+            { "reset": "!q.property('xp:end_travel.to_endboss') || (q.life_time - v.travel_time) >= 10.25" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;",
+            "/playsound end_portal.travel_ambient @s ~~~ 1 1.35 0.1",
+            
+            "/title @s title xp_cutscene",
+            "/tag @s add in_cutscene",
+            "/tag @s add to_endboss"
+          ],
+          "on_exit": [
+            "/execute in the_end run tp @s -166 182 2082 180 0",
+            "/execute in the_end run effect @s resistance 3 10 true"
+          ]
+        }
+      }
+    },
+
+    //To Respawn Auger
+    "controller.animation.cutscene.end_travel.to_respawn_auger": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "travel": "q.property('xp:end_travel.to_respawn_auger')" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "v.travel_time = q.life_time;",
+
+            "/inputpermission set @s camera disabled",
+            "/inputpermission set @s movement disabled",
+
+            "/playsound end_portal.tp_success_1 @s ~~~ 1 1 0.5",
+            "/title @s title xp_cutscene",
+            "/title @s actionbar xp_hud.end_travel_fade",
+            "/execute in the_end run fill -170 0 2072 -195 20 2092 xp:black_block [] hollow",
+            "/execute in the_end run tp @s -177 10 2082 90 0",
+            "/gamemode spectator @s"
+          ]
+        },
+
+        //Reset
+        "reset": {
+          "transitions": [
+            { "default": "(q.life_time - v.travel_time) > 0.15" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "v.travel_time = q.life_time;",
+
+            "/inputpermission set @a camera enabled",
+            "/inputpermission set @a movement enabled",
+
+            "/gamemode s @s",
+            "/title @s title xp_clear",
+            "/tag @s remove in_cutscene",
+            "/tag @s remove to_respawn_auger",
+            "@s xp:end_travel.reset_to_respawn_auger",
+
+            "/particle xp:gateway.enter_bits ~~2.25~",
+            "/playsound defeat @s ~ ~ ~"
+          ]
+        },
+
+        //Travel Sequence
+        "travel": {
+          "animations": [
+            "respawn_auger_travel.travel",
+            "respawn_auger_travel.travel_effects"
+          ],
+          "transitions": [
+            { "reset": "!q.property('xp:end_travel.to_respawn_auger') || (q.life_time - v.travel_time) >= 10.25" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;",
+            "/playsound end_portal.travel_ambient @s ~~~ 1 1.35 0.1",
+            
+            "/title @s title xp_cutscene",
+            "/tag @s add in_cutscene",
+            "/tag @s add to_respawn_auger"
+          ],
+          "on_exit": [
+            "/event entity @e[type=xp:heart_of_ender_respawn_auger] xp:despawn",
+            "/execute in the_end run function respawn_auger/tp_to_auger"
+          ]
+        }
+      }
+    },
+
+    //To Overworld
+    "controller.animation.cutscene.end_travel.to_overworld": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "travel": "q.property('xp:end_travel.to_overworld')" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "v.travel_time = q.life_time;",
+
+            "/inputpermission set @s camera disabled",
+            "/inputpermission set @s movement disabled",
+
+            "/playanimation @e[type=xp:gateway] animation.spawn_warp.teleport_in",
+            "/playsound end_portal.tp_success_1 @s ~~~ 1 1 0.5",
+            
+            "/title @s title xp_cutscene",
+            "/title @s actionbar xp_hud.end_travel_fade_1",
+            "/execute in the_end run tickingarea add -10 0 10 11 10 -10 black_box true",
+            "/execute in the_end run fill -10 0 10 11 10 -10 xp:black_block 0 hollow",
+            "/gamemode spectator @s",
+
+            "/execute at @s if entity @e[type=xp:conduit,r=3,c=1] run tag @s add conduit_gateway",
+
+            "/execute at @e[type=xp:conduit,r=3,c=1] run playsound gateway.enter_end @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:conduit,r=3,c=1] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:conduit,r=3,c=1] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15",
+
+            "/execute at @e[type=xp:conduit,r=3,c=1] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:conduit,r=3,c=1] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:conduit,r=3,c=1] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15"
+          ]
+        },
+
+        //Reset
+        "reset": {
+          "transitions": [
+            { "default": "(q.life_time - v.travel_time) > 0.3" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;"
+          ],
+          "on_exit": [
+            "/inputpermission set @a camera enabled",
+            "/inputpermission set @a movement enabled",
+
+            "/title @s title xp_clear",
+            "/title @s actionbar xp_hud.end_travel_fade",
+            "/execute in overworld run tp @s -1354 5.75 -1409 0 9",
+            "/tag @s remove in_cutscene",
+            "/tag @a remove to_overworld",
+            "/tickingarea remove black_box",
+            "@s xp:end_travel.reset_to_overworld",
+            "/gamemode s @s",
+
+            "/particle xp:gateway.enter_bits ~~2.25~",
+            "/execute at @e[type=xp:game_manager.spawn] run particle xp:end_portal.spawn_glow ~~6.75~",
+            "/execute at @e[type=xp:game_manager.spawn] run particle xp:end_portal.spawn ~~6.25~",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15",
+
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:game_manager.spawn] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15",
+
+            "/event entity @s[tag=\"conduit_gateway\",tag=!\"ach_114\"] xp:achievements.114"
+          ]
+        },
+
+        //Travel Sequence
+        "travel": {
+          "animations": [
+            "end_travel.travel",
+            "end_travel.travel_effects"
+          ],
+          "transitions": [
+            { "reset": "!q.property('xp:end_travel.to_overworld') || (q.life_time - v.travel_time) >= 10.25" }
+          ],
+          "on_entry": [
+            "v.travel_time = q.life_time;",
+            "/playsound end_portal.travel_ambient @a ~~~ 1 1.65 0.1",
+
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15",
+
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,r=20] ~~6~ 0.75 1 0.4",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=20,r=50] ~~6~ 0.45 1 0.25",
+            "/execute at @e[type=xp:gateway] run playsound gateway.enter_end_thunder @a[x=~,y=~5,z=~,rm=50,r=100] ~~6~ 0.25 1 0.15",
+
+            "/title @s title xp_cutscene",
+            "/tag @s add in_cutscene",
+            "/tag @s add to_overworld",
+            "/execute in the_end run tickingarea add -10 140 335 -30 160 355 black_box true",
+            "/execute in the_end run fill -10 140 335 -30 160 355 xp:black_block 0 hollow"
+          ],
+          "on_exit": [
+            "/execute in overworld run tp @s -1354 5.75 -1409 0 9",
+            "/fog @s remove dragon_fog"
+          ]
+        }
+      }
+    }
+  }
+}

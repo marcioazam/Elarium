@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+	"identifier": "edx:void_fossil_block",
+	"menu_category": {
+	  "category": "construction"
+	}
+  },
+  "components": {
+	"tag:edx:stone": {},
+	  "minecraft:destructible_by_mining": {
+		"seconds_to_destroy": 20
+	  }, 
+	  "minecraft:destructible_by_explosion": {
+		"explosion_resistance": 30
+	  },
+	  "minecraft:map_color": "#0f0c0f",
+	  "minecraft:collision_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  },
+	  "minecraft:selection_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  }
+  }
+	}
+}

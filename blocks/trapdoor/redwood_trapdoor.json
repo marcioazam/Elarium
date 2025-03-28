@@ -1,0 +1,151 @@
+// thx kaioga for templates <3
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+      "description": {
+        "identifier": "edx:redwood_trapdoor",
+        "menu_category": {
+          "category": "construction",
+          "group": "itemGroup.name.trapdoor"
+        },
+        "traits": {
+          "minecraft:placement_position": {
+            "enabled_states": ["minecraft:vertical_half"]
+          },
+          "minecraft:placement_direction": {
+            "enabled_states": ["minecraft:cardinal_direction"]
+          }
+        },
+        "states": {
+          "edx:open": [false, true]
+        }
+      },
+      "permutations": [
+        // Top Closed
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'north' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 0, 180] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'south' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [180, 0, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'east' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [180, -270, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'west' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [180, 270, 0] }
+          }
+        },
+        // Top Open
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [-270, 0, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [270, 0, -180] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 270, 90] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'top' && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": {
+              "rotation": [180, -270, -270]
+            }
+          }
+        },
+        // Bottom Closed
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'north' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 0, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'south' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 180, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'east' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, 270, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'west' && !q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, -270, 0] }
+          }
+        },
+        // Bottom Open
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [90, 0, 180] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [270, 0, 0] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [0, -270, 90] }
+          }
+        },
+        {
+          "condition": "q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('edx:open')",
+          "components": {
+            "minecraft:transformation": { "rotation": [180, 270, -270] }
+          }
+        }
+      ],
+      "components": {
+        "tag:wood": {},
+        "minecraft:collision_box": {
+          "origin": [-8, 0, -8],
+          "size": [16, 3, 16]
+        },
+        "minecraft:selection_box": {
+          "origin": [-8, 0, -8],
+          "size": [16, 3, 16]
+        },
+        "minecraft:destructible_by_mining": {
+            "seconds_to_destroy": 2
+        },
+        "minecraft:custom_components": ["edx:trapdoor_on_interact"],
+        "minecraft:geometry": "geometry.trapdoor",
+        "minecraft:material_instances": {
+          "*": {
+            "texture": "redwood_trapdoor",
+            "render_method": "blend"
+          }
+        }
+      }
+    }
+  }
+  

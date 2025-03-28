@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:mossy_diorite_brick_stairs"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "W",
+            "WW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:mossy_diorite_brick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:mossy_diorite_brick"
+            }
+        ],
+        "result": {
+            "item": "edx:mossy_diorite_brick_stairs",
+            "count": 4
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "edx:void_ruin1"
+    },
+    "structure_name": "mystructure:Void_ruin1",
+    "adjustment_radius": 10,
+    "facing_direction": "random",
+    "constraints": {
+      "grounded": {},
+      "block_intersection": {
+				"block_whitelist": [
+					"minecraft:air",
+          "edx:void_dust",
+          "edx:void_grass"
+				]
+			}
+     
+    }
+  }
+}

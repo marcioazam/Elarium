@@ -1,0 +1,20 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "xp:dark_purpur_chiseled_from_cracked"
+        },
+        "tags": [ "crafting_table" ],
+        "pattern": [
+            "AA",
+            "AA"
+        ],
+        "key": {
+            "A": { "item": "xp:dark_purpur_chiseled_cracked" }
+        },
+        "result": {
+            "item": "xp:dark_purpur_chiseled",
+            "count": 4
+        }
+    }
+}

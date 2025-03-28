@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:void_bricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:void_stone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:void_stone"
+      }
+    ],
+    "result": {
+      "item": "edx:void_bricks",
+      "count": 4
+    }
+  }
+  
+}

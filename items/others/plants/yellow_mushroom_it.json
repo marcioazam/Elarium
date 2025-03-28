@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:yellow_mushroom_it",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+
+			"minecraft:icon": {
+				"textures":{
+               "default":"yellow_mushroom_it"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:yellow_mushroom",
+				"use_on" : ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_vine","edx:mycelium_grass"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

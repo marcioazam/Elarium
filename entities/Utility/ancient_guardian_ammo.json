@@ -1,0 +1,75 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:ancient_guardian_ammo",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.4
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": [ 5, 7 ],
+            "knockback": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": false
+          }
+        },
+        "power": 1.75,
+        "gravity": 0,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "uncertainty_base": 0,
+        "anchor": 2,
+        "offset": [
+          0,
+          0.5,
+          0
+        ],
+        "semi_random_diff_damage": true,
+        "uncertainty_base": 0,
+        "reflect_on_hurt": false
+      },
+      "minecraft:physics": {},
+      "minecraft:timer": {
+        "looping": false,
+        "time": 5,
+        "time_down_event": {
+          "event": "dungeons:despawn"
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

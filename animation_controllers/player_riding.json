@@ -1,0 +1,26 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_riding": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @s remove riding"
+					  ],
+					"transitions":[
+						{"bow1":"query.is_riding == 1.0"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/tag @s add riding"
+					  ],
+					"transitions":[
+						
+						{"default":"query.is_riding == 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

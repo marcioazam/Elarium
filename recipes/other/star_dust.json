@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:star_dust"
+    },
+
+    
+    "tags": [ "crafting_table", "workbench" ],
+    "ingredients": [
+      {
+        "item": "minecraft:nether_star"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:nether_star"
+      }
+    ],
+    "result": {
+      "item": "edx:star_dust",
+      "count":32
+    }
+  }
+}

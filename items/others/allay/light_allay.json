@@ -1,0 +1,23 @@
+{
+   "format_version": "1.21.10",
+   "minecraft:item": {
+      "description": {
+         "identifier": "edx:light_allay_bottle",
+         "menu_category": {
+				"category":"items"
+			}
+		},
+      "components": {
+         "minecraft:custom_components": ["edx:light_allay_bottle"],
+         "minecraft:max_stack_size": 1,
+         "minecraft:icon": {
+            "textures":{
+               "default":"light_allay_bottle"
+         }
+         },
+         "minecraft:display_name": {
+            "value": "Light allay in a bottle\nRight click:Summon an allay\nSneak + right click:Summon a tamed allay"
+         }
+      }
+   }
+}

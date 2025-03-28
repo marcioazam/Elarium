@@ -1,0 +1,12 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:luminescent_crystal_random"
+    },
+    "features": [
+      [ "edx:luminescent_crystal_scatter", 1 ],
+      [ "edx:nothing_feature", 1 ]
+    ]
+  }
+}

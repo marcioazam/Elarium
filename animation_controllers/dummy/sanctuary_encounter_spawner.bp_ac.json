@@ -1,0 +1,23 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.sanctuary_encounter_spawner.spawn_controller": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "detection": "q.is_stunned" }
+                    ]
+                },
+                "detection": {
+                    "on_entry": [
+                        "/function mob_spawning/broken_sanctuary_spawner/encounter"
+                    ],
+                    "transitions": [
+                        { "default": "!q.is_stunned" }
+                    ]
+                }
+            }
+        }
+    }
+}

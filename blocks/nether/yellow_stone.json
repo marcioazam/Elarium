@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:yellowstone",
+			"menu_category":
+			{
+				"group": "itemGroup.name.stone",
+				"category": "nature"
+			}
+		},
+		"components": {
+			"tag:edx:wooden_pick": {},
+			"minecraft:map_color": "#efd226",
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 6
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 20
+            }
+		}
+	}
+}

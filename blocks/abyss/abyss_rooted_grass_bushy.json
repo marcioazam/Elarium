@@ -1,0 +1,34 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:abyss_rooted_grass_bushy",
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:friction": 0.8,
+      "minecraft:loot": "loot_tables/leaves/abyss.json",
+      "minecraft:geometry": "geometry.abyss_rooted_grass_bushy",
+      "minecraft:material_instances": {
+        "dirt": {
+          "ambient_occlusion": true,
+          "face_dimming": true,
+          "texture": "diamond_block",
+          "render_method": "alpha_test"
+        },
+        "*": {
+          "ambient_occlusion": true,
+          "face_dimming": true,
+          "texture": "abyss_grass_bushy",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:map_color": "#250937",
+      "minecraft:light_dampening": 5,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.7
+      }
+    }
+  }
+}

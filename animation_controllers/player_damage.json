@@ -1,0 +1,24 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_damage": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"bow1":"query.hurt_time > 0"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/event entity @s on_damage",
+						"/say aaaa"
+					  ],
+					"transitions":[
+						
+						{"default":"query.hurt_time == 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

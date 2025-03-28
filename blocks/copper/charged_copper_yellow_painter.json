@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+  "identifier": "edx:charged_copper_yellow_painter",
+  "menu_category": {
+    "category": "construction",
+    "group": "itemGroup.name.copper"
+  }
+},
+"components": { 
+    "minecraft:destructible_by_mining": {
+      "seconds_to_destroy": 10
+    },
+    "tag:stone": {},
+    "minecraft:map_color": "#c87456",
+    "tag:charged_copper": {},
+    "minecraft:collision_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:selection_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:custom_components": [
+      "edx:copper_particle"
+    ]
+}
+  }
+}

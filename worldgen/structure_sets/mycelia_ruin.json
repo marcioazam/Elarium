@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "dungeons:mycelia_ruin"
+		},
+		
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 8042024,
+			"separation": 6,
+			"spacing": 13
+		},
+		"structures": [
+			{
+				"structure": "dungeons:mycelia_ruin",
+				"weight": 1
+			}
+		]
+	}
+}

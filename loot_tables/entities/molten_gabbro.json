@@ -1,0 +1,38 @@
+{
+    "pools": [
+       
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "edx:molten_gabbro",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "condition": "killed_by_player_or_pets"
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "edx:copper_coin",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count":  {
+                                "min": 1,
+                                "max": 3
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

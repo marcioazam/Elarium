@@ -1,0 +1,29 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_sleep": {
+			"states": {
+				"default": {
+					
+					"transitions":[
+						{"bow1":"query.is_sleeping == 1.0 "}
+					]
+				},
+				"bow1": {
+					"on_exit": [
+						"/tag @s remove sleep",
+						"/scoreboard players set @s[tag=noinsomnia] Dreamlike_pendant 6000"
+					  ],
+					"on_entry": [
+						"/tag @s add sleep",
+						"/execute as @s[tag=noinsomnia] run time set 23950"
+					  ],
+					"transitions":[
+						
+						{"default":"query.is_sleeping == 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

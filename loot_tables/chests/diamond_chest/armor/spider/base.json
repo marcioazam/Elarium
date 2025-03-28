@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/spider/helmet.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/spider/chestplate.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/spider/leggings.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/spider/boots.json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:enchanted_socks",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"enchanted_socks"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "enchanted_socks"
+				} 
+			},
+			"minecraft:glint": {
+                "value": true
+            },
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dEnchanted socks \n§5Artifact\n§6+20/Percent movement speed(this effect can be combined with speed potions)"
+			  }
+		}
+	}
+}

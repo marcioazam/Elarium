@@ -1,0 +1,175 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:sanctuary_spawner",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "controller": "controller.animation.sanctuary_spawner.spawn_controller",
+                "check_for_player_5x5": "animation.sanctuary_spawner.check_for_player_5x5",
+                "check_for_player_7x7": "animation.sanctuary_spawner.check_for_player_7x7",
+                "check_for_player_9x9": "animation.sanctuary_spawner.check_for_player_9x9",
+                "check_for_player_3x3_ruins": "animation.sanctuary_spawner.check_for_player_3x3_ruins",
+                "spawn_cooldown": "animation.sanctuary_spawner.spawn_cooldown"
+            },
+            "scripts": {
+                "animate": [
+                    "controller",
+                    { "check_for_player_5x5": "q.is_stunned && q.variant == 1" },
+                    { "check_for_player_7x7": "q.is_stunned && q.variant == 2" },
+                    { "check_for_player_9x9": "q.is_stunned && q.variant == 3" },
+                    { "check_for_player_3x3_ruins": "q.is_stunned && q.variant == 4" }
+                ]
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:target_nearby_sensor": {
+                "must_see": false,
+                "inside_range": 5,
+                "outside_range": 7,
+                "on_inside_range": {
+                    "event": "xp:check_for_player",
+                    "target": "self"
+                },
+                "on_outside_range": {
+                    "event": "xp:remove_check_for_player",
+                    "target": "self"
+                }
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "attack_interval": 0,
+                "attack_interval_min": 0,
+                "must_reach": false,
+                "must_see": false,
+                "persist_time": 0,
+                "reselect_targets": false,
+                "scan_interval": 20,
+                "set_persistent": false,
+                "target_invisible_multiplier": 0.7,
+                "target_search_height": -1,
+                "target_sneak_visibility_multiplier": 0.8,
+                "within_radius": 0,
+                "entity_types": {
+                    "filters": {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                    },
+                    "max_dist": 32
+                }
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "xp:check_for_player": {
+                "minecraft:is_stunned": {}
+            },
+            "xp:detected_player": {
+                "minecraft:is_illager_captain": {}
+            },
+            "xp:5x5": {
+                "minecraft:variant": { "value": 1 }
+            },
+            "xp:7x7": {
+                "minecraft:variant": { "value": 2 }
+            },
+            "xp:9x9": {
+                "minecraft:variant": { "value": 3 }
+            },
+            "xp:3x3_ruins": {
+                "minecraft:variant": { "value": 4 }
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            },
+            "xp:5x5": {
+                "add": {
+                    "component_groups": [
+                        "xp:5x5"
+                    ]
+                }
+            },
+            "xp:7x7": {
+                "add": {
+                    "component_groups": [
+                        "xp:7x7"
+                    ]
+                }
+            },
+            "xp:9x9": {
+                "add": {
+                    "component_groups": [
+                        "xp:9x9"
+                    ]
+                }
+            },
+            "xp:3x3_ruins": {
+                "add": {
+                    "component_groups": [
+                        "xp:3x3_ruins"
+                    ]
+                }
+            },
+            "xp:check_for_player": {
+                "add": {
+                    "component_groups": [
+                        "xp:check_for_player"
+                    ]
+                }
+            },
+            "xp:remove_check_for_player": {
+                "remove": {
+                    "component_groups": [
+                        "xp:check_for_player"
+                    ]
+                }
+            },
+            "xp:detected_player": {
+                "add": {
+                    "component_groups": [
+                        "xp:detected_player"
+                    ]
+                }
+            },
+            "xp:remove_detected_player": {
+                "remove": {
+                    "component_groups": [
+                        "xp:detected_player"
+                    ]
+                }
+            }
+        }
+    }
+}

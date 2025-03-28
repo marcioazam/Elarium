@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:sculk_cabin_random"
+    },
+    "features": [
+      [ "edx:sculkc1", 1 ],
+      [ "edx:sculkc2", 1 ],
+      [ "edx:nothing_feature", 20 ]
+    ]
+  }
+}

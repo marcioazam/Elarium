@@ -1,0 +1,56 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:glow_squid_helmet",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:glow_squid_chestplate",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:glow_squid_leggings",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:glow_squid_boots",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    }
+  ]
+}

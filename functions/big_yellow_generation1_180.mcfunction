@@ -1,0 +1,2 @@
+execute if block ~~~ edx:big_yellow_tree_block run execute if block ~-2~-2~-2 air run execute if block ~2~-2~2 air run structure load big_yellow_mush1 ~-2~~-2 180_degrees
+fill ~~~ ~~~ air replace edx:big_yellow_tree_block

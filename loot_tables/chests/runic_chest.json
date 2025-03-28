@@ -1,0 +1,193 @@
+{
+    "pools": [
+        {
+            "rolls": {
+                "min": 5,
+                "max": 10.0
+            },
+            "bonus_rolls": 0,
+            "entries": [
+                {
+                    "type": "item",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1.0
+                            },
+                            "add": false
+                        }
+                    ],
+                    "name": "minecraft:enchanted_golden_apple",
+                    "weight": 2
+                },
+                {
+                    "type": "item",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 3.0
+                            }
+                        }
+                    ],
+                    "name": "minecraft:golden_apple",
+                    "weight": 70
+                },
+                {
+                    "type": "item",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 2.0
+                            }
+                        }
+                    ],
+                    "name": "edx:nickel_ingot",
+                    "weight": 60
+                },
+                {
+                    "type": "item",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1.0
+                            }
+                        }
+                    ],
+                    "name": "edx:runestone",
+                    "weight": 5
+                },
+                {
+                    "type": "item",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1.0
+                            },
+                            "add": false
+                        },
+                        {
+                            "function": "enchant_with_levels",
+                            "levels": {
+                                "min": 10,
+                                "max": 25.0
+                            },
+                            "treasure": true
+                        }
+                    ],
+                    "name": "minecraft:bow",
+                    "weight": 5
+                },
+                {
+                    "type": "item",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": 1,
+                            "add": false
+                        },
+                        {
+                            "function": "set_damage",
+                            "damage": {
+                                "min": 0.8,
+                                "max": 1.0
+                            },
+                            "add": false
+                        },
+                        {
+                            "function": "enchant_with_levels",
+                            "levels": {
+                                "min": 10,
+                                "max": 30.0
+                            },
+                            "treasure": true
+                        }
+                    ],
+                    "name": "edx:warped_nickel_shovel"
+                },
+                {
+                    "type": "item",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": 1,
+                            "add": false
+                        },
+                        {
+                            "function": "set_damage",
+                            "damage": {
+                                "min": 0.8,
+                                "max": 1.0
+                            },
+                            "add": false
+                        },
+                        {
+                            "function": "enchant_with_levels",
+                            "levels": {
+                                "min": 30,
+                                "max": 50.0
+                            },
+                            "treasure": true
+                        }
+                    ],
+                    "name": "edx:warped_nickel_axe"
+                },
+                {
+                    "type": "item",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "enchant_with_levels",
+                            "levels": {
+                                "min": 10,
+                                "max": 20.0
+                            },
+                            "treasure": true
+                        }
+                    ],
+                    "name": "edx:nickel_helmet"
+                },
+                {
+                    "type": "item",
+                    "weight": 30,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 10
+                            }
+                        }
+                    ],
+                    "name": "minecraft:experience_bottle"
+                },
+                {
+                    "type": "item",
+                    "weight": 25,
+                    "functions": [
+                        {
+                            "function": "enchant_with_levels",
+                            "levels": {
+                                "min": 5,
+                                "max": 20.0
+                            }
+                        }
+                    ],
+                    "name": "minecraft:book"
+                }
+               
+            ]
+        }
+    ]
+}

@@ -1,0 +1,429 @@
+{
+  "pools": [
+    {
+      "rolls": 10,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:bread",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cooked_porkchop",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_chestplate",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_leggings",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_helmet",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_boots",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:chorus_fruit",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:honey_bottle",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cooked_chicken",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 3
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 5,
+                  "max": 10
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:ender_pearl",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 4
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cookie",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 5,
+                  "max": 16
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "functions": [
+              {
+                  "function": "set_count",
+                  "count": 1
+              },
+              {
+                  "function": "enchant_randomly"
+              }
+          ],
+          "name": "edx:platinium_helmet",
+          "weight": 20
+      },
+      {
+          "type": "item",
+          "functions": [
+              {
+                  "function": "set_count",
+                  "count": 1
+              },
+              {
+                  "function": "enchant_randomly"
+              }
+          ],
+          "name": "edx:platinium_leggings",
+          "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "minecraft:emerald",
+        "weight": 20,
+        "functions": [
+          {
+            "function": "set_count",
+            "count": {
+              "min": 1,
+              "max": 5
+            }
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "name": "edx:copper_coin",
+        "weight": 80,
+        "functions": [
+          {
+            "function": "set_count",
+            "count": {
+              "min": 1,
+              "max": 5
+            }
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "name": "minecraft:tnt",
+        "weight": 20,
+        "functions": [
+          {
+            "function": "set_count",
+            "count": {
+              "min": 1,
+              "max": 2
+            }
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "weight": 8,
+        "functions": [
+            {
+                "function": "set_count",
+                "count": 1
+            }
+        ],
+        "name": "minecraft:netherite_scrap"
+    },
+      {
+        "type": "item",
+        "weight": 20,
+        "functions": [
+            {
+                "function": "set_count",
+                "count": 1
+            }
+        ],
+        "name": "minecraft:saddle"
+    },
+      {
+          "type": "item",
+          "functions": [
+              {
+                  "function": "set_count",
+                  "count": 1
+              },
+              {
+                  "function": "enchant_randomly"
+              }
+          ],
+          "name": "edx:platinium_boots",
+          "weight": 20
+      },
+      {
+        "type": "item",
+        "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                    "min": 5,
+                    "max": 10
+                }
+            }
+        ],
+        "name": "minecraft:arrow",
+        "weight": 20
+    },
+        {
+          "type": "item",
+          "functions": [
+            
+              {
+                  "function": "set_count",
+                  "count": {
+                      "min": 2,
+                      "max": 6
+                  },
+                  "add": false
+              }
+          ],
+          "name": "minecraft:suspicious_stew",
+          "weight": 20
+      },
+        {
+          "type": "item",
+          "name": "minecraft:coal",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 16
+              }
+            }
+          ],
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 9
+              }
+            }
+          ],
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:name_tag",
+          "weight": 30
+        },
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "enchant_randomly"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_pickaxe",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:log",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                  "min": 1,
+                  "max": 2
+              }
+          },
+            {
+              "function": "set_data",
+              "data": {
+                  "min": 0,
+                  "max": 3
+              }
+          }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:log2",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                  "min": 1,
+                  "max": 2
+              }
+          },
+            {
+              "function": "set_data",
+              "data": {
+                  "min": 0,
+                  "max": 1
+              }
+          }
+          ]
+        }
+      ]
+    }
+   
+  ]
+}

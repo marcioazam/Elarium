@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:void_bricks_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:void_bricks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:void_bricks"
+            }
+        ],
+        "result": {
+            "item": "edx:void_bricks_wall",
+            "count": 6
+        }
+    }
+}

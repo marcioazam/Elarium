@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:ender_staff_recipe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " EP",
+      " VE",
+      "E  "
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:ender_pearl"
+      },
+      "E": {
+        "item": "xp:enderite_ingot"
+      },
+      "V": {
+        "item": "xp:void_crystal_ingot"
+      }
+    },
+    "result": {
+      "item": "xp:no_lore_ender_staff"
+    }
+  }
+}

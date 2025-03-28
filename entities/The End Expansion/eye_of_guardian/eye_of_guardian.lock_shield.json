@@ -1,0 +1,75 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:eye_of_guardian.lock_shield",
+			"is_summonable": true,
+			"is_spawnable": true
+		},
+		"component_groups": {
+			"xp:instant_despawn": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"eye_of_guardian_rider",
+					"inanimate"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0,
+				"height": 0
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:addrider": {
+				"entity_type": "xp:eye_of_guardian"
+			},
+			"minecraft:rideable": {
+				"controlling_seat": 0,
+				"family_types": [
+					"eye_of_guardian"
+				],
+				"seat_count": 1,
+				"seats": [
+					{
+						"lock_rider_rotation": 0,
+						"rotate_rider_by": 0,
+						"position": [
+							0,
+							0,
+							0
+						]
+					}
+				]
+			}
+		},
+		"events": {
+			"xp:instant_despawn": {
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}

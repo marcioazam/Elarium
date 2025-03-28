@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_mossy_diorite_brick_slab"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 3,
+    "ingredients": [
+      {
+        "item": "edx:mossy_diorite_brick"
+      }
+    ],
+    "result": {
+      "item": "edx:mossy_diorite_brick_slab",
+      "count": 2
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:nameless_vanguard",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "components": {
+"minecraft:transformation": {
+    "into": "dungeons:vanguard<dungeons:nameless_minion>",
+    "drop_equipment": false,
+    "drop_inventory": true,
+    "keep_level": false,
+    "delay": {
+        "value": 2.255
+    }
+},
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "ignore",
+          "monster"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/vanguard_gear.json",
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": -1
+          }
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tp ~~~ facing @p",
+            "particle dungeons:vanguard_summon1 ~~0.1~",
+            "particle dungeons:vanguard_summon2 ~~~"
+          ]
+        }
+      }
+    }
+  }
+}

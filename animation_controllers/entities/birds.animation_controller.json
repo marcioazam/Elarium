@@ -1,0 +1,84 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.bird.fly_away.brown": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "fly_away": "q.variant == 1" }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"],
+          "on_exit": [
+            "v.tick_delay = q.life_time;",
+            "/playsound bird.take_off @a[r=15] ~~~ 0.75 0.9 0.025"
+          ]
+        },
+        "fly_away": {
+          "animations": ["brown.path"],
+          "transitions": [
+            { "default": "q.variant == 0" },
+            { "despawn": "(q.life_time - v.tick_delay) >= 12" }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"]
+        },
+        "despawn": {
+          "animations": ["brown.path"],
+          "on_entry": ["@s xp:despawn_delay"]
+        }
+      }
+    },
+    "controller.animation.bird.fly_away.blue": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "fly_away": "q.variant == 1" }
+          ],
+          "on_exit": [ 
+            "v.tick_delay = q.life_time;",
+            "/playsound bird.take_off @a[r=15] ~~~ 0.75 1.0 0.025"
+          ]
+        },
+        "fly_away": {
+          "animations": ["blue.path"],
+          "transitions": [
+            { "default": "q.variant == 0" },
+            { "despawn": "(q.life_time - v.tick_delay) >= 12" }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"]
+        },
+        "despawn": {
+          "animations": ["blue.path"],
+          "on_entry": ["@s xp:despawn_delay"]
+        }
+      }
+    },
+    "controller.animation.bird.fly_away.yellow": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "fly_away": "q.variant == 1" }
+          ],
+          "on_exit": [ 
+            "v.tick_delay = q.life_time;",
+            "/playsound bird.take_off @a[r=15] ~~~ 0.75 1.15 0.025"
+          ]
+        },
+        "fly_away": {
+          "animations": ["yellow.path"],
+          "transitions": [
+            { "default": "q.variant == 0" },
+            { "despawn": "(q.life_time - v.tick_delay) >= 12" }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"]
+        },
+        "despawn": {
+          "animations": ["yellow.path"],
+          "on_entry": ["@s xp:despawn_delay"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:sand_dioritebricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " P ",
+      "PSP",
+      " P "
+    ],
+    "key": {
+      "P": {
+        "item": "edx:diorite_brick",
+        "data": 0
+      },
+      "S": {
+        "item": "minecraft:sand"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stone",
+        "data": 2
+      }
+    ],
+    "result": {
+      "item": "edx:sandy_dioritebrick",
+      "count": 4
+    }
+  }
+  
+}

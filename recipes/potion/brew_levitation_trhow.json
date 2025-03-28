@@ -1,0 +1,15 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "edx:brew_levitation_throw"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "edx:levitation_throwing_potion",
+    "reagent": "minecraft:redstone",
+    "output": "edx:long_levitation_throwing_potion" 
+  }
+
+}

@@ -1,0 +1,47 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:artifact_assembler"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "BDB",
+      "LTL",
+      "LLL"
+    ],
+    "key": {
+      "T": {
+        "item": "minecraft:gold_ingot"
+      },
+      "D": {
+        "item": "minecraft:diamond_block"
+      },
+      "L": {
+        "item": "minecraft:planks"
+      },
+      "B": {
+        "item": "edx:ruby"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gold_ingot"
+      },
+      {
+        "item": "minecraft:diamond_block"
+      },
+      {
+        "item": "minecraft:planks"
+      },
+      {
+        "item": "edx:ruby"
+      }
+    ],
+    "result": {
+      "item": "edx:artifact_assembler"
+    }
+  }
+}

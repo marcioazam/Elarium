@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:sand_stonebricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " P ",
+      "PSP",
+      " P "
+    ],
+    "key": {
+      "P": {
+        "item": "edx:andesite_brick",
+        "data": 0
+      },
+      "S": {
+        "item": "minecraft:sand"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stone",
+        "data": 6
+      }
+    ],
+    "result": {
+      "item": "edx:sandy_stonebrick",
+      "count": 4
+    }
+  }
+  
+}

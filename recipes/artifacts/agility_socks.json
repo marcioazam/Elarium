@@ -1,0 +1,48 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:agility_socks"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "D  ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:enchanted_socks"
+      },
+      "#": {
+        "item": "edx:cloud_socks"
+      },
+      "D": {
+        "item": "edx:heavy_socks"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:packed_ice"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:enchanted_socks"
+      },
+      {
+        "item": "edx:cloud_socks"
+      },
+      {
+        "item": "edx:heavy_socks"
+      }
+    ],
+    "result": {
+      "item": "edx:agility_socks"
+    }
+  }
+  
+}

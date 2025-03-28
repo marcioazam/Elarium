@@ -1,0 +1,421 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:ender_dragon",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+      "dragon_sitting": {
+        "minecraft:behavior.dragonlanding": {
+          "priority": 0
+        },
+        "minecraft:behavior.dragonflaming": {
+          "priority": 1
+        },
+        "minecraft:behavior.dragonscanning": {
+          "priority": 2
+        },
+        "minecraft:timer":{
+          "looping": true,
+          "randomInterval":true,
+          "time": [15.0, 30.0],
+          "time_down_event": {
+              "event":"minecraft:start_fly"
+          }
+      }
+      },
+      "dragon_flying": {
+        "minecraft:timer":{
+          "looping": true,
+          "randomInterval":true,
+          "time": [1.0, 1.0],
+          "time_down_event": {
+              "event":"repair"
+          }
+      },
+        "minecraft:behavior.dragontakeoff": {
+          "priority": 0
+        },
+        "minecraft:behavior.dragonchargeplayer": {
+          "priority": 2
+        },
+        "minecraft:behavior.dragonstrafeplayer": {
+          "priority": 1
+        },
+        "minecraft:behavior.dragonholdingpattern": {
+          "priority": 3
+        },
+        "minecraft:shooter": {
+          "type": "dragonfireball",
+          "def": "minecraft:dragon_fireball"
+        }
+      },
+      "dragon_death": {
+        "minecraft:behavior.dragondeath": {
+          "priority": 0
+        }
+      },
+      "start":{
+         "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+        "minecraft:environment_sensor":{
+					"triggers":[
+					   {
+						  "filters":{
+							 "all_of":[
+								{
+								   "test":"is_difficulty",
+								   "value":"easy"
+								}
+							 ]
+						  },
+						  "event":"easy"
+					   },
+					   {
+						"filters":{
+						   "all_of":[
+							  {
+								 "test":"is_difficulty",
+								 "value":"normal"
+							  }
+						   ]
+						},
+						"event":"normal"
+					 },
+					 {
+						"filters":{
+						   "all_of":[
+							  {
+								 "test":"is_difficulty",
+								 "value":"hard"
+							  }
+						   ]
+						},
+						"event":"hard"
+					 }
+					]
+				 }
+      },
+      "easy": {
+        "minecraft:health": {
+          "value": 600,
+          "max": 600
+        },
+        "minecraft:flying_speed": {
+          "value": 0.3
+        },
+        "minecraft:damage_sensor": {
+          "triggers": {
+            "cause": "entity_explosion",
+            "deals_damage": false
+          }
+        },
+        "minecraft:attack": {
+          "damage": 5
+        }
+      },
+      "normal": {
+        "minecraft:health": {
+          "value": 1100,
+          "max": 1100
+        },
+        "minecraft:damage_sensor": {
+          "triggers": {
+            "cause": "entity_explosion",
+            "deals_damage": false
+          }
+        },
+        "minecraft:attack": {
+          "damage": 10
+        },
+        "minecraft:flying_speed": {
+          "value": 0.35
+        },
+        "minecraft:behavior.summon_entity": {
+          "priority": 1,
+      
+          "summon_choices": [
+            {
+              "min_activation_range": 1.0,
+              "max_activation_range": 30.0,
+            "weight": 1,
+            "cooldown_time": 40,
+            "cast_duration": 0,
+            "sequence": [
+              {
+              "shape": "circle",
+              "target": "self",
+              "base_delay": 1.0,
+              "delay_per_summon": 0.05,
+              "num_entities_spawned": 2,
+              "entity_type": "edx:dragon_servant",
+              "size": 1
+              }
+            ]
+            }
+          ]
+          }
+      },
+      "hard": {
+         "minecraft:health": {
+        "value": 1700,
+        "max": 1700
+      },
+        "minecraft:damage_sensor": {
+          "triggers": {
+            "cause": "entity_explosion",
+            "deals_damage": false
+          }
+        },
+        "minecraft:attack": {
+          "damage": 30
+        },
+        "minecraft:flying_speed": {
+          "value": 0.4
+        },
+        "minecraft:behavior.summon_entity": {
+          "priority": 1,
+      
+          "summon_choices": [
+            {
+            "min_activation_range": 1.0,
+            "max_activation_range": 30.0,
+            "weight": 1,
+            "cooldown_time": 10,
+            "cast_duration": 0,
+            "sequence": [
+              {
+              "shape": "circle",
+              "target": "self",
+              "base_delay": 1.0,
+              "summon_cap": 8,
+							"summon_cap_radius": 180.0,
+              "delay_per_summon": 0.05,
+              "num_entities_spawned": 6,
+              "entity_type": "edx:dragon_servant",
+              "size": 1
+              }
+            ]
+            },
+            {
+              "min_activation_range": 1.0,
+              "max_activation_range": 30.0,
+              "weight": 1,
+              "cooldown_time": 10,
+              "cast_duration": 0,
+              "sequence": [
+                {
+                "shape": "circle",
+                "target": "self",
+                "base_delay": 1.0,
+                "summon_cap": 8,
+                "summon_cap_radius": 180.0,
+                "delay_per_summon": 0.05,
+                "num_entities_spawned": 5,
+                "entity_type": "edx:flying_enderman",
+                "size": 1
+                }
+              ]
+              }
+          ]
+          }
+      },
+      "hard2": {
+        "minecraft:damage_sensor": {
+          "triggers": {
+            "cause": "projectile",
+            "deals_damage": false
+          }
+        }
+       
+      }
+    },
+
+    "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "dragon", "mob" ]
+      },
+     
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 200
+      },
+      "minecraft:collision_box": {
+        "width": 13,
+        "height": 4
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:knockback_resistance": {
+        "value": 100,
+        "max": 100
+      },
+     
+     
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "block_explosion",
+          "deals_damage": false
+        }
+      },
+      "minecraft:on_start_landing": {
+        "event": "minecraft:start_land",
+        "target": "self"
+      },
+      "minecraft:on_start_takeoff": {
+        "event": "minecraft:start_fly",
+        "target": "self"
+      },
+      "minecraft:on_death": {
+        "event": "minecraft:start_death",
+        "target": "self"
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:game_event_movement_tracking": {
+        "emit_flap": true
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+        {"add": {
+          "component_groups": [
+            "dragon_flying",
+            "start"
+          ]
+        }},
+        
+        {
+          "queue_command": {
+            "command": [
+              "title @a[r=250] title §5The Ender dragon",
+              "title @a[r=250] subtitle The seal of the End",
+              "playsound beacon.deactivate @a ~~~ 10.00 0.5",
+              "particle edx:bomb_particle ~~~"
+            ]}
+          }
+        ]
+      },
+      "minecraft:start_land": {
+        "remove": {
+          "component_groups": [
+            "dragon_flying"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dragon_sitting"
+          ]
+        }
+      },
+      "easy": {
+        "sequence": [
+          {
+        "remove": {
+          "component_groups": ["start"]
+        }},
+  
+        {"queue_command": {
+          "command": [
+            "effect @s instant_health 3 255 true"
+          ]}},
+        {"add": {
+          "component_groups": ["easy"]
+        }}]
+      },
+      "normal": {
+        "sequence": [
+          {
+        "remove": {
+          "component_groups": ["start"]
+        }},
+  
+        {"queue_command": {
+          "command": [
+            "effect @s instant_health 3 255 true"
+          ]}},
+        {"add": {
+          "component_groups": ["normal"]
+        }}]
+      },
+      "hard": {
+        "sequence": [
+          {
+        "remove": {
+          "component_groups": ["start"]
+        }},
+  
+        {"queue_command": {
+          "command": [
+            "effect @s instant_health 3 255 true"
+          ]}},
+        {"add": {
+          "component_groups": ["hard"]
+        }}]
+      },
+      "minecraft:start_fly": {
+        "remove": {
+          "component_groups": [
+            "dragon_sitting"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dragon_flying"
+          ]
+        }
+      },
+      "repair":{
+        "sequence": [
+          
+          {
+  
+            "queue_command": {
+            "command": [
+              "execute as @e[type=minecraft:ender_dragon] at @s run execute as @e[type=ender_crystal,r=30] at @s if block ~~-1~ bedrock if block ~~-20~ obsidian if block ~~-20~2 obsidian if block ~~-20~-2 obsidian if block ~2~-20~ obsidian if block ~-2~-20~ obsidian if block ~~-20~3 air if block ~~-20~-3 air if block ~3~-20~ air if block ~-3~-20~ air run structure load Pillar1 ~-3~-7~-3",
+              "execute as @e[type=minecraft:ender_dragon] at @s run execute as @e[type=ender_crystal,r=30] at @s if block ~~-1~ bedrock if block ~~-20~ obsidian if block ~~-20~3 obsidian if block ~~-20~-3 obsidian if block ~3~-20~ obsidian if block ~-3~-20~ obsidian if block ~~-20~4 air if block ~~-20~-4 air if block ~4~-20~ air if block ~-4~-20~ air run structure load Pillar2 ~-4~-8~-4",
+              "execute as @e[type=minecraft:ender_dragon] at @s run execute as @e[type=ender_crystal,r=30] at @s if block ~~-1~ bedrock if block ~~-20~ obsidian if block ~~-20~4 obsidian if block ~~-20~-4 obsidian if block ~4~-20~ obsidian if block ~-4~-20~ obsidian if block ~~-20~5 air if block ~~-20~-5 air if block ~5~-20~ air if block ~-5~-20~ air run structure load Pillar3 ~-5~-12~-5",
+              "execute as @e[type=minecraft:ender_dragon] at @s run execute as @e[type=ender_crystal,r=30] at @s if block ~~-1~ bedrock if block ~~-20~ obsidian if block ~~-20~5 obsidian if block ~~-20~-5 obsidian if block ~5~-20~ obsidian if block ~-5~-20~ obsidian if block ~~-20~6 air if block ~~-20~-6 air if block ~6~-20~ air if block ~-6~-20~ air run structure load Pillar4 ~-6~-11~-6"
+              
+             
+            ]}
+            
+            }
+        ]
+       },
+      "minecraft:start_death":{
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "dragon_sitting",
+                "dragon_flying"
+              ]
+            },
+            "add": {
+              "component_groups": [
+                "dragon_death"
+              ]
+            }
+          }
+        ]
+       }
+    }
+  }
+}

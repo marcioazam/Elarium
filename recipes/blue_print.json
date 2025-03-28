@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "blue_print"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " G ",
+      "GBG",
+      " G "
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      },
+      {
+        "item": "dungeons:blue_print"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "dungeons:diamond_dust"
+      },
+      "G": {
+        "item": "minecraft:paper"
+      }
+    },
+    "result": {
+      "item": "dungeons:blue_print",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+   "format_version":"1.20.10",
+   "minecraft:recipe_furnace":{
+      "description":{
+         "identifier":"minecraft:bottle_of_water"
+      },
+      "tags":[
+         "campfire",
+         "furnace",
+         "blast_furnace"
+      ],
+      "input":"minecraft:potion",
+      "output":"true:bottle_of_water"
+   }
+}

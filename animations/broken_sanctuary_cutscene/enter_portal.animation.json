@@ -1,0 +1,221 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.cutscene.sanctuary.enter_portal.tick": {
+            "loop": true,
+            "animation_length": 0.01,
+            "timeline": {
+                "0.0": [
+                    "/execute as @a[tag=end_boss_cutscene,scores={frame=301..}] run function cutscenes/sanctuary/3",
+                    "/execute as @a[tag=end_boss_cutscene,scores={frame=420..450}] run tp @s -156.744 181.083 2060.498 90.000 3.333",
+                    "/execute as @a[tag=end_boss_cutscene,scores={frame=1000..1100}] run function cutscenes/real_end_boss/0",
+                    "/execute as @a[tag=end_boss_cutscene,scores={frame=1101..1200}] run function cutscenes/real_end_boss/1",
+                    "/execute as @a[tag=end_boss_cutscene,scores={frame=1201..1259}] run function cutscenes/real_end_boss/2",
+                    "/execute as @a[tag=end_boss_cutscene,scores={frame=1260}] run tp @s -144.417 183.573 2060.500 90.000 0.500",
+                    "/scoreboard players set @a[scores={frame=470}] frame 1050",
+                    "/scoreboard players add @a[scores={frame=0..1259}] frame 1",
+
+                    "/scoreboard players random chance math 0 2",
+                    "/execute if score chance math matches 0 if entity @a[tag=end_boss_cutscene,scores={frame=420..}] in the_end run particle xp:heartofender.fog -166 175 2060"
+                ]
+            }
+        },
+        "animation.cutscene.sanctuary.enter_portal": {
+            "loop": true,
+            "animation_length": 26,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players set play_boss_cutscene endboss 0",
+                    "/scoreboard objectives add frame dummy",
+                    "/scoreboard players set @a[tag=in_sanctuary_cutscene] frame 0",
+                    "/tag @a[r=50] add in_sanctuary_cutscene",
+                    "/tag @a[r=50] add no_mob_spawning",
+                    "/tag @a[r=50] add end_boss_cutscene",
+                    "/playsound end_portal.tp_4 @a ~~~ 0.85 0.6 0.5"
+                ],
+                "0.5": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_travel_fade_1"
+                ],
+                "0.8": [
+                    "/gamemode spectator @a[tag=in_sanctuary_cutscene]",
+                    "/scoreboard players set @a[tag=in_sanctuary_cutscene] frame 300",
+                    "/effect @a[tag=in_sanctuary_cutscene] invisibility 100 1 true"
+                ],
+                "1.0": [
+                    "/scoreboard players set east_tower sanctuary 5",
+                    "/scoreboard players set west_tower sanctuary 5",
+                    "/scoreboard players set south_tower sanctuary 5",
+                    "/execute in the_end run particle xp:cutscene_boss_final1_1 416 223 872",
+                    "/execute in the_end run particle xp:cutscene_boss_final1_2 416 223 872",
+                    "/execute in the_end run particle xp:cutscene_boss_final1_3 416 223 872",
+                    "/execute in the_end run particle xp:beacon_boss_cutscene.7_1 442 197 872",
+                    "/execute in the_end run particle xp:beacon_boss_cutscene.7_2 390 197 872",
+                    "/execute in the_end run particle xp:beacon_boss_cutscene.7_3 416 197 898",
+                    "/execute in the_end run particle xp:broken_sanctuary_portal.dots 416.114 242 872.826",
+                    "/execute in the_end run particle xp:broken_sanctuary_portal.dots_quick 416.114 250 872.826"
+                ],
+                "2.5": [
+                    "/playsound end_portal.tp_5 @a[tag=in_sanctuary_cutscene] ~~~ 0.85 1 0.5"
+                ],
+                "4.5": [
+                    "/execute in the_end run particle xp:broken_sanctuary_portal.dots_bob 416.114 230 872.826",
+                    "/playsound sanctuary.enter_portal @a[tag=in_sanctuary_cutscene] ~~~ 0.85 0.9 0.75"
+                ],
+                "4.55": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.biome_fade_1_transition"
+                ],
+                "5.25": [
+                    "/playsound sanctuary.tp_idle @a[tag=in_sanctuary_cutscene] ~~~ 0.85 0.75 0.5"
+                ],
+                "7.5": [
+                    "/playsound cutscene.intro.just_endboss @a[tag=in_sanctuary_cutscene] -144.417 183.573 2060.500 1 1 1"
+                ],
+                "7.55": [
+                    "/playsound ender_boss.spawn_1 @a -144.417 183.573 2060.500 1 1 1",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.arms -165 180 2057",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.arms1_1 -162.5 180 2057.75",
+                    
+                    "/scoreboard players set east_tower sanctuary 6",
+                    "/scoreboard players set west_tower sanctuary 6",
+                    "/scoreboard players set south_tower sanctuary 6"
+                ],
+                "7.6": [
+                    "/event entity @e[family=endboss_unit] xp:instant_despawn",
+                    "/event entity @e[type=xp:heart_of_ender_boss] xp:instant_despawn",
+                    "/event entity @e[type=xp:look_at] xp:despawn",
+                    "/event entity @e[type=xp:heart_of_ender.cutscene] xp:despawn",
+                    "/event entity @e[type=xp:heart_of_ender.portal_glow] xp:despawn",
+                    "/event entity @e[type=xp:heart_of_ender_beam] xp:despawn",
+                
+                    "/event entity @e[type=xp:heart_of_ender.eye] xp:look_at",
+                    
+                    "/execute in the_end run summon xp:look_at -148 181 2060",
+                
+                    //Portal
+                    "/execute in the_end run summon xp:heart_of_ender.portal_glow -166 181.01 2060",
+                    
+                    //Ambient
+                    "/execute in the_end run particle xp:heartofender.arena_ambient -166 181 2060",
+                
+                    "/execute in the_end run particle xp:broken_sanctuary_lightrays -193 160 2080",
+                    "/execute in the_end run particle xp:broken_sanctuary_lightrays -200 167 2060",
+                    "/execute in the_end run particle xp:broken_sanctuary_lightrays -193 170 2095",
+                    "/execute in the_end run particle xp:broken_sanctuary_lightrays3 -193 160 2080",
+                
+                    "/execute in the_end run particle xp:broken_sanctuary_lightrays4 -210 165 2015",
+                    "/execute in the_end run particle xp:broken_sanctuary_lightrays -185 167 2031",
+                    
+                    //Beacons
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -160 183 2039",
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -172 183 2039",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -160 183 2081",
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -172 183 2081",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -187 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -187 183 2054",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -145 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_beam -145 183 2054",
+                    
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -160 183 2039",
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -172 183 2039",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -160 183 2081",
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -172 183 2081",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -187 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -187 183 2054",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -145 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_bits -145 183 2054",
+                
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -160 183 2039",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -172 183 2039",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -160 183 2081",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -172 183 2081",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -187 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -187 183 2054",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -145 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact -145 183 2054",
+                
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -160 183 2039",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -172 183 2039",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -160 183 2081",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -172 183 2081",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -187 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -187 183 2054",
+                
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -145 183 2066",
+                    "/execute in the_end run particle xp:end_boss.beacon_impact_1 -145 183 2054"
+                ],
+                "7.7": [
+                    "/event entity @e[type=xp:heart_of_ender.eye] xp:look_at_boss",
+                    "/execute in the_end run summon xp:heart_of_ender.cutscene -166 182.25 2060.5 xp:play_spawn",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.arms -165 180 2063",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.arms1_1 -162.5 180 2063.75"
+                ],
+                "9.05": [
+                    "/execute in the_end run particle xp:heartofender.arm_goo.impact -163 181 2051",
+                    "/execute in the_end run particle xp:heartofender.splat -163 181 2051",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.05 0.15 rotational"
+                ],
+                "9.6": [
+                    "/execute in the_end run playsound ender_boss.step @a[tag=in_sanctuary_cutscene] -165 182.25 2062 0.8 0.6 1",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.05 0.15 rotational",
+          
+                    "/execute in the_end run particle xp:heartofender.arm_goo.impact -163 181 2068.75",
+                    "/execute in the_end run particle xp:heartofender.splat -163 181 2068.75",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.body -166 180 2060",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.body2 -166 180 2060",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.body3 -166 180 2060",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.arms -162 180 2060",
+                    "/execute in the_end run particle xp:heartofender.spawn.flame.arms -164 180 2060"
+                ],
+                "14.2": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_boss_scream",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.15 1.1 rotational"
+                ],
+                "16.0": [
+                    "/event entity @e[type=xp:heart_of_ender.eye] xp:look_at"
+                ],
+                "16.1": [
+                    "/execute in the_end run playsound ender_boss.step @a[tag=in_sanctuary_cutscene] -165 182.25 2058 0.8 0.8 1",
+                    "/execute in the_end run playsound ender_boss.step @a[tag=in_sanctuary_cutscene] -165 182.25 2062 0.8 0.8 1",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.1 0.15 rotational",
+
+                    "/execute in the_end run particle xp:heartofender.splat -160 181 2065.65",
+                    "/execute in the_end run particle xp:heartofender.splat -160 181 2055",
+                    "/execute in the_end run particle xp:heartofender.arm_goo.impact -160 181.25 2065.65",
+                    "/execute in the_end run particle xp:heartofender.arm_goo.impact -160 181.25 2055"
+                ],
+                "19.0": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.biome_fade_1_transition"
+                ],
+                "22.0": [
+                    "/event entity @e[type=xp:heart_of_ender.cutscene] xp:despawn",
+                    "/function endboss/summon_boss_after_cutscene"
+                ],
+                "22.3": [
+                    "/scoreboard players set @a[tag=in_sanctuary_cutscene] frame 0",
+                    "/tp @a[tag=in_sanctuary_cutscene] -166 182 2082 180 0",
+                    "/effect @a[tag=in_sanctuary_cutscene] invisibility 0 0",
+                    "/effect @a[tag=in_sanctuary_cutscene] resistance 1 10 true",
+                    "/gamemode adventure @a[tag=in_sanctuary_cutscene]",
+                    "/tag @a[tag=in_sanctuary_cutscene] remove no_mob_spawning",
+                    "/tag @a remove in_sanctuary_cutscene",
+                    "/tag @a remove end_boss_cutscene",
+                    "/event entity @s xp:despawn"
+                ]
+            }
+        }
+    }
+}

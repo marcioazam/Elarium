@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:cherry_direction_sign"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:cherry_fence"
+      },
+      {
+        "item": "minecraft:cherry_sign"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:cherry_fence"
+      },
+      {
+        "item": "minecraft:cherry_sign"
+      }
+    ],
+    "result": {
+      "item": "edx:cherry_sign_it"
+    }
+  }
+}

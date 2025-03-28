@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "shock_powder"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "CDI",
+      "DLD",
+      "IDC"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "L": {
+        "item": "minecraft:lightning_rod"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "C": {
+        "item": "minecraft:copper_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:shock_powder",
+      "count": 1
+    }
+  }
+}

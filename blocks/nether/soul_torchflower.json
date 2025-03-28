@@ -1,0 +1,53 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:soul_torchflower",
+		"menu_category": {
+		  "category": "none"
+		}
+	  },
+	  "components": {
+		"minecraft:light_dampening": 0,
+		"minecraft:light_emission": 10,
+		"minecraft:collision_box": false,
+		"tag:no_silktouch": {},
+		"minecraft:selection_box": { 
+			"origin": [-7,0,-7],
+			"size": [14,14,14]
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.cross"
+		},
+	
+		"minecraft:material_instances": {
+		  "*": {
+			"texture": "soul_torchflower",
+			"render_method": "alpha_test",
+			"ambient_occlusion": false,
+			"face_dimming": false
+		  }
+		},
+		"minecraft:custom_components": [
+            "soul_torchflower:on_destroy"
+          ],
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  }, 
+		"minecraft:tick": {
+  			"looping": true,
+  			"interval_range": [200, 650]
+		},
+		"minecraft:placement_filter": {
+		  "conditions": [
+			{
+			  "allowed_faces": [
+				"up"
+			  ],
+			  "block_filter": ["minecraft:soul_soil"]
+			}
+		  ]
+		}
+	  }
+	}
+}

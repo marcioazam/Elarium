@@ -1,0 +1,346 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.endergob.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "avoid_start": "q.is_saddled" }
+          ]
+        },
+        "avoid_start": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 8 @s",
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.walk",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.pre_attack",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.attack",
+            "@s xp:stage_remove_avoid"
+          ],
+          "transitions": [
+            { "avoid_end": "(q.life_time - v.tick_delay) >= 0.25" }
+          ]
+        },
+        "avoid_end": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [ "@s xp:stage_remove_avoid" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.1" }
+          ]
+        }
+      }
+    },
+    "controller.animation.enderslug.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "avoid_start": "q.is_saddled" }
+          ]
+        },
+        "avoid_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\" ] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\" ] run stopsound @a[r=8] entity.enderslug.walk",
+            "/execute if entity @s[tag=!\"no_tp\" ] run stopsound @a[r=8] entity.enderslug.pre_attack",
+            "/execute if entity @s[tag=!\"no_tp\" ] run stopsound @a[r=8] entity.enderslug.attack",
+            "/execute if entity @s[tag=!\"no_tp\" ] run spreadplayers ~ ~ 1 6 @s"
+          ],
+          "on_exit": [ "@s xp:stage_remove_teleport_hit" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        }
+      }
+    },
+    "controller.animation.enderbug.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "avoid_start": "q.is_saddled" }
+          ]
+        },
+        "avoid_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.enderbug.walk",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.enderbug.pre_attack",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.enderbug.attack",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~ ~ 1 6 @s"
+          ],
+          "on_exit": [ "@s xp:stage_remove_teleport_hit" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        }
+      }
+    },
+    "controller.animation.elderman.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "avoid_start": "q.is_saddled" },
+            { "teleport_target_start": "q.is_illager_captain" }
+          ]
+        },
+        "avoid_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.elderman.walk",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.elderman.summon",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.elderman.pre_attack",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.elderman.attack",
+            "/execute if entity @s[tag=!\"no_tp\"] run event entity @s xp:stage_casting",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~ ~ 1 6 @s"
+          ],
+          "on_exit": [ "@s xp:stage_remove_teleport_hit" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        },
+
+        "teleport_target_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run tp @s @e[type=player,c=1,r=27]",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 2 @s",
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=27] ~ ~ ~"
+          ],
+          "on_exit": [ "@s xp:remove_lookat" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        }
+      }
+    },
+    "controller.animation.enderslime.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "teleport_hit_start": "q.is_saddled" },
+            { "teleport_target_start": "q.is_illager_captain" }
+          ]
+        },
+        "teleport_hit_start": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 6 @s",
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.walk",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.pre_attack",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.endergob.attack"
+          ],
+          "transitions": [
+            { "teleport_hit_end": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        },
+        "teleport_hit_end": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [ "@s xp:stage_remove_teleport_hit" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.1" }
+          ]
+        },
+
+        "teleport_target_start": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run tp @s @e[type=player,c=1,r=20]",
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~"
+          ],
+          "transitions": [
+            { "teleport_hit_end": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        },
+        "teleport_target_end": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [ "@s xp:stage_remove_teleport_target" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.1" }
+          ]
+        }
+      }
+    },
+    "controller.animation.warder.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "teleport_hit_start": "q.is_saddled" },
+            { "teleport_target_start": "q.is_illager_captain" }
+          ]
+        },
+        "teleport_hit_start": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 6 @s",
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.warder.walk",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.warder.pre_attack",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a entity.warder.attack"
+          ],
+          "transitions": [
+            { "teleport_hit_end": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        },
+        "teleport_hit_end": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [ "@s xp:stage_remove_teleport_hit" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.1" }
+          ]
+        },
+
+        "teleport_target_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run tp @s @e[type=player,c=1,r=20]",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~~ 1 2 @s",
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~"
+          ],
+          "on_exit": [ "@s xp:remove_lookat" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        }
+      }
+    },
+    "controller.animation.end_chestloot.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "avoid_start": "q.is_saddled && (q.skin_id != 1 || q.skin_id != 2 || q.skin_id != 3 || q.skin_id != 4)" }
+          ]
+        },
+        "avoid_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run stopsound @a[r=8] entity.end_chestloot.idle",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~ ~ 1 6 @s"
+          ],
+          "on_exit": [ "@s xp:stage_remove_teleport_hit" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        }
+      }
+    },
+    "controller.animation.rippling.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "avoid_start": "q.is_saddled" }
+          ]
+        },
+        "avoid_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~ ~ 1 6 @s"
+          ],
+          "on_exit": [ "@s xp:stage_remove_teleport_hit" ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 0.15" }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.stalker.teleport": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "avoid_start": "q.is_saddled" },
+            { "target_start": "q.is_saddled" }
+          ]
+        },
+        "avoid_start": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:stage_teleport_hit"
+          ],
+          "on_exit": [
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~ ~ 5 10 @s",
+            "/execute if entity @s[tag=!\"no_tp\"] run event entity @s xp:stage_remove_teleport_hit"
+          ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 1" }
+          ]
+        },
+
+        "target_start": {
+          "on_entry": [ "v.tick_delay = q.life_time;" ],
+          "on_exit": [
+            "/tag @s[tag=\"sticky\"] add no_tp",
+            "/execute if entity @a[tag=\"showcase_mode\" ] run tag @s[tag=!\"sticky\"] remove no_tp",
+
+            "/execute if entity @s[tag=!\"no_tp\"] run playsound mob.shulker.teleport @a[r=15] ~ ~ ~",
+            "/execute if entity @s[tag=!\"no_tp\"] run tp @s @e[type=player,c=1,r=20]",
+            "/execute if entity @s[tag=!\"no_tp\"] run tp @s ^ ^ ^-2",
+            "/execute if entity @s[tag=!\"no_tp\"] run spreadplayers ~ ~ 2 5 @s",
+            "/execute if entity @s[tag=!\"no_tp\"] run event entity @s xp:stage_remove_teleport_target"
+          ],
+          "transitions": [
+            { "default": "(q.life_time - v.tick_delay) >= 1" }
+          ]
+        }
+      }
+    }
+  }
+}

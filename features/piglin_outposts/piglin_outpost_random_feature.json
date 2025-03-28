@@ -1,0 +1,19 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+	  "description": {
+		"identifier": "edx:piglin_outposts/piglin_outpost_random_feature"
+	  },
+	  "features": [
+		[ "edx:piglin_outposts/piglin_outpost1", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost2", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost3", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost4", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost5", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost6", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost7", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost8", 1 ],
+		[ "edx:piglin_outposts/piglin_outpost9", 1 ]
+	  ]
+	}
+  }

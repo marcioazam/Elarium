@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:granite_brick_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:granite_brick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:granite_brick"
+            }
+        ],
+        "result": {
+            "item": "edx:granite_brick_wall",
+            "count": 6
+        }
+    }
+}

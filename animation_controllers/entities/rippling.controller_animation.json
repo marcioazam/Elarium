@@ -1,0 +1,174 @@
+{
+   "format_version": "1.10.0",
+   "animation_controllers": {
+      "controller.animation.rippling.hover":{
+         "initial_state": "hover_calm",
+         "states": {
+            "hover_calm":{
+               "transitions": [
+                  {
+                     "hover_angry": "query.skin_id == 2"
+                  }
+               ]
+            },
+            "hover_angry":{
+               "on_entry": [
+                  "/effect @s levitation 0 2 true"
+               ],
+               "transitions": [
+                  {
+                     "hover_calm": "query.skin_id == 1"
+                  }
+               ]
+            }
+
+         }
+      },
+      "controller.animation.rippling.attack":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "ridding": "query.is_riding"
+                  }
+               ]
+            },
+            "ridding":{
+               "on_exit": [
+                  "@s xp:stage_remove_shooter"
+               ],
+               "transitions": [
+                  {
+                     "default": "!query.is_riding"
+                  }
+               ]
+            }
+         }
+      },
+
+      "controller.animation.rippling.launch": {
+         "initial_state": "default",
+         "states": {
+           "default": {
+             "transitions": [
+               {
+                 "launch": "query.is_alive"
+               }
+             ]
+           },
+           "launch": {
+             "on_entry": ["/ride @e[type=xp:rippling,c=1,r=3] start_riding @s"]
+           }
+         }
+      },
+
+      "controller.animation.rippling.item":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "destroy_item": "q.is_illager_captain"
+                  }
+               ]
+            },
+            "destroy_item":{
+               "on_entry": [
+                  "/event entity @e[type=xp:rippling,c=1,r=3] xp:stage_hover_item",
+                  "/ride @e[type=item,c=5,r=0.5] start_riding @e[type=xp:rippling,c=1,r=3]"
+               ]
+            }
+         }
+      },
+
+      "controller.animation.rippling.grab_item":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "grab_item": "query.skin_id == 4 && !q.is_sheared"
+                  }
+               ]
+            },
+            "grab_item":{
+               "on_entry": [
+                  "/ride @e[type=item,c=5,r=3] start_riding @s"
+               ],
+               "on_exit": [
+                  "/ride @e[type=item,r=2.5] stop_riding",
+                  "@s xp:stage_hover_calm"
+               ],
+               "transitions": [
+                  {
+                     "default": "query.skin_id != 4 || q.is_sheared"
+                  }
+               ]
+            }
+         }
+      },
+      "controller.animation.rippling.hurt":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "hurt": "q.is_sheared"
+                  }
+               ]
+            },
+            "hurt":{
+               "on_entry": [
+                  "v.tick_delay = q.life_time;",
+                  "/ride @e[type=item,r=2.5] stop_riding"
+                ],
+                "on_exit": [
+                  "@s xp:remove_hurt"
+                ],
+               "transitions": [
+                  {
+                     "default": "(q.life_time - v.tick_delay) >= 1"
+                  }
+               ]
+            }
+         }
+      },
+
+      "controller.animation.rippling.death":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "death": "query.health <= 26"
+                  }
+               ]
+            },
+            "death":{
+               "on_entry": [
+                  "v.tick_delay = q.life_time;",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "@s xp:stage_death"
+               ],
+               "on_exit": [
+                  "@s xp:instant_despawn"
+               ],
+               "transitions": [
+                  {
+                     "death_end": "(q.life_time - v.tick_delay) >= 0.68"
+                  }
+               ]
+            },
+            "death_end":{
+            }
+         }
+      }
+
+   }
+}

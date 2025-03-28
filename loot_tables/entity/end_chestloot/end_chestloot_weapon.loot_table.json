@@ -1,0 +1,49 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight":1,
+          "name": "xp:no_lore_ender_curved_blade"
+        },
+        {
+          "type": "item",
+          "weight":1,
+          "name": "xp:no_lore_enderite_cutter"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_obsidian_blade"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_obsidian_blade"
+        },
+        {
+          "type": "item",
+          "weight":1,
+          "name": "xp:no_lore_void_blade"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_void_striker"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_hammer_of_void"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "name": "xp:no_lore_the_touched_ends"
+        }
+      ]
+    }
+  ]
+}

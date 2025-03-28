@@ -1,0 +1,388 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:blast_fungus",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_blast_fungus",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:totem_of_shielding",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_totem_of_shielding",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:powershaker",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_powershaker",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:diamond_dust",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:blue_print",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:burning_arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 8,
+                "max": 16
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:blaze_powder",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 6,
+                "max": 11
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 25
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:nether_wart",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 25
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:mechanised_sawblade"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:bone_cudgel"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:weeping_vine_bow"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:pride_of_the_piglins"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "netherite",
+              "pattern": "rib"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_helmet"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "netherite",
+              "pattern": "rib"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_chestplate"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "netherite",
+              "pattern": "rib"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "netherite",
+              "pattern": "rib"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_boots"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/living_vines/base.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/golden_piglin/base.json"
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_block",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 16,
+                "max": 34
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:wildfire_painting",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "dungeons:blaze_cage",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:rib_armor_trim_smithing_template",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "empty",
+          "weight": 7
+        }
+      ]
+    }
+  ]
+}

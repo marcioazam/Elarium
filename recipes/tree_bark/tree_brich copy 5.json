@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:tree_bark_crimson"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XX"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:crimson_stem"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:crimson_stem"
+      }
+    ],
+    "result":[ {
+
+      "item": "edx:tree_bark", "count": 2
+    },
+    { "item": "minecraft:stripped_crimson_stem", "count": 2 }
+  ]
+  }
+}

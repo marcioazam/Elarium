@@ -1,0 +1,62 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+      "description": {
+          "identifier": "xp:broken_sanctuary_beacon_laser1",
+          "is_spawnable": false,
+          "is_summonable": true
+      },
+      "component_groups": {},
+      "events": {},
+      "components": {
+          "minecraft:physics": {},
+          "minecraft:type_family": {
+              "family": [
+                  "zombie"
+              ]
+          },
+          "minecraft:scale": {
+            "value": 1
+          },
+          "minecraft:health": {
+              "value": 20,
+              "max": 20
+          },
+          "minecraft:knockback_resistance": {
+              "value": 1,
+              "max": 1
+          },
+          "minecraft:collision_box": {
+              "height": 1,
+              "width": 1
+          },
+          "minecraft:movement": {
+              "max": 0.35
+          },
+          "minecraft:navigation.walk": {
+              "can_jump": true,
+              "can_walk": true
+          },
+          "minecraft:movement.basic": {
+          },
+          "minecraft:attack": {
+              "damage": 2
+          },
+          "minecraft:jump.static": {
+          },
+          "minecraft:can_climb": {
+          },
+          "minecraft:behavior.melee_attack": {
+              "priority": 0
+          },
+          "minecraft:loot": {
+              "table": "loot_tables/rage.loot.json"
+          },
+          "minecraft:follow_range": {
+              "value": 50,
+              "max": 50
+          }
+      }
+      
+  }
+}

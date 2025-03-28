@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_starless_night"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:starless_night"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:starless_night"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:starless_night", "count": 1 },
+      { "item": "dungeons:starless_night", "count": 1 }
+    ]
+  }
+}

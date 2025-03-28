@@ -1,0 +1,1103 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [
+          "stages_controller",
+          "hurt_test",
+          {"final_death_effects": "q.is_stunned"}
+        ]
+      },
+      "animations": {
+        "stages_controller": "controller.animation.end_cube.stages",
+        "boss_stage.one": "animation.end_cube.boss_stage.one",
+        "boss_stage.two": "animation.end_cube.boss_stage.two",
+        "boss_stage.three": "animation.end_cube.boss_stage.three",
+        "boss_actions.stage_one": "controller.animation.end_cube.boss_actions.stage_one",
+        "boss_actions.stage_two": "controller.animation.end_cube.boss_actions.stage_two",
+        "boss_actions.stage_three": "controller.animation.end_cube.boss_actions.stage_three",
+
+        "look_at_target": "animation.end_cube.look_at_target",
+        "hurt_test": "controller.animation.end_cube.hurt_test",
+        "summon_platforms": "animation.end_cube.summon_platforms",
+        "remove_platforms": "animation.end_cube.remove_platforms",
+
+        "final_death_effects": "animation.end_cube.final_death_effects"
+      },
+      "properties": {
+				"xp:first_time_spawned": {
+					"type": "bool",
+					"default": true,
+
+					"client_sync": true
+				}
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+
+      "xp:boss_state.in_combat": {
+        "minecraft:boss": {
+          "hud_range": 72,
+          "name": "xp_ui.custom_bossbar.ender_boss"
+        }
+      },
+      "xp:boss_state.become_invulnerable": {
+        "minecraft:is_charged": {},
+        "minecraft:custom_hit_test": {
+          "hitboxes": [
+            {
+              "width": 2.9,
+              "height": 2.9,
+              "pivot": [0, 1.45, 0]
+            }
+          ]
+        }
+      },
+      "xp:boss_state.become_vulnerable": {
+        "minecraft:custom_hit_test": {
+          "hitboxes": [
+            {
+              "width": 3.0,
+              "height": 3.0,
+              "pivot": [0, 1.5, 0]
+            }
+          ]
+        }
+      },
+      "xp:boss_state.start_teleporting": {
+        "minecraft:out_of_control": {}
+      },
+      "xp:boss_state.near_a_player": {
+        "minecraft:is_saddled": {}
+      },
+      "xp:boss_state.is_dazed": {
+        "minecraft:is_chested": {}
+      },
+      "xp:boss_state.took_damage": {
+        "minecraft:is_illager_captain": {}
+      },
+
+      "xp:boss_action.none": {
+        "minecraft:skin_id": {
+          "value": 0
+        }
+      },
+      "xp:boss_action.changing_stage": {
+        "minecraft:skin_id": {
+          "value": 1
+        }
+      },
+      "xp:boss_action.invoke_projectile": {
+        "minecraft:skin_id": {
+          "value": 2
+        }
+      },
+      "xp:boss_action.summon_platforms": {
+        "minecraft:skin_id": {
+          "value": 3
+        }
+      },
+      "xp:boss_action.use_laser": {
+        "minecraft:skin_id": {
+          "value": 4
+        }
+      },
+      "xp:boss_action.use_laser_special": {
+        "minecraft:skin_id": {
+          "value": 5
+        }
+      },
+      "xp:boss_action.ram": {
+        "minecraft:skin_id": {
+          "value": 6
+        }
+      },
+      "xp:boss_action.ram_special": {
+        "minecraft:skin_id": {
+          "value": 7
+        }
+      },
+
+      "xp:boss_stage.zero": {
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:health": {
+          "min": 60,
+          "max": 60,
+          "value": 60
+        },
+        "minecraft:damage_sensor": {
+          "triggers": {
+            "cause": "all",
+            "deals_damage": false
+          }
+        }
+      },
+
+      "xp:boss_stage.one": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:health": {
+          "min": 60,
+          "max": 660,
+          "value": 660
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "suffocation",
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "has_component",
+                      "value": "minecraft:is_charged"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "crystal"
+                    }
+                  ]
+                }
+              },
+              "deals_damage": true,
+              "damage_modifier": 10
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "damager",
+                      "value": "enders_smite"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "event": "xp:achievements.052",
+                "target": "other"
+              },
+              "deals_damage": true,
+              "damage_multiplier": 2.1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "test": "has_equipment",
+                  "subject": "other",
+                  "domain": "hand",
+                  "value": "xp:the_touched_ends"
+                }
+              },
+              "deals_damage": true,
+              "damage_multiplier": 2.1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "test": "is_family",
+                  "subject": "damager",
+                  "value": "flying_eye"
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": true,
+              "damage_multiplier": 2.00
+            },
+            {
+              "cause": "entity_attack",
+              "deals_damage": true,
+              "damage_multiplier": 3.00
+            }
+          ]
+        }
+      },
+
+      "xp:boss_stage.two": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "suffocation",
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "has_component",
+                      "value": "minecraft:is_charged"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "crystal"
+                    }
+                  ]
+                }
+              },
+              "deals_damage": true,
+              "damage_modifier": 1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "damager",
+                      "value": "enders_smite"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "event": "xp:achievements.052",
+                "target": "other"
+              },
+              "deals_damage": true,
+              "damage_multiplier": 2.1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "test": "has_equipment",
+                  "subject": "other",
+                  "domain": "hand",
+                  "value": "xp:the_touched_ends"
+                }
+              },
+              "deals_damage": true,
+              "damage_multiplier": 2.1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "test": "is_family",
+                  "subject": "damager",
+                  "value": "flying_eye"
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "on_damage": {
+                "filters":  {
+                  "test": "is_family",
+                  "subject": "damager",
+                  "operator": "!=",
+                  "value": "enders_smite"
+                }
+              },
+              "deals_damage": true,
+              "damage_multiplier": 0.50
+            },
+            {
+              "cause": "entity_attack",
+              "deals_damage": true,
+              "damage_multiplier": 2.5
+            }
+          ]
+        }
+      },
+
+      "xp:boss_stage.three": {
+        "minecraft:variant": {
+          "value": 3
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "suffocation",
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "has_component",
+                      "value": "minecraft:is_charged"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "crystal"
+                    }
+                  ]
+                }
+              },
+              "deals_damage": true,
+              "damage_modifier": 1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "damager",
+                      "value": "enders_smite"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "event": "xp:achievements.052",
+                "target": "other"
+              },
+              "deals_damage": true,
+              "damage_multiplier": 2.1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "test": "has_equipment",
+                  "subject": "other",
+                  "domain": "hand",
+                  "value": "xp:the_touched_ends"
+                }
+              },
+              "deals_damage": true,
+              "damage_multiplier": 2.1
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "test": "is_family",
+                  "subject": "damager",
+                  "value": "flying_eye"
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "on_damage": {
+                "filters":  {
+                  "test": "is_family",
+                  "subject": "damager",
+                  "operator": "!=",
+                  "value": "enders_smite"
+                }
+              },
+              "deals_damage": true,
+              "damage_multiplier": 0.25
+            },
+            {
+              "cause": "entity_attack",
+              "deals_damage": true,
+              "damage_multiplier": 2.0
+            }
+          ]
+        }
+      },
+
+      "xp:boss_movement.staying": {
+        "minecraft:mark_variant": { "value": 0 }
+      },
+      "xp:boss_movement.up": {
+        "minecraft:mark_variant": { "value": 1 }
+      },
+      "xp:boss_movement.down": {
+        "minecraft:mark_variant": { "value": 2 }
+      },
+      "xp:boss_movement.north": {
+        "minecraft:mark_variant": { "value": 3 }
+      },
+      "xp:boss_movement.south": {
+        "minecraft:mark_variant": { "value": 4 }
+      },
+      "xp:boss_movement.west": {
+        "minecraft:mark_variant": { "value": 5 }
+      },
+      "xp:boss_movement.east": {
+        "minecraft:mark_variant": { "value": 6 }
+      },
+      "xp:boss_movement.still": {
+        "minecraft:mark_variant": { "value": 7 }
+      },
+
+      "xp:is_dying": {
+        "minecraft:is_stunned": {}
+      },
+
+      "xp:shoot_projectile": {
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:navigation.walk": {
+        },
+        "minecraft:movement.basic": {
+        },
+        "minecraft:jump.static": {
+        },
+        "minecraft:can_climb": {
+        },
+        "minecraft:can_fly": {
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 1,
+          "must_see": true,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "ender_boss_target"
+              },
+              "max_dist": 128.0
+            }
+          ]
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval": 0.624749,
+          "attack_radius": 128.0
+        },
+        "minecraft:shooter": {
+          "def": "xp:end_cube_projectile"
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:experience_reward": {
+        "on_death": "math.random_integer(50,150)"
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "end_cube", "xp_boss", "boss" ]
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 0.1,
+            "height": 0.1,
+            "pivot": [0, 0.1, 0]
+          }
+        ]
+      },
+      "minecraft:is_stackable": {
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:knockback_resistance": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:attack": {
+        "damage": 0
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:follow_range": {
+        "value": 256
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_variant",
+                  "operator": ">",
+                  "value": 0
+                },
+                {
+                  "test": "has_tag",
+                  "value": "in_combat"
+                }
+              ]
+            },
+            "event": "xp:boss_state_is_in_combat"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_variant",
+                  "value": 0
+                },
+                {
+                  "test": "has_tag",
+                  "operator": "!=",
+                  "value": "in_combat"
+                }
+              ]
+            },
+            "event": "xp:boss_state_not_in_combat"
+          },
+
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_variant",
+                  "value": 1
+                },
+                {
+                  "test": "has_component",
+                  "value": "minecraft:is_charged"
+                },
+                {
+                  "test": "has_tag",
+                  "value": "crystal_1_destroyed"
+                },
+                {
+                  "test": "has_tag",
+                  "value": "crystal_2_destroyed"
+                },
+                {
+                  "test": "has_tag",
+                  "value": "crystal_3_destroyed"
+                }
+              ]
+            },
+            "event": "xp:boss_state_become_vulnerable"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_variant",
+                  "value": 1
+                },
+                {
+                  "test": "has_component",
+                  "operator": "!=",
+                  "value": "minecraft:is_charged"
+                },
+                {
+                  "none_of": [
+                    {
+                      "test": "has_tag",
+                      "value": "crystal_1_destroyed"
+                    },
+                    {
+                      "test": "has_tag",
+                      "value": "crystal_2_destroyed"
+                    },
+                    {
+                      "test": "has_tag",
+                      "value": "crystal_3_destroyed"
+                    }
+                  ]
+                }
+              ]
+            },
+            "event": "xp:boss_state_become_invulnerable"
+          },
+
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_variant",
+                  "operator": "!=",
+                  "value": 1
+                },
+                {
+                  "test": "has_component",
+                  "value": "minecraft:behavior.ranged_attack"
+                }
+              ]
+            },
+            "event": "xp:remove_shoot_projectile"
+          },
+
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "value": "stage_one"
+                },
+                {
+                  "test": "is_variant",
+                  "operator": "!=",
+                  "value": 1
+                },
+                {
+                  "none_of": [
+                    {
+                      "test": "has_tag",
+                      "value": "stage_two"
+                    },
+                    {
+                      "test": "has_tag",
+                      "value": "stage_three"
+                    }
+                  ]
+                }
+              ]
+            },
+            "event": "xp:boss_stage.one"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "value": "stage_two"
+                },
+                {
+                  "test": "is_variant",
+                  "operator": "!=",
+                  "value": 2
+                },
+                {
+                  "test": "has_tag",
+                  "operator": "!=",
+                  "value": "stage_three"
+                }
+              ]
+            },
+            "event": "xp:boss_stage.two"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "value": "stage_three"
+                },
+                {
+                  "test": "is_variant",
+                  "operator": "!=",
+                  "value": 3
+                }
+              ]
+            },
+            "event": "xp:boss_stage.three"
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "trigger": "xp:boss_stage.zero"
+      },
+
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+      "xp:set_on_spawn": { 
+        "set_property": {
+          "xp:first_time_spawned": false
+        }
+      },
+      "xp:is_dying": { 
+        "add": {
+          "component_groups": [ "xp:is_dying" ]
+        }
+      },
+      "xp:is_dead": { 
+        "remove": {
+          "component_groups": [ "xp:is_dying" ]
+        }
+      },
+
+      "xp:boss_state_is_in_combat": {
+        "add": {
+          "component_groups": [ "xp:boss_state.in_combat" ]
+        }
+      },
+      "xp:boss_state_not_in_combat": {
+        "remove": {
+          "component_groups": [ "xp:boss_state.in_combat" ]
+        }
+      },
+
+      "xp:boss_state_start_teleporting": {
+        "add": {
+          "component_groups": [ "xp:boss_state.start_teleporting" ]
+        }
+      },
+      "xp:boss_state_end_teleporting": {
+        "remove": {
+          "component_groups": [ "xp:boss_state.start_teleporting" ]
+        }
+      },
+
+      "xp:boss_state_near_player": {
+        "add": {
+          "component_groups": [ "xp:boss_state.near_a_player" ]
+        }
+      },
+      "xp:boss_state_not_near_player": {
+        "remove": {
+          "component_groups": [ "xp:boss_state.near_a_player" ]
+        }
+      },
+
+      "xp:boss_state_is_dazed": {
+        "add": {
+          "component_groups": [ "xp:boss_state.is_dazed" ]
+        }
+      },
+      "xp:boss_state_is_not_dazed": {
+        "remove": {
+          "component_groups": [ "xp:boss_state.is_dazed" ]
+        }
+      },
+
+      "xp:boss_state_took_damage": {
+        "add": {
+          "component_groups": [ "xp:boss_state.took_damage" ]
+        }
+      },
+      "xp:boss_state_remove_took_damage": {
+        "remove": {
+          "component_groups": [ "xp:boss_state.took_damage" ]
+        }
+      },
+
+      "xp:boss_state_become_invulnerable": {
+        "add": {
+          "component_groups": [ "xp:boss_state.become_invulnerable" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_state.become_vulnerable" ]
+        }
+      },
+      "xp:boss_state_become_vulnerable": {
+        "add": {
+          "component_groups": [ "xp:boss_state.become_vulnerable" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_state.become_invulnerable" ]
+        }
+      },
+
+      "xp:boss_no_action": {
+        "add": {
+          "component_groups": [ "xp:boss_action.none" ]
+        }
+      },
+
+      "xp:boss_changing_stage": {
+        "add": {
+          "component_groups": [ "xp:boss_action.changing_stage" ]
+        }
+      },
+      "xp:boss_remove_changing_stage": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [ "xp:boss_action.changing_stage" ]
+            }
+          },
+          { "trigger": "xp:boss_no_action" }
+        ]
+      },
+
+      "xp:boss_invoke_projectile": {
+        "add": {
+          "component_groups": [ "xp:boss_action.invoke_projectile" ]
+        }
+      },
+      "xp:boss_remove_invoke_projectile": {
+        "sequence": [
+          {
+            "filters": { "test": "is_skin_id", "operator": "!=", "value": 1 },
+            "sequence": [
+              {
+                "remove": {
+                  "component_groups": [ "xp:boss_action.invoke_projectile" ]
+                }
+              },
+              { "trigger": "xp:boss_no_action" }
+            ]
+          }
+        ]
+      },
+
+      "xp:boss_summon_platforms": {
+        "add": {
+          "component_groups": [ "xp:boss_action.summon_platforms" ]
+        }
+      },
+      "xp:boss_remove_summon_platforms": {
+        "sequence": [
+          {
+            "filters": { "test": "is_skin_id", "operator": "!=", "value": 1 },
+            "sequence": [
+              {
+                "remove": {
+                  "component_groups": [ "xp:boss_action.summon_platforms" ]
+                }
+              },
+              { "trigger": "xp:boss_no_action" }
+            ]
+          }
+        ]
+      },
+
+      "xp:boss_use_laser": {
+        "add": {
+          "component_groups": [ "xp:boss_action.use_laser" ]
+        }
+      },
+      "xp:boss_remove_use_laser": {
+        "sequence": [
+          {
+            "filters": { "test": "is_skin_id", "operator": "!=", "value": 1 },
+            "sequence": [
+              {
+                "remove": {
+                  "component_groups": [ "xp:boss_action.use_laser" ]
+                }
+              },
+              { "trigger": "xp:boss_no_action" }
+            ]
+          }
+        ]
+      },
+
+      "xp:boss_use_laser_special": {
+        "add": {
+          "component_groups": [ "xp:boss_action.use_laser_special" ]
+        }
+      },
+      "xp:boss_remove_use_laser_special": {
+        "sequence": [
+          {
+            "filters": { "test": "is_skin_id", "operator": "!=", "value": 1 },
+            "sequence": [
+              {
+                "remove": {
+                  "component_groups": [ "xp:boss_action.use_laser_special" ]
+                }
+              },
+              { "trigger": "xp:boss_no_action" }
+            ]
+          }
+        ]
+      },
+
+      "xp:boss_ram": {
+        "add": {
+          "component_groups": [ "xp:boss_action.ram" ]
+        }
+      },
+      "xp:boss_remove_ram": {
+        "sequence": [
+          {
+            "filters": { "test": "is_skin_id", "operator": "!=", "value": 1 },
+            "sequence": [
+              {
+                "remove": {
+                  "component_groups": [ "xp:boss_action.ram" ]
+                }
+              },
+              { "trigger": "xp:boss_no_action" }
+            ]
+          }
+        ]
+      },
+
+      "xp:boss_ram_special": {
+        "add": {
+          "component_groups": [ "xp:boss_action.ram_special" ]
+        }
+      },
+      "xp:boss_remove_ram_special": {
+        "sequence": [
+          {
+            "filters": { "test": "is_skin_id", "operator": "!=", "value": 1 },
+            "sequence": [
+              {
+                "remove": {
+                  "component_groups": [ "xp:boss_action.ram_special" ]
+                }
+              },
+              { "trigger": "xp:boss_no_action" }
+            ]
+          }
+        ]
+      },
+
+      "xp:boss_stage.zero": {
+        "add": {
+          "component_groups": [ "xp:boss_stage.zero" ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:boss_stage.one",
+            "xp:boss_stage.two",
+            "xp:boss_stage.three"
+          ]
+        }
+      },
+      "xp:boss_stage.one": {
+        "add": {
+          "component_groups": [ "xp:boss_stage.one" ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:boss_stage.zero",
+            "xp:boss_stage.two",
+            "xp:boss_stage.three"
+          ]
+        },
+        "trigger": "xp:boss_changing_stage"
+      },
+      "xp:boss_stage.two": {
+        "add": {
+          "component_groups": [ "xp:boss_stage.two" ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:boss_stage.zero",
+            "xp:boss_stage.one",
+            "xp:boss_stage.three"
+          ]
+        },
+        "trigger": "xp:boss_changing_stage"
+      },
+      "xp:boss_stage.three": {
+        "add": {
+          "component_groups": [ "xp:boss_stage.three" ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:boss_stage.zero",
+            "xp:boss_stage.one",
+            "xp:boss_stage.two"
+          ]
+        },
+        "trigger": "xp:boss_changing_stage"
+      },
+
+      "xp:boss_movement.staying": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      "xp:boss_movement.up": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.up" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      "xp:boss_movement.down": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.down" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      "xp:boss_movement.north": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.north" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      "xp:boss_movement.south": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.south" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      "xp:boss_movement.west": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.west" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      "xp:boss_movement.east": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.east" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      "xp:boss_movement.still": {
+        "add": {
+          "component_groups": [ "xp:boss_movement.still" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:boss_movement.staying" ]
+        }
+      },
+      
+      "xp:shoot_projectile": {
+        "add": {
+          "component_groups": [ "xp:shoot_projectile" ]
+        }
+      },
+      "xp:remove_shoot_projectile": {
+        "remove": {
+          "component_groups": [ "xp:shoot_projectile" ]
+        }
+      }
+    }
+  }
+}

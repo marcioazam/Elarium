@@ -1,0 +1,20 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:scatter_feature": {
+      "description": {
+        "identifier": "edx:luminescent_crystal_scatter"
+      },
+      "iterations": 100,
+      "x": {
+        "distribution": "triangle",
+        "extent": [ -4, 4 ]
+      },
+      "y": 0,
+      "z": {
+        "distribution": "triangle",
+        "extent": [ -4, 4 ]
+      },
+      "coordinate_eval_order": "zxy",
+      "places_feature": "edx:luminescent_crystal_feature"
+    }
+  }

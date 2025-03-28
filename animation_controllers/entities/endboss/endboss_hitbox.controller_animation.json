@@ -1,0 +1,587 @@
+{
+    "format_version": "1.19.0",
+    "animation_controllers": {
+        "controller.animation.endboss_hitbox.tag_body_part": {
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "upper_arm": "q.property('xp:boss_part') == 'upper_arm'" },
+                        { "lower_arm": "q.property('xp:boss_part') == 'lower_arm'" },
+                        { "body": "q.property('xp:boss_part') == 'body'" },
+                        { "head": "q.property('xp:boss_part') == 'head'" }
+                    ]
+                },
+                "upper_arm": {
+                    "on_entry": [
+                        "/tag @s remove upper_arm",
+                        "/tag @s remove lower_arm",
+                        "/tag @s remove body",
+                        "/tag @s remove head",
+
+                        "/tag @s add upper_arm"
+                    ],
+                    "transitions": [{ "default": "q.property('xp:boss_part') != 'upper_arm'" }]
+                },
+                "lower_arm": {
+                    "on_entry": [
+                        "/tag @s remove upper_arm",
+                        "/tag @s remove lower_arm",
+                        "/tag @s remove body",
+                        "/tag @s remove head",
+                        
+                        "/tag @s add lower_arm"
+                    ],
+                    "transitions": [{ "default": "q.property('xp:boss_part') != 'lower_arm'" }]
+                },
+                "body": {
+                    "on_entry": [
+                        "/tag @s remove upper_arm",
+                        "/tag @s remove lower_arm",
+                        "/tag @s remove body",
+                        "/tag @s remove head",
+                        
+                        "/tag @s add body"
+                    ],
+                    "transitions": [{ "default": "q.property('xp:boss_part') != 'body'" }]
+                },
+                "head": {
+                    "on_entry": [
+                        "/tag @s remove upper_arm",
+                        "/tag @s remove lower_arm",
+                        "/tag @s remove body",
+                        "/tag @s remove head",
+                        
+                        "/tag @s add head"
+                    ],
+                    "transitions": [{ "default": "q.property('xp:boss_part') != 'head'" }]
+                }
+            }
+        },
+        "controller.animation.endboss_hitbox.relay_damage": {
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "damaged": "q.property('xp:got_damaged')"
+                    }]
+                },
+                "apply_damage": {
+                    "on_entry": [
+                        "/function endboss/get_damaged",
+                        "/event entity @s xp:remove_got_damaged"
+                    ],
+                    "transitions": [{ "default": "1.0" }]
+                },
+                "damaged": {
+                    "transitions": [
+                        { "dmg_1": "1000-1 <= q.health && q.health < 1000-0" },
+                        { "dmg_2": "1000-2 <= q.health && q.health < 1000-1" },
+                        { "dmg_3": "1000-3 <= q.health && q.health < 1000-2" },
+                        { "dmg_4": "1000-4 <= q.health && q.health < 1000-3" },
+                        { "dmg_5": "1000-5 <= q.health && q.health < 1000-4" },
+                        { "dmg_6": "1000-6 <= q.health && q.health < 1000-5" },
+                        { "dmg_7": "1000-7 <= q.health && q.health < 1000-6" },
+                        { "dmg_8": "1000-8 <= q.health && q.health < 1000-7" },
+                        { "dmg_9": "1000-9 <= q.health && q.health < 1000-8" },
+                        { "dmg_10": "1000-10 <= q.health && q.health < 1000-9" },
+                        { "dmg_11": "1000-11 <= q.health && q.health < 1000-10" },
+                        { "dmg_12": "1000-12 <= q.health && q.health < 1000-11" },
+                        { "dmg_13": "1000-13 <= q.health && q.health < 1000-12" },
+                        { "dmg_14": "1000-14 <= q.health && q.health < 1000-13" },
+                        { "dmg_15": "1000-15 <= q.health && q.health < 1000-14" },
+                        { "dmg_16": "1000-16 <= q.health && q.health < 1000-15" },
+                        { "dmg_17": "1000-17 <= q.health && q.health < 1000-16" },
+                        { "dmg_18": "1000-18 <= q.health && q.health < 1000-17" },
+                        { "dmg_19": "1000-19 <= q.health && q.health < 1000-18" },
+                        { "dmg_20": "1000-20 <= q.health && q.health < 1000-19" },
+                        { "dmg_21": "1000-21 <= q.health && q.health < 1000-20" },
+                        { "dmg_22": "1000-22 <= q.health && q.health < 1000-21" },
+                        { "dmg_23": "1000-23 <= q.health && q.health < 1000-22" },
+                        { "dmg_24": "1000-24 <= q.health && q.health < 1000-23" },
+                        { "dmg_25": "1000-25 <= q.health && q.health < 1000-24" },
+                        { "dmg_26": "1000-26 <= q.health && q.health < 1000-25" },
+                        { "dmg_27": "1000-27 <= q.health && q.health < 1000-26" },
+                        { "dmg_28": "1000-28 <= q.health && q.health < 1000-27" },
+                        { "dmg_29": "1000-29 <= q.health && q.health < 1000-28" },
+                        { "dmg_30": "1000-30 <= q.health && q.health < 1000-29" },
+                        { "dmg_31": "1000-31 <= q.health && q.health < 1000-30" },
+                        { "dmg_32": "1000-32 <= q.health && q.health < 1000-31" },
+                        { "dmg_33": "1000-33 <= q.health && q.health < 1000-32" },
+                        { "dmg_34": "1000-34 <= q.health && q.health < 1000-33" },
+                        { "dmg_35": "1000-35 <= q.health && q.health < 1000-34" },
+                        { "dmg_36": "1000-36 <= q.health && q.health < 1000-35" },
+                        { "dmg_37": "1000-37 <= q.health && q.health < 1000-36" },
+                        { "dmg_38": "1000-38 <= q.health && q.health < 1000-37" },
+                        { "dmg_39": "1000-39 <= q.health && q.health < 1000-38" },
+                        { "dmg_40": "1000-40 <= q.health && q.health < 1000-39" },
+                        { "dmg_41": "1000-41 <= q.health && q.health < 1000-40" },
+                        { "dmg_42": "1000-42 <= q.health && q.health < 1000-41" },
+                        { "dmg_43": "1000-43 <= q.health && q.health < 1000-42" },
+                        { "dmg_44": "1000-44 <= q.health && q.health < 1000-43" },
+                        { "dmg_45": "1000-45 <= q.health && q.health < 1000-44" },
+                        { "dmg_46": "1000-46 <= q.health && q.health < 1000-45" },
+                        { "dmg_47": "1000-47 <= q.health && q.health < 1000-46" },
+                        { "dmg_48": "1000-48 <= q.health && q.health < 1000-47" },
+                        { "dmg_49": "1000-49 <= q.health && q.health < 1000-48" },
+                        { "dmg_50": "1000-50 <= q.health && q.health < 1000-49" },
+                        { "dmg_51": "1000-51 <= q.health && q.health < 1000-50" },
+                        { "dmg_52": "1000-52 <= q.health && q.health < 1000-51" },
+                        { "dmg_53": "1000-53 <= q.health && q.health < 1000-52" },
+                        { "dmg_54": "1000-54 <= q.health && q.health < 1000-53" },
+                        { "dmg_55": "1000-55 <= q.health && q.health < 1000-54" },
+                        { "dmg_56": "1000-56 <= q.health && q.health < 1000-55" },
+                        { "dmg_57": "1000-57 <= q.health && q.health < 1000-56" },
+                        { "dmg_58": "1000-58 <= q.health && q.health < 1000-57" },
+                        { "dmg_59": "1000-59 <= q.health && q.health < 1000-58" },
+                        { "dmg_60": "1000-60 <= q.health && q.health < 1000-59" },
+                        { "dmg_61": "1000-61 <= q.health && q.health < 1000-60" },
+                        { "dmg_62": "1000-62 <= q.health && q.health < 1000-61" },
+                        { "dmg_63": "1000-63 <= q.health && q.health < 1000-62" },
+                        { "dmg_64": "1000-64 <= q.health && q.health < 1000-63" },
+                        { "dmg_65": "1000-65 <= q.health && q.health < 1000-64" },
+                        { "dmg_66": "1000-66 <= q.health && q.health < 1000-65" },
+                        { "dmg_67": "1000-67 <= q.health && q.health < 1000-66" },
+                        { "dmg_68": "1000-68 <= q.health && q.health < 1000-67" },
+                        { "dmg_69": "1000-69 <= q.health && q.health < 1000-68" },
+                        { "dmg_70": "1000-70 <= q.health && q.health < 1000-69" },
+                        { "dmg_71": "1000-71 <= q.health && q.health < 1000-70" },
+                        { "dmg_72": "1000-72 <= q.health && q.health < 1000-71" },
+                        { "dmg_73": "1000-73 <= q.health && q.health < 1000-72" },
+                        { "dmg_74": "1000-74 <= q.health && q.health < 1000-73" },
+                        { "dmg_75": "1000-75 <= q.health && q.health < 1000-74" },
+                        { "dmg_76": "1000-76 <= q.health && q.health < 1000-75" },
+                        { "dmg_77": "1000-77 <= q.health && q.health < 1000-76" },
+                        { "dmg_78": "1000-78 <= q.health && q.health < 1000-77" },
+                        { "dmg_79": "1000-79 <= q.health && q.health < 1000-78" },
+                        { "dmg_80": "1000-80 <= q.health && q.health < 1000-79" },
+                        { "dmg_81": "1000-81 <= q.health && q.health < 1000-80" },
+                        { "dmg_82": "1000-82 <= q.health && q.health < 1000-81" },
+                        { "dmg_83": "1000-83 <= q.health && q.health < 1000-82" },
+                        { "dmg_84": "1000-84 <= q.health && q.health < 1000-83" },
+                        { "dmg_85": "1000-85 <= q.health && q.health < 1000-84" },
+                        { "dmg_86": "1000-86 <= q.health && q.health < 1000-85" },
+                        { "dmg_87": "1000-87 <= q.health && q.health < 1000-86" },
+                        { "dmg_88": "1000-88 <= q.health && q.health < 1000-87" },
+                        { "dmg_89": "1000-89 <= q.health && q.health < 1000-88" },
+                        { "dmg_90": "1000-90 <= q.health && q.health < 1000-89" },
+                        { "dmg_91": "1000-91 <= q.health && q.health < 1000-90" },
+                        { "dmg_92": "1000-92 <= q.health && q.health < 1000-91" },
+                        { "dmg_93": "1000-93 <= q.health && q.health < 1000-92" },
+                        { "dmg_94": "1000-94 <= q.health && q.health < 1000-93" },
+                        { "dmg_95": "1000-95 <= q.health && q.health < 1000-94" },
+                        { "dmg_96": "1000-96 <= q.health && q.health < 1000-95" },
+                        { "dmg_97": "1000-97 <= q.health && q.health < 1000-96" },
+                        { "dmg_98": "1000-98 <= q.health && q.health < 1000-97" },
+                        { "dmg_99": "1000-99 <= q.health && q.health < 1000-98" },
+                        { "dmg_100": "     0 <= q.health && q.health < 1000-99" }
+                    ],
+                    "on_entry": [
+                        "/scoreboard objectives add endboss dummy"
+                    ],
+                    "on_exit": [
+                        "/effect @s instant_health 1 30 true"
+                    ]
+                },
+                "dmg_1": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 1" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_2": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 2" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_3": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 3" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_4": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 4" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_5": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 5" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_6": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 6" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_7": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 7" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_8": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 8" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_9": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 9" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_10": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 10" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_11": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 11" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_12": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 12" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_13": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 13" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_14": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 14" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_15": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 15" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_16": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 16" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_17": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 17" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_18": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 18" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_19": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 19" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_20": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 20" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_21": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 21" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_22": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 22" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_23": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 23" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_24": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 24" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_25": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 25" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_26": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 26" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_27": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 27" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_28": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 28" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_29": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 29" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_30": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 30" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_31": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 31" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_32": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 32" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_33": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 33" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_34": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 34" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_35": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 35" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_36": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 36" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_37": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 37" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_38": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 38" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_39": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 39" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_40": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 40" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_41": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 41" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_42": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 42" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_43": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 43" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_44": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 44" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_45": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 45" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_46": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 46" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_47": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 47" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_48": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 48" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_49": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 49" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_50": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 50" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_51": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 51" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_52": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 52" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_53": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 53" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_54": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 54" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_55": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 55" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_56": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 56" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_57": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 57" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_58": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 58" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_59": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 59" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_60": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 60" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_61": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 61" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_62": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 62" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_63": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 63" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_64": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 64" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_65": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 65" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_66": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 66" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_67": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 67" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_68": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 68" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_69": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 69" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_70": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 70" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_71": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 71" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_72": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 72" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_73": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 73" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_74": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 74" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_75": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 75" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_76": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 76" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_77": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 77" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_78": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 78" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_79": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 79" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_80": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 80" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_81": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 81" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_82": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 82" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_83": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 83" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_84": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 84" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_85": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 85" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_86": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 86" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_87": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 87" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_88": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 88" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_89": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 89" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_90": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 90" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_91": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 91" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_92": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 92" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_93": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 93" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_94": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 94" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_95": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 95" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_96": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 96" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_97": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 97" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_98": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 98" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_99": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 99" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                },
+                "dmg_100": {
+                    "on_entry": [ "/scoreboard players add endboss_damage endboss 100" ],
+                    "transitions": [{ "apply_damage": "1.0" }]
+                }
+            }
+        }
+    }
+}

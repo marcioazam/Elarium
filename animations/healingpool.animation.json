@@ -1,0 +1,27 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.healingpool.sensor": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.01": [ 
+          "/event entity @a[r=3] xp:stage_healingpool",
+          "/effect @a[r=3] slowness 1 1 true"
+        ]
+      }
+    },
+    "animation.healingpool.inside": {
+      "animation_length": 1.4,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/title @a[c=1,r=2] actionbar xp_hud.healingpool_vignette",
+          "/effect @a[r=4] regeneration 5 1 true",
+
+          "/event entity @a[tag=!\"ach_116\",r=4] xp:achievements.116" 
+        ]
+      }
+    }
+  }
+}

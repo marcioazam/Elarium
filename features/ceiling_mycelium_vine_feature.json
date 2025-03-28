@@ -1,0 +1,23 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:growing_plant_feature": {
+    "description": {
+      "identifier": "edx:ceiling_mycelium_vine_feature"
+    },
+    "height_distribution":  [
+      [{"range_min": 2, "range_max": 7}, 2],
+      [{"range_min": 2, "range_max": 3}, 1]
+    ],
+    "growth_direction": "DOWN",
+    "body_blocks": [
+      ["edx:mycelium_vine", 1]
+    ],
+    "head_blocks": [
+      ["edx:mycelium_vine", 50],
+      ["edx:yellow_mushroom",10 ],
+      ["edx:yellow_spore_bag", 5],
+      ["edx:yellow_shroom_bulb", 30]
+    ], 
+    "allow_water": true
+  }
+}

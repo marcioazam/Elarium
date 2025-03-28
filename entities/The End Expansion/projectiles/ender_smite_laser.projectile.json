@@ -1,0 +1,234 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "xp:ender_smite_laser.projectile",
+        "runtime_identifier": "minecraft:snowball",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false,
+        "animations": {
+          "setup": "controller.animation.ender_smite_laser.projectile"
+        },
+        "scripts": {
+          "animate": [
+            "setup"
+          ]
+        }
+      },
+      "component_groups": {
+        "xp:impact":{
+          "minecraft:variant": {
+            "value": 1
+          },
+          "minecraft:timer": {
+            "time": 0.05,
+            "looping": true,
+            "time_down_event": {
+              "event": "xp:despawn"
+            }
+          }
+        },
+        "xp:fast_laser":{
+          "minecraft:is_baby": {},
+          "minecraft:area_attack": {
+              "damage_range": 1,
+              "damage_per_tick": 0,
+              "cause": "contact",
+              "entity_filter": {
+                  "none_of": [
+                          { "test": "has_tag", "subject": "other", "value": "ender_smite" },
+                          // { "test": "is_family", "subject": "other", "value": "xp_boss" },
+                          { "test": "is_family", "subject": "other", "value": "item" }
+                  ]
+              }
+          },
+          "minecraft:projectile": {
+            "on_hit": {
+              "definition_event": {
+                "affect_projectile": true,
+                "event_trigger": {
+                  "event": "xp:impact",
+                  "target": "self"
+                }
+              },
+              "stick_in_ground": {
+                "shake_time": 0.1
+              },
+              "impact_damage": {
+                "damage": 12,
+                "knockback": true
+              }
+            },
+            "should_bounce": true,
+            "uncertainty_base": 0.75,
+            "anchor": 1,
+            "power": 5.5,
+            "gravity": 0.0035,
+            "angle_offset": 0.0,
+            "offset": [ 0, -0.3, 0 ],
+            "liquid_inertia": 0.0
+        },
+        "minecraft:timer": {
+          "time": 0.45,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:impact"
+          }
+        }
+        },
+        "xp:fast_laser_no_offset":{
+          "minecraft:is_baby": {},
+          "minecraft:area_attack": {
+              "damage_range": 1,
+              "damage_per_tick": 0,
+              "cause": "contact",
+              "entity_filter": {
+                  "none_of": [
+                          { "test": "has_tag", "subject": "other", "value": "ender_smite" },
+                          // { "test": "is_family", "subject": "other", "value": "xp_boss" },
+                          { "test": "is_family", "subject": "other", "value": "item" }
+                  ]
+              }
+          },
+          "minecraft:projectile": {
+            "on_hit": {
+              "definition_event": {
+                "affect_projectile": true,
+                "event_trigger": {
+                  "event": "xp:impact",
+                  "target": "self"
+                }
+              },
+              "stick_in_ground": {
+                "shake_time": 0.1
+              },
+              "impact_damage": {
+                "damage": 12,
+                "knockback": true
+              }
+            },
+            "should_bounce": true,
+            "uncertainty_base": 0.75,
+            "anchor": 1,
+            "power": 5.5,
+            "gravity": 0.0035,
+            "angle_offset": 0.0,
+            "offset": [ 0, 0, 0 ],
+            "liquid_inertia": 0.0
+        },
+        "minecraft:timer": {
+          "time": 0.45,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:impact"
+          }
+        }
+        },
+        "xp:despawn": { "minecraft:instant_despawn": {} }
+      },
+      "components": {
+        "minecraft:area_attack": {
+            "damage_range": 1,
+            "damage_per_tick": 0,
+            "cause": "contact",
+            "entity_filter": {
+                "none_of": [
+                        { "test": "has_tag", "subject": "other", "value": "ender_smite" },
+                        // { "test": "is_family", "subject": "other", "value": "xp_boss" },
+                        { "test": "is_family", "subject": "other", "value": "item" }
+                ]
+            }
+        },
+        "minecraft:break_blocks": {
+          "breakable_blocks": [
+            "glass",
+            "glass_pane",
+            "stained_glass",
+            "twisting_vines",
+            "stained_glass_pane",
+            "bamboo",
+            "cocoa",
+            "carved_pumpkin",
+            "chorus_flower",
+            "chorus_plant",
+            "lit_pumpkin",
+            "melon_block",
+            "pumpkin",
+            "turtle_egg",
+            "waterlily",
+            "cave_vines",
+            "cave_vines_body_with_berries",
+            "cave_vines_head_with_berries",
+            "small_dripleaf_block",
+            "big_dripleaf"
+          ]
+        },
+        "minecraft:conditional_bandwidth_optimization": {
+          "default_values": {
+            "max_optimized_distance": 80.0,
+            "max_dropped_ticks": 7,
+            "use_motion_prediction_hints": true
+          }
+        },
+        "minecraft:skin_id": {
+          "value": 0
+        },
+        "minecraft:type_family": {
+          "family": [
+            "xp_dummy",
+            "projectile",
+            "enders_smite"
+          ]
+        },
+        "minecraft:collision_box": {
+          "width": 0.2,
+          "height": 0.2
+      },
+        "minecraft:physics": {},
+        "minecraft:pushable": {
+          "is_pushable": false,
+          "is_pushable_by_piston": false
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "xp:impact",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 0.1
+          },
+          "impact_damage": {
+            "damage": 12,
+            "knockback": true
+          }
+        },
+        "should_bounce": true,
+        "uncertainty_base": 0.75,
+        "anchor": 1,
+        "power": 4.5,
+        "gravity": 0.0035,
+        "angle_offset": 0.0,
+        "offset": [ 0, -0.1, 0 ],
+        "liquid_inertia": 0.0
+    },
+      "minecraft:timer": {
+        "time": 0.4,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:impact"
+        }
+      }
+    },
+    "events": {
+      "xp:fast_laser":{ "add": { "component_groups": ["xp:fast_laser"] } },
+      "xp:fast_laser_no_offset":{ "add": { "component_groups": ["xp:fast_laser_no_offset"] } },
+      "xp:impact":{ "add": { "component_groups": ["xp:impact"] } },
+      "xp:despawn": { "add": { "component_groups": [ "xp:despawn" ] } }
+    }
+  }
+}

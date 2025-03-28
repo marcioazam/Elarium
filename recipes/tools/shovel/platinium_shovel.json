@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:platinium_shovel"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "X",
+      "#",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "edx:platinium_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:platinium_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:platinium_shovel"
+    }
+  }
+}

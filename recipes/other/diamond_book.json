@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:diamond_book"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " D ",
+      "DED",
+      "RD "
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:diamond"
+      },
+      "E": {
+        "item": "minecraft:book"
+      },
+      "R": {
+        "item": "edx:ruby"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      },
+      {
+        "item": "minecraft:book"
+      },
+      {
+        "item": "edx:ruby"
+      }
+    ],
+    "result": {
+      "item": "edx:diamond_book"
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:leather_chestplate",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              
+              "levels": {
+                "min": 1,
+                "max": 15
+              }
+            },
+            {
+              "function": "set_count",
+              "count": {
+                  "min": 1,
+                  "max": 1
+              }
+          },
+          {
+            "function": "random_dye"
+            
+        }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather_leggings",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              
+              "levels": {
+                "min": 1,
+                "max": 15
+              }
+            },
+            {
+              "function": "set_count",
+              "count": {
+                  "min": 1,
+                  "max": 1
+              }
+          },
+          {
+            "function": "random_dye"
+            
+        }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather_boots",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              
+              "levels": {
+                "min": 1,
+                "max": 15
+              }
+            },
+            {
+              "function": "set_count",
+              "count": {
+                  "min": 1,
+                  "max": 1
+              }
+          },
+          {
+            "function": "random_dye"
+            
+        }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:copper_coin",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_chestplate",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_leggings",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_helmet",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "edx:broken_old_boots",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "functions": [
+              {
+                  "function": "minecraft:set_stew_effect",
+                  "effects": [
+                      {
+                          "id": 0 
+                      },
+                      {
+                          "id": 3 
+                      }
+                  ]
+              },
+              {
+                  "function": "set_count",
+                  "count": {
+                      "min": 2,
+                      "max": 6.0
+                  },
+                  "add": false
+              }
+          ],
+          "name": "minecraft:suspicious_stew",
+          "weight": 10
+      },
+      {
+        "type": "item",
+        "name": "minecraft:bread",
+        "weight": 20,
+        "functions": [
+          {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+          }
+      ]
+      },
+      {
+        "type": "item",
+        "name": "minecraft:wool",
+        "weight": 10,
+        "functions": [
+          {
+            "function": "set_data",
+            "data":  {
+                "min": 0,
+                "max": 15
+            }
+        },
+        {
+          "function": "set_count",
+          "count":  {
+              "min": 1,
+              "max": 3
+          }
+      }
+        ]
+      },
+      {
+        "type": "item",
+        "name": "minecraft:feather",
+        "weight": 10,
+        "functions": [
+          {
+            "function": "set_count",
+            "count": {
+                "min": 1,
+                "max": 5
+            }
+        }
+        ]
+      },
+      {
+        "type": "item",
+        "name": "minecraft:potion",
+        "weight": 20,
+        "functions": [
+          {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+          }
+      ]
+      },
+      {
+        "type": "item",
+        "name": "edx:golden_ring",
+        "weight": 1
+      }
+      ]
+    }
+   
+  ]
+}

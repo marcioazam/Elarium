@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:ruby_inlaid_stairs"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "W",
+            "WW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:ruby_inlaid"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:ruby_inlaid"
+            }
+        ],
+        "result": {
+            "item": "edx:ruby_inlaid_stairs",
+            "count": 4
+        }
+    }
+}

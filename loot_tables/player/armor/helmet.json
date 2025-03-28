@@ -1,0 +1,23 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:iron_helmet",
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 15,
+                "max": 25
+              },
+              "treasure": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

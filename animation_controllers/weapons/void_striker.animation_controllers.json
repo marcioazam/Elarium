@@ -1,0 +1,214 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ender_tp_dummy": {
+      "initial_state": "in_air",
+      "states": {
+        "in_air": {
+          "transitions": [
+            { "impact": "(q.variant == 1 || q.is_on_ground || q.is_in_water) && q.skin_id == 0" },
+            { "impact1": "(q.variant == 1 || q.is_on_ground || q.is_in_water) && q.skin_id == 1" }
+          ]
+        },
+        "impact": {
+          "on_entry": [
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=50] ~~~ 0.5 1 0.1",
+            "/particle xp:tp_impact ~~~",
+            "/particle xp:heart_smoke2 ~~~",
+            "/camerashake add @a[r=5] 0.3 0.25 rotational",
+            "/camerashake add @a[r=10] 0.2 0.25 rotational",
+            "/camerashake add @a[r=15] 0.1 0.25 rotational",
+            "@s xp:despawn"
+          ]
+        },
+        "impact1": {
+          "on_entry": [
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=50] ~~~ 0.5 1 0.1",
+            "/particle xp:tp_impact1 ~~~",
+            "/particle xp:tp_smoke ~~~",
+            "/camerashake add @a[r=5] 0.3 0.25 rotational",
+            "/camerashake add @a[r=10] 0.2 0.25 rotational",
+            "/camerashake add @a[r=15] 0.1 0.25 rotational",
+            "@s xp:despawn"
+          ]
+        }
+      }
+    },
+    "controller.animation.ender_tp_mob": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "holding": "q.get_equipped_item_name == 'void_striker'" }
+          ],
+          "on_entry": ["@s xp:attack_value_1", "/tag @s remove void_striker"]
+        },
+        
+        "holding":{
+          "transitions": [
+            { "tp_to_mob_in_range": "v.attack_time > 0.0 && q.get_equipped_item_name == 'void_striker'" },
+            { "tp_player_ender": "q.is_using_item && q.get_equipped_item_name == 'void_striker'" },
+            { "removing_state": "q.get_equipped_item_name != 'void_striker'" }
+          ],
+          "on_entry": ["@s xp:attack_value_8", "/tag @s add void_striker"]
+        },
+
+        "cant_use":{
+          "transitions": [
+            { "removing_state": "q.get_equipped_item_name != 'void_striker'" },
+            { "holding": "v.attack_time < 0.2 && !q.is_using_item && (q.life_time - v.tick_delay) >= 0.75" }
+          ],
+          "on_entry": ["/tellraw @s {\"rawtext\":[{\"text\":\"- §6Can't use that here§r\n\"}]}", "/playsound note.bassattack @s ~~~ 0.75 1 1"]
+        },
+
+        "removing_state":{
+          "on_entry": ["@s xp:remove_no_damage"],
+          "transitions": [
+            {"remove": "q.all_animations_finished"}
+          ]
+        },
+        "remove":{
+          "transitions": [
+            {"default": "q.all_animations_finished"}
+          ]
+        },
+        "tp_player_ender":{
+          "transitions": [
+            { "removing_state": "q.get_equipped_item_name != 'void_striker'" },
+            { "holding": "!q.is_using_item && q.get_equipped_item_name == 'void_striker' && (q.life_time - v.tick_delay) >= 0.5" }
+          ],
+          "on_entry": ["@s xp:use_tp", "/effect @s nausea 4 8 true", "@s xp:no_damage", "v.tick_delay = q.life_time;"]
+        },
+        "tp_to_mob_in_range":{
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'void_striker'" },
+            { "holding": "q.all_animations_finished && q.get_equipped_item_name == 'void_striker'" }
+          ],
+          "on_entry": ["/function void_striker/ender_in_range"]
+        }
+      }
+    },
+    "controller.animation.void_striker": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "holding": "q.get_equipped_item_name == 'void_striker'" }
+          ],
+          "on_entry": [
+            "/tag @s remove void_striker",
+            "/fog @s remove yes"
+          ]
+        },
+        "holding": {
+          "transitions": [ 
+            { "default": "q.get_equipped_item_name != 'void_striker'" }
+          ],
+          "on_entry": [ 
+            "/fog @s push minecraft:fog_warped_forest yes",
+            "/tag @s add void_striker"
+           ]
+        }
+      }
+    },
+    "controller.animation.ender_tp_mob_enchanted": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "holding": "q.get_equipped_item_name == 'void_striker_enchanted'" }
+          ],
+          "on_entry": ["@s xp:attack_value_1", "/tag @s remove void_striker_enchanted"]
+        },
+        
+        "holding":{
+          "transitions": [
+            { "tp_to_mob_in_range": "v.attack_time > 0.0 && q.get_equipped_item_name == 'void_striker_enchanted'" },
+            { "tp_player_ender": "q.is_using_item && q.get_equipped_item_name == 'void_striker_enchanted'" },
+            { "removing_state": "q.get_equipped_item_name != 'void_striker_enchanted'" }
+          ],
+          "on_entry": ["@s xp:attack_value_13", "/tag @s add void_striker_enchanted"]
+        },
+
+        "cant_use":{
+          "transitions": [
+            {"removing_state": "v.attack_time < 0.2 && !q.is_using_item && (q.life_time - v.tick_delay) >= 0.75"}
+          ],
+          "on_entry": ["/tellraw @s {\"rawtext\":[{\"text\":\"- §6Can't use that here§r\n\"}]}", "/playsound note.bassattack @s ~~~ 0.75 1 1"]
+        },
+
+        "removing_state":{
+          "on_entry": ["@s xp:remove_no_damage"],
+          "transitions": [
+            {"remove": "q.all_animations_finished"}
+          ]
+        },
+        "remove":{
+          "transitions": [
+            {"default": "q.all_animations_finished"}
+          ]
+        },
+        "tp_player_ender":{
+          "transitions": [
+            { "removing_state": "q.get_equipped_item_name != 'void_striker_enchanted'" },
+            { "holding": "!q.is_using_item && q.get_equipped_item_name == 'void_striker_enchanted' && (q.life_time - v.tick_delay) >= 0.5"}
+          ],
+          "on_entry": ["@s xp:use_tp_enchanted", "/effect @s nausea 4 8 true", "@s xp:no_damage", "v.tick_delay = q.life_time;"]
+        },
+        "tp_to_mob_in_range":{
+          "transitions": [
+            { "removing_state": "q.get_equipped_item_name != 'void_striker_enchanted'" },
+            { "holding": "q.all_animations_finished && q.get_equipped_item_name == 'void_striker_enchanted'" }
+          ],
+          "on_entry": ["/function void_striker/ender_in_range"]
+        }
+      }
+    },
+    "controller.animation.void_striker_enchanted": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "holding": "q.get_equipped_item_name == 'void_striker_enchanted'" }
+          ],
+          "on_entry": [
+            "/tag @s remove void_striker_enchanted",
+            "/fog @s remove yes"
+          ]
+        },
+        "holding": {
+          "transitions": [ 
+            { "default": "q.get_equipped_item_name != 'void_striker_enchanted'" }
+          ],
+          "on_entry": [ 
+            "/fog @s push minecraft:fog_warped_forest yes",
+            "/tag @s add void_striker_enchanted"
+           ]
+        }
+      }
+    },
+    "controller.animation.void_striker.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "attack": "v.attack_time > 0" }
+          ]
+        },
+        "attack": {
+          "on_entry": [
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "@s xp:unset_attack"
+          ],
+          "transitions": [
+            {
+              "default": "v.attack_time == 0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

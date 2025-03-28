@@ -1,0 +1,140 @@
+{
+  "format_version": "1.17.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:game_manager.spawn",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "scripts": {
+        "animate": [
+          //Spawn
+          "ender_eye_placement",
+          "lava_cauldrons",
+          "spawn_music",
+          "water_fall",
+          "water_fall.sfx",
+          "leaves",
+          
+          "end_travel.trigger",
+
+          //Cutscenes
+          "cutscene.end_portal"
+        ]
+      },
+      "animations": {
+        //Spawn
+        "ender_eye_placement": "controller.animation.game_manager.ender_eye_placement",
+        "lava_cauldrons": "controller.animation.game_manager.spawn.lava_smoke",
+        "spawn_music": "controller.animation.game_manager.spawn.music",
+        "leaves": "controller.animation.game_manager.spawn.leaves",
+        
+        "tags": "animation.game_manager.spawn.give_tags",
+        "eye_tf": "animation.game_manager.spawn.eye_tf",
+        "eye_movement": "animation.game_manager.spawn.eye_movement",
+        "end_portal.sfx_loop": "animation.game_manager.spawn.end_portal_sfx_loop",
+        "lava_smoke": "animation.game_manager.spawn.lava_smoke",
+        "water_fall": "animation.game_manager.spawn.waterfall",
+        "water_fall.sfx": "animation.game_manager.spawn.waterfall.sfx",
+        "lava_fog": "animation.game_manager.spawn.lava_fog",
+        
+        //Cutscenes
+        "cutscene.end_portal": "controller.animation.cutscene.end_portal",
+        "cutscene.end_portal.scene_0_mode": "animation.cutscene.end_portal.scene_0_mode",
+        "cutscene.end_portal.scene_0_fade_pause": "animation.cutscene.end_portal.scene_0_fade_pause",
+        "cutscene.end_portal.scene_0": "animation.cutscene.end_portal.scene_0",
+        "cutscene.end_portal.scene_0_0": "animation.cutscene.end_portal.scene_0_0",
+        "cutscene.end_portal.scene_0_effects": "animation.cutscene.end_portal.scene_0_effects",
+
+        "cutscene.end_portal.end_scene_0": "animation.cutscene.end_portal.end_scene_0",
+        "cutscene.end_portal.end_scene_0_effects": "animation.cutscene.end_portal.end_scene_0_effects",
+        "cutscene.end_portal.end_scene_0_fade_pause": "animation.cutscene.end_portal.end_scene_0_fade_pause",
+
+        "cutscene.end_portal.end_scene_1": "animation.cutscene.end_portal.end_scene_1",
+        "cutscene.end_portal.end_scene_1_effects": "animation.cutscene.end_portal.end_scene_1_effects",
+        "cutscene.end_portal.end_scene_1_fade_pause": "animation.cutscene.end_portal.end_scene_1_fade_pause",
+
+        "cutscene.end_portal.end_scene_2": "animation.cutscene.end_portal.end_scene_2",
+        "cutscene.end_portal.end_scene_2_effects": "animation.cutscene.end_portal.end_scene_2_effects",
+        "cutscene.end_portal.end_scene_2_fade_pause": "animation.cutscene.end_portal.end_scene_2_fade_pause",
+        
+        "cutscene.end_portal.end_scene_3": "animation.cutscene.end_portal.end_scene_3",
+        "cutscene.end_portal.end_scene_3_effects": "animation.cutscene.end_portal.end_scene_3_effects",
+        "cutscene.end_portal.end_scene_3_fade_pause": "animation.cutscene.end_portal.end_scene_3_fade_pause",
+
+        "cutscene.end_portal.end_scene_4": "animation.cutscene.end_portal.end_scene_4",
+        "cutscene.end_portal.end_scene_4_effects": "animation.cutscene.end_portal.end_scene_4_effects",
+        "cutscene.end_portal.end_scene_4_fade_pause": "animation.cutscene.end_portal.end_scene_4_fade_pause",
+        
+        "cutscene.end_portal.spawn_eyes": "animation.cutscene.end_portal.spawn_eyes",
+        "cutscene.end_portal.spawn_boss_arena": "animation.cutscene.end_portal.spawn_boss_arena",
+        "cutscene.end_portal.spawn_boss_arena.islands": "animation.cutscene.end_portal.spawn_boss_arena.islands",
+        "cutscene.end_portal.clear_boss_arena": "animation.cutscene.end_portal.clear_boss_arena",
+
+        //End Travel
+        "end_travel.trigger": "controller.animation.game_manager.spawn.send_player_to_travel",
+        "send_player_to_end": "animation.game_manager.spawn.player_tf.send_player_to_end",
+        "send_player_to_overworld": "animation.game_manager.spawn.player_tf.send_player_to_overworld"
+
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "game_manager", "dev", "dummy" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      },
+      "minecraft:tick_world": {
+        "never_despawn": true,
+        "radius": 2
+      }
+    },
+
+    "component_groups": {
+      "xp:despawn": { "minecraft:instant_despawn": {} },
+      "xp:reset": {
+        "minecraft:skin_id": { "value": 0 },
+        "minecraft:variant": { "value": 0 },
+        "minecraft:mark_variant": { "value": 0 }
+      },
+      "xp:eye_placed": { "minecraft:skin_id": { "value": 1 } },
+      "xp:scene_end": { "minecraft:skin_id": { "value": 2 },  "minecraft:variant": { "value": 0 }, "minecraft:mark_variant": { "value": 0 } },
+      "xp:scene_reset":{ "minecraft:variant": { "value": 0 } },
+      "xp:scene_0": { "minecraft:variant": { "value": 1 } },
+      "xp:scene_1": { "minecraft:variant": { "value": 2 } },
+      "xp:scene_2": { "minecraft:variant": { "value": 3 } },
+      "xp:scene_3": { "minecraft:variant": { "value": 4 } },
+      "xp:scene_4": { "minecraft:variant": { "value": 5 } },
+      "xp:cutscene.end_portal": { "minecraft:mark_variant": { "value": 100 } }
+      
+    },
+
+    "events": {
+      "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } },
+      "xp:reset": { "add": { "component_groups": ["xp:reset"] }, "remove": { "component_groups": [ "xp:eye_placed", "xp:scene_end" ] } },
+      "xp:eye_placed": { "add": { "component_groups": ["xp:eye_placed"] } },
+      "xp:scene_end": { "add": { "component_groups": ["xp:scene_end"] }, "remove": { "component_groups": [ "xp:scene_0", "xp:scene_1", "xp:scene_2", "xp:scene_3", "xp:scene_4", "xp:cutscene.end_portal" ] } },
+      "xp:scene_reset": { "add": { "component_groups": ["xp:scene_reset"] }, "remove": { "component_groups": [ "xp:scene_0", "xp:scene_1", "xp:scene_2", "xp:scene_3", "xp:scene_4" ] } },
+      "xp:scene_0": { "add": { "component_groups": ["xp:scene_0"] } },
+      "xp:scene_1": { "add": { "component_groups": ["xp:scene_1"] } },
+      "xp:scene_2": { "add": { "component_groups": ["xp:scene_2"] } },
+      "xp:scene_3": { "add": { "component_groups": ["xp:scene_3"] } },
+      "xp:scene_4": { "add": { "component_groups": ["xp:scene_4"] } },
+      "xp:cutscene.end_portal":{ "add": { "component_groups": ["xp:cutscene.end_portal"] } }
+    }
+  }
+}

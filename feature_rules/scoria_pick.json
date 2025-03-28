@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:scoria_pick",
+			"places_feature": "edx:scoria_biome/scoria_column_placer"
+			/*
+			This feature rule runs for every chunk
+			It pre-calculates the random numbers used in the voronoi function (biome determinant), which should lead to a noticable preformace improvement (at the cost of some flexibility in biome shape)
+			*/
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"test": "has_biome_tag",
+						"value": "nether",
+						"operator": "=="
+					}
+				]
+			}
+		},
+		"distribution": {
+			//iterations contains random_generator.molang
+			"iterations": "t.scale = 8; t.biomes = 16; t.primary_edge_noise_amplitude = 0.4;t.primary_edge_noise_scale = 10;t.secondary_edge_noise_amplitude = 0.2;t.secondary_edge_noise_scale = 8;t.primary_height_offset_amplitude = 2;t.primary_height_offset_scale = 10;t.secondary_height_offset_amplitude = 1;t.secondary_height_offset_scale = 1;v.px = v.originx/2/t.scale;v.pz = v.originz/2/t.scale;v.i = 0;loop(9,{        v.x = math.mod(v.i,3) - 1;    v.z = math.floor(v.i/3) - 1;        v.p2x = math.floor(v.px) + v.x;    v.p2z = math.floor(v.pz) + v.z;        v.p3x = math.mod(v.p2x*0.1031,1);    v.p3y = math.mod(v.p2z*0.1030,1);    v.p3z = math.mod(v.p2x*0.0973,1);    v.p3d = v.p3x*(v.p3y + 33.33) + v.p3y*(v.p3z + 33.33) + v.p3z*(v.p3x + 33.33);    v.p3x = v.p3x + v.p3d;    v.p3y = v.p3y + v.p3d;    v.p3z = v.p3z + v.p3d;    v.rx = math.mod((v.p3x + v.p3y)*v.p3z,1);    v.rz = math.mod((v.p3x + v.p3z)*v.p3y,1);        (v.i == 0) ? {        t.rx0 = v.rx;        t.rz0 = v.rz;    } : { (v.i == 1) ? {        t.rx1 = v.rx;        t.rz1 = v.rz;    } : { (v.i == 2) ? {                t.rx2 = v.rx;        t.rz2 = v.rz;    } : { (v.i == 3) ? {        t.rx3 = v.rx;        t.rz3 = v.rz;    } : { (v.i == 4) ? {        t.rx4 = v.rx;        t.rz4 = v.rz;    } : { (v.i == 5) ? {        t.rx5 = v.rx;        t.rz5 = v.rz;    } : { (v.i == 6) ? {        t.rx6 = v.rx;        t.rz6 = v.rz;    } : { (v.i == 7) ? {        t.rx7 = v.rx;        t.rz7 = v.rz;    } : {        t.rx8 = v.rx;        t.rz8 = v.rz;    };};};};};};};};    v.i = v.i + 1;});return 1;",
+			"x": 0,
+			"y": 4,
+			"z": 0
+		}
+	}
+}

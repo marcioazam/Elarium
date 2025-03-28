@@ -1,0 +1,988 @@
+{
+	//nether
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:blazeblade2",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"easy":{
+				"minecraft:health": {
+					"value": 200,
+					"max": 200
+				  }
+			},
+			"normal":{
+				"minecraft:health": {
+					"value": 300,
+					"max": 300
+				  }
+			},
+			"hard":{
+				"minecraft:health": {
+					"value": 900,
+					"max": 900
+				  }
+			},
+			"fire_tornado":{
+				  "minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [1.5,1.5],
+					"time_down_event": {
+					  "event": "summon_tornado"
+					}
+				  }
+			},
+			"charge":{
+				
+				  "minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [1.2,1.2],
+					"time_down_event": {
+					  "event": "charging"
+					}
+				  }
+			},
+			"dig":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [3,3],
+					"time_down_event": {
+					  "event": "dig_tp"
+					}
+				  }
+			},
+			"dig_up_time":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [1,1],
+					"time_down_event": {
+					  "event": "dig_out"
+					}
+				  }
+			},
+			"hard_cooldown_dig":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [0.25,0.25],
+					"time_down_event": {
+					  "event": "stop_cooldown"
+					}
+				  }
+			},
+			"normal_cooldown_dig":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [2,2],
+					"time_down_event": {
+					  "event": "stop_cooldown"
+					}
+				  }
+			},
+			"easy_cooldown_dig":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [3,3],
+					"time_down_event": {
+					  "event": "stop_cooldown"
+					}
+				  }
+			},
+			"easy_cooldown":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [4,4],
+					"time_down_event": {
+					  "event": "stop_cooldown"
+					}
+				  }
+			},
+			"hard_cooldown":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [0.25,0.25],
+					"time_down_event": {
+					  "event": "stop_cooldown"
+					}
+				  }
+			},
+			"normal_cooldown":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [2,2],
+					"time_down_event": {
+					  "event": "stop_cooldown"
+					}
+				  }
+			},
+			"sun_up":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [1,1],
+					"time_down_event": {
+					  "event": "sun_down"
+					}
+				  }
+			},
+			"fire_strikes":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [4,4],
+					"time_down_event": {
+					  "event": "fire_strikes"
+					}
+				  }
+			},
+			
+			"solar_flare":{
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":true,
+					"time": [1,1],
+					"time_down_event": {
+					  "event": "change_attack"
+					}
+				  }
+			},
+			"no_dig":{
+				"minecraft:area_attack":{
+					
+					"cause": "contact",
+					"damage_cooldown":0.7,
+					"damage_per_tick":9,
+					"damage_range":1.3,
+					"entity_filter":
+					{
+					  "all_of": [
+					  { "test": "is_family", "subject": "other", "value": "player" }
+					]
+				  }
+				  }
+			},
+			"death":{
+				"minecraft:instant_despawn": {
+					"remove_child_entities": true
+				 }
+			}
+			},
+		"components": {
+			"minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          { "test": "is_family", "subject": "other", "operator": "!=", "value": "blaze" }
+        ]
+      }
+    }
+  ]
+},
+			"minecraft:mob_effect": {
+				"effect_range": 5,
+				"mob_effect": "slowness",
+				"effect_time": 5,
+				"entity_filter": {
+					"test": "is_family",
+					"subject": "other",
+					"operator": "!=",
+					"value": "monster"
+					
+				},
+				"cooldown_time": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"on_damage": {
+						"filters": {
+							"test": "has_damage",
+							"subject": "self",
+							"value": "projectile"
+						}
+					},
+					"deals_damage": false
+				}
+			},
+			"minecraft:behavior.look_at_target": {
+				"priority": 1,
+				"look_distance": 64
+			  },
+			  "minecraft:behavior.look_at_player": {
+				"priority": 1,
+				"look_distance": 32
+			  },
+			
+			  "minecraft:fire_immune": {
+			},
+			"minecraft:physics": {
+				"has_gravity": true,
+				"has_collision": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": false
+			},
+			 
+			  "minecraft:boss": {
+				"should_darken_sky": true,
+				"name": "§6(Fase 2/2) §4Blazeblade §6(BOSS NETHER)",
+				"hud_range": 100 
+			  },
+			  "minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+			 "minecraft:breathable": {
+				"total_supply": 20,
+				"suffocate_time": 0
+			 },
+			 "minecraft:collision_box": {
+				"width": 1.1,
+				"height": 1.9
+			 },
+			 "minecraft:movement": {
+				"value": 0.25
+			 },
+			 "minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"can_sink": true,
+				"can_pass_doors": false,
+				"can_path_from_air": false,
+				"avoid_water": false,
+				"avoid_damage_blocks": false,
+				"avoid_sun": false,
+				"can_swim": false
+			 },
+			 "minecraft:movement.generic": {},
+			 "minecraft:jump.static": {},
+			 "minecraft:type_family": {
+				"family": ["blazeblade"]
+			},
+			  "minecraft:follow_range": {
+				"value": 128,
+				"max": 128
+			},
+			  "minecraft:behavior.nearest_attackable_target": {
+				"priority": 0,
+				"entity_types": [
+				  {
+					"filters": {  
+						"any_of": [
+						  { "test" :  "is_family", "subject" : "other", "value" :  "player"}
+						] 
+					},
+					"max_dist": 64
+				  }
+				 
+				],
+				"must_see": false
+			  }
+			 
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"sequence": [
+				{
+						"filters": {
+							"any_of": [
+								{
+									"all_of": [
+										{
+											"test": "has_biome_tag",
+											"operator": "==",
+											"value": "nether"
+										},
+										{
+											"test":"is_difficulty",
+											"value":"easy"
+										}
+									]
+								}
+							]
+							
+						  },
+						  "trigger": "easy"
+				},
+				{
+					"filters": {
+						"any_of": [
+							{
+								"all_of": [
+									{
+										"test": "has_biome_tag",
+										"operator": "==",
+										"value": "nether"
+									},
+									{
+										"test":"is_difficulty",
+										"value":"normal"
+									}
+								]
+							}
+						]
+						
+					  },
+					  "trigger": "normal"
+				},
+				{
+					"filters": {
+						"any_of": [
+							{
+								"all_of": [
+									{
+										"test": "has_biome_tag",
+										"operator": "==",
+										"value": "nether"
+									},
+									{
+										"test":"is_difficulty",
+										"value":"hard"
+									}
+								]
+							}
+						]
+						
+					  },
+					  "trigger": "hard"
+				},
+
+				{
+					"filters": {
+								"all_of": [
+									{
+										"test": "has_biome_tag",
+										"operator": "!=",
+										"value": "nether"
+									}
+								]
+					  },
+					  "queue_command": {
+						"command": [
+						  "say You can only summon the blazeblade in the Nether §6(open the wiki for more informations)"
+						]},
+					"add": {
+					   "component_groups": [
+						  "death"
+					   ]
+					}
+			}
+			]
+			},
+"change_attack":{
+			"randomize": [
+				{
+					"weight": 1,
+					"add": {
+						"component_groups": ["fire_tornado","no_dig"]
+					},
+					"remove": {
+						"component_groups": ["charge","dig","solar_flare","sun_up","dig_up_time"]
+					},
+					"queue_command": {
+						"command": [
+						  "playanimation @s animation.blazeblade.tornado_summon"
+						]
+					  }
+				},
+				{
+					"weight": 2,
+					"add": {
+						"component_groups": ["charge","no_dig"]
+					},
+					"trigger": "charge_anim",
+					"remove": {
+						"component_groups": ["fire_tornado","dig","solar_flare","sun_up","dig_up_time"]
+					}
+				},
+				{
+					"weight": 2,
+					"add": {
+						"component_groups": ["sun_up"]
+					},
+					"trigger": "sun_anim",
+					"remove": {
+						"component_groups": ["fire_tornado","dig","solar_flare","sun_up","dig_up_time","no_dig"]
+					}
+				},
+				{
+					"weight": 2,
+					"add": {
+						"component_groups": ["no_dig"]
+					},
+					"trigger": "fire_strikes_anim",
+					"remove": {
+						"component_groups": ["fire_tornado","dig","solar_flare","sun_up","dig_up_time"]
+					}
+				},
+				{
+					"weight": 1,
+					"sequence":[
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_target",
+										"operator": "==",
+										"value": true
+									}
+								]
+						  },
+							"queue_command": {
+								"command": [
+								  "playanimation @s animation.blazeblade.dig",
+								  "playsound mob.blazeblade.dig @a[r=15] ~~~ 2"
+								]
+							  }
+						},
+						{
+							"add": {
+								"component_groups": ["dig"]
+							},
+							"remove": {
+								"component_groups": ["fire_tornado","charge","solar_flare","no_dig","dig_up_time"]
+							}
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"add": {
+						"component_groups": ["no_dig"]
+					},
+					"trigger": "solar_flare",
+					"remove": {
+						"component_groups": ["fire_tornado","charge","dig","solar_flare"]
+					}
+				}
+				
+			],
+			"remove": {
+				"component_groups": ["dig_up_time"]
+			}
+		},
+		"solar_flare":{
+			"sequence":[
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": true
+							}
+						]
+			  	},
+				  "queue_command": {
+					"command": [
+					  "particle edx:solar_flare ~~1.1~",
+					  "effect @a[r=50] fire_resistance 0 255 true",
+					  "particle edx:bomb_particle ~~~",
+					  "scriptevent edx:blazeblade_solar_flare ~~~"
+					]
+				  }
+				  
+				  
+				},
+				{
+					"add": {
+						"component_groups": [
+						   "solar_flare"
+						]
+					 }
+				}
+			]
+			
+		},
+		"summon_tornado":{
+			"sequence":[
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": true
+							}
+						]
+			  	},
+				  "queue_command": {
+					"command": [
+
+					"summon blaze ~ ~1 ~",
+					"summon blaze ~ ~-1 ~",
+					"summon blaze ~ ~ ~-1",
+					 "summon edx:fire_tornado ~~~",
+					  "summon edx:fire_tornado ~~~",
+					  "summon edx:fire_tornado ~~~"
+					]
+				  }
+				  
+				},
+				{
+					"trigger": "change_attack"
+				}
+			]
+			
+		},
+		
+		"easy":{
+			"add": {
+				"component_groups": [
+				   "easy","fire_tornado","no_dig"
+				]
+			 }
+		},
+		"normal":{
+			"add": {
+				"component_groups": [
+				   "normal","fire_tornado","no_dig"
+				]
+			 }
+		},
+		"hard":{
+			"add": {
+				"component_groups": [
+				   "hard","fire_tornado","no_dig"
+				]
+			 }
+		},
+		"charge_anim":{
+			"sequence":[
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": true
+							}
+						]
+			  	},
+				  "queue_command": {
+					"command": [
+					  "playanimation @s animation.blazeblade.charge2",
+					  "tp @s ~~~ facing @p[m=s,r=64]",
+					  "tp @s ~~~ facing @p[m=a,r=64]"
+					]
+				  }
+				  
+				}
+			]
+			
+			
+		},
+		"sun_anim":{
+			"sequence":[
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": true
+							}
+						]
+			  	},
+				  "queue_command": {
+					"command": [
+					  "playanimation @s animation.blazeblade.sun"
+					]
+				  }
+				  
+				}
+			]
+			
+			
+		},
+		"dig_tp":{
+			"sequence":[
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": true
+							}
+						]
+			  	},
+				  "queue_command": {
+					"command": [
+					  "tp @s @p[m=s,r=64]"
+					]
+				  },
+				  "add": {
+					"component_groups": [
+					   "dig_up_time"
+					]
+				 },
+				 "remove": {
+					"component_groups": [
+					   "dig"
+					]
+				 }
+				  
+				},
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": false
+							}
+						]
+			  	},
+				  "remove": {
+					"component_groups": [
+					   "dig","dig_up_time"
+					]
+				 },
+				  "add": {
+					"component_groups": [
+					   "solar_flare"
+					]
+				 }
+				  
+				}
+			]
+			
+			
+		},
+		"dig_out":{
+			"sequence":[
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": true
+							}
+						]
+			  	},
+				  "queue_command": {
+					"command": [
+					  "scriptevent edx:blazeblade_dig ~~~"
+					]
+				  },
+				  "remove": {
+					"component_groups": [
+					   "dig_up_time","dig"
+					]
+				 }
+				},
+				{
+					"filters":{
+						"all_of":[
+						   {
+							  "test":"is_difficulty",
+							  "value":"hard"
+						   }
+						]
+					 },
+				 "add": {
+					"component_groups": [
+					   "hard_cooldown_dig"
+					]
+				 }
+				},
+				{
+					"filters":{
+						"all_of":[
+						   {
+							  "test":"is_difficulty",
+							  "value":"normal"
+						   }
+						]
+					 },
+				 "add": {
+					"component_groups": [
+					   "normal_cooldown_dig"
+					]
+				 }
+				},
+				{
+					"filters":{
+						"all_of":[
+						   {
+							  "test":"is_difficulty",
+							  "value":"easy"
+						   }
+						]
+					 },
+				 "add": {
+					"component_groups": [
+					   "easy_cooldown_dig"
+					]
+				 }
+				},
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": false
+							}
+						]
+			  	},
+				  "remove": {
+					"component_groups": [
+					   "dig_up_time","dig"
+					]
+				 },
+				  "add": {
+					"component_groups": [
+					   "solar_flare"
+					]
+				 }
+				  
+				}
+			]
+			
+			
+		},
+		
+		"charging":{
+			"sequence":[
+
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "has_target",
+								"operator": "==",
+								"value": true
+							}
+						]
+			  	},
+				  "queue_command": {
+					"command": [
+					  "scriptevent edx:blazeblade_dash_2"
+					]
+				  }
+				},
+				{
+					"remove": {
+						"component_groups": [
+						   "charge"
+						]
+					 }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"hard"
+							   }
+							]
+						 },
+					 "add": {
+						"component_groups": [
+						   "hard_cooldown"
+						]
+					 }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"normal"
+							   }
+							]
+						 },
+					 "add": {
+						"component_groups": [
+						   "normal_cooldown"
+						]
+					 }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"easy"
+							   }
+							]
+						 },
+					 "add": {
+						"component_groups": [
+						   "easy_cooldown"
+						]
+					 }
+					}
+			]
+		},
+		"sun_down":{
+			"sequence":[
+				{
+					"remove": {
+						"component_groups": [
+						   "sun_up"
+						]
+					 }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"hard"
+							   }
+							]
+						 },
+					 "add": {
+						"component_groups": [
+						   "hard_cooldown"
+						]
+					 }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"normal"
+							   }
+							]
+						 },
+					 "add": {
+						"component_groups": [
+						   "normal_cooldown"
+						]
+					 }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"easy"
+							   }
+							]
+						 },
+					 "add": {
+						"component_groups": [
+						   "easy_cooldown"
+						]
+					 }
+					},
+					{
+						"queue_command": {
+							"command": [
+							  "scriptevent edx:blazeblade_sun",
+							  "particle edx:smash_blazeblade ~~0.1~"
+							]
+						  }
+					}
+			]
+		},
+		"fire_strikes":{
+			"sequence":[
+				{
+					
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_target",
+									"operator": "==",
+									"value": true
+								}
+							]
+					  }
+					
+					},
+					{
+						"trigger": "change_attack",
+						"remove": {
+							"component_groups": [
+							   "fire_strikes"
+							]
+						 }
+					}
+			]
+		},
+		"fire_strikes_anim":{
+			"sequence":[
+				{
+					
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_target",
+									"operator": "==",
+									"value": true
+								}
+							]
+					  },
+					  "add": {
+						"component_groups": [
+						   "fire_strikes"
+						]
+					 },
+					  "queue_command": {
+						"command": [
+						 "summon edx:blazeblade_fire_strikes",
+						  "playanimation @s animation.blazeblade.tornado_summon"
+						]
+					  }
+					
+					},
+					{
+					
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_target",
+									"operator": "==",
+									"value": false
+								}
+							]
+					  },
+					  "add": {
+						"component_groups": [
+						   "solar_flare"
+						]
+					 }
+					
+					}
+			]
+		},
+		"stop_cooldown":{
+			"sequence":[
+				{
+					"trigger": "change_attack",
+					"remove": {
+						"component_groups": [
+						   "easy_cooldown","normal_cooldown","hard_cooldown","easy_cooldown_dig","normal_cooldown_dig","hard_cooldown_dig"
+						]
+					 },
+					 "add": {
+						"component_groups": [
+						   "no_dig"
+						]
+					 }
+				}
+			]
+			
+		}
+	}
+}
+}

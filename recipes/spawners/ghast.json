@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:ghast"
+    },
+
+    
+    "tags": [ "spawner" ],
+    "pattern": [
+      "RFR",
+      "FSF",
+      "RFR"
+    ],
+    "unlock": [
+      {
+        "item": "edx:ruby"
+      },
+      {
+        "item": "edx:spawner_fragment"
+      },
+      {
+        "item": "edx:illager_soul"
+      }
+    ],
+    "key": {
+      "R": {
+        "item": "edx:ruby"
+      },
+      "F": {
+        "item": "edx:spawner_fragment"
+      },
+      "S": {
+        "item": "edx:ghast_soul"
+      }
+    },
+    "result": {
+      "item": "edx:ghast_spawner"
+    }
+  }
+}

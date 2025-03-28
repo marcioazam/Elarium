@@ -1,0 +1,73 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+  "identifier": "edx:charged_copper_south",
+  "states": {
+    "edx:locked": {
+      "values": [false,true]
+    }
+  }
+},
+"components": { 
+    "minecraft:destructible_by_mining": {
+      "seconds_to_destroy": 10
+    },
+    "tag:no_silktouch": {},
+    "tag:stone": {},
+    "minecraft:map_color": "#c87456",
+    "tag:charged_copper": {},
+   
+    "minecraft:geometry": {
+      "identifier": "geometry.block"
+    },
+    "minecraft:collision_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:selection_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:tick": {
+        "interval_range": [
+          200,
+          200
+        ]
+      },
+    "minecraft:transformation": { "rotation": [0, 180, 0] },
+    "minecraft:custom_components": [
+        "edx:charged_copper_unlock",
+        "edx:copper_particle"
+      ]
+},
+"permutations": [
+  {
+    "condition": "q.block_state('edx:locked') == true",
+    "components": {
+ 
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "charged_copper_locked"
+        }
+      } 
+    }
+    
+  },
+  {
+    "condition": "q.block_state('edx:locked') == false",
+    "components": {
+     
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "charged_copper_block"
+        }
+      }
+    }
+    
+  }
+
+
+]
+  }
+}

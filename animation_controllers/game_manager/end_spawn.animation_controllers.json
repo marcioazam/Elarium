@@ -1,0 +1,18 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.game_manager.end_spawn.spawn_location": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": ["player_tf"],
+          "transitions": [ { "player_tf": "q.is_alive" } ]
+        },
+        "player_tf": {
+          "animations": ["player_tf"],
+          "transitions": [ { "default": "!q.is_alive" } ]
+        }
+      }
+    }
+  }
+}

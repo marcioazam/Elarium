@@ -1,0 +1,117 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:possible_zombie",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:become_zombie": {
+        "minecraft:transformation": {
+          "into": "dungeons:wretched_frozen_zombie"
+        }
+      },
+      "dungeons:become_not": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "looping": false,
+        "time": 0.15,
+        "time_down_event": {
+          "event": "dungeons:become_zombie"
+        }
+      },
+      "minecraft:entity_sensor": {
+        "sensor_range": 65,
+        "relative_range": false,
+        "minimum_count": 2,
+        "event_filters": {
+          "any_of": [
+            {
+              "test": "is_family",
+              "subject": "other",
+              "value": "wretched_minion"
+            }
+          ]
+        },
+        "event": "dungeons:become_not"
+      },
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "ignore"
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "pivot": [
+              0,
+              1000,
+              0
+            ],
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "dungeons:become_zombie": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 1,
+                "add": {
+                  "component_groups": [
+                    "dungeons:become_zombie"
+                  ]
+                }
+              },
+              {
+                "weight": 1,
+                "add": {
+                  "component_groups": [
+                    "dungeons:become_not"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "dungeons:become_not": {
+        "add": {
+          "component_groups": [
+            "dungeons:become_not"
+          ]
+        }
+      }
+    }
+  }
+}

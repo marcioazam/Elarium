@@ -1,0 +1,50 @@
+{
+  "format_version": "1.17.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:broken_sanctuary_cutscene_camera",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "animations": {
+        "tp_players_to_self": "animation.broken_sanctuary_cutscene_camera.tp_players"
+      },
+      "scripts": {
+        "animate": [
+          "tp_players_to_self"
+        ]
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "broken_sanctuary_cutscene_camera", "dev", "dummy" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+            "cause": "all",
+            "deals_damage": false
+          }]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      },
+      "minecraft:tick_world": {
+        "never_despawn": true,
+        "radius": 2
+      }
+    },
+
+    "component_groups": {
+      "xp:despawn": { "minecraft:instant_despawn": {} }
+    },
+
+    "events": {
+      "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } }
+    }
+  }
+}

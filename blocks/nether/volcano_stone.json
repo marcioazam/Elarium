@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:volcano_stone",
+			"menu_category":
+			{
+				"group": "itemGroup.name.stone",
+				"category": "nature"
+			}
+		},
+		"components": {
+			"tag:edx:wooden_pick": {},
+			"minecraft:map_color": "#270d0d",
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7.5
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 30
+            },
+			
+			"minecraft:loot": "loot_tables/blocks/volcano_stone.json"
+		}
+	}
+}

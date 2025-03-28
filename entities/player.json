@@ -1,0 +1,5240 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:player",
+      "spawn_category": "creature",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "controller_sweepnslash_attack",
+          "player_weapon_hand",
+          "player_attack",
+					"player_health",
+          "player_armblade",
+          "player_bow",
+          "player_hand",
+          "player_riding",
+          "player_damage",
+          "player_jump",
+          "player_sneak",
+          "player_sleep",
+          "player_ground",
+          "player_fall",
+          "attacking",
+          "blocking",
+          "player.replace_no_lore_weapons",
+          "player.achievements",
+          "player.dimension",
+          "player.respawn_auger",
+          "player.command",
+          "player.make_spawn_sunny_and_safe",
+
+          "player.movement_state_control",
+          "player.movement_state",
+
+        
+          "player.healingpool_move",
+          { "player.healingpool.remove": "q.is_ignited" },
+
+          "player.elytra_fly_firework_setup",
+          "player.elytra_fly",
+
+          "player.riding",
+          "player.sneaking",
+
+          "player.spawn_kit",
+          "player.init_new_player",
+
+          {"player.biomes.echoing_forest_music": "!q.property('xp:in_cutscene')"},
+          {"player.biomes.broken_sanctuary_music": "!q.property('xp:in_cutscene')"},
+          {"player.biomes.wilds_music": "!q.property('xp:in_cutscene')"},
+          {"player.biomes.abyss_music": "!q.property('xp:in_cutscene')"},
+          {"player.biomes.riftland_music": "!q.property('xp:in_cutscene')"},
+          {"player.biomes": "!q.property('xp:in_cutscene')"},
+          {"player.pick_random_player": "!q.property('xp:in_cutscene')"},
+          {"player.mob_spawning": "!q.property('xp:in_cutscene')"},
+          {"player.broken_sanctuary_mob_spawning": "!q.property('xp:in_cutscene')"},
+          {"player.ender_ruins_mob_spawning": "!q.property('xp:in_cutscene')"},
+
+          
+          "player.damage.enderbug",
+          "player.slime_jumppad",
+          "player.elderman_launched",
+          "player.enderslug_fire_setup",
+          { "player.elderman_summon_circle": "q.is_stunned" },
+          { "player.enderslime_stop_rider": "q.is_sneaking" },
+          { "player.enderbug_grab": "q.is_riding && !q.is_chested" },
+
+          { "conduit.falling": "q.is_powered" },
+
+          
+          "root.void_and_enderite_sword",
+          "root.enderite_sword",
+          "root.void_and_enderite_axe",
+          "root.void_and_enderite_axe_tree_capitator",
+          "root.void_and_enderite_pickaxe.attack",
+          "root.void_and_enderite_shovel_normal",
+          "root.void_and_enderite_hoe_normal",
+
+         
+          "root.shulker_trill",
+          "root.ender_artifact",
+          "root.tome_teleportation",
+          "root.tome_teleportation.mark",
+          "root.void_cloak",
+          "root.farlander_summon",
+          "elytra_shard",
+
+          
+          "xp_variables",
+          "variables.mana_start",
+          "enders_smite.mana_controller",
+
+          "showcase_mode.runtime",
+          "showcase_mode.interaction",
+
+         
+          { "player.attack_value_reset": "!v.item_xp_equipped_any" },
+          "enderite_cutter",
+          "ender_curved_blade",
+          "obsidian_blade",
+          "the_touched_ends",
+          "the_touched_ends_enchanted",
+          "the_touched_ends.levitate",
+          "the_touched_ends_enchanted.levitate",
+          "ender_staff.remove_first_user",
+          "ender_staff",
+          { "ender_staff_teleport_cooldown_decrease": "q.skin_id == 13" },
+          { "ender_staff_teleport_cooldown_display": "q.skin_id == 13" },
+          "ender_staff.cooldown_controller",
+          "void_blade",
+          "enders_smite",
+          "ender_smite.levitate",
+          "ender_smite.remove_first_user",
+
+          { "ender_smite.idle_sfx": "q.is_item_name_any('slot.weapon.mainhand','enders_smite','ender_staff')" },
+
+          "enders_heart_blast",
+          "enders_heart_blast.idle_sfx_controller",
+          "enders_heart_blast.heart_beat_sfx.controller",
+          "enders_heart_blast.remove_first_user",
+          "hammer_of_void",
+          "hammer_of_void.remove_first_user",
+          "hammer_of_void_enchanted",
+          "hammer_of_void_enchanted.remove_first_user",
+          "hammer_of_void.mana_trigger",
+          "hammer_of_void_enchanted.mana_trigger",
+          "void_striker",
+          "void_striker_1",
+          "void_striker_enchanted",
+          "void_striker_enchanted_1",
+          "void_striker_attack",
+
+        
+          "void_armor.helmet",
+          "void_armor.chestplate",
+          "void_armor.leggings",
+          "void_armor.boots",
+
+          
+          "end_travel.to_end",
+          "end_travel.to_endboss",
+          "end_travel.to_overworld",
+          "end_travel.to_respawn_auger",
+
+       
+          "bosses.ender_boss_arena",
+
+         
+          "farlander.dialogue",
+          "farlander.quick_travel",
+
+        
+          "pulled_controller",
+          "knockback_reset",
+
+          "use_enchant_artifacts"
+        ]
+      },
+      "animations": {
+
+        "controller_sweepnslash_attack": "controller.animation.se_player_attack",
+                "player_weapon_hand": "controller.animation.player_weapon_hand",
+        "attacking": "controller.animation.attacking",
+        "blocking": "controller.animation.blocking",
+        "player.replace_no_lore_weapons": "animation.player.replace_no_lore_weapons",
+        "player.dimension": "animation.player.dimension",
+        "player.respawn_auger": "animation.player.respawn_auger",
+        "player.command": "controller.animation.player.command",
+        "player.make_spawn_sunny_and_safe": "animation.player.make_spawn_sunny_and_safe",
+"player_attack": "controller.animation.player_attack",
+      "player_health": "controller.animation.player_health",
+        "player.healingpool.remove": "animation.player.healingpool.remove",
+        "player.healingpool_move": "controller.animation.player.healingpool_move",
+"player_riding": "controller.animation.player_riding",
+"player_armblade": "controller.animation.player_armblade",
+"player_damage": "controller.animation.player_damage" ,
+"player_hand": "controller.animation.player_hand",
+"player_bow": "controller.animation.player_bow",
+        "player.elytra_fly_firework_setup": "controller.animation.player.elytra_fly_firework",
+        "player.elytra_fly": "controller.animation.player.elytra_fly",
+
+        "player.riding": "controller.animation.player.riding",
+        "player.sneaking": "controller.animation.player.sneaking",
+
+        "player.spawn_kit": "controller.animation.player.spawn_kit",
+        "player.biomes.echoing_forest_music": "animation.player.biomes.echoing_forest_music",
+        "player.biomes.broken_sanctuary_music": "animation.player.biomes.broken_sanctuary_music",
+        "player.biomes.wilds_music": "animation.player.biomes.wilds_music",
+        "player.biomes.abyss_music": "animation.player.biomes.abyss_music",
+        "player.biomes.riftland_music": "animation.player.biomes.riftland_music",
+        "player.biomes": "animation.player.biomes",
+        "player.pick_random_player": "animation.player.pick_random_player",
+        "player.mob_spawning": "animation.player.mob_spawning",
+        "player.broken_sanctuary_mob_spawning": "animation.player.broken_sanctuary_mob_spawning",
+        "player.ender_ruins_mob_spawning": "animation.player.ender_ruins_mob_spawning",
+        "player.new_player": "animation.player.new_player",
+        "player.init_new_player": "animation.player.init_new_player",
+        "player.attack_value_reset": "animation.player.attack_value_reset",
+        "player_jump": "controller.animation.player_jump" ,
+       "player_sneak": "controller.animation.player_sneak" ,
+        "player.achievements": "controller.animation.player.achievements",
+        "player.achievements.trigger": "controller.animation.player.achievements.trigger",
+        "player.achievements.item_detection": "controller.animation.player.achievements.item_detection",
+        "player.achievements.levitation_detection": "controller.animation.player.achievements.levitation_detection",
+        "player.achievements.elytra_detection": "controller.animation.player.achievements.elytra_detection",
+        "player.achievements.jump_detection": "controller.animation.player.achievements.jump_detection",
+        "player.achievements.walk_distance_detection": "controller.animation.player.achievements.walk_distance_detection",
+
+        "player.damage.enderbug": "controller.animation.player.enderbug_damage",
+        "player.slime_jumppad": "controller.animation.player.slime_jumppad",
+        "player.elderman_launched": "controller.animation.player.elderman_launched",
+        "player.movement_state_control": "controller.animation.player.movement_state",
+        "player.movement_state": "animation.player.movement_state",
+        "player.enderslug_fire_setup": "controller.animation.player.enderslug_fire",
+        "player.enderslug_fire": "animation.player.enderslug_fire",
+        "player.elderman_summon_circle": "animation.player.elderman_summon_circle",
+        "player.enderbug_grab": "animation.player.enderbug_grab",
+        "player.enderslime_stop_rider": "animation.player.enderslime_stop_rider",
+
+      
+        "void_armor.helmet": "controller.animation.void_armor.helmet",
+        "void_armor.chestplate": "controller.animation.void_armor.chestplate",
+        "void_armor.leggings": "controller.animation.void_armor.leggings",
+        "void_armor.boots": "controller.animation.void_armor.boots",
+        "void_armor.powers": "animation.void_armor.powers",
+
+       
+        "conduit.falling": "animation.player.conduit.falling",
+
+      
+        "root.void_and_enderite_sword": "controller.animation.void_and_enderite_sword.attack",
+        "root.enderite_sword": "controller.animation.enderite_sword.attack",
+        "root.void_and_enderite_axe": "controller.animation.void_and_enderite_axe.attack",
+        "root.void_and_enderite_axe_tree_capitator": "controller.animation.void_and_enderite_axe.tree_capitator",
+        "a.void_and_enderite_axe.tree_capitator": "animation.void_and_enderite_axe.tree_capitator",
+        "root.void_and_enderite_pickaxe.attack": "controller.animation.void_and_enderite_pickaxe.attack",
+        "root.void_and_enderite_shovel_normal": "controller.animation.void_and_enderite_shovel.normal",
+        "root.void_and_enderite_hoe_normal": "controller.animation.void_and_enderite_hoe.normal",
+
+       
+        "root.shulker_trill": "controller.animation.shulker_trill",
+        "root.ender_artifact": "controller.animation.ender_artifact",
+        "root.tome_teleportation": "controller.animation.tome_teleportation",
+        "root.tome_teleportation.mark": "controller.animation.tome_teleportation.mark",
+        "root.void_cloak": "controller.animation.void_cloak",
+        "root.farlander_summon": "controller.animation.farlander_summon",
+        "elytra_shard": "controller.animation.elytra_shard",
+        "tome_teleport.mark": "animation.tome_teleport.mark",
+
+      
+        "regen_stamina": "animation.regen_stamina",
+
+        "enderite_cutter": "controller.animation.enderite_cutter",
+        "enderite_cutter.attack": "animation.enderite_cutter.attack",
+        "enderite_cutter.attack1": "animation.enderite_cutter.attack1",
+
+        "enderite_cutter.enchanted_sfx": "animation.enderite_cutter.enchanted_sfx",
+        "ender_curved_blade": "controller.animation.ender_curved_blade",
+
+        "obsidian_blade": "controller.animation.obsidian_blade",
+        "obsidian_blade_attack.sfx": "animation.obsidian_blade_attack.sfx",
+        "obsidian_blade_attack.sfx1": "animation.obsidian_blade_attack.sfx1",
+
+        "the_touched_ends": "controller.animation.the_touched_ends",
+        "the_touched_ends_enchanted": "controller.animation.the_touched_ends_enchanted",
+        "the_touched_ends_stealing_health": "controller.animation.the_touched_ends_stealing_health",
+        "the_touched_ends.levitate": "controller.animation.the_touched_ends.levitate",
+        "the_touched_ends_enchanted.levitate": "controller.animation.the_touched_ends_enchanted.levitate",
+
+        "ender_staff.remove_first_user": "controller.animation.ender_staff.remove_first_user",
+        "ender_staff": "controller.animation.ender_staff",
+        "ender_staff_teleport": "animation.ender_staff_teleport",
+        "ender_staff.cooldown_controller": "controller.animation.ender_staff.cooldown_controller",
+        "ender_staff_teleport_cooldown_decrease": "animation.ender_staff_teleport_cooldown_decrease",
+        "ender_staff_teleport_cooldown_display": "animation.ender_staff_teleport_cooldown_display",
+
+        "void_blade": "controller.animation.void_blade",
+"player_sleep": "controller.animation.player_sleep" ,
+        "player_ground": "controller.animation.player_ground" ,
+        "player_fall": "controller.animation.player_fall" ,
+        "enders_smite": "controller.animation.enders_smite",
+        "enders_smite.mana_controller": "controller.animation.ender_smite.mana_controller",
+        "ender_smite.laser": "animation.ender_smite.laser",
+        "ender_smite.mana_countdown": "animation.ender_smite.mana_countdown",
+        "ender_smite.mana_regen": "animation.ender_smite.mana_regen",
+        "ender_smite.mana_display": "animation.ender_smite.mana_display",
+        "ender_smite.remove_first_user": "controller.animation.ender_smite.remove_first_user",
+        "ender_smite.stop_fire_sfx": "animation.ender_smite.stop_fire_sfx",
+        "ender_smite.levitate": "controller.animation.ender_smite.levitate",
+        "ender_smite.laser_down": "animation.ender_smite.laser_down",
+        "ender_smite.idle_sfx": "animation.ender_smite.idle_sfx",
+
+        "enders_heart_blast": "controller.animation.enders_heart_blast",
+        "enders_heart_blast.charge": "animation.enders_heart_blast.charge",
+        "enders_heart_blast.heart_beat_charge": "animation.enders_heart_blast.heart_beat_charge",
+        "enders_heart_blast.idle_sfx_controller": "controller.animation.enders_heart_blast.idle_sfx",
+        "enders_heart_blast.idle_sfx": "animation.enders_heart_blast.idle_sfx",
+        "enders_heart_blast.heart_beat_sfx": "animation.enders_heart_blast.heart_beat",
+        "enders_heart_blast.heart_beat_sfx.controller": "controller.animation.enders_heart_blast.heart_beat_sfx",
+        "enders_heart_blast.charge_timer_display": "animation.enders_heart_blast.charge_timer_display",
+        "enders_heart_blast.charge_timer_countdown": "animation.enders_heart_blast.charge_timer_countdown",
+        "enders_heart_blast.charge_sfx": "animation.enders_heart_blast.charge_sfx",
+        "enders_heart_blast.remove_first_user": "controller.animation.enders_heart_blast.remove_first_user",
+        "enders_heart_blast.mana_display": "animation.enders_heart_blast.mana_display",
+        "enders_heart_blast.mana_regen": "animation.enders_heart_blast.mana_regen",
+
+        "hammer_of_void": "controller.animation.hammer_of_void",
+        "hammer_of_void.leap": "animation.hammer_of_void.leap",
+        "hammer_of_void.hold_leap": "animation.hammer_of_void.hold_leap",
+        "hammer_of_void.charge_timer_display": "animation.hammer_of_void.charge_timer_display",
+        "hammer_of_void.charge_timer_countdown": "animation.hammer_of_void.charge_timer_countdown",
+        "hammer_of_void.mana_regen_display": "animation.hammer_of_void.mana_regen_display",
+        "hammer_of_void.mana_regen": "animation.hammer_of_void.mana_regen",
+        "hammer_of_void.remove_first_user": "controller.animation.hammer_of_void.remove_first_user",
+        "hammer_of_void.targeter": "animation.void_hammer_targeter",
+        "hammer_of_void.spin_sfx": "animation.hammer_of_void.spin_sfx",
+        "hammer_of_void.mana_trigger": "controller.animation.hammer_of_void.mana_trigger",
+
+        "hammer_of_void_enchanted": "controller.animation.hammer_of_void_enchanted",
+        "hammer_of_void_enchanted.leap": "animation.hammer_of_void_enchanted.leap",
+        "hammer_of_void_enchanted.hold_leap": "animation.hammer_of_void_enchanted.hold_leap",
+        "hammer_of_void_enchanted.charge_timer_display": "animation.hammer_of_void_enchanted.charge_timer_display",
+        "hammer_of_void_enchanted.charge_timer_countdown": "animation.hammer_of_void_enchanted.charge_timer_countdown",
+        "hammer_of_void_enchanted.mana_regen_display": "animation.hammer_of_void_enchanted.mana_regen_display",
+        "hammer_of_void_enchanted.mana_regen": "animation.hammer_of_void_enchanted.mana_regen",
+        "hammer_of_void_enchanted.remove_first_user": "controller.animation.hammer_of_void_enchanted.remove_first_user",
+        "hammer_of_void_enchanted.targeter": "animation.void_hammer_targeter",
+        "hammer_of_void_enchanted.spin_sfx": "animation.hammer_of_void_enchanted.spin_sfx",
+        "hammer_of_void_enchanted.mana_trigger": "controller.animation.hammer_of_void_enchanted.mana_trigger",
+        
+
+        "void_striker": "controller.animation.void_striker",
+        "void_striker_1": "controller.animation.ender_tp_mob",
+        "void_striker_enchanted": "controller.animation.void_striker_enchanted",
+        "void_striker_enchanted_1": "controller.animation.ender_tp_mob_enchanted",
+        "void_striker_attack": "controller.animation.void_striker.attack",
+
+       
+        "end_travel.to_end": "controller.animation.cutscene.end_travel.to_end",
+        "end_travel.to_endboss": "controller.animation.cutscene.end_travel.to_endboss",
+        "end_travel.to_overworld": "controller.animation.cutscene.end_travel.to_overworld",
+        "end_travel.to_respawn_auger": "controller.animation.cutscene.end_travel.to_respawn_auger",
+        "end_travel.travel": "animation.cutscene.end_travel.travel",
+        "endboss_travel.travel": "animation.cutscene.endboss_travel.travel",
+        "respawn_auger_travel.travel": "animation.cutscene.respawn_auger_travel.travel",
+        "end_travel.travel_effects": "animation.cutscene.end_travel.travel_effects",
+        "endboss_travel.travel_effects": "animation.cutscene.endboss_travel.travel_effects",
+        "respawn_auger_travel.travel_effects": "animation.cutscene.respawn_auger_travel.travel_effects",
+
+      
+        "bosses.ender_boss_arena": "controller.animation.player.ender_boss_arena.runtime",
+
+       
+        "farlander.dialogue": "controller.animation.player.farlander_dialogue",
+        "farlander.quick_travel": "controller.animation.player.farlander_quick_travel",
+
+       
+        "xp_variables": "animation.variables.setup",
+        "variables.mana_start": "animation.variables.mana_start",
+        "pulled_controller": "controller.animation.player.pulled",
+        "pulled_1": "animation.player.pulled_1",
+        "knockback_reset": "controller.animation.player.knockback_reset",
+        "use_enchant_artifacts": "controller.animation.player.use_enchant_artifacts",
+
+        "showcase_mode.runtime": "controller.animation.showcase_mode.runtime",
+        "showcase_mode.interaction": "controller.animation.showcase_mode.interaction"
+      },
+      "properties": {
+        "disable:shield": {
+          "type": "bool",
+					"default": false,
+					"client_sync": true
+				},
+        "is:attachable": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+        },
+        "xp:player_aurora": {
+          "client_sync": true,
+          "type": "int",
+          "default": 0,
+          "range": [0, 3]
+        },
+        "xp:achievements_id": {
+          "type": "int",
+          "range": [ 0, 118 ],
+          "default": 0,
+
+          "client_sync": true
+        },
+        "xp:command": {
+          "type": "int",
+          "range": [ 0, 100 ],
+          "default": 0,
+
+          "client_sync": true
+        },
+        "xp:end_travel.to_end": {
+          "type": "bool",
+          "default": false,
+
+          "client_sync": true
+        },
+        "xp:end_travel.to_endboss": {
+          "type": "bool",
+          "default": false,
+
+          "client_sync": true
+        },
+        "xp:end_travel.to_respawn_auger": {
+          "type": "bool",
+          "default": false,
+
+          "client_sync": true
+        },
+        "xp:end_travel.to_overworld": {
+          "type": "bool",
+          "default": false,
+
+          "client_sync": true
+        },
+        "xp:farlander_dialogue": {
+          "type": "bool",
+          "default": false,
+
+          "client_sync": true
+        },
+        "xp:farlander_quick_travel": {
+          "type": "int",
+          "range": [ 0, 100 ],
+          "default": 0,
+
+          "client_sync": true
+        },
+        "xp:in_cutscene": {
+          "type": "bool",
+          "default": false,
+
+          "client_sync": true
+        },
+        "xp:in_wilds": {
+          "type": "bool",
+          "default": false,
+
+          "client_sync": true
+        },
+        "xp:ui.renderer": {
+          "type": "int",
+          "range": [ 0, 100 ],
+          "default": 0,
+
+          "client_sync": true
+        },
+        "xp:pulled": {
+					"type": "int",
+					"range": [ 0, 100 ],
+          "default": 0,
+
+          "client_sync": false
+				},
+        "xp:knockback": {
+					"type": "enum",
+					"values": [
+						"none",
+						"back"
+					],
+					"default": "none",
+					"client_sync": true
+				},
+        "xp:heart_blast.show_heart": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "xp:is_in_showcase_mode": {
+          "client_sync": true,
+          "type": "bool",
+          "default": false
+        },
+
+        "xp:attack":{
+          "client_sync": true,
+          "type": "bool",
+          "default": false
+        },
+        "xp:touched_ends_sonic_boom":{
+          "client_sync": true,
+          "type": "bool",
+          "default": false
+        }
+      }
+    },
+
+    "component_groups": {
+      "minecraft:disabled_attack": {
+        "minecraft:attack": {
+          "damage": -100
+        }
+      },
+         
+      "sweepnslash:disable": {
+        "minecraft:attack": {
+          "damage": -100
+        }
+      },
+      "sweepnslash:enable": {
+        "minecraft:attack": {
+          "damage": -100
+        }
+      },
+      "slide": {
+        "minecraft:variant": {
+					"value": 1
+				}
+			},
+      "no_slide": {
+        "minecraft:variant": {
+					"value": 0
+				}
+			},
+
+      "raiyon:add_kr": {
+        "minecraft:knockback_resistance": {
+					"value": 0.55,
+					"max": 0.55
+        }
+        },
+        "raiyon:remove_kr": {
+          "minecraft:knockback_resistance": {
+            "value": 0
+          }
+        },
+   
+      "minecraft:add_raid_omen": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "effect": "raid_omen",
+              "duration": 30,
+              "display_on_screen_animation": true
+            }
+          ],
+          "remove_effects": "bad_omen"
+        },
+        "minecraft:timer": {
+          "time": [ 0.0, 0.0 ],
+          "looping": false,
+          "time_down_event": {
+            "event": "minecraft:clear_add_raid_omen",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:clear_raid_omen_spell_effect": {
+        "minecraft:spell_effects": {
+        }
+      
+      
+      },
+    
+      "xp:cutscene.clear": { "minecraft:mark_variant": { "value": 0 } },
+      "xp:cutscene.end_portal": { "minecraft:mark_variant": { "value": 100 } },
+      "xp:name_tags": {
+        "minecraft:nameable": {
+          "always_show": true,
+          "allow_name_tag_renaming": false
+        }
+      },
+
+     
+
+      "xp:has_ender_mana": { "minecraft:is_illager_captain": {} },
+      "xp:used_entire_ender_mana": { "minecraft:angry": {} },
+
+      "xp:remove_enders_heart.heart_beat": {
+        "minecraft:skin_id": { "value": 0 }
+      },
+      "xp:enders_heart.has_mana": { "minecraft:variant": { "value": 1 } },
+      "xp:enders_heart.no_mana": { "minecraft:variant": { "value": 0 } },
+      "xp:enders_heart.charging": { "minecraft:is_saddled": {} },
+
+      "xp:hammer_of_void_enchanted.has_mana": { "minecraft:variant": { "value": 2 } },
+      "xp:hammer_of_void.has_mana": { "minecraft:out_of_control": {} },
+      "xp:is_leaping": {
+        "minecraft:mark_variant": { "value": 1 },
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": false
+        }
+      },
+      "xp:default_physics": {
+        "minecraft:variant": { "value": 0 },
+        "minecraft:mark_variant": { "value": 0 },
+        "minecraft:movement": {
+          "value": 0.1
+        },
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": true
+        }
+      },
+
+      "xp:use_tp": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:ender_tp_dummy",
+            "spawn_event": "xp:default",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+      "xp:use_tp_enchanted": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:ender_tp_dummy",
+            "spawn_event": "xp:enchanted",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+
+      "xp:default_exhaustion_values": {
+        "minecraft:exhaustion_values": {
+          "heal": 6,
+          "jump": 0.05,
+          "sprint_jump": 0.2,
+          "mine": 0.005,
+          "attack": 0.1,
+          "damage": 0.1,
+          "walk": 0.0,
+          "sprint": 0.01,
+          "swim": 0.01
+        }
+      },
+
+      "xp:obsidian_blade_exhaustion_values": {
+        "minecraft:exhaustion_values": {
+          "heal": 6,
+          "jump": 1,
+          "sprint_jump": 2.5,
+          "mine": 2,
+          "attack": 2,
+          "damage": 0.1,
+          "walk": 0.0,
+          "sprint": 0.05,
+          "swim": 1
+        }
+      },
+
+      "xp:obsidian_blade.dash_attack": {
+        "minecraft:area_attack": {
+          "damage_per_tick": 6,
+          "damage_range": 2,
+          "cause": "all",
+          "entity_filter": {
+            "none_of": [{ "test": "is_family", "subject": "other", "value": "item" }]
+          }
+        }
+      },
+
+      "xp:the_touched_ends.sonic_boom": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:touched_ends_sonic_boom",
+            "spawn_event": "xp:regular",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+      "xp:the_touched_ends_enchanted.sonic_boom": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:touched_ends_enchanted_sonic_boom",
+            "spawn_event": "xp:regular",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+
+      "xp:enders_heart_blast.laser": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:enders_heart_blast.projectile",
+            "spawn_event": "xp:scale_1",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+
+      "xp:ender_smite.laser": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:ender_smite_laser.projectile",
+            "spawn_event": "xp:fast_laser",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+
+      "xp:ender_smite.laser_down": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:ender_smite_laser.projectile",
+            "spawn_event": "xp:fast_laser_no_offset",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+
+      "xp:ender_curved_blade.release": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:ender_curved_blade.projectile",
+            "spawn_event": "xp:regular",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+      "xp:ender_curved_blade.release1": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:ender_curved_blade.projectile",
+            "spawn_event": "xp:enchanted",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+
+      "xp:enderite_cutter_attack": {
+       
+        "minecraft:area_attack": {
+          "damage_per_tick": 8,
+          "damage_range": 3,
+          "cause": "all",
+          "entity_filter": {
+            "none_of": [{ "test": "is_family", "subject": "other", "value": "item" }]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.05,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:remove_enderite_cutter_attack"
+          }
+        }
+      },
+      "xp:enderite_cutter_attack1": {
+   
+        "minecraft:area_attack": {
+          "damage_per_tick": 5,
+          "damage_range": 3,
+          "cause": "all",
+          "entity_filter": {
+            "none_of": [{ "test": "is_family", "subject": "other", "value": "item" }]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.05,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:remove_enderite_cutter_attack1"
+          }
+        }
+      },
+      "xp:enderite_cutter_attack2": {
+       
+        "minecraft:area_attack": {
+          "damage_per_tick": 13,
+          "damage_range": 3,
+          "cause": "all",
+          "entity_filter": {
+            "none_of": [{ "test": "is_family", "subject": "other", "value": "item" }]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.05,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:remove_enderite_cutter_attack2"
+          }
+        }
+      },
+      "xp:enderite_cutter_attack3": {
+     
+        "minecraft:area_attack": {
+          "damage_per_tick": 9,
+          "damage_range": 3,
+          "cause": "all",
+          "entity_filter": {
+            "none_of": [{ "test": "is_family", "subject": "other", "value": "item" }]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.05,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:remove_enderite_cutter_attack3"
+          }
+        }
+      },
+
+      "xp:ender_staff_release": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:ender_staff_bullet",
+            "spawn_event": "xp:player_bullet",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+      "xp:ender_staff_attack_cooldown": {
+        "minecraft:is_tamed": {}
+      },
+      "xp:ender_staff_teleport_cooldown": {
+        "minecraft:skin_id": {
+          "value": 13
+        }
+      },
+
+      "minecraft:add_bad_omen": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "effect": "bad_omen",
+              "duration": 6000,
+              "visible": false,
+              "display_on_screen_animation": true
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "time": [0.0, 0.0],
+          "looping": false,
+          "time_down_event": {
+            "event": "minecraft:clear_add_bad_omen",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:clear_bad_omen_spell_effect": {
+        "minecraft:spell_effects": {}
+      },
+      "minecraft:raid_trigger": {
+        "minecraft:raid_trigger": {
+          "triggered_event": {
+            "event": "minecraft:remove_raid_trigger",
+            "target": "self"
+          }
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": "bad_omen"
+        }
+      },
+
+   
+      "xp:haste_value_0": {
+        "minecraft:spell_effects": {
+          "remove_effects": "haste"
+        }
+      },
+      "xp:haste_value_1": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 1,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "haste",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:haste_value_2": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 2,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "haste",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:haste_value_3": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 3,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "haste",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:haste_value_4": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 4,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "haste",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:haste_value_5": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 5,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "haste",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:haste_value_6": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 5,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "haste",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:haste_value_7": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 7,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "haste",
+              "visible": false
+            }
+          ]
+        }
+      },
+
+      "xp:speed_value_0": {
+        "minecraft:spell_effects": {
+          "remove_effects": "speed"
+        }
+      },
+      "xp:speed_value_1": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 2,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "speed",
+              "visible": false
+            }
+          ]
+        }
+      },
+
+      "xp:strength_value_0": {
+        "minecraft:spell_effects": {
+          "remove_effects": "strength"
+        }
+      },
+      "xp:strength_value_1": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 1,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "strength",
+              "visible": false
+            }
+          ]
+        }
+      },
+
+      "xp:regeneration_value_0": {
+        "minecraft:spell_effects": {
+          "remove_effects": "regeneration"
+        }
+      },
+      "xp:regeneration_value_1": {
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 3,
+              "display_on_screen_animation": false,
+              "duration": 1,
+              "effect": "regeneration",
+              "visible": true
+            }
+          ]
+        },
+        "minecraft:skin_id": {
+          "value": 12
+        }
+      },
+
+      "xp:levitation_value_0": {
+        "minecraft:skin_id": {
+          "value": 8
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": "levitation"
+        }
+      },
+      "xp:levitation_value_70": {
+        "minecraft:skin_id": {
+          "value": 9
+        },
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 70,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "levitation",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:levitation_value_40": {
+        "minecraft:skin_id": {
+          "value": 9
+        },
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 40,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "levitation",
+              "visible": false
+            }
+          ]
+        }
+      },
+
+    
+
+      "xp:stage.shulker_trill": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:shulker_trill_release",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+      "xp:stage.tome_teleportation": {
+        "minecraft:skin_id": {
+          "value": 4
+        },
+        "minecraft:spawn_entity": {
+          "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "xp:tome_teleportation.projectile",
+            "spawn_event": "xp:stage_release",
+            "num_to_spawn": 1,
+            "single_use": true
+          }
+        }
+      },
+"sculkling_friendly": {
+        "minecraft:spawn_entity": {
+           "entities": {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "spawn_entity": "edx:sculkling_tamed",
+              "single_use": true,
+              "num_to_spawn": 2
+           }
+        }
+     },
+      "magic_axe": {
+        "minecraft:spawn_entity": {
+           "entities": {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "spawn_entity": "edx:magic_axe_tamed",
+              "single_use": true,
+              "num_to_spawn": 1
+           }
+        }
+     },
+     "void_allay": {
+      "minecraft:spawn_entity": {
+         "entities": {
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "spawn_entity": "edx:void_allay_tamed",
+            "single_use": true,
+            "num_to_spawn": 1
+         }
+      }
+   },
+   "light_allay": {
+    "minecraft:spawn_entity": {
+       "entities": {
+          "min_wait_time": 0,
+          "max_wait_time": 0,
+          "spawn_entity": "edx:light_allay_tamed",
+          "single_use": true,
+          "num_to_spawn": 1
+       }
+      }
+    },
+      "xp:stage.unvoid_cloak": {
+        "minecraft:skin_id": {
+          "value": 10
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": ["invisibility", "slowness", "jump_boost"]
+        }
+      },
+      "allay": {
+"minecraft:spawn_entity": {
+     "entities": {
+        "min_wait_time": 0,
+        "max_wait_time": 0,
+        "spawn_entity": "edx:allay_tamed",
+        "single_use": true,
+        "num_to_spawn": 1
+     }
+  }
+},
+"speed_default": {
+    "minecraft:movement": {
+      "value": 0.10
+    }
+  },
+"speed_light": {
+    "minecraft:movement": {
+      "value": 0.093
+    }
+  },
+  "speed_medium": {
+    "minecraft:movement": {
+      "value": 0.080
+    }
+  },
+  "speed_heavy": {
+    "minecraft:movement": {
+      "value": 0.074
+    }
+  },
+  "speed_very_heavy": {
+    "minecraft:movement": {
+      "value": 0.065
+    }
+  },
+    // "speed-3": {
+    //   "minecraft:movement": {
+    //     "value": 0.07
+    //   }
+    // },
+    // "speed-2": {
+    //   "minecraft:movement": {
+    //     "value": 0.08
+    //   }
+    // },
+    // "speed-1": {
+    //   "minecraft:movement": {
+    //     "value": 0.09
+    //   }
+    // },
+    // "speed0": {
+    //     "minecraft:movement": {
+    //       "value": 0.10
+    //     }
+    // },
+    // "speed1": {
+    //   "minecraft:movement": {
+    //     "value": 0.11
+    //   }
+    // },
+    // "speed2": {
+    //   "minecraft:movement": {
+    //     "value": 0.12
+    //   }
+    // },
+    // "speed3": {
+    //   "minecraft:movement": {
+    //     "value": 0.13
+    //   }
+    // },
+    // "speed4": {
+    //   "minecraft:movement": {
+    //     "value": 0.14
+    //   }
+    // },
+    // "speed5": {
+    //   "minecraft:movement": {
+    //     "value": 0.15
+    //   }
+    // },
+    // "speed6": {
+    //   "minecraft:movement": {
+    //     "value": 0.16
+    //   }
+    // },
+    // "speed7": {
+    //   "minecraft:movement": {
+    //     "value": 0.17
+    //   }
+    // },
+    "ancient_shield": {
+    },
+      "cloud_socks":{
+        "minecraft:damage_sensor":{
+          "triggers":[
+            { 
+              "on_damage":{
+              "target": "self"
+             },
+             "cause": "fall",
+             "deals_damage":"no" 
+            }
+          ]
+        }
+      },
+
+      "xp:stage.void_cloak": {
+        "minecraft:skin_id": {
+          "value": 11
+        },
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 1,
+              "display_on_screen_animation": false,
+              "duration": 12,
+              "effect": "invisibility",
+              "visible": false
+            },
+            {
+              "ambient": false,
+              "amplifier": 0,
+              "display_on_screen_animation": false,
+              "duration": 12,
+              "effect": "slowness",
+              "visible": false
+            },
+            {
+              "ambient": false,
+              "amplifier": 1,
+              "display_on_screen_animation": false,
+              "duration": 12,
+              "effect": "jump_boost",
+              "visible": false
+            }
+          ]
+        }
+      },
+
+      
+      "xp:eldeman_trap.summon": {
+        "minecraft:spawn_entity": {
+          "entities": {
+            "spawn_entity": "xp:elderman_trap.ground",
+            "min_wait_time": 0,
+            "max_wait_time": 0,
+            "num_to_spawn": 1,
+            "single_use": true,
+            "should_leash": false
+          }
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "test": "in_caravan",
+                "subject": "self",
+                "value": false
+              },
+              "event": "xp:eldeman_trap_remove.summon"
+            }
+          ]
+        }
+      },
+      "xp:eldeman_trap.summon_circle": {
+        "minecraft:is_stunned": {},
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "test": "in_caravan",
+                "subject": "self",
+                "value": false
+              },
+              "event": "xp:eldeman_trap_remove.summon"
+            }
+          ]
+        }
+      },
+
+      "xp:conduit.falling": {
+        "minecraft:is_charged": {}
+      },
+
+      
+      "xp:stage.unlaunch": {
+        "minecraft:skin_id": {
+          "value": 5
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": ["levitation"]
+        }
+      },
+      "xp:stage.launch": {
+        "minecraft:skin_id": {
+          "value": 6
+        },
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 70,
+              "display_on_screen_animation": false,
+              "duration": 99999,
+              "effect": "levitation",
+              "visible": false
+            }
+          ]
+        }
+      },
+      "xp:stage.launch_end": {
+        "minecraft:skin_id": {
+          "value": 7
+        },
+        "minecraft:spell_effects": {
+          "remove_effects": ["levitation"]
+        }
+      },
+
+      
+      "xp:stage.grab": {
+        "minecraft:is_chested": {}
+      },
+
+      "xp:stage.grab_guardian": {
+        "minecraft:can_fly": {},
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "event": "xp:stage_remove_grab_guardian",
+              "target": "self",
+              "filters": {
+                "test": "is_riding",
+                "subject": "self",
+                "operator": "==",
+                "value": false
+              }
+            }
+          ]
+        }
+      },
+
+     
+      "xp:stage.enderslug_fire": {
+        "minecraft:is_sheared": {}
+      },
+      "xp:stage.endergob_fire": {
+        "minecraft:is_shaking": {}
+      },
+
+      "xp:stage.healingpool": {
+        "minecraft:is_ignited": {}
+      },
+
+     
+      "xp:stage.rideble": {
+        "minecraft:rideable": {
+          "seat_count": 2,
+          "family_types": ["enderslime_small_interact"],
+          "pull_in_entities": true,
+          "seats": [
+            {
+              "position": [0.4, -0.2, -0.1],
+              "min_rider_count": 0,
+              "max_rider_count": 0,
+              "lock_rider_rotation": 0
+            },
+            {
+              "position": [-0.4, -0.2, -0.1],
+              "min_rider_count": 1,
+              "max_rider_count": 2,
+              "lock_rider_rotation": 0
+            }
+          ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:entity_sensor": {
+      "subsensors": [
+        {
+          "range": [7, 7],
+          "minimum_count": 1,
+          "event_filters": {
+            "any_of": [
+              {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "monster" },
+                  { "operator": "!=", "test": "is_family", "subject": "other", "value": "inanimate" }
+                ]
+              }
+            ]
+          },
+          "event": "near_mob"
+        }
+      ]
+    },
+      "minecraft:experience_reward": {
+        "on_death": "Math.Min(query.player_level * 7, 100)"
+      },
+      "minecraft:type_family": {
+        "family": ["player"]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:is_stackable": {},
+      "minecraft:can_climb": {},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": -100
+      },
+      "minecraft:exhaustion_values": {
+        "heal": 6,
+        "jump": 0.05,
+        "sprint_jump": 0.2,
+        "mine": 0.005,
+        "attack": 0.1,
+        "damage": 0.1,
+        "walk": 0.0,
+        "sprint": 0.01,
+        "swim": 0.01
+      },
+      "minecraft:player.saturation": {
+        "value": 5,
+        "max": 20
+      },
+      "minecraft:player.exhaustion": {
+        "value": 0,
+        "max": 20
+      },
+      "minecraft:player.level": {
+        "value": 0,
+        "max": 24791
+      },
+      "minecraft:player.experience": {
+        "value": 0,
+        "max": 1
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 1,
+        "speed_multiplier": 1.0,
+        "track_target": true,
+        "require_complete_path": false,
+        "cooldown_time": 1,
+        "on_attack": {
+          "event": "raiyon:vanilla_attack"
+        }
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": -1,
+        "inhale_time": 3.75,
+        "generates_bubbles": false
+      },
+      "minecraft:nameable": {
+        "always_show": true,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:physics": {
+        "push_towards_closest_space": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:insomnia": {
+        "days_until_insomnia": 3
+      },
+      "minecraft:rideable": {
+        "seat_count": 2,
+        "family_types": ["parrot_tame"],
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [0.4, -0.2, -0.1],
+            "min_rider_count": 0,
+            "max_rider_count": 0,
+            "lock_rider_rotation": 0
+          },
+          {
+            "position": [-0.4, -0.2, -0.1],
+            "min_rider_count": 1,
+            "max_rider_count": 2,
+            "lock_rider_rotation": 0
+          }
+        ]
+      },
+      
+      "minecraft:skin_id": {
+        "value": 0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  },
+                  {
+                    "test": "has_component",
+                    "operator": "!=",
+                    "subject": "other",
+                    "value": "piercing"
+                  },
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "jc:can_block"
+                  }
+                ],
+                "none_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "North"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "North"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "South"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "South"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "West"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "West"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "East"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "East"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "jc:shield_blocking",
+              "target": "self"
+            },
+            "deals_damage":"no"
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  },
+                  {
+                    "test": "has_component",
+                    "operator": "!=",
+                    "subject": "other",
+                    "value": "piercing"
+                  },
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "jc:can_block"
+                  }
+                ],
+                "none_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "North"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "North"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "South"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "South"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "West"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "West"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "East"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "East"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "jc:shield_blocking",
+              "target": "self"
+            },
+            "deals_damage":"no"
+          },
+          {
+            "cause": "block_explosion",
+            "deals_damage": false,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  }
+                ]
+              },
+              "event": "jc:shield_hit",
+              "target": "self"
+            }
+          },         
+          {
+
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  },
+                  {
+                    "test": "has_component",
+                    "operator": "!=",
+                    "subject": "other",
+                    "value": "piercing"
+                  }
+                ],
+                "none_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "North"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "North"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "South"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "South"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "West"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "West"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "East"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "East"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "jc:shield_hit",
+              "target": "self"
+            },
+            "cause": "entity_attack",
+
+            "deals_damage":"no"
+          },
+          {
+
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  },
+                  {
+                    "test": "has_component",
+                    "operator": "!=",
+                    "subject": "other",
+                    "value": "piercing"
+                  }
+                ],
+                "none_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "North"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "North"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "South"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "South"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "West"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "West"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "East"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "East"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "jc:shield_hit",
+              "target": "self"
+            },
+            "cause": "fireworks",
+
+            "deals_damage":"no"
+          },
+          {
+
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  },
+                  {
+                    "test": "has_component",
+                    "operator": "!=",
+                    "subject": "other",
+                    "value": "piercing"
+                  }
+                ],
+                "none_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "North"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "North"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "South"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "South"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "West"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "West"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "East"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "East"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "jc:shield_hit",
+              "target": "self"
+            },
+            "cause": "entity_explosion",
+
+            "deals_damage":"no"
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  },
+                  {
+                    "test": "has_component",
+                    "operator": "!=",
+                    "subject": "other",
+                    "value": "piercing"
+                  }
+                ],
+                "none_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "North"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "North"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "South"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "South"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "West"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "West"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "East"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "East"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "jc:shield_hit",
+              "target": "self"
+            },                "cause": "mace_smash",
+
+            "deals_damage":"no"
+          },
+          {
+
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "self",
+                    "value": "jc:shield"
+                  },
+                  {
+                    "test": "has_component",
+                    "operator": "!=",
+                    "subject": "other",
+                    "value": "piercing"
+                  }
+                ],
+                "none_of": [
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "North"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "North"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "South"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "South"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "West"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "West"
+                      }
+                    ]
+                  },
+                  {
+                    "all_of": [
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "other",
+                        "value": "East"
+                      },
+                      {
+                        "test": "has_tag",
+                        "operator": "==",
+                        "subject": "self",
+                        "value": "East"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "event": "jc:shield_hit",
+              "target": "self"
+            },
+            "cause": "projectile",
+
+            "deals_damage":"no"
+          },
+          {
+            "cause": "mace_smash",
+            "damage_modifier": -10000,
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_1"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_modifier": -10000,
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_2"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_modifier": -10000,
+
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_3"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_multiplier": 0.4,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_4"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_multiplier": 0.5,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_5"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_multiplier": 0.6,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_6"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_multiplier": 0.7,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_7"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_multiplier": 0.8,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_8"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "mace_smash",
+            "damage_multiplier": 0.9,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_9"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_modifier": -10000,
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_1"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_modifier": -10000,
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_2"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_modifier": -10000,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_3"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_multiplier": 0.4,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_4"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_multiplier": 0.5,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_5"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_multiplier": 0.6,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_6"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_multiplier": 0.7,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_7"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_multiplier": 0.8,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_8"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "entity_attack",
+            "damage_multiplier": 0.9,
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "operator": "==",
+                    "subject": "other",
+                    "value": "t_9"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "cause": "fireworks",
+            "damage_multiplier": 8.5
+           
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "has_tag", "value": "xp_dash" }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "all",
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "self",
+                    "operator": "==",
+                    "value": "ender_staff_user"
+                  }
+                ]
+              },
+              "target": "self",
+              "event": "xp:ender_staff_teleport_cooldown"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "==",
+                "value": "endergob_bullet"
+              },
+              "target": "self",
+              "event": "xp:stage_endergob_fire"
+            }
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "has_damage", "value": "fatal" },
+                  { "test": "has_tag", "value": "the_end" },
+                  { "test": "has_tag", "value": "has_respawn_auger" }
+                ]
+              },
+              "event": "xp:death"
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "all",
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "all_of": [
+                      { "test": "has_equipment", "domain": "head", "value": "minecraft:chainmail_helmet" },
+                      { "test": "has_equipment", "domain": "torso", "value": "minecraft:chainmail_chestplate" },
+                      { "test": "has_equipment", "domain": "leg", "value": "minecraft:chainmail_leggings" },
+                      { "test": "has_equipment", "domain": "feet", "value": "minecraft:chainmail_boots" }
+                    ]
+                  }
+                ]
+              }
+            },
+            "deals_damage": true,
+            "damage_multiplier": 0.7
+          },
+          {
+            "cause": "all",
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "any_of": [
+                      { "test": "has_equipment", "domain": "head", "value": "minecraft:chainmail_helmet" },
+                      { "test": "has_equipment", "domain": "torso", "value": "minecraft:chainmail_chestplate" },
+                      { "test": "has_equipment", "domain": "leg", "value": "minecraft:chainmail_leggings" },
+                      { "test": "has_equipment", "domain": "feet", "value": "minecraft:chainmail_boots" }
+                    ]
+                  }
+                ]
+              }
+            },
+            "deals_damage": true,
+            "damage_multiplier": 0.85
+          },
+          {
+            "cause": "all",
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "all_of": [
+                      { "test": "has_equipment", "domain": "head", "value": "minecraft:golden_helmet" },
+                      { "test": "has_equipment", "domain": "torso", "value": "minecraft:golden_chestplate" },
+                      { "test": "has_equipment", "domain": "leg", "value": "minecraft:golden_leggings" },
+                      { "test": "has_equipment", "domain": "feet", "value": "minecraft:golden_boots" }
+                    ]
+                  }
+                ]
+              }
+            },
+            "deals_damage": true,
+            "damage_multiplier": 0.8
+          },
+          {
+            "cause": "all",
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "any_of": [
+                      { "test": "has_equipment", "domain": "head", "value": "minecraft:golden_helmet" },
+                      { "test": "has_equipment", "domain": "torso", "value": "minecraft:golden_chestplate" },
+                      { "test": "has_equipment", "domain": "leg", "value": "minecraft:golden_leggings" },
+                      { "test": "has_equipment", "domain": "feet", "value": "minecraft:golden_boots" }
+                    ]
+                  }
+                ]
+              }
+            },
+            "deals_damage": true,
+            "damage_multiplier": 0.9
+          },
+          {
+            "on_damage": {
+              "filters": { "test": "is_family", "subject": "other", "value": "waypoint" }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:block_climber": {},
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "operator": "==",
+                  "value": "Leve"
+                }
+              ]
+            },
+            "event": "set_speed_light"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "operator": "==",
+                  "value": "Padrao"
+                }
+              ]
+            },
+            "event": "set_speed_default"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "operator": "==",
+                  "value": "Médio"
+                }
+              ]
+            },
+            "event": "set_speed_medium"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "operator": "==",
+                  "value": "Pesada"
+                }
+              ]
+            },
+            "event": "set_speed_heavy"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "operator": "==",
+                  "value": "MuitoPesada"
+                }
+              ]
+            },
+            "event": "set_speed_very_heavy"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "overworld"
+                }
+              ]
+            },
+            "event": "overworld"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_difficulty",
+                  "operator": "==",
+                  "value": "peaceful"
+                }
+              ]
+            },
+            "event": "peaceful"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_difficulty",
+                  "operator": "==",
+                  "value": "easy"
+                }
+              ]
+            },
+            "event": "easy"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_difficulty",
+                  "operator": "==",
+                  "value": "normal"
+                }
+              ]
+            },
+            "event": "normal"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_difficulty",
+                  "operator": "==",
+                  "value": "hard"
+                }
+              ]
+            },
+            "event": "hard"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "nether"
+                }
+              ]
+            },
+            "event": "nether"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "the_end"
+                }
+              ]
+            },
+            "event": "end"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "weather",
+                  "operator": "==",
+                  "value": "rain"
+                }
+              ]
+            },
+            "event": "rain"
+          },
+          
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "weather",
+                  "operator": "==",
+                  "value": "thunderstorm"
+                }
+              ]
+            },
+            "event": "thunderstorm"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "weather",
+                  "operator": "==",
+                  "value": "clear"
+                }
+              ]
+            },
+            "event": "clear"
+          },
+          
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "netherwart_forest"
+                }
+              ]
+            },
+            "event": "nether_wastes"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "netherwart_forest"
+                }
+              ]
+            },
+            "event": "nonether_wastes"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "desert"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "desert_hills"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "desert_mutated"
+                }
+              ]
+            },
+            "event": "desert"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mesa_plateau"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mesa_plateau_stone"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mesa_plateau_stone_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mesa_bryce"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mesa_plateau_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "mesa"
+                }
+              ]
+            },
+            "event": "mesa"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "desert"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "desert_hills"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "desert_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "mesa_plateau"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "mesa_plateau_stone"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "mesa_plateau_stone_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "mesa_bryce"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "mesa_plateau_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "mesa"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "frozen"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "frozen"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "cold_taiga"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "ice_plains"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "ice_plains_spikes"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "deep_frozen_ocean"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "frozen_river"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "cold_beach"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "cold_taiga_hills"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "cold_taiga_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "ice_mountains"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "snowy_slopes"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "jagged_peaks"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "frozen_peaks"
+                }
+              ]
+            },
+            "event": "none"
+          },  
+          
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "frozen"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "cold_taiga"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "ice_plains"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "ice_plains_spikes"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "deep_frozen_ocean"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "frozen_river"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "cold_beach"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "cold_taiga_hills"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "cold_taiga_mutated"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "ice_mountains"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "snowy_slopes"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "jagged_peaks"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "frozen_peaks"
+                }
+              ]
+            },
+            "event": "frozen"
+          },
+          
+           {
+          "filters": {
+            "all_of": [
+              {
+                "test": "has_mob_effect",
+                "subject": "self",
+                "value": "bad_omen"
+              },
+              {
+                "test": "is_in_village",
+                "subject": "self",
+                "value": true
+              }
+            ]
+          },
+          "event": "minecraft:gain_raid_omen"
+        },
+
+
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "light1"
+              },
+              {
+                "test": "has_equipment",
+                "domain": "hand",
+                "value": "edx:light_armblade"
+              }
+            ]
+          },
+          "event": "light1"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "void"
+              }
+            ]
+          },
+          "event": "void_armor"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "void"
+              }
+            ]
+          },
+          "event": "novoid_armor"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "light1"
+              },
+              {
+                "test": "has_equipment",
+                "domain": "hand",
+                "operator": "!=",
+                "value": "edx:light_armblade"
+              }
+            ]
+          },
+          "event": "nolight1"
+        },
+        {
+          "filters": {
+            "any_of": [
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "light1"
+              }
+            ]
+          },
+          "event": "nolight1"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "ring_of_atlantis"
+              },
+              {
+                "test": "is_underwater",
+                "value": true
+              }
+            ]
+          },
+          "event": "ring_atlantis"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "enchanted_socks"
+              },
+              {
+                "test": "has_tag",
+                "operator": "==",
+                "value": "magma_speed"
+              }
+            ]
+          },
+          "event": "magma_speed"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "enchanted_socks"
+              },
+              {
+                "test": "has_tag",
+                "operator": "==",
+                "value": "magma_speed"
+                  }
+            ]
+          },
+          "event": "speed_speed"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "value": "enchanted_socks"
+              },
+              {
+                "test": "has_tag",
+                "operator": "!=",
+                "value": "magma_speed"
+                  }
+            ]
+          },
+          "event": "speed_boost"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "enchanted_socks"
+              },
+              {
+                "test": "has_tag",
+                "operator": "!=",
+                "value": "magma_speed"
+                  }
+                  
+            ]
+          },
+          "event": "nospeed_boost"
+        },
+      
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "value": "ancient_shield"
+              },
+              {
+                "test": "has_tag",
+                "operator": "!=",
+                "value": "aash"
+              }
+            ]
+          },
+          "event": "ancient_shield"
+        },
+        {
+          "filters": {
+            "any_of": [
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "ancient_shield"
+              }
+            ]
+          },
+          "event": "noancient_shield"
+        },
+        {
+          "filters": {
+            "any_of": [
+              {
+            "test": "has_tag",
+            "value": "xp"
+              }
+            ]
+          },
+          "event": "xp"
+       
+        },
+        {
+          "filters": {
+            "any_of": [
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "xp"
+              }
+            ]
+          },
+          "event": "noxp"
+        },
+       
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "clock"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": "==", "value": 0 }
+            ]
+          },
+          "event": "day"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "clock"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": "==",  "value": 13000 }
+            ]
+          },
+          "event": "night"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "clock"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": "==",  "value": 18000 }
+            ]
+          },
+          "event": "midnight"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "clock"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": "==",  "value": 12000 }
+            ]
+          },
+          "event": "sunset"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "clock"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": "==",  "value": 6000 }
+            ]
+          },
+          "event": "noon"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": ">=",  "value": 0 },
+              { "test": "hourly_clock_time", "operator": "<",  "value": 12000 }
+            ]
+          },
+          "event": "daytag"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": "<",  "value": 24000 },
+              { "test": "hourly_clock_time", "operator": ">=",  "value": 12000 }
+            ]
+          },
+          "event": "nighttag"
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "clock"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "overworld"
+              },
+              { "test": "hourly_clock_time", "operator": "==",  "value": 23000 }
+            ]
+          },
+          "event": "sunrise"
+        },
+        {
+          "filters": {
+            "all_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "bloody_ruby"
+              },
+              {
+                "test": "in_nether",
+                "operator": "==",
+                "value": true
+              } 
+            ]
+          },
+          "event": "blood"
+        },
+        {
+          "filters": {
+            "all_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "slide"
+              } 
+            ]
+          },
+          "event": "slide"
+        },
+        {
+          "filters": {
+            "all_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "slide"
+              } 
+            ]
+          },
+          "event": "no_slide"
+        },
+        {
+          "filters": {
+            "any_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "satiety"
+              } 
+            ]
+          },
+          "event": "satiety"
+        },
+        {
+          "filters": {
+            "any_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "satiety"
+              } 
+            ]
+          },
+          "event": "nosatiety"
+        },
+        {
+          "filters": {
+            "any_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "cloud_socks"
+              },
+              {
+                "all_of":[
+                  {
+                    "test": "has_equipment",
+                    "domain": "feet",
+                    "value": "edx:bouncing_boots"
+                  }
+                ]
+              }
+            ]
+          },
+          "event": "cloud"
+        },
+        {
+          "filters": {
+            "all_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "cloud_socks"
+              },
+              {
+              "test": "has_equipment",
+              "operator": "!=",
+              "domain": "feet",
+              "value": "edx:bouncing_boots"
+              }
+            ]
+          },
+          "event": "nocloud"
+        },
+        {
+          "filters": {
+            "all_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "magic_axe_summon"
+              }
+            ]
+          },
+          "event": "magic_axe"
+        },
+        {
+          "filters": {
+            "any_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "!=",
+            "value": "corrupted_star"
+              } 
+            ]
+          },
+          "event": "nocorrupted"
+        },
+        {
+          "filters": {
+            "any_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "corrupted_star"
+              }
+            ]
+          },
+          "event": "corrupted"
+        },
+        {
+          "filters": {
+            "all_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "heavy_socks"
+              },
+              {
+                "test": "on_ground",
+                "operator": "!=",
+                "value": true
+                  }
+            ]
+          },
+          "event": "heavy_socks3"
+        },
+        {
+          "filters": {
+            "all_of": [
+             
+              {
+            "test": "has_tag",
+            "operator": "==",
+            "value": "heavy_socks2"
+              },
+              {
+                "test": "has_tag",
+                "operator": "==",
+                "value": "heavy_socks3"
+                  },
+              {
+                "test": "on_ground",
+                "operator": "==",
+                "value": true
+                  }
+            ]
+          },
+          "event": "shockwave"
+        },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "has_tag", "operator": "!=", "value": "ach_051" },
+
+                { "test": "has_tag", "value": "ach_005" },
+                { "test": "has_tag", "value": "ach_007" },
+                { "test": "has_tag", "value": "ach_010" }
+              ]
+            },
+            "event": "xp:achievements.051"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "has_tag", "operator": "!=", "value": "ach_055" },
+
+                { "test": "has_tag", "value": "ach_100" },
+                { "test": "has_tag", "value": "ach_101" },
+                { "test": "has_tag", "value": "ach_102" },
+                { "test": "has_tag", "value": "ach_104" },
+                { "test": "has_tag", "value": "ach_105" }
+              ]
+            },
+            "event": "xp:achievements.055"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "has_tag", "operator": "!=", "value": "ach_058" },
+
+                { "test": "has_tag", "value": "ach_005" },
+                { "test": "has_tag", "value": "ach_007" },
+                { "test": "has_tag", "value": "ach_010" },
+
+                { "test": "has_tag", "value": "killed_elderman" },
+                { "test": "has_tag", "value": "killed_enderbug" },
+                { "test": "has_tag", "value": "killed_endergob" },
+                { "test": "has_tag", "value": "killed_enderslime" },
+                { "test": "has_tag", "value": "killed_enderslug" },
+                { "test": "has_tag", "value": "killed_eye_of_guardian" },
+                { "test": "has_tag", "value": "killed_mimic" },
+                { "test": "has_tag", "value": "killed_rippling" },
+                { "test": "has_tag", "value": "killed_stalker" },
+                { "test": "has_tag", "value": "killed_warder" }
+              ]
+            },
+            "event": "xp:achievements.058"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "has_tag", "operator": "!=", "value": "ach_059" },
+
+                { "test": "has_tag", "value": "ach_001" },
+                { "test": "has_tag", "value": "ach_002" },
+                { "test": "has_tag", "value": "ach_003" },
+                { "test": "has_tag", "value": "ach_004" },
+                { "test": "has_tag", "value": "ach_005" },
+                { "test": "has_tag", "value": "ach_006" },
+                { "test": "has_tag", "value": "ach_007" },
+                { "test": "has_tag", "value": "ach_008" },
+                { "test": "has_tag", "value": "ach_009" },
+                { "test": "has_tag", "value": "ach_010" },
+
+                { "test": "has_tag", "value": "ach_050" },
+                { "test": "has_tag", "value": "ach_051" },
+                { "test": "has_tag", "value": "ach_052" },
+                { "test": "has_tag", "value": "ach_053" },
+                { "test": "has_tag", "value": "ach_054" },
+                { "test": "has_tag", "value": "ach_055" },
+                { "test": "has_tag", "value": "ach_056" },
+                { "test": "has_tag", "value": "ach_057" },
+                { "test": "has_tag", "value": "ach_058" },
+                { "test": "has_tag", "value": "ach_060" },
+
+                { "test": "has_tag", "value": "ach_100" },
+                { "test": "has_tag", "value": "ach_101" },
+                { "test": "has_tag", "value": "ach_102" },
+                { "test": "has_tag", "value": "ach_103" },
+                { "test": "has_tag", "value": "ach_104" },
+                { "test": "has_tag", "value": "ach_105" },
+                { "test": "has_tag", "value": "ach_106" },
+                { "test": "has_tag", "value": "ach_107" },
+                { "test": "has_tag", "value": "ach_108" },
+                { "test": "has_tag", "value": "ach_109" },
+                { "test": "has_tag", "value": "ach_110" },
+                { "test": "has_tag", "value": "ach_111" },
+                { "test": "has_tag", "value": "ach_112" },
+                { "test": "has_tag", "value": "ach_113" },
+                { "test": "has_tag", "value": "ach_114" },
+                { "test": "has_tag", "value": "ach_115" },
+                { "test": "has_tag", "value": "ach_116" },
+                { "test": "has_tag", "value": "ach_117" },
+                { "test": "has_tag", "value": "ach_118" }
+              ]
+            },
+            "event": "xp:achievements.059"
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "has_tag", "operator": "!=", "value": "ach_059" },
+
+                { "test": "is_riding", "value": true },
+                { "test": "is_family", "subject": "other", "value": "enderbug" }
+              ]
+            },
+            "event": "xp:achievements.111"
+          },
+
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_mob_effect",
+                  "subject": "self",
+                  "value": "bad_omen"
+                },
+                {
+                  "test": "is_in_village",
+                  "subject": "self",
+                  "value": true
+                }
+              ]
+            },
+            "event": "minecraft:trigger_raid"
+          },
+
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_sneaking",
+                  "value": false
+                },
+                {
+                  "test": "has_component",
+                  "operator": "!=",
+                  "value": "minecraft:rideable"
+                }
+              ]
+            },
+            "event": "xp:stage_rideble"
+          }
+        ]
+      }
+    },  
+
+    "events": {
+      "set_speed_default": {
+    "add": {
+      "component_groups": ["speed_default"]
+    },
+    "remove": {
+      "component_groups": ["speed_medium", "speed_heavy", "speed_very_heavy", "speed_light"]
+    }
+  },
+      "set_speed_light": {
+    "add": {
+      "component_groups": ["speed_light"]
+    },
+    "remove": {
+      "component_groups": ["speed_medium", "speed_heavy", "speed_very_heavy", "speed_default"]
+    }
+  },
+  
+  "set_speed_medium": {
+    "add": {
+      "component_groups": ["speed_medium"]
+    },
+    "remove": {
+      "component_groups": ["speed_light", "speed_heavy", "speed_very_heavy", "speed_default"]
+    }
+  },
+  "set_speed_heavy": {
+    "add": {
+      "component_groups": ["speed_heavy"]
+    },
+    "remove": {
+      "component_groups": ["speed_light", "speed_medium", "speed_very_heavy", "speed_default"]
+    }
+  },
+  "set_speed_very_heavy": {
+    "add": {
+      "component_groups": ["speed_very_heavy"]
+    },
+    "remove": {
+      "component_groups": ["speed_light", "speed_medium", "speed_heavy", "speed_default"]
+    }
+  },
+      "check_attack_disabled": {
+        "sequence": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "subject": "self",
+                  "operator": "==",
+                  "value": "attack_disabled"
+                }
+              ]
+            },
+            "add": {
+              "component_groups": ["minecraft:disabled_attack"]
+            }
+          },
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "has_tag",
+                  "subject": "self",
+                  "operator": "!=",
+                  "value": "attack_disabled"
+                }
+              ]
+            },
+            "remove": {
+              "component_groups": ["minecraft:disabled_attack"]
+            }
+          }
+        ]
+      },
+      "sweepnslash:not_mace": {
+        "add": {
+          "component_groups": [
+            "sweepnslash:disable"
+          ]
+        }
+      },
+      "sweepnslash:mace": {
+        "add": {
+          "component_groups": [
+            "sweepnslash:enable"
+          ]
+        }
+      },
+      "sculkling":{
+        "add": {
+          "component_groups": [
+            "sculkling_friendly"
+          ]
+        }
+      },
+      "cloud":{
+        "add": {
+          "component_groups": [
+            "cloud_socks"
+          ]
+        }
+      },
+      "slide":{
+        "add": {
+          "component_groups": [
+            "slide"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "no_slide"
+          ]
+        }
+      },
+      "no_slide":{
+        "remove": {
+          "component_groups": [
+            "slide"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "no_slide"
+          ]
+        }
+      },
+      "nocloud":{
+        "remove": {
+          "component_groups": [
+            "cloud_socks"
+          ]
+        }
+      },
+      "near_mob":{
+       "sequence": [
+        {
+          "filters": {
+            "all_of": [
+              {
+                 "test": "has_tag",
+              "operator": "==",
+              "value": "bloody_brambles"
+              }
+            ]
+          },
+          "queue_command": {
+             "command": [
+              "scoreboard players add @s Bramble 0",
+              "execute as @s[scores={Bramble=0}] at @s run execute as @e[r=10,c=1,family=monster] at @s run summon edx:bloody_brambles ~~~",
+              "scoreboard players set @s[scores={Bramble=0}] Bramble 600"
+          ]}
+        },
+        {
+          "filters": {
+            "all_of": [
+              {
+                 "test": "has_tag",
+              "operator": "==",
+              "value": "Sculk_portal"
+              }
+            ]
+          },
+          "queue_command": {
+             "command": [
+              "scoreboard players add @s Sculk_portal 0",
+              "event entity @s[scores={Sculk_portal=0}] sculkling",
+              "scoreboard players set @s[scores={Sculk_portal=0}] Sculk_portal 1200"
+          ]}
+        }
+      ]
+      },
+      "day": {
+        "queue_command": {
+          "command": [
+           "title @s actionbar Day"
+          ]}
+     },
+     "noon": {
+      "queue_command": {
+        "command": [
+         "title @s actionbar Noon"
+        ]}
+     },
+     "night": {
+      "queue_command": {
+        "command": [
+         "title @s actionbar Night"
+        ]}
+     },
+     "sunset": {
+      "queue_command": {
+        "command": [
+         "title @s actionbar Sunset"
+        ]}
+     },
+     "midnight": {
+      "queue_command": {
+        "command": [
+         "title @s actionbar Midnight"
+        ]}
+     },
+     "sunrise": {
+      "queue_command": {
+        "command": [
+         "title @s actionbar Sunrise"
+        ]}
+     },
+     "void_cloak_particle": {
+      "queue_command": {
+        "command": [
+         "particle edx:void_cloak ~~~"
+        ]}
+     },
+     "peaceful": {
+      "queue_command": {
+        "command": [
+         "difficulty easy",
+         "msg @s Difficulty set to easy, mobs and bosses are bugged in peaceful"
+        ]}
+     },
+     "easy": {
+      "queue_command": {
+        "command": [
+         "tag @s add easy",
+         "tag @s remove normal",
+         "tag @s remove hard"
+        ]}
+     },
+     "normal": {
+      "queue_command": {
+        "command": [
+         "tag @s remove easy",
+         "tag @s add normal",
+         "tag @s remove hard"
+        ]}
+     },
+     "hard": {
+      "queue_command": {
+        "command": [
+         "tag @s remove easy",
+         "tag @s remove normal",
+         "tag @s add hard"
+        ]}
+     },
+     
+      "void_armor": {
+        "add": {
+          "component_groups": [
+            "void_armor"
+          ]
+        }
+      },
+      "novoid_armor": {
+        "remove": {
+          "component_groups": [
+            "void_armor"
+          ]
+        }
+      },
+      "ancient_shield": {
+        "add": {
+          "component_groups": [ "ancient_shield"]
+        }
+      },
+      "noancient_shield": {
+        "remove": {
+          "component_groups": [ "ancient_shield"]
+        }
+      },
+    
+    
+      "magic_axe": {
+        "add": {
+           "component_groups": [
+              "magic_axe"
+           ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove magic_axe_summon"
+          ]}
+     },
+     "allay": {
+      "add": {
+         "component_groups": [
+            "allay"
+         ]
+      }
+   },
+   "light_allay": {
+    "add": {
+       "component_groups": [
+          "light_allay"
+       ]
+    }
+ },
+ "void_allay": {
+  "add": {
+     "component_groups": [
+        "void_allay"
+     ]
+  }
+},
+    
+"shockwave": {
+  "queue_command": {
+    "command": [
+      "summon edx:shockwave ~~~ ~~ shockwave",
+      "tag @s remove heavy_socks2",
+      "tag @s remove heavy_socks3",
+      "particle minecraft:knockback_roar_particle ~~~"
+    ]}
+},
+"daytag": {
+  "queue_command": {
+    "command": [
+      "tag @s add day",
+      "tag @s remove night"
+    ]}
+},
+"nighttag": {
+  "queue_command": {
+    "command": [
+      "tag @s add night",
+      "tag @s remove day"
+    ]}
+},
+   "heavy_socks3": {
+    "queue_command": {
+      "command": [
+        "tag @s add heavy_socks3"
+      ]}
+ },
+ "ring_atlantis": {
+  "queue_command": {
+    "command": [
+      "effect @s water_breathing 1 0 true",
+      "effect @s weakness 1 0 true"
+    ]}
+},
+  
+ "blood": {
+  "queue_command": {
+    "command": [
+      "effect @s strength 15 0 true"
+    ]}
+},
+"overworld": {
+  "queue_command": {
+    "command": [
+      "tag @s add overworld",
+      "tag @s remove nether"
+    ]}
+},
+"nether": {
+  "queue_command": {
+    "command": [
+      "tag @s add nether",
+      "tag @s remove overworld"
+    ]}
+},
+"end": {
+  "queue_command": {
+    "command": [
+      "tag @s remove nether",
+      "tag @s remove overworld"
+    ]}
+},
+"clear": {
+  "queue_command": {
+    "command": [
+      "tag @s remove rain",
+      "tag @s remove thunder"
+    ]}
+},
+"rain": {
+  "queue_command": {
+    "command": [
+      "tag @s add rain",
+      "tag @s remove thunder"
+    ]}
+},
+"thunderstorm": {
+  "queue_command": {
+    "command": [
+      "tag @s remove rain",
+      "tag @s add thunder"
+    ]}
+},
+"nether_wastes": {
+  "queue_command": {
+    "command": [
+      "tag @s add nether_wastes"
+    ]}
+},
+"nonether_wastes": {
+  "queue_command": {
+    "command": [
+      "tag @s remove nether_wastes"
+    ]}
+},
+"desert": {
+  "queue_command": {
+    "command": [
+      "tag @s add desert",
+      "tag @s remove mesa",
+      "tag @s remove frozen"
+    ]}
+},
+"frozen": {
+  "queue_command": {
+    "command": [
+      "tag @s remove desert",
+      "tag @s remove mesa",
+      "tag @s add frozen"
+    ]}
+},
+"mesa": {
+  "queue_command": {
+    "command": [
+      "tag @s remove desert",
+      "tag @s add mesa",
+      "tag @s remove frozen"
+    ]}
+},
+"none": {
+  "queue_command": {
+    "command": [
+      "tag @s remove desert",
+      "tag @s remove mesa",
+      "tag @s remove frozen"
+    ]}
+},
+
+
+
+
+
+
+"speed0": {
+  "add": {
+    "component_groups": [
+      "speed0"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed1": {
+  "add": {
+    "component_groups": [
+      "speed1"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed0",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed2": {
+  "add": {
+    "component_groups": [
+      "speed2"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed0",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed3": {
+  "add": {
+    "component_groups": [
+      "speed3"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed0",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed4": {
+  "add": {
+    "component_groups": [
+      "speed4"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed0",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed5": {
+  "add": {
+    "component_groups": [
+      "speed5"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed0",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed6": {
+  "add": {
+    "component_groups": [
+      "speed6"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed0",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed7": {
+  "add": {
+    "component_groups": [
+      "speed7"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed0",
+      "speed-1",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed-1": {
+  "add": {
+    "component_groups": [
+      "speed-1"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed0",
+      "speed-2",
+      "speed-3"
+    ]
+  }
+},
+"speed-2": {
+  "add": {
+    "component_groups": [
+      "speed-2"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed0",
+      "speed-3"
+    ]
+  }
+},
+"speed-3": {
+  "add": {
+    "component_groups": [
+      "speed-3"
+    ]
+  },
+  "remove": {
+    "component_groups": [
+      "speed1",
+      "speed2",
+      "speed3",
+      "speed4",
+      "speed5",
+      "speed6",
+      "speed7",
+      "speed-1",
+      "speed-2",
+      "speed0"
+    ]
+  }
+},
+      "raiyon:add_kr": {
+        "add" : {
+          "component_groups" : [
+             "raiyon:add_kr"
+          ]
+        }
+      },
+      "raiyon:remove_kr": {
+          "add" : {
+          "component_groups" : [
+             "raiyon:remove_kr"
+          ]
+        }
+      },
+      "jc:shield_blocking": {
+      },
+      "jc:shield_hit": {
+       },
+      "raiyon:vanilla_attack": {
+        "add" : {
+          "component_groups" : [
+             "raiyon:vanilla_attack"
+          ]
+        }
+       },
+       "raiyon:axe_attack_4": {
+        "add" : {
+          "component_groups" : [
+             "raiyon:axe_attack_4"
+          ]
+        }
+       },
+       "raiyon:axe_attack_5": {
+        "add" : {
+          "component_groups" : [
+             "raiyon:axe_attack_5"
+          ]
+        }
+       },
+       "raiyon:axe_attack_2": {
+        "add" : {
+          "component_groups" : [
+             "raiyon:axe_attack_2"
+          ]
+        }
+       },
+       "raiyon:axe_attack_3": {
+        "add" : {
+          "component_groups" : [
+             "raiyon:axe_attack_3"
+          ]
+        }
+       },
+      "minecraft:gain_raid_omen": {
+        "add": {
+          "component_groups": [
+            "minecraft:add_raid_omen"
+          ]
+        }
+      },
+      "minecraft:clear_add_raid_omen": {
+        "remove": {
+          "component_groups": [
+            "minecraft:add_raid_omen"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:clear_raid_omen_spell_effect"
+          ]
+        }
+      },
+      "minecraft:gain_bad_omen": {
+        "add": {
+          "component_groups": ["minecraft:add_bad_omen"]
+        }
+      },
+      "minecraft:clear_add_bad_omen": {
+        "remove": {
+          "component_groups": ["minecraft:add_bad_omen"]
+        },
+        "add": {
+          "component_groups": ["minecraft:clear_bad_omen_spell_effect"]
+        }
+      },
+      "minecraft:trigger_raid": {
+        "add": {
+          "component_groups": ["minecraft:raid_trigger"]
+        }
+      },
+      "minecraft:remove_raid_trigger": {
+        "remove": {
+          "component_groups": ["minecraft:raid_trigger"]
+        }
+      },
+
+      
+      "xp:player_aurora_higher": { "set_property": {  "xp:player_aurora": 3 } },
+      "xp:player_aurora_additive": { "set_property": {  "xp:player_aurora": 2 } },
+      "xp:player_aurora": { "set_property": {  "xp:player_aurora": 1 } },
+      "xp:remove_player_aurora": { "set_property": {  "xp:player_aurora": 0 } },
+      "xp:in_cutscene": { "set_property": {  "xp:in_cutscene": true } },
+      "xp:leave_cutscene": { "set_property": {  "xp:in_cutscene": false } },
+
+      "xp:end_travel.to_end": { "set_property": {  "xp:end_travel.to_end": true, "xp:in_cutscene": true } },
+      "xp:end_travel.reset_to_end": { "set_property": {  "xp:end_travel.to_end": false, "xp:in_cutscene": false } },
+      
+      "xp:end_travel.to_endboss": {"set_property": {  "xp:end_travel.to_endboss": true, "xp:in_cutscene": true } },
+      "xp:end_travel.reset_to_endboss": { "set_property": {  "xp:end_travel.to_endboss": false, "xp:in_cutscene": false } },
+      
+      "xp:end_travel.to_respawn_auger": {"set_property": {  "xp:end_travel.to_respawn_auger": true, "xp:in_cutscene": true } },
+      "xp:end_travel.reset_to_respawn_auger": { "set_property": {  "xp:end_travel.to_respawn_auger": false, "xp:in_cutscene": false } },
+
+      "xp:end_travel.to_overworld": { "set_property": {  "xp:end_travel.to_overworld": true, "xp:in_cutscene": true } },
+      "xp:end_travel.reset_to_overworld": { "set_property": {  "xp:end_travel.to_overworld": false, "xp:in_cutscene": false } },
+
+      "xp:in_wilds": { "set_property": {  "xp:in_wilds": true } },
+      "xp:out_wilds": { "set_property": {  "xp:in_wilds": false } },
+
+      "xp:pulled_0": { "set_property": { "xp:pulled": 0 } },
+      "xp:pulled_1": { "set_property": { "xp:pulled": 1 } },
+
+     
+      "xp:cutscene.end_portal": {
+        "set_property": {  "xp:in_cutscene": true },
+        "add": { "component_groups": ["xp:cutscene.end_portal"] },
+        "remove": { "component_groups": ["xp:name_tags"] }
+      },
+      "xp:cutscene.clear": {
+        "set_property": {  "xp:in_cutscene": false },
+        "add": { "component_groups": ["xp:cutscene.clear", "xp:name_tags"] },
+        "remove": { "component_groups": [ "xp:cutscene.end_portal" ] }
+      },
+      "xp:name_tags": {
+        "add": { "component_groups": ["xp:name_tags"] }
+      },
+      "xp:remove_name_tags": {
+        "remove": { "component_groups": ["xp:name_tags"] }
+      },
+
+      "xp:use_tp": {
+        "add": { "component_groups": ["xp:use_tp"] }
+      },
+      "xp:use_tp_enchanted": {
+        "add": { "component_groups": ["xp:use_tp_enchanted"] }
+      },
+      "xp:attack_value_0": {
+        "add": { "component_groups": ["xp:attack_value_0"] }
+      },
+      "xp:attack_value_1": {
+        "add": { "component_groups": ["xp:attack_value_1"] }
+      },
+      "xp:attack_value_2": {
+        "add": { "component_groups": ["xp:attack_value_2"] }
+      },
+      "xp:attack_value_3": {
+        "add": { "component_groups": ["xp:attack_value_3"] }
+      },
+      "xp:attack_value_4": {
+        "add": { "component_groups": ["xp:attack_value_4"] }
+      },
+      "xp:attack_value_5": {
+        "add": { "component_groups": ["xp:attack_value_5"] }
+      },
+      "xp:attack_value_6": {
+        "add": { "component_groups": ["xp:attack_value_6"] }
+      },
+      "xp:attack_value_7": {
+        "add": { "component_groups": ["xp:attack_value_7"] }
+      },
+      "xp:attack_value_8": {
+        "add": { "component_groups": ["xp:attack_value_8"] }
+      },
+      "xp:attack_value_9": {
+        "add": { "component_groups": ["xp:attack_value_9"] }
+      },
+      "xp:attack_value_10": {
+        "add": { "component_groups": ["xp:attack_value_10"] }
+      },
+      "xp:attack_value_11": {
+        "add": { "component_groups": ["xp:attack_value_11"] }
+      },
+      "xp:attack_value_12": {
+        "add": { "component_groups": ["xp:attack_value_12"] }
+      },
+      "xp:attack_value_13": {
+        "add": { "component_groups": ["xp:attack_value_13"] }
+      },
+      "xp:attack_value_14": {
+        "add": { "component_groups": ["xp:attack_value_14"] }
+      },
+      "xp:attack_value_15": {
+        "add": { "component_groups": ["xp:attack_value_15"] }
+      },
+      "xp:attack_value_16": {
+        "add": { "component_groups": ["xp:attack_value_16"] }
+      },
+      "xp:attack_value_17": {
+        "add": { "component_groups": ["xp:attack_value_17"] }
+      },
+      "xp:attack_value_18": {
+        "add": { "component_groups": ["xp:attack_value_18"] }
+      },
+      "xp:attack_value_19": {
+        "add": { "component_groups": ["xp:attack_value_19"] }
+      },
+      "xp:attack_value_20": {
+        "add": { "component_groups": ["xp:attack_value_20"] }
+      },
+
+      "xp:set_attack":{
+        "set_property": {
+          "xp:attack": true
+        }
+      },
+      "xp:unset_attack":{
+        "set_property": {
+          "xp:attack": false
+        }
+      },
+
+      "xp:enders_heart_blast.laser": {
+        "add": { "component_groups": ["xp:enders_heart_blast.laser"] }
+      },
+      "xp:enders_heart.heart_beat": { "set_property": { "xp:heart_blast.show_heart": true } },
+      "xp:remove_enders_heart.heart_beat": { "set_property": { "xp:heart_blast.show_heart": false } },
+
+      "xp:enders_heart.charging": {
+        "add": { "component_groups": ["xp:enders_heart.charging"] }
+      },
+      "xp:enders_heart.not_charging": {
+        "remove": { "component_groups": ["xp:enders_heart.charging"] }
+      },
+      "xp:enders_heart.has_mana": {
+        "add": { "component_groups": ["xp:enders_heart.has_mana"] },
+        "remove": { "component_groups": ["xp:enders_heart.has_mana"] }
+      },
+      "xp:enders_heart.no_mana": {
+        "add": { "component_groups": ["xp:enders_heart.no_mana"] },
+        "remove": { "component_groups": ["xp:enders_heart.has_mana"] }
+      },
+
+      "xp:is_leaping": {
+        "add": { "component_groups": ["xp:is_leaping"] },
+        "remove": { "component_groups": ["xp:default_physics"] }
+      },
+      "xp:default_physics": {
+        "add": { "component_groups": ["xp:default_physics"] },
+        "remove": { "component_groups": ["xp:is_leaping"] }
+      },
+      "xp:hammer_of_void.has_mana": {
+        "add": { "component_groups": ["xp:hammer_of_void.has_mana"] }
+      },
+      "xp:hammer_of_void.no_mana": {
+        "remove": { "component_groups": ["xp:hammer_of_void.has_mana"] }
+      },
+      "xp:hammer_of_void_enchanted.has_mana": {
+        "add": { "component_groups": ["xp:hammer_of_void_enchanted.has_mana"] }
+      },
+      "xp:hammer_of_void_enchanted.no_mana": {
+        "remove": { "component_groups": ["xp:hammer_of_void_enchanted.has_mana"] }
+      },
+
+      "xp:ender_smite.laser": {
+        "add": { "component_groups": ["xp:ender_smite.laser"] }
+      },
+      "xp:ender_smite.laser_down": {
+        "add": { "component_groups": ["xp:ender_smite.laser_down"] }
+      },
+      "xp:has_ender_mana": {
+        "add": { "component_groups": ["xp:has_ender_mana"] }
+      },
+      "xp:no_ender_mana": {
+        "remove": { "component_groups": ["xp:has_ender_mana"] }
+      },
+      "xp:used_entire_ender_mana": {
+        "add": { "component_groups": ["xp:used_entire_ender_mana"] }
+      },
+      "xp:recharged_entire_ender_mana": {
+        "remove": { "component_groups": ["xp:used_entire_ender_mana"] }
+      },
+
+      "xp:default_exhaustion_values": {
+        "add": { "component_groups": ["xp:default_exhaustion_values"] },
+        "remove": {
+          "component_groups": ["xp:obsidian_blade_exhaustion_values"]
+        }
+      },
+
+      "xp:obsidian_blade_exhaustion_values": {
+        "add": { "component_groups": ["xp:obsidian_blade_exhaustion_values"] },
+        "remove": { "component_groups": ["xp:default_exhaustion_values"] }
+      },
+      "xp:obsidian_blade.dash_attack": {
+        "add": { "component_groups": ["xp:obsidian_blade.dash_attack"] }
+      },
+      "xp:remove_obsidian_blade.dash_attack": {
+        "remove": { "component_groups": ["xp:obsidian_blade.dash_attack"] }
+      },
+
+      "xp:ender_curved_blade.release": {
+        "add": { "component_groups": ["xp:ender_curved_blade.release"] }
+      },
+      "xp:ender_curved_blade.release1": {
+        "add": { "component_groups": ["xp:ender_curved_blade.release1"] }
+      },
+
+      "xp:enderite_cutter_attack": {
+        "add": { "component_groups": ["xp:enderite_cutter_attack"] }
+      },
+      "xp:remove_enderite_cutter_attack": {
+        "remove": { "component_groups": ["xp:enderite_cutter_attack"] }
+      },
+      "xp:enderite_cutter_attack1": {
+        "add": { "component_groups": ["xp:enderite_cutter_attack1"] }
+      },
+      "xp:remove_enderite_cutter_attack1": {
+        "remove": { "component_groups": ["xp:enderite_cutter_attack1"] }
+      },
+      "xp:enderite_cutter_attack2": {
+        "add": { "component_groups": ["xp:enderite_cutter_attack2"] }
+      },
+      "xp:remove_enderite_cutter_attack2": {
+        "remove": { "component_groups": ["xp:enderite_cutter_attack2"] }
+      },
+      "xp:enderite_cutter_attack3": {
+        "add": { "component_groups": ["xp:enderite_cutter_attack3"] }
+      },
+      "xp:remove_enderite_cutter_attack3": {
+        "remove": { "component_groups": ["xp:enderite_cutter_attack3"] }
+      },
+
+      "xp:the_touched_ends_sonic_boom": {
+        "set_property": {
+          "xp:touched_ends_sonic_boom": true
+        },
+        "add": {
+          "component_groups": ["xp:the_touched_ends.sonic_boom"]
+        }
+      },
+      "xp:the_touched_ends_enchanted_sonic_boom": {
+        "set_property": {
+          "xp:touched_ends_sonic_boom": true
+        },
+        "add": {
+          "component_groups": ["xp:the_touched_ends_enchanted.sonic_boom"]
+        }
+      },
+
+      "xp:remove_the_touched_ends_sonic_boom":{
+        "set_property": {
+          "xp:touched_ends_sonic_boom": false
+        }
+      },
+
+      "xp:ender_staff_release": {
+        "add": {
+          "component_groups": ["xp:ender_staff_release"]
+        }
+      },
+
+      "xp:ender_staff_attack_cooldown": {
+        "add": {
+          "component_groups": ["xp:ender_staff_attack_cooldown"]
+        }
+      },
+      "xp:ender_staff_remove_attack_cooldown": {
+        "remove": {
+          "component_groups": ["xp:ender_staff_attack_cooldown"]
+        }
+      },
+      "xp:ender_staff_teleport_cooldown": {
+        "add": {
+          "component_groups": ["xp:ender_staff_teleport_cooldown"]
+        }
+      },
+      "xp:ender_staff_teleport_remove_cooldown": {
+        "add": {
+          "component_groups": ["xp:remove_enders_heart.heart_beat"]
+        }
+      },
+
+    
+      "xp:haste_value_0": {
+        "add": {
+          "component_groups": ["xp:haste_value_0"]
+        }
+      },
+      "xp:haste_value_1": {
+        "add": {
+          "component_groups": ["xp:haste_value_1"]
+        }
+      },
+      "xp:haste_value_2": {
+        "add": {
+          "component_groups": ["xp:haste_value_2"]
+        }
+      },
+      "xp:haste_value_3": {
+        "add": {
+          "component_groups": ["xp:haste_value_3"]
+        }
+      },
+      "xp:haste_value_4": {
+        "add": {
+          "component_groups": ["xp:haste_value_4"]
+        }
+      },
+      "xp:haste_value_5": {
+        "add": {
+          "component_groups": ["xp:haste_value_5"]
+        }
+      },
+      "xp:haste_value_6": {
+        "add": {
+          "component_groups": ["xp:haste_value_6"]
+        }
+      },
+      "xp:haste_value_7": {
+        "add": {
+          "component_groups": ["xp:haste_value_7"]
+        }
+      },
+
+      "xp:regeneration_value_0": {
+        "add": {
+          "component_groups": ["xp:regeneration_value_0"]
+        }
+      },
+      "xp:regeneration_value_1": {
+        "randomize": [
+          {
+            "add": {
+              "component_groups": ["xp:regeneration_value_1"]
+            },
+            "weight": 1
+          },
+          {
+            "weight": 1
+          }
+        ]
+      },
+
+      "xp:speed_value_0": {
+        "add": {
+          "component_groups": ["xp:speed_value_0"]
+        }
+      },
+      "xp:speed_value_1": {
+        "add": {
+          "component_groups": ["xp:speed_value_1"]
+        }
+      },
+
+      "xp:levitation_value_0": {
+        "add": {
+          "component_groups": ["xp:levitation_value_0"]
+        },
+        "remove": {
+          "component_groups": ["xp:levitation_value_70", "xp:levitation_value_40"]
+        }
+      },
+      "xp:levitation_value_70": {
+        "add": {
+          "component_groups": ["xp:levitation_value_70"]
+        },
+        "remove": {
+          "component_groups": ["xp:levitation_value_0", "xp:levitation_value_40"]
+        }
+      },
+      "xp:levitation_value_40": {
+        "add": {
+          "component_groups": ["xp:levitation_value_40"]
+        },
+        "remove": {
+          "component_groups": ["xp:levitation_value_0", "xp:levitation_value_70"]
+        }
+      },
+
+      
+      "xp:stage_shulker_trill": {
+        "add": {
+          "component_groups": ["xp:stage.shulker_trill"]
+        }
+      },
+      "xp:stage_tome_teleportation": {
+        "add": {
+          "component_groups": ["xp:stage.tome_teleportation"]
+        }
+      },
+
+      "xp:stage_remove_void_cloak": {
+        "add": {
+          "component_groups": ["xp:stage.unvoid_cloak"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.void_cloak"]
+        }
+      },
+      "xp:stage_void_cloak": {
+        "add": {
+          "component_groups": ["xp:stage.void_cloak"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.unvoid_cloak"]
+        }
+      },
+
+      
+      "xp:eldeman_trap.summon": {
+        "add": {
+          "component_groups": ["xp:eldeman_trap.summon"]
+        }
+      },
+      "xp:eldeman_trap_remove.summon": {
+        "remove": {
+          "component_groups": ["xp:eldeman_trap.summon"]
+        }
+      },
+      "xp:eldeman_trap_summon_circle": {
+        "add": {
+          "component_groups": ["xp:eldeman_trap.summon_circle"]
+        }
+      },
+      "xp:eldeman_trap_remove_summon_circle": {
+        "remove": {
+          "component_groups": ["xp:eldeman_trap.summon_circle"]
+        }
+      },
+
+      
+      "xp:start_conduit_falling": {
+        "add": {
+          "component_groups": ["xp:conduit.falling"]
+        }
+      },
+      "xp:end_conduit_falling": {
+        "remove": {
+          "component_groups": ["xp:conduit.falling"]
+        }
+      },
+
+      
+      "xp:stage_remove_launch": {
+        "add": {
+          "component_groups": ["xp:stage.unlaunch"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.launch", "xp:stage.launch_end"]
+        }
+      },
+      "xp:stage_launch": {
+        "add": {
+          "component_groups": ["xp:stage.launch"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.unlaunch"]
+        }
+      },
+      "xp:stage_launch_end": {
+        "add": {
+          "component_groups": ["xp:stage.launch_end"]
+        },
+        "remove": {
+          "component_groups": ["xp:stage.unlaunch", "xp:stage.launch"]
+        }
+      },
+
+      "xp:stage_grab": {
+        "add": {
+          "component_groups": ["xp:stage.grab"]
+        }
+      },
+      "xp:stage_remove_grab": {
+        "remove": {
+          "component_groups": ["xp:stage.grab"]
+        }
+      },
+
+      "xp:stage_grab_guardian": {
+        "add": {
+          "component_groups": ["xp:stage.grab_guardian"]
+        }
+      },
+      "xp:stage_remove_grab_guardian": {
+        "remove": {
+          "component_groups": ["xp:stage.grab_guardian"]
+        }
+      },
+      
+      "xp:stage_enderslug_fire": {
+        "add": {
+          "component_groups": ["xp:stage.enderslug_fire"]
+        }
+      },
+      "xp:stage_remove_enderslug_fire": {
+        "remove": {
+          "component_groups": ["xp:stage.enderslug_fire"]
+        }
+      },
+
+      "xp:stage_endergob_fire": {
+        "add": {
+          "component_groups": ["xp:stage.endergob_fire"]
+        }
+      },
+      "xp:stage_remove_endergob_fire": {
+        "remove": {
+          "component_groups": ["xp:stage.endergob_fire"]
+        }
+      },
+
+      "xp:stage_healingpool": {
+        "add": {
+          "component_groups": ["xp:stage.healingpool"]
+        }
+      },
+      "xp:stage_remove_healingpool": {
+        "remove": {
+          "component_groups": ["xp:stage.healingpool"]
+        }
+      },
+
+      
+      "xp:stage_rideble": {
+        "add": {
+          "component_groups": ["xp:stage.rideble"]
+        }
+      },
+      "xp:stage_remove_rideble": {
+        "remove": {
+          "component_groups": ["xp:stage.rideble"]
+        }
+      },
+
+      "xp:property.knockback.set.none": {
+				"set_property": {"xp:knockback": "none"}
+			},
+			"xp:property.knockback.set.back": {
+				"set_property": {"xp:knockback": "back"}
+			},
+
+      
+      "xp:open_farlander_dialogue": { "set_property": { "xp:farlander_dialogue": true } },
+      "xp:reset_farlander_dialogue": { "set_property": { "xp:farlander_dialogue": false } },
+
+      "xp:farlander.quick_travel.reset": { "set_property": { "xp:farlander_quick_travel": 0 } },
+      "xp:farlander.quick_travel.close": { "set_property": { "xp:farlander_quick_travel": 100 } },
+      "xp:farlander.quick_travel.1": { "set_property": { "xp:farlander_quick_travel": 1 } },
+      "xp:farlander.quick_travel.2": { "set_property": { "xp:farlander_quick_travel": 2 } },
+      "xp:farlander.quick_travel.3": { "set_property": { "xp:farlander_quick_travel": 3 } },
+      "xp:farlander.quick_travel.4": { "set_property": { "xp:farlander_quick_travel": 4 } },
+      "xp:farlander.quick_travel.5": { "set_property": { "xp:farlander_quick_travel": 5 } },
+      "xp:farlander.quick_travel.6": { "set_property": { "xp:farlander_quick_travel": 6 } },
+
+     
+      "xp:achievements.reset": { "set_property": { "xp:achievements_id": 0 } },
+      "xp:achievements.001": { "set_property": { "xp:achievements_id": 1 } },
+      "xp:achievements.005": { "set_property": { "xp:achievements_id": 5 } },
+      "xp:achievements.006": { "set_property": { "xp:achievements_id": 6 } },
+      "xp:achievements.007": { "set_property": { "xp:achievements_id": 7 } },
+      "xp:achievements.008": { "set_property": { "xp:achievements_id": 8 } },
+      "xp:achievements.009": { "set_property": { "xp:achievements_id": 9 } },
+      "xp:achievements.010": { "set_property": { "xp:achievements_id": 10 } },
+      "xp:achievements.050": { "set_property": { "xp:achievements_id": 50 } },
+      "xp:achievements.051": { "set_property": { "xp:achievements_id": 51 } },
+      "xp:achievements.052": { "set_property": { "xp:achievements_id": 52 } },
+      "xp:achievements.053": { "set_property": { "xp:achievements_id": 53 } },
+      "xp:achievements.054": { "set_property": { "xp:achievements_id": 54 } },
+      "xp:achievements.055": { "set_property": { "xp:achievements_id": 55 } },
+      "xp:achievements.056": { "set_property": { "xp:achievements_id": 56 } },
+      "xp:achievements.057": { "set_property": { "xp:achievements_id": 57 } },
+      "xp:achievements.058": { "set_property": { "xp:achievements_id": 58 } },
+      "xp:achievements.059": { "set_property": { "xp:achievements_id": 59 } },
+      "xp:achievements.060": { "set_property": { "xp:achievements_id": 60 } },
+      "xp:achievements.100": { "set_property": { "xp:achievements_id": 100 } },
+      "xp:achievements.101": { "set_property": { "xp:achievements_id": 101 } },
+      "xp:achievements.102": { "set_property": { "xp:achievements_id": 102 } },
+      "xp:achievements.103": { "set_property": { "xp:achievements_id": 103 } },
+      "xp:achievements.104": { "set_property": { "xp:achievements_id": 104 } },
+      "xp:achievements.105": { "set_property": { "xp:achievements_id": 105 } },
+      "xp:achievements.108": { "set_property": { "xp:achievements_id": 108 } },
+      "xp:achievements.109": { "set_property": { "xp:achievements_id": 109 } },
+      "xp:achievements.110": { "set_property": { "xp:achievements_id": 110 } },
+      "xp:achievements.111": { "set_property": { "xp:achievements_id": 111 } },
+      "xp:achievements.112": { "set_property": { "xp:achievements_id": 112 } },
+      "xp:achievements.113": { "set_property": { "xp:achievements_id": 113 } },
+      "xp:achievements.114": { "set_property": { "xp:achievements_id": 114 } },
+      "xp:achievements.115": { "set_property": { "xp:achievements_id": 115 } },
+      "xp:achievements.116": { "set_property": { "xp:achievements_id": 116 } },
+      "xp:achievements.117": { "set_property": { "xp:achievements_id": 117 } },
+      "xp:achievements.118": { "set_property": { "xp:achievements_id": 118 } },
+
+      
+      "xp:ui.background.reset": { "set_property": { "xp:ui.renderer": 0 } },
+      "xp:ui.background.quick_travel": { "set_property": { "xp:ui.renderer": 1 } },
+
+      "xp:reset_command": { "set_property": { "xp:command": 0 } },
+      "xp:death": { "set_property": { "xp:command": 1 } },
+
+      
+      "xp:in_showcase_mode": { "set_property": { "xp:is_in_showcase_mode": true } },
+      "xp:remove_in_showcase_mode": { "set_property": { "xp:is_in_showcase_mode": false } }
+    }
+  }
+}

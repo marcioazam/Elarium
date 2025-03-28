@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:trident"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "XXX",
+      "COC",
+      " C "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:prismarine_shard"
+      },
+      {
+        "item": "edx:guardian_spike"
+      },
+      {
+        "item": "minecraft:heart_of_the_sea"
+      }
+    ],
+    "key": {
+      "C": {
+        "item": "minecraft:prismarine_shard"
+      },
+      "X": {
+        "item": "edx:guardian_spike"
+      },
+      "O": {
+        "item": "minecraft:heart_of_the_sea"
+      }
+    },
+    "result": {
+      "item": "minecraft:trident"
+    }
+  }
+}

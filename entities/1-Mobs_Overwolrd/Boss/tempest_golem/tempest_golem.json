@@ -1,0 +1,527 @@
+
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:tempest_golem",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "dungeons:left_arm": {
+          "type": "bool",
+          "client_sync": true,
+          "default": true
+        },
+        "dungeons:right_arm": {
+          "type": "bool",
+          "client_sync": true,
+          "default": true
+        }
+      }
+    },
+    "component_groups": {
+      "dungeons:shields_down": {
+        "minecraft:boss": {
+          "should_darken_sky": false,
+          "hud_range": 48,
+          "name": " §sTempest Golem§r "
+        },
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 15,
+          "time_down_event": {
+            "event": "dungeons:shields_up"
+          }
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [{
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "entity_explosion",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:shields_up": {
+        "minecraft:boss": {
+          "should_darken_sky": false,
+          "hud_range": 48,
+          "name": " §6Tempest Golem§r "
+        },
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [{
+            "filters": {
+              "all_of": [{
+                  "test": "bool_property",
+                  "subject": "self",
+                  "domain": "dungeons:left_arm",
+                  "value": false
+                },
+                {
+                  "test": "bool_property",
+                  "subject": "self",
+                  "domain": "dungeons:right_arm",
+                  "value": false
+                }
+              ]
+            },
+            "event": "dungeons:shields_down"
+          }]
+        },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 3,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 3.4,
+          "cooldown_time": 5,
+          "speed_multiplier": 0,
+          "melee_fov": 135,
+          "attack_duration": 2.00,
+          "hit_delay_pct": 0.295
+        },
+        "minecraft:behavior.summon_entity": {
+          "priority": 2,
+          "summon_choices": [{
+            "min_activation_range": 6,
+            "max_activation_range": 24,
+            "cooldown_time": 7.5,
+            "weight": 1,
+            "cast_duration": 1.0,
+            "particle_color": "#FF664D59",
+            "sequence": [{
+                "shape": "circle",
+                "target": "target",
+                "base_delay": 0.05,
+                "delay_per_summon": 0.0,
+                "num_entities_spawned": 1,
+                "entity_type": "dungeons:tempest_zap_circle",
+                "size": 1,
+                "entity_lifespan": 5
+              },
+              {
+                "shape": "circle",
+                "target": "target",
+                "base_delay": 2.25,
+                "delay_per_summon": 0.0,
+                "num_entities_spawned": 1,
+                "entity_type": "dungeons:tempest_golem_zap",
+                "size": 1,
+                "entity_lifespan": 5
+              }
+            ]
+          }]
+        },
+        "minecraft:reflect_projectiles": {
+          "reflected_projectiles": [
+            "experience_bottle",
+            "thrown_trident",
+            "shulker_bullet",
+            "dragon_fireball",
+            "arrow",
+            "snowball",
+            "thrownegg",
+            "fireball",
+            "splash_potion",
+            "ender_pearl",
+            "thrownenderpearl",
+            "wither_skull",
+            "small_fireball",
+            "lingering_potion",
+            "llama_spit",
+            "evocation_fang",
+            "ice_bomb",
+            "thrownicebomb"
+          ],
+          "azimuth_angle": "180.0 + Math.random(-20.0, 20.0)",
+          "reflection_scale": "0.25"
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [{
+              "on_damage": {
+                "filters": {
+                  "none_of": [{
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "mob"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "artefact"
+                    }
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [{
+                      "test": "has_component",
+                      "subject": "self",
+                      "operator": "!=",
+                      "value": "minecraft:behaviour.knockback_roar"
+                    },
+                    {
+                      "any_of": [{
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "mob"
+                        },
+                        {
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "player"
+                        },
+                        {
+                          "test": "is_family",
+                          "subject": "other",
+                          "value": "artefact"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "event": "dungeons:shield_melee"
+              },
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:shield_melee": {
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 1,
+          "attack_time": 0.3,
+          "knockback_damage": 10,
+          "knockback_horizontal_strength": 5,
+          "knockback_vertical_strength": 2,
+          "knockback_height_cap": 4,
+          "knockback_range": 4,
+          "knockback_filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "monster"
+          },
+          "damage_filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "boss"
+          },
+          "on_roar_end": {
+            "event": "dungeons:shield_melee_end"
+          },
+          "cooldown_time": 0.1
+        }
+      }
+    },
+    "components": {
+      "minecraft:mob_effect": {
+        "mob_effect": "infested",
+        "effect_range": 10,
+        "effect_time": 8,
+        "cooldown_time": 60
+       
+      },
+      "minecraft:body_rotation_blocked": {},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 750 : 375"
+      },
+      "minecraft:attack": {
+        "damage": 32
+      },
+       "minecraft:breathable": {
+        "suffocate_time": 0,
+        "total_supply": 150,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:collision_box": {
+        "height": 9.3,
+        "width": 3
+      },
+      "minecraft:health": {
+        "max": 1850,
+        "value": 1850
+      },
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "bamboo",
+          "bamboo_sapling",
+          "beetroot",
+          "brown_mushroom",
+          "carrots",
+          "carved_pumpkin",
+          "chorus_flower",
+          "chorus_plant",
+          "deadbush",
+          "double_plant",
+          "leaves",
+          "leaves2",
+          "lit_pumpkin",
+          "melon_block",
+          "melon_stem",
+          "potatoes",
+          "pumpkin",
+          "pumpkin_stem",
+          "red_flower",
+          "red_mushroom",
+          "crimson_fungus",
+          "warped_fungus",
+          "reeds",
+          "sapling",
+          "snow_layer",
+          "sweet_berry_bush",
+          "tallgrass",
+          "turtle_egg",
+          "vine",
+          "waterlily",
+          "wheat",
+          "yellow_flower",
+          "azalea",
+          "flowering_azalea",
+          "azalea_leaves",
+          "azalea_leaves_flowered",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf",
+          "spore_blossom",
+          "hanging_roots",
+          "mangrove_leaves"
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/tempest_golem.json"
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 5,
+        "angle_of_view_vertical": 75,
+        "look_distance": 28
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "angle_of_view_vertical": 75,
+        "look_distance": 28
+      },
+      "minecraft:movement": {
+        "value": 0
+      },
+      "minecraft:lava_movement": {
+        "value": 0
+      },
+      "minecraft:mob_effect_immunity": {
+        "mob_effects": [
+          "levitation"
+        ]
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:nameable": {},
+      "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "boss" }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 32,
+        "entity_types": [{
+          "filters": {
+            "any_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              }
+            ]
+          },
+          "max_dist": 48
+        }]
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:follow_range": {
+        "value": 64
+      },
+      "minecraft:type_family": {
+        "family": [
+          "tempest_golem",
+          "monster",
+          "mob",
+          "boss",
+          "gravity_immune"
+        ]
+      },
+      "minecraft:on_death": {
+        "event": "dungeons:start_death",
+        "target": "self"
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:shields_up"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shields_down"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "event entity @e[c=2,r=64,type=dungeons:squall_golem_resting] dungeons:start_waking",
+            "event entity @e[r=64,family=wind_totem,c=2] dungeons:activated"
+          ]
+        }
+      },
+      "minecraft:entity_transformed": {
+        "add": {
+          "component_groups": [
+            "dungeons:shields_up"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shields_down"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "event entity @e[c=2,r=64,type=dungeons:squall_golem_resting] dungeons:start_waking",
+            "event entity @e[r=64,family=wind_totem,c=2] dungeons:activated"
+          ]
+        }
+      },
+      "dungeons:start_death": {
+        "queue_command": {
+          "command": [
+            "event entity @e[c=2,family=wind_totem] dungeons:despawn_timer",
+            "weather clear"
+          ]
+        }
+      },
+      "dungeons:shields_up": {
+        "add": {
+          "component_groups": [
+            "dungeons:shields_up"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shields_down"
+          ]
+        },
+        "set_property": {
+          "dungeons:left_arm": true,
+          "dungeons:right_arm": true
+        },
+        "queue_command": {
+          "command": [
+            "event entity @e[c=2,type=dungeons:squall_golem_resting] dungeons:start_waking",
+            "event entity @e[r=64,family=wind_totem,c=2] dungeons:activated"
+          ]
+        }
+      },
+      "dungeons:shields_down": {
+        "add": {
+          "component_groups": [
+            "dungeons:shields_down"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shields_up"
+          ]
+        }
+      },
+      "dungeons:disable_left_arm": {
+        "set_property": {
+          "dungeons:left_arm": false
+        }
+      },
+      "dungeons:disable_right_arm": {
+        "set_property": {
+          "dungeons:right_arm": false
+        }
+      },
+      "dungeons:shield_melee": {
+        "add": {
+          "component_groups": [
+            "dungeons:shield_melee"
+          ]
+        }
+      },
+      "dungeons:shield_melee_end": {
+        "remove": {
+          "component_groups": [
+            "dungeons:shield_melee"
+          ]
+        }
+      }
+    }
+  }
+}

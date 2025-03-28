@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cutlass"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "  I",
+      " II",
+      "SG "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:gold_ingot"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:cutlass",
+      "count": 1
+    }
+  }
+}

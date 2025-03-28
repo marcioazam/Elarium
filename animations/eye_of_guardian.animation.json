@@ -1,0 +1,145 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.eye_guardian_rider.show_vignette": {
+      "animation_length": 0.5,
+      "loop": true,
+      "timeline": {
+        "0": ["/title @a[r=3] actionbar xp_hud.laser_vignette"]
+      }
+    },
+    "animation.eye_guardian_rider.play_sounds": {
+      "animation_length": 3.8,
+      "loop": true,
+      "timeline": {
+        "0": ["/playsound entity.eye_guardian.laser_pull @a[r=3] ~ ~ ~ 10 1 1"]
+      }
+    },
+    "animation.eye_guardian.rider": {
+      "animation_length": 0.01,
+      "loop": true,
+      "timeline": {
+        "0": [
+          "/ride @p[tag=elytra_flying,r=5,c=1] start_riding @s teleport_rider",
+          "/ride @p[tag=!riding,r=5,c=1] start_riding @s teleport_rider",
+          "/event entity @a[tag=riding,c=1,r=5] xp:stage_grab_guardian"
+        ]
+      }
+    },
+    "animation.eye_guardian.pull": {
+      "animation_length": 0.2,
+      "loop": true,
+      "timeline": {
+        "0.1": [
+          "/execute facing entity @e[type=xp:eye_of_guardian,c=1,r=85] eyes run function eye_of_guardian/pull",
+          "/event entity @e[type=xp:eye_of_guardian,r=3] xp:remove_track_player",
+          "/execute as @e[type=xp:eye_of_guardian,r=10] at @s run stopsound @a[r=10] entity.eye_guardian.laser_pull",
+          "/execute as @e[type=xp:eye_of_guardian,r=3] at @s run summon xp:eye_of_guardian_knockback ~ ~ ~",
+          "/execute as @e[type=xp:eye_of_guardian,r=3] at @s run event entity @a[r=10] xp:property.knockback.set.none",
+          "/execute as @e[type=xp:eye_of_guardian,r=3] at @s run event entity @e[type=xp:eye_of_guardian.rider,r=5] xp:instant_despawn",
+          "/execute unless entity @e[type=xp:eye_of_guardian,tag=track_player,r=75] run event entity @s xp:instant_despawn"
+        ]
+      }
+    },
+    "animation.eye_guardian.stop_rider": {
+      "animation_length": 0.2,
+      "loop": true,
+      "timeline": {
+        "0.1": [
+          //"/ride @a[tag=elytra_flying_boost,r=12,c=1] stop_riding",
+          "/event entity @a[tag=!riding,c=1,r=5] xp:stage_remove_grab_guardian"
+        ]
+      }
+    },
+    "animation.eye_guardian.despawn": {
+      "animation_length": 16,
+      "loop": true,
+      "timeline": {
+        "15": ["@s xp:instant_despawn"]
+      }
+    },
+    "animation.eye_guardian.regeneration": {
+      "animation_length": 40,
+      "loop": true,
+      "timeline": {
+        "30": ["/effect @s regeneration 999 2 true", "@s xp:regeneration"],
+        "40": ["@s xp:remove_regeneration"]
+      }
+    },
+    "animation.eye_guardian.regeneration_cancel": {
+      "animation_length": 1,
+      "loop": true,
+      "timeline": {
+        "0": [
+          "@s xp:remove_hurt",
+          "/effect @s regeneration 0 0 true",
+          "@s xp:remove_regeneration"
+        ]
+      }
+    },
+
+    "animation.eye_guardian.death": {
+      "animation_length": 1,
+      "loop": true,
+      "timeline": {
+        "0": [
+          "/event entity @a[r=12] xp:achievements.115",
+
+          "/summon xp:end_crystal ~~~",
+          "/summon xp:knock_back3 ~~~",
+          "/camerashake add @a[r=8] 0.25 0.35 rotational",
+          "/camerashake add @a[r=16] 0.1 0.25 rotational",
+          "/damage @e[r=7] 8 entity_explosion",
+          "/particle xp:end_crystal.1 ~~~",
+          "/particle xp:end_crystal.2 ~~~",
+          "/particle xp:end_crystal.3 ~~~",
+          "/particle xp:end_crystal.4 ~~~",
+          "/particle xp:end_crystal.5 ~~~",
+
+          "/playsound ender_crystal.pre_explode @a[r=32] ~~~ 2 0.75 0.05",
+          "/playsound ender_crystal.explode @a[r=32] ~~~ 2 0.75 0.05",
+          "/playsound ender_crystal.explode_1 @a[r=32] ~~~ 2 1 0.05",
+          "/playsound ender_crystal.explode_2 @a[r=32] ~~~ 2 1 0.05",
+          "/playsound ender_crystal.explode_3 @a[r=32] ~~~ 2 1 0.05",
+
+          "/playsound ender_crystal.pre_explode @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+          "/playsound ender_crystal.explode @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+          "/playsound ender_crystal.explode_1 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+          "/playsound ender_crystal.explode_2 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+          "/playsound ender_crystal.explode_3 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+
+          "/playsound ender_crystal.pre_explode @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+          "/playsound ender_crystal.explode @a[r=80,rm=48] ~~~ 5 0.75 0.02",
+          "/playsound ender_crystal.explode_1 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+          "/playsound ender_crystal.explode_2 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+          "/playsound ender_crystal.explode_3 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+
+          "/stopsound @a[r=32] entity.eye_guardian.idle",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/summon minecraft:xp_orb ~ ~1 ~",
+          "/event entity @e[type=xp:eye_of_guardian.lock_shield,r=4] xp:instant_despawn"
+        ],
+        "0.65": ["@s xp:instant_despawn"]
+      }
+    }
+  }
+}

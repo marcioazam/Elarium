@@ -1,0 +1,12 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:mush_in_mush_biome_random_feature"
+    },
+    "features": [
+      [ "edx:cordyceps_block_scater_feature", 1 ],
+      [ "edx:white_mushroom_scater_feature", 1 ]
+    ]
+  }
+}

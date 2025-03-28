@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "pod_rpg:guide"
+    },
+
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "tag": "minecraft:is_pickaxe"
+      },
+      {
+        "item": "minecraft:book"
+      }
+    ],
+    "unlock": [
+      {
+        "tag": "minecraft:is_pickaxe"
+      },
+      {
+        "item": "minecraft:book"
+      }
+    ],
+    "result": {
+      "item": "pod_rpg:guide",
+      "count": 1
+    }
+  }
+}

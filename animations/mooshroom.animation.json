@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.mooshroom_areadamage": {
+      "loop": false,
+      "animation_length": 1.299,
+      "timeline": {
+      }
+    },
+    "animation.mooshroom_casting": {
+      "loop": false,
+      "animation_length": 1.666,
+      "timeline": {
+      }
+    }
+  }
+}

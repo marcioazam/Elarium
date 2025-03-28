@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:ring_of_atlantis",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"ring_of_atlantis"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "ring_of_atlantis"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dRing of atlantis \n§5Artifact\n§6You can breath underwater but you're weaker when you're underwater"
+			  }
+		}
+	}
+}

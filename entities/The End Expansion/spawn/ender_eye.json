@@ -1,0 +1,101 @@
+{
+  "format_version": "1.17.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:ender_eye",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "xp:drop_item": {
+        "minecraft:addrider": {
+          "entity_type": "xp:drop_item"
+        },
+        "minecraft:collision_box": {
+          "height": 0.00001,
+          "width": 0.00001
+        }
+      },
+      "minecraft:player_item": {
+        "minecraft:is_charged": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "item", "xp_dummy" ]
+      },
+      "minecraft:tick_world": {},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "family_types": [
+          "item"
+        ],
+        "seats": {
+          "position": [ 0, 0, 0 ]
+        }
+      },
+      "minecraft:physics": {},
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "enderite_cutter" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "enderite_cutter_enchanted" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "ender_curved_blade" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "ender_curved_blade_enchanted" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "obsidian_blade" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "obsidian_blade_enchanted" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "ender_smite" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "enders_heart_blast" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "the_touched_ends" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "the_touched_ends_enchanted" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "ender_staff" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "loot" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "wild_chorus" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "rift_plant" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "echoing_larp" },
+                { "test": "has_tag", "subject": "self", "operator": "==", "value": "echoing_wart" }
+              ]
+            },
+            "event": "xp:drop_item"
+          }
+        ]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "xp:drop_item": { 
+        "sequence": [
+          {
+            "add": { 
+              "component_groups": [
+                "xp:drop_item"
+                ]
+            } 
+          }
+        ]
+      },
+      "minecraft:entity_spawned": { "add": { "component_groups": [ "minecraft:player_item" ] } }
+    }
+  }
+}

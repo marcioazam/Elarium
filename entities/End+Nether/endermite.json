@@ -1,0 +1,254 @@
+{
+	//ajustar depois
+	"format_version": "1.17.10",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "minecraft:endermite",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 3 : 0"
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"endermite",
+					"arthropod",
+					"monster",
+					"lightweight",
+					"mob"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.4,
+				"height": 0.3
+			},
+			"minecraft:movement": {
+				"value": 0.25
+			},
+			"minecraft:navigation.climb": {
+				"can_path_over_water": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:health": {
+				"value": 8,
+				"max": 8
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:attack": {
+				"damage": 2,
+				"effect_name": "blindness",
+				"effect_duration": 10
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 3,
+				"track_target": true
+			},
+			"minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 5,
+				"must_see": false,
+				"within_radius": 64,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "enderman"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 1
+					},
+					{
+						"priority": 0,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:block_climber": {},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+"redstone_torch",
+"torch",
+"glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door"
+				]
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+			"minecraft:on_death": {
+				"event": "minecraft:on_death",
+				"target": "self"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			}
+		},
+		"component_groups": {
+			"angry": {
+				"minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 32,
+					"broadcastRange": 32,
+					"broadcast_targets": [
+						"endermite"
+					],
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					},
+					"duration": 20
+				}
+			}
+		},
+		"events": {
+			"calm": {
+				"remove": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"angry": {
+				"add": {
+					"component_groups": [
+						"angry"
+					]
+				}
+			},
+			"minecraft:on_death": {
+				"randomize": [
+					{
+						"weight": 5,
+						"queue_command": {
+							"command": [
+								"summon endermite",
+								"summon endermite"
+							]
+						}
+					},
+					{
+						"weight": 80
+					},
+					{
+						"weight": 15,
+						"queue_command": {
+							"command": [
+								"summon endermite"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

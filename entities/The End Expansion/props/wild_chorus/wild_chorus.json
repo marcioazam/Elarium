@@ -1,0 +1,297 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:wild_chorus",
+			"is_spawnable": true,
+			"is_summonable": true,
+         "runtime_identifier": "minecraft:shulker",
+
+			"scripts": {
+				"animate": [
+					"block_sensor_below"
+				]
+			},
+			"animations": {
+				"block_sensor_below": "animation.block_sensor_below"
+			}
+		},
+		"component_groups": {
+			//size mode
+			"xp:scale.small":{
+				"minecraft:variant": {
+					"value": 0
+				},
+				"minecraft:collision_box": {
+					"height": 0.5,
+					"width": 1
+				},
+				"minecraft:timer": {
+					"time": 520,
+					"looping": false,
+					"time_down_event": {
+						"event": "xp:stage_big",
+						"target": "self"
+					}
+				}
+			},
+			"xp:scale.big":{
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:collision_box": {
+					"height": 1.5,
+					"width": 2.6
+				}
+			},
+
+			//leaves move
+			"xp:stage.stop":{
+				"minecraft:skin_id": {
+					"value": 0
+				},
+				"minecraft:environment_sensor": {
+					"triggers": [
+						{
+							"event": "xp:stage_move",
+							"target": "self",
+							"filters": {
+								"test": "distance_to_nearest_player",
+								"subject": "self",
+								"operator": "<=",
+								"value": 3
+							}
+						},
+						{
+							"filters": {
+								"test": "on_ground",
+								"subject": "self",
+								"operator": "==",
+								"value": false
+							},
+							"event": "xp:instant_despawn"
+						}
+					 ]
+				}
+			},
+			"xp:stage.move":{
+				"minecraft:skin_id": {
+					"value": 1
+				},
+				"minecraft:environment_sensor": {
+					"triggers": [
+						{
+							"event": "xp:stage_stop",
+							"target": "self",
+							"filters": {
+								"test": "distance_to_nearest_player",
+								"subject": "self",
+								"operator": ">",
+								"value": 3
+							}
+						},
+						{
+							"filters": {
+								"test": "on_ground",
+								"subject": "self",
+								"operator": "==",
+								"value": false
+							},
+							"event": "xp:instant_despawn"
+						}
+					 ]
+				}
+			},
+
+			//death mode
+			"xp:stage.death.small":{
+				"minecraft:transformation": {
+					"into": "xp:wild_chorus.death<xp:stage_small>"
+				}
+			},
+			"xp:stage.death.big":{
+				"minecraft:transformation": {
+					"into": "xp:wild_chorus.death<xp:stage_big>"
+				}
+			},
+			"xp:instant_despawn": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"rift_plant",
+					"block",
+					"inanimate"
+				]
+			},
+			"minecraft:health": {
+				"value": 99999
+			},
+			"minecraft:breathable": {
+				"totalSupply": 0,
+				"suffocateTime": 0,
+				"generates_bubbles": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "entity_attack",
+						"on_damage": {
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"operator": "==",
+								"value": "player"
+							},
+							"event": "xp:stage_death"
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:is_stackable": {},
+			"minecraft:fire_immune": false,
+			"minecraft:knockback_resistance": {
+				"value": 100
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			//default event
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"trigger": "xp:stage_stop"
+					},
+					{
+						"trigger": "xp:scale_random"
+					}
+				]
+			},
+
+			//size event
+			"xp:scale_random":{
+				"randomize": [
+					{
+						"trigger": "xp:stage_small",
+						"weight": 1
+					},
+					{
+						"trigger": "xp:stage_big",
+						"weight": 1
+					}
+				]
+			},
+
+			"xp:stage_small":{
+				"add": {
+					"component_groups": [
+						"xp:scale.small"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:scale.big"
+					]
+				}
+			},
+			"xp:stage_big":{
+				"add": {
+					"component_groups": [
+						"xp:scale.big"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:scale.small"
+					]
+				}
+			},
+
+			//leaves move
+			"xp:stage_stop":{
+				"remove": {
+					"component_groups": [
+						"xp:stage.move"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"xp:stage.stop"
+					]
+				}
+			},
+			"xp:stage_move": {
+				"add": {
+					"component_groups": [
+						"xp:stage.move"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:stage.stop"
+					]
+				}
+			},
+
+			//death event
+			"xp:stage_death":{
+				"sequence": [
+					{
+						"filters": {
+							"test": "is_variant",
+							"subject": "self",
+							"operator": "==",
+							"value": 0
+						},
+						"add": {
+							"component_groups": [
+								"xp:stage.death.small"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "is_variant",
+							"subject": "self",
+							"operator": "==",
+							"value": 1
+						},
+						"add": {
+							"component_groups": [
+								"xp:stage.death.big"
+							]
+						}
+					}
+				]
+			},
+			"xp:instant_despawn": {
+				"add": {
+				  "component_groups": [ "xp:instant_despawn" ]
+				}
+			 }
+		}
+	}
+ }

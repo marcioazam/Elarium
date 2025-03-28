@@ -1,0 +1,72 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+	"description": {
+      "identifier": "edx:void_armblade3",
+      "menu_category": {
+				"category":"equipment",
+        "group": "itemGroup.name.sword"
+			}
+		},
+    "components": {
+      "minecraft:custom_components": ["edx:durability","edx:void3"],
+    "minecraft:display_name": {
+      "value": "§dPure void armblades\nRight click to inflict 50 magic damage to every monsters around\nSneak + right click to inflict 15 magic damage to every players around except yourself"
+      },
+      "minecraft:icon": {
+        "textures":{
+               "default":"void_armblade3"
+         }
+      },
+      "minecraft:stacked_by_data": false,
+      "minecraft:max_stack_size": 1,
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_sword",
+          "edx:void",
+          "edx:armblade"
+        ]
+      },
+      "minecraft:durability": {
+        "max_durability": 8000 
+      },
+      "minecraft:enchantable": {
+        "value": 9,
+        "slot": "sword"
+      },
+      "minecraft:interact_button": "Use Ability",
+     "minecraft:cooldown": {
+      "duration": 300,
+				"category":"armblade"
+			
+		},
+   "minecraft:repairable": {
+    "repair_items": [
+      {
+        "items":[
+          "edx:void_essence"
+        ],
+        "repair_amount": "q.max_durability/2"
+        }
+    ]
+  },
+      "minecraft:hand_equipped": false,
+      
+      "minecraft:damage": 12,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:digger": {
+        "use_efficiency": false,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:web",
+            "speed": 19
+          },
+          {
+            "block": "minecraft:bamboo",
+            "speed": 14
+          }
+        ]
+      }
+	 }
+  }
+}

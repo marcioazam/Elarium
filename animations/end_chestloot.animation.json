@@ -1,0 +1,170 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.end_chestloot.bad_loot": {
+			"animation_length": 7.35,
+			"loop": false,
+			"timeline": {
+				"2.3": [
+					"/particle xp:endlootchest.loot.spawn.flame ~~~"
+				],
+				"2.55": [
+					"/camerashake add @a[r=16,c=1] 0.30 0.25 rotational",
+					"/function end_lootchest/end_lootchest_bad",
+					"/function end_lootchest/end_lootchest_weapon",
+					"/playsound entity.end_chestloot.open_good @a ~~~ 1 0.85 0.02"
+				],
+				"2.6": [
+					"/summon xp:knock_back2 ~~0.75~"
+				],
+				"5.24": [
+					"/event entity @a[r=16,c=1] xp:default_physics"
+				],
+				"5.27": [ 
+          			"/event entity @a[tag=!\"ach_117\",r=16,c=1] xp:achievements.117",
+
+					"/tag @a[r=16,c=1] remove chest_end",
+					"/event entity @e[type=xp:player.location,r=16,c=1] xp:instant_despawn"
+				]
+			}
+		},
+    "animation.end_chestloot.good_loot": {
+			"animation_length": 7.35,
+			"loop": false,
+			"timeline": {
+				"2.3": [
+					"/particle xp:endlootchest.loot.spawn.flame ~~~"
+				],
+				"2.55": [
+					"/camerashake add @a[r=16,c=1] 0.30 0.25 rotational",
+					"/function end_lootchest/end_lootchest_good",
+					"/function end_lootchest/end_lootchest_weapon_enchanted",
+					"/playsound entity.end_chestloot.open_good @a ~~~ 1 0.75 0.02"
+				],
+				"2.6": [
+					"/summon xp:knock_back2 ~~0.75~"
+				],
+				"5.24": [
+					"/event entity @a[r=16,c=1] xp:default_physics"
+				],
+				"5.25": [ 
+					"/tag @a[r=16,c=1] remove chest_opener"
+				],
+				"5.27": [ 
+          			"/event entity @a[tag=!\"ach_117\",r=16,c=1] xp:achievements.117",
+
+					"/tag @a[r=16,c=1] remove chest_end",
+					"/event entity @e[type=xp:player.location,r=16,c=1] xp:instant_despawn"
+				]
+			}
+		},
+		"animation.end_chestloot.sky_loot": {
+			"animation_length": 7.35,
+			"loop": false,
+			"timeline": {
+				"0": [ "/tag @a[r=16,c=1,tag=!marketing] add chest_opener", "/execute as @a[r=16,c=1] at @s run summon xp:player.location ~ ~ ~", "/gamemode spectator @a[r=16,c=1]" ],
+
+				"0.1": [ "/title @a[r=16,c=1] actionbar xp_hud.chest_fade", "@s xp:cutscene", "/title @a[r=16,c=1] times 0 100 0" ],
+				"0.2": [ "/effect @a[r=16,c=1] blindness 6 355 true", "/effect @a[r=16,c=1] invisibility 5 255 true"  ],
+				"0.3": [ 
+					"/title @a[r=16,c=1] title xp_cutscene;xp_chest_vignette",
+					"/tp @a[r=16,c=1] ~2 ~0.5 ~2 135 20",
+					"@s xp:cutscene"
+				],
+				"2.2": [
+					"/effect @a[r=16,c=1] slowness 0 0 true"
+				],
+				"2.55": [
+					"/camerashake add @a[r=16,c=1] 0.30 0.25 rotational"
+				],
+				"4.4": [ 
+					"/title @a[r=16,c=1] actionbar xp_hud.chest_fade"
+				],
+				"5.24": [
+					"/event entity @e[type=xp:player.location,r=16,c=1] xp:instant_despawn",
+					"/event entity @a[r=16,c=1] xp:default_physics",
+					"/effect @a[r=16,c=1] slow_falling 5 255 true",
+					"/title @a[r=16,c=1] title _xp_clear_",
+					"/tp @p[c=1] ~ ~100 ~",
+					"/gamemode survival @a[r=16,c=1]"
+				],
+				"5.25": [ "/tag @a[r=16,c=1] add chest_end", "/tag @a[r=16,c=1] remove chest_opener"],
+				"5.26": [ "/tp @a[tag=chest_end,r=16,c=1] @e[type=xp:player.location,r=16,c=1]", "/execute as @a[tag=chest_end,r=16,c=1] at @s run /function clearchat"],
+				"5.27": [
+          "/event entity @a[tag=!\"ach_117\",r=16,c=1] xp:achievements.117",
+
+          "/tag @a[r=16,c=1] remove chest_end"
+        ]
+			}
+		},
+		"animation.end_chestloot.explode_loot": {
+			"animation_length": 7.35,
+			"loop": false,
+			"timeline": {
+				"2.3": [
+					"/particle xp:endlootchest.loot.spawn.flame ~~~"
+				],
+				"2.55": [
+					"/camerashake add @a[r=16,c=1] 0.2 0.75 rotational",
+					"/playsound entity.end_chestloot.open_good @a ~~~ 1 0.85 0.02",
+					"/playsound entity.end_chestloot.shriek @a ~~~ 1 0.75 0.02"
+				],
+				"5.24": [
+					"/event entity @a[r=16,c=1] xp:default_physics"
+				],
+				"5.25": [ 
+					"/tag @a[r=16,c=1] remove chest_opener"
+				],
+				"5.27": [ 
+          			"/event entity @a[tag=!\"ach_117\",r=16,c=1] xp:achievements.117",
+
+					"/tag @a[r=16,c=1] remove chest_end",
+					"/event entity @e[type=xp:player.location,r=16,c=1] xp:instant_despawn"
+				],
+				"6.1":[
+					"/summon xp:end_crystal ~~~",
+					"/summon xp:knock_back3 ~~~",
+					"/camerashake add @a[r=5] 0.25 0.35 rotational",
+					"/camerashake add @a[r=10] 0.1 0.25 rotational",
+					"/damage @e[type=!minecraft:item,type=!xp:drop_item,type=!xp:end_chestloot,r=7] 5 entity_explosion",
+					"/particle xp:end_crystal.1 ~~~",
+					"/particle xp:end_crystal.2 ~~~",
+					"/particle xp:end_crystal.3 ~~~",
+					"/particle xp:end_crystal.4 ~~~",
+					"/particle xp:end_crystal.5 ~~~",
+		
+					"/playsound ender_crystal.pre_explode @a[r=32] ~~~ 2 0.75 0.05",
+					"/playsound ender_crystal.explode @a[r=32] ~~~ 2 0.75 0.05",
+					"/playsound ender_crystal.explode_1 @a[r=32] ~~~ 2 1 0.05",
+					"/playsound ender_crystal.explode_2 @a[r=32] ~~~ 2 1 0.05",
+					"/playsound ender_crystal.explode_3 @a[r=32] ~~~ 2 1 0.05",
+		
+					"/playsound ender_crystal.pre_explode @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+					"/playsound ender_crystal.explode @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+					"/playsound ender_crystal.explode_1 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+					"/playsound ender_crystal.explode_2 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+					"/playsound ender_crystal.explode_3 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+		
+					"/playsound ender_crystal.pre_explode @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+					"/playsound ender_crystal.explode @a[r=80,rm=48] ~~~ 5 0.75 0.02",
+					"/playsound ender_crystal.explode_1 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+					"/playsound ender_crystal.explode_2 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+					"/playsound ender_crystal.explode_3 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+
+					"@s xp:instant_despawn"
+				] 
+			}
+		},
+
+		"animation.end_chestloot.player_cutscene": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [ 
+					"/tp @a[r=16,c=1] ^ ^0.25 ^2.5 facing ^^-1^"
+					//"/execute as @a[r=16,c=1] at @s run function clearchat" 
+				]
+			}
+		}
+	}
+}

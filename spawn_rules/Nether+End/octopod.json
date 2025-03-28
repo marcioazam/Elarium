@@ -1,0 +1,28 @@
+{
+  //ver depois
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:octopod",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:weight": {
+          "default": 20
+        },
+        "minecraft:spawns_on_block_filter": "edx:shulk_grass",
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 1
+        },
+        "minecraft:biome_filter": [
+          {
+            "test": "has_biome_tag", "operator": "==", "value": "the_end"
+          }
+        ]
+      }
+    ]
+  }
+}

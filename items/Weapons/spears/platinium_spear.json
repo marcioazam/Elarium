@@ -1,0 +1,38 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+	  "description": {
+      "identifier": "edx:platinium_spear_i",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.spears"
+      }
+    },
+    "components": {
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:display_name": {
+				"value": "Platinum spear"
+			  },
+      "minecraft:icon": {
+				"textures": {
+					"default": "platinium_spear"
+				}
+			},
+      "minecraft:tags": {
+        "tags": [
+          "edx:spear"
+        ]
+      },
+      "minecraft:hover_text_color": {         "value": "aqua"       },
+      "minecraft:enchantable": {
+      "value": 6,
+      "slot": "sword"
+      },
+      "minecraft:durability": {
+        "max_durability": 500
+    },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true
+	  }
+  }
+}

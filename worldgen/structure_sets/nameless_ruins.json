@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "dungeons:nameless_ruins"
+		},
+		
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 1032024,
+			"separation": 12,
+			"spacing": 35
+		},
+		"structures": [
+			{
+				"structure": "dungeons:nameless_ruins",
+				"weight": 1
+			}
+		]
+	}
+}

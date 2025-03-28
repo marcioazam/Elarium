@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:double_quiver",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"double_quiver"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "double_quiver"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dDouble quiver \n§5Artifact\n§5Normal: §6Your arrows do +2 damage\n§5Sneak: §6Your arrows are faster and\n         go through blocks but it doesn't deal damage\n         if you're too close to your target\n§4This artifact only work with a bow\nDo not equip any other quiver"
+			  }
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:magnetic_firework"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#D ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "#": {
+        "item": "edx:magnetic_firework"
+      },
+      "D": {
+        "item": "edx:magnet"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:iron_block"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:magnetic_firework"
+      },
+       {
+        "item": "edx:magnet"
+      }
+    ],
+    "result": {
+      "item": "edx:magnetic_firework2"
+    }
+  }
+  
+}

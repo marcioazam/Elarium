@@ -1,0 +1,19 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:sun_cactaceae"
+      },
+      "places_block": "edx:sun_cactaceae",
+      "enforce_placement_rules": true,
+      "enforce_survivability_rules": true,
+      "may_attach_to": {
+        "bottom":  [
+          "edx:shulk_grass"
+      ]
+    },
+      "may_replace": [
+        "minecraft:air"
+      ]
+    }
+  }

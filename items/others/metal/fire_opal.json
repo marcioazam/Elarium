@@ -1,0 +1,19 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:fire_opal",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"fire_opal"
+         }
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

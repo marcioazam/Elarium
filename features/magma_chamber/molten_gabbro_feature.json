@@ -1,0 +1,43 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:magma_chamber/molten_gabbro_feature"
+        },
+        "count": 50,
+        "replace_rules": [
+            {
+                "places_block": "edx:molten_gabbro",
+                "may_replace": [
+                    {
+                        "name": "minecraft:magma"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:molten_gabbro",
+                "may_replace": [
+                    {
+                        "name": "minecraft:quartz_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:molten_gabbro",
+                "may_replace": [
+                    {
+                        "name": "minecraft:nether_gold_ore"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:molten_gabbro",
+                "may_replace": [
+                    {
+                        "name": "minecraft:gravel"
+                    }
+                ]
+            }
+        ]
+    }
+}

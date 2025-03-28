@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sprout_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "WSW",
+      "S S"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:nether_wart"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:nether_sprouts"
+      },
+      "W": {
+        "item": "minecraft:nether_wart"
+      }
+    },
+    "result": {
+      "item": "dungeons:sprout_helmet",
+      "count": 1
+    }
+  }
+}

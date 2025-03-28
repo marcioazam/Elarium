@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:training_dummy"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "/A/",
+      " A ",
+      " _ "
+    ],
+    "key": {
+      "/": {
+        "item": "minecraft:stick"
+      },
+      "A": {
+        "tag": "minecraft:planks"
+      },
+      "_": {
+      	"item": "minecraft:smooth_stone_slab"
+      }
+    },
+	"unlock": [
+      {
+        "item": "minecraft:smooth_stone_slab"
+      }
+    ],
+    "result": {
+      "item": "edx:training_dummy"
+    }
+  }
+}

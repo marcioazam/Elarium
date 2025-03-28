@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:purple_lycaephytus_it",
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.flower"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"purple_lycaephytus"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:purple_lycaephytus_no_ball",
+				"use_on" : ["edx:shulk_grass"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

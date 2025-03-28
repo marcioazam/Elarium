@@ -1,0 +1,22 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.heart_of_ender_treasure.on_item_pickup": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "on_item_pickup": "q.variant == 2" } ]
+        },
+
+        "on_item_pickup": {
+          "on_entry": [
+            "/give @a[x=-166,y=190,z=2060,r=30] xp:heart_of_enders_blast 1",
+            "/execute as @a[x=-166,y=190,z=2060,r=30] at @s run playsound ender_staff.attack @a ~~~",
+            "/particle xp:heartofender_trophy_pickup ~ ~-1 ~",
+            "@s xp:instant_despawn"
+          ]
+        }
+      }
+    }
+  }
+}

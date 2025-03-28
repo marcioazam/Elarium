@@ -1,0 +1,143 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube.stages": {
+      "initial_state": "init",
+      "states": {
+        "init": {
+          "transitions": [
+            { "default": "q.property('xp:first_time_spawned') == false" },
+            { "on_spawn": "1" }
+          ]
+        },
+
+        "on_spawn": {
+          "transitions": [ { "default": "q.life_time - v.spawn_tick_delay > 5.6" } ],
+          "on_entry": [
+            "v.spawn_tick_delay = q.life_time;",
+            "@s xp:boss_changing_stage"
+          ],
+          "on_exit": [
+            "@s xp:boss_remove_changing_stage",
+            "@s xp:set_on_spawn"
+          ]
+        },
+        "default": {
+          "transitions": [
+            { "changing_stage": "q.skin_id == 1" },
+
+            { "boss_stage.one": "q.variant == 1" },
+            { "boss_stage.two": "q.variant == 2" },
+            { "boss_stage.three": "q.variant == 3" }
+          ]
+        },
+
+        "changing_stage": {
+          "animations": [
+            { "boss_stage.one": "q.variant == 1" },
+            { "boss_stage.two": "q.variant == 2" },
+            { "boss_stage.three": "q.variant == 3" }
+          ],
+          "transitions": [
+            { "default": "(q.skin_id != 1 && q.any_animation_finished)" }
+          ],
+          "on_entry": [
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] add in_ender_boss_arena"
+          ]
+        },
+
+        "boss_stage.one": {
+          "animations": [ "boss_actions.stage_one" ],
+          "transitions": [
+            { "boss_stage.one_exit": "(q.variant != 1 || q.skin_id == 1)" }
+          ],
+          "on_entry": [ "/tag @s add stage_one" ],
+          "on_exit": [ "/tag @s remove stage_one" ]
+        },
+        "boss_stage.one_exit": {
+          "animations": [ "remove_platforms" ],
+          "transitions": [
+            { "default": "q.any_animation_finished" }
+          ]
+        },
+        "boss_stage.two": {
+          "animations": [ "boss_actions.stage_two" ],
+          "transitions": [
+            { "default": "(q.variant != 2 || q.skin_id == 1)" }
+          ],
+          "on_entry": [ "/tag @s add stage_two" ],
+          "on_exit": [ "/tag @s remove stage_two" ]
+        },
+        "boss_stage.three": {
+          "animations": [ "boss_actions.stage_three" ],
+          "transitions": [
+            { "default": "(q.variant != 3 || q.skin_id == 1)" }
+          ],
+          "on_entry": [ "/tag @s add stage_three" ],
+          "on_exit": [ "/tag @s remove stage_three" ]
+        }
+      }
+    },
+
+    "controller.animation.end_cube.hurt_test": {
+      "initial_state": "init",
+      "states": {
+        "init": {
+          "transitions": [ { "on_detect": "q.is_alive && q.variant > 0" } ],
+          "on_entry": [ "v.h = 0.0;" ]
+        },
+        "on_detect": {
+          "transitions": [
+            { "changing_state": "q.skin_id == 1" },
+            { "on_damage_shielded": "(q.health < v.h) && q.is_powered && q.skin_id != 1 && q.variant == 1" },
+            { "on_damage": "(q.health < v.h) && q.skin_id != 1" }
+          ],
+          "on_entry": [
+            "v.h = q.health;",
+            "@s xp:boss_state_remove_took_damage"
+          ],
+          "on_exit": [
+            "v.on_damage_tick = q.life_time;",
+            "@s xp:boss_state_took_damage"
+          ]
+        },
+
+        "on_damage": {
+          "transitions": [
+            { "changing_state": "q.skin_id == 1" },
+            { "on_detect": "q.skin_id != 1 && (q.life_time - v.on_damage_tick) >= 0.4" }
+          ],
+          "on_entry": [
+            "/title @a[r=256,tag=!\"in_cutscene\"] title xp_ui.custom_bossbar.ender_boss.hurt",
+            "/playsound entity.end_cube.hurt @a[r=64]"
+          ],
+          "on_exit": [
+            "/title @a[r=256,tag=!\"in_cutscene\"] title _xp_clear_"
+          ]
+        },
+        "on_damage_shielded": {
+          "transitions": [
+            { "changing_state": "q.skin_id == 1" },
+            { "on_detect": "q.skin_id != 1 && (q.life_time - v.on_damage_tick) >= 1.1" }
+          ],
+          "on_entry": [
+            "/event entity @e[type=xp:end_cube_crystal,family=beam] xp:beam_shine",
+            "/playsound ui.enchant @a[r=64]",
+            "/effect @s[tag=!\"attack_almighty\"] resistance 2 255 true",
+            "/effect @s[tag=!\"attack_almighty\"] instant_health 1 5 true",
+            "/tag @s remove attack_almighty"
+          ]
+        },
+
+        "changing_state": {
+          "transitions": [ { "on_detect": "q.skin_id != 1" } ],
+          "on_entry": [
+            "v.h = 0.0;",
+            "v.on_damage_tick = q.life_time;"
+          ]
+        }
+      }
+    }
+  }
+}

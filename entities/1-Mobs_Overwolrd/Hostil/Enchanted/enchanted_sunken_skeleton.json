@@ -1,0 +1,830 @@
+{
+    "format_version": "1.18.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "dungeons:enchanted_sunken_skeleton",
+            "runtime_identifier": "minecraft:skeleton",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "dungeons:enchant_regeneration": {
+                "minecraft:boss": {
+                    "should_darken_sky": false,
+                    "hud_range": 8,
+                    "name": "§dEnchanted Sunken Skeleton  Regeneration"
+                },
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 2,
+                    "time_down_event": {
+                        "event": "dungeons:healing_monster"
+                    }
+                }
+            },
+            "dungeons:enchant_rapid_fire": {
+                "minecraft:boss": {
+                    "should_darken_sky": false,
+                    "hud_range": 8,
+                    "name": "§dEnchanted Sunken Skeleton  Rapid Fire"
+                },
+                "minecraft:behavior.ranged_attack": {
+                    "priority": 0,
+                    "attack_interval_min": 0.5,
+                    "attack_interval_max": 1.5,
+                    "attack_radius": 15
+                }
+            },
+            "dungeons:enchant_deflect": {
+                "minecraft:boss": {
+                    "should_darken_sky": false,
+                    "hud_range": 8,
+                    "name": "§dEnchanted Sunken Skeleton  Deflect"
+                },
+                "minecraft:reflect_projectiles": {
+                    "reflected_projectiles": [
+                        "experience_bottle",
+                        "thrown_trident",
+                        "shulker_bullet",
+                        "dragon_fireball",
+                        "arrow",
+                        "snowball",
+                        "thrownegg",
+                        "fireball",
+                        "splash_potion",
+                        "ender_pearl",
+                        "thrownenderpearl",
+                        "wither_skull",
+                        "small_fireball",
+                        "lingering_potion",
+                        "llama_spit",
+                        "evocation_fang",
+                        "ice_bomb",
+                        "thrownicebomb"
+                    ],
+                    "azimuth_angle": "180.0 + Math.random(-20.0, 20.0)",
+                    "reflection_scale": "0.25"
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "cause": "projectile",
+                            "deals_damage": false
+                        }
+                    ]
+                }
+            },
+            "dungeons:magenta_coral": {
+                "minecraft:health": {
+                    "value": 55,
+                    "max": 55
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/magenta_sunken_skeleton.json"
+                },
+                "minecraft:variant": {
+                    "value": 0
+                }
+            },
+            "dungeons:red_coral": {
+                "minecraft:health": {
+                    "value": 65,
+                    "max": 65
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/red_sunken_skeleton.json"
+                },
+                "minecraft:variant": {
+                    "value": 1
+                }
+            },
+            "dungeons:yellow_coral": {
+                "minecraft:health": {
+                    "value": 75,
+                    "max": 75
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/yellow_sunken_skeleton.json"
+                },
+                "minecraft:variant": {
+                    "value": 2
+                }
+            },
+            "minecraft:ranged_attack": {
+                "minecraft:behavior.ranged_attack": {
+                    "priority": 0,
+                    "attack_interval_min": 1,
+                    "attack_interval_max": 3,
+                    "attack_radius": 15
+                },
+                "minecraft:shooter": {
+                    "def": "dungeons:harpoon_arrow",
+                    "sound": "bow"
+                }
+            }
+        },
+        "components": {
+            "minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 3
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4 
+          }
+        ]
+      },
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"undead"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "undead"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "breeze"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "undead"
+          }
+        ]
+      }
+    }
+  ]
+},
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:experience_reward": {
+                "on_death": "query.last_hit_by_player ? (5 + (query.equipment_count * Math.Random(1,3))) * 5: 0"
+            },
+            "minecraft:equip_item": {
+                "excluded_items": [
+                    {
+                        "item": "minecraft:banner:15"
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 1.9
+            },
+            "minecraft:scale": {
+                "value": 1.1
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "skeleton",
+                    "enchanted",
+                    "undead",
+                    "monster",
+                    "mob"
+                ]
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "breathes_water": true
+            },
+           
+            "minecraft:health": {
+                "value": 45,
+                "max": 45
+            },
+            
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.09
+            },
+            "minecraft:behavior.move_to_water": {
+                "priority": 1,
+                "search_range": 15,
+                "search_height": 5,
+                "goal_radius": 0.1
+            },
+         
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:nameable": {},
+            "minecraft:equipment": {
+                "table": "loot_tables/entities/sunken_skeleton_gear.json",
+                "slot_drop_chance": [
+                    {
+                        "slot": "slot.weapon.offhand",
+                        "drop_chance": 0.5
+                    }
+                ]
+            },
+            "minecraft:shooter": {
+                "def": "dungeons:harpoon_arrow"
+            },
+            "minecraft:despawn": {
+                "despawn_from_distance": {}
+            },
+            "minecraft:shareables": {
+                "singular_pickup": true,
+                "items": [
+                    {
+                        "item": "minecraft:bow",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 6
+                    },
+                    {
+                        "item": "minecraft:netherite_helmet",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 0
+                    },
+                    {
+                        "item": "minecraft:diamond_helmet",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 1
+                    },
+                    {
+                        "item": "minecraft:iron_helmet",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 2
+                    },
+                    {
+                        "item": "minecraft:chainmail_helmet",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 3
+                    },
+                    {
+                        "item": "minecraft:golden_helmet",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 4
+                    },
+                    {
+                        "item": "minecraft:leather_helmet",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 5
+                    },
+                    {
+                        "item": "minecraft:turtle_helmet",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 6
+                    },
+                    {
+                        "item": "minecraft:skull:0",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 7
+                    },
+                    {
+                        "item": "minecraft:skull:1",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 7
+                    },
+                    {
+                        "item": "minecraft:carved_pumpkin",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 7
+                    },
+                    {
+                        "item": "minecraft:netherite_chestplate",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 0
+                    },
+                    {
+                        "item": "minecraft:diamond_chestplate",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 1
+                    },
+                    {
+                        "item": "minecraft:iron_chestplate",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 2
+                    },
+                    {
+                        "item": "minecraft:chainmail_chestplate",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 3
+                    },
+                    {
+                        "item": "minecraft:golden_chestplate",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 4
+                    },
+                    {
+                        "item": "minecraft:leather_chestplate",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 5
+                    },
+                    {
+                        "item": "minecraft:netherite_leggings",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 0
+                    },
+                    {
+                        "item": "minecraft:diamond_leggings",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 1
+                    },
+                    {
+                        "item": "minecraft:iron_leggings",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 2
+                    },
+                    {
+                        "item": "minecraft:chainmail_leggings",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 3
+                    },
+                    {
+                        "item": "minecraft:golden_leggings",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 4
+                    },
+                    {
+                        "item": "minecraft:leather_leggings",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 5
+                    },
+                    {
+                        "item": "minecraft:netherite_boots",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 0
+                    },
+                    {
+                        "item": "minecraft:diamond_boots",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 1
+                    },
+                    {
+                        "item": "minecraft:iron_boots",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 2
+                    },
+                    {
+                        "item": "minecraft:chainmail_boots",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 3
+                    },
+                    {
+                        "item": "minecraft:golden_boots",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 4
+                    },
+                    {
+                        "item": "minecraft:leather_boots",
+                        "want_amount": 1,
+                        "surplus_amount": 1,
+                        "priority": 5
+                    }
+                ]
+            },
+            "minecraft:behavior.ranged_attack": {
+                "priority": 0,
+                "attack_interval_min": 1,
+                "attack_interval_max": 3,
+                "attack_radius": 15
+            },
+           
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "entity_types": [{
+            "filters": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              {
+                "test": "in_water",
+                "subject": "other",
+                "value": true
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "origins:mob_skeleton_neutral"
+              }
+            ],
+            "max_dist": 16
+          },
+          {
+            "filters": {
+              "all_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                },
+                {
+                  "test": "in_water",
+                  "subject": "other",
+                  "value": true
+                }
+              ]
+            },
+            "max_dist": 16
+          }
+        ]
+      },
+            "minecraft:behavior.flee_sun": {
+                "priority": 2,
+                "speed_multiplier": 1
+            },
+            "minecraft:behavior.equip_item": {
+                "priority": 3
+            },
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 4,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wolf"
+								},
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"value": "origins:mob_skeleton_scare"
+								}
+							]
+						},
+						"max_dist": 6,
+						"walk_speed_multiplier": 1.2,
+						"sprint_speed_multiplier": 1.2
+					}
+				]
+			},
+           
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_transformed": {
+                "sequence": [
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:enchant_deflect"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:enchant_rapid_fire"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:enchant_regeneration"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 55,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:magenta_coral"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 30,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:red_coral"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 15,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:yellow_coral"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "minecraft:ranged_attack"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "dungeons:healing_monster": {
+                "queue_command": {
+                    "command": [
+                        "effect @s instant_damage 1 0"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:enchant_deflect"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:enchant_rapid_fire"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:enchant_regeneration"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 55,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:magenta_coral"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 30,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:red_coral"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 15,
+                                "add": {
+                                    "component_groups": [
+                                        "dungeons:yellow_coral"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "minecraft:ranged_attack"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

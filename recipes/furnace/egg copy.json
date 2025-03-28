@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:void_egg"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:void_egg"
+      }
+    ],
+    "tags": ["furnace", "smoker"],
+    "input": "edx:void_egg",
+    "output": "edx:void_fried_egg"
+  }
+  
+}

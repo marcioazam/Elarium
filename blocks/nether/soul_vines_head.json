@@ -1,0 +1,45 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "edx:soul_vines_head"
+        },
+        "components": {
+            "minecraft:geometry": "geometry.cross", 
+      
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.1
+            },
+            "minecraft:custom_components": [
+              "soul_vines:on_place",
+              "soul_vines:on_destroy",
+              "soul_vines:on_tick"
+            ],
+          "minecraft:material_instances": {
+              "*": {
+                  "texture": "soul_vines_head_0",
+                  "render_method": "alpha_test",
+                  "face_dimming": false,
+        "ambient_occlusion": false 
+              }
+          },
+            "minecraft:selection_box": {
+                "origin": [ -8.0, 0.0, -8.0 ], 
+                "size": [ 16, 16, 16 ]
+            },
+            "minecraft:collision_box": false,
+            "minecraft:placement_filter": {
+                "conditions": [
+                  {
+                    "allowed_faces": [
+                      "down"
+                    ],
+                    "block_filter": [
+                      "edx:soul_vines","minecraft:soul_soil"
+                    ]
+                  }
+                ]
+              }
+        }
+    }
+}

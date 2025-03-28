@@ -1,0 +1,102 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:platinium_ingot",
+					"weight": 25,
+					"count": {
+						"min": 1,
+						"max": 8
+					}
+				},
+				{
+					"type": "item",
+					"name": "minecraft:iron_ingot",
+					"weight": 35,
+					"count": {
+						"min": 1,
+						"max": 15
+					}
+				},
+				{
+					"type": "item",
+					"name": "edx:raw_nickel",
+					"weight": 15
+				},
+				{
+					"type": "item",
+					"name": "minecraft:golden_carrot",
+					"weight": 25,
+					"count": {
+						"min": 1,
+						"max": 14
+					}
+				},
+				{
+					"type": "item",
+					"name": "minecraft:enchanted_book",
+					"weight": 10,
+					"functions": [
+                        {
+                            "function": "enchant_with_levels",
+                            "levels": {
+                                "min": 20,
+                                "max": 30
+                            }
+                        }
+                    ]
+				},
+				{
+					"type": "item",
+					"name": "edx:runestone",
+					"weight": 15
+				},
+				{
+					"type": "item",
+					"name": "minecraft:diamond",
+					"weight": 15,
+					"count": {
+						"min": 1,
+						"max": 6
+					}
+				},
+				{
+					"type": "item",
+					"name": "minecraft:golden_apple",
+					"weight": 15,
+					"count": {
+						"min": 1,
+						"max": 3
+					}
+				},
+				{
+					"type": "item",
+					"name": "minecraft:enchanted_golden_apple",
+					"weight": 3
+				},
+				{
+					"type": "item",
+					"name": "minecraft:emerald",
+					"weight": 20
+				}
+				
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:tin_coin",
+					"weight": 25,
+					"count": 3
+				}
+				
+			]
+		}
+		
+	]
+}

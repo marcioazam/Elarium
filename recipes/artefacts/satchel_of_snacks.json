@@ -1,0 +1,45 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "satchel_of_snacks"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "BDP",
+      "DED",
+      "CDA"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "P": {
+        "item": "minecraft:porkchop"
+      },
+      "A": {
+        "item": "minecraft:apple"
+      },
+      "B": {
+        "item": "minecraft:bread"
+      },
+      "C": {
+        "item": "minecraft:tropical_fish"
+      },
+      "E": {
+        "item": "minecraft:bundle"
+      }
+    },
+    "result": {
+      "item": "dungeons:satchel_of_snacks",
+      "count": 1
+    }
+  }
+}

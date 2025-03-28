@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:hibiscus"
+    },
+
+    
+    "tags": [ "crafting_table"],
+    "pattern": [
+      "T"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:hibiscus_it"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:hibiscus_it"
+      }
+    ],
+    "result": {
+      "item": "minecraft:red_dye"
+    }
+  }
+}

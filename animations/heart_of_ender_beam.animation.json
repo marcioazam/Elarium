@@ -1,0 +1,76 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.heart_of_ender_beam.idle_sfx": {
+      "loop": true,
+      "animation_length": 2.75,
+      "timeline": {
+        "0.0": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.65 0.75 0.05",
+          
+          "/playsound shriek.sculk_shrieker @a[r=3] ~~3~ 0.625 0.25 1",
+          "/playsound respawn_anchor.ambient @a[r=6] ~~3~ 0.3 0.5 0.01"
+        ],
+        "0.25": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational"
+        ],
+        "0.5": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational"
+        ],
+        "0.75": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.65 0.75 0.05"
+        ],
+        "1": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational"
+        ],
+        "1.25": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational"
+        ],
+        "1.5": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.65 0.75 0.05"
+        ],
+        "1.75": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational"
+        ],
+        "2": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational"
+        ],
+        "2.25": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[r=6] ~~3~ 0.65 0.75 0.05"
+        ],
+        "2.5": [
+          "/camerashake add @a[r=3] 0.007 0.25 rotational",
+          "/camerashake add @a[r=1] 0.007 0.25 rotational"
+        ]
+      }
+    },
+    "animation.heart_of_ender_beam.beacon.impact_sfx": {
+      "loop": true,
+      "animation_length": 0.25,
+      "timeline": {
+        "0.0": [
+          "/playsound beacon_beam.impact @a[r=6] ~ ~ ~ 0.25 1.8 0.01",
+          "/damage @e[dy=10] 1 magic"
+        ]
+      }
+    }
+  }
+}

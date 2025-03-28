@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:crimson_nickel_spear"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      " XX",
+      "SWX",
+      "WS "
+    ],
+    "key": {
+      "X": {
+        "item": "edx:nickel_ingot"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "W": {
+        "item": "edx:crimson_stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:nickel_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:crimson_nickel_spear_i"
+    }
+  }
+}

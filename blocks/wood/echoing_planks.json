@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:echoing_planks",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { 
+        "category": "construction",
+				"group": "itemGroup.name.planks"
+      }
+    },
+    "components": {
+      "minecraft:map_color": "#fdccc9",
+      "minecraft:loot": "loot_tables/wood/echoing_planks.json",
+      "minecraft:destroy_time": 0.2,
+      "minecraft:explosion_resistance": 25,
+      "minecraft:flammable": {
+        "flame_odds": 50,
+        "burn_odds": 50
+      }
+    }
+  }
+}

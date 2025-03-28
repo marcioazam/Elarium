@@ -1,0 +1,273 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:sculkling",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "despawn": {
+        "minecraft:instant_despawn": {
+         "remove_child_entities": true
+        }
+     },
+      "notarget":{
+        "minecraft:timer": {
+          "time": [ 20, 30.0 ],
+          "looping": true,
+          "time_down_event": {
+            "event": "despawn",
+            "target": "self"
+          }
+        },
+        "minecraft:environment_sensor": {
+          "triggers":[
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_target",
+                    "operator": "==",
+                    "value": true
+                  }
+                ]
+              },
+              "event": "target"
+            }
+          ]},
+          "minecraft:behavior.nearest_attackable_target": {
+            "priority": 0,
+            "must_see": false,
+            "entity_types": [
+              {
+                "filters": {
+                  "any_of": [
+                    {
+                      "subject": "other",
+                      "test": "is_family",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "max_dist": 6
+              }
+            ]
+          }
+      },
+      "target_delay":{
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 0,
+          "must_see": false,
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "subject": "other",
+                    "test": "is_family",
+                    "value": "player"
+                  }
+                ]
+              },
+              "max_dist": 10
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "time": [ 2.0, 2.0 ],
+          "looping": false,
+          "time_down_event": {
+            "event": "target",
+            "target": "self"
+          }
+        }
+      },
+      "target":{
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 0,
+          "must_see": false,
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "subject": "other",
+                    "test": "is_family",
+                    "value": "player"
+                  }
+                ]
+              },
+              "max_dist": 10
+            }
+          ]
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 0,
+          "speed_multiplier": 1.2
+        },
+        "minecraft:environment_sensor": {
+          "triggers":[
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "has_target",
+                    "operator": "==",
+                    "value": false
+                  }
+                ]
+              },
+              "event": "untarget"
+            }
+          ]
+        },
+        "minecraft:mob_effect": {
+          "effect_range": 3,
+          "effect_time": 5,
+          "mob_effect": "darkness",
+          "cooldown_time": 10,
+          "entity_filter": {
+            "all_of": [
+              { "test": "is_family", "subject": "other", "value": "player" },
+              { "operator": "not", "test": "has_ability", "subject" : "other", "value" : "invulnerable" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": [ 0.7, 1.5 ],
+          "looping": true,
+          "time_down_event": {
+            "event": "sniff_sniff",
+            "target": "self"
+          }
+        }
+        
+      }
+    },
+    "components": {
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 : 0"
+      },
+      "minecraft:attack": {
+        "damage": 7
+      },
+      "minecraft:vibration_damper": {},
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [
+          "monster",
+          "sculkling",
+          "mob"
+        ]
+      },
+      
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 3
+			},
+      "minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "can_path_over_lava": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:preferred_path": {
+        "max_fall_blocks": 20
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 0.6
+      },
+      "minecraft:health": {
+        "value": 35,
+        "max": 35
+      },
+      "minecraft:movement": {
+        "value": 0.3
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.2
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+     
+      "minecraft:behavior.random_stroll": {
+        "priority": 9,
+        "speed_multiplier": 0.9
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 11
+      },
+      "minecraft:physics": {},
+     
+      "minecraft:follow_range": 20,
+      "minecraft:fire_immune": {},
+      "minecraft:nameable": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/sculkling.json"
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "notarget"
+          ]
+        }
+      },
+      "sniff_sniff":{
+        "queue_command": {
+          "command": [
+           "playsound mob.sculkling.sniff @a[r=100] ~~~ 2 1"
+          ]}
+      },
+      "target_delay": {
+        
+				"remove": {
+					"component_groups": ["notarget"]
+				},
+				"add": {
+					"component_groups": ["target_delay"]
+				},
+        "queue_command": {
+          "command": [
+           "playsound mob.sculkling.suspicious_sniff @a[r=100] ~~~ 2 0.9"
+          ]}
+			},
+      "target": {
+				"remove": {
+					"component_groups": ["target_delay"]
+				},
+				"add": {
+					"component_groups": ["target" ]
+				}
+			},
+      "despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			},
+      "untarget": {
+				"remove": {
+					"component_groups": ["target"]
+				},
+				"add": {
+					"component_groups": ["notarget"]
+				}
+			}
+    }
+  }
+}

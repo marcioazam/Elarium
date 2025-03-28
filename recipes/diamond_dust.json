@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "diamond_dust"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "HDH",
+      " H "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond_block"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:diamond_block"
+      },
+      "H": {
+        "item": "minecraft:rabbit_hide"
+      }
+    },
+    "result": {
+      "item": "dungeons:diamond_dust",
+      "count": 1
+    }
+  }
+}

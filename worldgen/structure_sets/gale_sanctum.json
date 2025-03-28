@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "dungeons:gale_sanctum"
+		},
+		
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 101124,
+			"separation": 13,
+			"spacing": 34
+		},
+		"structures": [
+			{
+				"structure": "dungeons:gale_sanctum",
+				"weight": 1
+			}
+		]
+	}
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_firebolt_thrower"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:firebolt_thrower"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:firebolt_thrower"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:firebolt_thrower", "count": 1 },
+      { "item": "dungeons:firebolt_thrower", "count": 1 }
+    ]
+  }
+}

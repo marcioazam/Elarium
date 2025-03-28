@@ -1,0 +1,46 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:feature_rules": {
+      "description": {
+        "identifier": "edx:jungle_with_branches_tree_features_rules",
+        "places_feature": "edx:jungle_with_branches_tree_feature"
+      },
+      "conditions": {
+        "placement_pass": "before_surface_pass",
+        "minecraft:biome_filter": [
+          {
+            "any_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "bamboo_jungle"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "jungle_edge"
+              }
+            ]
+          }
+        ]
+      },
+      "distribution": {
+        "iterations": 3,
+        "x": {
+          "distribution": "uniform",
+          "extent": [
+            0,
+            16
+          ]
+        },
+        "y": "query.heightmap(variable.worldx, variable.worldz)",
+        "z": {
+          "distribution": "uniform",
+          "extent": [
+            0,
+            16
+          ]
+        }
+      }
+    }
+  }

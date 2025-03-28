@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:slime_jumppad_recipe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "GGG",
+      "XXX"
+    ],
+    "key": {
+      "X": {
+        "item": "xp:ender_goop"
+      },
+      "G": {
+        "item": "xp:dark_purpur_bricks"
+      }
+    },
+    "result": {
+      "item": "xp:slime_jumppad_spawn_egg"
+    }
+  }
+}

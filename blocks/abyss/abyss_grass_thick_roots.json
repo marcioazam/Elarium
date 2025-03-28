@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:abyss_grass_thick_roots",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:friction": 0.9,
+      "minecraft:map_color": "#766879",
+      "minecraft:loot": "loot_tables/biomes/abyss_grass_thick_roots.json",
+      "minecraft:destroy_time": 0.6,
+      "minecraft:explosion_resistance": 45,
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      }
+    }
+  }
+}

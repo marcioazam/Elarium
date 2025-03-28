@@ -1,0 +1,31 @@
+
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:pill_outpost_mesa_f_rule",
+			"places_feature": "edx:pill_outp_mesa_random"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "mesa"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": -16,
+			"y": "query.heightmap(variable.worldx, variable.worldz) - 4",   
+			"z": -16
+		}
+	}
+}

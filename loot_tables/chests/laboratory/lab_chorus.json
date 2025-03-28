@@ -1,0 +1,20 @@
+{
+  "pools": [
+    {
+      "rolls": 10,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:chorus_stew",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "edx:endshroom_stem",
+          "weight": 100
+        }
+      ]
+    }
+   
+  ]
+}

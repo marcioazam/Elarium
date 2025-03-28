@@ -1,0 +1,126 @@
+{
+    "format_version": "1.16.210",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "dungeons:abomination_quick_vine",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "dungeons:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:scale": {
+                "value": 1
+            },
+            "minecraft:area_attack": {
+                "damage_range": 0.4,
+                "damage_per_tick": 15,
+                "damage_cooldown": 1,
+                "cause": "entity_attack",
+                "entity_filter": {
+                    "any_of": [
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "irongolem"
+                        },
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "snowgolem"
+                        }
+                    ]
+                }
+            },
+            "minecraft:movement": {
+                "value": 0
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "whisperer",
+                    "inanimate",
+                    "gravity_immune"
+                ]
+            },
+            "minecraft:timer": {
+                    "looping": false,
+                    "time": 0.55,
+                    "time_down_event": {
+                        "event": "dungeons:despawn"
+                    }
+                },
+            "minecraft:variant": {
+                "value": 0
+            },
+            "minecraft:collision_box": {
+                "width": 0.65,
+                "height": 1
+            },
+            "minecraft:health": {
+                "value": 2000,
+                "max": 2000
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "deals_damage": false
+                    }
+                ]
+            },
+        "minecraft:movement.basic": {},
+            "minecraft:navigation.walk": {
+                "is_amphibious": true,
+                "avoid_sun": false,
+                "can_walk": true
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1
+            },
+            "minecraft:persistent": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "dungeons:begin_despawn": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:damaged"
+                    ]
+                },
+                "queue_command": {
+                    "command": []
+                }
+            },
+            "dungeons:despawn": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:despawn"
+                    ]
+                }
+            },
+            "dungeons:damaged": {
+                "queue_command": {
+                    "command": []
+                },
+                "add": {
+                    "component_groups": [
+                        "dungeons:damaged"
+                    ]
+                }
+            }
+        }
+    }
+}

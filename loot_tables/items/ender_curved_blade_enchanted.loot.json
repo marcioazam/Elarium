@@ -1,0 +1,27 @@
+{
+    "pools": [{
+        "rolls": 1,
+        "entries": [{
+            "type": "item",
+            "name": "xp:ender_curved_blade_enchanted",
+            "weight": 1,
+            "functions": [
+                {
+                    "function": "set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 1
+                    }
+                },
+                {
+                    "function": "set_lore",
+                    "lore": [
+                        "",
+                        "§r§9+14 Attack Damage§r§o",
+                        "§r§9+17 Ranged Damage§r§o"
+                    ]
+                }
+            ]
+        }]
+    }]
+}

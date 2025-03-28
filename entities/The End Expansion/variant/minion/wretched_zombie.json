@@ -1,0 +1,360 @@
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "runtime_identifier": "minecraft:stray",
+      "identifier": "dungeons:wretched_frozen_zombie",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "minecraft:melee_mode": {
+        "minecraft:attack": {
+        "damage": 6,
+        "effect_name": "slowness",
+        "effect_duration": 6
+      },
+        "minecraft:behavior.melee_attack": {
+        "priority": 3
+        }
+      },
+      "minecraft:zombie_baby": {
+        "minecraft:is_baby": {},
+        "minecraft:scale": {
+          "value": 0.5
+        },
+        "minecraft:movement": {
+          "value": 0.33
+        }
+      },
+
+      "minecraft:zombie_adult": {
+        "minecraft:movement": {
+          "value": 0.22
+        },
+        "minecraft:equipment": {
+          "table": "loot_tables/entities/wretched_zombie_gear.json",
+          "slot_drop_chance": [
+            {
+              "slot": "slot.armor.head",
+              "drop_chance": -1
+            },
+            {
+              "slot": "slot.armor.chest",
+              "drop_chance": -1
+            },
+            {
+              "slot": "slot.weapon.mainhand",
+              "drop_chance": 0.05
+            }
+          ]
+        },
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "family_types": [
+            "zombie"
+          ],
+          "seats": {
+            "position": [ 0.0, 1.1, -0.35 ],
+            "lock_rider_rotation": 0
+          }
+        },
+        "minecraft:behavior.mount_pathing": {
+          "priority": 2,
+          "speed_multiplier": 1.25,
+          "target_dist": 0.0,
+          "track_target": true
+        }
+      }
+    },
+
+    "components": {
+        "minecraft:entity_sensor": {
+          "sensor_range": 48,
+          "relative_range": false,
+          "minimum_count": 0,
+          "maximum_count": 0,
+          "event_filters": {
+            "any_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "wretched_wraith"
+              }
+            ]
+          },
+          "event": "dungeons:instant_despawn"
+        },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:nameable": {
+      },
+
+      // Zombie Components
+      "minecraft:type_family": {
+        "family": [ "wretched_minion", "zombie", "undead", "monster", "mob", "frozen"]
+      },
+      "minecraft:equip_item": {
+      },
+      "minecraft:on_hurt": {
+        "event": "minecraft:on_hurt_event",
+        "target": "self"
+      },
+      "minecraft:on_hurt_by_player": {
+        "event": "minecraft:on_hurt_event",
+        "target": "self"
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      	
+      "minecraft:movement.basic": {
+      },
+      "minecraft:navigation.walk": {
+        "is_amphibious": true,
+        "can_pass_doors": true,
+        "can_walk": true,
+        "can_break_doors": true,
+        "avoid_sun": true
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:health": {
+        "value": 30,
+        "max": 30
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "==",
+              "value": "necromancer"
+            }
+          },
+          "deals_damage": false
+        }
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/zombie.json"
+      },
+        "minecraft:target_nearby_sensor": {
+          "inside_range": 4,
+          "outside_range": 5,
+          "must_see": true,
+          "on_inside_range": {
+            "event": "switch_to_melee",
+            "target": "self"
+          },
+          "on_outside_range": {
+            "event": "switch_to_ranged",
+            "target": "self"
+          }
+        },
+      "minecraft:despawn": {
+      "despawn_from_distance": {}
+     },
+
+      // Zombie Behaviors
+      "minecraft:behavior.equip_item": {
+        "priority": 2
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 25.0,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" }
+              ]
+            },
+            "max_dist": 35
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "villager" },
+                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+              ]
+            },
+            "max_dist": 35,
+            "must_see": false
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "value": "baby_turtle" },
+                { "test": "in_water", "subject": "other", "operator": "!=", "value": true }
+              ]
+            },
+            "max_dist": 35
+          }
+        ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 380,
+                "remove": {},
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_adult",
+                    "minecraft:melee_mode"
+                  ]
+                }
+              },
+              {
+                "weight": 17,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_baby",
+                    "minecraft:melee_mode"
+                  ]
+
+                }
+              },
+              {
+                "weight": 3,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_baby",
+                    "minecraft:melee_mode"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "minecraft:entity_transformed": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 380,
+                "remove": {},
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_adult",
+                    "minecraft:melee_mode"
+                  ]
+                }
+              },
+              {
+                "weight": 17,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_baby",
+                    "minecraft:melee_mode"
+                  ]
+
+                }
+              },
+              {
+                "weight": 3,
+                "remove": {
+                },
+                "add": {
+                  "component_groups": [
+                    "minecraft:zombie_baby",
+                    "minecraft:melee_mode"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "minecraft:as_adult": {
+        "add": {
+          "component_groups": [
+            "minecraft:zombie_adult",
+            "minecraft:melee_mode"
+          ]
+        }
+      },
+      "minecraft:as_baby": {
+        "add": {
+          "component_groups": [
+            "minecraft:zombie_baby",
+            "minecraft:melee_mode"
+          ]
+        }
+      },
+      "minecraft:on_hurt_event": {
+        "add": {
+          "component_groups": [
+            "minecraft:melee_mode"
+          ]
+        }
+      },
+      "dungeons:instant_despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

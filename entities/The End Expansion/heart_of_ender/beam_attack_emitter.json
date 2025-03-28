@@ -1,0 +1,85 @@
+{
+    "format_version": "1.19.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:beam_attack_emitter",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "beam_attack_loop": "animation.beam_attack_emitter.loop",
+                "beam_attack_die": "animation.beam_attack_emitter.die"
+            },
+            "scripts": {
+                "animate": [
+                    "beam_attack_loop",
+                    "beam_attack_die"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:health": {
+                "min": 1,
+                "max": 1000
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "xp:enders_heart_blast.laser": {
+              "minecraft:spawn_entity": {
+                "entities": {
+                  "min_wait_time": 0,
+                  "max_wait_time": 0,
+                  "spawn_entity": "xp:heart_of_ender.projectile",
+                  "spawn_event": "xp:scale_1",
+                  "num_to_spawn": 1,
+                  "single_use": true
+                }
+              }
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            },
+            "xp:shoot_projectile": {
+              "add": {
+                "component_groups": [
+                  "xp:enders_heart_blast.laser"
+                ]
+              }
+            },
+            "xp:remove_shoot_projectile": {
+              "remove": {
+                "component_groups": [
+                  "xp:enders_heart_blast.laser"
+                ]
+              }
+            }
+        }
+    }
+}

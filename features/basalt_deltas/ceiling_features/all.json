@@ -1,0 +1,11 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:aggregate_feature": {
+      "description": {
+        "identifier": "edx:basalt_deltas/ceiling_features/all"
+      },
+      "features": [
+        "edx:basalt_deltas/ceiling_features/fire_opal_scatter"
+      ]
+    }
+  }

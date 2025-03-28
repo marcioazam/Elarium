@@ -1,0 +1,168 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 3,
+        "max": 8
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:wind_charge",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:record_chirp",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:record_stal",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:name_tag",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_chestplate",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_helmet",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_leggings",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_boots",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:amethyst_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_nugget",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:experience_bottle",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "set_potion",
+              "id": "regeneration"
+            }
+          ],
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "set_potion",
+              "id": "slow_falling"
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cake",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

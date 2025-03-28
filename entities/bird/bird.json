@@ -1,0 +1,145 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:bird", 
+			"is_summonable": true,
+			"is_spawnable": false,
+			"scripts": {
+				"animate": [
+					{"fly_away.brown": "q.skin_id == 0"},
+					{"fly_away.blue": "q.skin_id == 1"},
+					{"fly_away.yellow": "q.skin_id == 2"}
+				]
+			},
+			"animations": {
+				"fly_away.brown": "controller.animation.bird.fly_away.brown",
+				"fly_away.blue": "controller.animation.bird.fly_away.blue",
+				"fly_away.yellow": "controller.animation.bird.fly_away.yellow",
+				"brown.path": "animation.bird.brown.path",
+				"blue.path": "animation.bird.blue.path",
+				"yellow.path": "animation.bird.yellow.path"
+			}
+		},
+		"components": {
+			"minecraft:physics": {},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:scale": { "value": 0.75 },
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:nameable": {},
+			"minecraft:type_family": { "family": [ "bird", "dummy" ] },
+			"minecraft:health": {
+				"value": 1,
+				"min": 1,
+				"max": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.35,
+				"height": 1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:environment_sensor": {
+			  "triggers": [
+				{
+				  "filters": {
+					"all_of": [
+					  { "test": "distance_to_nearest_player", "operator": "<", "value": 5 }
+					]
+				  },
+				  "event": "xp:fly_away"
+				}
+			  ]
+			}
+		},
+		"component_groups": {
+			"xp:despawn":{ "minecraft:instant_despawn": {} },
+			"xp:despawn_delay":{
+				"minecraft:timer": {
+					"time": 2,
+					"looping": true,
+					"time_down_event": {
+						"event": "xp:despawn",
+						"target": "self"
+					}
+				}
+			},
+			"xp:fly_away":{ 
+				"minecraft:variant": { "value": 1 },
+				"minecraft:behavior.look_at_target": {
+					"look_distance": 8,
+					"probability": 1,
+					"angle_of_view_vertical": 360,
+					"angle_of_view_horizontal": 360
+				}
+			},
+			"xp:default":{
+				"minecraft:variant": { "value": 0 },
+				"minecraft:behavior.look_at_entity": {
+					"priority": 2,
+					"look_distance": 5,
+					"probability": 0.02,
+					"look_time": [2,4],
+					"angle_of_view_vertical": 360,
+					"angle_of_view_horizontal": 360
+				},
+				"minecraft:behavior.look_at_player": {
+					"priority": 0,
+					"angle_of_view_vertical": 360,
+					"angle_of_view_horizontal": 360,
+					"look_distance": 8,
+					"probability": 0.02,
+					"look_time": [2,4],
+					"target_distance": 10
+				},
+				"minecraft:behavior.look_at_target": {
+					"look_distance": 8,
+					"probability": 0.02,
+					"angle_of_view_vertical": 180,
+					"angle_of_view_horizontal": 360
+				},
+				"minecraft:behavior.random_look_around": {
+					"priority": 1,
+					"look_distance": 7
+				}
+			},
+			"xp:brown_variant":{ "minecraft:skin_id": { "value": 0 } },
+			"xp:blue_variant":{ "minecraft:skin_id": { "value": 1 } },
+			"xp:yellow_variant":{ "minecraft:skin_id": { "value": 2 } }
+		},
+		"events": {
+			"xp:despawn":{ "add": { "component_groups": [ "xp:despawn" ] } },
+			"xp:despawn_delay":{ "add": { "component_groups": [ "xp:despawn_delay" ] } },
+			"xp:fly_away":{ "add": { "component_groups": [ "xp:fly_away" ] }, "remove": { "component_groups": [ "xp:default" ] } },
+			"xp:brown_variant":{ "add": { "component_groups": [ "xp:brown_variant", "xp:default" ] } },
+			"xp:blue_variant":{ "add": { "component_groups": [ "xp:blue_variant", "xp:default" ] } },
+			"xp:yellow_variant":{ "add": { "component_groups": [ "xp:yellow_variant", "xp:default" ] } },
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"add": { "component_groups": [ "xp:brown_variant", "xp:default" ] },
+								"weight": 35
+							},
+							{
+								"add": { "component_groups": [ "xp:blue_variant", "xp:default" ] },
+								"weight": 35
+							},
+							{
+								"add": { "component_groups": [ "xp:yellow_variant", "xp:default" ] },
+								"weight": 35
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

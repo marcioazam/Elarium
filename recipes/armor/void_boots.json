@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:void_boots"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "   ",
+      "X X",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "xp:void_crystal_ingot"
+      }
+    },
+    "result": {
+      "item": "minecraft:chainmail_boots"
+    }
+  }
+}

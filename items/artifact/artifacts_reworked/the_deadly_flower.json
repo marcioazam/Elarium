@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:deadly_flower",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"undying_flower",
+				"bloody_bramble",
+				"bloody_ruby"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "deadly_flower"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§cThe deadly flower \n§5Artifact\n§6Immobilise and inflict wither for 15 seconds to the nearest monster\n§6Slowly regenerate you health on daytime (work even underground, but only in the overworld), stackable with regeneration potions\nGrant strength 1 when you're in the Nether"
+			  }
+		}
+	} 
+}

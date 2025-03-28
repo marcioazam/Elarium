@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_encrusted_anchor"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:encrusted_anchor"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:encrusted_anchor"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:encrusted_anchor", "count": 1 },
+      { "item": "dungeons:encrusted_anchor", "count": 1 }
+    ]
+  }
+}

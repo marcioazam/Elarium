@@ -1,0 +1,45 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:vampiric_vial"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "PD ",
+      "DP ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:blood_vial"
+      },
+      "D": {
+        "item": "edx:soul_bottle"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "edx:solid_bone"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:blood_vial"
+      },
+      {
+        "item": "edx:soul_bottle"
+      },
+      {
+        "item": "minecraft:diamond_block"
+      }
+    ],
+    "result": {
+      "item": "edx:vampiric_vial"
+    }
+  }
+  
+}

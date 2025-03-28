@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:red_sun",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"undying_flower",
+				"bloody_bramble",
+				"bloody_ruby",
+				"blaze_heart"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "red_sun"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§4The red sun \n§5Artifact\n§6Immobilise and inflict wither for 15 seconds to the nearest monster\n§6Slowly regenerate you health on daytime (work even underground, but only in the overworld), stackable with regeneration potions\nGrant strength 1 when you're in the Nether\nGrant fire resistance\nI don't know if it's a reference to China or MGR"
+			  }
+		}
+	}
+}

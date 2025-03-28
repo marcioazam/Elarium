@@ -1,0 +1,12 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+	  "description": {
+		"identifier": "edx:warped/oozeshroom/oozeshroom_random"
+	  },
+	  "features": [
+		[ "edx:warped/oozeshroom/oozeshroom_empty_aggreg", 15 ],
+		[ "edx:warped/oozeshroom/oozeshroom_full_aggreg", 1 ]
+	  ]
+	}
+  }

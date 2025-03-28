@@ -1,0 +1,29 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_bow": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/scoreboard players set @s Bow 0",
+						"/tag @s remove bow1",
+						"/tag @s remove bow2",
+						"/tag @s remove bow3"
+					  ],
+					"transitions":[
+						{"bow1":"query.main_hand_item_use_duration > 0.0 && (query.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:bow') || query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:blaze_blade'))"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/scoreboard players add @s Bow 1"
+					  ],
+					"transitions":[
+						
+						{"default":"query.main_hand_item_use_duration <= 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

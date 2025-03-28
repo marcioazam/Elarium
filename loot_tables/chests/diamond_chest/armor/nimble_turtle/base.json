@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/nimble_turtle/helmet.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/nimble_turtle/chestplate.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/nimble_turtle/leggings.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/nimble_turtle/boots.json"
+        }
+      ]
+    }
+  ]
+}

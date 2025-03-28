@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+	  "description": {
+      "identifier": "edx:iron_spear_i",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.spears"
+      }
+    },
+    "components": {
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:display_name": {
+				"value": "Iron spear"
+			  },
+      "minecraft:icon": {
+				"textures": {
+					"default": "iron_spear"
+				}
+			},
+      "minecraft:tags": {
+        "tags": [
+          "edx:spear"
+        ]
+      },
+      "minecraft:enchantable": {
+      "value": 6,
+      "slot": "sword"
+      },
+      "minecraft:durability": {
+        "max_durability": 160
+    },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true
+	  }
+  }
+}

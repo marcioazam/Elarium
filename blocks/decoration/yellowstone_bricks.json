@@ -1,0 +1,22 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+	"identifier": "edx:yellowstone_bricks",
+	"menu_category": {
+	  "category": "construction",
+	  "group": "itemGroup.name.stoneBrick"
+	}
+  },
+  "components": { 
+	  "minecraft:destructible_by_mining": {
+		"seconds_to_destroy": 6
+	  }, 
+	  "tag:edx:stone": {},
+	  "minecraft:destructible_by_explosion": {
+		"explosion_resistance": 20
+	  },
+	  "minecraft:map_color": "#efd226"
+  }
+	}
+}

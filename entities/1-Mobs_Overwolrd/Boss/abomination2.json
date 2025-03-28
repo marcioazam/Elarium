@@ -1,0 +1,1232 @@
+{
+	
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:abomination2",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"near":{
+				"minecraft:entity_sensor": {
+					"sensor_range": 15,
+					"relative_range": false,
+					"require_all": true,
+					"minimum_count": 1,
+					"event_filters": {
+						"test": "distance_to_nearest_player", "operator": ">", "value": 15
+					  },
+					"event": "far"
+			  },
+			  "minecraft:variant": {
+				"value": 0
+			},
+				"minecraft:flying_speed": {
+					"value": 0.33
+				 }
+			},
+			"minecraft:despawn": {
+				"minecraft:instant_despawn": {
+				   "remove_child_entities": true
+				}
+			 },
+			"far":{
+				"minecraft:entity_sensor": {
+					"sensor_range": 15,
+					"relative_range": false,
+					"require_all": true,
+					"minimum_count": 1,
+					"event_filters": {
+						"test": "distance_to_nearest_player", "operator": "<", "value": 15
+					  },
+					"event": "near"
+			  },
+			  "minecraft:variant": {
+				"value": 1
+			},
+				"minecraft:flying_speed": {
+					"value": 0.0
+				 }
+			},
+			"melee2": {
+				"minecraft:teleport": {
+					"random_teleports": true,
+					"random_teleport_cube": [ 10, 10, 10 ],
+					"target_distance": 16,
+					"target_teleport_chance": 1.0,
+					"min_random_teleport_time": 0.1,
+					"max_random_teleport_time": 0.2,
+					"light_teleport_chance": 1.0
+				  },
+				"minecraft:behavior.send_event": {
+					"priority": 0,
+					
+					"event_choices": [
+					  {
+						"min_activation_range": 0.0,
+						"max_activation_range": 25.0,
+						"cooldown_time": 5.0,
+						"cast_duration": 1.0,
+						"particle_color": "#FFB38033",
+						"weight": 3,
+						"filters": { 
+							"all_of": [
+							  { "test" :  "is_family", "subject" : "other", "value" :  "horse"}
+							] 
+						},
+						"start_sound_event": "cast.spell",
+						"sequence": [
+						  {
+							"base_delay": 2.0,
+							"event": "wololo",
+							"sound_event": "prepare.wololo"
+						  }
+						]
+					  }
+					]
+				  },
+				"minecraft:behavior.melee_attack": {
+					"priority": 0,
+					"track_target": true,
+					"random_stop_interval": 150,
+					"reach_multiplier": 1
+				  },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_melee2"
+					}
+				},
+				"minecraft:attack": {
+					"damage": {
+						"range_min": 12,
+						"range_max": 16
+					  },
+					"effect_name": "poison",
+					"effect_duration": 6
+				   }
+			},
+			"distance2": {
+				
+				"minecraft:attack": {
+					"damage": {
+						"range_min": 9,
+						"range_max": 11
+					  }
+				   },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_distance2"
+					}
+				},
+				"minecraft:shooter": {
+					"def": "xp:heart_of_ender.projectile",
+					"power": 2.0,
+					"magic": true
+				  },
+				  "minecraft:behavior.ranged_attack": {
+					"priority": 1,
+					"burst_shots": 7,
+					"burst_interval": 0.5,
+					"charge_charged_trigger": 0.0,
+					"charge_shoot_trigger": 0.3,
+					"attack_interval_min": 1.0,
+					"attack_interval_max": 1.0,
+					"attack_radius": 50.0
+				  }
+				
+			},
+			"summon2": {
+				"minecraft:attack": {
+					"damage": 4
+				   },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_summon2"
+					}
+				},
+				"minecraft:behavior.summon_entity": {
+					"priority": 1,
+			
+					"summon_choices": [
+					  {
+						"min_activation_range": 0.0,
+						"max_activation_range": 5.0,
+						"cooldown_time": 1.0,
+						"weight": 3,
+						"cast_duration": 2.0,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+							{
+								"shape": "circle",
+								"target": "self",
+								"base_delay": 3.0,
+								"delay_per_summon": 0.0,
+								"num_entities_spawned": 6,
+								"entity_type": "minecraft:evocation_fang",
+								"size": 1.5,
+								"entity_lifespan": 8,
+								"sound_event": "prepare.attack"
+							  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 6,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 2.5,
+							"entity_lifespan": 8,
+							"sound_event": "prepare.attack"
+						  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 6,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 3.5,
+							"entity_lifespan": 8,
+							"sound_event": "prepare.attack"
+						  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 6,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 4.5,
+							"entity_lifespan": 8,
+							"sound_event": "prepare.attack"
+						  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 6,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 5.5,
+							"entity_lifespan": 8,
+							"sound_event": "prepare.attack"
+						  },
+					  {
+						"shape": "circle",
+						"target": "self",
+						"base_delay": 0.2,
+						"delay_per_summon": 0.0,
+						"num_entities_spawned": 6,
+						"entity_type": "minecraft:evocation_fang",
+						"size": 6.5,
+						"entity_lifespan": 8,
+						"sound_event": "prepare.attack"
+					  }
+					
+						 
+						]
+					  },
+					  {
+						"min_activation_range": 0.0,
+						"weight": 3,
+						"cooldown_time": 4.0,
+						"cast_duration": 3.0,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 1.0,
+							"delay_per_summon": 0.05,
+							"num_entities_spawned": 8,
+							"entity_type": "minecraft:vex",
+							"size": 4,
+							"entity_lifespan": 15
+						  }
+						]
+					  },
+					  {
+						"min_activation_range": 0.0,
+						"weight": 3,
+						"cooldown_time": 0.5,
+						"cast_duration": 1,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+						  {
+							"shape": "line",
+							"target": "self",
+							"base_delay": 1.0,
+							"delay_per_summon": 0.05,
+							"num_entities_spawned": 6,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 30,
+							"entity_lifespan": 8
+						  }
+						]
+					  }
+					]
+				  }
+			},
+			"melee2n": {
+				"minecraft:behavior.melee_attack": {
+					"priority": 0,
+					"track_target": true,
+					"random_stop_interval": 150,
+					"reach_multiplier": 1
+				  },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_melee2n"
+					}
+				},
+				"minecraft:attack": {
+					"damage": 10
+				   }
+			},
+			"distance2n": {
+				"minecraft:attack": {
+					"damage": {
+						"range_min": 9,
+						"range_max": 11
+					  }
+				   },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_distance2"
+					}
+				},
+				"minecraft:shooter": {
+					"def": "xp:heart_of_ender.projectile",
+					"power": 2.0,
+					"magic": true
+				  },
+				  "minecraft:behavior.ranged_attack": {
+					"priority": 1,
+					"burst_shots": 7,
+					"burst_interval": 0.5,
+					"charge_charged_trigger": 0.0,
+					"charge_shoot_trigger": 0.3,
+					"attack_interval_min": 1.0,
+					"attack_interval_max": 1.0,
+					"attack_radius": 50.0
+				  }
+				
+			},
+			"summon2n": {
+				"minecraft:attack": {
+					"damage": 4
+				   },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_summon2n"
+					}
+				},
+				"minecraft:behavior.summon_entity": {
+					"priority": 1,
+			
+					"summon_choices": [
+					  {
+						"min_activation_range": 0.0,
+						"max_activation_range": 5.0,
+						"cooldown_time": 1.0,
+						"weight": 3,
+						"cast_duration": 4.0,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+							{
+								"shape": "circle",
+								"target": "self",
+								"base_delay": 3.0,
+								"delay_per_summon": 0.0,
+								"num_entities_spawned": 6,
+								"entity_type": "minecraft:evocation_fang",
+								"size": 1.5,
+								"entity_lifespan": 1.1,
+								"sound_event": "prepare.attack"
+							  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 13,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 2.5,
+							"entity_lifespan": 1.1,
+							"sound_event": "prepare.attack"
+						  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 18,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 3.5,
+							"entity_lifespan": 1.1,
+							"sound_event": "prepare.attack"
+						  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 25,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 4.5,
+							"entity_lifespan": 1.1,
+							"sound_event": "prepare.attack"
+						  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 30,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 5.5,
+							"entity_lifespan": 1.1,
+							"sound_event": "prepare.attack"
+						  }
+					
+						 
+						]
+					  },
+					  {
+						"min_activation_range": 5.0,
+						"weight": 3,
+						"cooldown_time": 3.0,
+						"cast_duration": 5.0,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 1.0,
+							"delay_per_summon": 0.05,
+							"num_entities_spawned": 2,
+							"entity_type": "minecraft:vex",
+							"size": 4,
+							"entity_lifespan": 20
+						  }
+						]
+					  },
+					  {
+						"min_activation_range": 5.0,
+						"weight": 3,
+						"cooldown_time": 0.5,
+						"cast_duration": 2,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+						  {
+							"shape": "line",
+							"target": "self",
+							"base_delay": 1.0,
+							"delay_per_summon": 0.05,
+							"num_entities_spawned": 30,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 25,
+							"entity_lifespan": 1.1
+						  }
+						]
+					  }
+					]
+				  }
+			},
+			"melee2e": {
+				"minecraft:behavior.melee_attack": {
+					"priority": 0,
+					"track_target": true,
+					"random_stop_interval": 150,
+					"reach_multiplier": 1
+				  },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 5,
+					"time_down_event": {
+						"event":"change_melee2e"
+					}
+				},
+				"minecraft:attack": {
+					"damage": 8
+				   }
+			},
+			"distance2e": {
+				"minecraft:attack": {
+					"damage": {
+						"range_min": 9,
+						"range_max": 11
+					  }
+				   },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_distance2"
+					}
+				},
+				"minecraft:shooter": {
+					"def": "xp:heart_of_ender.projectile",
+					"power": 2.0,
+					"magic": true
+				  },
+				  "minecraft:behavior.ranged_attack": {
+					"priority": 1,
+					"burst_shots": 7,
+					"burst_interval": 0.5,
+					"charge_charged_trigger": 0.0,
+					"charge_shoot_trigger": 0.3,
+					"attack_interval_min": 1.0,
+					"attack_interval_max": 1.0,
+					"attack_radius": 50.0
+				  }
+				
+			},
+			"summon2e": {
+				"minecraft:attack": {
+					"damage": 6
+				   },
+				"minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 10,
+					"time_down_event": {
+						"event":"change_summon2e"
+					}
+				},
+				"minecraft:behavior.summon_entity": {
+					"priority": 1,
+			
+					"summon_choices": [
+					  {
+						"min_activation_range": 0.0,
+						"max_activation_range": 5.0,
+						"cooldown_time": 1.0,
+						"weight": 3,
+						"cast_duration": 5.0,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+							{
+								"shape": "circle",
+								"target": "self",
+								"base_delay": 3.0,
+								"delay_per_summon": 0.0,
+								"num_entities_spawned": 6,
+								"entity_type": "minecraft:evocation_fang",
+								"size": 1.5,
+								"entity_lifespan": 1.1,
+								"sound_event": "prepare.attack"
+							  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 13,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 2.5,
+							"entity_lifespan": 1.1,
+							"sound_event": "prepare.attack"
+						  },
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 18,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 3.5,
+							"entity_lifespan": 1.1,
+							"sound_event": "prepare.attack"
+						  },
+						  
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 0.2,
+							"delay_per_summon": 0.0,
+							"num_entities_spawned": 25,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 4.5,
+							"entity_lifespan": 1.1,
+							"sound_event": "prepare.attack"
+						  }
+					
+						 
+						]
+					  },
+					  {
+						"min_activation_range": 5.0,
+						"weight": 3,
+						"cooldown_time": 3.0,
+						"cast_duration": 5.0,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+						  {
+							"shape": "circle",
+							"target": "self",
+							"base_delay": 1.0,
+							"delay_per_summon": 0.05,
+							"num_entities_spawned": 1,
+							"entity_type": "minecraft:vex",
+							"size": 4,
+							"entity_lifespan": 20
+						  }
+						]
+					  },
+					  {
+						"min_activation_range": 5.0,
+						"weight": 3,
+						"cooldown_time": 0.5,
+						"cast_duration": 3,
+						"particle_color": "#FF664D59",
+						"start_sound_event": "cast.spell",
+						"sequence": [
+						  {
+							"shape": "line",
+							"target": "self",
+							"base_delay": 1.0,
+							"delay_per_summon": 0.05,
+							"num_entities_spawned": 25,
+							"entity_type": "minecraft:evocation_fang",
+							"size": 20,
+							"entity_lifespan": 1.1
+						  }
+						]
+					  }
+					]
+				  }
+			},
+			"easy":{
+				"minecraft:environment_sensor":{
+					"triggers":[
+					   {
+						  "filters":{
+							"all_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "overworld"
+								},
+								{ "test": "hourly_clock_time", "operator": ">=", "value": 0 },
+								 { "test": "hourly_clock_time", "operator": "<", "value": 13000 }
+							]
+						  },
+						  "event":"despawn"
+					   }
+					]
+				 },
+				"minecraft:health": {
+					"value": 700,
+					"max": 700
+				 }
+			},
+			"normal":{
+				"minecraft:environment_sensor":{
+					"triggers":[
+					   {
+						  "filters":{
+							"all_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "overworld"
+								},
+								{ "test": "hourly_clock_time", "operator": ">=", "value": 0 },
+								 { "test": "hourly_clock_time", "operator": "<", "value": 13000 }
+							]
+						  },
+						  "event":"despawn"
+					   }
+					]
+				 },
+				"minecraft:health": {
+					"value": 300,
+					"max": 300
+				 }
+			},
+			"hard":{
+				"minecraft:environment_sensor":{
+					"triggers":[
+					   {
+						  "filters":{
+							"all_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "overworld"
+								},
+								{ "test": "hourly_clock_time", "operator": ">=", "value": 0 },
+								 { "test": "hourly_clock_time", "operator": "<", "value": 13000 }
+							]
+						  },
+						  "event":"despawn"
+					   }
+					]
+				 },
+				"minecraft:health": {
+					"value": 700,
+					"max": 700
+				 }
+			},
+			"lava":{
+				"minecraft:damage_sensor": {
+					"triggers": [
+						{"cause": "lava",
+						"deals_damage": false},
+						{
+							"cause": "projectile",
+							"deals_damage": false,
+							"on_damage": {
+															  "filters": {
+								"all_of": [
+								  {
+									"test": "is_family",
+									"subject": "other",
+									"value": "abomination"
+								  }
+								]
+							  }
+							}
+						
+							
+						
+						  },
+						{
+						  "cause": "suffocation",
+						  "deals_damage": false
+						},{
+						  "cause": "magic",
+						  "deals_damage": false
+						}
+					  ]
+        }
+		   },
+			"start":{
+				"minecraft:health": {
+					"value": 10,
+					"max": 10
+				 },
+				"minecraft:environment_sensor":{
+					"triggers":[
+					   {
+						  "filters":{
+							 "all_of":[
+								{
+								   "test":"is_difficulty",
+								   "value":"easy"
+								}
+							 ]
+						  },
+						  "event":"easy"
+					   },
+					   {
+						"filters":{
+						   "all_of":[
+							  {
+								 "test":"is_difficulty",
+								 "value":"normal"
+							  }
+						   ]
+						},
+						"event":"normal"
+					 },
+					 {
+						"filters":{
+						   "all_of":[
+							  {
+								 "test":"is_difficulty",
+								 "value":"hard"
+							  }
+						   ]
+						},
+						"event":"hard"
+					 }
+					]
+				 }
+			}
+			},
+		"components": {
+			"minecraft:mob_effect": {
+				"effect_range": 10,
+				"mob_effect": "weakness",
+				"effect_time": 10,
+				"entity_filter": {
+					"test": "is_family",
+					"subject": "other",
+					"operator": "!=",
+					"value": "monster"
+					
+				},
+				"cooldown_time": 15
+			},
+			"minecraft:teleport": {
+				"random_teleports": true,
+				"max_random_teleport_time": 30,
+				"random_teleport_cube": [ 32, 32, 32 ],
+				"target_distance": 16,
+				"target_teleport_chance": 0.05,
+				"light_teleport_chance": 0.05
+			  },
+			"minecraft:loot": {
+				"table": "loot_tables/entities/abomination.json"
+			  },
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{"cause": "lava",
+					"deals_damage": false},
+					{
+						"cause": "projectile",
+						"deals_damage": false,
+						"on_damage": {
+														  "filters": {
+							"all_of": [
+							  {
+								"test": "is_family",
+								"subject": "other",
+								"value": "abomination"
+							  }
+							]
+						  }
+						}
+					
+						
+					
+					  },
+					{
+					  "cause": "suffocation",
+					  "deals_damage": false
+					},{
+					  "cause": "magic",
+					  "deals_damage": false
+					}
+				  ]
+        },
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+			  "minecraft:behavior.look_at_target": {
+				"priority": 10,
+				"look_distance": 8
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": false
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 9,
+				"look_distance": 6.0
+			  },
+			  "minecraft:boss": {
+				"should_darken_sky": true,
+				"name": "§6(Fase 2/2) §4Abomination§6(FINAL BOSS OVERWORLD)",
+				"hud_range": 100
+			  },
+			
+			 "minecraft:behavior.random_stroll": {
+				"priority": 4,
+				"speed_multiplier": 1.0
+			  },
+			  "minecraft:behavior.random_look_around": {
+				"priority": 5
+			  },
+			 "minecraft:breathable": {
+				"total_supply": 20,
+				"suffocate_time": 0
+			 },
+			 "minecraft:collision_box": {
+				"width": 0.7,
+				"height": 1.9
+			 },
+			 "minecraft:movement": {
+				"value": 0.35
+			 },
+			 "minecraft:follow_range": {
+				"value": 128,
+				"max": 128
+			},
+			 "minecraft:navigation.hover": {
+				"can_path_over_water": true,
+				"can_sink": true,
+				"can_pass_doors": false,
+				"can_path_from_air": true,
+				"avoid_water": false,
+				"avoid_damage_blocks": false,
+				"avoid_sun": false,
+				"can_swim": true
+			 },
+			 "minecraft:game_event_movement_tracking": {
+				"emit_move": false,
+				"emit_swim": false
+			  },
+			 "minecraft:movement.hover": {},
+			 "minecraft:jump.static": {},
+			 "minecraft:can_fly": {},
+			 "minecraft:type_family": {
+				"family": ["abomination"]
+			},
+			 "minecraft:nameable": {},
+			  "minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"entity_types": [
+				  {
+					"filters": {  
+						"any_of": [
+						  { "test" :  "is_family", "subject" : "other", "value" :  "player"}
+						] 
+					},
+					"max_dist": 50
+				  }
+				 
+				],
+				"must_see": false
+			  }
+		},
+		"events": {
+			"boat": {
+				"queue_command": {
+					"command": [
+					  "kill @e[family=inanimate,r=2]"
+					]}
+			},
+			"near": {
+				"sequence": [
+					{
+				"remove": {
+					"component_groups": ["far"]
+				}
+			},{
+				"add": {
+					"component_groups": ["near"]
+				}
+			}]
+				
+			},
+			"far": {
+				"sequence": [
+					{
+				"remove": {
+					"component_groups": ["near"]
+				}
+			},{
+				"add": {
+					"component_groups": ["far"]
+				}
+			}]
+				
+			},
+			"regen": {
+				"queue_command": {
+					"command": [
+					  "effect @s regeneration 3 3",
+					  "effect @s resistance 3 40"
+					]}
+		},
+		"regenhard": {
+			"queue_command": {
+				"command": [
+				  "effect @s regeneration 5 0"
+				]}
+	},
+			"easy": {
+				"sequence": [
+				{"remove": {
+					"component_groups": ["start"]
+				}},
+				{"queue_command": {
+					"command": [
+					  "effect @s instant_health 3 255 true"
+					]}},
+				{"add": {
+					"component_groups": ["easy"]
+				}},
+				{"randomize": [
+					{
+						"weight": 2,
+						"add": {
+							"component_groups": ["summon2e"]
+						}
+					},
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": ["melee2e"]
+						}
+					},
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": ["distance2e"]
+						}
+					}
+					
+				]}]
+			},
+			"normal": {
+				"sequence": [
+				{"remove": {
+					"component_groups": ["start"]
+				}},
+				{"queue_command": {
+					"command": [
+					  "effect @s instant_health 3 255 true"
+					]}},
+					{"add": {
+				"component_groups": ["normal"]
+					}},
+					{"randomize": [
+						{
+							"weight": 2,
+							"add": {
+								"component_groups": ["summon2n"]
+							}
+						},
+						{
+							"weight": 1,
+							"add": {
+								"component_groups": ["melee2n"]
+							}
+						},
+						{
+							"weight": 1,
+							"add": {
+								"component_groups": ["distance2n"]
+							}
+						}
+						
+					]}]
+			},
+			"hard": {
+				"sequence": [
+				{"remove": {
+					"component_groups": ["start"]
+				}},
+				{"queue_command": {
+					"command": [
+					  "effect @s instant_health 3 255 true"
+					]}},
+					{"add": {
+						"component_groups": ["hard"]
+					}},
+					{"randomize": [
+						{
+							"weight": 1,
+							"add": {
+								"component_groups": ["summon2"]
+							}
+						},
+						{
+							"weight": 1,
+							"add": {
+								"component_groups": ["melee2"]
+							}
+						},
+						{
+							"weight": 1,
+							"add": {
+								"component_groups": ["distance2"]
+							}
+						}
+						
+					]}]
+			},		
+		"minecraft:entity_spawned": {
+			"sequence": [
+				{
+			"add": {
+				"component_groups": ["start","near","lava"]
+			}
+			},
+			{"queue_command": {
+				"command": [
+				  "effect @s instant_health 3 255 true"
+				]}},
+			{
+			"randomize": [
+				{
+					"weight": 2,
+					"add": {
+						"component_groups": ["summon2"]
+					}
+				},
+				{
+					"weight": 1,
+					"add": {
+						"component_groups": ["melee2"]
+					}
+				},
+				{
+					"weight": 1,
+					"add": {
+						"component_groups": ["distance2"]
+					}
+				}
+				
+			]
+		}]
+		},
+		
+		"change_summon2": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["summon2"]
+			}
+		},{
+			"add": {
+				"component_groups": ["melee2"]
+			}
+		}]
+			
+		},
+		"change_melee2": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["melee2"]
+			}
+		},{
+			"add": {
+				"component_groups": ["distance2"]
+			}
+		}]
+			
+		},
+		"change_distance2": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["distance2"]
+			}
+		},{
+			"add": {
+				"component_groups": ["summon2"]
+			}
+		}]
+			
+		},
+		"change_summon2n": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["summon2n"]
+			}
+		},{
+			"add": {
+				"component_groups": ["melee2n"]
+			}
+		}]
+			
+		},
+		"change_melee2n": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["melee2n"]
+			}
+		},{
+			"add": {
+				"component_groups": ["distance2n"]
+			}
+		}]
+			
+		},
+		"change_distance2n": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["distance2n"]
+			}
+		},{
+			"add": {
+				"component_groups": ["summon2n"]
+			}
+		}]
+			
+		},
+		"change_summon2e": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["summon2e"]
+			}
+		},{
+			"add": {
+				"component_groups": ["melee2e"]
+			}
+		}]
+			
+		},
+		"change_melee2e": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["melee2e"]
+			}
+		},{
+			"add": {
+				"component_groups": ["distance2e"]
+			}
+		}]
+			
+		},
+		"change_distance2e": {
+			"sequence": [
+				{
+			"remove": {
+				"component_groups": ["distance2e"]
+			}
+		},{
+			"add": {
+				"component_groups": ["summon2e"]
+			}
+		}]
+			
+		},
+		"despawn": {
+			"queue_command": {
+				"command": [
+				  "say O Boss retornou para o submundo devido a luz do dia"
+				]},
+            "add": {
+               "component_groups": [
+                  "minecraft:despawn"
+               ]
+            }
+         }
+	}
+}
+}

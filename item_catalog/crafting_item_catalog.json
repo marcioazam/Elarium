@@ -1,0 +1,251 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "items", // The Category
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "dungeons:redstone_key",
+              "name": "dungeons:itemGroup.name.bossKeys"
+            },
+            "items": [
+              "dungeons:redstone_key",
+              "dungeons:nameless_key",
+              "dungeons:questionable_key",
+              "dungeons:wretched_key",
+              "dungeons:corrupted_key",
+              "dungeons:jungle_key",
+              "dungeons:tempest_key",
+              "dungeons:ancient_key",
+              "dungeons:blaze_key",
+              "dungeons:skeleton_key"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "dungeons:redstone_painting",
+              "name": "dungeons:itemGroup.name.dungeonsPainting"
+            },
+            "items": [
+              "dungeons:redstone_painting",
+              "dungeons:nameless_painting",
+              "dungeons:mooshroom_painting",
+              "dungeons:wraith_painting",
+              "dungeons:cauldron_painting",
+              "dungeons:abomination_painting",
+              "dungeons:tempest_painting",
+              "dungeons:guardian_painting",
+              "dungeons:wildfire_painting",
+              "dungeons:spooky_painting"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "equipment", // The Category
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "dungeons:katana",
+              "name": "dungeons:itemGroup.name.commonMelee"
+            },
+            "items": [
+              "dungeons:sword",
+              "dungeons:katana",
+              "dungeons:claymore",
+              "dungeons:cutlass",
+              "dungeons:daggers",
+              "dungeons:rapier",
+              "dungeons:battlestaff",
+              "dungeons:axe",
+              "dungeons:double_axe",
+              "dungeons:coral_blade",
+              "dungeons:tempest_knife",
+              "dungeons:soul_knife",
+              "dungeons:soul_scythe",
+              "dungeons:whip",
+              "dungeons:broken_sawblade",
+              "dungeons:great_hammer",
+              "dungeons:anchor",
+              "dungeons:bone_club",
+              "dungeons:obsidian_claymore"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "dungeons:dark_katana",
+              "name": "dungeons:itemGroup.name.uniqueMelee"
+            },
+            "items": [
+              "dungeons:diamond_sword",
+              "dungeons:hawkbrand",
+              "dungeons:dark_katana",
+              "dungeons:masters_katana",
+              "dungeons:broadsword",
+              "dungeons:great_axeblade",
+              "dungeons:heartstealer",
+              "dungeons:dancers_sword",
+              "dungeons:nameless_blade",
+              "dungeons:frost_knives",
+              "dungeons:moon_daggers",
+              "dungeons:sheer_daggers",
+              "dungeons:bee_stinger",
+              "dungeons:freezing_foil",
+              "dungeons:battlestaff_of_terror",
+              "dungeons:growing_staff",
+              "dungeons:firebrand",
+              "dungeons:highlands_axe",
+              "dungeons:cursed_axe",
+              "dungeons:whirlwind",
+              "dungeons:sponge_striker",
+              "dungeons:chill_gale_knife",
+              "dungeons:resolute_tempest_knife",
+              "dungeons:eternal_knife",
+              "dungeons:truthseeker",
+              "dungeons:frost_scythe",
+              "dungeons:jailors_scythe",
+              "dungeons:vine_whip",
+              "dungeons:mechanised_sawblade",
+              "dungeons:hammer_of_gravity",
+              "dungeons:stormlander",
+              "dungeons:encrusted_anchor",
+              "dungeons:bone_cudgel",
+              "dungeons:starless_night"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "dungeons:sinister_sword",
+              "name": "dungeons:itemGroup.name.seasonalMelee"
+            },
+            "items": [
+              "dungeons:sinister_sword",
+              "dungeons:skull_scythe",
+              "dungeons:bonehead_hammer"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "dungeons:longbow",
+              "name": "dungeons:itemGroup.name.commonRanged"
+            },
+            "items": [
+              "dungeons:longbow",
+              "dungeons:snow_bow",
+              "dungeons:wind_bow",
+              "dungeons:twisting_vine_bow",
+              "dungeons:burst_crossbow",
+              "dungeons:soul_crossbow",
+              "dungeons:heavy_crossbow",
+              "dungeons:exploding_crossbow",
+              "dungeons:cog_crossbow",
+              "dungeons:harpoon_crossbow"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "dungeons:red_snake",
+              "name": "dungeons:itemGroup.name.uniqueRanged"
+            },
+            "items": [
+              "dungeons:red_snake",
+              "dungeons:guardian_bow",
+              "dungeons:bonebow",
+              "dungeons:twin_bow",
+              "dungeons:winters_touch",
+              "dungeons:burst_gale_bow",
+              "dungeons:echo_of_the_valley",
+              "dungeons:weeping_vine_bow",
+              "dungeons:corrupted_crossbow",
+              "dungeons:soul_hunter_crossbow",
+              "dungeons:feral_soul_crossbow",
+              "dungeons:voidcaller",
+              "dungeons:doom_crossbow",
+              "dungeons:slayer_crossbow",
+              "dungeons:firebolt_thrower",
+              "dungeons:imploding_crossbow",
+              "dungeons:pride_of_the_piglins",
+              "dungeons:nautical_crossbow"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "dungeons:shock_powder",
+              "name": "dungeons:itemGroup.name.commonArtefact"
+            },
+            "items": [
+              "dungeons:satchel_of_elements",
+              "dungeons:ice_wand",
+              "dungeons:lightning_rod",
+              "dungeons:harvester",
+              "dungeons:scatter_mines",
+              "dungeons:blast_fungus",
+              "dungeons:eye_of_the_guardian",
+              "dungeons:updraft_tome",
+              "dungeons:soul_healer",
+              "dungeons:totem_of_regeneration",
+              "dungeons:iron_hide_amulet",
+              "dungeons:death_cap_mushroom",
+              "dungeons:boots_of_swiftness",
+              "dungeons:light_feather",
+              "dungeons:totem_of_shielding",
+              "dungeons:totem_of_casting",
+              "dungeons:satchel_of_snacks",
+              "dungeons:satchel_of_elixirs",
+              "dungeons:powershaker",
+              "dungeons:shadow_shifter",
+              "dungeons:shock_powder",
+              "dungeons:gong_of_weakening",
+              "dungeons:wind_horn",
+              "dungeons:corrupted_seeds",
+              "dungeons:enchanters_tome",
+              "dungeons:enchanted_grass",
+              "dungeons:buzzy_nest",
+              "dungeons:golem_kit",
+              "dungeons:vexing_chant"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "dungeons:rare_satchel_of_elements",
+              "name": "dungeons:itemGroup.name.rareArtefact"
+            },
+            "items": [
+              "dungeons:rare_satchel_of_elements",
+              "dungeons:rare_ice_wand",
+              "dungeons:rare_lightning_rod",
+              "dungeons:rare_harvester",
+              "dungeons:rare_scatter_mines",
+              "dungeons:rare_blast_fungus",
+              "dungeons:rare_eye_of_the_guardian",
+              "dungeons:rare_updraft_tome",
+              "dungeons:rare_soul_healer",
+              "dungeons:rare_totem_of_regeneration",
+              "dungeons:rare_iron_hide_amulet",
+              "dungeons:rare_death_cap_mushroom",
+              "dungeons:rare_boots_of_swiftness",
+              "dungeons:rare_light_feather",
+              "dungeons:rare_totem_of_shielding",
+              "dungeons:rare_totem_of_casting",
+              "dungeons:rare_satchel_of_snacks",
+              "dungeons:rare_satchel_of_elixirs",
+              "dungeons:rare_powershaker",
+              "dungeons:rare_shadow_shifter",
+              "dungeons:rare_shock_powder",
+              "dungeons:rare_gong_of_weakening",
+              "dungeons:rare_wind_horn",
+              "dungeons:rare_corrupted_seeds",
+              "dungeons:rare_enchanters_tome",
+              "dungeons:rare_enchanted_grass",
+              "dungeons:rare_buzzy_nest",
+              "dungeons:rare_golem_kit",
+              "dungeons:rare_vexing_chant"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

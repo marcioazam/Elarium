@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:crucus"
+    },
+
+    
+    "tags": [ "crafting_table"],
+    "pattern": [
+      "T"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:crocus_it"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:crocus_it"
+      }
+    ],
+    "result": {
+      "item": "minecraft:purple_dye"
+    }
+  }
+}

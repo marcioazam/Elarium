@@ -1,0 +1,19 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:basalt_deltas/ceiling_features/fire_opal"
+      },
+      "places_block": {
+        "name": "edx:fire_opal_ore",
+        "states": {
+            "minecraft:block_face": "down"
+        }
+    },
+      "enforce_placement_rules": false,
+      "enforce_survivability_rules": false,
+      "may_replace": [
+        "minecraft:basalt"
+      ]
+    }
+  }

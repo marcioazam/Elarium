@@ -1,0 +1,37 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:spawn_rules": {
+      "description": {
+        "identifier": "dungeons:squall_golem",
+        "population_control": "monster"
+      },
+      "conditions": [
+        {
+          
+          "minecraft:spawns_underground": {},
+          "minecraft:brightness_filter": {
+            "min": 0,
+            "max": 7,
+            "adjust_for_weather": true
+          },
+         "minecraft:height_filter": {
+              "min": -63,
+              "max": 0
+            },
+          "minecraft:weight": {
+            "default": 10
+          },
+          "minecraft:herd": {
+            "min_size": 1,
+            "max_size": 1
+          },
+       
+          "minecraft:biome_filter": {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "lush_caves"
+          }
+        }
+      ]
+    }
+  }

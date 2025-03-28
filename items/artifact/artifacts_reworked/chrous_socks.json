@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:chorus_socks",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"chorus_socks"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "chorus_socks"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dChorus socks \n§5Artifact\n§6You run faster on chorus grass \nJump on a chorus cap to be teleported on the one above it\nSneak on a chorus cap to be teleported on the one below it\nYou can't go through more than 10 chorus cap\nHumidity is conducive to the development of fungi"
+			  }
+		}
+	}
+}

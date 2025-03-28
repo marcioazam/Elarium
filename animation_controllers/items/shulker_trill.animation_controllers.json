@@ -1,0 +1,79 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.shulker_trill":{
+			"initial_state": "default",
+			"states": {
+				"default":{
+					"transitions": [
+						{
+							"shulker_chance": "q.is_using_item && q.get_equipped_item_name == 'shulker_trill'"
+						}
+					]
+				},
+        "shulker_chance":{
+          "on_entry": [
+            "v.randomize = math.random_integer(1, 2);"
+          ],
+          "transitions": [
+            {
+              "shulker_launch": "v.randomize == 1"
+            },
+            {
+              "shulker_damage": "v.randomize == 2"
+            }
+          ]
+        },
+        "shulker_damage":{
+          "on_entry": [
+            "/clear @s xp:shulker_trill 0 1"
+          ],
+          "on_exit": [
+            "/playsound random.break @s ~ ~ ~"
+          ],
+          "transitions": [
+            {
+              "shulker_launch": "(1.0)"
+            }
+          ]
+        },
+        "shulker_launch":{
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:stage_shulker_trill",
+            "/playsound mob.shulker.close @a[r=12] ~ ~ ~",
+            "/playsound mob.shulker.shoot @a[r=12] ~ ~ ~",
+            "/playsound mob.shulker.hurt @a[r=12] ~ ~ ~",
+            "/particle xp:shulker_trill.release ~ ~1 ~"
+          ],
+          "transitions": [
+            {
+              "shulker_launch1": "(q.life_time - v.tick_delay) >= 0.2"
+            }
+          ]
+        },
+        "shulker_launch1":{
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:stage_shulker_trill"
+          ],
+          "transitions": [
+            {
+              "shulker_launch2": "(q.life_time - v.tick_delay) >= 0.2"
+            }
+          ]
+        },
+        "shulker_launch2":{
+          "on_entry": [
+            "@s xp:stage_shulker_trill"
+          ],
+          "transitions": [
+            {
+              "default": "(1.0)"
+            }
+          ]
+        }
+			}
+		}
+  }
+}

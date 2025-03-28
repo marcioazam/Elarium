@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:coal_frozen"
+		,"menu_category":
+			{
+				"group": "itemGroup.name.ore",
+				"category": "nature"
+			}
+		},
+		"components": {
+			"tag:edx:wooden_pick": {},
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 15
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 30
+            },
+			"minecraft:map_color": "#586e73" ,
+			
+			"minecraft:loot": "loot_tables/blocks/coal_ore.json"
+		}
+	}
+}

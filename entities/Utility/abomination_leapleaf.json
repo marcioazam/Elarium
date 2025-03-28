@@ -1,0 +1,71 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:abomination_leapleaf_spawn",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "components": {
+"minecraft:transformation": {
+    "into": "dungeons:leapleaf<dungeons:abomination_minion>",
+    "drop_equipment": false,
+    "drop_inventory": true,
+    "keep_level": false,
+    "delay": {
+        "value": 1.05
+    }
+},
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "ignore",
+          "monster"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 2,
+        "height": 2.1
+      },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/leapleaf_axe.json", //used for shield break effect
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": -1
+          }
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "tp ~~~ facing @p"
+          ]
+        }
+      }
+    }
+  }
+}

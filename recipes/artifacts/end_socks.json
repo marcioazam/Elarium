@@ -1,0 +1,47 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:end_socks"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "A  ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:chorus_socks"
+      },
+      "#": {
+        "item": "edx:purpur_socks"
+      },
+      "A": {
+        "item": "edx:void_socks"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "edx:instable_enderpearl"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:end_socks"
+      },
+      {
+        "item": "edx:chorus_socks"
+      },
+      {
+        "item": "edx:purpur_socks"
+      }
+    ],
+    "result": {
+      "item": "edx:end_socks"
+    }
+  }
+  
+}

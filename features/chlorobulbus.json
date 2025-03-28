@@ -1,0 +1,21 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:single_block_feature": {
+        "description": {
+          "identifier": "edx:chlorobulbus"
+        },
+        "places_block": "edx:chlorobulbus",
+        "enforce_placement_rules": true,
+        "enforce_survivability_rules": true,
+        "may_attach_to": {
+          "bottom":  [
+            "minecraft:dirt",
+            "minecraft:grass",
+            "edx:mossed_stone"
+        ]
+      },
+        "may_replace": [
+          "minecraft:air"
+        ]
+      }
+}

@@ -1,0 +1,81 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:wither",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "true_wither_before_start":{
+        "minecraft:type_family": {
+          "family": [ "void_mode" ]
+        },
+        "minecraft:timer":{
+					"looping": true,
+					"randomInterval":false,
+					"time": 5,
+					"time_down_event": {
+						"event": "novoid_mode"
+					}
+				}
+      },
+      "minecraft:despawn": { 
+        "minecraft:instant_despawn": {
+         "remove_child_entities": true
+        }
+     }
+    },
+    "components": {
+		"minecraft:health": {
+        "value": 2000,
+        "max": 2000
+      }
+    },
+    "events": {
+      "minecraft:despawn":{
+        "add": {
+          "component_groups": ["minecraft:despawn"]
+        }
+      }, 
+      "minecraft:entity_spawned": {
+        "sequence": [ 
+        {
+          "filters": {
+            "test": "in_nether",
+            "subject": "self",
+            "operator": "==",
+            "value": true
+          },
+          "add": {
+            "component_groups": ["true_wither_before_start"]
+          }
+        }
+      ]
+      },
+      "void_mode": {
+        "sequence": [
+          {
+          "queue_command": {
+            "command": [
+              "scriptevent edx:true_wither"
+            ]
+          }
+          }
+        ]
+      },
+      "novoid_mode": {
+        "sequence": [
+        {
+          "queue_command": {
+          "command": [
+            "scriptevent edx:true_wither_fail"
+          ]
+          }
+        }
+        ]
+      }
+    }
+  }
+}

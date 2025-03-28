@@ -1,0 +1,291 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 2,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:carrot",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potato",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:beef",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:raw_penguin",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:penguin_egg",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:raw_bear",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:beetroot",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 3,
+        "max": 8
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "edx:copper_coin",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:copper_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 9
+              }
+            }
+          ],
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "edx:spawner_fragment",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:platinium_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:runestone",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:solid_bone",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "edx:treasure_chest",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "edx:nickel_ingot",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+              {
+                  "function": "enchant_with_levels",
+                  "levels": {
+                      "min": 1,
+                      "max": 5
+                  }
+              }
+          ],
+          "name": "edx:platinium_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+              {
+                  "function": "enchant_with_levels",
+                  "levels": {
+                      "min": 1,
+                      "max": 5
+                  }
+              }
+          ],
+          "name": "edx:platinium_boots"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+              {
+                  "function": "enchant_with_levels",
+                  "levels": {
+                      "min": 1,
+                      "max": 5
+                  }
+              }
+          ],
+          "name": "edx:platinium_chestplate"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+              {
+                  "function": "enchant_with_levels",
+                  "levels": {
+                      "min": 1,
+                      "max": 5
+                  }
+              }
+          ],
+          "name": "edx:platinium_helmet"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:magnetic_firework",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_rage",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_bravery",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_fear",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_youth",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:enchanted_socks",
+          
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:heart_in_a_bottle",
+         
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:air",
+          "weight": 400
+        }
+      ]
+    }
+  ]
+}

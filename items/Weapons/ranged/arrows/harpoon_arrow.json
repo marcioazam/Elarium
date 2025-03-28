@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:harpoon_arrow",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.arrow"
+      }
+    },
+    "components": {
+      "minecraft:icon": "harpoon_arrow",
+      "minecraft:tags": {
+        "tags": [
+          "dungeons:arrow"
+        ]
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "dungeons:harpoon_arrow",
+        "minimum_critical_power": 1.25
+      },
+      "minecraft:allow_off_hand": true
+    }
+  }
+}

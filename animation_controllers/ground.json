@@ -1,0 +1,20 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.ground": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"light":"query.is_on_ground == 1 && query.variant == 2"} 
+					]
+				},
+				"light": {
+					"on_exit": [
+						"/event entity @s shockwave"
+					  ],
+					"transitions":[{"default":"!query.is_on_ground"} ]
+			}
+	 	}
+		}
+	}
+}

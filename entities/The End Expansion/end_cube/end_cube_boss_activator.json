@@ -1,0 +1,480 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_boss_activator",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [ "runtime" ]
+      },
+      "animations": {
+        "runtime": "controller.animation.end_cube.boss_activator.runtime"
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": true
+        }
+      },
+      "xp:on_spawn": {
+        "minecraft:is_saddled": {}
+      },
+
+      "xp:end_cube_boss_activator.inactive": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "xp:end_cube_boss_activator.active": {
+        "minecraft:variant": {
+          "value": 1
+        }
+      },
+      "xp:end_cube_boss_activator.hiding": {
+        "minecraft:variant": {
+          "value": 2
+        }
+      },
+      "xp:end_cube_boss_activator.hidden": {
+        "minecraft:variant": {
+          "value": 3
+        }
+      },
+
+      "xp:facing_direction.north": {
+        "minecraft:mark_variant": {
+          "value": 1
+        },
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "family_types": ["interaction"],
+          "seats": [
+            {
+              "position": [0, 1.5, 1.25],
+              "lock_rider_rotation": 0
+            }
+          ]
+        }
+      },
+      "xp:facing_direction.south": {
+        "minecraft:mark_variant": {
+          "value": 0
+        },
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "family_types": ["interaction"],
+          "seats": [
+            {
+              "position": [0, 1.5, -1.25],
+              "lock_rider_rotation": 0
+            }
+          ]
+        }
+      },
+      "xp:facing_direction.west": {
+        "minecraft:mark_variant": {
+          "value": 2
+        },
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "family_types": ["interaction"],
+          "seats": [
+            {
+              "position": [1.25, 1.5, 0],
+              "lock_rider_rotation": 0
+            }
+          ]
+        }
+      },
+      "xp:facing_direction.east": {
+        "minecraft:mark_variant": {
+          "value": 3
+        },
+        "minecraft:rideable": {
+          "seat_count": 1,
+          "family_types": ["interaction"],
+          "seats": [
+            {
+              "position": [-1.25, 1.5, 0],
+              "lock_rider_rotation": 0
+            }
+          ]
+        }
+      },
+
+      "xp:spawn_interaction_point.north": {
+        "minecraft:addrider": {
+          "entity_type": "xp:end_cube_boss_activator",
+          "spawn_event": "xp:set_interaction_point.north"
+        },
+        "minecraft:timer": {
+          "time": 0,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:clear_spawn_interaction_point",
+            "target": "self"
+          }
+        }
+      },
+      "xp:spawn_interaction_point.south": {
+        "minecraft:addrider": {
+          "entity_type": "xp:end_cube_boss_activator",
+          "spawn_event": "xp:set_interaction_point.south"
+        },
+        "minecraft:timer": {
+          "time": 0,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:clear_spawn_interaction_point",
+            "target": "self"
+          }
+        }
+      },
+      "xp:spawn_interaction_point.west": {
+        "minecraft:addrider": {
+          "entity_type": "xp:end_cube_boss_activator",
+          "spawn_event": "xp:set_interaction_point.west"
+        },
+        "minecraft:timer": {
+          "time": 0,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:clear_spawn_interaction_point",
+            "target": "self"
+          }
+        }
+      },
+      "xp:spawn_interaction_point.east": {
+        "minecraft:addrider": {
+          "entity_type": "xp:end_cube_boss_activator",
+          "spawn_event": "xp:set_interaction_point.east"
+        },
+        "minecraft:timer": {
+          "time": 0,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:clear_spawn_interaction_point",
+            "target": "self"
+          }
+        }
+      },
+
+      "xp:interact_point": {
+        "minecraft:type_family": {
+          "family": [ "end_cube", "boss_activator", "interaction", "inanimate" ]
+        },
+        "minecraft:is_charged": {},
+        "minecraft:collision_box": {
+          "width": 0,
+          "height": 0
+        },
+        "minecraft:custom_hit_test": {
+          "hitboxes": [
+            {
+              "pivot": [0, 0.42, 0],
+              "width": 1.0,
+              "height": 1.0
+            }
+          ]
+        },
+
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "void",
+              "damage_multiplier": 10e7,
+              "deals_damage": true
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    { "test": "has_damage", "value": "anvil" },
+                    { "test": "has_damage", "value": "block_explosion" },
+                    { "test": "has_damage", "value": "entity_explosion" },
+                    { "test": "has_damage", "value": "fire" },
+                    { "test": "has_damage", "value": "fire_tick" },
+                    { "test": "has_damage", "value": "lava" },
+                    { "test": "has_damage", "value": "projectile" },
+                    { "test": "has_damage", "value": "suffocation" }
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject": "other", "value": "player" },
+                    { "test": "has_damage", "subject": "self", "value": "attack" }
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject": "other", "value": "player" },
+                    { "test": "has_damage", "subject": "self", "value": "attack" },
+                    { "test": "has_tag", "operator": "!=", "value": "ender_eye_boss_blocked" },
+                    { "test": "has_tag", "operator": "!=", "value": "ender_eye_boss_activated" },
+                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "ender_eye" },
+                    { "test": "is_variant", "value": 0 }
+                  ]
+                },
+                "event": "xp:end_cube_boss_activator_activate"
+              },
+              "deals_damage": false
+            }
+          ]
+        },
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_tag",
+                      "operator": "!=",
+                      "value": "ender_eye_boss_blocked"
+                    },
+                    {
+                      "test": "has_tag",
+                      "operator": "!=",
+                      "value": "ender_eye_boss_activated"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "ender_eye"
+                    },
+                    {
+                      "test": "is_variant", 
+                      "value": 0
+                    }
+                  ]
+                },
+                "event": "xp:end_cube_boss_activator_activate"
+              },
+              "use_item": true,
+              "interact_text": "action.interact.place_eye_of_ender"
+            }
+          ]
+        },
+        "minecraft:environment_sensor": {
+          "triggers": {
+            "filters": {
+              "test": "is_riding",
+              "value": false
+            },
+            "event": "xp:instant_despawn"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "end_cube", "boss_activator", "inanimate" ]
+      },
+      "minecraft:health": {
+        "min": 1,
+        "max": 1,
+        "value": 1
+      },
+      "minecraft:collision_box": {
+        "width": 3.0,
+        "height": 4.2
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "void",
+            "damage_multiplier": 10e7,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  { "test": "has_damage", "value": "attack" },
+                  { "test": "has_damage", "value": "anvil" },
+                  { "test": "has_damage", "value": "block_explosion" },
+                  { "test": "has_damage", "value": "entity_explosion" },
+                  { "test": "has_damage", "value": "fire" },
+                  { "test": "has_damage", "value": "fire_tick" },
+                  { "test": "has_damage", "value": "lava" },
+                  { "test": "has_damage", "value": "projectile" },
+                  { "test": "has_damage", "value": "suffocation" }
+                ]
+              }
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "rider_count",
+                "value": 0
+              },
+              {
+                "test": "is_variant",
+                "operator": "<",
+                "value": 2
+              }
+            ]
+          },
+          "event": "xp:spawn_interaction_point"
+        }
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [ "xp:end_cube_boss_activator.inactive" ]
+            }
+          }
+        ]
+      },
+
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+      "xp:on_spawn": {
+        "add": {
+          "component_groups": [ "xp:on_spawn" ]
+        }
+      },
+
+      "xp:set_interaction_point.north": {
+        "add": {
+          "component_groups": [ "xp:interact_point", "xp:facing_direction.north" ]
+        }
+      },
+      "xp:set_interaction_point.south": {
+        "add": {
+          "component_groups": [ "xp:interact_point", "xp:facing_direction.south" ]
+        }
+      },
+      "xp:set_interaction_point.west": {
+        "add": {
+          "component_groups": [ "xp:interact_point", "xp:facing_direction.west" ]
+        }
+      },
+      "xp:set_interaction_point.east": {
+        "add": {
+          "component_groups": [ "xp:interact_point", "xp:facing_direction.east" ]
+        }
+      },
+      "xp:spawn_interaction_point": {
+        "sequence": [
+          {
+            "filters": { "test": "is_mark_variant", "value": 1 },
+            "add": { "component_groups": [ "xp:spawn_interaction_point.north" ] }
+          },
+          {
+            "filters": { "test": "is_mark_variant", "value": 0 },
+            "add": { "component_groups": [ "xp:spawn_interaction_point.south" ] }
+          },
+          {
+            "filters": { "test": "is_mark_variant", "value": 2 },
+            "add": { "component_groups": [ "xp:spawn_interaction_point.west" ] }
+          },
+          {
+            "filters": { "test": "is_mark_variant", "value": 3 },
+            "add": { "component_groups": [ "xp:spawn_interaction_point.east" ] }
+          }
+        ]
+      },
+      "xp:clear_spawn_interaction_point": {
+        "remove": {
+          "component_groups": [
+            "xp:spawn_interaction_point.north",
+            "xp:spawn_interaction_point.south",
+            "xp:spawn_interaction_point.west",
+            "xp:spawn_interaction_point.east"
+          ]
+        }
+      },
+
+      "xp:end_cube_boss_activator_activate": {
+        "add": {
+          "component_groups": [ "xp:end_cube_boss_activator.active" ]
+        }
+      },
+      "xp:end_cube_boss_activator_deactivate": {
+        "add": {
+          "component_groups": [ "xp:end_cube_boss_activator.inactive" ]
+        }
+      },
+
+      "xp:end_cube_boss_activator_hiding": {
+        "add": {
+          "component_groups": [ "xp:end_cube_boss_activator.hiding" ]
+        }
+      },
+      "xp:end_cube_boss_activator_hidden": {
+        "add": {
+          "component_groups": [ "xp:end_cube_boss_activator.hidden" ]
+        }
+      },
+
+      "xp:facing_north": {
+        "add": {
+          "component_groups": [ "xp:facing_direction.north" ]
+        }
+      },
+      "xp:facing_south": {
+        "add": {
+          "component_groups": [ "xp:facing_direction.south" ]
+        }
+      },
+      "xp:facing_west": {
+        "add": {
+          "component_groups": [ "xp:facing_direction.west" ]
+        }
+      },
+      "xp:facing_east": {
+        "add": {
+          "component_groups": [ "xp:facing_direction.east" ]
+        }
+      }
+    }
+  }
+}

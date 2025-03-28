@@ -1,0 +1,1050 @@
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:wretched_wraith",
+      "runtime_identifier": "minecraft:zombie",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+         "animations":{
+            "death_controller":"controller.animation.wretched_wraith.death"
+         }
+    },
+    "component_groups": {
+      "dungeons:begin_die": {
+        "minecraft:instant_despawn": {}
+      },
+      "dungeons:boss_bar_blue": {
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+        "minecraft:boss": {
+          "should_darken_sky": false,
+          "hud_range": 48,
+          "name": " §bWretched Wraith§r "
+        }
+      },
+      "dungeons:boss_bar_purple": {
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+        "minecraft:boss": {
+          "should_darken_sky": false,
+          "hud_range": 48,
+          "name": " §5Wretched Wraith§r "
+        }
+      },
+      "dungeons:p_1_teleport_start": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.626,
+          "time_down_event": {
+            "event": "dungeons:action_p_1_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:p_1_teleport_action": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.375,
+          "time_down_event": {
+            "event": "dungeons:finish_p_1_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 0.01,
+          "height": 0.01
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:p_1_teleport_end": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.7083,
+          "time_down_event": {
+            "event": "dungeons:complete_p_1_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:phase_1": {
+        "minecraft:is_saddled": {},
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "actor_health",
+                    "operator": "<=",
+                    "value": 600
+                  }
+                ]
+              },
+              "event": "dungeons:stun_teleport"
+            }
+          ]
+        },
+        "minecraft:movement": {
+          "value": 0.27
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "mob"
+                    }
+                  ]
+                },
+                "event": "dungeons:p_1_try_teleport"
+              },
+              "deals_damage": true
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "event": "dungeons:p_1_try_teleport"
+              },
+              "deals_damage": true
+            }
+          ]
+        },
+        "minecraft:shooter": {
+          "def": "dungeons:wretched_shot"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_interval_min": 0.55,
+          "attack_interval_max": 0.75,
+          "attack_radius": 40
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:behavior.avoid_mob_type": {
+          "priority": 1,
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_target",
+                    "subject": "other"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "snowgolem"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "irongolem"
+                  }
+                ]
+              },
+              "max_dist": 3,
+              "max_flee": 5,
+              "walk_speed_multiplier": 1.8,
+              "sprint_speed_multiplier": 1.8
+            }
+          ]
+        }
+      },
+      "dungeons:stun_teleport_start": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.626,
+          "time_down_event": {
+            "event": "dungeons:action_stun_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:stun_teleport_action": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.375,
+          "time_down_event": {
+            "event": "dungeons:finish_stun_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 0.01,
+          "height": 0.01
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:stun_teleport_end": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.7083,
+          "time_down_event": {
+            "event": "dungeons:begin_stun_phase"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:stun_phase": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 10,
+          "time_down_event": {
+            "event": "dungeons:complete_stun_phase"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+                "minecraft:behavior.timer_flag_1": {
+                    "priority": 0,
+                    "cooldown_range": 0,
+                    "duration_range": [
+                        1,
+                        1
+                    ],
+                    "on_end": {
+                        "event": "dungeons:stun_vfx",
+                        "target": "self"
+                    }
+                },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "actor_health",
+                    "operator": "<=",
+                    "value": 400
+                  }
+                ]
+              },
+              "event": "dungeons:complete_stun_phase"
+            }
+          ]
+        }
+      },
+      "dungeons:end_stun_phase": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.54167,
+          "time_down_event": {
+            "event": "dungeons:enter_phase_2"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:phase_2": {
+        "minecraft:entity_sensor": {
+          "sensor_range": 48,
+          "relative_range": false,
+          "minimum_count": 0,
+          "maximum_count": 0,
+          "event_filters": {
+            "any_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "wretched_minion"
+              }
+            ]
+          },
+          "event": "dungeons:enter_phase_3"
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        },
+        "minecraft:variant": {
+          "value": 2
+        },
+      "minecraft:scale": {
+        "value": 0
+      },
+        "minecraft:collision_box": {
+          "width": 0.1,
+          "height": 0.1
+        }
+      },
+      "dungeons:p_3_teleport_start": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.626,
+          "time_down_event": {
+            "event": "dungeons:action_p_3_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:p_3_teleport_action": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.375,
+          "time_down_event": {
+            "event": "dungeons:finish_p_3_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 0.01,
+          "height": 0.01
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:p_3_teleport_end": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.7083,
+          "time_down_event": {
+            "event": "dungeons:complete_p_3_teleport"
+          }
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "dungeons:phase_3": {
+        "minecraft:is_saddled": {},
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:movement": {
+          "value": 0.33
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "mob"
+                    }
+                  ]
+                },
+                "event": "dungeons:p_3_try_teleport"
+              },
+              "deals_damage": true
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "event": "dungeons:p_3_try_teleport"
+              },
+              "deals_damage": true
+            }
+          ]
+        },
+        "minecraft:shooter": {
+          "def": "dungeons:wretched_shot"
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 3,
+          "attack_interval_min": 0.4,
+          "attack_interval_max": 0.6,
+          "attack_radius": 40
+        },
+        "minecraft:collision_box": {
+          "width": 1,
+          "height": 3.2
+        },
+        "minecraft:behavior.avoid_mob_type": {
+          "priority": 1,
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  {
+                    "test": "is_target",
+                    "subject": "other"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "snowgolem"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "irongolem"
+                  }
+                ]
+              },
+              "max_dist": 4,
+              "max_flee": 5,
+              "walk_speed_multiplier": 2,
+              "sprint_speed_multiplier": 2
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:mob_effect": {
+        "mob_effect": "hunger",
+        "effect_range": 16,
+        "effect_time": 60,
+        "cooldown_time": 30,
+        "entity_filter": [{
+          "test": "is_family",
+          "subject": "other",
+          "value": "player"
+        }]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:nameable": {},
+      "minecraft:type_family": {
+        "family": [
+          "boss",
+          "monster",
+          "mob",
+          "wretched_wraith",
+          "undead",
+          "gravity_immune"
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 3.2
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+     
+      "minecraft:variable_max_auto_step": {
+        "base_value": 1.0625, // 1 block + 1 pixel
+        "jump_prevented_value": 0.5625 // 0.5 blocks + 1 pixel
+      },
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:health": {
+        "value": 800,
+        "max": 800
+      },
+      "minecraft:scale": {
+        "value": 1
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "boss" }
+          }
+        ]
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 8,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 32,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 48
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:physics": {},
+      "minecraft:home": {
+        "restriction_radius": 32,
+        "restriction_type": "random_movement"
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:phase_1",
+            "dungeons:boss_bar_blue"
+          ]
+        }
+      },
+      "minecraft:entity_transformed": {
+        "add": {
+          "component_groups": [
+            "dungeons:phase_1",
+            "dungeons:boss_bar_blue"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "summon dungeons:wretched_pivot ^^^5"
+          ]
+        }
+      },
+      "dungeons:p_1_try_teleport": {
+        "randomize": [
+          {
+            "weight": 6
+          },
+          {
+            "weight": 1,
+            "trigger": "dungeons:p_1_teleport"
+          }
+        ]
+      },
+      "dungeons:p_1_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:phase_1",
+            "dungeons:boss_bar_blue"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:p_1_teleport_start",
+            "dungeons:boss_bar_purple"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playanimation @s animation.wretched_wraith.teleport_from_damage"
+          ]
+        }
+      },
+      "dungeons:action_p_1_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:p_1_teleport_start"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:p_1_teleport_action"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @e[r=2] weakness 5 3",
+            "particle dungeons:wretched_smoke ~~0.2~"
+          ]
+        }
+      },
+      "dungeons:finish_p_1_teleport": {
+        "queue_command": {
+          "command": [
+            "teleport @s @e[type=dungeons:wretched_pivot,c=1,r=64]"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:p_1_teleport_action"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:p_1_teleport_end"
+          ]
+        }
+      },
+      "dungeons:complete_p_1_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:p_1_teleport_end",
+            "dungeons:boss_bar_purple"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:phase_1",
+            "dungeons:boss_bar_blue"
+          ]
+        }
+      },
+      "dungeons:stun_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:phase_1",
+            "dungeons:boss_bar_blue"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:stun_teleport_start",
+            "dungeons:boss_bar_purple"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playanimation @s animation.wretched_wraith.teleport_from_damage"
+          ]
+        }
+      },
+      "dungeons:action_stun_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:stun_teleport_start"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:stun_teleport_action"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @e[r=2] weakness 5 3",
+            "particle dungeons:wretched_smoke ~~0.2~"
+          ]
+        }
+      },
+      "dungeons:finish_stun_teleport": {
+        "queue_command": {
+          "command": [
+            "teleport @s @e[type=dungeons:wretched_pivot,c=1,r=64]"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:stun_teleport_action"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:stun_teleport_end"
+          ]
+        }
+      },
+      "dungeons:stun_vfx": {
+        "queue_command": {
+          "command": [
+            "particle dungeons:stun_1s ~~0.01~"
+          ]
+        }
+      },
+      "dungeons:begin_stun_phase": {
+        "remove": {
+          "component_groups": [
+            "dungeons:stun_teleport_end",
+            "dungeons:boss_bar_purple"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "particle dungeons:stun_1s ~~0.01~",
+            "summon dungeons:wretched_wraith_awaken_boom"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:stun_phase",
+            "dungeons:boss_bar_blue"
+          ]
+        }
+      },
+      "dungeons:complete_stun_phase": {
+        "remove": {
+          "component_groups": [
+            "dungeons:stun_phase",
+            "dungeons:boss_bar_blue"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:end_stun_phase",
+            "dungeons:boss_bar_purple"
+          ]
+        }
+      },
+      "dungeons:enter_phase_2": {
+        "remove": {
+          "component_groups": [
+            "dungeons:end_stun_phase"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:phase_2"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "teleport @s @e[type=dungeons:wretched_pivot,c=1,r=64]",
+            "function fire_ring",
+            "summon dungeons:summon_wretched_mobs ~~1~"
+          ]
+        }
+      },
+      "dungeons:enter_phase_3": {
+        "remove": {
+          "component_groups": [
+            "dungeons:phase_2",
+            "dungeons:boss_bar_purple"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:phase_3",
+            "dungeons:boss_bar_blue"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @e[r=2] weakness 5 3",
+            "event entity @e[type=dungeons:wretched_wraith_fire,r=16] dungeons:despawn",
+            "particle dungeons:wretched_smoke ~~0.2~"
+          ]
+        }
+      },
+      "dungeons:summon_boy": {
+        "queue_command": {
+          "command": [
+            "summon dungeons:wretched_frozen_zombie",
+            "particle dungeons:element_freeze ~~0.2~"
+          ]
+        }
+      },
+      "dungeons:p_3_try_teleport": {
+        "randomize": [
+          {
+            "weight": 2
+          },
+          {
+            "weight": 1,
+            "trigger": "dungeons:p_3_teleport"
+          }
+        ]
+      },
+      "dungeons:p_3_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:phase_3",
+            "dungeons:boss_bar_blue"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:p_3_teleport_start",
+            "dungeons:boss_bar_purple"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "summon dungeons:weak_wretched_fire",
+            "summon dungeons:possible_zombie",
+            "playanimation @s animation.wretched_wraith.teleport_from_damage"
+          ]
+        }
+      },
+      "dungeons:action_p_3_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:p_3_teleport_start"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:p_3_teleport_action"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "effect @e[r=2] weakness 5 3",
+            "particle dungeons:wretched_smoke ~~0.2~"
+          ]
+        }
+      },
+      "dungeons:finish_p_3_teleport": {
+        "queue_command": {
+          "command": [
+            "teleport @s @e[type=dungeons:wretched_pivot,c=1,r=64]"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:p_3_teleport_action"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:p_3_teleport_end"
+          ]
+        }
+      },
+      "dungeons:complete_p_3_teleport": {
+        "remove": {
+          "component_groups": [
+            "dungeons:p_3_teleport_end",
+            "dungeons:boss_bar_purple"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:phase_3",
+            "dungeons:boss_bar_blue"
+          ]
+        },
+        "queue_command":{
+          "command": [
+             "summon dungeons:wretched_wraith_awaken_boom"
+          ]
+        }
+      },
+      "dungeons:start_death": {
+        "queue_command": {
+          "command": [
+            "particle dungeons:wretched_smoke ~~0.2~",
+            "particle dungeons:wretched_smoke ~~0~",
+            "particle dungeons:wretched_smoke ~~-0.2~",
+            "kill @e[type=dungeons:wretched_pivot,c=1]",
+            "kill @e[type=dungeons:weak_wretched_fire,r=12]",
+            "summon dungeons:wretched_wraith_death ~~~ facing ~~~"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:begin_die"
+          ]
+        }
+      }
+    }
+  }
+}

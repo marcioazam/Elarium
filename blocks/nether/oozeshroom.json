@@ -1,0 +1,115 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:oozeshroom",
+			"category": "none",
+			"states": {
+				"edx:type": [
+					"bottom",
+					"top"
+				],
+				"edx:juice": [
+					"empty",
+					"full"
+				]
+			}
+		},
+		"components": {
+			
+			"minecraft:geometry": "geometry.oozeshroom",
+            "minecraft:collision_box": {
+                "origin": [-7,0,-7],
+                "size": [14,16,14]
+            },
+			
+			"minecraft:selection_box": {
+                "origin": [-7,0,-7],
+                "size": [14,16,14]
+            },
+			"tag:no_silktouch": {},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "oozeshroom_top_empty",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+		
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 5
+            },
+			"minecraft:custom_components": ["edx:tall_plant"],
+			"minecraft:light_dampening":0,
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": ["up"],
+						"block_filter": ["netherrack","crimson_nylium","warped_nylium","edx:oozeshroom"] 
+                    }
+                ]
+            }
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('edx:type') == 'top' && q.block_state('edx:juice') == 'empty' ",
+				"components": {
+				"minecraft:custom_components": ["edx:tall_plant"],
+				"minecraft:material_instances": {
+					"*": {
+						"texture": "oozeshroom_top_empty",
+						"render_method": "opaque"
+					}
+				}
+				}
+			},
+			{
+				"condition": "q.block_state('edx:type') == 'bottom' && q.block_state('edx:juice') == 'empty' ",
+				"components": {
+				"minecraft:custom_components": ["edx:tall_plant","edx:oozeshroom_grow"],
+				"minecraft:material_instances": {
+					"*": {
+						"texture": "oozeshroom_bottom_empty",
+						"render_method": "opaque"
+					}
+				}
+				}
+			},
+			{
+				"condition": "q.block_state('edx:type') == 'top' && q.block_state('edx:juice') == 'full' ",
+				"components": {
+				"minecraft:custom_components": ["edx:tall_plant","edx:oozeshroom_full_particle","edx:oozeshroom_full_interact"],
+				"minecraft:tick": {
+  					"looping": true,
+  					"interval_range": [200, 300]
+					},
+				"minecraft:material_instances": {
+					"*": {
+						"texture": "oozeshroom_top_full",
+						"render_method": "opaque"
+					}
+				}
+				}
+			},
+			{
+				"condition": "q.block_state('edx:type') == 'bottom' && q.block_state('edx:juice') == 'full' ",
+				"components": {
+				"minecraft:custom_components": ["edx:tall_plant","edx:oozeshroom_full_interact"],
+				
+				"minecraft:tick": {
+  					"looping": true,
+  					"interval_range": [200, 300]
+					},
+				"minecraft:material_instances": {
+					"*": {
+						"texture": "oozeshroom_bottom_full",
+						"render_method": "opaque"
+					}
+				}
+				}
+			}
+		]
+	}
+}

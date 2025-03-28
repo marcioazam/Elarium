@@ -1,0 +1,215 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.conduit.idle_sfx": {
+      "loop": true,
+      "animation_length": 2.75,
+      "timeline": {
+        "0.0": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.75 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.5 0.75 0.05",
+          
+          "/playsound shriek.sculk_shrieker @a[r=15] ~~3~ 0.25 0.25 1",
+          "/playsound respawn_anchor.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.2 0.5 0.01"
+        ],
+        "0.25": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational"
+        ],
+        "0.5": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational"
+        ],
+        "0.75": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.75 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.5 0.75 0.05"
+        ],
+        "1": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational"
+        ],
+        "1.25": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational"
+        ],
+        "1.5": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.75 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.5 0.75 0.05"
+        ],
+        "1.75": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational"
+        ],
+        "2": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational"
+        ],
+        "2.25": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.75 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~1,z=~,r=40] ~~3~ 0.5 0.75 0.05"
+        ],
+        "2.5": [
+          "/camerashake add @a[x=~,y=~1,z=~,r=5] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~1,z=~,r=9] 0.0035 0.25 rotational"
+        ]
+      }
+    },
+    "animation.conduit.walk": {
+      "animation_length": 1.5,
+      "loop": true,
+      "timeline": {
+        "0.05": [
+          "/effect @e[r=7,rm=0.1,type=!xp:conduit,family=!inanimate] levitation 1 8 true",
+          "/camerashake add @a[r=7] 0.4 0.05 positional",
+          "/camerashake add @a[r=13,rm=7] 0.2 0.05 positional"
+        ],
+        "0.15": ["/effect @e[r=8,family=!inanimate] levitation 0 0 true"]
+      }
+    },
+    "animation.conduit.tick": {
+      "animation_length": 0.5,
+      "loop": true,
+      "timeline": {
+        "0.0": ["/function conduit/tick"]
+      }
+    },
+    "animation.conduit.use_test": {
+      "animation_length": 0.05,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/tag @s add self",
+          "/execute as @e[family=!conduit,family=!inanimate,y=~1,r=1.1] at @s run event entity @e[tag=self] xp:use",
+          "/tag @s remove self"
+        ]
+      }
+    },
+    "animation.conduit.use": {
+      "animation_length": 1,
+      "loop": true,
+      "timeline": {
+        "0.25": [
+          "/execute as @s[family=sanctuary_conduit] at @s run tp @e[c=1,family=!conduit] @r[type=xp:conduit,family=sanctuary_conduit]",
+          //"/execute as @s[family=!sanctuary_conduit] at @s run setblock ~ 2 ~ end_portal",
+          "/execute as @s[family=!sanctuary_conduit] at @s in the_end run event entity @p[c=1,r=2] xp:end_travel.to_overworld",
+          "/execute as @s[family=!sanctuary_conduit] at @s in overworld run event entity @p[c=1,r=2] xp:end_travel.to_end"
+          //"/execute as @s[family=!sanctuary_conduit] at @s run tp @e[c=1,family=!conduit] ~ 2 ~"
+        ],
+        "0.3": ["/fill ~-2 0 ~-2 ~2 4 ~2 air 0 replace end_portal"],
+        "0.9": ["@s xp:cooldown", "@s xp:unuse"]
+      }
+    },
+    "animation.conduit.stationed": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "14.9": ["@s xp:usable"]
+      }
+    },
+    "animation.conduit.annoy": {
+      "animation_length": 0.5,
+      "loop": true,
+      "timeline": {
+        "0.4": ["@s xp:stop_annoy"]
+      }
+    },
+    "animation.conduit.annoy_cool": {
+      "animation_length": 1.0,
+      "loop": true,
+      "timeline": {
+        "0.9": ["@s xp:enable_annoy"]
+      }
+    },
+    "animation.conduit.dead": {
+      "animation_length": 10,
+      "loop": true,
+      "timeline": {
+        "0.05": [
+          "/function align_rotation",
+          "/function align_position",
+          "/tag @s add dead",
+          "/function conduit/reset_collision"
+        ],
+        "9.9": ["@s xp:full_dead"]
+      }
+    },
+    "animation.conduit.during_dead": {
+      "loop": true,
+      "animation_length": 0.1,
+      "timeline": {
+        "0.05": [
+          "/execute at @s positioned ^^^-2.5 run tag @a[r=1.5] add tp",
+          "/event entity @a[tag=tp] xp:start_conduit_falling",
+          "/execute as @a[tag=tp] at @s run spreadplayers ~~ 1 40 @s",
+          "/execute as @a[tag=tp] at @s run tp ~ 100 ~",
+          "/execute as @a[tag=tp] at @s run effect @s slow_falling 12 1",
+          "/tag @a remove tp",
+          "@s xp:no_move"
+        ]
+      }
+    },
+    "animation.conduit.full_dead": {
+      "animation_length": 1.3,
+      "loop": true,
+      "timeline": {
+        "0.0":[
+          "/playsound fall.netherrack @a[r=16] ~~~ 0.25 0.25 0.001",
+          "/playsound fall.nether_gold_ore @a[r=16] ~~~ 0.25 0.25 0.001"
+        ],
+        "0.25": [
+          "/playsound fall.netherrack @a[r=16] ~~~ 0.5 0.25 0.001",
+          "/playsound fall.nether_gold_ore @a[r=16] ~~~ 0.5 0.25 0.001",
+          "/camerashake add @a[r=5] 0.025 1 rotational",
+          "/camerashake add @a[r=10] 0.025 1 rotational",
+          "/camerashake add @a[r=16] 0.025 1 rotational"
+        ],
+        "0.5":[
+          "/playsound fall.netherrack @a[r=16] ~~~ 1 0.25 0.001",
+          "/playsound fall.nether_gold_ore @a[r=16] ~~~ 1 0.25 0.001"
+        ],
+        "0.75":[
+          "/playsound fall.netherrack @a[r=16] ~~~ 1 0.25 0.001",
+          "/playsound fall.nether_gold_ore @a[r=16] ~~~ 1 0.25 0.001"
+        ],
+        "1.0":[
+          "/playsound fall.netherrack @a[r=16] ~~~ 1 0.25 0.001",
+          "/playsound fall.nether_gold_ore @a[r=16] ~~~ 1 0.25 0.001"
+        ],
+        "1.25": [
+          "/execute at @s positioned ^^^-2 run fill ~-1~-1~-1~1~-1~1 minecraft:crying_obsidian",
+          "/summon xp_orb",
+          "/summon xp_orb",
+          "/summon xp_orb",
+          "@s xp:spawn_loot",
+          "@s xp:instant_despawn"
+        ]
+      }
+    },
+    "animation.conduit.neighbor_annoyed_timer": {
+      "animation_length": 1,
+      "loop": true
+    },
+    "animation.player.conduit.falling": {
+      "animation_length": 0.05,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/tag @s remove inAir",
+          "/execute at @s if block ~ ~-4 ~ air -1 run execute at @s if block ~ ~-3 ~ air -1 run execute at @s if block ~ ~-2 ~ air -1 run execute at @s if block ~ ~-1 ~ air -1 run tag @s add inAir",
+          "/effect @s[tag=!inAir] levitation 1 6 true",
+          "/effect @s[tag=!inAir] slow_falling 4 0 true",
+          "/teleport @s[tag=!inAir] ~~~ ~~",
+          "/event entity @s[tag=!inAir] xp:end_conduit_falling"
+        ]
+      }
+    }
+  }
+}

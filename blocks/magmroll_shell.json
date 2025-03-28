@@ -1,0 +1,66 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+      "description": {
+    "identifier": "edx:magmroll_shell_block",
+    "menu_category": {
+      "category": "nature"
+    },
+    "traits": {
+      "minecraft:placement_direction": {
+    "enabled_states": ["minecraft:cardinal_direction"]
+  }
+    } 
+  },
+  "components": {
+    "minecraft:custom_components": ["edx:magmroll_shell"],
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 6
+      },
+      "minecraft:material_instances": {
+            "*": {
+              "texture": "magmroll_shell",
+              "render_method": "alpha_test"
+            }
+          },
+      "minecraft:tick": {
+  				"looping": true,
+  				"interval_range": [2,2]
+			},
+      "tag:edx:stone": {},
+      "minecraft:geometry": {
+        "identifier": "geometry.magmroll_shell_block"
+      }
+  },
+  "permutations": [
+      // Facing north
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 0, 0] }
+        }
+      },
+      // Facing west
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 90, 0] }
+        }
+      },
+      // Facing south
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, 180, 0] }
+        }
+      },
+      // Facing east
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": { "rotation": [0, -90, 0] }
+        }
+      }
+  ]
+    }
+  }

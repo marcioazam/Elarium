@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:hard_red_sandstone_bricks_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:hard_red_sandstone_bricks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:hard_red_sandstone_bricks"
+            }
+        ],
+        "result": {
+            "item": "edx:hard_red_sandstone_bricks_slab",
+            "count": 6
+        }
+    }
+}

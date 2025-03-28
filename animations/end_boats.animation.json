@@ -1,0 +1,145 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    //Echoing Forest
+    "animation.end_boat.echoing.particles": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_blue_wind.2 121 30 230",
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.2 257 45 251",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.2 257 55 251"
+        ]
+      }
+    },
+    "animation.end_boat.echoing.particles_2": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.2 -148 40 547",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.1 -148 50 547"
+        ]
+      }
+    },
+    "animation.end_boat.echoing.particles_3": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.2 -317 45 183",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.1 -317 55 183"
+        ]
+      }
+    },
+    //Wilds
+    "animation.end_boat.wilds.particles": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] if block 257 48 -253 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 257 48 -253",
+          "/execute in the_end if entity @p[r=200] if block 209 59 -310 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 209 59 -310",
+          "/execute in the_end if entity @p[r=200] if block 203 61 -304 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 203 61 -304",
+          "/execute in the_end if entity @p[r=200] if block 206 64 -309 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 206 64 -309",
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.2 291 30 -284",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.2 291 38 -284"
+        ],
+        "1.0": [
+          "/execute in the_end if entity @p[r=200] if block 203 57 -339 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 203 57 -339",
+          "/execute in the_end if entity @p[r=200] if block 206 60 -344 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 206 60 -344",
+          "/execute in the_end if entity @p[r=200] if block 264 79 -266 minecraft:end_stone -1 run particle xp:normal_landslide.small_group 264 79 -266"
+        ],
+        "7.0": [
+          "/execute in the_end if entity @p[r=200] if block 201 57 -359 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 201 57 -359",
+          "/execute in the_end if entity @p[r=200] if block 198 60 -354 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 198 60 -354",
+          "/execute in the_end if entity @p[r=200] if block 209 55 -345 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 209 55 -345",
+          "/execute in the_end if entity @p[r=200] if block 253 79 -256 minecraft:end_stone -1 run particle xp:normal_landslide.small_group 253 79 -256"
+        ],
+        "12.0": [
+          "/execute in the_end if entity @p[r=200] if block 207 59 -375 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 207 59 -375",
+          "/execute in the_end if entity @p[r=200] if block 210 62 -380 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 210 62 -380",
+          "/execute in the_end if entity @p[r=200] if block 213 57 -381 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 213 57 -381",
+          "/execute in the_end if entity @p[r=200] if block 246 79 -253 minecraft:end_stone -1 run particle xp:normal_landslide.small_group 246 79 -253"
+        ]
+      }
+    },
+    "animation.end_boat.wilds.particles_2": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] if block -215 112 -207 minecraft:end_stone -1 run particle xp:normal_landslide.small_group -215 112 -207",
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.2 -316 50 -180",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.2 -316 58 -180"
+        ],
+        "2.0": [
+          "/execute in the_end if entity @p[r=200] if block -284 58 -206 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -284 58 -206",
+          "/execute in the_end if entity @p[r=200] if block -280 55 -208 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -280 55 -208",
+          "/execute in the_end if entity @p[r=200] if block -277 55 -197 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -277 55 -197",
+          "/execute in the_end if entity @p[r=200] if block -272 57 -197 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -272 57 -197",
+          "/execute in the_end if entity @p[r=200] if block -263 54 -197 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -263 54 -197"
+        ],
+        "4.0": [
+          "/execute in the_end if entity @p[r=200] if block -215 112 -207 minecraft:end_stone -1 run particle xp:normal_landslide.small_group -215 112 -220",
+          "/execute in the_end if entity @p[r=200] if block -197 78 -207 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -197 78 -207",
+          "/execute in the_end if entity @p[r=200] if block -202 81 -210 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -202 81 -210",
+          "/execute in the_end if entity @p[r=200] if block -250 60 -286 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -250 60 -286",
+          "/execute in the_end if entity @p[r=200] if block -245 57 -283 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -245 57 -283",
+          "/execute in the_end if entity @p[r=200] if block -251 55 -289 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -251 55 -289"
+        ],
+        "8.0": [
+          "/execute in the_end if entity @p[r=200] if block -215 112 -207 minecraft:end_stone -1 run particle xp:normal_landslide.small_group -213 87 -216"
+        ]
+      }
+    },
+
+    //Abyss
+    "animation.end_boat.abyss.particles": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_blue_wind.1 -414 30 652",
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.1 -414 45 652",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.1 -414 55 652"
+        ]
+      }
+    },
+    "animation.end_boat.abyss.particles_2": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_abyss_obsidian_pool_large.1 -542 104 76",
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_abyss_obsidian_pool_large.2 -542 104 76",
+          
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_abyss_obsidian_pool.1 -513 106 75",
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_abyss_obsidian_pool.2 -513 106 75",
+
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_abyss_obsidian_pool.1 -496 113 11",
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_abyss_obsidian_pool.2 -496 113 11",
+
+          "/execute in the_end if entity @p[r=200] run particle xp:wilds.purple_smoke -589 99 126",
+          "/execute in the_end if entity @p[r=200] run particle xp:wilds.purple_smoke -509 107 94",
+
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_blue_wind.2 -562 40 72",
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.2 -562 45 72",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.2 -562 55 72"
+        ]
+      }
+    },
+    "animation.end_boat.abyss.particles_3": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_blue_wind.2 -538 30 -239",
+          "/execute in the_end if entity @p[r=300] run particle xp:biome_blue_wind.2 -538 40 -239",
+          "/execute in the_end if entity @p[r=300] run particle xp:echoing_forest_boat_fog.2 -538 50 -239"
+        ]
+      }
+    }
+  }
+}

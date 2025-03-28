@@ -1,0 +1,21 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:souls_container",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"souls_container"
+         }
+			},
+			"minecraft:display_name": {
+				"value": "Souls Container"
+			}
+		}
+	}
+}

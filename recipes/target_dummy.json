@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "target_dummy"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " H ",
+      "SLS",
+      " S "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:wheat"
+      },
+      {
+        "item": "minecraft:hay_block"
+      }
+    ],
+    "key": {
+      "H": {
+        "item": "minecraft:hay_block"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "L": {
+        "item": "minecraft:leather"
+      }
+    },
+    "result": {
+      "item": "dungeons:target_dummy",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:moss_feature"
+        },
+        "count": 50,
+        "replace_rules": [
+            {
+                "places_block": "minecraft:moss_block",
+                "may_replace": [
+                    {
+                        "name": "minecraft:stone"
+                    }
+                ]
+            },
+            {
+                "places_block": "minecraft:moss_block",
+                "may_replace": [
+                    {
+                        "name": "minecraft:tuff"
+                    }
+                ]
+            },
+            {
+                "places_block": "minecraft:moss_block",
+                "may_replace": [
+                    {
+                        "name": "minecraft:dirt"
+                    }
+                ]
+            }
+        ]
+    }
+}

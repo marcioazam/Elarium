@@ -1,0 +1,75 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "pod_rpg:tnt_barrel",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "pod_rpg:despawn": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+    "components": {
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:timer": {
+        "time": 10,
+        "looping": false,
+        "time_down_event": {
+          "event": "pod_rpg:despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:rideable": {
+        "controlling_seat": 0,
+        "crouching_skip_interact": true,
+        "family_types": [],
+        "interact_text": "",
+        "pull_in_entities": false,
+        "rider_can_interact": false,
+        "seat_count": 1,
+        "seats": [
+          {
+            "max_rider_count": 1,
+            "position": [0, 1.3, 0]
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false,
+        "push_towards_closest_space": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "pod_rpg:despawn": {
+        "add": {
+          "component_groups": ["pod_rpg:despawn"]
+        }
+      }
+    }
+  }
+}

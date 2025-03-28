@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:corrupted_star",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"corrupted_star"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "corrupted_star"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dCorrupted star \n§5Artifact\n§6Inflict wither to any monsters around you"
+			  }
+		}
+	}
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "cog_crossbow"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "-/-",
+      "STS",
+      " - "
+    ],
+    "key": {
+      "-": {
+        "item": "minecraft:iron_ingot"
+      },
+      "/": {
+        "item": "minecraft:stick"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "T": {
+        "item": "minecraft:tripwire_hook"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "result": {
+      "item": "dungeons:cog_crossbow",
+      "count": 1
+    }
+  }
+}

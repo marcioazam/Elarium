@@ -1,0 +1,75 @@
+
+{
+    "format_version": "1.8.0",
+    "minecraft:spawn_rules": {
+      "description": {
+        "identifier": "edx:elite_jungle_skeleton",
+        "population_control": "monster"
+      },
+      "conditions": [
+        {
+          "minecraft:spawns_on_surface": {},
+          
+          
+          "minecraft:spawns_underground": {},
+
+          "minecraft:difficulty_filter": {
+            "max": "hard"
+          },
+        
+          "minecraft:weight": {
+            "default": 20
+          },
+  "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 8,
+          "adjust_for_weather": true
+        },
+          "minecraft:herd": {
+            "min_size": 1,
+            "max_size": 1
+          },
+  
+          "minecraft:density_limit": {
+            "underground": 10,
+            "surface": 10
+          },
+          "minecraft:biome_filter": [{
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "jungle"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "jungle_hills"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "jungle_mutated"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "jungle_edge"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "jungle_edge_mutated"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "bamboo_jungle"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "bamboo_jungle_hills"
+          }]
+        }
+      ]
+    }
+  }

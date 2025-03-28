@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_battlestaff_of_terror"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:battlestaff_of_terror"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:battlestaff_of_terror"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:battlestaff_of_terror", "count": 1 },
+      { "item": "dungeons:battlestaff_of_terror", "count": 1 }
+    ]
+  }
+}

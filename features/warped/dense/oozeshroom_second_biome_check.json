@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:warped/dense/oozeshroom_second_biome_check"
+		},
+		"places_feature": "edx:warped/oozeshroom/oozeshroom_dense_snap",
+		"iterations": "t.biome_idx <= 6 && t.biome_idx >= 4",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

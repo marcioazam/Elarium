@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:chorus_feature"
+    },
+    "features": [
+      [ "edx:chorus1_proxy", 1 ],
+      [ "edx:chorus2_proxy", 1 ],
+      [ "edx:chorus3_proxy", 1 ]
+    ]
+  }
+}

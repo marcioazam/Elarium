@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:platinium_block"
+    },
+
+    
+    "tags": [ "crafting_table","workbench" ],
+    "pattern": [
+      "TTT",
+      "TTT",
+      "TTT"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:platinium_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:platinium_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:platinium_block"
+    }
+  }
+}

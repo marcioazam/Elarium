@@ -1,0 +1,65 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "dungeons:blue_nethershroom",
+            "runtime_identifier": "minecraft:snowball",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:scale": {
+                "value": 1.5
+            },
+            "minecraft:collision_box": {
+                "width": 0.25,
+                "height": 0.25
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "impact_damage": {
+                        "damage": 3,
+                        "knockback": true
+                    },
+                        "spawn_chance": {
+                            "first_spawn_percent_chance": 100,
+                            "first_spawn_count": 1,
+                            "spawn_definition": "dungeons:nethershroom_boom"
+                        },
+                    "mob_effect": {
+                        "effect": "poison",
+                        "durationeasy": 1,
+                        "durationnormal": 3,
+                        "durationhard": 5,
+                        "amplifier": 1
+                    },
+                    "remove_on_hit": {}
+                },
+                "anchor": 1,
+        "uncertainty_base": 32,
+        "uncertainty_multiplier": 12,
+                "power": 1.5,
+                "gravity": 0.03,
+                "angle_offset": -20,
+                "offset": [
+                    0,
+                    -0.1,
+                    0
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {
+                "default_values": {
+                    "max_optimized_distance": 100,
+                    "max_dropped_ticks": 7,
+                    "use_motion_prediction_hints": true
+                }
+            }
+        }
+    }
+}

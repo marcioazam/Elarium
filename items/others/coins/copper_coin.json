@@ -1,0 +1,26 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:copper_coin",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.coin"
+			}
+				
+			
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:coin"],
+			
+			"minecraft:icon": {
+				"textures":{
+               "default":"copper_coin"
+         }
+			},
+			"minecraft:display_name": {
+				"value": "Copper coin\nRight click with 10 to upgrade it"
+				}
+		}
+	}
+}

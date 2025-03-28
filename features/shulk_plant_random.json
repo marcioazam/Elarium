@@ -1,0 +1,22 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:shulk_plant_random"
+    },
+    "features": [
+      [ "edx:plycaephytus", 1 ],
+      [ "edx:plycaephytus_small", 11 ],
+      [ "edx:plycaephytus_small_ball", 1 ],
+      [ "edx:plycaephytus_no_ball", 11 ],
+      [ "edx:blycaephytus", 1 ],
+      [ "edx:blycaephytus_small", 11 ],
+      [ "edx:blycaephytus_small_ball", 1 ],
+      [ "edx:blycaephytus_no_ball", 11 ],
+      [ "edx:bicolor_lichen", 5 ],
+      [ "edx:shulk_grass2_feature", 10 ],
+      [ "edx:luminescent_blossom_feature", 2 ],
+      [ "edx:luminescent_bamboo_feature", 2 ]
+    ]
+  }
+}

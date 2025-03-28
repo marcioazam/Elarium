@@ -1,0 +1,522 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_marker",
+
+      "is_summonable": true,
+
+      "properties": {
+				"xp:cutscene_id": {
+					"type": "int",
+          "range": [ 0, 3 ],
+					"default": 0,
+
+					"client_sync": true
+				},
+        "xp:cutscene_positioning_done": {
+					"type": "bool",
+					"default": false,
+
+					"client_sync": true
+				},
+
+        "xp:spawner_entity_type": {
+					"type": "enum",
+          "values": [ "none", "spreader", "spawner", "spawner_platform" ],
+					"default": "none",
+
+					"client_sync": true
+				},
+        "xp:spawner_random": {
+					"type": "int",
+          "range": [ 0, 4 ],
+					"default": 0,
+
+					"client_sync": true
+				},
+        "xp:spawner_teleport": {
+					"type": "bool",
+					"default": false,
+
+					"client_sync": true
+				}
+      },
+
+      "scripts": {
+        "animate": [
+          { "markers": "q.variant != 99" },
+          { "cutscenes": "q.variant == 99" },
+          { "spawners1": "q.variant == 100" },
+          { "spawners2": "q.variant == 100" }
+        ]
+      },
+      "animations": {
+        "markers": "controller.animation.end_cube_marker.markers",
+        "cutscenes": "controller.animation.end_cube_marker.cinematics",
+        "spawners1": "controller.animation.end_cube_marker.spawners",
+        "spawners2": "controller.animation.end_cube_marker.spreader",
+
+        "cutscenes.arena.intro_camera": "animation.end_cube_marker.cinematics.arena.intro_camera",
+        "cutscenes.arena.intro_effects": "animation.end_cube_marker.cinematics.arena.intro_effects",
+        "cutscenes.boss.stage_transition": "animation.end_cube_marker.cinematics.boss.stage_transition",
+        "cutscenes.boss.final_death": "animation.end_cube_marker.cinematics.boss.final_death"
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": { }
+      },
+
+      "xp:marker_type.center_path": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:type_family": {
+          "family": [
+            "end_cube",
+            "marker",
+            "marker_center_path",
+            "inanimate"
+          ]
+        }
+      },
+      "xp:marker_type.center_point": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:type_family": {
+          "family": [
+            "end_cube",
+            "marker",
+            "marker_center_point",
+            "inanimate"
+          ]
+        }
+      },
+
+      "xp:marker_type.blink_point": {
+        "minecraft:variant": {
+          "value": 3
+        },
+        "minecraft:type_family": {
+          "family": [
+            "end_cube",
+            "marker",
+            "marker_blink_point",
+            "inanimate"
+          ]
+        }
+      },
+
+      "xp:marker_type.explosion_point": {
+        "minecraft:explode": {
+          "fuse_length": -1,
+          "fuse_lit": true,
+          "power": 1,
+          "causes_fire": false,
+          "breaks_blocks": false
+        }
+      },
+
+      "xp:marker_type.ground_path": {
+        "minecraft:variant": {
+          "value": 5
+        },
+        "minecraft:type_family": {
+          "family": [
+            "end_cube",
+            "marker",
+            "marker_ground_path",
+            "inanimate"
+          ]
+        }
+      },
+      "xp:marker_type.ground_point": {
+        "minecraft:variant": {
+          "value": 6
+        },
+        "minecraft:type_family": {
+          "family": [
+            "end_cube",
+            "marker",
+            "marker_ground_point",
+            "inanimate"
+          ]
+        }
+      },
+
+      "xp:marker_type.knockback_point": {
+        "minecraft:variant": {
+          "value": 7
+        },
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 1.0,
+          "attack_time": 0.1,
+          "knockback_damage": 1,
+          "knockback_horizontal_strength": 4,
+          "knockback_vertical_strength": 6,
+          "knockback_range": 7,
+          "knockback_filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "inanimate"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "boss"
+              }
+            ]
+          },
+          "damage_filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "inanimate"
+              },
+              {
+                "test": "on_ground",
+                "subject": "other",
+                "value": true
+              }
+            ]
+          },
+          "cooldown_time": 1.5
+        },
+        "minecraft:timer": {
+          "time": 1.1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        }
+      },
+      "xp:marker_type.knockback_point_big": {
+        "minecraft:variant": {
+          "value": 8
+        },
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 1.0,
+          "attack_time": 0.1,
+          "knockback_damage": 2,
+          "knockback_horizontal_strength": 6,
+          "knockback_vertical_strength": 8,
+          "knockback_range": 12,
+          "knockback_filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "inanimate"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "boss"
+              }
+            ]
+          },
+          "damage_filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "inanimate"
+              },
+              {
+                "test": "on_ground",
+                "subject": "other",
+                "value": true
+              }
+            ]
+          },
+          "cooldown_time": 1.5
+        },
+        "minecraft:timer": {
+          "time": 1.1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        }
+      },
+
+      "xp:marker_type.pull_point": {
+        "minecraft:variant": {
+          "value": 9
+        },
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 1.0,
+          "attack_time": 0.1,
+          "knockback_damage": 1,
+          "knockback_horizontal_strength": -1,
+          "knockback_vertical_strength": -1,
+          "knockback_range": 4,
+          "knockback_filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "inanimate"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "boss"
+              }
+            ]
+          },
+          "damage_filters": {
+            "test": "is_family",
+            "subject": "other",
+            "value": "none"
+          },
+          "cooldown_time": 1.5
+        },
+        "minecraft:timer": {
+          "time": 1.1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        }
+      },
+
+      "xp:marker_type.cinematics_handler": {
+        "minecraft:variant": {
+          "value": 99
+        },
+        "minecraft:type_family": {
+          "family": [
+            "end_cube",
+            "marker",
+            "marker_cinematics",
+            "inanimate"
+          ]
+        },
+        /* Ensure that cutscenes are running smoothly, this is removed once the cutscene is over */
+        "minecraft:tick_world": {
+          "never_despawn": true,
+          "radius": 2
+        }
+      },
+
+      "xp:marker_type.spawner_handler": {
+        "minecraft:variant": {
+          "value": 100
+        },
+        "minecraft:type_family": {
+          "family": [
+            "end_cube",
+            "marker",
+            "marker_spawner",
+            "inanimate"
+          ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:fire_immune": {
+      },
+      "minecraft:is_stackable": {
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:type_family": {
+        "family": [
+          "end_cube",
+          "marker",
+          "inanimate"
+        ]
+      },
+      "minecraft:health": {
+        "min": 1,
+        "max": 1,
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:nameable": {
+        "allow_name_tag_renaming": false,
+        "always_show": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:push_through": { 
+        "value": 1
+      },
+      "minecraft:breathable": {
+        "breathes_solids": true
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+
+      "xp:marker_type.center_path": {
+        "add": {
+          "component_groups": [ "xp:marker_type.center_path" ]
+        }
+      },
+      "xp:marker_type.center_point": {
+        "add": {
+          "component_groups": [ "xp:marker_type.center_point" ]
+        }
+      },
+      "xp:marker_type.blink_point": {
+        "add": {
+          "component_groups": [ "xp:marker_type.blink_point" ]
+        }
+      },
+      "xp:marker_type.explosion_point": {
+        "add": {
+          "component_groups": [ "xp:marker_type.explosion_point" ]
+        }
+      },
+      "xp:marker_type.ground_path": {
+        "add": {
+          "component_groups": [ "xp:marker_type.ground_path" ]
+        }
+      },
+      "xp:marker_type.ground_point": {
+        "add": {
+          "component_groups": [ "xp:marker_type.ground_point" ]
+        }
+      },
+      "xp:marker_type.knockback_point": {
+        "add": {
+          "component_groups": [ "xp:marker_type.knockback_point" ]
+        }
+      },
+      "xp:marker_type.knockback_point_big": {
+        "add": {
+          "component_groups": [ "xp:marker_type.knockback_point_big" ]
+        }
+      },
+      "xp:marker_type.pull_point": {
+        "add": {
+          "component_groups": [ "xp:marker_type.pull_point" ]
+        }
+      },
+
+      "xp:marker_type.spawner_handler": {
+        "sequence": [
+          { 
+            "set_property": {
+              "xp:spawner_entity_type": "'spreader'",
+              "xp:spawner_random": "math.min((q.property('xp:cutscene_id') + math.random_integer(1,4)), 4)"
+            }
+          },
+          { "add": { "component_groups": [ "xp:marker_type.spawner_handler" ] } }
+        ]
+      },
+      "xp:marker_type.spawner_handler.spawn_entity": {
+        "sequence": [
+          { "set_property": { "xp:spawner_entity_type": "'spawner'" } },
+          { "add": { "component_groups": [ "xp:marker_type.spawner_handler" ] } }
+        ]
+      },
+      "xp:marker_type.spawner_handler.spawn_platform": {
+        "sequence": [
+          { "set_property": { "xp:spawner_entity_type": "'spawner_platform'" } },
+          { "add": { "component_groups": [ "xp:marker_type.spawner_handler" ] } }
+        ]
+      },
+      "xp:marker_type.spawner_handler.add_teleport": {
+        "set_property": {
+          "xp:spawner_teleport": true
+        }
+      },
+      "xp:marker_type.spawner_handler.remove_teleport": {
+        "set_property": {
+          "xp:spawner_teleport": false
+        }
+      },
+
+      "xp:marker_type.cinematics_handler": {
+        "add": {
+          "component_groups": [ "xp:marker_type.cinematics_handler" ]
+        }
+      },
+      "xp:marker_type.cinematics_handler.1": {
+        "sequence": [
+          { "set_property": { "xp:cutscene_id": 1 } },
+          { "trigger": "xp:marker_type.cinematics_handler" }
+        ]
+      },
+      "xp:marker_type.cinematics_handler.2": {
+        "sequence": [
+          { "set_property": { "xp:cutscene_id": 2 } },
+          { "trigger": "xp:marker_type.cinematics_handler" }
+        ]
+      },
+      "xp:marker_type.cinematics_handler.3": {
+        "sequence": [
+          { "set_property": { "xp:cutscene_id": 3 } },
+          { "trigger": "xp:marker_type.cinematics_handler" }
+        ]
+      },
+
+      "xp:cinematics_handler.reset_cutscene_id": {
+        "set_property": {
+          "xp:cutscene_id": 0
+        }
+      },
+      "xp:cinematics_handler.increment_cutscene_id": {
+        "set_property": {
+          "xp:cutscene_id": "math.min((q.property('xp:cutscene_id') + 1), 7)"
+        }
+      },
+      "xp:cinematics_handler.cutscene_positioning_false": {
+        "set_property": {
+          "xp:cutscene_positioning_done": false
+        }
+      },
+      "xp:cinematics_handler.cutscene_positioning_true": {
+        "set_property": {
+          "xp:cutscene_positioning_done": true
+        }
+      }
+    }
+  }
+}

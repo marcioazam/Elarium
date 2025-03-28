@@ -1,0 +1,47 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.sanctuary_spawner_aux.spawn_mob": {
+            "loop": true,
+            "animation_length": 3,
+            "timeline": {
+                "1.0": [
+                    "/execute if block ~ ~-1 ~ obsidian run event entity @s xp:instant_despawn"
+                ],
+                "1.1": [
+                    "/summon xp:sanctuary_mob_spawn ~ ~ ~"
+                ],
+                "1.3": [
+                    "/scoreboard players random chance math 0 3",
+                    "/execute if score chance math matches 0 run summon xp:endergob ~ ~ ~",
+                    "/execute if score chance math matches 1 run summon xp:rippling ~ ~ ~",
+                    "/execute if score chance math matches 2 run summon xp:warder ~ ~ ~",
+                    "/execute if score chance math matches 3 run summon xp:enderslug ~ ~ ~"
+                ],
+                "2.9": [
+                    "/event entity @s xp:instant_despawn"
+                ]
+            }
+        },
+        "animation.sanctuary_spawner_aux.spawn_mob_no_ripplings": {
+            "loop": true,
+            "animation_length": 3,
+            "timeline": {
+                "1.0": [
+                    "/execute if block ~ ~-1 ~ obsidian run event entity @s xp:instant_despawn"
+                ],
+                "1.1": [
+                    "/summon xp:sanctuary_mob_spawn ~ ~ ~"
+                ],
+                "1.3": [
+                    "/scoreboard players random chance math 0 1",
+                    "/execute if score chance math matches 0 run summon xp:warder ~ ~ ~",
+                    "/execute if score chance math matches 1 run summon xp:enderslug ~ ~ ~"
+                ],
+                "2.9": [
+                    "/event entity @s xp:instant_despawn"
+                ]
+            }
+        }
+    }
+}

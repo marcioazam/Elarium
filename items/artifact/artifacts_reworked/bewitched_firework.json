@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:magnetic_firework",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"magnetic_firework"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "magnetic_firework"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dBewitched firework \n§5Artifact\n§6Fireworks shoot with a crossbow attract monsters on their way"
+			  }
+		}
+	}
+}

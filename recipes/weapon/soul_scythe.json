@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "soul_scythe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " II",
+      "I S",
+      "  S"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "result": {
+      "item": "dungeons:soul_scythe",
+      "count": 1
+    }
+  }
+}

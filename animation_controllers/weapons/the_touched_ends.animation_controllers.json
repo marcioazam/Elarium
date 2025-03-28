@@ -1,0 +1,313 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.the_touched_ends": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [
+            "@s xp:attack_value_1",
+            "@s xp:speed_value_0",
+            "v.release_time = 0;",
+            "/tag @s remove touched_ends_user",
+            "/scoreboard players set @s touched_ends 0",
+            "/scoreboard objectives remove touched_ends"
+          ],
+          "on_exit": [
+            "/scoreboard objectives add touched_ends dummy touched_ends"
+          ],
+          "transitions": [
+            {
+              "hold": "q.get_equipped_item_name == 'the_touched_ends'"
+            }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [
+            "/tag @s add touched_ends_user",
+            "@s xp:attack_value_8",
+            "@s xp:speed_value_1",
+            "/stopsound @s ender_smite.laser_start"
+          ],
+          "animations": ["regen_stamina"],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends'"
+            },
+            {
+              "basic_attack": "v.attack_time > 0.0"
+            },
+            {
+              "charge": "q.is_using_item && q.get_equipped_item_name == 'the_touched_ends'"
+            }
+          ]
+        },
+
+        "basic_attack": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/scoreboard players add @s touched_ends 1",
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "/execute as @s[scores={touched_ends=8..}] at @s run titleraw @s actionbar {\"rawtext\":[{\"translate\":\"action.hint.weapon_tiredness\"}]}",
+            "/execute as @s[scores={touched_ends=14}] at @s run effect @s nausea 4 1",
+            "/execute as @s[scores={touched_ends=18}] at @s run effect @s nausea 5 2",
+            "/execute as @s[scores={touched_ends=22}] at @s run effect @s nausea 6 3",
+            "/execute as @s[scores={touched_ends=26..99999}] at @s run effect @s nausea 7 12",
+            "@s xp:unset_attack"
+          ],
+          "transitions": [
+            {
+              "hold": "(q.life_time - v.tick_delay) >= 0.25 && q.get_equipped_item_name == 'the_touched_ends'"
+            },
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends'"
+            }
+          ]
+        },
+
+        "charge": {
+          "on_entry": ["v.tick_delay = q.life_time;"],
+          "on_exit": [
+            "v.release_time = 0;",
+            "/stopsound @s ender_smite.laser_start"
+          ],
+          "transitions": [
+            {
+              "release": "(q.life_time - v.tick_delay) >= 1.2 && q.is_using_item"
+            },
+            {
+              "hold": "!q.is_using_item || v.attack_time > 0.0"
+            },
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends'"
+            }
+          ]
+        },
+        "release": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.release_time = 1;",
+            "@s xp:the_touched_ends_sonic_boom",
+            "/summon xp:knock_back ^^^0.5",
+            "/camerashake add @s 0.025 9999 rotational",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=15] ~~~",
+            "/execute at @s run playsound random.anvil_land @a[r=15] ~~~ 1 1.8",
+            "/execute at @s run playsound random.anvil_land @a[r=15] ~~~ 1 2"
+          ],
+          "on_exit": [
+            "v.release_time = 0;",
+            "@s xp:remove_the_touched_ends_sonic_boom",
+            "/camerashake stop @s",
+            "/stopsound @s ender_smite.laser_start"
+          ],
+          "transitions": [
+            {
+              "charge": "(q.life_time - v.tick_delay) >= 0.8 && q.is_using_item"
+            },
+            {
+              "hold": "(q.life_time - v.tick_delay) >= 0.8 && !q.is_using_item"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.the_touched_ends_enchanted": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [
+            "@s xp:attack_value_1",
+            "@s xp:speed_value_0",
+            "/tag @s remove touched_ends_ed_user",
+            "/scoreboard players set @s touched_ends_ed 0",
+            "/scoreboard objectives remove touched_ends_ed"
+          ],
+          "on_exit": [
+            "/scoreboard objectives add touched_ends_ed dummy touched_ends_ed"
+          ],
+          "transitions": [
+            {
+              "hold": "q.get_equipped_item_name == 'the_touched_ends_enchanted'"
+            }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [
+            "/tag @s add touched_ends_user",
+            "@s xp:attack_value_11",
+            "@s xp:speed_value_1",
+            "/stopsound @s ender_smite.laser_start"
+          ],
+          "animations": ["regen_stamina"],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends_enchanted'"
+            },
+            {
+              "basic_attack": "v.attack_time > 0.0"
+            },
+            {
+              "charge": "q.is_using_item && q.get_equipped_item_name == 'the_touched_ends_enchanted'"
+            }
+          ]
+        },
+
+        "basic_attack": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/scoreboard players add @s touched_ends_ed 1",
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "/execute as @s[scores={touched_ends_ed=8..}] at @s run titleraw @s actionbar {\"rawtext\":[{\"translate\":\"action.hint.weapon_tiredness\"}]}",
+            "/execute as @s[scores={touched_ends_ed=14}] at @s run effect @s nausea 4 1",
+            "/execute as @s[scores={touched_ends_ed=18}] at @s run effect @s nausea 5 2",
+            "/execute as @s[scores={touched_ends_ed=22}] at @s run effect @s nausea 6 3",
+            "/execute as @s[scores={touched_ends_ed=26..99999}] at @s run effect @s nausea 7 12",
+            "@s xp:unset_attack"
+          ],
+          "transitions": [
+            {
+              "hold": "(q.life_time - v.tick_delay) >= 0.25 && q.get_equipped_item_name == 'the_touched_ends_enchanted'"
+            },
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends_enchanted'"
+            }
+          ]
+        },
+
+        "charge": {
+          "on_entry": ["v.tick_delay = q.life_time;"],
+          "on_exit": [
+            "v.release_time = 0;",
+            "/stopsound @s ender_smite.laser_start"
+          ],
+          "transitions": [
+            {
+              "release": "(q.life_time - v.tick_delay) >= 1.2"
+            },
+            {
+              "hold": "!q.is_using_item || v.attack_time > 0.0"
+            },
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends_enchanted'"
+            }
+          ]
+        },
+        "release": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.release_time = 1;",
+            "@s xp:the_touched_ends_enchanted_sonic_boom",
+            "/summon xp:knock_back ^^^0.5",
+            "/camerashake add @s 0.025 9999 rotational",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=15] ~~~",
+            "/execute at @s run playsound random.anvil_land @a[r=15] ~~~ 1 1.8",
+            "/execute at @s run playsound random.anvil_land @a[r=15] ~~~ 1 2"
+          ],
+          "on_exit": [
+            "v.release_time = 0;",
+            "@s xp:remove_the_touched_ends_sonic_boom",
+            "/camerashake stop @s",
+            "/stopsound @s ender_smite.laser_start"
+          ],
+          "transitions": [
+            {
+              "hold": "(q.life_time - v.tick_delay) >= 0.8"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.the_touched_ends.levitate": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [
+            "/execute at @s run effect @s levitation 0 0 true",
+            "/tag @s remove enders_smite_detected_air"
+          ],
+          "transitions": [
+            {
+              "charge": "q.get_equipped_item_name == 'the_touched_ends' && q.is_using_item && !q.property('xp:touched_ends_sonic_boom')"
+            }
+          ]
+        },
+        "charge": {
+          "on_entry": [
+            "/execute at @s if block ~ ~ ~ air 0 run tag @s add enders_smite_detected_air"
+          ],
+          "transitions": [
+            {
+              "default": "!q.is_using_item || q.get_equipped_item_name != 'the_touched_ends'"
+            },
+            {
+              "levitate": "q.is_using_item && q.cardinal_player_facing == 0.0 && q.property('xp:touched_ends_sonic_boom')"
+            }
+          ]
+        },
+        "levitate": {
+          "on_entry": [
+            "v.tick = q.life_time;",
+            "/execute as @s[tag=enders_smite_detected_air] at @s run effect @s levitation 9999 44 true"
+          ],
+          "on_exit": [
+            "/execute as @s[tag=enders_smite_detected_air] at @s run effect @s levitation 0 0 true"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends' || (q.life_time - v.tick) >= 0.15"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.the_touched_ends_enchanted.levitate": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [
+            "/execute at @s run effect @s levitation 0 0 true",
+            "/tag @s remove enders_smite_detected_air"
+          ],
+          "transitions": [
+            {
+              "charge": "q.get_equipped_item_name == 'the_touched_ends_enchanted' && q.is_using_item && !q.property('xp:touched_ends_sonic_boom')"
+            }
+          ]
+        },
+        "charge": {
+          "on_entry": [
+            "/execute at @s if block ~ ~ ~ air 0 run tag @s add enders_smite_detected_air"
+          ],
+          "transitions": [
+            {
+              "default": "!q.is_using_item || q.get_equipped_item_name != 'the_touched_ends_enchanted'"
+            },
+            {
+              "levitate": "q.is_using_item && q.cardinal_player_facing == 0.0 && q.property('xp:touched_ends_sonic_boom')"
+            }
+          ]
+        },
+        "levitate": {
+          "on_entry": [
+            "v.tick = q.life_time;",
+            "/execute as @s[tag=enders_smite_detected_air] at @s run effect @s levitation 9999 44 true"
+          ],
+          "on_exit": [
+            "/execute as @s[tag=enders_smite_detected_air] at @s run effect @s levitation 0 0 true"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'the_touched_ends_enchanted' || (q.life_time - v.tick) >= 0.15"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

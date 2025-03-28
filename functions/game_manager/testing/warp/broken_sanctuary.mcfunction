@@ -1,0 +1,1 @@
+execute in the_end run tp @a 427 89 566

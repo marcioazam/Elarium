@@ -1,0 +1,41 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "edx:end_catalyst",
+            "menu_category":
+			{
+				"category": "construction"
+			}
+        },
+        "components": {
+          "minecraft:custom_components": ["edx:end_catalyst"],
+            "tag:edx:stone": {},
+            "tag:no_silktouch": {},
+            "minecraft:geometry": "geometry.end_catalyst",
+      
+            "minecraft:collision_box": {
+                "origin": [-8,0,-8],
+                "size": [16,10,16]
+            },
+            "minecraft:tick": {
+  					"looping": true,
+  					"interval_range": [40, 40]
+				    },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 8
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 30
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "end_catalyst", 
+					"render_method": "alpha_test"
+				}
+			}
+	}
+
+    
+}
+}

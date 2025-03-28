@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:yellow_daisy_it",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.flower"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"yellow_daisy_it"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:yellow_daisy",
+				"use_on" : ["grass","dirt","podzol","moss_block","dirt_with_roots"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

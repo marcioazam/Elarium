@@ -1,0 +1,62 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:broken_sanctuary_beacon_no_laser",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:scale": {
+                "value": 1
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "xp:activate": {
+                "minecraft:is_stunned": {}
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            },
+            "xp:activate": {
+                "add": {
+                    "component_groups": [
+                        "xp:activate"
+                    ]
+                }
+            }
+        }
+    }
+}

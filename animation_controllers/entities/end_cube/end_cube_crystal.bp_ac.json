@@ -1,0 +1,119 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_crystal.runtime": {
+      "initial_state": "tick_b",
+      "states": {
+        "tick_b": {
+          "transitions": [
+            { "on_damage": "q.is_powered && !q.is_saddled" },
+            { "tick_c": "1" }
+          ],
+          "on_entry": [ "/tp @s ~~~ facing @e[type=xp:end_cube,c=1,r=64]" ],
+          "on_exit": [ "/tp @s ~~~ facing @e[type=xp:end_cube,c=1,r=64]" ]
+        },
+        "tick_c": {
+          "transitions": [
+            { "on_damage": "q.is_powered && !q.is_saddled" },
+            { "tick_b": "1" }
+          ],
+          "on_entry": [ "/tp @s ~~~ facing @e[type=xp:end_cube,c=1,r=64]" ],
+          "on_exit": [ "/tp @s ~~~ facing @e[type=xp:end_cube,c=1,r=64]" ]
+        },
+
+        "on_damage": {
+          "transitions": [ { "explode": "(math.abs(q.life_time - v.t)) >= 4.5" } ],
+          "on_entry": [
+            "v.t = q.life_time;",
+
+            "/execute as @a[r=128] at @s run playsound ender_heart.charge @s ~~~ 1.0 0.75",
+            "/particle xp:end_cube_tower_5 ~~1.75~",
+            "/camerashake add @a[r=128] 0.1 9 positional"
+          ]
+        },
+        "explode": {
+          "on_entry": [
+            "/tag @e[type=xp:end_cube] add attack_almighty",
+            "/damage @e[type=xp:end_cube] 35 entity_attack entity @s",
+            "/playsound entity.end_cube.scream @a[r=256]",
+            "/particle xp:end_cube_tower_4 ~~~",
+
+            "/event entity @e[type=xp:waypoint,r=16] xp:remove_waypoint",
+
+            "/execute as @s[family=\"crystal_1\"] at @s run tag @e[type=xp:end_cube] add crystal_3_destroyed",
+            "/execute as @s[family=\"crystal_2\"] at @s run tag @e[type=xp:end_cube] add crystal_2_destroyed",
+            "/execute as @s[family=\"crystal_3\"] at @s run tag @e[type=xp:end_cube] add crystal_1_destroyed",
+
+            "/scoreboard objectives add end_cube_boss3 dummy",
+            "/scoreboard players add @e[type=xp:end_cube] end_cube_boss3 1",
+            "/execute as @e[type=xp:end_cube,scores={end_cube_boss3=3..}] at @s run scoreboard objectives remove end_cube_boss3",
+
+            "/event entity @e[type=xp:end_cube,tag=\"crystal_1_destroyed\",tag=\"crystal_2_destroyed\",tag=\"crystal_3_destroyed\"] xp:boss_state_become_vulnerable",
+            "/event entity @e[type=xp:end_cube_crystal,family=beam,c=1] xp:instant_despawn",
+            "@s minecraft:crystal_explode"
+          ]
+        }
+      }
+    },
+
+    "controller.animation.end_cube_crystal.shine": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [
+            { "on_crystal_damaged": "q.out_of_control && !q.is_saddled" },
+            { "on_crystal_damaged_forward": "q.out_of_control && q.is_saddled"}
+          ]
+        },
+
+        "on_crystal_damaged": {
+          "transitions": [ { "on_detect": "(math.abs(q.life_time - v.t4)) > 1.0" } ],
+          "on_entry": [
+            "v.t4 = q.life_time;",
+            "/particle xp:end_cube_tower_7 ~~3~"
+          ],
+          "on_exit": [ "@s xp:remove_beam_shine" ]
+        },
+        "on_crystal_damaged_forward": {
+          "transitions": [ { "on_detect": "1" } ],
+          "on_entry": [ "/event entity @e[type=xp:end_cube_crystal,c=1] xp:beam_shine" ],
+          "on_exit": [ "@s xp:remove_beam_shine" ]
+        }
+      }
+    },
+
+    "controller.animation.end_cube_crystal.shield": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [
+            { "on_damage_projectile": "q.is_chested && !q.is_saddled" },
+            { "on_damage_projectile_forward": "q.is_chested && q.is_saddled" }
+          ]
+        },
+
+        "on_damage_projectile": {
+          "transitions": [ { "reset": "(math.abs(q.life_time - v.t4)) > 0.1" } ],
+          "on_entry": [
+            "v.t4 = q.life_time;",
+
+            "/playanimation @s react",
+            "/execute as @e[type=arrow,r=6] at @s run particle xp:end_cube_barrier.2a ~~~",
+            "/execute as @e[type=arrow,r=6] at @s run playsound mob.endermen.portal @a ~~~ 1.0 0.75",
+
+            "/kill @e[type=arrow,r=6]"
+          ]
+        },
+        "on_damage_projectile_forward": {
+          "transitions": [ { "on_detect": "1" } ],
+          "on_entry": [ "/event entity @e[type=xp:end_cube_crystal,c=1] xp:on_damage" ]
+        },
+
+        "reset": {
+          "transitions": [ { "on_detect": "1" } ],
+          "on_entry": [ "@s xp:remove_trigger_shield" ]
+        }
+      }
+    }
+  }
+}

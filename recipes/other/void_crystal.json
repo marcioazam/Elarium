@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:void_crystal"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "DDD",
+      "DED",
+      "DDD"
+    ],
+    "key": {
+      "D": {
+        "item": "edx:void_essence"
+      },
+      "E": {
+        "item": "minecraft:amethyst_shard"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:void_essence"
+      },
+      {
+        "item": "minecraft:amethyst_shard"
+      }
+    ],
+    "result": {
+      "item": "edx:void_crystal"
+    }
+  }
+}

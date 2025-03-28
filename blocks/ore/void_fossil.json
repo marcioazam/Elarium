@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:void_fossil_ore"
+		,"menu_category":
+			{
+				"group": "itemGroup.name.ore",
+				"category": "nature"
+			}
+		},
+		"components": {
+			"tag:edx:nickel_pick": {},
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 22.5
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 90
+            },
+			"minecraft:map_color": "#d5da94" ,
+			"minecraft:loot": "loot_tables/blocks/void_fossil.json"
+		}
+	}
+}

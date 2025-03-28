@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:interdimensionals_socks"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:end_socks"
+      },
+      "#": {
+        "item": "edx:explorer_socks"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "edx:void_fossil_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:end_socks"
+      },
+      {
+        "item": "edx:explorer_socks"
+      }
+    ],
+    "result": {
+      "item": "edx:interdimensionals_socks"
+    }
+  }
+  
+}

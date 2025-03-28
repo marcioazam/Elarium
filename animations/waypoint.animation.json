@@ -1,0 +1,29 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.waypoint.stay_put": {
+      "animation_length": 0.05,
+      "loop": true,
+      "timeline": {
+        "0.0": "/tp @s ~~~",
+        "0.025": "/tp @s ~~~"
+      }
+    },
+
+    /* minecraft:timer absolutely sucks, so we'll do it like this instead */
+    "animation.waypoint.hide": {
+      "animation_length": 2.0,
+      "loop": true,
+      "timeline": {
+        "1.1": "@s xp:hidden"
+      }
+    },
+    "animation.waypoint.despawn": {
+      "animation_length": 2.0,
+      "loop": true,
+      "timeline": {
+        "1.1": "@s xp:instant_despawn"
+      }
+    }
+  }
+}

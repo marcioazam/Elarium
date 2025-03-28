@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:snow_bricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:snow"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:snow"
+      }
+    ],
+    "result": {
+      "item": "edx:snow_brick",
+      "count": 4
+    }
+  }
+  
+}

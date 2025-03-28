@@ -1,0 +1,64 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.farlander.quick_travel": {
+      "states": {
+        "default": {
+          "on_entry": [
+            "@s xp:npc_reset",
+            "@s xp:quick_travel.reset"
+          ],
+          "transitions": [
+            { "back": "q.variant == 1" },
+            { "teleport": "q.variant == 2" }
+          ]
+        },
+
+        "back":{
+          "transitions": [ { "default": "1" } ],
+          "on_entry": [ "/function farlander/quick_travel/ui/close" ]
+        },
+
+        "teleport":{
+          "transitions": [ { "teleport.travel_sequence": "q.life_time - v.validate_teleport > 0.5" } ],
+          "on_entry": [
+            "v.validate_teleport = q.life_time;",
+            "/function farlander/quick_travel/ui/teleport"
+          ]
+        },
+        "teleport.travel_sequence": {
+          "animations": [ "quick_travel.travel" ],
+          "transitions": [ { "default": "q.all_animations_finished" } ],
+          "on_exit": [ "@s xp:is_not_quick_travelling" ]
+        }
+
+      }
+    },
+
+    "controller.animation.farlander.teleport": {
+      "states": {
+        "default": {
+          "transitions": [ { "teleporting": "q.is_sheared" } ]
+        },
+        "teleporting": {
+          "transitions": [ { "teleport": "q.life_time - v.start >= 0.85" } ],
+          "on_entry": [
+            "v.start = q.life_time;",
+            "/effect @s[tag=!\"sticky\"] slowness 2 255 true"
+          ]
+        },
+        "teleport": {
+          "transitions": [ { "default": "!q.is_sheared" } ],
+          "on_entry": [
+            "/tag @s[tag=!\"sticky\"] add self",
+            "/execute as @a[c=1] at @s run spreadplayers ~~ 1 7 @e[tag=\"self\",tag=!\"sticky\",c=1]",
+            "/tag @s[tag=!\"sticky\"] remove self",
+            "@s xp:unteleport"
+          ]
+        }
+
+      }
+    }
+
+  }
+}

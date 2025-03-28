@@ -1,0 +1,109 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.enderite_cutter": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'enderite_cutter'" },
+            { "hold1": "q.get_equipped_item_name == 'enderite_cutter_enchanted'" }
+          ],
+          "on_entry": [
+            "@s xp:attack_value_1",
+            "/effect @s regeneration 0 0 true",
+            "/tag @s remove enderite_cutter_user",
+            "/scoreboard players set @s enderite_cutter 0",
+            "/scoreboard objectives remove enderite_cutter",
+            "@s xp:remove_enderite_cutter_attack",
+            "@s xp:remove_enderite_cutter_attack1",
+            "@s xp:remove_enderite_cutter_attack2",
+            "@s xp:remove_enderite_cutter_attack3"
+          ],
+          "on_exit": [
+            "/scoreboard objectives add enderite_cutter dummy enderite_cutter"
+          ]
+        },
+
+        "hold": {
+          "animations": ["regen_stamina"],
+          "transitions": [
+            { "basic_attack": "v.attack_time > 0.0f" },
+            { "default": "q.get_equipped_item_name != 'enderite_cutter'" }
+          ],
+          "on_entry": [
+            "/effect @s regeneration 99999 1 true",
+            "v.tick_delay = q.life_time;",
+            "/tag @s add enderite_cutter_user",
+            "@s xp:attack_value_0"
+          ]
+        },
+
+        "basic_attack": {
+          "animations": ["enderite_cutter.attack"],
+          "transitions": [
+            { "hold": "(q.life_time - v.tick_delay) >= 0.6 && q.get_equipped_item_name == 'enderite_cutter'" },
+            { "default": "q.get_equipped_item_name != 'enderite_cutter'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:attack_value_0",
+            "/scoreboard players add @s enderite_cutter 1",
+            "@s xp:enderite_cutter_attack",
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "/execute as @s[scores={enderite_cutter=5..}] at @s run titleraw @s actionbar {\"rawtext\":[{\"translate\":\"action.hint.weapon_tiredness\"}]}",
+            "/execute as @s[scores={enderite_cutter=4}] at @s run effect @s nausea 4 1",
+            "/execute as @s[scores={enderite_cutter=7}] at @s run effect @s nausea 6 2",
+            "/execute as @s[scores={enderite_cutter=10}] at @s run effect @s nausea 8 3",
+            "/execute as @s[scores={enderite_cutter=15..99999}] at @s run effect @s nausea 12 5",
+            "@s xp:unset_attack"
+          ]
+        },
+
+        "hold1": {
+          "animations": ["regen_stamina", "enderite_cutter.enchanted_sfx"],
+          "transitions": [
+            { "basic_attack1": "v.attack_time > 0.0f" },
+            { "default": "q.get_equipped_item_name != 'enderite_cutter_enchanted'" }
+          ],
+          "on_entry": [
+            "/effect @s regeneration 99999 1 true",
+            "v.tick_delay = q.life_time;",
+            "/tag @s add enderite_cutter_user",
+            "@s xp:attack_value_0"
+          ]
+        },
+
+        "basic_attack1": {
+          "animations": [
+            "enderite_cutter.attack1",
+            "enderite_cutter.enchanted_sfx"
+          ],
+          "transitions": [
+            { "hold1": "(q.life_time - v.tick_delay) >= 0.6 && q.get_equipped_item_name == 'enderite_cutter_enchanted'" },
+            { "default": "q.get_equipped_item_name != 'enderite_cutter_enchanted'" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:attack_value_0",
+            "/scoreboard players add @s enderite_cutter 1",
+            "@s xp:enderite_cutter_attack2",
+            "@s xp:set_attack"
+          ],
+          "on_exit": [
+            "/execute as @s[scores={enderite_cutter=5..}] at @s run titleraw @s actionbar {\"rawtext\":[{\"translate\":\"action.hint.weapon_tiredness\"}]}",
+            "/execute as @s[scores={enderite_cutter=4}] at @s run effect @s nausea 4 1",
+            "/execute as @s[scores={enderite_cutter=7}] at @s run effect @s nausea 6 2",
+            "/execute as @s[scores={enderite_cutter=10}] at @s run effect @s nausea 8 2",
+            "/execute as @s[scores={enderite_cutter=15..99999}] at @s run effect @s nausea 10 2",
+            "@s xp:remove_enderite_cutter_attack2",
+            "@s xp:remove_enderite_cutter_attack3",
+            "@s xp:unset_attack"
+          ]
+        }
+      }
+    }
+  }
+}

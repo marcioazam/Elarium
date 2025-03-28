@@ -1,0 +1,55 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "dungeons:necromancer",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underground": {},
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 8,
+          "adjust_for_weather": true
+        },
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard"
+        },
+        "minecraft:weight": {
+          "default": 25
+        },
+        "minecraft:density_limit": {
+          "surface": 5,
+          "underground": 5
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 2
+        },
+
+        "minecraft:biome_filter": {
+          "any_of": [
+            {
+              "all_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "monster"
+                },
+                {
+                  "test": "has_biome_tag",
+                  "operator": "!=",
+                  "value": "frozen"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

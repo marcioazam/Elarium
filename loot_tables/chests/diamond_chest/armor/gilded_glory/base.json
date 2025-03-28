@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/gilded_glory/helmet.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/gilded_glory/chestplate.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/gilded_glory/leggings.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 1,
+           "name": "loot_tables/chests/diamond_chest/armor/gilded_glory/boots.json"
+        }
+      ]
+    }
+  ]
+}

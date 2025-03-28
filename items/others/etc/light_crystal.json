@@ -1,0 +1,21 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:light_crystal",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"light_crystal"
+         }
+			},
+			"minecraft:display_name": {
+				"value": "Light Crystal"
+			}
+		}
+	}
+}

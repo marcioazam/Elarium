@@ -1,0 +1,20 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:sulfur_biome/soot_feature"
+      },
+      "places_block": "edx:blast_shroom",
+      "enforce_placement_rules": false,
+      "enforce_survivability_rules": false,
+      "may_attach_to": {
+        "top":  [
+          "minecraft:air"
+      ]
+    },
+      "may_replace": [
+        "edx:volcano_stone",
+        "minecraft:netherrack"
+      ]
+    }
+  }

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:egg"
+    },
+
+    "unlock": [
+      {
+        "item": "minecraft:egg"
+      }
+    ],
+    "tags": ["furnace", "smoker"],
+    "input": "minecraft:egg",
+    "output": "edx:fried_egg"
+  }
+  
+}

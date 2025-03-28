@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.rippling.item": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/ride @e[type=item,c=5,r=0.5] start_riding @s" ],
+        "0.02": [ "/ride @e[type=item,c=5,r=0.5] start_riding @s" ],
+        "0.05": [ "/ride @e[type=item,c=5,r=0.5] start_riding @s" ],
+        "0.08": [ "/ride @e[type=item,c=5,r=0.5] start_riding @s" ],
+        "0.1": [ "/ride @e[type=item,c=5,r=0.5] start_riding @s" ]
+      }
+    }
+  }
+}

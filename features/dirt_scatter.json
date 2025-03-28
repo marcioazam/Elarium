@@ -1,0 +1,26 @@
+//bridge-file-version: #3
+{
+	"format_version": "1.16.100",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:dirt_scatter"
+		},
+		"iterations": "math.random_integer(5,10)",
+		"x": {
+			"extent": [
+				0,
+				16
+			],
+			"distribution": "uniform"
+		},
+		"z": {
+			"extent": [
+				0,
+				16
+			],
+			"distribution": "uniform"
+		},
+		"y": 0,
+		"places_feature": "edx:dirt_feature"
+	}
+}

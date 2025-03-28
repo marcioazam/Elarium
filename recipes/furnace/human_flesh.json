@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_human_flesh"
+    }, 
+    "unlock": [
+      {
+        "item": "edx:human_flesh_raw"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:human_flesh_raw",
+    "output": "edx:human_flesh_cooked"
+  }
+  
+}

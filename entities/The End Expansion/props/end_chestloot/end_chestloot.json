@@ -1,0 +1,464 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:end_chestloot",
+			"is_spawnable": true,
+			"is_summonable": true,
+
+			"scripts": {
+				"animate": [
+					"root.loot_choice",
+					"root.end_chestloot",
+
+					{ "player_cutscene": "q.is_illager_captain"}
+				]
+			},
+			"animations": {
+				"loot_bad": "animation.end_chestloot.bad_loot",
+				"loot_good": "animation.end_chestloot.good_loot",
+				"loot_sky": "animation.end_chestloot.sky_loot",
+				"explode_loot": "animation.end_chestloot.explode_loot",
+				"player_cutscene": "animation.end_chestloot.player_cutscene",
+				
+				"root.loot_choice": "controller.animation.end_chestloot.loot_choice",
+				"root.end_chestloot": "controller.animation.end_chestloot.teleport"
+			}
+		},
+		"component_groups": {
+			//facing mode
+			"xp:facing.north":{
+				"minecraft:mark_variant": {
+					"value": 1
+				}
+			},
+			"xp:facing.south":{
+				"minecraft:mark_variant": {
+					"value": 2
+				}
+			},
+			"xp:facing.east":{
+				"minecraft:mark_variant": {
+					"value": 3
+				}
+			},
+			"xp:facing.west":{
+				"minecraft:mark_variant": {
+					"value": 4
+				}
+			},
+
+			//bad or good mode
+			"xp:stage.bad":{
+				"minecraft:skin_id": {
+					"value": 2
+				},
+				"minecraft:timer": {
+					"time": 6.1,
+					"looping": false,
+					"time_down_event": {
+						"event": "xp:stage_dissaper_open",
+						"target": "self"
+					}
+				}
+			},
+			"xp:stage.good":{
+				"minecraft:skin_id": {
+					"value": 3
+				},
+				"minecraft:timer": {
+					"time": 6.1,
+					"looping": false,
+					"time_down_event": {
+						"event": "xp:stage_dissaper_open",
+						"target": "self"
+					}
+				}
+			},
+			"xp:stage.sky":{
+				"minecraft:skin_id": {
+					"value": 4
+				},
+				"minecraft:timer": {
+					"time": 6.1,
+					"looping": false,
+					"time_down_event": {
+						"event": "xp:stage_dissaper_open",
+						"target": "self"
+					}
+				}
+			},
+			"xp:stage.explode":{
+				"minecraft:skin_id": {
+					"value": 5
+				},
+				"minecraft:explode": {
+					"fuse_length": 6.1,
+					"fuse_lit": true,
+					"power": 3,
+					"causes_fire": false,
+					"destroy_affected_by_griefing": true
+				},
+				"minecraft:timer": {
+					"time": 6.1,
+					"looping": false,
+					"time_down_event": {
+						"event": "xp:stage_dissaper_open",
+						"target": "self"
+					}
+				}
+			},
+
+			"xp:cutscene":{
+			    "minecraft:is_illager_captain": {}
+			},
+
+			//teleport mode
+			"xp:stage.teleport_hit":{
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:is_chested": {},
+				"minecraft:environment_sensor": {
+					"triggers": [
+					  {
+						 "event": "xp:stage_remove_teleport_hit",
+						 "target": "self",
+						 "filters": {
+							"test": "in_caravan",
+							"value": false
+						 }
+					  }
+					]
+				}
+			},
+
+			//death mode
+			"xp:stage.dissaper_open":{
+				"minecraft:transformation": {
+					"into": "xp:end_chestloot.death<xp:stage_dissaper_open>"
+				}
+			},
+			"xp:stage.dissaper":{
+				"minecraft:transformation": {
+					"into": "xp:end_chestloot.death<xp:stage_dissaper>"
+				}
+			},
+			"xp:instant_despawn": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"echoing_larp",
+					"block",
+					"inanimate"
+				]
+			},
+			"minecraft:health": {
+				"value": 99999
+			},
+			"minecraft:push_through": {
+				"value": 100
+			},
+			"minecraft:breathable": {
+				"totalSupply": 0,
+				"suffocateTime": 0,
+				"generates_bubbles": false
+			},
+			"minecraft:collision_box": {
+				"height": 0.0,
+				"width": 0.0
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"width": 0.85,
+						"height": 0.75,
+						"pivot": [
+							0,
+							0.375,
+							0
+						]
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "entity_attack",
+						"on_damage": {
+							"filters":[
+								{
+									"test": "has_component",
+									"subject": "self",
+									"operator": "!=",
+									"value": "minecraft:is_illager_captain"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "==",
+									"value": "player"
+								}
+							],
+							"event": "xp:stage_teleport_hit"
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "entity_attack",
+						"on_damage": {
+							"filters":[
+								{
+									"test": "has_component",
+									"subject": "self",
+									"operator": "==",
+									"value": "minecraft:is_illager_captain"
+								}
+							]
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "projectile",
+						"on_damage": {
+							"event": "xp:stage_teleport_hit"
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "entity_explosion",
+						"on_damage": {
+							"event": "xp:stage_dissaper"
+						},			
+						"deals_damage": false
+					},
+					{
+						"cause": "block_explosion",
+						"on_damage": {
+							"event": "xp:stage_dissaper"
+						},			
+						"deals_damage": false
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					},
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+				{
+					"filters": {
+					"test": "on_ground",
+					"subject": "self",
+					"operator": "==",
+					"value": false
+					},
+					"event": "xp:instant_despawn"
+				}
+				]
+			},
+			"minecraft:fire_immune": true,
+			"minecraft:knockback_resistance": {
+				"value": 100
+			},
+			"minecraft:is_stackable": {},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"event": "xp:action_random",
+							"target": "self"
+						 },
+						 "interact_text": "action.interact.chest"
+					}
+				]
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			//facing event
+			"xp:facing_north":{
+				"add": {
+					"component_groups": [
+						"xp:facing.north"
+					]
+				}
+			},
+			"xp:facing_south":{
+				"add": {
+					"component_groups": [
+						"xp:facing.south"
+					]
+				}
+			},
+			"xp:facing_east":{
+				"add": {
+					"component_groups": [
+						"xp:facing.east"
+					]
+				}
+			},
+			"xp:facing_west":{
+				"add": {
+					"component_groups": [
+						"xp:facing.west"
+					]
+				}
+			},
+
+			//bad or good event
+			"xp:stage_shaking":{
+				"add": {
+					"component_groups": [
+						"xp:stage.shaking"
+					]
+				}
+			},
+			"xp:action_random":{
+				"sequence": [
+					{
+						"filters": {
+							"test": "has_component",
+							"subject": "self",
+							"operator": "!=",
+							"value": "minecraft:is_illager_captain"
+						},
+						"randomize": [
+							{
+								"trigger": "xp:stage_bad",
+								"weight": 5
+							},
+							{
+								"trigger": "xp:stage_good",
+								"weight": 4
+							},
+							{
+								"trigger": "xp:stage_explode",
+								"weight": 1
+							}
+							//{ "trigger": "xp:stage_sky", "weight": 1 }
+						]
+					}
+				]
+			},
+
+			"xp:stage_bad":{
+				"add": {
+					"component_groups": [
+						"xp:stage.bad"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:stage.shaking"
+					]
+				}
+			},
+			"xp:stage_good":{
+				"add": {
+					"component_groups": [
+						"xp:stage.good"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:stage.shaking"
+					]
+				}
+			},
+			"xp:stage_sky":{
+				"add": {
+					"component_groups": [
+						"xp:stage.sky"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:stage.shaking"
+					]
+				}
+			},
+			"xp:stage_explode":{
+				"add": {
+					"component_groups": [
+						"xp:stage.explode"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:stage.shaking"
+					]
+				}
+			},
+
+			"xp:cutscene":{
+				"add": {
+					"component_groups": [
+						"xp:cutscene"
+					]
+				}
+			},
+			"xp:remove_cutscene":{
+				"remove": {
+					"component_groups": [
+						"xp:cutscene"
+					]
+				}
+			},
+
+			//teleport event
+			"xp:stage_teleport_hit":{
+				"add": {
+					"component_groups": [
+						"xp:stage.teleport_hit"
+					]
+				}
+			},
+			"xp:stage_remove_teleport_hit":{
+				"remove": {
+					"component_groups": [
+						"xp:stage.teleport_hit"
+					]
+				}
+			},
+
+			//death event
+			"xp:stage_dissaper_open":{
+				"add": {
+					"component_groups": [
+						"xp:stage.dissaper_open"
+					]
+				}
+			},
+			"xp:stage_dissaper":{
+				"add": {
+					"component_groups": [
+						"xp:stage.dissaper"
+					]
+				}
+			},
+
+			"xp:instant_despawn": {
+				"add": {
+				  "component_groups": [ "xp:instant_despawn" ]
+				}
+			 }
+		}
+	}
+ }

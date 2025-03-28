@@ -1,0 +1,156 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ender_curved_blade": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'ender_curved_blade'" },
+            { "hold1": "q.get_equipped_item_name == 'ender_curved_blade_enchanted'" }
+          ],
+          "on_entry": [ 
+            "@s xp:attack_value_1",
+            "/tag @s remove ender_curved_blade"
+           ]
+        },
+
+        "hold": {
+          "transitions": [ 
+            { "default": "q.get_equipped_item_name != 'ender_curved_blade'" } ,
+            { "basic_attack": "v.attack_time > 0.0f" }, 
+            { "charge": "q.is_using_item && q.get_equipped_item_name == 'ender_curved_blade'" } 
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;",
+            "/tag @s add ender_curved_blade",
+            "@s xp:attack_value_7"
+           ]
+        },
+        
+        "charge": {
+          "transitions": [  
+            { "default": "q.get_equipped_item_name != 'ender_curved_blade'" } ,
+            { "hold": "!q.is_using_item && (q.life_time - v.tick_delay) <= 0.4 && q.get_equipped_item_name == 'ender_curved_blade'" },
+            { "release": "!q.is_using_item && (q.life_time - v.tick_delay) >= 0.4 && q.get_equipped_item_name == 'ender_curved_blade'" }
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;"
+           ]
+        },
+        
+        "release": {
+          "transitions": [  
+            { "hold": "(q.life_time - v.tick_delay) >= 0.55 && q.get_equipped_item_name == 'ender_curved_blade'" }
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run playsound swing @a[r=15] ~~~ 0.9 0.25 0.15",
+            "@s xp:ender_curved_blade.release"
+           ],
+           "on_exit": [
+            "/clear @s xp:ender_curved_blade -1 1"
+            ]
+        },
+        
+        "basic_attack": {
+          "transitions": [ 
+            { "hold": "(q.life_time - v.tick_delay) >= 0.25 && q.get_equipped_item_name == 'ender_curved_blade'" }, 
+            { "default": "q.get_equipped_item_name != 'ender_curved_blade'" } 
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;", "@s xp:set_attack"
+           ],
+           "on_exit": [
+            "@s xp:unset_attack"
+           ]
+        },
+
+        "hold1": {
+          "transitions": [ 
+            { "default": "q.get_equipped_item_name != 'ender_curved_blade_enchanted'" } ,
+            { "basic_attack1": "v.attack_time > 0.0f" }, 
+            { "charge1": "q.is_using_item && q.get_equipped_item_name == 'ender_curved_blade_enchanted'" }
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;",
+            "/tag @s add ender_curved_blade",
+            "@s xp:attack_value_14"
+           ]
+        },
+        
+        "charge1": {
+          "transitions": [  
+            { "default": "q.get_equipped_item_name != 'ender_curved_blade_enchanted'" } ,
+            { "hold1": "!q.is_using_item && (q.life_time - v.tick_delay) <= 0.4 && q.get_equipped_item_name == 'ender_curved_blade_enchanted'" },
+            { "release1": "!q.is_using_item && (q.life_time - v.tick_delay) >= 0.4 && q.get_equipped_item_name == 'ender_curved_blade_enchanted'" }
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;"
+           ]
+        },
+        
+        "release1": {
+          "transitions": [  
+            { "default": "q.get_equipped_item_name != 'ender_curved_blade_enchanted'" } ,
+            { "hold1": "(q.life_time - v.tick_delay) >= 0.55 && q.get_equipped_item_name == 'ender_curved_blade_enchanted'" }
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run playsound swing @a[r=15] ~~~ 0.9 0.25 0.15",
+            "@s xp:ender_curved_blade.release1"
+           ],
+           "on_exit": [
+            "/clear @s xp:ender_curved_blade_enchanted -1 1"
+            ]
+        },
+        
+        "basic_attack1": {
+          "transitions": [ 
+            { "hold1": "(q.life_time - v.tick_delay) >= 0.25 && q.get_equipped_item_name == 'ender_curved_blade_enchanted'" }, 
+            { "default": "q.get_equipped_item_name != 'ender_curved_blade_enchanted'" } 
+          ],
+          "on_entry": [ 
+            "v.tick_delay = q.life_time;", "@s xp:set_attack"
+           ],
+           "on_exit": [
+            "@s xp:unset_attack"
+           ]
+        }
+      }
+    },
+    "controller.animation.ender_curved_blade.projectile": {
+      "initial_state": "in_air",
+      "states": {
+        "in_air": {
+          "transitions": [ 
+            { "hit": "(q.is_on_ground || q.variant == 1) && !q.out_of_control" },
+            { "enchanted_hit": "(q.is_on_ground || q.variant == 1) && q.out_of_control" }
+          ]
+        },
+        "hit": {
+          "on_entry": [ 
+            "/execute at @s run playsound copper.wax.off @a[r=20] ~~~ 0.95 0.75 0.01",
+            "/execute at @s run playsound copper.wax.off @a[r=20] ~~~ 0.95 1.75 0.01",
+            "/execute at @s run playsound block.turtle_egg.break @a[r=20] ~~~ 0.45 1.75 0.01",
+            "/particle xp:ender_curved_blade.impact_smoke ~~~",
+            "/particle xp:ender_curved_blade.impact ~~~"
+            //"@s xp:despawn"
+           ]
+        },
+        "enchanted_hit": {
+          "on_entry": [ 
+            "/execute at @s run playsound respawn_anchor.deplete @a[r=20] ~~~ 0.95 1.75 0.1",
+            "/execute at @s run playsound respawn_anchor.deplete @a[r=20] ~~~ 0.75 1.25 0.1",
+            "/execute at @s run playsound copper.wax.off @a[r=20] ~~~ 0.95 0.75 0.01",
+            "/execute at @s run playsound copper.wax.off @a[r=20] ~~~ 0.95 1.75 0.01",
+            "/execute at @s run playsound block.turtle_egg.break @a[r=20] ~~~ 0.45 1.75 0.01",
+            "/particle xp:ender_curved_blade.impact_burst ~~~",
+            "/particle xp:ender_curved_blade.flash ~~~"
+            //"@s xp:despawn"
+           ]
+        }
+      }
+    }
+  }
+}

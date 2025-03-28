@@ -1,0 +1,26 @@
+{
+    "pools": [{
+        "rolls": 1,
+        "entries": [{
+            "type": "item",
+            "name": "xp:void_blast_enchant_i",
+            "weight": 1,
+            "functions": [
+                {
+                    "function": "set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 1
+                    }
+                },
+                {
+                    "function": "set_lore",
+                    "lore": [
+                        "Upon use",
+                        "Grants 3 minutes of Strength II"
+                    ]
+                }
+            ]
+        }]
+    }]
+}

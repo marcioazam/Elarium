@@ -1,0 +1,66 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+	"description": {
+      "identifier": "edx:crimson_nickel_sword",
+      "menu_category": {
+				"category":"equipment",
+        "group": "itemGroup.name.sword"
+			}
+		},
+    "components": {
+      "minecraft:custom_components": ["edx:durability"],
+      "minecraft:display_name": {
+        "value": "Crimson Nickel Sword"
+      },
+      "minecraft:icon": {
+        "textures":{
+               "default":"crimson_nickel_sword"
+         }
+      },
+      "minecraft:stacked_by_data": false,
+      "minecraft:max_stack_size": 1,
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_sword",
+          "minecraft:transformable_items"
+        ]
+      },
+      "minecraft:durability": {
+        "max_durability": 300
+      },
+      
+    "minecraft:hover_text_color": {         "value": "aqua"       },
+      "minecraft:enchantable": {
+        "value": 12,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:digger": {
+        "use_efficiency": false,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:web",
+            "speed": 19
+          },
+          {
+            "block": "minecraft:bamboo",
+            "speed": 14
+          }
+        ]
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items":[
+              "edx:nickel_ingot"
+            ],
+            "repair_amount": "q.max_durability/4"
+          }
+        ]
+      }
+
+	 }
+  }
+}

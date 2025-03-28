@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:copper_shovel"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X",
+      "#",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "minecraft:copper_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:copper_shovel"
+    }
+  }
+}

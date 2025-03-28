@@ -1,0 +1,47 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:spawner_table"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "BBB",
+      "DED",
+      "###"
+    ],
+    "key": {
+      "B": {
+        "item": "edx:spawner_fragment"
+      },
+      "#": {
+        "item": "minecraft:sculk"
+      },
+      "E": {
+        "item": "edx:souls_container"
+      },
+      "D": {
+        "item": "edx:ruby"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:spawner_fragment"
+      },
+      {
+        "item": "minecraft:sculk"
+      },
+      {
+        "item": "edx:souls_container"
+      },
+      {
+        "item": "edx:ruby"
+      }
+    ],
+    "result": {
+      "item": "edx:spawner_table"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "dungeons:summon_watchling",
+			"is_summonable": true,
+			"is_spawnable": false,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"dungeons:despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"inanimate",
+					"ignore"
+				]
+			},
+			"minecraft:health": {
+				"max": 20,
+				"value": 20
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": false,
+        "within_radius": 25.0,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "mob" }
+              ]
+            },
+            "max_dist": 35
+          }
+        ]
+      },
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval":true,
+          "time": [2, 2],
+          "time_down_event": {
+            "event": "dungeons:despawn"
+          }
+        },
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"pivot": [
+							0,
+							1000,
+							0
+						],
+						"width": 0,
+						"height": 0
+					}
+				]
+			},
+			"minecraft:behavior.summon_entity": {
+        "priority": 2,
+
+        "summon_choices": [
+          {
+            "cooldown_time": 5.0,
+            "weight": 1,
+            "do_casting": true,
+            "cast_duration": 0.1,
+            "particle_color": "#03ffcd",
+            "sequence": [
+              {
+                "shape": "circle",
+                "target": "self",
+                "base_delay": 0.1,
+                "delay_per_summon": 0.4,
+                "num_entities_spawned": 2,
+                "entity_type": "dungeons:watchling",
+                "size": 2,
+                "summon_cap": 6,
+                "summon_cap_radius": 24.0,
+                "entity_lifespan": 120
+              }
+            ]
+          }
+        ]
+      },
+			"minecraft:tick_world": {},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			}
+		},
+		"events": {
+			"dungeons:despawn": {
+				"add": {
+					"component_groups": [
+						"dungeons:despawn"
+					]
+				}
+			}
+		}
+	}
+}

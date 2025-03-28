@@ -1,0 +1,23 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:cordyceps_block_scater_feature"
+    },
+    "iterations": 80,
+    "x": {
+      "distribution": "triangle",
+      "extent": [ -5, 5 ]
+    },
+    "y": {
+      "distribution": "triangle",
+      "extent": [ -5, 5 ]
+    },
+    "z": {
+      "distribution": "triangle",
+      "extent": [ -5, 5 ]
+    },
+    "coordinate_eval_order": "zyx",
+    "places_feature": "edx:cordyceps_block_feature"
+  }
+}

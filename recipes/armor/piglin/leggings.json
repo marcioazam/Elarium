@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "piglin_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "LLL",
+      "B B"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:quartz"
+      }
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "B": {
+        "item": "minecraft:quartz"
+      }
+    },
+    "result": {
+      "item": "dungeons:piglin_leggings",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,1006 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:heart_of_ender.projectile",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "animations": {
+        "setup": "controller.animation.heart_of_ender.projectile",
+        "shock_entities": "animation.heart_of_ender.projectile.shock",
+        "heart_blast_shocker": "controller.animation.heart_blast_shocker",
+        "enders_heart_blast.projectile_sfx": "animation.enders_heart_blast.projectile_sfx",
+        "enders_heart_blast.attack_stage_1": "animation.heart_of_ender.projectile.attack_stage_1"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          "shock_entities",
+          "heart_blast_shocker",
+          { "enders_heart_blast.projectile_sfx": "q.life_time > 0.5" }
+        ]
+      }
+    },
+    "component_groups": {
+      "minecraft:abomination": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:impact_abomination",
+                "target": "self"
+              }
+            },
+            "stick_in_ground": {
+              "shake_time": 1.0
+            },
+            "impact_damage": {
+              "damage": [4, 7],
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            }
+          },
+          "stop_on_hurt": false,
+          "multiple_targets": true,
+          "should_bounce": false,
+          "uncertainty_base": 40,
+          "uncertainty_multiplier": 3,
+          "anchor": 1,
+          "inertia": 0.95,
+          "power": 1.0,
+          "gravity": 0.1,
+          "angle_offset": -40.0,
+          "offset": [0, 2, 0],
+          "liquid_inertia": 0.0
+        }
+      },
+      "xp:impact": {
+        "minecraft:variant": { "value": 1 },
+        "minecraft:timer": {
+          "time": 10,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:despawn"
+          }
+        }
+      },
+
+      "xp:reset_impact": { "minecraft:variant": { "value": 0 } },
+
+      "xp:scale_1": {
+        "minecraft:scale": { "value": 1 },
+        "minecraft:area_attack": {
+          "damage_range": 0,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_2"
+          }
+        }
+      },
+      "xp:scale_2": {
+        "minecraft:scale": { "value": 1.1 },
+        "minecraft:area_attack": {
+          "damage_range": 0.25,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_3"
+          }
+        }
+      },
+      "xp:scale_3": {
+        "minecraft:scale": { "value": 1.2 },
+        "minecraft:area_attack": {
+          "damage_range": 0.25,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_4"
+          }
+        }
+      },
+      "xp:scale_4": {
+        "minecraft:scale": { "value": 1.3 },
+        "minecraft:area_attack": {
+          "damage_range": 0.25,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_5"
+          }
+        }
+      },
+      "xp:scale_5": {
+        "minecraft:scale": { "value": 1.4 },
+        "minecraft:area_attack": {
+          "damage_range": 0.25,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_6"
+          }
+        }
+      },
+      "xp:scale_6": {
+        "minecraft:scale": { "value": 1.5 },
+        "minecraft:area_attack": {
+          "damage_range": 0.5,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_7"
+          }
+        }
+      },
+      "xp:scale_7": {
+        "minecraft:scale": { "value": 1.6 },
+        "minecraft:area_attack": {
+          "damage_range": 0.5,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_8"
+          }
+        }
+      },
+      "xp:scale_8": {
+        "minecraft:scale": { "value": 1.7 },
+        "minecraft:area_attack": {
+          "damage_range": 0.5,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_9"
+          }
+        }
+      },
+      "xp:scale_9": {
+        "minecraft:scale": { "value": 1.8 },
+        "minecraft:area_attack": {
+          "damage_range": 0.5,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_10"
+          }
+        }
+      },
+      "xp:scale_10": {
+        "minecraft:scale": { "value": 1.9 },
+        "minecraft:area_attack": {
+          "damage_range": 0.5,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_11"
+          }
+        }
+      },
+      "xp:scale_11": {
+        "minecraft:scale": { "value": 2.0 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_12"
+          }
+        }
+      },
+      "xp:scale_12": {
+        "minecraft:scale": { "value": 2.1 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_13"
+          }
+        }
+      },
+      "xp:scale_13": {
+        "minecraft:scale": { "value": 2.2 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_14"
+          }
+        }
+      },
+      "xp:scale_14": {
+        "minecraft:scale": { "value": 2.3 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_15"
+          }
+        }
+      },
+      "xp:scale_15": {
+        "minecraft:scale": { "value": 2.4 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_16"
+          }
+        }
+      },
+      "xp:scale_16": {
+        "minecraft:scale": { "value": 2.5 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_17"
+          }
+        }
+      },
+      "xp:scale_17": {
+        "minecraft:scale": { "value": 2.6 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_18"
+          }
+        }
+      },
+      "xp:scale_18": {
+        "minecraft:scale": { "value": 2.7 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_19"
+          }
+        }
+      },
+      "xp:scale_19": {
+        "minecraft:scale": { "value": 2.8 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_20"
+          }
+        }
+      },
+      "xp:scale_20": {
+        "minecraft:scale": { "value": 2.9 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_21"
+          }
+        }
+      },
+      "xp:scale_21": {
+        "minecraft:scale": { "value": 3.0 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_22"
+          }
+        }
+      },
+      "xp:scale_22": {
+        "minecraft:scale": { "value": 3.25 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_23"
+          }
+        }
+      },
+      "xp:scale_23": {
+        "minecraft:scale": { "value": 3.5 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_24"
+          }
+        }
+      },
+      "xp:scale_24": {
+        "minecraft:scale": { "value": 3.75 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_25"
+          }
+        }
+      },
+      "xp:scale_25": {
+        "minecraft:scale": { "value": 4.0 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_26"
+          }
+        }
+      },
+      "xp:scale_26": {
+        "minecraft:scale": { "value": 4.25 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_27"
+          }
+        }
+      },
+      "xp:scale_27": {
+        "minecraft:scale": { "value": 4.5 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 8,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_28"
+          }
+        }
+      },
+      "xp:scale_28": {
+        "minecraft:scale": { "value": 4.75 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 10,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_29"
+          }
+        }
+      },
+      "xp:scale_29": {
+        "minecraft:scale": { "value": 5.0 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 12,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 0.075,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:scale_30"
+          }
+        }
+      },
+      "xp:scale_30": {
+        "minecraft:scale": { "value": 5.25 },
+        "minecraft:area_attack": {
+          "damage_range": 1,
+          "damage_per_tick": 15,
+          "cause": "contact",
+          "entity_filter": {
+            "none_of": [
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "value": "enders_heart_blast"
+              },
+              
+              { "test": "is_family", "subject": "other", "value": "item" }
+            ]
+          }
+        },
+        "minecraft:timer": {
+          "time": 7.05,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:impact"
+          }
+        }
+      },
+      "xp:despawn": { "minecraft:instant_despawn": {} }
+    },
+    "components": {
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "xp:impact",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 0.1
+          }
+        },
+        "stop_on_hurt": false,
+        "multiple_targets": true,
+        "should_bounce": false,
+        "uncertainty_base": 40,
+        "uncertainty_multiplier": 3,
+        "anchor": 1,
+        "inertia": 0.95,
+        "power": 1.5,
+        "gravity": 0.1,
+        "angle_offset": -40.0,
+        "offset": [0, 2, 0],
+        "liquid_inertia": 0.0
+      },
+      "minecraft:timer": {
+        "time": 9.55,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:impact"
+        }
+      },
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+"redstone_torch",
+"torch",
+"glowstone",
+          "glass",
+          "glass_pane",
+          "stained_glass",
+          "twisting_vines",
+          "stained_glass_pane",
+          "bamboo",
+          "cocoa",
+          "carved_pumpkin",
+          "chorus_flower",
+          "chorus_plant",
+          "lit_pumpkin",
+          "melon_block",
+          "pumpkin",
+          "turtle_egg",
+          "waterlily",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf"
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:skin_id": {
+        "value": 0
+      },
+      "minecraft:type_family": {
+        "family": ["xp_dummy", "projectile", "heart_of_ender_boss_projectile"]
+      },
+      "minecraft:collision_box": {
+        "width": 0.35,
+        "height": 0.35
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "abomination"
+            },
+            "add": {
+              "component_groups": ["minecraft:abomination"]
+            }
+          }
+        ]
+      },
+      "xp:scale_1": { "add": { "component_groups": ["xp:scale_1"] } },
+      "xp:scale_2": { "add": { "component_groups": ["xp:scale_2"] } },
+      "xp:scale_3": { "add": { "component_groups": ["xp:scale_3"] } },
+      "xp:scale_4": { "add": { "component_groups": ["xp:scale_4"] } },
+      "xp:scale_5": { "add": { "component_groups": ["xp:scale_5"] } },
+      "xp:scale_6": { "add": { "component_groups": ["xp:scale_6"] } },
+      "xp:scale_7": { "add": { "component_groups": ["xp:scale_7"] } },
+      "xp:scale_8": { "add": { "component_groups": ["xp:scale_8"] } },
+      "xp:scale_9": { "add": { "component_groups": ["xp:scale_9"] } },
+      "xp:scale_10": { "add": { "component_groups": ["xp:scale_10"] } },
+      "xp:scale_11": { "add": { "component_groups": ["xp:scale_11"] } },
+      "xp:scale_12": { "add": { "component_groups": ["xp:scale_12"] } },
+      "xp:scale_13": { "add": { "component_groups": ["xp:scale_13"] } },
+      "xp:scale_14": { "add": { "component_groups": ["xp:scale_14"] } },
+      "xp:scale_15": { "add": { "component_groups": ["xp:scale_15"] } },
+      "xp:scale_16": { "add": { "component_groups": ["xp:scale_16"] } },
+      "xp:scale_17": { "add": { "component_groups": ["xp:scale_17"] } },
+      "xp:scale_18": { "add": { "component_groups": ["xp:scale_18"] } },
+      "xp:scale_19": { "add": { "component_groups": ["xp:scale_19"] } },
+      "xp:scale_20": { "add": { "component_groups": ["xp:scale_20"] } },
+      "xp:scale_21": { "add": { "component_groups": ["xp:scale_21"] } },
+      "xp:scale_22": { "add": { "component_groups": ["xp:scale_22"] } },
+      "xp:scale_23": { "add": { "component_groups": ["xp:scale_23"] } },
+      "xp:scale_24": { "add": { "component_groups": ["xp:scale_24"] } },
+      "xp:scale_25": { "add": { "component_groups": ["xp:scale_25"] } },
+      "xp:scale_26": { "add": { "component_groups": ["xp:scale_26"] } },
+      "xp:scale_27": { "add": { "component_groups": ["xp:scale_27"] } },
+      "xp:scale_28": { "add": { "component_groups": ["xp:scale_28"] } },
+      "xp:scale_29": { "add": { "component_groups": ["xp:scale_29"] } },
+      "xp:scale_30": { "add": { "component_groups": ["xp:scale_30"] } },
+      "xp:impact": {
+        "add": { "component_groups": ["xp:impact"] },
+        "remove": { "component_groups": ["xp:reset_impact"] }
+      },
+      "xp:impact_abomination": {
+        "add": { "component_groups": ["xp:impact"] },
+        "remove": { "component_groups": ["xp:reset_impact"]
+       },
+       "queue_command": {
+        "command": [
+          "effect @p levitation 4 1 true"
+        ]
+      }
+      },
+      "xp:reset_impact": {
+        "add": { "component_groups": ["xp:reset_impact"] },
+        "remove": { "component_groups": ["xp:impact"] }
+      },
+      "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } }
+    }
+  }
+}

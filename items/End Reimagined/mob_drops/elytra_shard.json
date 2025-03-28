@@ -1,0 +1,51 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:item": {
+      "description": {
+        "identifier": "xp:elytra_shard"
+      },
+      "components": {
+        "minecraft:foil": false,
+        "minecraft:stacked_by_data": true,
+        "minecraft:max_stack_size": 16,
+        "minecraft:use_duration": 32,
+        "minecraft:food": {
+          "nutrition": 1,
+          "saturation_modifier": "supernatural",
+          "can_always_eat": true,
+          "effects": [
+            {
+              "name": "nausea",
+              "chance": 1.0,
+              "duration": 7,
+              "amplifier": 1
+            },
+            {
+              "name": "slow_falling",
+              "chance": 0.25,
+              "duration": 5,
+              "amplifier": 1
+            },
+            {
+              "name": "slow_falling",
+              "chance": 0.25,
+              "duration": 3,
+              "amplifier": 1
+            },
+            {
+              "name": "slow_falling",
+              "chance": 0.25,
+              "duration": 2,
+              "amplifier": 1
+            },
+            {
+              "name": "slow_falling",
+              "chance": 0.25,
+              "duration": 1,
+              "amplifier": 1
+            }
+          ]
+        }
+      }
+    }
+  }

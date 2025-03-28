@@ -1,0 +1,23 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:item": {
+      "description": {
+        "identifier": "xp:wild_chorus"
+      },
+      "components": {
+        "minecraft:foil": false,
+        "minecraft:stacked_by_data": true,
+        "minecraft:max_stack_size": 64,
+        "minecraft:use_duration": 32,
+        "minecraft:food": {
+          "nutrition": 4,
+          "saturation_modifier": "low",
+          "on_use_action": "chorus_teleport",
+          "on_use_range": [ 16, 12, 16 ],
+          "cooldown_type": "chorusfruit",
+          "cooldown_time": 20,
+          "can_always_eat": true
+        }
+      }
+    }
+  }

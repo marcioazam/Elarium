@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:ring_of_infinity"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:pure_crystal"
+      },
+      "#": {
+        "item": "edx:golden_ring_of_atlantis"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:dragon_breath"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:pure_crystal"
+      },
+      {
+        "item": "edx:golden_ring_of_atlantis"
+      }
+    ],
+    "result": {
+      "item": "edx:ring_of_infinity"
+    }
+  }
+  
+}

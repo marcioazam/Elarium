@@ -1,0 +1,14 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+	  "description": {
+		"identifier": "edx:magma_chamber/spikes/random_spike"
+	  },
+	  "features": [
+		[ "edx:magma_chamber/spikes/obs_sml1", 10 ],
+		[ "edx:magma_chamber/spikes/obs_sml3", 10 ],
+		[ "edx:magma_chamber/spikes/obs_sml4", 10 ],
+		[ "edx:magma_chamber/spikes/obs_sml5", 10 ]
+	  ]
+	}
+  }

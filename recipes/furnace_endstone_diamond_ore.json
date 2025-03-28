@@ -1,0 +1,12 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "xp:furnace_end_stone_diamond_ore"
+    },
+    "tags": ["furnace"],
+    "input": "xp:end_stone_diamond_ore",
+    "output": "minecraft:diamond"
+  }
+  
+}

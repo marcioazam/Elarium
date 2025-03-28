@@ -1,0 +1,12 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+	  "description": {
+		"identifier": "edx:end_ship_random"
+	  },
+	  "features": [
+		[ "edx:end_ship_proxy", 1 ],
+		[ "edx:nothing_feature", 500 ]
+	  ]
+	}
+  }

@@ -1,0 +1,14 @@
+{
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "item",
+            "name": "edx:tall_swamp_grass_it",
+            "weight": 9
+          }
+        ]
+      }
+    ]
+  }

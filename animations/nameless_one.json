@@ -1,0 +1,11 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.nameless_one.invisible_timer": {
+      "loop": false,
+      "animation_length": 2.01,
+      "timeline": {
+      }
+    }
+  }
+}

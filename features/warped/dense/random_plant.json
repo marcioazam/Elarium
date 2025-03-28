@@ -1,0 +1,13 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+	  "description": {
+		"identifier": "edx:warped/dense/random_plant"
+	  },
+	  "features": [
+		[ "edx:warped/twisted_stipes_aggreg", 1 ],
+		[ "edx:warped/dense/vines", 2 ],
+		[ "edx:warped/dense/roots", 1 ]
+	  ]
+	}
+  }

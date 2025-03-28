@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:double_quiver"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#  ",
+      " P ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:heavy_quiver"
+      },
+      "#": {
+        "item": "edx:sculk_quiver"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "edx:skeleton_soul"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:heavy_quiver"
+      },
+      {
+        "item": "edx:sculk_quiver"
+      }
+    ],
+    "result": {
+      "item": "edx:double_quiver"
+    }
+  }
+  
+}

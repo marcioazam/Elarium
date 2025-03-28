@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:platinium_coin",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.coin"
+			}
+				
+			
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:coin"],
+			"minecraft:icon": {
+				"textures":{
+               "default":"platinium_coin"
+         }
+			},
+			"minecraft:display_name": {
+				"value": "Platinium coin\nRight click with 10 to upgrade it\nShift + right click to downgrade it"
+				}
+		}
+	}
+}

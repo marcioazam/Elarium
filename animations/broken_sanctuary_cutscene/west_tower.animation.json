@@ -1,0 +1,184 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.cutscene.sanctuary.west_tower": {
+            "loop": true,
+            "animation_length": 30,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=10] add in_sanctuary_cutscene",
+                    "/tag @a[r=10] add no_mob_spawning"
+                ],
+                "0.5": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_travel_fade_1",
+                    "/scoreboard players set west_tower sanctuary 1"
+                ],
+                "0.8": [
+                    "/gamemode spectator @a[tag=in_sanctuary_cutscene]",
+                    "/effect @a[tag=in_sanctuary_cutscene] invisibility 100 1 true",
+                    "/summon xp:broken_sanctuary_cutscene_camera ~ ~ ~",
+                    "/tp @e[type=xp:broken_sanctuary_cutscene_camera,c=1] 259.5 113.5 875.5 -135 38"
+                ],
+                "1.3": [
+                    "/playsound sanctuary.activator.start @a[tag=in_sanctuary_cutscene] 262 110 872 1 1 1"
+                ],
+                "2.0": [
+                    "/scoreboard players set west_tower sanctuary 2",
+                    "/particle xp:end_crystal.1 262 110 872",
+                    "/particle xp:end_crystal.2 262 110 872",
+                    "/particle xp:end_crystal.3 262 110 872",
+                    "/particle xp:end_crystal.4 262 110 872",
+                    "/particle xp:end_crystal.5 262 110 872",
+                    "/summon xp:end_crystal 262 110 872",
+                    "/particle xp:sanctuary_activator_spinning 262 110 872"
+                ],
+                "4.5": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_travel_fade_1"
+                ],
+                "4.8": [
+                    "/tp @e[type=xp:broken_sanctuary_cutscene_camera,c=1] 256.5 185.5 878.5 -108 10",
+                    "/scoreboard players set west_tower sanctuary 0"
+                ],
+                "6.1": [
+                    "/playsound sanctuary.activator.start @a[tag=in_sanctuary_cutscene] 262 181 872 1 1 1"
+                ],
+                "6.8": [
+                    "/fill 260 177 874 264 180 870 air 0 destroy",
+                    "/fill 263 178 873 261 179 871 xp:dark_purpur_polished",
+                    "/particle xp:tower_roof_break 262 179 872",
+                    "/event entity @e[type=xp:broken_sanctuary_beacon_no_laser,c=1] xp:activate",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.7 0.5 positional",
+                    "/scoreboard players set west_tower sanctuary 3"
+                ],
+                "7.8": [
+                    "/fill 266 179 869 268 182 874 air 0 destroy",
+                    "/playsound sanctuary.activator.laser_2 @a[tag=in_sanctuary_cutscene] 268 181 872 1 1 1",
+                    "/event entity @e[type=xp:broken_sanctuary_wall,c=1] xp:break",
+                    "/particle xp:tower_side_break_west 268 181 872",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.7 0.5 positional",
+                    "/scoreboard players set west_tower sanctuary 4"
+                ],
+                "8.8": [
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.3 0.5 positional",
+                    "/playsound sanctuary.activator.laser_3 @a[tag=in_sanctuary_cutscene] 268 181 872 1 1 1",
+                    "/scoreboard players set west_tower sanctuary 5"
+                ],
+                "9.4": [
+                    "/playsound sanctuary.activator.laser_4 @a[tag=in_sanctuary_cutscene] 268 181 872 1 1 1",
+                    "/scoreboard players set west_tower sanctuary 6"
+                ],
+                "12.5": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_travel_fade_1"
+                ],
+                "12.7": [
+                    "/tp @e[type=xp:broken_sanctuary_cutscene_camera,c=1] 258.5 111.5 872.5 -90 38",
+                    "/event entity @e[type=xp:broken_sanctuary_cutscene_camera,c=1] xp:despawn"
+                ],
+                "12.8": [
+                    "/effect @a[tag=in_sanctuary_cutscene] invisibility 0 0",
+                    "/execute in the_end rotated 0 0 run summon xp:broken_sanctuary.laser_long 390 197 872",
+                    "/effect @a[tag=in_sanctuary_cutscene] resistance 1 10 true",
+                    "/tp @e[tag=in_sanctuary_cutscene] 258.5 111.5 872.5 -90 10",
+                    "/gamemode survival @a[tag=in_sanctuary_cutscene]",
+                    "/function broken_sanctuary/tower_blocks/west_tower",
+                    "/tag @a[tag=in_sanctuary_cutscene] remove no_mob_spawning",
+                    "/tag @a remove in_sanctuary_cutscene",
+                    "/event entity @s xp:despawn"
+                ]
+            }
+        },
+        "animation.cutscene.sanctuary.west_tower_last": {
+            "loop": true,
+            "animation_length": 30,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=10] add in_sanctuary_cutscene",
+                    "/tag @a[r=10] add no_mob_spawning"
+                ],
+                "0.5": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_travel_fade_1",
+                    "/scoreboard players set west_tower sanctuary 1"
+                ],
+                "0.8": [
+                    "/gamemode spectator @a[tag=in_sanctuary_cutscene]",
+                    "/effect @a[tag=in_sanctuary_cutscene] invisibility 100 1 true",
+                    "/summon xp:broken_sanctuary_cutscene_camera ~ ~ ~",
+                    "/tp @e[type=xp:broken_sanctuary_cutscene_camera,c=1] 259.5 113.5 875.5 -135 38"
+                ],
+                "1.3": [
+                    "/playsound sanctuary.activator.start @a[tag=in_sanctuary_cutscene] 262 110 872 1 1 1"
+                ],
+                "2.0": [
+                    "/scoreboard players set west_tower sanctuary 2",
+                    "/particle xp:end_crystal.1 262 110 872",
+                    "/particle xp:end_crystal.2 262 110 872",
+                    "/particle xp:end_crystal.3 262 110 872",
+                    "/particle xp:end_crystal.4 262 110 872",
+                    "/particle xp:end_crystal.5 262 110 872",
+                    "/summon xp:end_crystal 262 110 872",
+                    "/particle xp:sanctuary_activator_spinning 262 110 872"
+                ],
+                "4.5": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_travel_fade_1"
+                ],
+                "4.8": [
+                    "/tp @a[tag=in_sanctuary_cutscene] 444 185 833 35 -25",
+                    "/tp @e[type=xp:broken_sanctuary_cutscene_camera,c=1] 444 185 833 35 -25",
+                    "/scoreboard players set west_tower sanctuary 0"
+                ],
+                "6.1": [
+                    "/playsound sanctuary.activator.start @a[tag=in_sanctuary_cutscene] 440 189 838"
+                ],
+                "6.8": [
+                    "/fill 260 177 874 264 180 870 air 0 destroy",
+                    "/fill 263 178 873 261 179 871 xp:dark_purpur_polished",
+                    "/setblock 262 180 872 stone_block_slab2 1",
+                    "/particle xp:tower_roof_break 262 179 872",
+                    "/execute positioned 260 177 874 run event entity @e[type=xp:broken_sanctuary_beacon_no_laser,c=1] xp:activate",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.7 0.5 positional",
+                    "/scoreboard players set west_tower sanctuary 3"
+                ],
+                "7.8": [
+                    "/fill 266 179 869 268 182 874 air 0 destroy",
+                    "/playsound sanctuary.activator.laser_2 @a[tag=in_sanctuary_cutscene] 440 189 838",
+                    "/execute positioned 266 179 869 run event entity @e[type=xp:broken_sanctuary_wall,c=1] xp:break",
+                    "/particle xp:tower_side_break_west 268 181 872",
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.7 0.5 positional",
+                    "/scoreboard players set west_tower sanctuary 4"
+                ],
+                "8.8": [
+                    "/camerashake add @a[tag=in_sanctuary_cutscene] 0.3 0.5 positional",
+                    "/playsound sanctuary.activator.laser_3 @a[tag=in_sanctuary_cutscene] 440 189 838",
+                    "/scoreboard players set west_tower sanctuary 5"
+                ],
+                "9.4": [
+                    "/playsound sanctuary.activator.laser_4 @a[tag=in_sanctuary_cutscene] 440 189 838",
+                    "/scoreboard players set west_tower sanctuary 6",
+                    "/scoreboard players set portal_activated sanctuary 1",
+                    "/playsound ender_boss.scream @a[tag=in_sanctuary_cutscene] 440 189 838 10 0.75 10",
+                    "/playsound defeat @a[tag=in_sanctuary_cutscene] 440 189 838 10 0.75 10"
+                ],
+                "12.5": [
+                    "/title @a[tag=in_sanctuary_cutscene] actionbar xp_hud.end_travel_fade_1"
+                ],
+                "12.7": [
+                    "/tp @e[type=xp:broken_sanctuary_cutscene_camera,c=1] 258.5 111.5 872.5 -90 38",
+                    "/event entity @e[type=xp:broken_sanctuary_cutscene_camera,c=1] xp:despawn"
+                ],
+                "12.8": [
+                    "/effect @a[tag=in_sanctuary_cutscene] invisibility 0 0",
+                    "/execute in the_end rotated 0 0 run summon xp:broken_sanctuary.laser_long 390 197 872",
+                    "/effect @a[tag=in_sanctuary_cutscene] resistance 1 10 true",
+                    "/tp @e[tag=in_sanctuary_cutscene] 258.5 111.5 872.5 -90 10",
+                    "/gamemode survival @a[tag=in_sanctuary_cutscene]",
+                    "/function broken_sanctuary/tower_blocks/west_tower",
+                    "/execute as @a[tag=in_sanctuary_cutscene] run function objectives/08",
+                    "/event entity @a[tag=in_sanctuary_cutscene] xp:achievements.009",
+                    "/tag @a[tag=in_sanctuary_cutscene] remove no_mob_spawning",
+                    "/tag @a remove in_sanctuary_cutscene",
+                    "/event entity @s xp:despawn"
+                ]
+            }
+        }
+    }
+}

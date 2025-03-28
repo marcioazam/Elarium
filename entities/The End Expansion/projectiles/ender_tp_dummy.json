@@ -1,0 +1,133 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:ender_tp_dummy",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "ender_tp_dummy"
+        ]
+      },
+      "animations": {
+        "ender_tp_dummy": "controller.animation.ender_tp_dummy"
+      }
+    },
+    "component_groups": {
+      "xp:despawn":{ "minecraft:instant_despawn": {} },
+      "xp:impact":{
+        "minecraft:variant": { "value": 1 },
+        "minecraft:timer": {
+          "time": 0.1,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:despawn",
+            "target": "self"
+          }
+        }
+      },
+      "xp:default":{
+        "minecraft:skin_id": { "value": 0 },
+        "minecraft:projectile": {
+          "on_hit": {
+            "spawn_chance": {
+              "first_spawn_percent_chance": 2.0,
+              "first_spawn_count": 1,
+              "spawn_definition": "minecraft:endermite"
+            },
+            "stick_in_ground": {
+              "shake_time": 0.25
+            },
+            "teleport_owner": {},
+            "definition_event": {
+              "affect_shooter": false,
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:impact",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 10,
+              "knockback": true,
+              "catch_fire": false
+            }
+          },
+          "anchor": 1,
+          "power": 1.25,
+          "gravity": 0.05,
+          "angle_offset": 0.0,
+          "offset": [ 0, 0, 0 ],
+          "liquid_inertia": 0
+        }
+      },
+      "xp:enchanted":{
+        "minecraft:skin_id": { "value": 1 },
+        "minecraft:projectile": {
+          "on_hit": {
+            "spawn_chance": {
+              "first_spawn_percent_chance": 2.0,
+              "first_spawn_count": 1,
+              "spawn_definition": "minecraft:endermite"
+            },
+            "stick_in_ground": {
+              "shake_time": 0.25
+            },
+            "teleport_owner": {},
+            "definition_event": {
+              "affect_shooter": false,
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:impact",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 16,
+              "knockback": true,
+              "catch_fire": false
+            }
+          },
+          "anchor": 1,
+          "power": 1.5,
+          "gravity": 0.05,
+          "angle_offset": 0.0,
+          "offset": [ 0, 0, 0 ],
+          "liquid_inertia": 0
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "xp_dummy", "projectile", "inanimate" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+	    "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:timer": {
+        "time": 10,
+        "looping": true,
+        "time_down_event": {
+          "event": "xp:despawn",
+          "target": "self"
+        }
+      }
+    },
+
+    "events": {
+      "xp:despawn":{ "add": { "component_groups": [ "xp:despawn" ] } },
+      "xp:default":{ "add": { "component_groups": [ "xp:default" ] } },
+      "xp:enchanted":{ "add": { "component_groups": [ "xp:enchanted" ] } },
+      "xp:impact":{ "add": { "component_groups": [ "xp:impact" ] } }
+    }
+  }
+}

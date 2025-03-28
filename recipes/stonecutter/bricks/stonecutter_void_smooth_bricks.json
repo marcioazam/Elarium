@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_void_smooth_bricks"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 1,
+    "ingredients": [
+      {
+        "item": "edx:void_bricks"
+      }
+    ],
+    "result": {
+      "item": "edx:void_smooth_bricks",
+      "count": 1
+    }
+  }
+} 

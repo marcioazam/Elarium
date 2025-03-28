@@ -1,0 +1,155 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.mob_spawner.spawn_conduit": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/conduit_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_elderman": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/elderman_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_echoing_forest_enderman": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/ef_enderman_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_endermite": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/endermite_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_enderslime": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/enderslime_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_allay": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/allay_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_stalker": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/stalker_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_enderman": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/enderman_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_mimic": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/mimic_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_rippling": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/rippling_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_endergob": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/endergob_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_enderslug": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/enderslug_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_shulker": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/shulker_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_warder": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/warder_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    },
+    "animation.mob_spawner.spawn_enderbug": {
+      "loop": false,
+      "animation_length": 5,
+      "timeline": {
+        "0.5": [
+          "/function mob_spawning/enderbug_placed",
+          "/event entity @s xp:despawn"
+        ]
+      }
+    }
+  }
+}

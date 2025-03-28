@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:sculk_portal",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"sculk_portal"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "sculk_portal"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dSculk portal \n§5Artifact\n§6Summon 2 sculklings when a monster is near you\nSculklings last 5 minutes\n§41 Minute cooldown"
+			  }
+		}
+	}
+}

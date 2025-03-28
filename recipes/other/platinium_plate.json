@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:platinium_plate"
+    },
+    "tags": [ "workbench" ],
+    "pattern": [
+      "TT",
+      "TT"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:platinium_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:platinium_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:platinium_plate",
+      "count":  1
+    }
+  }
+}

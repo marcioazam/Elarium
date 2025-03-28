@@ -1,0 +1,13 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:aggregate_feature": {
+      "description": {
+        "identifier": "edx:sulfur_biome/sulfur_biome_all"
+      },
+      "features": [
+        "edx:sulfur_biome/lavastone_feature",
+        "edx:sulfur_biome/blast_shroom_scatter",
+        "edx:sulfur_biome/yellowstone"
+      ]
+    }
+  }

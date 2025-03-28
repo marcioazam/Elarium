@@ -1,0 +1,20 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "edx:piglin_outposts/piglin_outpost9"
+    },
+    "structure_name": "mystructure:piglin_outpost9",
+    "adjustment_radius": 16,
+		"facing_direction": "south",
+		"constraints": {
+      "grounded": {},
+			"unburied": {},
+      "block_intersection": {
+				"block_whitelist": [
+					"minecraft:air"
+				]
+			}
+		}
+  }
+}

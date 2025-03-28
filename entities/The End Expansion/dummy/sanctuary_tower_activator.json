@@ -1,0 +1,132 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:sanctuary_tower_activator",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "controller": "controller.animation.sanctuary_tower_activator.activate_tower",
+                "detect_end_frames_filled": "animation.sanctuary_tower_activator.detect_end_frames_filled",
+                "particle_on_eye_place": "animation.sanctuary_tower_activator.particle_on_eye_place"
+            },
+            "scripts": {
+                "animate": [
+                    "controller",
+                    "particle_on_eye_place"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:target_nearby_sensor": {
+                "must_see": false,
+                "inside_range": 5,
+                "outside_range": 7,
+                "on_inside_range": {
+                    "event": "xp:player_found",
+                    "target": "self"
+                },
+                "on_outside_range": {
+                    "event": "xp:remove_player_found",
+                    "target": "self"
+                }
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "attack_interval": 0,
+                "attack_interval_min": 0,
+                "must_reach": false,
+                "must_see": false,
+                "persist_time": 0,
+                "reselect_targets": false,
+                "scan_interval": 20,
+                "set_persistent": false,
+                "target_invisible_multiplier": 0.7,
+                "target_search_height": -1,
+                "target_sneak_visibility_multiplier": 0.8,
+                "within_radius": 0,
+                "entity_types": {
+                    "filters": {
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "player"
+                    },
+                    "max_dist": 32
+                }
+            }
+        },
+
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "xp:player_found": {
+                "minecraft:is_stunned": {}
+            },
+            "xp:frames_filled_flag": {
+                "minecraft:is_illager_captain": {}
+            },
+            "xp:done": {
+                "minecraft:variant": { "value": 1 }
+            }
+        },
+
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": ["xp:instant_despawn"]
+                }
+            },
+            "xp:player_found": {
+                "add": {
+                    "component_groups": [
+                        "xp:player_found"
+                    ]
+                }
+            },
+            "xp:frames_filled_flag": {
+                "add": {
+                    "component_groups": [
+                        "xp:frames_filled_flag"
+                    ]
+                }
+            },
+            "xp:done": {
+                "add": {
+                    "component_groups": [
+                        "xp:done"
+                    ]
+                }
+            },
+            "xp:remove_player_found": {
+                "remove": {
+                    "component_groups": [
+                        "xp:player_found"
+                    ]
+                }
+            }
+        }
+    }
+}

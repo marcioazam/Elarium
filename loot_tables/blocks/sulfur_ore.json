@@ -1,0 +1,638 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+					
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "minecraft:diamond_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:copper_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "minecraft:iron_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe2",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe2",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe3",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe3",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe4",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_netherite_pickaxe4",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:tin_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:platinium_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:platinium_pickaxe2",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:light_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:light_pickaxe2",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:light_pickaxe3",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:void_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:void_pickaxe2",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:void_pickaxe3",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_nickel_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:warped_nickel_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:sulfur",
+					"count": {
+						"min": 1,
+						"max": 2
+					}
+					
+				}
+			]
+		}
+		
+	]
+}

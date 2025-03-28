@@ -1,0 +1,43 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "edx:soulsand_valley_variant_scatter_aggregate_generation",
+      "places_feature": "edx:soulsand_valley_variant_scatter_aggregate_generation"
+    },
+    "conditions": {
+      "placement_pass": "surface_pass",
+      "minecraft:biome_filter": [
+        {
+          "all_of": [
+            {
+              "any_of": [
+                {
+                  "test": "has_biome_tag",
+                  "operator": "==",
+                  "value": "soulsand_valley"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 8,
+      "coordinate_eval_order": "zyx",
+      "x": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      },
+      "y": {
+        "distribution": "uniform",
+        "extent": [ 0, 150 ]
+      },
+      "z": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      }
+    }
+  }
+}

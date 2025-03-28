@@ -1,0 +1,19 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:tin_plate",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"tin_plate"
+         }
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

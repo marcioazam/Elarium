@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "soul_knife"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " GG",
+      " I ",
+      "S  "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "G": {
+        "item": "minecraft:iron_nugget"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:soul_knife",
+      "count": 1
+    }
+  }
+}

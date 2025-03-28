@@ -1,0 +1,16 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:aggregate_feature": {
+    "description": {
+      "identifier": "edx:big_crimson_tree/big_crimson_structure_random_feature"
+    },
+    "features": [
+       "edx:big_crimson_tree/big_crimson6_structure_feature",
+       "edx:big_crimson_tree/big_crimson5_structure_feature", 
+       "edx:big_crimson_tree/big_crimson4_structure_feature",      
+       "edx:big_crimson_tree/big_crimson3_structure_feature", 
+       "edx:big_crimson_tree/big_crimson2_structure_feature",
+       "edx:big_crimson_tree/big_crimson1_structure_feature"
+    ]
+  }
+}

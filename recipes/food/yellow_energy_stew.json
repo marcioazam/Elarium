@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:yellow_energy_stew"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "M",
+      "BY"
+  ],
+  "key": {
+      "B": {
+          "item": "minecraft:bowl"
+      },
+      "Y": {
+          "item": "edx:yellow_spore_bag_it"
+      },
+      "M": {
+          "item": "edx:yellow_mushroom_it"
+      }
+  },
+    "unlock": [
+      {
+        "item": "minecraft:bowl"
+    },
+    {
+      "item": "edx:yellow_spore_bag_it"
+  },
+   {
+    "item": "edx:yellow_mushroom_it"
+}
+    ],
+    "result": {
+      "item": "edx:yellow_energy_stew"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:scoria_biome/scoria_determinant"
+      /*
+	  this feature does a lot
+	  1st, it gets coordinates to use in the voronoi function, which are warped to add some randomness
+	  2nd, it runs the voronoi function, which uses the random points generated in the feature rule to find the closest biome
+	  3rd, it finds the distance to the edges of the biome
+	  4th, it calculates the biome index and uses it to generate the height of the terrain
+	  */
+    },
+    "places_feature": "edx:scoria_biome/scoria_column_stack",
+    "iterations": "v.px = v.originx/2/t.scale;v.pz = v.originz/2/t.scale;v.o = (q.noise(v.originx/t.primary_edge_noise_scale + 100, v.originz/t.primary_edge_noise_scale + 100)*t.primary_edge_noise_amplitude + q.noise(v.originx/t.secondary_edge_noise_scale + 100, v.originz/t.secondary_edge_noise_scale + 100)*t.secondary_edge_noise_amplitude)*math.min(0.5 - math.abs(v.px - math.floor(v.px) - 0.5),0.5 - math.abs(v.pz - math.floor(v.pz) - 0.5));v.px = v.px + v.o;v.pz = v.pz + v.o;t.r = 0;v.n1 = 999;v.n2 = 999;v.i = 0;loop(9,{        v.x = math.mod(v.i,3) - 1;    v.z = math.floor(v.i/3) - 1;        v.p2x = math.floor(v.px) + v.x;    v.p2z = math.floor(v.pz) + v.z;        (v.i == 0) ? {        v.rx = t.rx0;        v.rz = t.rz0;    } : { (v.i == 1) ? {        v.rx = t.rx1;        v.rz = t.rz1;    } : { (v.i == 2) ? {        v.rx = t.rx2;        v.rz = t.rz2;    } : { (v.i == 3) ? {        v.rx = t.rx3;        v.rz = t.rz3;    } : { (v.i == 4) ? {        v.rx = t.rx4;        v.rz = t.rz4;    } : { (v.i == 5) ? {        v.rx = t.rx5;        v.rz = t.rz5;    } : { (v.i == 6) ? {        v.rx = t.rx6;        v.rz = t.rz6;    } : { (v.i == 7) ? {        v.rx = t.rx7;        v.rz = t.rz7;    } : {        v.rx = t.rx8;        v.rz = t.rz8;    };};};};};};};};        v.d4x = v.p2x + v.rx - v.px;    v.d4z = v.p2z + v.rz - v.pz;    v.d2 = v.d4x*v.d4x + v.d4z*v.d4z;                (v.d2 < v.n1) ? {        v.n2 = v.n1;        v.n1 = v.d2;        t.r = v.rx;    } : {        (v.d2 < v.n2) ? {            v.n2 = v.d2;        };    };        v.i = v.i + 1;});t.d = math.abs(math.sqrt(v.n2) - math.sqrt(v.n1));t.biome_idx = math.floor(t.r*t.biomes);t.biomeHeight = (t.biome_idx == 0) ? 80 : 0;t.height = t.biomeHeight*t.d + q.noise(v.originx/t.secondary_height_offset_scale,v.originz/t.secondary_height_offset_scale)*t.secondary_height_offset_amplitude + q.noise(v.originx/t.primary_height_offset_scale + 200,v.originz/t.primary_height_offset_scale + 200)*t.primary_height_offset_amplitude;return 1;",
+    "x": 0,
+    "z": 0,
+    "y": 0
+  }
+}

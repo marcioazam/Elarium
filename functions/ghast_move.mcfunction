@@ -1,0 +1,13 @@
+execute as @p[rx=-80,rxm=-90,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 8 true
+execute as @p[rx=-70,rxm=-80,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 7 true
+execute as @p[rx=-60,rxm=-70,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 6 true
+execute as @p[rx=-50,rxm=-60,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 5 true
+execute as @p[rx=-40,rxm=-50,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 4 true
+execute as @p[rx=-30,rxm=-40,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 3 true
+execute as @p[rx=-20,rxm=-30,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 2 true
+execute as @p[rx=-10,rxm=-20,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 1 true
+execute as @p[rx=10,rxm=-10,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 1 0 true
+execute as @p[r=5] at @s run execute as @e[type=ghast,c=1] at @s run effect @s slow_falling 1 0 true
+execute as @p[rx=90,rxm=10,r=5,hasitem={item=warped_fungus_on_a_stick,location=slot.weapon.mainhand,slot=0}] at @s run execute as @e[type=ghast,c=1] at @s run effect @s levitation 0 255 true
+execute as @e[type=ghast] at @s if block ~ ~-1 ~ air run effect @s speed 1 10 true
+execute as @e[type=ghast] at @s if block ~ ~-1 ~ water run effect @s slowness 1 2 true

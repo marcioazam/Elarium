@@ -1,0 +1,402 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:boots_of_swiftness",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_boots_of_swiftness",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:lightning_rod",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_lightning_rod",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:buzzy_nest",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_buzzy_nest",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:diamond_dust",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:blue_print",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 23
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 7,
+                "max": 12
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:corrupted_crossbow"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:soul_hunter_crossbow"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:moon_daggers"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:frost_knives"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:sheer_daggers"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:nameless_blade"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:dancers_sword"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "amethyst",
+              "pattern": "coast"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_helmet"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "amethyst",
+              "pattern": "coast"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_chestplate"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "amethyst",
+              "pattern": "coast"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "amethyst",
+              "pattern": "coast"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_boots"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/ember/base.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/verdant/base.json"
+        }
+      ]
+    },
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 6,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 7,
+                "max": 24
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 5,
+                "max": 15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:cauldron_painting",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "dungeons:benevolent_brew_statue",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:coast_armor_trim_smithing_template",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "empty",
+          "weight": 12
+        }
+      ]
+    }
+  ]
+}

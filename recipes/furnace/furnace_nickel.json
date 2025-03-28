@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_nickel"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:raw_nickel"
+      }
+    ],
+    "tags": ["furnace", "blast_furnace"],
+    "input": "edx:raw_nickel",
+    "output": "edx:nickel_ingot"
+  }
+  
+}

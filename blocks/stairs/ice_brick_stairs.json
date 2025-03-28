@@ -1,0 +1,954 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "edx:ice_brick_stairs",
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.stairs"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:vertical_half"
+                    ]
+                },
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:cardinal_direction"]
+				}
+            },
+			"states": {
+                "edx:update": [
+                    false,
+                    true
+                ],
+				"edx:position": [
+                    "normal",
+					"inner_north",
+					"inner_south",
+					"outer_north",
+					"outer_south",
+					"inner_east",
+					"inner_west",
+					"outer_east",
+					"outer_west"
+                ]
+            }
+        },
+        "permutations": [
+            // Bottom
+            {
+                "condition": "q.block_state('minecraft:vertical_half') == 'bottom'",
+                "components": {
+					"tag:bottom_stairs": {},
+                    "minecraft:collision_box": {
+                        "origin": [-8, 0, -8],
+                        "size": [16, 8, 16]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-8, 0, -8],
+                        "size": [16, 8, 16 ]
+                    }
+                }
+            },
+            // Top
+            {
+                "condition": "q.block_state('minecraft:vertical_half') == 'top'",
+                "components": {
+					"tag:top_stairs": {},
+                    "minecraft:collision_box": {
+                        "origin": [-8, 8, -8],
+                        "size": [16, 8, 16]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-8, 8, -8],
+                        "size": [16, 8, 16]
+                    }
+                }
+            },
+			// bottom north
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": true,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": true,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:east_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": true,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:west_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": true,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			// top north
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": true,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": true,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:east_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": true,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'normal'",
+                "components": {
+					"tag:west_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": true,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			//west inner
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": true,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": true,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": true
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": true,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			//outer west
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": true,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": true,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": true,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_west')",
+                "components": {
+					"tag:west_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": true,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			//east inner
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": true,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": true,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'inner_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": true,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'inner_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": true,
+							"southeast_inner_up": false,
+							"southwest_inner_down":false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			//outer east
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": true,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_north') || (q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:north_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": true,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'top' && q.block_state('edx:position') == 'outer_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": false,
+							"southeast_outer_up": true,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            },
+			{
+                "condition": "(q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_south') || (q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'bottom' && q.block_state('edx:position') == 'outer_east')",
+                "components": {
+					"tag:east_stairs": {},
+					"tag:south_stairs": {},
+					"minecraft:geometry": {
+						"identifier": "geometry.stairs",
+						"bone_visibility": {
+							"north_down": false,
+							"north_up": false,
+							"south_down": false,
+							"south_up": false,
+							"east_down": false,
+							"east_up": false,
+							"west_down": false,
+							"west_up": false,
+							"northeast_outer_down": false,
+							"northeast_outer_up": false,
+							"southeast_outer_down": true,
+							"southeast_outer_up": false,
+							"northwest_outer_down": false,
+							"northwest_outer_up": false,
+							"southwest_outer_down": false,
+							"southwest_outer_up": false,
+							"northeast_inner_down": false,
+							"northeast_inner_up": false,
+							"northwest_inner_down": false,
+							"northwest_inner_up": false,
+							"southeast_inner_down": false,
+							"southeast_inner_up": false,
+							"southwest_inner_down": false,
+							"southwest_inner_up": false
+						}
+					}
+                }
+            } 
+        ],
+        "components": {
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:custom_components": ["edx:stairs_update"],
+			
+			"tag:edx:stone": {},
+			
+			"tag:stairs": {},
+			"tag:update": {},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "ice_brick"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:warped__stick"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "b",
+      "b"
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:warped_planks"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:warped_planks"
+      }
+    ],
+    "result": {
+      "item": "edx:warped_stick",
+      "count":4
+    }
+  }
+}

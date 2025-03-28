@@ -1,0 +1,56 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:golden_piglin_leggings",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:golden_piglin_chestplate",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:golden_piglin_helmet",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:golden_piglin_boots",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    }
+  ]
+}

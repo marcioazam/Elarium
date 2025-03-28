@@ -1,0 +1,14 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.spawn_kit": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "player.new_player" ],
+          "on_entry": [ "/function player/spawn_kit"]
+        }
+      }
+    }
+  }
+}

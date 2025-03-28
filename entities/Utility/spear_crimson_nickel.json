@@ -1,0 +1,392 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:crimson_nickel_spear",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "all_scroll":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "all_hit",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 18,
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "stick_in_ground": {
+              "shake_time" : 0
+            }
+          },
+          "gravity": 0.10,
+          "liquid_inertia": 0.8,
+          "hit_ground_sound": "item.trident.hit_ground",
+          "hit_sound": "item.trident.hit",
+          "power": 5,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "stop_on_hurt": true,
+          "anchor": 1,
+          "should_bounce": true,
+          "multiple_targets": false,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "electrik":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "electrik_hit",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 16,
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "stick_in_ground": {
+              "shake_time" : 0
+            }
+          },
+          "gravity": 0.10,
+          "liquid_inertia": 0.8,
+          "hit_ground_sound": "item.trident.hit_ground",
+          "hit_sound": "item.trident.hit",
+          "power": 4,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "stop_on_hurt": true,
+          "anchor": 1,
+          "should_bounce": true,
+          "multiple_targets": false,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "sharp":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "pick_it",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 18,
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "stick_in_ground": {
+              "shake_time" : 0
+            }
+          },
+          "gravity": 0.10,
+          "liquid_inertia": 0.8,
+          "hit_ground_sound": "item.trident.hit_ground",
+          "hit_sound": "item.trident.hit",
+          "power": 4,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "stop_on_hurt": true,
+          "anchor": 1,
+          "should_bounce": true,
+          "multiple_targets": false,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "explosive":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "explosive_hit",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 16,
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "stick_in_ground": {
+              "shake_time" : 0
+            }
+          },
+          "gravity": 0.10,
+          "liquid_inertia": 0.8,
+          "hit_ground_sound": "item.trident.hit_ground",
+          "hit_sound": "item.trident.hit",
+          "power": 4,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "stop_on_hurt": true,
+          "anchor": 1,
+          "should_bounce": true,
+          "multiple_targets": false,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "long":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "pick_it",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 16,
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "stick_in_ground": {
+              "shake_time" : 0
+            }
+          },
+          "gravity": 0.10,
+          "liquid_inertia": 0.8,
+          "hit_ground_sound": "item.trident.hit_ground",
+          "hit_sound": "item.trident.hit",
+          "power": 5,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "stop_on_hurt": true,
+          "anchor": 1,
+          "should_bounce": true,
+          "multiple_targets": false,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "cooldown":{
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.5,
+          "randomInterval": false,
+          "time_down_event": {
+            "event": "cooldown"
+          }
+        }
+      },
+      "pick_it": {
+        "minecraft:type_family": {
+          "family": [
+             "spear_ground","cnickel_ground"
+          ]
+       }
+      },
+      "spear": {
+        "minecraft:type_family": {
+          "family": [
+             "spear"
+          ]
+       }
+      },
+      "despawn": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": true
+       }
+      }
+    },
+    "components": {
+      
+      "minecraft:persistent": {
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "pick_it",
+              "target": "self"
+            }
+          },
+          "impact_damage": {
+            "damage": 16,
+            "knockback": true,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": false
+          },
+          "stick_in_ground": {
+            "shake_time" : 0
+          }
+        },
+        "gravity": 0.10,
+        "liquid_inertia": 0.8,
+        "hit_ground_sound": "item.trident.hit_ground",
+        "hit_sound": "item.trident.hit",
+        "power": 4,
+        "uncertainty_base": 1,
+        "uncertainty_multiplier": 0,
+        "stop_on_hurt": true,
+        "anchor": 1,
+        "should_bounce": true,
+        "multiple_targets": false,
+        "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:collision_box": {
+        "width": 0.30,
+        "height": 0.35
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "filters": {"test": "has_tag", "subject": "other", "value": "long_spear"},
+            "add": {
+              "component_groups" : [ "long" ]
+            }
+          },
+          {
+            "filters": {"test": "has_tag", "subject": "other", "value": "electrik_spear"},
+            "add": {
+              "component_groups" : [ "electrik" ]
+            }
+          },
+          {
+            "filters": {"test": "has_tag", "subject": "other", "value": "explosive_spear"},
+            "add": {
+              "component_groups" : [ "explosive" ]
+            }
+          },
+          {
+            "filters": {"test": "has_tag", "subject": "other", "value": "sharper_spear"},
+            "add": {
+              "component_groups" : [ "sharp" ]
+            }
+          },
+          {
+            "filters": {"test": "has_tag", "subject": "other", "value": "all_scroll"},
+            "add": {
+              "component_groups" : [ "all_scroll" ]
+            }
+          },
+          {
+            "add": {
+              "component_groups" : [ "spear" ]
+            }
+          }
+        ]
+      },
+      "all_hit": {
+				
+				"queue_command": {
+					"command": [
+					  "summon lightning_bolt ~~~",
+            "summon edx:bomb ~~~"
+					  
+					]
+				  },
+				  "add": {
+					"component_groups": [
+						"pick_it"
+					]
+				}
+			},
+      "pick_it": {
+        "add": {
+          "component_groups": [
+            "cooldown"
+          ]
+        }
+      },
+      "cooldown": {
+        "add": {
+          "component_groups": [
+            "pick_it"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "spear"
+          ]
+        }
+      },
+      "electrik_hit": {
+				
+				"queue_command": {
+					"command": [
+					  "summon lightning_bolt ~~~"
+					  
+					]
+				  },
+				  "add": {
+					"component_groups": [
+						"pick_it"
+					]
+				}
+			},
+      "explosive_hit": {
+        "queue_command": {
+					"command": [
+					  "summon edx:bomb ~~~"
+					]
+				  },
+				  "add": {
+					"component_groups": [
+            "pick_it"
+					]
+				}
+			},
+      "despawn2": {
+        "add": {
+        "component_groups": [
+          "despawn" 
+        ]
+      }
+    },
+    "despawn": {
+      "sequence": [
+        {
+              "queue_command":{
+              "command":[
+                "tag @p[r=5] add cnickel_spear",
+                "event entity @s despawn2"
+              ]
+            }
+    }
+  ]  
+    },
+    "pick_item": {
+      "sequence": [
+        {
+              "queue_command":{
+              "command":[
+                "event entity @p[r=5] cnickel_spear"
+              ]
+            }
+    }
+  ]
+    }
+      }
+    
+  }
+}

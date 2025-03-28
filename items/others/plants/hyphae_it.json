@@ -1,0 +1,27 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:hyphae_it",
+			"menu_category": {
+				"category":"nature",
+				"group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"hyphae_it"
+         }
+			},
+			"menu_category": {
+				"parent": "itemGroup.name.mushroom"
+			},
+			"minecraft:block_placer":{
+				"block": "edx:hyphae",
+				"use_on" : ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_grass"]
+			},
+			"minecraft:display_name": {}
+		}
+	} 
+}

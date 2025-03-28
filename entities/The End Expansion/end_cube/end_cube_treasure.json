@@ -1,0 +1,129 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_treasure",
+ 
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [ { "on_item_pickup": "q.variant == 2" } ]
+      },
+      "animations": {
+        "on_item_pickup": "controller.animation.end_cube_treasure.on_item_pickup"
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+
+      "xp:become_interactable": {
+        "minecraft:variant": { "value": 1 },
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                "target": "self",
+                "event": "xp:on_interact"
+              },
+              "swing": true
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "filters": {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                "target": "self",
+                "event": "xp:on_interact"
+              },
+              "cause": "all",
+              "deals_damage": false
+            },
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "xp:on_interact": {
+        "minecraft:variant": { "value": 2 }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "end_cube", "treasure", "inanimate" ]
+      },
+      "minecraft:health": {
+        "min": 1,
+        "max": 2,
+        "value": 2
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 1,
+            "height": 3,
+            "pivot": [0, 1.5, 0]
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": true
+      },
+      "minecraft:timer": {
+        "time": 10.0,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:become_interactable",
+          "target": "self"
+        }
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+
+      "xp:become_interactable": {
+        "add": {
+          "component_groups": [ "xp:become_interactable" ]
+        }
+      },
+      "xp:on_interact": {
+        "add": {
+          "component_groups": [ "xp:on_interact" ]
+        }
+      }
+    }
+  }
+}

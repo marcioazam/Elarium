@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:blood_vial",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"blood_vial"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "blood_vial"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dBlood vial \n§5Artifact\n§6Attacking mobs will heal you a little\nANCIENT BUILDERS ARE DEAD\nBLOOD IS FUEL\nHELL IS FULL"
+			  }
+		}
+	}
+}

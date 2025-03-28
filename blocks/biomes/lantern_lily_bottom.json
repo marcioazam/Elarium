@@ -1,0 +1,39 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "xp:lantern_lily_bottom",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.grass"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [ -8.0, 0, -8.0 ],
+				"size": [ 0.1, 0.1, 0.1 ]
+			},
+			"minecraft:loot": "loot_tables/biomes/lantern_lily.json",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 3
+			},
+			"minecraft:flammable": {
+				"destroy_chance_modifier": 20,
+				"catch_chance_modifier": 5
+			},
+			"minecraft:geometry": "geometry.lantern_lily_bottom",
+			"minecraft:material_instances": {
+				"*": {
+					"ambient_occlusion": false,
+					"face_dimming": false,
+					"texture": "lantern_lily",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:map_color": "#6644a8"
+		}
+	}
+}

@@ -1,0 +1,83 @@
+{
+  "format_version": "1.16.210",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:target_dummy",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "target_dummy",
+          "inanimate",
+          "gravity_immune"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.8
+      },
+      "minecraft:scale": {
+        "value": 1.05
+      },
+      "minecraft:health": {
+        "value": 2000,
+        "max": 2000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_sneak_held",
+                    "subject": "other",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            "damage_multiplier": 9999
+          }
+        ]
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 400
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/target_dummy.json"
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {}
+  }
+}

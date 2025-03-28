@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_camelid"
+    }, 
+    "unlock": [
+      {
+        "item": "edx:camelid_meat_raw"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:camelid_meat_raw",
+    "output": "edx:camelid_meat_cooked"
+  }
+  
+}

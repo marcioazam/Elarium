@@ -1,0 +1,374 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:satchel_of_snacks",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_satchel_of_snacks",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:satchel_of_elixirs",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_satchel_of_elixirs",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:eye_of_the_guardian",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_eye_of_the_guardian",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:diamond_dust",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:blue_print",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:harpoon_arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 8,
+                "max": 16
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:wet_sponge",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 6,
+                "max": 11
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 25
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:amethyst_shard",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 25
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:encrusted_anchor"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:sponge_striker"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:nautical_crossbow"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "iron",
+              "pattern": "tide"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_helmet"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "iron",
+              "pattern": "tide"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_chestplate"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "iron",
+              "pattern": "tide"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "iron",
+              "pattern": "tide"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_boots"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/nimble_turtle/base.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/glow_squid/base.json"
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 7
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 16,
+                "max": 24
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 16,
+                "max": 34
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:guardian_painting",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "dungeons:enormous_eyeball",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:tide_armor_trim_smithing_template",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "empty",
+          "weight": 7
+        }
+      ]
+    }
+  ]
+}

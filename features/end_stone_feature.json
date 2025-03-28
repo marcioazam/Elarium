@@ -1,0 +1,20 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:end_stone_feature"
+		},
+		"iterations": "t.height = q.heightmap(v.worldx, v.worldz) ; return t.height;",
+		
+		"x": 0,
+		"z": 0,
+		"y": {
+			"extent": [
+				0,
+				"t.height"
+			],
+			"distribution": "fixed_grid"
+		},
+		"places_feature": "edx:end_stone"
+	}
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:statue",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": { "family": [ "xp_dummy","xp_prop", "dummy", "prop" ] },
+      "minecraft:knockback_resistance": { "value": 1 },
+      "minecraft:fire_immune": {},
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:health": {
+        "value": 99999,
+        "max": 99999
+      },
+      "minecraft:nameable": {},
+      "minecraft:physics": {}
+    },
+    "component_groups": {
+      "xp:despawn": { "minecraft:instant_despawn": {} }
+    },
+    "events": {
+      "xp:despawn": { "add": { "component_groups": [ "xp:despawn" ] } }
+    }
+  }
+}

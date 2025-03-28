@@ -1,0 +1,26 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:echoing_pome_leaves"
+    },
+    "components": {
+      "minecraft:loot": "loot_tables/leaves/echoing_pome_fruit.json",
+      "minecraft:geometry": "geometry.xp_leaves",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": true,
+          "face_dimming": false,
+          "texture": "echoing_pome_leaves",
+          "render_method": "blend"
+        }
+      },
+      "minecraft:map_color": "#3a41a9",
+      "minecraft:light_emission": 15,
+      "minecraft:light_dampening": 0,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.4
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_bear"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:raw_bear"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:raw_bear",
+    "output": "edx:cooked_bear"
+  }
+  
+}

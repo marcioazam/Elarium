@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_platinium"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:raw_platinium"
+      }
+    ],
+    "tags": ["furnace", "blast_furnace"],
+    "input": "edx:raw_platinium",
+    "output": "edx:platinium_ingot"
+  }
+  
+}

@@ -1,0 +1,30 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:vampiric_vial",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"blood_vial",
+				"soul_bottle"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "vampiric_vial"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dVampiric vial \n§5Artifact\n§6Attacking mobs will heal you a little\n§6Most of undead mobs will be neutral\n§4Natural iron golems will attack you"
+			  }
+		}
+	}
+}

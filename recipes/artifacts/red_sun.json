@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:red_sun"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:blaze_heart"
+      },
+      "#": {
+        "item": "edx:deadly_flower"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:skull",
+        "data": 1
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:blaze_heart"
+      },
+      {
+        "item": "edx:deadly_flower"
+      }
+    ],
+    "result": {
+      "item": "edx:red_sun"
+    }
+  }
+  
+}

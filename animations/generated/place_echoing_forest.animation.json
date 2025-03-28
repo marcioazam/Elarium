@@ -1,0 +1,1118 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.dev.echoing_forest_placement": {
+            "loop": false,
+            "animation_length": 52,
+            "timeline": {
+                "0.05": [
+                    "/tp @a 218 54 387"
+                ],
+                "0.35": [
+                    "/setblock 218 54 387 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 218 54 387"
+                ],
+                "0.4": [
+                    "/tp @a 218 64 387"
+                ],
+                "0.7": [
+                    "/setblock 218 64 387 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 218 64 387"
+                ],
+                "0.75": [
+                    "/tp @a 201 54 381"
+                ],
+                "1.05": [
+                    "/execute positioned 201 54 381 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 201 54 381"
+                ],
+                "1.1": [
+                    "/tp @a 179 54 402"
+                ],
+                "1.4": [
+                    "/execute positioned 179 54 402 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 179 54 402"
+                ],
+                "1.45": [
+                    "/tp @a 158 92 414"
+                ],
+                "1.75": [
+                    "/fill 157 91 413 159 93 415 air",
+                    "/execute positioned 158 92 414 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 158 92 414"
+                ],
+                "1.8": [
+                    "/tp @a 257 84 263"
+                ],
+                "2.1": [
+                    "/setblock 257 84 263 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 257 84 263"
+                ],
+                "2.15": [
+                    "/tp @a 254 64 267"
+                ],
+                "2.45": [
+                    "/setblock 254 64 267 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 254 64 267"
+                ],
+                "2.5": [
+                    "/tp @a 260 64 267"
+                ],
+                "2.8": [
+                    "/setblock 260 64 267 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 260 64 267"
+                ],
+                "2.85": [
+                    "/tp @a 257 61 261"
+                ],
+                "3.15": [
+                    "/setblock 257 61 261 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 257 61 261"
+                ],
+                "3.2": [
+                    "/tp @a 254 58 247"
+                ],
+                "3.5": [
+                    "/setblock 254 58 247 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 254 58 247"
+                ],
+                "3.55": [
+                    "/tp @a 260 58 247"
+                ],
+                "3.85": [
+                    "/setblock 260 58 247 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 260 58 247"
+                ],
+                "3.9": [
+                    "/tp @a 261 61 232"
+                ],
+                "4.2": [
+                    "/setblock 261 61 232 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 261 61 232"
+                ],
+                "4.25": [
+                    "/tp @a 253 61 232"
+                ],
+                "4.55": [
+                    "/setblock 253 61 232 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 253 61 232"
+                ],
+                "4.6": [
+                    "/tp @a 257 84 237"
+                ],
+                "4.9": [
+                    "/setblock 257 84 237 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 257 84 237"
+                ],
+                "4.95": [
+                    "/tp @a 257 94 251"
+                ],
+                "5.25": [
+                    "/setblock 257 94 251 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 257 94 251"
+                ],
+                "5.3": [
+                    "/tp @a 257 53 241"
+                ],
+                "5.6": [
+                    "/setblock 257 53 241 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 257 53 241"
+                ],
+                "5.65": [
+                    "/tp @a 257 57 228"
+                ],
+                "5.95": [
+                    "/setblock 257 57 228 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 257 57 228"
+                ],
+                "6.0": [
+                    "/tp @a 255 64 271"
+                ],
+                "6.3": [
+                    "/execute positioned 255 64 271 run function loot/end_city_treasure"
+                ],
+                "6.35": [
+                    "/tp @a 259 64 271"
+                ],
+                "6.65": [
+                    "/execute positioned 259 64 271 run function loot/end_city_treasure"
+                ],
+                "6.7": [
+                    "/tp @a 254 57 227"
+                ],
+                "7.0": [
+                    "/execute positioned 254 57 227 run function loot/end_city_treasure"
+                ],
+                "7.05": [
+                    "/tp @a 257 57 226"
+                ],
+                "7.35": [
+                    "/execute positioned 257 57 226 run function loot/end_city_treasure"
+                ],
+                "7.4": [
+                    "/tp @a 260 57 227"
+                ],
+                "7.7": [
+                    "/execute positioned 260 57 227 run function loot/end_city_treasure"
+                ],
+                "7.75": [
+                    "/tp @a -32 61 251"
+                ],
+                "8.05": [
+                    "/execute positioned -32 61 251 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad -32 61 251"
+                ],
+                "8.1": [
+                    "/tp @a -66 114 291"
+                ],
+                "8.4": [
+                    "/fill -67 113 290 -65 115 292 air",
+                    "/execute positioned -66 114 291 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian -66 114 291"
+                ],
+                "8.45": [
+                    "/tp @a -84 73 300"
+                ],
+                "8.75": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger -84 73 300"
+                ],
+                "8.8": [
+                    "/tp @a -96 73 294"
+                ],
+                "9.1": [
+                    "/setblock -96 73 294 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -96 73 294"
+                ],
+                "9.15": [
+                    "/tp @a -96 83 294"
+                ],
+                "9.45": [
+                    "/setblock -96 83 294 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -96 83 294"
+                ],
+                "9.5": [
+                    "/tp @a -205 52 124"
+                ],
+                "9.8": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger -205 52 124"
+                ],
+                "9.85": [
+                    "/tp @a -217 65 149"
+                ],
+                "10.15": [
+                    "/execute positioned -217 65 149 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad -217 65 149"
+                ],
+                "10.2": [
+                    "/tp @a -234 65 155"
+                ],
+                "10.5": [
+                    "/setblock -234 65 155 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -234 65 155"
+                ],
+                "10.55": [
+                    "/tp @a -234 86 155"
+                ],
+                "10.85": [
+                    "/fill -235 85 154 -233 87 156 air",
+                    "/execute positioned -234 86 155 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian -234 86 155"
+                ],
+                "10.9": [
+                    "/tp @a -302 86 183"
+                ],
+                "11.2": [
+                    "/setblock -302 86 183 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -302 86 183"
+                ],
+                "11.25": [
+                    "/tp @a -314 96 183"
+                ],
+                "11.55": [
+                    "/setblock -314 96 183 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -314 96 183"
+                ],
+                "11.6": [
+                    "/tp @a -328 86 183"
+                ],
+                "11.9": [
+                    "/setblock -328 86 183 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -328 86 183"
+                ],
+                "11.95": [
+                    "/tp @a -333 63 187"
+                ],
+                "12.25": [
+                    "/setblock -333 63 187 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -333 63 187"
+                ],
+                "12.3": [
+                    "/tp @a -333 63 179"
+                ],
+                "12.6": [
+                    "/setblock -333 63 179 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -333 63 179"
+                ],
+                "12.65": [
+                    "/tp @a -318 60 180"
+                ],
+                "12.95": [
+                    "/setblock -318 60 180 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -318 60 180"
+                ],
+                "13.0": [
+                    "/tp @a -318 60 186"
+                ],
+                "13.3": [
+                    "/setblock -318 60 186 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -318 60 186"
+                ],
+                "13.35": [
+                    "/tp @a -298 66 180"
+                ],
+                "13.65": [
+                    "/setblock -298 66 180 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -298 66 180"
+                ],
+                "13.7": [
+                    "/tp @a -298 66 186"
+                ],
+                "14.0": [
+                    "/setblock -298 66 186 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -298 66 186"
+                ],
+                "14.05": [
+                    "/tp @a -304 63 183"
+                ],
+                "14.35": [
+                    "/setblock -304 63 183 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -304 63 183"
+                ],
+                "14.4": [
+                    "/tp @a -324 55 183"
+                ],
+                "14.7": [
+                    "/setblock -324 55 183 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -324 55 183"
+                ],
+                "14.75": [
+                    "/tp @a -337 59 183"
+                ],
+                "15.05": [
+                    "/setblock -337 59 183 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -337 59 183"
+                ],
+                "15.1": [
+                    "/tp @a -338 59 186"
+                ],
+                "15.4": [
+                    "/execute positioned -338 59 186 run function loot/end_city_treasure"
+                ],
+                "15.45": [
+                    "/tp @a -339 59 183"
+                ],
+                "15.75": [
+                    "/execute positioned -339 59 183 run function loot/end_city_treasure"
+                ],
+                "15.8": [
+                    "/tp @a -338 59 180"
+                ],
+                "16.1": [
+                    "/execute positioned -338 59 180 run function loot/end_city_treasure"
+                ],
+                "16.15": [
+                    "/tp @a -294 66 181"
+                ],
+                "16.45": [
+                    "/execute positioned -294 66 181 run function loot/end_city_treasure"
+                ],
+                "16.5": [
+                    "/tp @a -294 66 185"
+                ],
+                "16.8": [
+                    "/execute positioned -294 66 185 run function loot/end_city_treasure"
+                ],
+                "16.85": [
+                    "/tp @a -145 92 547"
+                ],
+                "17.15": [
+                    "/setblock -145 92 547 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -145 92 547"
+                ],
+                "17.2": [
+                    "/tp @a -133 82 547"
+                ],
+                "17.5": [
+                    "/setblock -133 82 547 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -133 82 547"
+                ],
+                "17.55": [
+                    "/tp @a -159 82 547"
+                ],
+                "17.85": [
+                    "/setblock -159 82 547 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -159 82 547"
+                ],
+                "17.9": [
+                    "/tp @a -164 59 551"
+                ],
+                "18.2": [
+                    "/setblock -164 59 551 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -164 59 551"
+                ],
+                "18.25": [
+                    "/tp @a -164 59 543"
+                ],
+                "18.55": [
+                    "/setblock -164 59 543 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -164 59 543"
+                ],
+                "18.6": [
+                    "/tp @a -149 56 544"
+                ],
+                "18.9": [
+                    "/setblock -149 56 544 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -149 56 544"
+                ],
+                "18.95": [
+                    "/tp @a -149 56 550"
+                ],
+                "19.25": [
+                    "/setblock -149 56 550 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -149 56 550"
+                ],
+                "19.3": [
+                    "/tp @a -129 62 550"
+                ],
+                "19.6": [
+                    "/setblock -129 62 550 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -129 62 550"
+                ],
+                "19.65": [
+                    "/tp @a -129 62 544"
+                ],
+                "19.95": [
+                    "/setblock -129 62 544 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -129 62 544"
+                ],
+                "20.0": [
+                    "/tp @a -135 59 547"
+                ],
+                "20.3": [
+                    "/setblock -135 59 547 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -135 59 547"
+                ],
+                "20.35": [
+                    "/tp @a -155 51 547"
+                ],
+                "20.65": [
+                    "/setblock -155 51 547 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -155 51 547"
+                ],
+                "20.7": [
+                    "/tp @a -168 55 547"
+                ],
+                "21.0": [
+                    "/setblock -168 55 547 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker -168 55 547"
+                ],
+                "21.05": [
+                    "/tp @a -169 55 550"
+                ],
+                "21.35": [
+                    "/execute positioned -169 55 550 run function loot/end_city_treasure"
+                ],
+                "21.4": [
+                    "/tp @a -170 55 547"
+                ],
+                "21.7": [
+                    "/execute positioned -170 55 547 run function loot/end_city_treasure"
+                ],
+                "21.75": [
+                    "/tp @a -169 55 544"
+                ],
+                "22.05": [
+                    "/execute positioned -169 55 544 run function loot/end_city_treasure"
+                ],
+                "22.1": [
+                    "/tp @a -125 62 545"
+                ],
+                "22.4": [
+                    "/execute positioned -125 62 545 run function loot/end_city_treasure"
+                ],
+                "22.45": [
+                    "/tp @a -125 62 549"
+                ],
+                "22.75": [
+                    "/execute positioned -125 62 549 run function loot/end_city_treasure"
+                ],
+                "22.8": [
+                    "/tp @a 24 105 252"
+                ],
+                "23.1": [
+                    "/execute positioned 24 105 252 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 24 105 252"
+                ],
+                "23.15": [
+                    "/tp @a 78 99 243"
+                ],
+                "23.45": [
+                    "/execute positioned 78 99 243 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 78 99 243"
+                ],
+                "23.5": [
+                    "/tp @a 21 94 292"
+                ],
+                "23.8": [
+                    "/execute positioned 21 94 292 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 21 94 292"
+                ],
+                "23.85": [
+                    "/tp @a -42 66 201"
+                ],
+                "24.15": [
+                    "/execute positioned -42 66 201 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -42 66 201"
+                ],
+                "24.2": [
+                    "/tp @a -69 62 208"
+                ],
+                "24.5": [
+                    "/execute positioned -69 62 208 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -69 62 208"
+                ],
+                "24.55": [
+                    "/tp @a -95 85 152"
+                ],
+                "24.85": [
+                    "/execute positioned -95 85 152 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -95 85 152"
+                ],
+                "24.9": [
+                    "/tp @a -119 88 187"
+                ],
+                "25.2": [
+                    "/execute positioned -119 88 187 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -119 88 187"
+                ],
+                "25.25": [
+                    "/tp @a -110 102 251"
+                ],
+                "25.55": [
+                    "/execute positioned -110 102 251 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -110 102 251"
+                ],
+                "25.6": [
+                    "/tp @a -47 65 110"
+                ],
+                "25.9": [
+                    "/execute positioned -47 65 110 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -47 65 110"
+                ],
+                "25.95": [
+                    "/tp @a 25 68 154"
+                ],
+                "26.25": [
+                    "/execute positioned 25 68 154 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 25 68 154"
+                ],
+                "26.3": [
+                    "/tp @a 68 72 208"
+                ],
+                "26.6": [
+                    "/execute positioned 68 72 208 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 68 72 208"
+                ],
+                "26.65": [
+                    "/tp @a 104 60 221"
+                ],
+                "26.95": [
+                    "/execute positioned 104 60 221 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 104 60 221"
+                ],
+                "27.0": [
+                    "/tp @a 163 59 198"
+                ],
+                "27.3": [
+                    "/execute positioned 163 59 198 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 163 59 198"
+                ],
+                "27.35": [
+                    "/tp @a 216 85 261"
+                ],
+                "27.65": [
+                    "/execute positioned 216 85 261 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 216 85 261"
+                ],
+                "27.7": [
+                    "/tp @a 178 98 350"
+                ],
+                "28.0": [
+                    "/execute positioned 178 98 350 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 178 98 350"
+                ],
+                "28.05": [
+                    "/tp @a 159 95 341"
+                ],
+                "28.35": [
+                    "/execute positioned 159 95 341 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 159 95 341"
+                ],
+                "28.4": [
+                    "/tp @a 91 99 420"
+                ],
+                "28.7": [
+                    "/execute positioned 91 99 420 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 91 99 420"
+                ],
+                "28.75": [
+                    "/tp @a 30 57 210"
+                ],
+                "29.05": [
+                    "/execute positioned 30 57 210 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 30 57 210"
+                ],
+                "29.1": [
+                    "/tp @a 67 66 295"
+                ],
+                "29.4": [
+                    "/execute positioned 67 66 295 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 67 66 295"
+                ],
+                "29.45": [
+                    "/tp @a 59 67 371"
+                ],
+                "29.75": [
+                    "/execute positioned 59 67 371 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 59 67 371"
+                ],
+                "29.8": [
+                    "/tp @a -5 115 345"
+                ],
+                "30.1": [
+                    "/execute positioned -5 115 345 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -5 115 345"
+                ],
+                "30.15": [
+                    "/tp @a 5 67 410"
+                ],
+                "30.45": [
+                    "/execute positioned 5 67 410 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle 5 67 410"
+                ],
+                "30.5": [
+                    "/tp @a -42 62 498"
+                ],
+                "30.8": [
+                    "/execute positioned -42 62 498 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -42 62 498"
+                ],
+                "30.85": [
+                    "/tp @a -119 68 497"
+                ],
+                "31.15": [
+                    "/execute positioned -119 68 497 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -119 68 497"
+                ],
+                "31.2": [
+                    "/tp @a -132 84 428"
+                ],
+                "31.5": [
+                    "/execute positioned -132 84 428 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -132 84 428"
+                ],
+                "31.55": [
+                    "/tp @a -158 61 341"
+                ],
+                "31.85": [
+                    "/execute positioned -158 61 341 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -158 61 341"
+                ],
+                "31.9": [
+                    "/tp @a -215 74 329"
+                ],
+                "32.2": [
+                    "/execute positioned -215 74 329 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -215 74 329"
+                ],
+                "32.25": [
+                    "/tp @a -224 73 279"
+                ],
+                "32.55": [
+                    "/execute positioned -224 73 279 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -224 73 279"
+                ],
+                "32.6": [
+                    "/tp @a -245 99 246"
+                ],
+                "32.9": [
+                    "/execute positioned -245 99 246 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -245 99 246"
+                ],
+                "32.95": [
+                    "/tp @a -197 100 207"
+                ],
+                "33.25": [
+                    "/execute positioned -197 100 207 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -197 100 207"
+                ],
+                "33.3": [
+                    "/tp @a -212 75 171"
+                ],
+                "33.6": [
+                    "/execute positioned -212 75 171 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -212 75 171"
+                ],
+                "33.65": [
+                    "/tp @a -171 65 144"
+                ],
+                "33.95": [
+                    "/execute positioned -171 65 144 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -171 65 144"
+                ],
+                "34.0": [
+                    "/tp @a -111 63 106"
+                ],
+                "34.3": [
+                    "/execute positioned -111 63 106 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -111 63 106"
+                ],
+                "34.35": [
+                    "/tp @a -70 75 109"
+                ],
+                "34.65": [
+                    "/execute positioned -70 75 109 run event entity @e[dx=0,type=xp:echoing_forest_leaves_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_leaves_particle -70 75 109"
+                ],
+                "34.7": [
+                    "/tp @a 118 53 183"
+                ],
+                "35.0": [
+                    "/execute positioned 118 53 183 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 118 53 183"
+                ],
+                "35.05": [
+                    "/tp @a 180 73 215"
+                ],
+                "35.35": [
+                    "/execute positioned 180 73 215 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 180 73 215"
+                ],
+                "35.4": [
+                    "/tp @a 174 62 348"
+                ],
+                "35.7": [
+                    "/execute positioned 174 62 348 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 174 62 348"
+                ],
+                "35.75": [
+                    "/tp @a 22 49 417"
+                ],
+                "36.05": [
+                    "/execute positioned 22 49 417 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 22 49 417"
+                ],
+                "36.1": [
+                    "/tp @a -106 52 479"
+                ],
+                "36.4": [
+                    "/execute positioned -106 52 479 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -106 52 479"
+                ],
+                "36.45": [
+                    "/tp @a -163 52 378"
+                ],
+                "36.75": [
+                    "/execute positioned -163 52 378 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -163 52 378"
+                ],
+                "36.8": [
+                    "/tp @a -223 70 301"
+                ],
+                "37.1": [
+                    "/execute positioned -223 70 301 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -223 70 301"
+                ],
+                "37.15": [
+                    "/tp @a -191 93 210"
+                ],
+                "37.45": [
+                    "/execute positioned -191 93 210 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -191 93 210"
+                ],
+                "37.5": [
+                    "/tp @a -145 52 105"
+                ],
+                "37.8": [
+                    "/execute positioned -145 52 105 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot -145 52 105"
+                ],
+                "37.85": [
+                    "/tp @a -223 60 124"
+                ],
+                "38.15": [
+                    "/execute positioned -223 60 124 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -223 60 124 xp:biome_echoing_forest"
+                ],
+                "38.2": [
+                    "/tp @a -224 60 130"
+                ],
+                "38.5": [
+                    "/execute positioned -224 60 130 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -224 60 130 xp:biome_echoing_forest"
+                ],
+                "38.55": [
+                    "/tp @a -221 80 129"
+                ],
+                "38.85": [
+                    "/execute positioned -221 80 129 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -221 80 129 xp:biome_echoing_forest"
+                ],
+                "38.9": [
+                    "/tp @a -210 60 102"
+                ],
+                "39.2": [
+                    "/execute positioned -210 60 102 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -210 60 102 xp:biome_echoing_forest"
+                ],
+                "39.25": [
+                    "/tp @a -215 72 85"
+                ],
+                "39.55": [
+                    "/execute positioned -215 72 85 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -215 72 85 xp:biome_echoing_forest"
+                ],
+                "39.6": [
+                    "/tp @a -49 69 241"
+                ],
+                "39.9": [
+                    "/execute positioned -49 69 241 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -49 69 241 xp:biome_echoing_forest"
+                ],
+                "39.95": [
+                    "/tp @a -50 69 248"
+                ],
+                "40.25": [
+                    "/execute positioned -50 69 248 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -50 69 248 xp:biome_echoing_forest"
+                ],
+                "40.3": [
+                    "/tp @a -35 81 243"
+                ],
+                "40.6": [
+                    "/execute positioned -35 81 243 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -35 81 243 xp:biome_echoing_forest"
+                ],
+                "40.65": [
+                    "/tp @a -44 77 280"
+                ],
+                "40.95": [
+                    "/execute positioned -44 77 280 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -44 77 280 xp:biome_echoing_forest"
+                ],
+                "41.0": [
+                    "/tp @a -47 81 281"
+                ],
+                "41.3": [
+                    "/execute positioned -47 81 281 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -47 81 281 xp:biome_echoing_forest"
+                ],
+                "41.35": [
+                    "/tp @a -47 101 284"
+                ],
+                "41.65": [
+                    "/execute positioned -47 101 284 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -47 101 284 xp:biome_echoing_forest"
+                ],
+                "41.7": [
+                    "/tp @a -67 93 307"
+                ],
+                "42.0": [
+                    "/execute positioned -67 93 307 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -67 93 307 xp:biome_echoing_forest"
+                ],
+                "42.05": [
+                    "/tp @a -97 81 295"
+                ],
+                "42.35": [
+                    "/execute positioned -97 81 295 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner -97 81 295 xp:biome_echoing_forest"
+                ],
+                "42.4": [
+                    "/tp @a 189 82 392"
+                ],
+                "42.7": [
+                    "/execute positioned 189 82 392 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 189 82 392 xp:biome_echoing_forest"
+                ],
+                "42.75": [
+                    "/tp @a 182 82 392"
+                ],
+                "43.05": [
+                    "/execute positioned 182 82 392 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 182 82 392 xp:biome_echoing_forest"
+                ],
+                "43.1": [
+                    "/tp @a 182 75 414"
+                ],
+                "43.4": [
+                    "/execute positioned 182 75 414 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 182 75 414 xp:biome_echoing_forest"
+                ],
+                "43.45": [
+                    "/tp @a 161 59 414"
+                ],
+                "43.75": [
+                    "/execute positioned 161 59 414 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 161 59 414 xp:biome_echoing_forest"
+                ],
+                "43.8": [
+                    "/tp @a 159 71 389"
+                ],
+                "44.1": [
+                    "/execute positioned 159 71 389 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 159 71 389 xp:biome_echoing_forest"
+                ],
+                "44.15": [
+                    "/tp @a 157 76 388"
+                ],
+                "44.45": [
+                    "/execute positioned 157 76 388 run event entity @e[dx=0,type=xp:dungeon_mob_spawner] xp:instant_despawn",
+                    "/summon xp:dungeon_mob_spawner 157 76 388 xp:biome_echoing_forest"
+                ],
+                "44.5": [
+                    "/tp @a 111 35 252"
+                ],
+                "44.8": [
+                    "/execute positioned 111 35 252 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 111 35 252"
+                ],
+                "44.85": [
+                    "/tp @a 131 35 228"
+                ],
+                "45.15": [
+                    "/execute positioned 131 35 228 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 131 35 228"
+                ],
+                "45.2": [
+                    "/tp @a 150 35 366"
+                ],
+                "45.5": [
+                    "/execute positioned 150 35 366 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 150 35 366"
+                ],
+                "45.55": [
+                    "/tp @a 176 35 404"
+                ],
+                "45.85": [
+                    "/execute positioned 176 35 404 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 176 35 404"
+                ],
+                "45.9": [
+                    "/tp @a 54 35 357"
+                ],
+                "46.2": [
+                    "/execute positioned 54 35 357 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 54 35 357"
+                ],
+                "46.25": [
+                    "/tp @a 13 35 377"
+                ],
+                "46.55": [
+                    "/execute positioned 13 35 377 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 13 35 377"
+                ],
+                "46.6": [
+                    "/tp @a 40 35 411"
+                ],
+                "46.9": [
+                    "/execute positioned 40 35 411 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 40 35 411"
+                ],
+                "46.95": [
+                    "/tp @a -43 35 344"
+                ],
+                "47.25": [
+                    "/execute positioned -43 35 344 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle -43 35 344"
+                ],
+                "47.3": [
+                    "/tp @a -85 35 361"
+                ],
+                "47.6": [
+                    "/execute positioned -85 35 361 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle -85 35 361"
+                ],
+                "47.65": [
+                    "/tp @a -141 35 363"
+                ],
+                "47.95": [
+                    "/execute positioned -141 35 363 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle -141 35 363"
+                ],
+                "48.0": [
+                    "/tp @a -71 35 92"
+                ],
+                "48.3": [
+                    "/execute positioned -71 35 92 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle -71 35 92"
+                ],
+                "48.35": [
+                    "/tp @a -113 35 73"
+                ],
+                "48.65": [
+                    "/execute positioned -113 35 73 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle -113 35 73"
+                ],
+                "48.7": [
+                    "/tp @a -49 35 170"
+                ],
+                "49.0": [
+                    "/execute positioned -49 35 170 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle -49 35 170"
+                ],
+                "49.05": [
+                    "/tp @a 0 35 178"
+                ],
+                "49.35": [
+                    "/execute positioned 0 35 178 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 0 35 178"
+                ],
+                "49.4": [
+                    "/tp @a 51 35 145"
+                ],
+                "49.7": [
+                    "/execute positioned 51 35 145 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 51 35 145"
+                ],
+                "49.75": [
+                    "/tp @a 103 35 177"
+                ],
+                "50.05": [
+                    "/execute positioned 103 35 177 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 103 35 177"
+                ],
+                "50.1": [
+                    "/tp @a 230 35 239"
+                ],
+                "50.4": [
+                    "/execute positioned 230 35 239 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 230 35 239"
+                ],
+                "50.45": [
+                    "/tp @a 106 35 344"
+                ],
+                "50.75": [
+                    "/execute positioned 106 35 344 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 106 35 344"
+                ],
+                "50.8": [
+                    "/tp @a 84 35 298"
+                ],
+                "51.1": [
+                    "/execute positioned 84 35 298 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 84 35 298"
+                ],
+                "51.15": [
+                    "/tp @a -75 35 136"
+                ],
+                "51.45": [
+                    "/execute positioned -75 35 136 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle -75 35 136"
+                ],
+                "51.5": [
+                    "/tp @a ~ ~ ~"
+                ],
+                "51.8": [
+                    "/scoreboard objectives add sanctuary dummy",
+                    "/gamemode creative @a",
+                    "/event entity @s xp:despawn"
+                ]
+            }
+        }
+    }
+}

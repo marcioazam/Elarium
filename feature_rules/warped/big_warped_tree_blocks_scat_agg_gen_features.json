@@ -1,0 +1,45 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:big_warped_tree_blocks_scat_agg_gen_features",
+			"places_feature": "edx:big_warped_tree/big_warped_tree_blocks_scat_agg_gen_feature"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+				  "any_of": [
+					
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "warped_forest"
+					}
+				  ]
+				}
+			  ]
+		},
+		"distribution": {
+			"iterations": 70,
+			"x": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					15
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [ 5, 250 ]
+			  },
+			"z": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					15
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:wiki_book"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:dirt"
+      }
+    },
+    
+    "unlock": [
+      {
+        "item": "minecraft:dirt"
+      }
+    ],
+    "result": {
+      "item": "edx:quest_book",
+      "count": 1
+    }
+  }
+}

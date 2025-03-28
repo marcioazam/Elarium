@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:explosive_blaze_rod",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"explosive_blaze_rod"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "explosive_blaze_rod"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dExplosive blaze rod \n§5Artifact\n§6Burning enemies you hit explode"
+			  }
+		}
+	}
+}

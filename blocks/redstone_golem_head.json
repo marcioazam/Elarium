@@ -1,0 +1,118 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "dungeons:redstone_golem_head",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.skull"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -6
+                ],
+                "size": [
+                    16,
+                    16,
+                    12
+                ]
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 4
+            },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+            "minecraft:geometry": {
+                "identifier": "geometry.redstone_golem_head"
+            },
+            "minecraft:light_dampening": 0,
+            "minecraft:map_color": "#777777",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "redstone_golem_head"
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [{
+                    "allowed_faces": [
+                        "up",
+                        "side"
+                    ]
+                }]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    -6
+                ],
+                "size": [
+                    16,
+                    16,
+                    12
+                ]
+            }
+        },
+        "permutations": [{
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

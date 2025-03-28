@@ -1,0 +1,20 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "xp:dark_purpur_headstone_from_cracked"
+        },
+        "tags": [ "crafting_table" ],
+        "pattern": [
+            "AA",
+            "AA"
+        ],
+        "key": {
+            "A": { "item": "xp:dark_purpur_headstone_cracked" }
+        },
+        "result": {
+            "item": "xp:dark_purpur_headstone",
+            "count": 4
+        }
+    }
+}

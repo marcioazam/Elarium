@@ -1,0 +1,21 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.ender_boss_arena.runtime": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "on_death": "!q.is_alive" } ]
+        },
+
+        "on_death": {
+          "transitions": [ { "default": "q.is_alive" } ],
+          "on_entry": [
+            "/scoreboard players remove @e[type=xp:end_cube_barrier,scores={end_cube_boss=1..}] end_cube_boss 1",
+            "/tag @s remove in_ender_boss_arena"
+          ]
+        }
+      }
+    }
+  }
+}

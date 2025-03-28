@@ -1,0 +1,21 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "edx:crimson_torch_it",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "crimson_torch_it"
+        }
+      },
+      "minecraft:block_placer": {
+        "block": "edx:crimson_torch"
+      }
+    }
+  }
+}

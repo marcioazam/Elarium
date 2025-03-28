@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:snow_layer_weighted_feature"
+    },
+    "features": [
+      ["edx:snow_layer3_feature",1 ],
+      ["edx:snow_layer2_feature",1 ],
+      ["edx:snow_layer1_feature",1 ]
+    ]
+  }
+}

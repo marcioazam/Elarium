@@ -1,0 +1,46 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:magma_chamber/ground_features/lava_feature"
+      },
+      "places_block": "minecraft:lava",
+      "enforce_placement_rules": false,
+      "enforce_survivability_rules": false,
+      "may_attach_to": {
+        "top":  [
+          "minecraft:air",
+          "minecraft:lava"
+        ],
+        "north":  [
+          "minecraft:lava",
+          "edx:gabbro",
+          "edx:molten_gabbro"
+        ],
+        "south":  [
+          "minecraft:lava",
+          "edx:gabbro",
+          "edx:molten_gabbro"
+        ],
+        "east":  [
+          "minecraft:lava",
+          "edx:gabbro",
+          "edx:molten_gabbro"
+        ],
+        "west":  [
+          "minecraft:lava",
+          "edx:gabbro",
+          "edx:molten_gabbro"
+        ],
+        "bottom":  [
+          "minecraft:lava",
+          "edx:gabbro",
+          "edx:molten_gabbro"
+        ]
+    },
+      "may_replace": [
+        "edx:gabbro",
+        "edx:molten_gabbro"
+      ]
+    }
+  }

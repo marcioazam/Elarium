@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.20",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:scoria_biome/scoria_column_stack"
+      //places a column of blocks
+    },
+    "places_feature": "edx:scoria_biome/scoria_picker",
+    "iterations": "t.layer = 0; return t.height + 10 + 1;",
+    "x": 0,
+    "z": "t.layer = t.layer + 1; return 0;",
+    "y": {
+      "distribution": "fixed_grid",
+      "extent": [-1, "t.height"] 
+    }
+  }
+}

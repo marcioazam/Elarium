@@ -1,0 +1,99 @@
+{
+  "format_version": "1.17.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:echoing_larp.death",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "xp:loot":{
+        "minecraft:spawn_entity": {
+          "entities":[
+            {
+              "single_use": true,
+              "max_wait_time": 0,
+              "min_wait_time": 0,
+              "num_to_spawn": 1,
+              "spawn_item": "xp:echoing_pome"
+            }
+          ]
+        }
+      },
+      "xp:instant_despawn":{
+        "minecraft:instant_despawn":{}
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ 
+          "dummy"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:variant": {
+        "value": 1
+      },
+      "minecraft:timer": {
+        "time": 0.7,
+        "looping": true,
+        "time_down_event": {
+          "event": "xp:instant_despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "randomize": [
+          {
+            "add": {
+              "component_groups": [
+                "xp:loot"
+              ]
+            },
+            "weight": 1
+          },
+          {
+            "weight": 1
+          }
+        ]
+      },
+      "xp:instant_despawn":{
+        "add": {
+          "component_groups": [
+              "xp:instant_despawn"
+          ]
+      }
+			}
+    }
+  }
+}

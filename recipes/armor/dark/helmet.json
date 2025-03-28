@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "dark_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " r ",
+      "CIC",
+      "CiC"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_helmet"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_helmet"
+      },
+      "C": {
+        "item": "minecraft:charcoal"
+      },
+      "i": {
+        "item": "minecraft:iron_ingot"
+      },
+      "r": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "result": {
+      "item": "dungeons:dark_helmet",
+      "count": 1
+    }
+  }
+}

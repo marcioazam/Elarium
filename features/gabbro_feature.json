@@ -1,0 +1,19 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:gabbro_feature"
+        },
+        "count": 60,
+        "replace_rules": [
+            {
+                "places_block": "edx:gabbro",
+                "may_replace": [
+                    {
+                        "name": "minecraft:netherrack"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,87 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:heart_of_enders_head",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": { "animate": [ "drop", "sensor", "tf" ] },
+      "animations": { 
+        "drop": "controller.animation.heart_of_enders_head.drop",
+        "sensor": "controller.animation.heart_of_enders_head.sensor",
+        "tf": "animation.trophy_sensor",
+        "tf1": "animation.trophy_sensor1",
+        "tf2": "animation.trophy_sensor2"
+       }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.2,
+        "height": 1
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:push_through": { "value": 1 },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "player" },
+                  { "test": "has_damage", "subject": "self", "value": "attack" },
+                  { "test": "is_variant", "value": 0 }
+                ]
+              },
+              "event": "xp:item_drop",
+              "target": "self"
+            },
+            "deals_damage": false
+          },
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:type_family": {
+        "family": [ "xp_dummy" ]
+      },
+      "minecraft:knockback_resistance":{ "value": 1 },
+      "minecraft:fire_immune": {},
+      "minecraft:health": {
+        "min": 1,
+        "value": 2,
+        "max": 2
+      },
+      "minecraft:nameable": {},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": true
+			}
+    },
+    "component_groups": {
+      "xp:on_ground": { "minecraft:skin_id": { "value": 1 } },
+      "xp:on_wall": { "minecraft:skin_id": { "value": 2 } },
+      "xp:item_drop": {
+        "minecraft:variant": { "value": 1 },
+        "minecraft:timer": {
+            "time": 0.05,
+            "looping": false,
+            "time_down_event": { "event": "xp:despawn" }
+        }
+      },
+      "xp:despawn":{ "minecraft:instant_despawn": {} }
+    },
+    "events": {
+      "xp:on_ground": { "add": { "component_groups": [ "xp:on_ground" ] }, "remove": { "component_groups": [ "xp:on_wall" ] } },
+      "xp:on_wall": { "add": { "component_groups": [ "xp:on_wall" ] }, "remove": { "component_groups": [ "xp:on_ground" ] } },
+      "xp:item_drop": { "add": { "component_groups": [ "xp:item_drop" ] } },
+      "xp:despawn": { "add": { "component_groups": [ "xp:despawn" ] }
+      }
+    }
+  }
+}

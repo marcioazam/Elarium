@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "daggers"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "i i",
+      "I I",
+      "S S"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "key": {
+      "i": {
+        "item": "minecraft:iron_nugget"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:daggers",
+      "count": 1
+    }
+  }
+}

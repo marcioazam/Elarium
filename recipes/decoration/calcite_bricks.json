@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:calcite_bricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:calcite"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:calcite"
+      }
+    ],
+    "result": {
+      "item": "edx:calcite_bricks",
+      "count": 4
+    }
+  }
+  
+}

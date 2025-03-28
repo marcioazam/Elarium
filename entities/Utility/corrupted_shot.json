@@ -1,0 +1,84 @@
+
+
+
+
+
+{
+  "format_version": "1.21.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:corrupted_shot",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval":true,
+        "time": [5, 8],
+        "time_down_event": {
+          "event": "dungeons:despawn"
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.3125,
+        "height": 0.3125
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 3.5,
+            "max_critical_damage": 1.0,
+            "knockback": true
+          }
+        },
+        "power": 0.5,
+        "gravity": 0.00,
+        "inertia": 1.0,
+        "liquid_inertia": 1.0,
+        "uncertainty_base": 1.0,
+        "uncertainty_multiplier": 0.0,
+        "reflect_on_hurt": true,
+        "multiple_targets": false,
+        "ignored_entities": [
+          "ender_crystal",
+          "dungeons:corrupted_ooze",
+          "dungeons:corrupted_cauldron",
+          "corrupted_ooze",
+          "corrupted_cauldron"
+        ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:type_family": {
+        "family": [ "corrupted_shot", "corrupted_ooze" ]
+      }
+    },
+    "events": {
+      "dungeons:despawn": {
+          "add": {
+            "component_groups": [
+              "dungeons:despawn"
+            ]
+          }
+        }
+      }
+   }
+}

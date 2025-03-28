@@ -1,0 +1,23 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_fall": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"bow1":"query.vertical_speed < 0"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/execute as @s at @s run scriptevent edx:player_fall"
+					  ],
+					"transitions":[
+						
+						{"default":"query.vertical_speed >= 0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

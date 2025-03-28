@@ -1,0 +1,416 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:iron_hide_amulet",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_iron_hide_amulet",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:soul_healer",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_soul_healer",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:totem_of_regeneration",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "dungeons:rare_totem_of_regeneration",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:diamond_dust",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "dungeons:blue_print",
+          "weight": 1
+        },
+        {
+          "type": "empty",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:burning_arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 11,
+                "max": 22
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "dungeons:thundering_arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 6,
+                "max": 11
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:arrow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 25
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 15,
+                "max": 25
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:stormlander"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:masters_katana"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:hammer_of_gravity"
+        },
+        {
+          "type": "item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:dark_katana"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:imploding_crossbow"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ],
+          "name": "dungeons:firebolt_thrower"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "redstone",
+              "pattern": "ward"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_helmet"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "redstone",
+              "pattern": "ward"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_chestplate"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "redstone",
+              "pattern": "ward"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_leggings"
+        },
+        {
+          "type": "item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_armor_trim",
+              "material": "redstone",
+              "pattern": "ward"
+            },
+            {
+              "function": "set_damage",
+              "damage": {
+                "min": 0.95,
+                "max": 1
+              }
+            },
+            {
+              "function": "enchant_with_levels",
+              "levels": {
+                "min": 30,
+                "max": 50
+              },
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:diamond_boots"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/titans_shroud/base.json"
+        },
+        {
+	    "type": "loot_table",
+           "weight": 4,
+           "name": "loot_tables/chests/diamond_chest/armor/spider/base.json"
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 5,
+                "max": 15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:redstone_painting",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "dungeons:redstone_ministrosity_statue",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:ward_armor_trim_smithing_template",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "empty",
+          "weight": 7
+        }
+      ]
+    }
+  ]
+}

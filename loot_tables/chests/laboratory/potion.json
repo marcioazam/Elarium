@@ -1,0 +1,226 @@
+{
+  "pools": [
+    {
+      "rolls": 6,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 30
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 21
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 32
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 40,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 0
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 16
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 12
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 5
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 18
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_data",
+                "data": 35
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:blaze_powder",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:magma_cream",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:ghast_tear",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sugar",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:blaze_powder",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:glowstone_dust",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:glistering_melon_slice",
+          "weight": 20,
+          "functions": [
+            {
+                "function": "set_count",
+                "count": {
+                  "min": 1,
+                  "max": 5
+                }
+            }
+        ]
+        }
+      ]
+    }
+   
+  ]
+}

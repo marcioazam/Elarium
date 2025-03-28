@@ -1,0 +1,618 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.cutscene.end_portal": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "scene_end": "q.skin_id == 2" },
+            { "scene_0": "q.mark_variant == 100 && q.skin_id != 2 && q.variant == 0 && (q.life_time - v.cutscene_time) > 5" },
+            { "end_scene_0": "q.variant == 1 && (q.life_time - v.cutscene_time) > 5 && q.skin_id != 2" },
+            { "end_scene_0_pause": "q.variant == 2 && (q.life_time - v.cutscene_time) > 5 && q.skin_id != 2" },
+            { "end_scene_1_pause": "q.variant == 3 && (q.life_time - v.cutscene_time) > 5 && q.skin_id != 2" },
+            { "end_scene_2_pause": "q.variant == 4 && (q.life_time - v.cutscene_time) > 5 && q.skin_id != 2" },
+            { "end_scene_3_pause": "q.variant == 5 && (q.life_time - v.cutscene_time) > 5 && q.skin_id != 2" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            "/event entity @a xp:name_tags",
+            "/event entity @e[type=xp:allay.cutscene] xp:despawn",
+            "/event entity @e[type=xp:enderman.cutscene] xp:despawn",
+            "/event entity @e[type=xp:endermite.cutscene] xp:despawn",
+
+            "/event entity @e[type=xp:elderman.cutscene] xp:despawn",
+            "/event entity @e[type=xp:enderman_wilds.cutscene] xp:despawn",
+            "/event entity @e[type=xp:look_at] xp:despawn",
+
+            "/event entity @e[type=xp:broken_sanctuary.laser_long] xp:despawn",
+            "/event entity @e[type=xp:broken_sanctuary_ring.cutscene] xp:despawn",
+            "/event entity @e[type=xp:broken_sanctuary_laser_final.cutscene] xp:despawn",
+            
+            "/event entity @e[type=xp:heart_of_ender.cutscene] xp:despawn",
+            //"/event entity @e[type=xp:heart_of_ender.portal_glow] xp:despawn",
+            "/execute in the_end run event entity @e[type=xp:heart_of_ender.eye,x=-152,y=186,z=34,r=100] xp:despawn"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/tag @a add in_cutscene",
+
+            "/gamerule showcoordinates false",
+
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+
+            "/title @a title xp_cutscene",
+            "/title @a actionbar xp_hud.end_portal_fade",
+            "/event entity @a xp:name_tags",
+            "/event entity @a xp:in_cutscene",
+
+            "/execute if entity @s[tag=1_placed] run scoreboard objectives add frame dummy",
+            "/scoreboard players set @a frame 0",
+
+            "/execute in overworld positioned -1354 7.5 -1411 run event entity @e[type=xp:waypoint] xp:instant_despawn"
+          ]
+        },
+
+        //Reset
+        "reset": {
+          "transitions": [
+            { "default": "q.mark_variant == 0 && (q.life_time - v.cutscene_time) > 0.25" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/effect @a invisibility 0 0 true",
+            "/event entity @a xp:leave_cutscene",
+            "/tag @s add first_run",
+
+            "/tag @a add first_tp",
+            "/tag @a remove in_cutscene",
+            "/event entity @a xp:name_tags",
+            "/scoreboard objectives remove frame",
+            "@s xp:reset",
+            "/event entity @a xp:cutscene.clear"
+          ]
+        },
+
+        //Portal Sequence
+        "scene_0": {
+          "animations": [ 
+            { "cutscene.end_portal.scene_0_mode": "(q.life_time - v.cutscene_time) > 0.25" },
+            { "cutscene.end_portal.scene_0_fade_pause": "(q.life_time - v.cutscene_time) < 0.8 && (q.life_time - v.cutscene_time) > 0.25" },
+            { "cutscene.end_portal.scene_0_0": "(q.life_time - v.cutscene_time) > 0.8" },
+            "cutscene.end_portal.scene_0_effects"
+          ],
+          "transitions": [
+            { "end_scene_0": "(q.life_time - v.cutscene_time) >= 14.25" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/event entity @a xp:remove_name_tags",
+            "/event entity @a xp:cutscene.end_portal",
+            "/playsound end_portal.pre_tp_ambient @a ~~~ 1 1.35 0.1",
+            "/tag @a add in_cutscene",
+            "/tag @a add scene_0",
+            "/gamerule sendcommandfeedback false",
+            "/music stop 4",
+            "/execute in the_end run tickingarea add -10 140 335 -30 160 355 black_box true",
+            "/execute in the_end run fill -10 140 335 -30 160 355 xp:black_block hollow",
+
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/tag @a remove scene_0",
+            "/scoreboard players set @a frame 0",
+            "/execute in the_end run tp @a -21 150.5 344 facing 0 151 344",
+            "/execute in the_end run fill -10 140 335 -30 160 355 xp:black_block hollow"
+          ]
+        },
+
+        //Teleport Effects
+        "end_scene_0": {
+          "animations": [
+            "cutscene.end_portal.spawn_boss_arena.islands",
+            "cutscene.end_portal.end_scene_0",
+            "cutscene.end_portal.end_scene_0_effects"
+          ],
+          "transitions": [
+            { "end_scene_0_pause": "(q.life_time - v.cutscene_time) > 10" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "@s xp:scene_0",
+            "/execute in the_end run tp @e[type=ender_dragon] 1500 134 105",
+            "/execute in the_end run fill -10 140 335 -30 160 355 xp:black_block 0 hollow"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/execute in the_end run fill -10 140 335 -30 160 355 air 0 replace xp:black_block"
+          ]
+        },
+
+        //Echoing Forest
+        "end_scene_0_pause": {
+          "animations": [
+            "cutscene.end_portal.end_scene_0_fade_pause"
+          ],
+          "transitions": [
+            { "end_scene_1": "(q.life_time - v.cutscene_time) > 1" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/tag @s remove first_run",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "/tag @a add scene_1",
+            "/playsound cutscene.intro @a ~~~ 1 1 1",
+            "/music play echoing_forest.cutscene_ambient 0.125 2 loop",
+            "/tickingarea remove black_box",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/event entity @e[type=xp:allay.cutscene] xp:despawn",
+            "/event entity @e[type=xp:enderman.cutscene] xp:despawn",
+            "/event entity @e[type=xp:endermite.cutscene] xp:despawn",
+
+            "/tag @a remove first_tp"
+          ],
+          "on_exit": [ "/fog @a push xp:echoing_forest_biome_fog echoing_forest_biome_fog" ]
+        },
+        "end_scene_1": {
+          "animations": [
+            "cutscene.end_portal.end_scene_1",
+            "cutscene.end_portal.end_scene_1_effects"
+          ],
+          "transitions": [
+            { "end_scene_1_pause": "(q.life_time - v.cutscene_time) > 14.5" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "@s xp:scene_1"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/event entity @e[type=xp:allay.cutscene] xp:despawn",
+            "/event entity @e[type=xp:enderman.cutscene] xp:despawn",
+            "/event entity @e[type=xp:endermite.cutscene] xp:despawn",
+            "/tag @a remove scene_1",
+            "/scoreboard players set @a frame 0",
+
+            "/tag @a remove first_tp"
+          ]
+        },
+
+        //Wilds
+        "end_scene_1_pause": {
+          "animations": [ "cutscene.end_portal.end_scene_1_fade_pause" ],
+          "transitions": [
+            { "end_scene_2": "(q.life_time - v.cutscene_time) > 1" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "/scoreboard players set @a frame 55",
+            "/tag @a add scene_2",
+
+            "/tag @a remove first_tp"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/fog @a push xp:wilds_biome_fog wilds_biome_fog"
+          ]
+        },
+        "end_scene_2": {
+          "animations": [
+            "cutscene.end_portal.end_scene_2",
+            "cutscene.end_portal.end_scene_2_effects"
+          ],
+          "transitions": [
+            { "end_scene_2_pause": "(q.life_time - v.cutscene_time) > 14" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "@s xp:scene_2"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/tag @a remove scene_2",
+            "/scoreboard players set @a frame 0",
+            "/event entity @e[type=xp:elderman.cutscene] xp:despawn",
+            "/event entity @e[type=xp:enderman_wilds.cutscene] xp:despawn",
+            "/event entity @e[type=xp:look_at] xp:despawn"
+          ]
+        },
+
+        //Sanctuary
+        "end_scene_2_pause": {
+          "animations": [ "cutscene.end_portal.end_scene_2_fade_pause" ],
+          "transitions": [
+            { "end_scene_3": "(q.life_time - v.cutscene_time) > 1" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/execute in the_end run tickingarea add 416 160 815 416 160 815",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "/scoreboard players set @a frame 95",
+            "/music play sanctuary.ambient_loop 1 2 play_once",
+            "/tag @a add scene_3",
+
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 416 75 810",
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 416 100 872",
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 416 120 872",
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 360 100 872",
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 425 100 872",
+            
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 400 100 986",
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 410 110 1015",
+
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 310 100 865",
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 250 110 869",
+
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 500 100 865",
+            "/execute in the_end run particle xp:broken_sanctuary_cutscene_fog.1 560 110 869"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/fog @a push xp:sanctuary_biome_fog sanctuary_biome_fog"
+          ]
+        },
+        "end_scene_3": {
+          "animations": [
+            "cutscene.end_portal.end_scene_3",
+            "cutscene.end_portal.end_scene_3_effects"
+          ],
+          "transitions": [
+            { "end_scene_3_pause": "(q.life_time - v.cutscene_time) > 19" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/kill @e[type=minecraft:xp_orb]",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/effect @a invisibility 99999 2 true",
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "@s xp:scene_3",
+            "/execute in the_end run tickingarea add -122 231 109 -218 233 9"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/execute in the_end run tickingarea remove 416 160 815",
+            "/tag @a remove scene_3",
+            "/scoreboard players set @a frame 0"
+          ]
+        },
+
+        //Heart of Ender
+        "end_scene_3_pause": {
+          "animations": [
+            { "cutscene.end_portal.end_scene_3_fade_pause": "(q.life_time - v.cutscene_time) < 1 || (q.life_time - v.cutscene_time) > 2.25"},
+            "cutscene.end_portal.spawn_boss_arena",
+            { "cutscene.end_portal.spawn_eyes": "(q.life_time - v.cutscene_time) > 1.35" }
+          ],
+          "transitions": [
+            { "end_scene_4": "(q.life_time - v.cutscene_time) > 2.35" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "/tag @a add scene_4",
+            
+            "/kill @e[type=minecraft:xp_orb]",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/event entity @e[type=xp:heart_of_ender.cutscene] xp:despawn",
+            "/event entity @e[type=xp:heart_of_ender.portal_glow] xp:despawn",
+            "/execute in the_end run event entity @e[type=xp:heart_of_ender.eye,x=-152,y=186,z=34,r=100] xp:despawn"
+          ],
+          "on_exit": [ 
+            "v.cutscene_time = q.life_time;",
+            "/fog @a push xp:end_boss_fog end_boss_fog",
+            "/event entity @e[type=xp:heart_of_ender.eye] xp:look_at"
+          ]
+        },
+        "end_scene_4": {
+          "animations": [
+            "cutscene.end_portal.end_scene_4",
+            "cutscene.end_portal.end_scene_4_effects"
+          ],
+          "transitions": [
+            { "end_scene_4_pause": "(q.life_time - v.cutscene_time) > 13" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/effect @a invisibility 99999 2 true",
+            "/execute at @a run event entity @a xp:cutscene.end_portal",
+            "@s xp:scene_4"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/event entity @e[type=xp:heart_of_ender.cutscene] xp:despawn",
+            "/event entity @e[type=xp:heart_of_ender.portal_glow] xp:despawn",
+            "/execute in the_end run event entity @e[type=xp:heart_of_ender.eye,x=-152,y=186,z=34,r=100] xp:despawn",
+            "/tag @a remove scene_4",
+            "/scoreboard players set @a frame 0"
+          ]
+        },
+
+        //End Spawn
+        "end_scene_4_pause": {
+          "animations": [ 
+            "cutscene.end_portal.end_scene_4_fade_pause",
+            "cutscene.end_portal.clear_boss_arena"
+          ],
+          "transitions": [
+            { "end_scene_final": "(q.life_time - v.cutscene_time) > 2.5" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [ 
+            "v.cutscene_time = q.life_time;",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+            "/event entity @e[type=xp:conduit] xp:instant_despawn",
+            "/event entity @e[type=xp:elderman] xp:instant_despawn",
+            "/event entity @e[type=xp:enderbug] xp:instant_despawn",
+            "/event entity @e[type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime_small] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslime] xp:instant_despawn",
+            "/event entity @e[type=xp:enderslug] xp:instant_despawn",
+            "/event entity @e[type=xp:mimic] xp:instant_despawn",
+            "/event entity @e[type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=xp:stalker] xp:instant_despawn",
+            "/event entity @e[type=minecraft:enderman] xp:instant_despawn",
+            "/event entity @e[type=minecraft:endermite] xp:despawn",
+            "/event entity @e[type=minecraft:allay] xp:despawn",
+            "/event entity @e[type=xp:heart_of_ender.portal_glow] xp:despawn"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;",
+            "/execute in the_end run tickingarea remove -122 231 109"
+          ]
+        },
+        "end_scene_final": {
+          "transitions": [
+            { "scene_end": "(q.life_time - v.cutscene_time) > 1" },
+            { "reset": "q.mark_variant == 0" }
+          ],
+          "on_entry": [ 
+            "v.cutscene_time = q.life_time;",
+            "/inputpermission set @a camera disabled",
+            "/inputpermission set @a movement disabled",
+
+            "/execute in the_end positioned -141 58 17 run event entity @e[family=\"farlander\",r=32] xp:instant_despawn",
+
+            "/gamemode s @a",
+            "/title @a title xp_cutscene",
+            "/effect @a invisibility 99999 2 true",
+            "/execute in the_end run tp @e[type=ender_dragon] 200 120 -20",
+
+            "/scoreboard objectives remove frame",
+
+            "/event entity @a xp:leave_cutscene",
+            "/event entity @a xp:cutscene.clear"
+          ],
+          "on_exit": [
+            "v.cutscene_time = q.life_time;"
+          ]
+        },
+        "scene_end": {
+          "transitions": [
+            { "reset": "q.skin_id == 0" }
+          ],
+          "on_entry": [
+            "v.cutscene_time = q.life_time;",
+
+            "/gamerule showcoordinates false",
+            "/gamerule sendcommandfeedback false",
+
+            "/title @a title xp_hide_effects_",
+            "/title @a actionbar xp_logo",
+
+            "/effect @a invisibility 0 0 true",
+            "/effect @a slowness 7 2 true",
+
+            "/playsound xp_intro_jinggle @a",
+            "/playsound achievement @a[tag=in_cutscene] ~~~ 0.9 0.95 1",
+            "/playsound achievement @a[tag=in_cutscene] ~~~ 0.65 0.75 1",
+
+            "/inputpermission set @a camera enabled",
+            "/inputpermission set @a movement enabled",
+
+            "@s xp:scene_end",
+            "/event entity @a xp:leave_cutscene",
+            "/event entity @a[tag=in_cutscene] xp:cutscene.clear",
+
+            "/fog @a[tag=in_cutscene] remove spawn_fog",
+            "/fog @a[tag=in_cutscene] remove echoing_forest_biome_fog",
+            "/fog @a[tag=in_cutscene] remove wilds_biome_fog",
+            "/fog @a[tag=in_cutscene] remove sanctuary_biome_fog",
+            "/fog @a[tag=in_cutscene] remove xp:end_boss_fog end_boss_fog",
+            "/tag @a remove in_cutscene"
+          ]
+        }
+      }
+    }
+  }
+}

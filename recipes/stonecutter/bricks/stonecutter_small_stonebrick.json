@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_small_stonebrick"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 1,
+    "ingredients": [
+      {
+        "item": "minecraft:stonebrick",
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "edx:small_stonebrick",
+      "count": 1
+    }
+  }
+} 

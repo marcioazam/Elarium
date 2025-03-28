@@ -1,0 +1,20 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:growing_plant_feature": {
+    "description": {
+      "identifier": "edx:yellow_mush_random_feature"
+    },
+    "height_distribution":  [
+      [{"range_min": 8, "range_max": 8}, 2],
+      [{"range_min": 8, "range_max": 8}, 1]
+    ],
+    "growth_direction": "DOWN",
+    "body_blocks": [
+      ["edx:mycelium_vine", 1]
+    ],
+    "head_blocks": [
+    ["edx:big_yellow_tree_block", 1]
+    ], 
+    "allow_water": true 
+  }
+}

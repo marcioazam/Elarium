@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:elytra_shard_to_elytra"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "XGX",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "xp:elytra_shard"
+      },
+      "G": {
+        "item": "minecraft:phantom_membrane"
+      }
+    },
+    "result": {
+      "item": "minecraft:elytra"
+    }
+  }
+}

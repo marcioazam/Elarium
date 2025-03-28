@@ -1,0 +1,108 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:respawn_auger",
+      "is_experimental": false,
+      "is_spawnable": false,
+      "is_summonable": true,
+      "animations": {
+        "activate": "controller.animation.respawn_auger.activate",
+        "state": "controller.animation.respawn_auger.state",
+        "check_active": "animation.respawn_auger.check_active",
+        "sounds.idle_active": "animation.respawn_auger.sounds.idle_active",
+        "sounds.idle_inactive": "animation.respawn_auger.sounds.idle_inactive",
+        "sounds.activate": "animation.respawn_auger.sounds.activate",
+        "display_tellraw": "animation.respawn_auger.display_tellraw",
+        "keep_mobs_away": "animation.respawn_auger.keep_mobs_away",
+        "controller_display_tellraw": "controller.animation.respawn_auger.display_tellraw"
+      },
+      "scripts": {
+        "animate": [
+          "activate",
+          "state",
+          "check_active",
+          "keep_mobs_away",
+          "controller_display_tellraw",
+          { "sounds.idle_active": "q.is_powered" },
+          { "sounds.idle_inactive": "!q.is_powered" }
+        ]
+      },
+      "properties": {
+        "xp:activate": {
+          "type": "bool",
+          "client_sync": false,
+          "default": false
+        },
+        "xp:display_tellraw": {
+          "type": "bool",
+          "client_sync": false,
+          "default": false
+        }
+      }
+    },
+    "component_groups": {
+      "despawn": { "minecraft:instant_despawn": {} },
+      "active": {
+        "minecraft:behavior.look_at_player": {
+          "angle_of_view_vertical": 0,
+          "angle_of_view_horizontal": 0,
+          "look_distance": 8,
+          "probability": 1,
+          "look_time": [],
+          "target_distance": 6
+        },
+        "minecraft:type_family": { "family": ["respawn_auger", "immobile", "auger_active"] },
+        "minecraft:is_charged": {},
+        "minecraft:collision_box": { "height": 2.75, "width": 0.7 },
+        "minecraft:custom_hit_test": {
+          "hitboxes": [{ "pivot": [0, 1, 0], "height": 2.75, "width": 1 }]
+        }
+      },
+      "inactive": {
+        "minecraft:type_family": { "family": ["respawn_auger", "immobile", "auger_inactive"] },
+        "minecraft:collision_box": { "height": 2, "width": 0.7 },
+        "minecraft:custom_hit_test": {
+          "hitboxes": [{ "pivot": [0, 1, 0], "height": 2.75, "width": 1 }]
+        }
+      }
+    },
+    "components": {
+      "minecraft:push_through": { "value": 0 },
+      "minecraft:is_stackable": {},
+      "minecraft:health": {
+        "value": 1,
+        "min": 1,
+        "max": 1
+      },
+      "minecraft:damage_sensor": { "triggers": [{ "cause": "all", "deals_damage": false }] },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": { "event": "xp:activate" },
+            "interact_text": "action.interact.respawn_auger",
+            "cooldown": 2,
+            "swing": true
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": { "add": { "component_groups": ["inactive"] } },
+
+      "xp:activate": { "set_property": { "xp:activate": true } },
+      "xp:reset_activate": { "set_property": { "xp:activate": false } },
+      "xp:display_tellraw": { "set_property": { "xp:display_tellraw": true } },
+      "xp:remove_display_tellraw": { "set_property": { "xp:display_tellraw": false } },
+      "xp:active": {
+        "add": { "component_groups": ["active"] },
+        "remove": { "component_groups": ["inactive"] }
+      },
+      "xp:inactive": {
+        "add": { "component_groups": ["inactive"] },
+        "remove": { "component_groups": ["active"] }
+      },
+      "xp:instant_despawn": { "add": { "component_groups": ["despawn"] } }
+    }
+  }
+}

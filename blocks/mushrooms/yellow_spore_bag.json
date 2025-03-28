@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:yellow_spore_bag",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			  }
+		},
+		"components": {
+      "minecraft:custom_components": [
+                "edx:yellow_spore_bag"
+            ],
+     
+			"minecraft:geometry": "geometry.yellow_spore_bag",
+      "minecraft:collision_box": false,
+			"minecraft:selection_box": {
+            "origin": [-5,0,-5],
+            "size": [10,16,10]
+      },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "yellow_spore_bag",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:light_emission": 10,
+      "minecraft:placement_filter": {
+            "conditions": [
+                {
+                    "allowed_faces": ["down"],
+						        "block_filter": ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_vine","edx:mycelium_grass"]
+                }
+            ]
+      }
+		}
+	}
+}

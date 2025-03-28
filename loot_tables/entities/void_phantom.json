@@ -1,0 +1,82 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:phantom_membrane",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 3
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 3
+                            }
+                        }
+                    ]
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "killed_by_player"
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "edx:instable_enderpearl",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 2
+                            }
+                        }
+                    ]
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "killed_by_player"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "condition": "killed_by_player_or_pets"
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "edx:copper_coin",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count":  {
+                                "min": 0,
+                                "max": 3
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:pice_bricks"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:packed_ice"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:packed_ice"
+      }
+    ],
+    "result": {
+      "item": "edx:ice_brick",
+      "count": 4
+    }
+  }
+  
+}

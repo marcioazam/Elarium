@@ -1,0 +1,467 @@
+{
+    "format_version": "1.18.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "edx:yellow_shroom_jellyfish",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "properties": {
+                "minecraft:has_nectar": {
+                    "type": "bool",
+                    "client_sync": true,
+                    "default": "query.had_component_group('has_nectar')"
+                }
+            }
+        },
+        "component_groups": { 
+            "yellow_shroom_jellyfish_adult": {
+                "minecraft:type_family": {
+                    "family": [ "yellow_shroom_jellyfish", "mob", "monster" ]
+                },
+                "minecraft:experience_reward": {
+                    "on_bred": "Math.Random(1,7)",
+                    "on_death": "query.last_hit_by_player ? Math.Random(2,3) : 1"
+                }
+            },
+            "escape_fire": {
+                "minecraft:behavior.panic": {
+                    "priority": 1,
+                    "speed_multiplier": 1.25,
+                    "force": true
+                  },
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": [20,50],
+                    "randomInterval": true,
+                    "time_down_event": {
+                        "event": "stop_panicking_after_fire",
+                        "target": "self"
+                    }
+                }
+            },
+            "look_for_food": {
+                "minecraft:type_family": {
+                    "family": [ "yellow_shroom_jellyfish", "mob", "monster" ]
+                },
+                "minecraft:behavior.move_to_block": {
+                    "priority": 10,
+                    "tick_interval": 1,
+                    "start_chance": 0.5,
+                    "search_range": 6,
+                    "search_height": 5,
+                    "goal_radius": 1.0,
+                    "stay_duration": 20.0,
+                    "target_selection_method": "random",
+                    "target_offset": [0, 0.25, 0],
+                    "target_block_filters": { "test": "is_waterlogged", "subject": "block", "operator": "==", "value": false },
+                    "target_blocks": [
+                        "edx:yellow_mushroom",
+                        "edx:yellow_spore_bag"
+                    ],
+                    "on_stay_completed": [
+                        {
+                            "event": "collected_nectar",
+                            "target": "self"
+                        }
+                    ]
+                },
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 180,
+                    "time_down_event": {
+                        "event": "find_flower_timeout"
+                    }
+                }
+            },
+            "has_nectar": {
+                "minecraft:type_family": {
+                    "family": [ "yellow_shroom_jellyfish", "mob","has_yellow_nectar", "monster" ]
+                },
+                "minecraft:variant": {
+					"value": 1
+		 		},
+                 "minecraft:behavior.move_to_block": {
+                    "priority": 10,
+                    "tick_interval": 1,
+                    "start_chance": 0.5,
+                    "search_range": 6,
+                    "search_height": 5,
+                    "goal_radius": 1.0,
+                    "stay_duration": 20.0,
+                    "target_selection_method": "random",
+                    "target_offset": [0, 0.25, 0],
+                    "target_block_filters": { "test": "is_waterlogged", "subject": "block", "operator": "==", "value": false },
+                    "target_blocks": [
+                        "edx:empty_yellow_spore_bag"
+                    ],
+                    "on_stay_completed": [
+                        {
+                            "event": "empty_yellow_spore_bag",
+                            "target": "self"
+                        }
+                    ]
+                },
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 60,
+                    "time_down_event": {
+                        "event": "remove_nectar"
+                    }
+                }
+            },
+            "nectar_interval": {
+                "minecraft:type_family": {
+                    "family": [ "yellow_shroom_jellyfish", "mob", "monster" ]
+                },
+                "minecraft:variant": {
+					"value": 0
+		 		},
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 90,
+                    "time_down_event": {
+                        "event": "look_for_food"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:mob_effect": {
+				"effect_range": 2,
+				"mob_effect": "fatal_poison",
+				"effect_time": 10,
+				"entity_filter": {
+					"test": "is_family",
+					"subject": "other",
+					"operator": "!=",
+					"value": "monster"
+					
+				},
+				"cooldown_time": 0
+			},
+            "minecraft:on_death":{
+				"event": "yellow_shroom_jellyfish_death",
+				"target": "self"
+			  },
+            "minecraft:is_hidden_when_invisible": {
+            },
+            "minecraft:behavior.tempt": {
+                "priority": 5,
+                "speed_multiplier": 1.25,
+                "within_radius": 8,
+                "can_tempt_vertically": true,
+                "items": [
+                    "edx:yellow_mushroom",
+                    "edx:yellow_spore_bag"
+                ]
+            },
+            "minecraft:behavior.random_hover": {
+                "priority": 12,
+                "xz_dist": 8,
+                "y_dist": 8,
+                "y_offset": -1,
+                "interval": 1,
+                "hover_height": [1, 7]
+            },
+            "minecraft:leashable": {
+                "soft_distance": 4.0,
+                "hard_distance": 6.0,
+                "max_distance": 10.0
+            },
+            "minecraft:balloonable": {
+                "mass": 0.5
+            },
+            "minecraft:behavior.float": {
+                "priority": 19
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0
+            },
+            "minecraft:collision_box": {
+                "width": 0.7,
+                "height": 0.5
+            },
+            "minecraft:conditional_bandwidth_optimization": {
+            },
+            "minecraft:game_event_movement_tracking": {
+                "emit_flap": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "fall",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:flying_speed": {
+                "value": 0.15
+            },
+            "minecraft:navigation.hover": {
+                "can_path_over_water": true,
+                "can_sink": false,
+                "can_pass_doors": false,
+                "can_path_from_air": true,
+                "avoid_water": true,
+                "avoid_damage_blocks": true,
+                "avoid_sun": true
+            },
+            "minecraft:movement.hover": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_fly": {},
+            "minecraft:health": {
+                "value": 19,
+                "max": 19
+            },
+            "minecraft:nameable": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+              }
+        },
+        "events": {
+            "empty_yellow_spore_bag": {
+				"sequence": [
+                   { 
+                    "remove": {
+                        "component_groups": [
+                            "has_nectar"
+                        ]
+                    }
+                     },
+                    {"add":
+                     {
+                        "component_groups": [
+                            "nectar_interval"
+                        ]
+                    }
+                },
+					{
+					  "queue_command": {
+						"command": [
+						  "fill ~~-1~ ~~~ edx:yellow_spore_bag replace edx:empty_yellow_spore_bag"
+						]
+					  }
+					}
+				]},
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "yellow_shroom_jellyfish_adult"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "look_for_food"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "stop_panicking_after_fire" : {
+                "remove": {
+                    "component_groups": [
+                        "escape_fire"
+                    ]
+                }
+            },
+            "collected_nectar": {
+                "remove": {
+                    "component_groups": [
+                        "look_for_food"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "has_nectar"
+                    ]
+                }
+            },
+            "remove_nectar": {
+                "remove": {
+                    "component_groups": [
+                        "has_nectar"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "nectar_interval"
+                    ]
+                }
+            },
+            "look_for_food": {
+                "add": {
+                    "component_groups": [
+                        "look_for_food"
+                    ]
+                }
+            },
+            "find_flower_timeout": {
+                "remove": {
+                    "component_groups": [
+                        "look_for_food"
+                    ]
+                }
+            },
+            "yellow_shroom_jellyfish_death": {
+                "sequence": [
+                    {
+                      "queue_command": {
+                      "command": [
+                        "function yellow_spores_particles",
+                        "effect @e[r=2.5,type=player] haste 120 0",
+                        "effect @e[r=2.5,type=player] fatal_poison 10 0"
+                      ]
+                      }
+                      },
+                      {
+                        "randomize": [
+                            {
+                              "weight": 1,
+                              "queue_command": {
+                                "command": [ 
+                                  "function yellow_shroom_jellyfish_death"         
+                                ]
+                              }
+                          },							
+                          {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death2"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death3"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death4"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death5"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death6"         
+                              ]
+                            }
+                        },							
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death7"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death8"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death9"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death10"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death11"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death12"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death13"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death14"         
+                              ]
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "queue_command": {
+                              "command": [ 
+                                "function yellow_shroom_jellyfish_death15"         
+                              ]
+                            }
+                        }
+                      ]
+					}
+                ]
+              }
+        }
+    }
+}

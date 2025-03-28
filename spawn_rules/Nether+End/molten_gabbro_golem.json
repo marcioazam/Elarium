@@ -1,0 +1,47 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:molten_gabbro_golem",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard"
+        },
+        "minecraft:height_filter": {
+          "min": 1,
+          "max": 130
+        },
+        "minecraft:weight": {
+          "default": 4
+        },
+
+        "minecraft:herd": {
+          "min_size": 2,
+          "max_size": 3
+        },
+
+        "minecraft:density_limit": {
+          "underground": 3,
+          "surface": 3
+
+        },
+          "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 8,
+          "adjust_for_weather": true
+        },
+        "minecraft:spawns_on_block_filter": [ "edx:gabbro"],
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "nether"
+        }
+      }
+    ]
+  }
+}

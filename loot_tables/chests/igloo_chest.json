@@ -1,0 +1,101 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 2,
+        "max": 8
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:apple",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:coal",
+          "weight": 15
+         
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_nugget",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:stone_axe",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:rotten_flesh",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 1
+        }
+        
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:magnetic_firework",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_rage",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_bravery",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_fear",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_youth",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:enchanted_socks",
+          
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:heart_in_a_bottle",
+         
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:air",
+          "weight": 10
+        }
+      ]
+    }
+  ]
+}

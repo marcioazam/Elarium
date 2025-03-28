@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:dashing_stick"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " TD",
+      " TT",
+      "T  "
+    ],
+    "key": {
+      "T": {
+        "item": "edx:tin_ingot"
+      },
+      "D": {
+        "item": "edx:tin_plate"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:tin_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:dashing_stick"
+    }
+  }
+}

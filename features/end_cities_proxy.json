@@ -1,0 +1,17 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:end_cities_proxy"
+		},
+
+		"places_feature": "edx:end_city_random",
+
+		"iterations": 1,
+
+		"x": -16,
+		"z": -16,
+		"y": 0
+	}
+}

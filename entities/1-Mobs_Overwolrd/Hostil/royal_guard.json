@@ -1,0 +1,613 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:royal_guard",
+      "runtime_identifier": "minecraft:vindicator",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+      "dungeons:has_home": {
+        "minecraft:home": {
+          "restriction_radius": 16,
+          "restriction_type": "random_movement"
+        }
+      },
+      "dungeons:has_shield": {
+      "minecraft:is_saddled": {},
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "mob"
+                    }
+                  ]
+                },
+                "event": "dungeons:harm_shield"
+              },
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "event": "dungeons:harm_shield"
+              },
+              "deals_damage": false
+            },
+            {
+              "on_damage": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "artefact"
+                    }
+                  ]
+                },
+                "event": "dungeons:harm_shield"
+              },
+              "deals_damage": false
+            }
+          ]
+        },
+        "minecraft:knockback_resistance": {
+          "value": 1.0
+        }
+      },
+      "dungeons:no_shield": {
+        "minecraft:damage_sensor": {},
+        "minecraft:knockback_resistance": {
+          "value": 0.33
+        }
+      },
+      "minecraft:celebrate": {
+        "minecraft:behavior.celebrate": {
+          "priority": 5,
+          "celebration_sound": "celebrate",
+          "sound_interval": {
+            "range_min": 2.0,
+            "range_max": 7.0
+          },
+          "jump_interval": {
+            "range_min": 1.0,
+            "range_max": 3.5
+          },
+          "duration": 30.0,
+          "on_celebration_end_event": {
+            "event": "minecraft:stop_celebrating",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:vindicator_aggro": {
+        "minecraft:angry": {
+          "duration": -1,
+          "broadcast_anger": false,
+          "calm_event": {
+            "event": "minecraft:stop_aggro",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:default_targeting": {
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": false,
+          "within_radius": 24,
+          "must_see_forget_duration": 40.0,
+
+          "entity_types": [
+            {
+              "filters": {
+                "any_of": [
+                  { "test": "is_family", "subject": "other", "value": "player" },
+                  { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                  { "test": "is_family", "subject": "other", "value": "irongolem" },
+                  { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                ]
+              },
+              "max_dist": 12
+            },
+            {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "value": "villager" },
+                  { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_baby" }
+                ]
+              },
+              "max_dist": 12
+            }
+          ]
+        }
+      },
+      "minecraft:raid_configuration": {
+        "minecraft:dweller": {
+          "dwelling_type": "village",
+          "dweller_role": "hostile",
+          "update_interval_base": 60,
+          "update_interval_variant": 40,
+          "can_find_poi": false,
+          "can_migrate": true,
+          "first_founding_reward": 0
+        },
+        "minecraft:behavior.move_to_village": {
+          "priority": 4,
+          "speed_multiplier": 1.0,
+          "goal_radius": 2.0
+        },
+        "minecraft:loot": {
+          "table": "loot_tables/entities/royal_guard_raid.json"
+        },
+        "minecraft:navigation.climb": {
+          "is_amphibious": true,
+          "avoid_water": true,
+          "can_break_doors": true,
+          "can_open_doors": true,
+          "can_pass_doors": true,
+          "can_swim": true,
+          "can_walk": true,
+          "can_jump": true,
+          "avoid_damage_blocks": true,
+          "avoid_portals": true,
+          "avoid_sun": true,
+          "can_sink": true
+      
+        },
+        "minecraft:annotation.break_door": {
+          "break_time": 30,
+          "min_difficulty": "normal"
+        },
+        "minecraft:ambient_sound_interval": {
+          "value": 2.0,
+          "range": 4.0,
+          "event_name": "ambient.in.raid"
+        }
+      },
+      "minecraft:raid_persistence": {
+        "minecraft:persistent": {}
+      },
+      "minecraft:raid_despawn": {
+        "minecraft:despawn": {
+          "despawn_from_distance": {}
+        }
+      },
+      "minecraft:patrol_follower": {
+        "minecraft:behavior.follow_target_captain": {
+          "priority": 5,
+          "speed_multiplier": 0.8,
+          "within_radius": 64,
+          "follow_distance": 5
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 3
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4 
+          }
+        ]
+      },
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"illager"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "illager"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+     
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "illager"
+          }
+        ]
+      }
+    }
+  ]
+},
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 15 : 0"
+      },
+      "minecraft:can_join_raid": {
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:nameable": {
+      },
+
+      
+      "minecraft:type_family": {
+        "family": [ "royal_guard", "monster", "illager", "mob" ]
+      },
+      "minecraft:variant": {
+        "value": 0
+      },
+       "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:health": {
+        "value": 60,
+        "max": 60
+      },
+      
+      "minecraft:attack": {
+        "damage": {
+          "range_max": 8,
+          "range_min": 16
+        }
+      },
+      "minecraft:movement": {
+        "value": 0.28
+      },
+     
+      "minecraft:movement.basic": {
+      },
+      "minecraft:jump.static": {
+      },
+     
+      "minecraft:loot": {
+        "table": "loot_tables/entities/royal_guard.json"
+      },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/royal_guard_gear.json",
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": -1
+          }
+        ]
+      },
+
+  
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.melee_box_attack": {
+        "priority": 3
+      },
+      
+      "minecraft:on_target_escape": {
+        "event": "minecraft:stop_aggro",
+        "target": "self"
+      }
+      
+    },
+
+    "events": {
+      "dungeons:spawn_structure": {
+        "add": {
+          "component_groups": [
+            "minecraft:default_targeting",
+             "dungeons:has_shield",
+             "dungeons:has_home"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "minecraft:default_targeting",
+             "dungeons:has_shield"
+          ]
+        }
+      },
+      "minecraft:spawn_as_patrol_follower": {
+        "add": {
+          "component_groups": [
+            "minecraft:default_targeting",
+            "minecraft:patrol_follower",
+            "dungeons:has_shield"
+          ]
+        }
+      },
+      "dungeons:harm_shield": {
+        "randomize": [
+          {
+            "weight": 4,
+            "trigger": "dungeons:no_break_shield"
+          },
+          {
+            "weight": 5,
+            "trigger": "dungeons:break_shield"
+          }
+        ]
+      },
+      "dungeons:no_break_shield": {
+        "queue_command": {
+          "command": [
+            "playsound item.shield.block @a ~~~ 1.0 0.5"
+          ]
+        }
+      },
+      "dungeons:break_shield": {
+        "add": {
+          "component_groups": [
+            "dungeons:no_shield"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:has_shield"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "playsound item.shield.block @a ~~~ 1.0 1.0",
+            "playsound random.break @a ~~~ 0.5 0.5"
+          ]
+        }
+      },
+      "minecraft:become_aggro": {
+        "add": {
+          "component_groups": [
+            "minecraft:vindicator_aggro"
+          ]
+        }
+      },
+      "minecraft:stop_aggro": {
+        "remove": {
+          "component_groups": [
+            "minecraft:vindicator_aggro"
+          ]
+        }
+      },
+      "minecraft:spawn_for_raid": {
+        "add": {
+          "component_groups": [
+            "minecraft:default_targeting",
+            "minecraft:raid_configuration",
+            "minecraft:raid_persistence",
+            "minecraft:raid_despawn",
+            "dungeons:has_shield"
+          ]
+        }
+      },
+      "minecraft:start_celebrating": { 
+        "sequence": [
+          {
+            "add": { "component_groups": [ "minecraft:celebrate" ] }
+          },
+          {
+            "filters": { "test": "has_nametag", "value": false },
+            "remove": { "component_groups": [ "minecraft:raid_persistence" ] }
+          }
+        ]
+      },
+      "minecraft:stop_celebrating": {
+        "remove": { "component_groups": [ "minecraft:celebrate" ] }
+      },
+      "minecraft:raid_expired": {
+        "sequence": [
+          {
+            "filters": { "test": "has_nametag", "value": false },
+            "remove": { "component_groups": [ "minecraft:raid_persistence" ] }
+          }
+        ]
+      }
+    }
+  }
+}

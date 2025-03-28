@@ -1,0 +1,12 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.endstone_diamond_ore": {
+			"animation_length": 1.0,
+			"loop": true,
+			"timeline": {
+				"0.1": [ "/particle minecraft:knockback_roar_particle ~~2~" ]
+			}
+		}
+	}
+}

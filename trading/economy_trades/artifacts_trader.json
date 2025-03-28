@@ -1,0 +1,485 @@
+{
+  "tiers": [
+    {
+      "groups": [
+        {
+          "num_to_select": 1,
+          "trades": [
+            {
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:chaining_scroll",
+                  "quantity": 1
+                  
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:charged_hit_scroll",
+                  "quantity": 1
+                  
+                }
+              ],
+              "max_uses": 2
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:heart_in_a_bottle"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 3
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:ancient_shield"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 9
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:cloud_socks"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:supersonic_arrow"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 12
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:heavy_socks"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 3
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:long_spear_scroll"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:explosive_scroll"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:electrik_spear_scroll"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:sharper_spear_scroll"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 6
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:enchanted_socks"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 3
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:crystal_of_rage"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 3
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:crystal_of_youth"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 3
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:crystal_of_fear"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 10
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:heavy_quiver"
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:iron_coin",
+                  "quantity": 3
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:crystal_of_bravery"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "num_to_select": 2,
+          "trades": [
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:heart_in_a_bottle",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 2
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:ancient_shield",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:cloud_socks",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 3
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:supersonic_arrow",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 3
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:heavy_socks",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 4
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:long_spear_scroll",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:explosive_scroll",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 2
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:electrik_spear_scroll",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 2
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:sharper_spear_scroll",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 2
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:enchanted_socks",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 2
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:poisonous_mucus",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 2
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:crystal_of_rage",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:crystal_of_fear",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:crystal_of_youth",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "max_uses": 2,
+              "wants": [
+                {
+                  "item": "edx:crystal_of_bravery",
+                  "quantity": 1
+                }
+              ],
+              "gives": [
+                {
+                  "item": "edx:tin_coin",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

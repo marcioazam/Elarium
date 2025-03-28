@@ -1,0 +1,80 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:wind_pillar_circle",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+	  "minecraft:instant_despawn": {}
+	}
+    },
+    "components": {
+      "minecraft:timer": {
+        "looping": false,
+        "time": 0.15,
+        "time_down_event": {
+          "event": "dungeons:despawn"
+        }
+      },
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "ignore"
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "pivot": [
+              0,
+              1000,
+              0
+            ],
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "particle dungeons:wind_pillar_circle"
+          ]
+        }
+      }
+    }
+  }
+}

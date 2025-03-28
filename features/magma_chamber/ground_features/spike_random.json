@@ -1,0 +1,12 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+	  "description": {
+		"identifier": "edx:magma_chamber/ground_features/spike_random"
+	  },
+	  "features": [
+		[ "edx:magma_chamber/ground_features/place_spike", 3 ],
+		[ "edx:nothing_feature", 70 ]
+	  ]
+	}
+  }

@@ -1,0 +1,605 @@
+{
+	"format_version": "1.19.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "minecraft:spider",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"dungeons:become_enchanted": {
+				"minecraft:transformation": {
+				  "into": "dungeons:enchanted_spider",
+				  "preserve_equipment": true
+				}
+			  },
+			"minecraft:spider_hostile": {
+				"minecraft:behavior.nearest_prioritized_attackable_target": {
+					"priority": 2,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "snowgolem"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "irongolem"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "villager"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "wandering_trader"
+									}
+								]
+							},
+							"max_dist": 26,
+							"priority": 1
+						},
+						{
+							"priority": 0,
+							"filters": {
+								"subject": "other",
+								"test": "is_family",
+								"value": "player"
+							},
+							"max_dist": 26
+						},
+						{
+							"priority": 2,
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "animal"
+							},
+							"max_dist": 26
+						}
+					]
+				}
+			},
+			"minecraft:spider_angry": {
+				"minecraft:angry": {
+					"duration": 20,
+					"duration_delta": 3,
+					"calm_event": {
+						"event": "minecraft:become_calm",
+						"target": "self"
+					},
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 20,
+					"broadcast_targets": [
+						"spider"
+					]
+				},
+				"minecraft:behavior.leap_at_target": {
+					"priority": 4,
+					"yd": 0.4,
+					"must_be_on_ground": false
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 3,
+					"track_target": true,
+					"reach_multiplier": 0.8,
+					"on_attack": {
+						"event": "web",
+						"target": "self"
+					}
+				}
+			},
+			"minecraft:spider_bogged_jockey": {
+				"minecraft:addrider": {
+					"entity_type": "minecraft:bogged",
+					"spawn_event": "spawn_skeleton"
+				},
+				"minecraft:rideable": {
+					"seat_count": 3,
+					"family_types": [
+						"skeleton", "monster"
+					],
+					"seats": [
+						{
+							"position": [
+								0,
+								0.54,
+								0
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								1.94,
+								-0.35
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								3.34,
+								0
+							],
+							"lock_rider_rotation": 0
+						}
+					]
+				}
+			},
+			"minecraft:spider_jockey": {
+				"minecraft:addrider": {
+					"entity_type": "minecraft:skeleton",
+					"spawn_event": "spawn_skeleton"
+				},
+				"minecraft:rideable": {
+					"seat_count": 3,
+					"family_types": [
+						"skeleton", "monster"
+					],
+					"seats": [
+						{
+							"position": [
+								0,
+								0.54,
+								0
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								1.94,
+								-0.35
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								3.34,
+								0
+							],
+							"lock_rider_rotation": 0
+						}
+					]
+				}
+			},
+			"minecraft:spider_stray_jockey": {
+				"minecraft:addrider": {
+					"entity_type": "minecraft:stray",
+					"spawn_event": "spawn_skeleton"
+				},
+				"minecraft:rideable": {
+					"seat_count": 3,
+					"family_types": [
+						"skeleton", "monster"
+					],
+					"seats": [
+						{
+							"position": [
+								0,
+								0.54,
+								0
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								1.94,
+								-0.35
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								3.34,
+								0
+							],
+							"lock_rider_rotation": 0
+						}
+					]
+				}
+			},
+			"minecraft:spider_wither_jockey": {
+				"minecraft:addrider": {
+					"entity_type": "minecraft:wither_skeleton",
+					"spawn_event": "spawn_skeleton"
+				},
+				"minecraft:rideable": {
+					"seat_count": 3,
+					"family_types": [
+						"skeleton", "monster"
+					],
+					"seats": [
+						{
+							"position": [
+								0,
+								0.54,
+								0
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								1.94,
+								-0.35
+							],
+							"lock_rider_rotation": 0
+						},
+						{
+							"position": [
+								0,
+								3.34,
+								0
+							],
+							"lock_rider_rotation": 0
+						}
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:mob_effect": {
+				"effect_range": 32,
+				"mob_effect": "weaving",
+				"effect_time": 20,
+				"entity_filter": {
+					"test": "is_family",
+					"subject": "other",
+					"operator": "==",
+					"value": "spider"
+					
+				},
+				"cooldown_time": 0
+			},
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player?5:0"
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"spider",
+					"monster",
+					"mob",
+					"arthropod"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/spider.json"
+			},
+			"minecraft:collision_box": {
+				"width": 1.6,
+				"height": 0.9
+			},
+			"minecraft:health": {
+				"value": 32,
+				"max": 32
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:navigation.climb": {
+				"can_path_over_water": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:attack": {
+				"damage": {
+					"range_min": 3,
+					"range_max": 6
+				}
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.mount_pathing": {
+				"priority": 5,
+				"speed_multiplier": 1.25,
+				"target_dist": 0,
+				"track_target": true
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "breeze"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "spider"
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:rideable": {
+				"seat_count": 1,
+				"family_types": [
+					"zombie", "monster"
+				],
+				"seats": {
+					"position": [
+						0,
+						0.54,
+						-0.1
+					]
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+			"minecraft:on_target_acquired": {
+				"event": "minecraft:become_angry",
+				"target": "self"
+			},
+			"minecraft:on_death": {
+				"event": "minecraft:on_death",
+				"target": "self"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"randomize": [
+					{
+						"weight": 1,
+						"randomize": [
+							{
+								"weight": 80,
+								"filters": {
+									"all_of": [
+										{
+											"test": "is_daytime",
+											"value": false
+										},
+										{
+											"test": "is_snow_covered",
+											"value": true
+										},
+										{
+											"test": "is_underground",
+											"value": false
+										}
+									]
+								},
+								"remove": {},
+								"add": {
+									"component_groups": [
+										"minecraft:spider_stray_jockey",
+										"minecraft:spider_hostile"
+									]
+								}
+							},
+							{
+								"weight": 30,
+								"add": {
+									"component_groups": [
+										"dungeons:become_enchanted"
+									]
+								}
+							},
+							{
+								"weight": 20,
+								"filters": {
+									"any_of": [
+										{
+											"test": "is_daytime",
+											"value": false
+										},
+										{
+											"test": "is_underground",
+											"value": true
+										}
+									]
+								},
+								"remove": {},
+								"add": {
+									"component_groups": [
+										"minecraft:spider_jockey",
+										"minecraft:spider_hostile"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"minecraft:become_angry": {
+				"add": {
+					"component_groups": [
+						"minecraft:spider_angry"
+					]
+				}
+			},
+			"minecraft:become_calm": {
+				"remove": {
+					"component_groups": [
+						"minecraft:spider_angry"
+					]
+				}
+			},
+			"wither_skeleton_jockey": {
+				"add": {
+					"component_groups": [
+						"minecraft:spider_wither_jockey",
+						"minecraft:spider_hostile"
+					]
+				}
+			},
+			"skeleton_jockey": {
+				"add": {
+					"component_groups": [
+						"minecraft:spider_jockey",
+						"minecraft:spider_hostile"
+					]
+				}
+			},
+			"stray_jockey": {
+				"add": {
+					"component_groups": [
+						"minecraft:spider_stray_jockey",
+						"minecraft:spider_hostile"
+					]
+				}
+			},
+			"minecraft:on_death": {
+				"randomize": [
+					{
+						"weight": 5,
+						"queue_command": {
+							"command": [
+								"summon edx:baby_spider",
+								"summon edx:baby_spider"
+							]
+						}
+					},
+					{
+						"weight": 80
+					},
+					{
+						"weight": 15,
+						"queue_command": {
+							"command": [
+								"summon edx:baby_spider"
+							]
+						}
+					}
+				]
+			},
+			"bogged_jockey": {
+				"add": {
+					"component_groups": [
+						"minecraft:spider_bogged_jockey",
+						"minecraft:spider_hostile"
+					]
+				}
+			},
+			"web": {
+				"randomize": [
+					{
+						"weight": 5
+					},
+					{
+						"weight": 5,
+						"queue_command": {
+							"command": [
+								"fill ~ ~ ~ ~1 ~ ~1 web"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:magma_chamber/ground_features/magma_scatter"
+    },
+    "iterations": 45,
+    "x": {
+      "distribution": "uniform",
+      "extent": [ -10, 10 ]
+    },
+    "y": {
+      "distribution": "uniform",
+      "extent": [ -3, 3 ]
+    },
+    "z": {
+      "distribution": "uniform",
+      "extent": [ -10, 10 ]
+    },
+    "places_feature": "edx:magma_chamber/ground_features/magma_feature"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:stalker_bullet",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "runtime_identifier": "minecraft:snowball",
+
+      "scripts": {
+        "animate": [
+          "root.endergob_bullet.impact"
+        ]
+      },
+
+      "animations": {
+        "root.endergob_bullet.impact": "controller.animation.ender_staff.bullet_impact"
+      }
+    },
+
+    "component_groups": {
+      "xp:explode":{
+        "minecraft:skin_id": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "time": 0.1,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        }
+      },
+      "xp:player_bullet":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:explode",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 7,
+              "knockback": true
+            }
+          },
+          "reflect_on_hurt": true,
+          "uncertainty_base": 8,
+          "uncertainty_multiplier": 2,
+          "anchor": 0,
+          "power": 1.4,
+          "gravity": 0.015,
+          "angle_offset": 0.0,
+          "offset": [ 0, 1, 0 ],
+          "liquid_inertia": 0.0
+        }
+      },
+      "xp:stalker_bullet":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:explode",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 3,
+              "knockback": true
+            }
+          },
+          "reflect_on_hurt": true,
+          "uncertainty_base": 8,
+          "uncertainty_multiplier": 2,
+          "anchor": 0,
+          "power": 1.4,
+          "gravity": 0.015,
+          "angle_offset": 0.0,
+          "offset": [ 0, 1, 0 ],
+          "liquid_inertia": 0.0
+        }
+      },
+      "xp:instant_despawn":{
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "xp:explode",
+              "target": "self"
+            }
+          },
+          "impact_damage": {
+            "damage": 2,
+            "knockback": true
+          }
+        },
+        "reflect_on_hurt": true,
+        "uncertainty_base": 8,
+        "uncertainty_multiplier": 2,
+        "anchor": 0,
+        "power": 1.4,
+        "gravity": 0.015,
+        "angle_offset": 0.0,
+        "offset": [ 0, 1, 0 ],
+        "liquid_inertia": 0.0
+      },
+      "minecraft:type_family": {
+        "family": [
+          "endergob_bullet",
+          "projectile",
+          "inanimate"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.525,
+        "height": 0.525
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": false
+      },
+      "minecraft:timer": {
+        "time": 8,
+        "looping": true,
+        "time_down_event": {
+          "event": "xp:explode",
+          "target": "self"
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "on_damage": {
+              "event": "xp:explode",
+              "target": "self"
+            },
+            "deals_damage": true
+          }
+        ]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "xp:explode":{
+        "add": {
+          "component_groups": [
+            "xp:explode"
+          ]
+        }
+      },
+      "xp:player_bullet":{
+        "add": {
+          "component_groups": [
+            "xp:player_bullet"
+          ]
+        }
+      },
+      "xp:stalker_bullet":{
+        "add": {
+          "component_groups": [
+            "xp:stalker_bullet"
+          ]
+        }
+      },
+      "xp:instant_despawn":{
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			}
+    }
+  }
+}

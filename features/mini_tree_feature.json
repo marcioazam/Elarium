@@ -1,0 +1,103 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:tree_feature": {
+      "description": {
+        "identifier": "edx:mini_tree_feature"
+      },
+      "fancy_trunk": {
+        "trunk_height": {
+        "base": 1,
+          "variance": 2,
+          "scale": 0.490
+        },
+        "trunk_width": 1,
+        "trunk_block": {
+          "name": "minecraft:log",
+          "states": {
+            "old_log_type": "oak"
+          }
+        },
+        "branches": {
+          "slope": 0.9,
+          "density": 0.8,
+          "min_altitude_factor": 0.1
+   },
+   "width_scale": 1.0,
+   "foliage_altitude_factor": 0.001
+      },
+      "acacia_canopy": {
+        "canopy_size":2,
+  "leaf_block": {
+  "name": "minecraft:leaves",
+  "states": {
+"old_leaf_type": "oak"
+          }
+        }
+      },
+      "base_block": [
+        "minecraft:dirt",
+        {
+          "name": "minecraft:dirt",
+          "states": {
+            "dirt_type": "coarse"
+          }
+        },
+        "minecraft:grass"
+      ],
+      "may_grow_on": [
+        "minecraft:dirt",
+        "minecraft:grass"
+      ],
+      "may_replace": [
+        "minecraft:air",
+        {
+          "name": "minecraft:leaves",
+          "states": {
+            "old_leaf_type": "oak"
+          }
+        },
+        {
+          "name": "minecraft:leaves",
+          "states": {
+            "old_leaf_type": "spruce"
+          }
+        },
+        {
+          "name": "minecraft:leaves",
+          "states": {
+            "old_leaf_type": "birch"
+          }
+        },
+        {
+          "name": "minecraft:leaves",
+          "states": {
+            "old_leaf_type": "jungle"
+          }
+        },
+        {
+          "name": "minecraft:leaves2",
+          "states": {
+            "new_leaf_type": "acacia"
+          }
+        },
+        {
+          "name": "minecraft:leaves2",
+          "states": {
+            "new_leaf_type": "dark_oak"
+          }
+        },
+        "minecraft:dirt",
+        "minecraft:grass"
+      ],
+      "may_grow_through": [
+        "minecraft:dirt",
+        "minecraft:grass",
+        {
+          "name": "minecraft:dirt",
+          "states": {
+            "dirt_type": "coarse"
+          }
+        }
+      ]
+    }
+  }

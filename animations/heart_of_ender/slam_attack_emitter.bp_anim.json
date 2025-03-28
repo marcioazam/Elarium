@@ -1,0 +1,68 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.slam_attack_emitter.loop": {
+            "animation_length": 6.5,
+            "timeline": {
+                "0.0": [
+                    "/execute if score direction endboss matches 0 rotated 0 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute if score direction endboss matches 1 rotated 45 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute if score direction endboss matches 2 rotated 90 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute if score direction endboss matches 3 rotated 135 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute if score direction endboss matches 4 rotated 180 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute if score direction endboss matches 5 rotated 225 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute if score direction endboss matches 6 rotated 270 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute if score direction endboss matches 7 rotated 315 0 positioned as @e[type=xp:heart_of_ender_boss,c=1] run tp @s ~ ~ ~ ~ ~",
+                    "/execute at @s run tp @s ~ ~ ~ ~90 ~"
+                ],
+                "2.8": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "2.85": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "2.9": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "2.95": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "3.0": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "3.05": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "3.1": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "3.15": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "3.2": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "3.25": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "3.3": [
+                    "/function endboss/attacks/slam_attack_ray",
+                    "/execute at @s run tp @s ~ ~ ~ ~-9 ~"
+                ],
+                "5.0": [
+                    "/event entity @s xp:instant_despawn"
+                ]
+            }
+        }
+    }
+}

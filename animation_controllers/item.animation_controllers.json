@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.item.root": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "execute": "q.is_powered"
+            }
+          ]
+        },
+        "execute": {
+          "on_entry": [
+            "/tag @s[name=\"Enderite Halberd\",tag=!enderite_cutter] add enderite_cutter",
+            "/tag @s[name=\"Enchanted Enderite Halberd\",tag=!enderite_cutter_enchanted] add enderite_cutter_enchanted",
+            "/tag @s[name=\"Ender Blade\",tag=!ender_curved_blade] add ender_curved_blade",
+            "/tag @s[name=\"Enchanted Ender Blade\",tag=!ender_curved_blade_enchanted] add ender_curved_blade_enchanted",
+            "/tag @s[name=\"Obsidian Blade\",tag=!obsidian_blade] add obsidian_blade",
+            "/tag @s[name=\"Enchanted Obsidian Blade\",tag=!obsidian_blade_enchanted] add obsidian_blade_enchanted",
+            "/tag @s[name=\"Enchanted Obsidian Blade\",tag=!obsidian_blade_enchanted] add obsidian_blade_enchanted",
+            "/tag @s[name=\"Ender's Smite\",tag=!ender_smite] add ender_smite",
+            "/tag @s[name=\"Guardian of Ender's Blast\",tag=!enders_heart_blast] add enders_heart_blast",
+            "/tag @s[name=\"Dual Void Ends\",tag=!the_touched_ends] add the_touched_ends",
+            "/tag @s[name=\"Enchanted Dual Void Ends\",tag=!the_touched_ends_enchanted] add the_touched_ends_enchanted",
+            "/tag @s[name=\"Void Blade\",tag=!void_blade] add void_blade",
+            "/tag @s[name=\"Enchanted Void Blade\",tag=!void_blade_enchanted] add void_blade_enchanted",
+            "/tag @s[name=\"Void Striker\",tag=!void_striker] add void_striker",
+            "/tag @s[name=\"Enchanted Void Striker\",tag=!void_striker_enchanted] add void_striker_enchanted",
+            "/tag @s[name=\"Gavel of Ender\",tag=!void_hammer] add void_hammer",
+            "/tag @s[name=\"Enchanted Gavel of Ender\",tag=!void_hammer_enchanted] add void_hammer_enchanted",
+            "/tag @s[name=\"Ender Staff\",tag=!ender_staff] add ender_staff",
+            "/tag @s[name=\"Rift Plant\",tag=!rift_plant] add rift_plant",
+            "/tag @s[name=\"Wild Chorus\",tag=!wild_chorus] add wild_chorus",
+            "/tag @s[name=\"Echoing Larp\",tag=!echoing_larp] add echoing_larp",
+            "/tag @s[name=\"Echoing Wart\",tag=!echoing_wart] add echoing_wart",
+            
+            "/tag @s[tag=!loot] add loot"
+          ],
+          "transitions": [ { "default": "!q.is_powered" } ]
+        }
+      }
+    }
+  }
+}

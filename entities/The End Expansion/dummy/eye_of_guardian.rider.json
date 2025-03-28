@@ -1,0 +1,89 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:eye_of_guardian.rider",
+			"is_summonable": true,
+			"is_spawnable": false,
+
+			"scripts": {
+				"animate": [
+					"eye_guardian.rider",
+					"eye_guardian.stop_rider",
+					"eye_guardian.pull",
+					"eye_guardian_rider.show_vignette",
+					"eye_guardian_rider.play_sounds",
+					{ "eye_guardian.despawn": "!q.has_rider"}
+				]
+			},
+			"animations": {
+				"eye_guardian_rider.play_sounds": "animation.eye_guardian_rider.play_sounds",
+				"eye_guardian_rider.show_vignette": "animation.eye_guardian_rider.show_vignette",
+				"eye_guardian.rider": "animation.eye_guardian.rider",
+				"eye_guardian.stop_rider": "animation.eye_guardian.stop_rider",
+				"eye_guardian.pull": "animation.eye_guardian.pull",
+				"eye_guardian.despawn": "animation.eye_guardian.despawn"
+			}
+		},
+		"component_groups": {
+			"xp:instant_despawn": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"eye_of_guardian_rider"
+				]
+			},
+			"minecraft:health": {
+				"value": 1,
+				"max": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 0.5
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:rideable": {
+				"family_types": [
+					"player"
+				],
+				"seat_count": 1,
+				"seats": [
+					{
+						"position": [ 0, 0, 0 ],
+						"rotate_rider_by": 0,
+            "lock_rider_rotation": 20
+					}
+				]
+			},
+      "minecraft:timer": {
+        "time": 16,
+        "looping": true,
+        "time_down_event": {
+          "event": "xp:instant_despawn",
+          "target": "self"
+        }
+      }
+		},
+		"events": {
+			"xp:instant_despawn": {
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}

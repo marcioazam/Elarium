@@ -1,0 +1,100 @@
+{
+	"pools": [
+		
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:fire_opal"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:platinium_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:fire_opal",
+					"count": {
+						"min": 1,
+						"max": 3
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_nickel_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:fire_opal",
+					"count": {
+						"min": 1,
+						"max": 3
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:warped_nickel_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:fire_opal",
+					"count": {
+						"min": 1,
+						"max": 3
+					}
+					
+				}
+			]
+		}
+		
+	]
+}

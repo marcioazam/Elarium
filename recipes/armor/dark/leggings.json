@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "dark_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " i ",
+      "CIC",
+      "CiC"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_leggings"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_leggings"
+      },
+      "C": {
+        "item": "minecraft:charcoal"
+      },
+      "i": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:dark_leggings",
+      "count": 1
+    }
+  }
+}

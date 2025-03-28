@@ -1,0 +1,30 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:echoing_mite_leaves",
+      "register_to_creative_menu": true,
+      "menu_category": { 
+        "category": "nature",
+				"group": "itemGroup.name.leaves"
+      }
+    },
+    "components": {
+      "minecraft:loot": "loot_tables/leaves/echoing_mite.json",
+      "minecraft:geometry": "geometry.xp_leaves",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": false,
+          "face_dimming": true,
+          "texture": "echoing_mite_leaves",
+          "render_method": "blend"
+        }
+      },
+      "minecraft:map_color": "#9682e0",
+      "minecraft:light_dampening": 5,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.4
+      }
+    }
+  }
+}

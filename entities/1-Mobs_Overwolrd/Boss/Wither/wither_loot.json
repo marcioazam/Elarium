@@ -1,0 +1,93 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:wither_loot",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "minecraft:despawn": {
+        "minecraft:despawn": {
+        }
+      },
+      "shockwave": {
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 0.2,
+          "attack_time": 0.1,
+          "knockback_damage": 4,
+          "knockback_strength": 1.5,
+          "knockback_range": 3,
+          "knockback_filters": {
+            "all_of": [
+              { "test": "is_family", "subject": "other", "operator": "!=", "value": "pet" },
+              { "test": "is_family", "subject": "other", "operator": "!=", "value": "player" },
+              { "test": "has_tag", "operator": "!=", "value": "heavy_socks" },
+              { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_tamed" },
+              { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_saddled" }
+            ]
+          },
+          "on_roar_end": {
+            "event": "despawn"
+          },
+          "damage_filters": {
+            "all_of": [
+              { "test": "is_family", "subject": "other", "operator": "!=", "value": "pet" },
+              { "test": "is_family", "subject": "other", "operator": "!=", "value": "player" },
+              { "test": "has_tag", "operator": "!=", "value": "heavy_socks" },
+              { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_tamed" },
+              { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_saddled" }
+            ]
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "pet" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:damage_sensor": [
+        {
+          "cause": "all",
+          "deals_damage": false
+        }
+      ]
+    },
+    "events": {
+      "minecraft:entity_spawned": { 
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 1,
+                "queue_command": {
+                  "command": [
+                    "give @a[r=75] edx:corrupted_star"
+                  ]}
+              },
+              {
+                "weight": 1,
+                "queue_command": {
+                  "command": [
+                    "give @a[r=75] edx:corrupted_star"
+                  ]}
+              }
+              
+            ]
+          },
+          {  "add": {
+            "component_groups": [
+               "minecraft:despawn"
+            ]
+         }}
+        ]
+      }
+    }
+  }
+}

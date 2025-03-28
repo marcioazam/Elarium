@@ -1,0 +1,14 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.heart_of_ender.eye.idle_sfx": {
+			"animation_length": 2,
+			"loop": true,
+			"timeline": {
+			  "0":[
+				"/playsound entity.eye_guardian.idle_1 @a[x=~,y=~,z=~,r=30] ~~~ 0.25 0.9 0.05"
+			  ]
+			}
+		}
+	}
+}

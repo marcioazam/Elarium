@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_echo_of_the_valley"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:echo_of_the_valley"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:echo_of_the_valley"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:echo_of_the_valley", "count": 1 },
+      { "item": "dungeons:echo_of_the_valley", "count": 1 }
+    ]
+  }
+}

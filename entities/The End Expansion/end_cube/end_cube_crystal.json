@@ -1,0 +1,327 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_crystal",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [
+          "runtime",
+          "shield",
+          "shine"
+        ]
+      },
+      "animations": {
+        "runtime": "controller.animation.end_cube_crystal.runtime",
+        "shield": "controller.animation.end_cube_crystal.shield",
+        "shine": "controller.animation.end_cube_crystal.shine"
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+
+      "xp:beam_shine": {
+        "minecraft:out_of_control": {}
+      },
+      "xp:beam_on_end_cube": {
+        "minecraft:is_saddled": {},
+        "minecraft:type_family": {
+          "family": [ "end_cube", "crystal", "beam", "inanimate" ]
+        },
+        "minecraft:collision_box": {
+          "width": 0.01,
+          "height": 0.01
+        },
+        "minecraft:navigation.walk": {},
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:behavior.look_at_target": {
+          "priority": 0,
+          "probability": 1.0
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 0,
+          "reselect_targets": false,
+          "target_search_height": 256,
+          "within_radius": 64,
+          "must_see": false,
+          "entity_types": [
+            {
+              "filters": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "xp_boss"
+                }
+              ],
+              "max_dist": 64
+            }
+          ]
+        },
+        "minecraft:attack": {
+          "damage": 0
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 0,
+          "require_complete_path": false,
+          "track_target": true
+        },
+        "minecraft:follow_range": {
+          "value": 64,
+          "max": 64
+        }
+      },
+
+      "xp:trigger_shield": {
+        "minecraft:is_chested": {}
+      },
+      "xp:on_damage": {
+        "minecraft:is_charged": {}
+      },
+      "xp:crystal_exploding": {
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 1.0,
+          "attack_time": 0.1,
+          "knockback_damage": 1,
+          "knockback_horizontal_strength": 3,
+          "knockback_vertical_strength": 2,
+          "knockback_range": 12,
+          "knockback_filters": {
+            "all_of": [
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "!=",
+                "value": "inanimate"
+              },
+              {
+                "test": "has_tag",
+                "subject": "other",
+                "operator": "!=",
+                "value": "boss"
+              }
+            ]
+          },
+          "damage_filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "inanimate"
+          },
+          "cooldown_time": 3.0
+        },
+        "minecraft:timer": {
+          "time": 1.1,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        }
+      },
+
+      "xp:crystal_id.1": {
+        "minecraft:variant": {
+          "value": 0
+        },
+        "minecraft:type_family": {
+          "family": [ "end_cube", "crystal", "crystal_1", "inanimate" ]
+        }
+      },
+      "xp:crystal_id.2": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:type_family": {
+          "family": [ "end_cube", "crystal", "crystal_2", "inanimate" ]
+        }
+      },
+      "xp:crystal_id.3": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:type_family": {
+          "family": [ "end_cube", "crystal", "crystal_3", "inanimate" ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "end_cube", "crystal", "inanimate" ]
+      },
+      "minecraft:health": {
+        "max": 1,
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "void",
+            "damage_multiplier": 10e7,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "any_of": [
+                  { "test": "has_damage", "value": "anvil" },
+                  { "test": "has_damage", "value": "block_explosion" },
+                  { "test": "has_damage", "value": "entity_explosion" },
+                  { "test": "has_damage", "value": "fire" },
+                  { "test": "has_damage", "value": "fire_tick" },
+                  { "test": "has_damage", "value": "lava" },
+
+                  { "test": "is_family", "subject": "other", "value": "waypoint" }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "has_damage", "subject": "self", "value": "projectile" },
+                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "player" }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "has_damage", "subject": "self", "value": "projectile" },
+                  { "test": "is_family", "subject": "other", "value": "player" }
+                ]
+              },
+              "event": "xp:trigger_shield"
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "none_of": [
+                  { "test": "has_damage", "value": "anvil" },
+                  { "test": "has_damage", "value": "block_explosion" },
+                  { "test": "has_damage", "value": "entity_explosion" },
+                  { "test": "has_damage", "value": "fire" },
+                  { "test": "has_damage", "value": "fire_tick" },
+                  { "test": "has_damage", "value": "lava" },
+                  { "test": "has_damage", "value": "projectile" },
+
+                  { "test": "is_family", "subject": "other", "value": "waypoint" }
+                ]
+              },
+              "event": "xp:on_damage"
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 2.96
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "pivot": [0, 1.0, 0],
+            "width": 8.0,
+            "height": 3.44
+          }
+        ]
+      },
+      "minecraft:is_stackable": {
+      },
+      "minecraft:persistent": {
+      },
+	    "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+
+      "xp:on_damage": {
+        "add": {
+          "component_groups": [ "xp:on_damage" ]
+        }
+      },
+      "minecraft:crystal_explode": {
+        "add": {
+          "component_groups": [ "xp:crystal_exploding" ]
+        }
+      },
+
+      "xp:set_beam": {
+        "add": {
+          "component_groups": [ "xp:beam_on_end_cube" ]
+        }
+      },
+
+      "xp:beam_shine": {
+        "add": {
+          "component_groups": [ "xp:beam_shine" ]
+        }
+      },
+      "xp:remove_beam_shine": {
+        "remove": {
+          "component_groups": [ "xp:beam_shine" ]
+        }
+      },
+
+      "xp:trigger_shield": {
+        "add": {
+          "component_groups": [ "xp:trigger_shield" ]
+        }
+      },
+      "xp:remove_trigger_shield": {
+        "remove": {
+          "component_groups": [ "xp:trigger_shield" ]
+        }
+      },
+
+      "xp:crystal_id.1": {
+        "add": {
+          "component_groups": [ "xp:crystal_id.1" ]
+        }
+      },
+      "xp:crystal_id.2": {
+        "add": {
+          "component_groups": [ "xp:crystal_id.2" ]
+        }
+      },
+      "xp:crystal_id.3": {
+        "add": {
+          "component_groups": [ "xp:crystal_id.3" ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_marker.spreader": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "randomize_teleport.column": "q.property('xp:spawner_teleport') == true" } ]
+        },
+
+        "randomize_teleport.column": {
+          "transitions": [
+            { "teleport.column_1": "v.t2 == 1 || v.t2 == 3" },
+            { "teleport.column_2": "v.t2 == 2 || v.t2 == 4" },
+            { "teleport.column_3": "v.t2 == 5 || v.t2 == 7" },
+            { "teleport.column_4": "v.t2 == 6 || v.t2 == 8" }
+          ],
+          "on_entry": [
+            "v.t2 = math.random_integer(1,8);",
+
+            "/execute if entity @a[tag=\"disable_mob_spawning\"] run event entity @s xp:instant_despawn",
+            "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§9(randomize_teleport)\"}]}"
+          ]
+        },
+        "teleport.column_1": {
+          "transitions": [ { "randomize_teleport.row": "true" } ],
+          "on_entry": [ "/execute unless block ~~-1~-4 air run tp @s ~~~-4 true" ]
+        },
+        "teleport.column_2": {
+          "transitions": [ { "randomize_teleport.row": "true" } ],
+          "on_entry": [ "/execute unless block ~~-1~-2 air run tp @s ~~~-2 true" ]
+        },
+        "teleport.column_3": {
+          "transitions": [ { "randomize_teleport.row": "true" } ],
+          "on_entry": [ "/execute unless block ~~-1~2 air run tp @s ~~~2 true" ]
+        },
+        "teleport.column_4": {
+          "transitions": [ { "randomize_teleport.row": "true" } ],
+          "on_entry": [ "/execute unless block ~~-1~4 air run tp @s ~~~4 true" ]
+        },
+
+        "randomize_teleport.row": {
+          "transitions": [
+            { "teleport.row_1": "v.t2 == 1 || v.t2 == 3" },
+            { "teleport.row_2": "v.t2 == 2 || v.t2 == 4" },
+            { "teleport.row_3": "v.t2 == 5 || v.t2 == 7" },
+            { "teleport.row_4": "v.t2 == 6 || v.t2 == 8" }
+          ],
+          "on_entry": [ "v.t2 = math.random_integer(1,8);" ]
+        },
+        "teleport.row_1": {
+          "transitions": [ { "end_teleport": "true" } ],
+          "on_entry": [ "/execute unless block ~-4~-1~ air run tp @s ~-4~~ true" ]
+        },
+        "teleport.row_2": {
+          "transitions": [ { "end_teleport": "true" } ],
+          "on_entry": [ "/execute unless block ~-2~-1~ air run tp @s ~-2~~ true" ]
+        },
+        "teleport.row_3": {
+          "transitions": [ { "end_teleport": "true" } ],
+          "on_entry": [ "/execute unless block ~2~-1~ air run tp @s ~2~~ true" ]
+        },
+        "teleport.row_4": {
+          "transitions": [ { "end_teleport": "true" } ],
+          "on_entry": [ "/execute unless block ~4~-1~ air run tp @s ~4~~ true" ]
+        },
+
+        "end_teleport": {
+          "transitions": [ { "randomize_teleport.column": "q.property('xp:spawner_teleport') == false" } ],
+          "on_entry": [
+            "@s xp:marker_type.spawner_handler.remove_teleport",
+            "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§9(end_teleport)\"}]}"
+          ]
+        }
+      }
+    },
+
+    "controller.animation.end_cube_marker.spawners": {
+      "initial_state": "initialize",
+      "states": {
+        "initialize": {
+          "transitions": [
+            { "randomize_pool": "q.property('xp:spawner_entity_type') == 'spreader'" },
+            { "spawn_entity": "q.property('xp:spawner_entity_type') == 'spawner'" },
+            { "spawn_platform": "q.property('xp:spawner_entity_type') == 'spawner_platform'" }
+          ]
+        },
+
+        "randomize_pool": {
+          "transitions": [ { "random.set_pool": "true" } ],
+          "on_entry": [
+            "v.t3 = 0;",
+            "v.t4 = 0;",
+
+            "/execute if entity @a[tag=\"disable_mob_spawning\"] run event entity @s xp:instant_despawn",
+            "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§arandomize_pool\"}]}"
+          ]
+        },
+        "random.set_pool": {
+          "transitions": [ { "spawn_from_pool": "true" } ],
+          "on_entry": [
+            "v.t1 = math.random_integer(1,4);",
+            "v.t2 = v.t1 + math.random_integer(1,4);",
+            "v.t5 = math.random(v.t1,v.t2)*q.property('xp:spawner_random');"
+          ]
+        },
+
+        "spawn_from_pool": {
+          "transitions": [
+            { "spawn.end_sequence": "v.t4 > v.t5" },
+            { "spawn.set_entity": "true" }
+          ],
+          "on_exit": [ "v.t = q.life_time;", "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§a-> §e(spawn_from_pool)\"}]}" ]
+        },
+        "spawn.set_entity": {
+          "transitions": [ { "spawn_from_pool": "q.life_time - v.t >= 0.3 && q.property('xp:spawner_teleport') == false" } ],
+          "on_entry": [
+            "v.t4 = v.t4 + q.property('xp:spawner_random');",
+
+            "/summon xp:end_cube_marker ~~~ xp:marker_type.spawner_handler.spawn_entity",
+            "@s xp:marker_type.spawner_handler.add_teleport"
+          ]
+        },
+        "spawn.end_sequence": {
+          "transitions": [ { "end_spawn_sequence": "true" } ],
+          "on_entry": [ "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cdespawn §e(spreader)\"}]}" ]
+        },
+
+
+        "spawn_entity": {
+          "transitions": [ { "entity.randomize_spawn": "true" } ],
+          "on_entry": [ "v.t = q.life_time;" ]
+        },
+        "entity.randomize_spawn": {
+          "transitions": [ { "end_spawn_sequence": "q.life_time - v.t >= 1.27" } ],
+          "on_entry": [
+            "/scoreboard objectives add end_cube_boss2 dummy",
+            "/scoreboard players random @s end_cube_boss2 1 4",
+
+            "/particle xp:end_cube_mob_spawn.1 ~~0.05~",
+            "/particle xp:end_cube_mob_spawn.2 ~~0.05~",
+            "/particle xp:end_cube_mob_spawn.3 ~~0.05~",
+
+            "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§aspawn_entity || \"},{\"text\":\"§evalue §e(spawn_entity): §r§l\"},{\"score\":{\"name\":\"@s\",\"objective\":\"end_cube_boss2\"}}]}"
+          ],
+          "on_exit": [
+            "/execute if score @s end_cube_boss2 matches 1 run summon xp:endergob ~~~",
+            "/execute if score @s end_cube_boss2 matches 2 run summon xp:enderslug ~~~",
+            "/execute if score @s end_cube_boss2 matches 3 run summon xp:warder ~~~",
+            "/execute if score @s end_cube_boss2 matches 4 run summon xp:rippling ~~~",
+
+            "/playsound mob.endermen.portal @a ~~~ 1.0 0.8",
+            "/particle xp:end_cube_mob_spawn.4 ~~~",
+            "/particle xp:end_cube_mob_spawn.5 ~~~",
+
+            "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cdespawn §e(spawner)\"}]}"
+          ]
+        },
+        "spawn_platform": {
+          "transitions": [ { "entity.spawn_platform": "true" } ],
+          "on_entry": [
+            "v.t = q.life_time;",
+            "/spreadplayers ~ ~ 2 3 @s"
+          ]
+        },
+        "entity.spawn_platform": {
+          "transitions": [ { "end_spawn_sequence": "q.life_time - v.t >= 1.27" } ],
+          "on_entry": [
+            "/particle xp:end_cube_mob_spawn.1 ~-0.5 223.05 ~0.5",
+            "/particle xp:end_cube_mob_spawn.2 ~-0.5 223.05 ~0.5",
+            "/particle xp:end_cube_mob_spawn.3 ~-0.5 223.05 ~0.5",
+
+            "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§aspawn_platform || \"},{\"text\":\"§evalue §e(spawn_platform): §r§l\"},{\"score\":{\"name\":\"@s\",\"objective\":\"end_cube_boss2\"}}]}"
+          ],
+          "on_exit": [
+            "/summon xp:end_cube_platform ~ 222.5 ~ xp:jump_pad",
+
+            "/playsound mob.endermen.portal @a ~-0.5 223.05 ~0.5 1.0 0.8",
+            "/particle xp:end_cube_mob_spawn.4 ~-0.5 223.05 ~0.5",
+            "/particle xp:end_cube_mob_spawn.5 ~-0.5 223.05 ~0.5",
+
+            "/tellraw r4isen1920 {\"rawtext\":[{\"text\":\"§cdespawn §e(spawner_platform)\"}]}"
+          ]
+        },
+
+
+        "end_spawn_sequence": {
+          "on_entry": [ "@s xp:instant_despawn" ]
+        }
+      }
+    }
+  }
+}

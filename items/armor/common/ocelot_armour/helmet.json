@@ -1,0 +1,34 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:ocelot_helmet",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
+    },
+    "components": {
+      "minecraft:icon": "ocelot_helmet",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:enchantable": {
+        "value": 11,
+        "slot": "armor_head"
+      },
+      "minecraft:wearable": {
+        "protection": 3,
+        "slot": "slot.armor.head"
+      },
+      "minecraft:repairable": {
+        "repair_items": [{
+          "items": ["minecraft:leather"],
+          "repair_amount": "q.max_durability * 0.25"
+        }]
+      },
+      "minecraft:durability": {
+        "max_durability": 110
+      }
+    }
+  }
+}

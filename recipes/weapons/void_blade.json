@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:void_blade"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  X",
+      "LG ",
+      "#L "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "xp:enderite_ingot"
+      },
+      "G": {
+        "item": "xp:void_crystal_ingot"
+      },
+      "L": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "item": "xp:no_lore_void_blade"
+    }
+  }
+}

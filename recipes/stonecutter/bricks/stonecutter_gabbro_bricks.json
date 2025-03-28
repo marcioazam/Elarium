@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_gabbro_bricks"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 1,
+    "ingredients": [
+      {
+        "item": "edx:gabbro"
+      }
+    ],
+    "result": {
+      "item": "edx:gabbro_bricks",
+      "count": 1
+    }
+  }
+} 

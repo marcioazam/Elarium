@@ -1,0 +1,45 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:dense_vines_features_rules",
+			"places_feature": "edx:warped/dense/vines_first_biome_check"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+				  "any_of": [
+					
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "warped_forest"
+					}
+				  ]
+				}
+			  ]
+		},
+		"distribution": {
+			"iterations": 15,
+			"x": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					16
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [ 40, 150 ]
+			  },
+			"z": {
+				"distribution": "fixed_grid",
+				"extent": [
+					0,
+					16
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "edx:ice_brick",
+                    "weight":250
+                   
+                }
+            ]
+        }
+    ]
+}

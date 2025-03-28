@@ -1,0 +1,54 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:void_leggings"
+    },
+
+    "tags": [ "void_catalyst" ],
+    "pattern": [
+      "CLC",
+      "LEL",
+      "CDC"
+    ],
+    "key": {
+      "C": {
+        "item": "edx:void_crystal"
+      },
+      "D": {
+        "item": "edx:dragon_essence"
+      },
+      "L": {
+        "item": "edx:void_essence"
+      },
+      "E": {
+        "item": "edx:restored_old_leggings"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:void_crystal"
+      },
+      {
+        "item": "edx:dragon_essence"
+      },
+      {
+        "item": "edx:void_essence"
+      },
+      {
+        "item": "minecraft:netherstar"
+      },
+      {
+        "item": "edx:ancient_armor_plan"
+      },
+      {
+        "item": "edx:ancient_armor_debris"
+      }
+    ],
+    "result": {
+      "item": "edx:void_leggings"
+    }
+  }
+  
+}

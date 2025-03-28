@@ -1,0 +1,79 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:feature_rules": {
+      "description": {
+        "identifier": "edx:snow_layer_weighted_scater_features_rules",
+        "places_feature": "edx:snow_layer_weighted_scater_feature"
+      },
+      "conditions": {
+        "placement_pass": "after_surface_pass",
+        "minecraft:biome_filter": [
+          {
+            "any_of": [
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "ice_plains"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "cold_beach"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "grove"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "ice_mountains"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "extreme_hills_plus_tree"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "ice_plains"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "cold_taiga"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "cold_taiga_hills"
+              },
+              {
+                "test": "has_biome_tag",
+                "operator": "==",
+                "value": "cold_taiga_mutated"
+              }
+            ]
+          }
+        ]
+      },
+      "distribution": {
+        "iterations": 250,
+        "scatter_chance":  100.0,
+        "x": {
+          "distribution": "uniform",
+          "extent": [ 0, 16 ]
+        },
+        "y": {
+          "distribution": "uniform",
+          "extent": [ 50, 200 ]
+        },
+        "z": {
+          "distribution": "uniform",
+          "extent": [ 0, 16 ]
+        }
+      }
+    }
+  }

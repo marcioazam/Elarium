@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sprout_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "W W",
+      "SWS",
+      " S "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:nether_wart"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:nether_sprouts"
+      },
+      "W": {
+        "item": "minecraft:nether_wart"
+      }
+    },
+    "result": {
+      "item": "dungeons:sprout_chestplate",
+      "count": 1
+    }
+  }
+}

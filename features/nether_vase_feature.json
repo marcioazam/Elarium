@@ -1,0 +1,26 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:nether_vase_feature"
+      },
+      "places_block": "edx:nether_vase",
+      "enforce_placement_rules": true,
+      "enforce_survivability_rules": true,
+      "may_attach_to": {
+        "bottom":  [
+          "minecraft:netherrack",
+          "minecraft:soul_sand",
+          "minecraft:basalt",
+          "minecraft:crimson_nylium",
+          "minecraft:warped_nylium",
+          "edx:volcano_stone",
+          "edx:gabbro",
+          "edx:molten_gabbro"
+      ]
+    },
+      "may_replace": [
+        "minecraft:air"
+      ]
+    }
+  }

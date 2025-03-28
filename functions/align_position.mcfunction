@@ -1,0 +1,1 @@
+execute at @s align xyz run tp ~.5~~.5

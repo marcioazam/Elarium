@@ -1,0 +1,35 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:ore_feature": {
+		"description": {
+			"identifier": "edx:desert_tin_ore_feature"
+		},
+		"count": 7,
+		"replace_rules": [
+			{
+				"places_block": "edx:tin_ore",
+				"may_replace": [
+					{
+                        "name": "minecraft:stone"
+                    }
+				]
+			},
+			{
+				"places_block": "edx:tin_sand",
+				"may_replace": [
+					{
+                        "name": "edx:hard_sandstone"
+                    }
+				]
+			},
+            {
+                "places_block": "edx:tin_ore",
+                "may_replace": [
+                    {
+                        "name": "minecraft:tuff"
+                    }
+                ]
+            }
+		]
+	}
+}

@@ -1,0 +1,29 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:purpur"
+        },
+        "count": 45,
+        "replace_rules": [
+          
+            {
+                "places_block": "edx:purpur",
+                "may_replace": [
+                    {
+                        "name": "minecraft:end_stone"
+                    }
+                ]
+            },
+            {
+                "places_block": "edx:light_seed_purpur",
+                "may_replace": [
+                    {
+                        "name": "edx:light_seed_end"
+                    }
+                ]
+            }
+           
+        ]
+    }
+}

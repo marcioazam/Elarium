@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "edx:camelid_meat_cooked",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.cookedFood"
+			}
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "camelid_meat_cooked"
+        }
+      },
+      "minecraft:use_animation": "eat",
+      "minecraft:max_stack_size": 64,
+			"minecraft:hand_equipped": false,
+            "minecraft:food": {
+                "nutrition": 8,
+                "saturation_modifier": 10,
+                "can_always_eat": false
+            },
+            "minecraft:use_modifiers":{
+                "use_duration": 1.4,
+                "movement_modifier": 0.35
+            }
+    }
+  }
+}

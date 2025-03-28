@@ -1,0 +1,48 @@
+{ 
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:blue_spore_bag",
+		"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+		}
+	  },
+	  "components": {
+		"minecraft:light_dampening": 0, 
+		"minecraft:light_emission": 10,
+		"minecraft:collision_box": false,
+		"minecraft:selection_box": {
+			"origin": [-5,0,-5],
+			"size": [10,16,10]
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.blue_spore_bag"
+		},
+		
+		"minecraft:material_instances": {
+			"*": {
+				"texture": "blue_spore_bag",
+				"render_method": "alpha_test",
+				"face_dimming": false,
+				"ambient_occlusion": false
+			}
+		},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  }, 
+		  "minecraft:placement_filter": {
+			"conditions": [
+				{
+					"allowed_faces": ["up"],
+					"block_filter": ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_vine","edx:mycelium_grass"]
+				}
+			]
+		},
+    "minecraft:custom_components": [
+      "blue_spore_bag:interact",
+      "blue_spore_bag:destroy"
+    ]
+	  }
+	}
+}

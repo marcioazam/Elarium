@@ -1,0 +1,10 @@
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~
+particle edx:yellow_spore_particles ~~-1~

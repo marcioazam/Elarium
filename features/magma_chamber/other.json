@@ -1,0 +1,11 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:aggregate_feature": {
+      "description": {
+        "identifier": "edx:magma_chamber/other"
+      },
+      "features": [
+        "edx:magma_chamber/ground_feature"
+      ]
+    }
+  }

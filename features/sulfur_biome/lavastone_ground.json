@@ -1,0 +1,11 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:snap_to_surface_feature": {
+      "description": {
+        "identifier": "edx:sulfur_biome/lavastone_ground"
+      },
+      "feature_to_snap":  "edx:sulfur_biome/sulfur_biome_all",
+      "vertical_search_range":  12,
+      "surface": "floor"
+    }
+  } 

@@ -1,0 +1,15 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "edx:acacia_sign_it",
+                    "weight":250
+                   
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:aggregate_feature": {
+      "description": {
+        "identifier": "edx:magma_chamber/ground_features/all"
+      },
+      "features": [
+        
+        "edx:magma_chamber/ground_features/lava_scatter",
+        "edx:magma_chamber/ground_features/magma_scatter",
+        "edx:magma_chamber/ground_features/spike_random",
+        "edx:magma_chamber/blackstone_scatter"
+      ]
+    }
+  }

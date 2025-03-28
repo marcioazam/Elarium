@@ -1,0 +1,42 @@
+{
+  "format_version": "1.19.50",
+  "animation_controllers": {
+    "controller.animation.respawn_auger.display_tellraw": {
+      "states": {
+        "default": { "transitions": [{ "display_tellraw": "q.property('xp:display_tellraw')" }] },
+        "display_tellraw": {
+          "transitions": [{ "default": "!q.property('xp:display_tellraw') && q.all_animations_finished" }],
+          "on_entry": ["@s xp:remove_display_tellraw"],
+          "animations": [
+            "display_tellraw"
+          ]
+        }
+      }
+    },
+    "controller.animation.respawn_auger.activate": {
+      "states": {
+        "default": { "transitions": [{ "activate": "q.property('xp:activate')" }] },
+        "activate": {
+          "transitions": [{ "default": "!q.property('xp:activate') && q.all_animations_finished" }],
+          "on_entry": ["/function respawn_auger/activate", "@s xp:reset_activate"],
+          "animations": [
+            "display_tellraw"
+          ]
+        }
+      }
+    },
+    "controller.animation.respawn_auger.state": {
+      "states": {
+        "default": { "transitions": [{ "active": "q.is_powered" }]},
+        "active": {
+          "animations": ["sounds.activate"],
+          "transitions": [{ "deactivate": "!q.is_powered" }]
+        },
+        "deactivate": {
+          "transitions": [{ "default": "1" }],
+          "on_entry": ["/function respawn_auger/sounds/deactivate"]
+        }
+      }
+    }
+  }
+}

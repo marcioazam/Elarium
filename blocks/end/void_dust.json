@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+	"identifier": "edx:void_dust",
+	"menu_category": {
+	  "category": "nature"
+	}
+  },
+  "components": {
+	"tag:edx:shovel": {},
+	  "minecraft:destructible_by_mining": {
+		"seconds_to_destroy": 8
+	  },
+	  "minecraft:destructible_by_explosion": {
+		"explosion_resistance": 5
+	  },
+	  "minecraft:map_color": "#120e12",
+	  "minecraft:collision_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  },
+	  "minecraft:selection_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  }
+  }
+	}
+}

@@ -1,0 +1,69 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "pod_rpg:item_test",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "pod_rpg:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "time": 10,
+        "looping": false,
+        "time_down_event": {
+          "event": "pod_rpg:despawn",
+          "target": "self"
+        }
+      },
+      "minecraft:inventory": {
+        "additional_slots_per_strength": 0,
+        "can_be_siphoned_from": false,
+        "container_type": "hopper",
+        "inventory_size": 5,
+        "private": true,
+        "restrict_to_owner": false
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 0,
+            "height": 0,
+            "pivot": [0, 0, 0]
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1,
+        "max": 1
+      }
+    },
+    "events": {
+      "pod_rpg:despawn": {
+        "add": {
+          "component_groups": ["pod_rpg:despawn"]
+        }
+      }
+    }
+  }
+}

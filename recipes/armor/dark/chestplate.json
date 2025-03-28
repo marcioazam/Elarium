@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "dark_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "i i",
+      "iIi",
+      "CBC"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_chestplate"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_chestplate"
+      },
+      "C": {
+        "item": "minecraft:charcoal"
+      },
+      "i": {
+        "item": "minecraft:iron_ingot"
+      },
+      "B": {
+        "item": "minecraft:iron_block"
+      }
+    },
+    "result": {
+      "item": "dungeons:dark_chestplate",
+      "count": 1
+    }
+  }
+}

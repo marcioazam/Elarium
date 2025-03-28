@@ -1,0 +1,56 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:frost_chestplate",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:frost_helmet",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:frost_leggings",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:frost_boots",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    }
+  ]
+}

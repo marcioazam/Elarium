@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.spawnenderc": {
+			"timeline": {
+				"0": [
+					
+					"/tickingarea add ~-10~~-10 ~10~~10 crystals"
+				],
+				"0.5": [
+					
+					"/execute as @s at @s if block ~~-1~ bedrock if block ~~-2~ obsidian if block ~~-2~2 obsidian if block ~~-2~-2 obsidian if block ~2~-2~ obsidian if block ~-2~-2~ obsidian if block ~~-2~3 air if block ~~-2~-3 air if block ~3~-2~ air if block ~-3~-2~ air run structure load Pillar1 ~-3~-7~-3",
+					"/execute as @s at @s if block ~~-1~ bedrock if block ~~-2~ obsidian if block ~~-2~3 obsidian if block ~~-2~-3 obsidian if block ~3~-2~ obsidian if block ~-3~-2~ obsidian if block ~~-2~4 air if block ~~-2~-4 air if block ~4~-2~ air if block ~-4~-2~ air run structure load Pillar2 ~-4~-8~-4",
+					"/execute as @s at @s if block ~~-1~ bedrock if block ~~-2~ obsidian if block ~~-2~4 obsidian if block ~~-2~-4 obsidian if block ~4~-2~ obsidian if block ~-4~-2~ obsidian if block ~~-2~5 air if block ~~-2~-5 air if block ~5~-2~ air if block ~-5~-2~ air run structure load Pillar3 ~-5~-12~-5",
+					"/execute as @s at @s if block ~~-1~ bedrock if block ~~-2~ obsidian if block ~~-2~5 obsidian if block ~~-2~-5 obsidian if block ~5~-2~ obsidian if block ~-5~-2~ obsidian if block ~~-2~6 air if block ~~-2~-6 air if block ~6~-2~ air if block ~-6~-2~ air run structure load Pillar4 ~-6~-11~-6"
+				],
+				"1": [
+					
+					"/tickingarea remove crystals"
+				]
+			},
+			"animation_length": 1.0,
+			"loop": false
+		}
+	}
+}

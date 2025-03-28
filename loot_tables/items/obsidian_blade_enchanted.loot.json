@@ -1,0 +1,29 @@
+{
+    "pools": [{
+        "rolls": 1,
+        "entries": [{
+            "type": "item",
+            "name": "xp:obsidian_blade_enchanted",
+            "weight": 1,
+            "functions": [
+                {
+                    "function": "set_count",
+                    "count": {
+                        "min": 1,
+                        "max": 1
+                    }
+                },
+                {
+                    "function": "set_lore",
+                    "lore": [
+                        "§r§l[//]§r to §5Ground Slam",
+                        "§r§l[//]§r to §5Dash §rforward",
+                        "",
+                        "§r§9+12 Attack Damage§r§o",
+                        "§r§9+6 Dash Damage§r§o"
+                    ]
+                }
+            ]
+        }]
+    }]
+}

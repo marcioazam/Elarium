@@ -1,0 +1,126 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_barrier.barrier": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "remove_barrier": "q.out_of_control" },
+            { "add_barrier": "q.is_powered" },
+            { "no_barrier_tick": "1" }
+          ],
+          "on_exit": [
+            "/scoreboard players set @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] end_cube_boss 1",
+            "/scoreboard players operation @s end_cube_boss += @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] end_cube_boss"
+          ]
+        },
+
+        "no_barrier_tick": {
+          "transitions": [ { "default": "1" } ],
+          "on_entry": [
+            "/event entity @e[x=300,y=222,z=-549,dx=24,dy=23,dz=24,type=xp:warder] xp:instant_despawn",
+            "/event entity @e[x=300,y=222,z=-549,dx=24,dy=23,dz=24,type=xp:rippling] xp:instant_despawn",
+            "/event entity @e[x=300,y=222,z=-549,dx=24,dy=23,dz=24,type=xp:endergob] xp:instant_despawn",
+            "/event entity @e[x=300,y=222,z=-549,dx=24,dy=23,dz=24,type=xp:enderslug] xp:instant_despawn",
+
+            "/execute at @s in the_end unless score \"#obj_05\" gvar matches 1 if entity @a[r=128] run function end_cube/arena/on_visit"
+          ]
+        },
+
+        "add_barrier": {
+          "transitions": [ { "add_barrier_tick_0": "1" } ],
+          "on_entry": [
+            "/particle xp:end_cube.barrier.5 312 223 -537"
+          ]
+        },
+        "add_barrier_tick_0": {
+          "transitions": [
+            { "remove_barrier": "q.out_of_control" },
+            { "default": "!q.is_powered" },
+            { "add_barrier_tick_1": "1" }
+          ],
+          "on_entry": [
+            "/execute in the_end run tp @s 312.5 223 -536.5",
+
+            "/execute in the_end if entity @e[x=298,y=223,z=-551,dx=4,dy=8,dz=27] run function end_cube/boss/barrier/px_pz",
+            "/execute in the_end if entity @e[x=298,y=223,z=-523,dx=27,dy=8,dz=-4] run function end_cube/boss/barrier/px_nz",
+            "/execute in the_end if entity @e[x=326,y=223,z=-523,dx=-4,dy=8,dz=-27] run function end_cube/boss/barrier/nx_nz",
+            "/execute in the_end if entity @e[x=326,y=223,z=-551,dx=-27,dy=8,dz=4] run function end_cube/boss/barrier/nx_pz",
+            "/execute in the_end if entity @e[x=298,y=230,z=-551,dx=27,dy=15,dz=27] run function end_cube/boss/barrier/up",
+            "/execute in the_end as @a[tag=obsidian_blade_user,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run tp @s 318 223 -537",
+            "/execute in the_end as @e[type=xp:ender_tp_dummy,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run event entity @s xp:despawn"
+          ]
+        },
+        "add_barrier_tick_1": {
+          "transitions": [
+            { "remove_barrier": "q.out_of_control" },
+            { "default": "!q.is_powered" },
+            { "add_barrier_tick_0": "1" }
+          ],
+          "on_entry": [
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] add in_ender_boss_arena",
+
+            "/execute as @e[type=xp:rippling,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute as @e[type=xp:endergob,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute as @e[type=xp:enderslug,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute as @e[type=xp:warder,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute in the_end as @e[type=xp:ender_tp_dummy,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run event entity @s xp:despawn"
+          ]
+        },
+
+        "remove_barrier": {
+          "on_entry": [
+            "/tag @a remove in_ender_boss_arena",
+            "/particle xp:end_cube.barrier.6 312 223 -537",
+            "/execute as @a[x=312,y=223,z=-537,r=32] run playsound respawn_anchor.deplete @s ~~~ 1.0 0.6",
+
+            "/execute rotated 0 0 run summon xp:end_cube_barrier 312.5 223 -536.5",
+            "/event entity @s xp:instant_despawn"
+          ]
+        }
+      }
+    },
+    "controller.animation.end_cube_barrier.barrier_short": {
+      "initial_state": "add_barrier_tick_0",
+      "states": {
+        "add_barrier_tick_0": {
+          "transitions": [
+            { "add_barrier_tick_1": "1" }
+          ],
+          "on_entry": [
+            "/execute in the_end run tp @s 312.5 223 -536.5",
+
+            "/execute in the_end if entity @e[x=298,y=223,z=-551,dx=4,dy=8,dz=27] run function end_cube/boss/short_barrier/px_pz",
+            "/execute in the_end if entity @e[x=298,y=223,z=-523,dx=27,dy=8,dz=-4] run function end_cube/boss/short_barrier/px_nz",
+            "/execute in the_end if entity @e[x=326,y=223,z=-523,dx=-4,dy=8,dz=-27] run function end_cube/boss/short_barrier/nx_nz",
+            "/execute in the_end if entity @e[x=326,y=223,z=-553,dx=-27,dy=8,dz=6] run function end_cube/boss/short_barrier/nx_pz",
+            "/execute in the_end if entity @e[x=298,y=230,z=-551,dx=27,dy=15,dz=27] run function end_cube/boss/short_barrier/up",
+            "/execute in the_end as @a[tag=obsidian_blade_user,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run tp @s 318 223 -537",
+            "/execute in the_end as @e[type=xp:ender_tp_dummy,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run event entity @s xp:despawn"
+          ]
+        },
+        "add_barrier_tick_1": {
+          "transitions": [
+            { "add_barrier_tick_0": "1" }
+          ],
+          "on_entry": [
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] add in_ender_boss_arena",
+            "/execute in the_end if entity @e[x=298,y=223,z=-551,dx=4,dy=8,dz=27] run function end_cube/boss/short_barrier/px_pz",
+            "/execute in the_end if entity @e[x=298,y=223,z=-523,dx=27,dy=8,dz=-4] run function end_cube/boss/short_barrier/px_nz",
+            "/execute in the_end if entity @e[x=326,y=223,z=-523,dx=-4,dy=8,dz=-27] run function end_cube/boss/short_barrier/nx_nz",
+            "/execute in the_end if entity @e[x=326,y=223,z=-553,dx=-27,dy=8,dz=6] run function end_cube/boss/short_barrier/nx_pz",
+            "/execute in the_end if entity @e[x=298,y=230,z=-551,dx=27,dy=15,dz=27] run function end_cube/boss/short_barrier/up",
+            "/execute in the_end as @a[tag=obsidian_blade_user,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run tp @s 318 223 -537",
+            "/execute in the_end as @e[type=xp:ender_tp_dummy,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run event entity @s xp:despawn",
+            "/execute as @e[type=xp:rippling,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute as @e[type=xp:endergob,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute as @e[type=xp:enderslug,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute as @e[type=xp:warder,x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run tp ~~-50~",
+            "/execute in the_end as @e[type=xp:ender_tp_dummy,x=290,y=220,z=-557,dx=44,dy=17,dz=44] unless entity @s[x=300,y=222,z=-549,dx=24,dy=8,dz=24] run event entity @s xp:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

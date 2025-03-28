@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "turtle_boots"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "S S",
+      "S S"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:turtle_scute"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:turtle_scute"
+      }
+    },
+    "result": {
+      "item": "dungeons:turtle_boots",
+      "count": 1
+    }
+  }
+}

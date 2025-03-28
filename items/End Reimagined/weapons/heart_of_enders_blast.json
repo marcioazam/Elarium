@@ -1,0 +1,19 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "xp:heart_of_enders_blast",
+      "category": "Equipment",
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:foil": true,
+      "minecraft:stacked_by_data": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_duration": 99999,
+      "minecraft:food": {
+        "can_always_eat": true
+      }
+    }
+  }
+}

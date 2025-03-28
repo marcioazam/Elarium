@@ -1,0 +1,737 @@
+{
+   "format_version": "1.16.0",
+   "minecraft:entity": {
+     "description": {
+       "identifier": "xp:enderslug",
+       "is_spawnable": true,
+       "is_summonable": true,
+
+       "animations": {
+        "player.achievements": "controller.animation.player.achievements.mob_death_detection",
+
+        "root.enderslug.death": "controller.animation.enderslug.death",
+        "root.enderslug.avoid": "controller.animation.enderslug.avoid",
+        "enderslug.avoid_sensor": "animation.enderslug.avoid_sensor",
+        "teleport": "controller.animation.enderslug.teleport",
+        "teleport_random": "animation.enderslug.teleport_random",
+        "broken_sanctuary_fast_despawn": "animation.common.broken_sanctuary_fast_despawn",
+        "ender_ruins_despawn_on_boss_arena": "animation.common.ender_ruins_despawn_on_boss_arena"
+       },
+
+       "scripts": {
+        "animate": [
+          "player.achievements",
+
+          "root.enderslug.death",
+          {"root.enderslug.avoid": "!q.is_baby"},
+          {"enderslug.avoid_sensor": "!q.is_on_ground && q.is_saddled && !q.is_baby"},
+          {"teleport": "!q.is_baby && !q.is_charged"},
+          { "teleport_random": "!q.is_baby && !q.has_target"},
+          "broken_sanctuary_fast_despawn",
+          "ender_ruins_despawn_on_boss_arena"
+        ]
+       }
+     },
+     "component_groups": {
+      //teleport mode
+      "xp:stage.teleport":{
+        "minecraft:is_tamed": {}
+      },
+      "xp:stage.teleport_hit":{
+        "minecraft:is_saddled": {}
+      },
+
+      //run way mode
+      "xp:stage.run_away":{
+        "minecraft:skin_id": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "time": 4,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:stage_scream",
+            "target": "self"
+          }
+        },
+
+        "minecraft:behavior.avoid_mob_type": {
+          "priority": 0,
+          "remove_target": true,
+          "entity_types": [
+            {
+              "priority": 0,
+              "must_see": false,
+              "max_dist": 43,
+              "walk_speed_multiplier": 3.6,
+              "sprint_speed_multiplier": 3.6,
+              "filters": {
+                "test" :  "is_family",
+                "subject" : "other",
+                "value" :  "player"
+              }
+            }
+          ]
+        },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 1,
+          "attack_interval": 999,
+          "attack_radius": 34
+        },
+        "minecraft:shooter": {
+          "def": "minecraft:arrow"
+        },
+        "minecraft:on_hurt_by_player": {
+          "target": "self",
+          "event": "xp:stage_remove_run_away"
+         }
+      },
+      "xp:stage.scream":{
+        "minecraft:skin_id": {
+          "value": 2
+        },
+        "minecraft:timer": {
+          "time": 1.30,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:stage_angry",
+            "target": "self"
+          }
+        },
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 255,
+              "display_on_screen_animation": false,
+              "duration": 1.30,
+              "effect": "slowness",
+              "visible": false
+            }
+          ]
+        }
+      },
+
+      //avoid mode
+      "xp:stage.avoid":{
+        "minecraft:skin_id": {
+          "value": 4
+        },
+        "minecraft:teleport": {
+          "random_teleports": true,
+          "max_random_teleport_time": 0,
+          "random_teleport_cube": [ 16, 16, 16 ],
+          "target_teleport_chance": 0.001,
+          "light_teleport_chance": 1,
+          "dark_teleport_chance": 1
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "event": "xp:stage_angry",
+              "target": "self",
+              "filters": {
+                "test": "in_caravan",
+                "value": false
+              }
+            }
+          ]
+        }
+      },
+
+      //angry mode
+      "xp:stage.calm":{
+        "minecraft:skin_id": {
+          "value": 0
+        },
+        "minecraft:lookat": {
+          "search_radius": 20.0,
+          "set_target": true,
+          "look_cooldown": 0,
+          "look_event": {
+            "event": "xp:stage_teleport_hit",
+            "target": "self"
+          },
+          "filters": {
+            "all_of": [
+              {
+                "subject": "other",
+                "test": "is_family",
+                "value": "player"
+              },
+              {
+                "test": "has_equipment",
+                "domain": "head",
+                "subject": "other",
+                "operator": "not",
+                "value": "carved_pumpkin"
+              }
+            ]
+          }
+        }
+      },
+      "xp:stage.angry":{
+        "minecraft:skin_id": {
+          "value": 3
+        },
+        "minecraft:behavior.ranged_attack": {
+					"priority": 0,
+					"charge_charged_trigger": 0,
+					"charge_shoot_trigger": 1.3,
+					"attack_interval_min": 0,
+					"attack_interval_max": 0,
+					"attack_radius": 20,
+          "burst_interval": 0.3,
+          "burst_shots": 2,
+          "speed_multiplier": 0
+				},
+				"minecraft:shooter": {
+					"def": "xp:enderslug.projectile"
+				},
+        "minecraft:on_target_escape": {
+          "target": "self",
+          "event": "xp:stage_calm"
+        },
+        "minecraft:angry": {
+          "duration": 25,
+          "calm_event": {
+            "event": "xp:stage_calm",
+            "target": "self"
+          }
+        }
+      },
+      //hit by player
+      "xp:hit_by_player":{
+        "minecraft:is_saddled": {}
+      },
+
+      //death mode
+			"xp:stage.death":{
+        "minecraft:type_family": {
+          "family": [ 
+            "inanimate"
+          ]
+        },
+        "minecraft:collision_box": {
+          "width": 0,
+          "height": 0
+        },
+        "minecraft:spawn_entity": {
+          "entities":[
+            {
+              "single_use": true,
+              "max_wait_time": 0,
+              "min_wait_time": 0,
+              "num_to_spawn": 1,
+              "spawn_item": "xp:ender_chips"
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        },
+        "minecraft:is_baby": {},
+        "minecraft:spell_effects": {
+          "add_effects": [
+            {
+              "ambient": false,
+              "amplifier": 255,
+              "duration": 999,
+              "effect": "slowness",
+              "visible": false
+            }
+          ]
+        }
+			},
+      "xp:instant_despawn":{
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+     },
+ 
+     "components": {
+       "minecraft:is_hidden_when_invisible": {
+       },
+       "minecraft:type_family": {
+         "family": [ 
+           "enderslug",
+           "monster",
+           "mob" 
+         ]
+       },
+       "minecraft:breathable": {
+         "total_supply": 15,
+         "suffocate_time": 0
+       },
+       "minecraft:teleport": {
+        "dark_teleport_chance": 0.000001,
+        "target_teleport_chance": 0.000001,
+        "light_teleport_chance": 0.05,
+        "random_teleports": false
+      },
+       "minecraft:nameable": {
+       },
+       //healph = 28
+       "minecraft:health": {
+         "value": 50,
+         "max": 50
+       },
+       "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 1.3,
+            "height": 2.4,
+            "pivot": [0, 1.2, 0]
+          }
+        ]
+       },
+       "minecraft:hurt_on_condition": {
+         "damage_conditions": [
+           {
+             "filters": { "test": "in_contact_with_water", "operator": "==", "value": true },
+             "cause": "drowning",
+             "damage_per_tick": 1
+           }
+         ]
+       },
+       "minecraft:on_hurt_by_player": {
+        "target": "self",
+        "event": "xp:stage_run_away_chance"
+       },
+       "minecraft:on_target_acquired": {
+        "target": "self",
+        "event": "xp:stage_angry"
+       },
+       "minecraft:on_target_escape": {
+        "target": "self",
+        "event": "xp:stage_calm"
+       },
+       "minecraft:follow_range": {
+         "value": 50,
+         "max": 50
+       },
+       "minecraft:despawn": {
+         "despawn_from_distance": {}
+       },
+       "minecraft:damage_sensor": {
+         "triggers": [
+           {
+						"cause": "projectile",
+						"on_damage": {
+              "filters": {
+                "test": "is_family",
+                "subject": "damager",
+                "operator": "!=",
+                "value": "sonic_beam"
+              },
+							"target": "self",
+							"event": "xp:stage_teleport_hit"
+						},
+						"deals_damage": false
+					},
+           {
+             "cause": "fire",
+             "deals_damage": false
+           },
+           {
+            "cause": "entity_attack",
+            "on_damage": {
+              "filters": [
+                {
+                  "all_of": [
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "xp:the_touched_ends"
+                    }
+                  ]
+                }
+              ],
+              "target": "other",
+              "event": "xp:regeneration_value_1"
+            },
+            "deals_damage": true
+           },
+           {
+            "cause": "entity_attack",
+            "on_damage": {
+              "target": "self",
+              "event": "xp:hit_by_player"
+            },
+            "deals_damage": true
+          }
+         ]
+       },
+       "minecraft:movement": {
+         "value": 0.15
+       },
+       "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "event": "xp:stage_teleport_hit",
+            "target": "self",
+            "filters": {
+              "test": "in_water_or_rain",
+              "value": true
+            }
+          },
+          {
+            "event": "xp:stage_avoid",
+            "target": "self",
+            "filters": {
+              "test": "distance_to_nearest_player",
+              "subject": "self",
+              "operator": "<=",
+              "value": 10
+            }
+          }
+        ]
+       },
+       "minecraft:navigation.walk": {
+         "can_path_over_water": false,
+         "avoid_water": true
+       },
+       "minecraft:movement.basic": {
+ 
+       },
+       "minecraft:jump.static": {
+       },
+       "minecraft:can_climb": {
+       },
+       "minecraft:pushable": {
+         "is_pushable": true,
+         "is_pushable_by_piston": true
+       },
+       "minecraft:physics": {
+       },
+
+       "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "must_see": true,
+        "reselect_targets": true,
+        "must_see_forget_duration": 17,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "==",
+                  "value": "player"
+                },
+                {
+                  "all_of":[
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "==",
+                      "value": "mob"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "monster"
+                    },
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "operator": "!=",
+                      "value": "cat"
+                    }
+                  ]
+                }
+
+              ]
+            },
+            "max_dist": 20
+          }
+        ]
+       },
+       "minecraft:behavior.float": {
+         "priority": 5
+       },
+       "minecraft:behavior.random_stroll": {
+        "priority": 8,
+        "speed_multiplier": 1.0
+       },
+       "minecraft:behavior.look_at_player": {
+         "priority": 8,
+         "look_distance": 8.0,
+         "probability": 8.0
+       },
+       "minecraft:behavior.hurt_by_target": {
+         "priority": 3
+       },
+       "minecraft:conditional_bandwidth_optimization": {
+         "default_values": {
+           "max_optimized_distance": 80.0,
+           "max_dropped_ticks": 10,
+           "use_motion_prediction_hints": true
+         }
+       },
+       "minecraft:behavior.avoid_block": {
+         "priority": 6,
+         "walk_speed_modifier": 2.0,
+         "tick_interval": 1,
+         "search_range": 6,
+         "search_height": 6,
+         "target_selection_method": "nearest",
+         "target_blocks": [
+           "minecraft:water",
+           "minecraft:flowing_water",
+           "minecraft:coral_block",
+           "minecraft:coral_fan",
+           "coral_fan_dead"
+         ]
+       },
+       "minecraft:behavior.avoid_mob_type": {
+        "priority": 5,
+        "remove_target": true,
+        "entity_types": [
+          {
+            "filters": {
+              "test" :  "is_family",
+              "subject" : "other",
+              "value" :  "cat"
+            },
+            "max_dist": 8,
+            "walk_speed_multiplier": 2.6,
+            "sprint_speed_multiplier": 2.6
+          }
+        ]
+      }
+     },
+ 
+     "events": {
+      //teleport events
+			"xp:stage_teleport":{
+				"add": {
+					"component_groups": [
+						"xp:stage.teleport"
+					]
+				}
+			},
+      "xp:stage_remove_teleport":{
+				"remove": {
+					"component_groups": [
+						"xp:stage.teleport"
+					]
+				}
+			},
+			"xp:stage_teleport_hit":{
+				"add": {
+					"component_groups": [
+						"xp:stage.teleport_hit"
+					]
+				}
+			},
+      "xp:stage_remove_teleport_hit":{
+				"remove": {
+					"component_groups": [
+						"xp:stage.teleport_hit"
+					]
+				}
+			},
+
+      "xp:stage_avoid":{
+        "randomize": [
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": [
+                "xp:stage.avoid"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "xp:stage.angry"
+              ]
+            }
+          },
+          {
+            "weight": 1
+          }
+        ]
+      },
+      "xp:stage_remove_avoid":{
+        "remove": {
+          "component_groups": [
+            "xp:stage.avoid"
+          ]
+        },
+        "trigger": "xp:stage_angry"
+      },
+
+      //run_away
+      "xp:stage_run_away_chance":{
+        "randomize": [
+          {
+            "trigger": "xp:stage_run_away",
+            "weight": 1
+          },
+          {
+            "weight": 3
+          }
+        ]
+      },
+      "xp:stage_run_away":{
+        "add": {
+          "component_groups": [
+            "xp:stage.run_away"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:stage.calm",
+            "xp:stage.angry"
+          ]
+        }
+      },
+      "xp:stage_remove_run_away":{
+        "add": {
+          "component_groups": [
+            "xp:stage.calm"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:stage.run_away"
+          ]
+        }
+      },
+      "xp:stage_scream":{
+        "add": {
+          "component_groups": [
+            "xp:stage.scream"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:stage.run_away"
+          ]
+        }
+      },
+      "xp:stage_remove_scream":{
+        "add": {
+          "component_groups": [
+            "xp:stage.calm"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:stage.scream",
+            "xp:stage.run_away"
+          ]
+        }
+      },
+
+      //angry events
+      "xp:stage_calm":{
+        "add": {
+          "component_groups": [
+            "xp:stage.calm"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:stage.angry"
+          ]
+        }
+      },
+      "xp:stage_angry":{
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "xp:stage.angry"
+              ]
+            },
+            "remove": {
+              "component_groups": [
+                "xp:stage.calm",
+                "xp:stage.scream",
+                "xp:stage.teleport",
+                "xp:stage.avoid"
+              ]
+            },
+            "filters": {
+              "all_of":[
+                {
+                  "test": "is_skin_id",
+                  "subject": "self",
+                  "operator": "!=",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+
+      //hit bu player
+      "xp:hit_by_player":{
+        "add": {
+          "component_groups": [
+            "xp:hit_by_player"
+          ]
+        }
+      },
+      "xp:remove_hit_by_player":{
+        "remove": {
+          "component_groups": [
+            "xp:hit_by_player"
+          ]
+        }
+      },
+
+      //death event
+      "xp:stage_death":{
+        "add": {
+          "component_groups": [
+            "xp:stage.death"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "xp:stage.teleport",
+            "xp:stage.teleport_hit",
+            "xp:stage.run_away",
+            "xp:stage.scream",
+            "xp:stage.avoid",
+            "xp:stage.calm",
+            "xp:stage.angry",
+            "xp:hit_by_player"
+          ]
+        }
+      },
+      "xp:instant_despawn":{
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				},
+        "remove": {
+          "component_groups": [
+            "xp:stage.teleport",
+            "xp:stage.teleport_hit",
+            "xp:stage.run_away",
+            "xp:stage.scream",
+            "xp:stage.avoid",
+            "xp:stage.calm",
+            "xp:stage.angry",
+            "xp:hit_by_player"
+          ]
+        }
+			}
+     }
+   }
+ }

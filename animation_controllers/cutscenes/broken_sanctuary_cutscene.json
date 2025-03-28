@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.cutscenes.sanctuary": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                    ]
+                },
+                "east_tower": {
+                    "animations": [
+                        "east_tower"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:old_boots"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "X X",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "edx:ancient_armor_debris"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherstar"
+      }
+    ],
+    "result": {
+      "item": "edx:restored_old_boots"
+    }
+  }
+}

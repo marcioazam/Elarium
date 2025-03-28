@@ -1,0 +1,96 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:shulker_trill_release",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+
+    "component_groups": {
+      "xp:stage.bullet":{
+        "minecraft:transformation": {
+          "into": "xp:shulker_trill_bullet"
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "projectile" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": "xp:stage_bullet"
+          }
+        },
+        "power": 0.5,
+        "gravity": 0,
+        "anchor": 0,
+        "offset": [ 0, -0.4, 0 ],
+        "inertia": 0.99
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": -20,
+        "inhale_time": 0,
+        "breathes_air": true,
+        "breathes_water": true,
+        "breathes_lava": true,
+        "breathes_solids": true,
+        "generates_bubbles": false
+      },
+      "minecraft:timer": {
+        "time": 0.4,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:stage_bullet",
+          "target": "self"
+        }
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "xp:stage_bullet":{
+        "add": {
+          "component_groups": [
+            "xp:stage.bullet"
+          ]
+        }
+      }
+    }
+
+  }
+}

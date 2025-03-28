@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:wilds_flower_thick_leaves",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { 
+        "category": "nature",
+				"group": "itemGroup.name.leaves"
+      }
+    },
+    "components": {
+      "minecraft:map_color": "#9269ac",
+      "minecraft:loot": "loot_tables/leaves/wilds_flower_thick_leaves.json",
+      "minecraft:destroy_time": 0.45,
+      "minecraft:explosion_resistance": 15,
+      "minecraft:flammable": {
+        "flame_odds": 40,
+        "burn_odds": 40
+      }
+    }
+  }
+}

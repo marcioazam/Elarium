@@ -1,0 +1,121 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+      "description": {
+          "identifier": "xp:spawn_rays",
+          "is_spawnable": false,
+          "is_summonable": true
+      },
+      "components": {
+          "minecraft:physics": {"has_collision": false, "has_gravity": false},
+          "minecraft:scale": { "value": 1 },
+          "minecraft:type_family": {
+              "family": [
+                  "dummy", "ambient"
+              ]
+          },
+          "minecraft:health": {
+              "value": 1,
+              "min": 1,
+              "max": 1
+          },
+          "minecraft:damage_sensor": {
+            "triggers": [
+                {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            ]
+          },
+          "minecraft:knockback_resistance": {
+              "value": 1,
+              "max": 1
+          },
+          "minecraft:collision_box": {
+              "height": 0,
+              "width": 0
+          },
+          "minecraft:environment_sensor": {
+            "triggers": [
+                {
+                  "filters": {
+                    "all_of": [
+                      { "test": "hourly_clock_time", "operator": ">=", "value": 0 },
+                      { "test": "hourly_clock_time", "operator": "<", "value": 13000 }
+                    ]
+                  },
+                  "event": "xp:day"
+                },
+                {
+                  "filters": {
+                    "all_of": [
+                      { "test": "hourly_clock_time", "operator": ">=", "value": 13000 },
+                      { "test": "hourly_clock_time", "operator": "<", "value": 24000 }
+                    ]
+                  },
+                  "event": "xp:night"
+                }
+            ]
+          },
+          "minecraft:scheduler": {
+            "min_delay_secs": 0,
+            "max_delay_secs": 0,
+            "scheduled_events" : [
+              {
+                "filters": {
+                  "all_of": [
+                    { "test": "hourly_clock_time", "operator": ">=", "value": 0 },
+                    { "test": "hourly_clock_time", "operator": "<", "value": 13000 }
+                  ]
+                },
+                "event": "xp:day"
+              },
+              {
+                "filters": {
+                  "all_of": [
+                    { "test": "hourly_clock_time", "operator": ">=", "value": 13000 },
+                    { "test": "hourly_clock_time", "operator": "<", "value": 24000 }
+                  ]
+                },
+                "event": "xp:night"
+              }
+            ]
+          }
+      },
+
+      "component_groups": {
+        "xp:despawn": { "minecraft:instant_despawn": {} },
+        "xp:night": {
+            "minecraft:is_baby": {},
+            "minecraft:environment_sensor": {
+              "triggers": [
+                  {
+                    "filters": {
+                      "all_of": [
+                        { "test": "hourly_clock_time", "operator": ">=", "value": 0 },
+                        { "test": "hourly_clock_time", "operator": "<", "value": 13000 }
+                      ]
+                    },
+                    "event": "xp:day"
+                  },
+                  {
+                    "filters": {
+                      "all_of": [
+                        { "test": "hourly_clock_time", "operator": ">=", "value": 13000 },
+                        { "test": "hourly_clock_time", "operator": "<", "value": 24000 }
+                      ]
+                    },
+                    "event": "xp:night"
+                  }
+              ]
+            }
+        }
+      },
+  
+      "events": {
+        "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } },
+        "xp:night": { "add": { "component_groups": ["xp:night"] } },
+        "xp:day": { "remove": { "component_groups": ["xp:night"] } }
+      }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "exploding_crossbow"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "/-/",
+      "STS",
+      " - "
+    ],
+    "key": {
+      "-": {
+        "item": "minecraft:iron_ingot"
+      },
+      "/": {
+        "item": "minecraft:stick"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "T": {
+        "item": "minecraft:tnt"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+    "result": {
+      "item": "dungeons:exploding_crossbow",
+      "count": 1
+    }
+  }
+}

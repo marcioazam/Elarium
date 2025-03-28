@@ -1,0 +1,497 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 1,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:saddle",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:music_disc_13",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:music_disc_cat",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:music_disc_otherside",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:name_tag",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_horse_armor",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_horse_armor",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_horse_armor",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "enchant_randomly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 1,
+        "max": 6
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:log",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            },
+            
+            {
+              "function": "set_data",
+              "data": 3
+          }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:spider_eye",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        }, 
+        {
+          "type": "item",
+          "name": "minecraft:moss_block",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:string",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:copper_ingot",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 1,
+        "max": 4
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bread",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:wheat",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:bucket",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:coal",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:melon_seeds",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:pumpkin_seeds",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:beetroot_seeds",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ],
+          "weight": 10
+        }
+      ]
+    },
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:bone",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gunpowder",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:rotten_flesh",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:copper_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_pickaxe",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 2,
+                "max": 10
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_sword",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 2,
+                "max": 10
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_shovel",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 2,
+                "max": 15
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:platinium_sword",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "edx:nickel_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:string",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:crystal_of_rage",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:magnet",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:magnetic_firework",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_bravery",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_fear",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_youth",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:enchanted_socks",
+       
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:heart_in_a_bottle",
+         
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:air",
+          "weight": 9
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:undying_flower",
+          "weight": 1
+       
+        },
+        {
+          "type": "item",
+          "name": "minecraft:air",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

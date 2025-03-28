@@ -1,0 +1,207 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.heart_of_ender_boss.stage_controller": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "stage_0": "q.property('xp:stage') == 0" },
+                        { "stage_1": "q.property('xp:stage') == 1" },
+                        { "stage_2": "q.property('xp:stage') == 1 && q.health < (q.max_health * 0.5)" },
+                        { "pre_death": "q.property('xp:stage') == 2 && q.health <= 1" },
+                        { "pre_death": "q.property('xp:stage') == 3" }
+                    ]
+                },
+                "stage_0": {
+                    "on_entry": [
+                        "/playsound ender_boss.spawn @a ~ ~ ~ 10",
+                        "/event entity @s xp:cant_touch_this"
+                    ],
+                    "animations": [
+                        "spawn_delay"
+                    ],
+                    "transitions": [
+                        { "stage_1": "q.property('xp:stage') == 1 && q.all_animations_finished" }
+                    ]
+                },
+                "stage_1": {
+                    "on_entry": [
+                        "/event entity @s xp:stage_1"
+                    ],
+                    "animations": [
+                        "attack_controller"
+                    ],
+                    "transitions": [
+                        { "stage_2": "q.health < (q.max_health * 0.5)" }
+                    ]
+                },
+                "stage_2": {
+                    "on_entry": [
+                        "/event entity @s xp:stage_2",
+                        "/scoreboard players set can_beam_attack endboss 1",
+                        "/scoreboard players set can_spawn_enderslugs endboss 1"
+                    ],
+                    "animations": [
+                        "attack_controller"
+                    ],
+                    "transitions": [
+                        { "pre_death": "q.health <= 1" }
+                    ]
+                },
+                "pre_death": {
+                    "on_entry": [
+                        "/music stop 5",
+                        "/function endboss/position_hitboxes_hold_death",
+                        "/event entity @s xp:stage_3",
+                        "/event entity @e[type=xp:heart_of_ender_boss] xp:attack_state_none"
+                    ],
+                    "animations": [
+                        "wait_before_lasthittable"
+                    ],
+                    "transitions": [
+                        { "death": "q.property('xp:stage') == 4" }
+                    ]
+                },
+                "death": {
+                    "on_entry": [
+                        "/event entity @e[type=xp:endboss_hitbox] xp:instant_despawn",
+                        "/event entity @e[type=xp:heart_of_ender_beam] xp:instant_despawn",
+                        "/scoreboard players set ongoing_battle endboss 0"
+                    ],
+                    "animations": [
+                        "death"
+                    ]
+                }
+            }
+        },
+        "controller.animation.heart_of_ender_boss.attack_controller": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "on_entry": [
+                        "/event entity @e[type=xp:heart_of_ender_boss] xp:attack_state_none"
+                    ],
+                    "transitions": [
+                        { "determine_next_attack": "q.property('xp:attack_state') == 'none'" },
+                        { "prepare_splatter_attack": "q.property('xp:attack_state') == 'splatter'" },
+                        { "prepare_slam_attack": "q.property('xp:attack_state') == 'slam'" },
+                        { "prepare_beam_attack": "q.property('xp:attack_state') == 'beam'" },
+                        { "summon_units": "q.property('xp:attack_state') == 'summon_units'" },
+                        { "turn": "q.property('xp:attack_state') == 'turn'" }
+                    ]
+                },
+                "determine_next_attack": {
+                    "on_entry": [
+                        "/function endboss/pick_next_attack",
+                        "/function endboss/position_hitboxes_stage_1",
+                        "v.hoe_attack_cooldown = query.life_time + 2.0;"
+                    ],
+                    "transitions": [
+                        { "prepare_splatter_attack": "q.property('xp:attack_state') == 'splatter' && v.hoe_attack_cooldown < query.life_time" },
+                        { "prepare_slam_attack": "q.property('xp:attack_state') == 'slam' && v.hoe_attack_cooldown < query.life_time" },
+                        { "prepare_beam_attack": "q.property('xp:attack_state') == 'beam' && v.hoe_attack_cooldown < query.life_time" },
+                        { "summon_units": "q.property('xp:attack_state') == 'summon_units' && v.hoe_attack_cooldown < query.life_time" },
+                        { "turn": "q.property('xp:attack_state') == 'turn' && (v.hoe_attack_cooldown - 1) < query.life_time" }
+                    ]
+                },
+                "turn": {
+                    "on_entry": [
+                        "/function endboss/pick_turn_direction"
+                    ],
+                    "animations": [
+                        { "turn_right": "q.property('xp:turn') == 'right'" },
+                        { "turn_left": "q.property('xp:turn') == 'left'" }
+                    ],
+                    "transitions": [{
+                        "determine_next_attack": "q.any_animation_finished || q.property('xp:turn') == 'none'"
+                    }]
+                },
+                "prepare_splatter_attack": {
+                    "on_entry": [
+                        "/function endboss/position_hitboxes_stage_1",
+                        "v.hoe_attack_cooldown = query.life_time + 1.2;"
+                    ],
+                    "transitions": [
+                        { "splatter_attack": "v.hoe_attack_cooldown < query.life_time" }
+                    ]
+                },  
+                "splatter_attack": {
+                    "on_entry": [
+                        "/event entity @s xp:attacking",
+                        "/function endboss/position_hitboxes_splatter_attack"
+                    ],
+                    "animations": [
+                        "splatter_attack"
+                    ],
+                    "transitions": [{
+                        "determine_next_attack": "q.all_animations_finished"
+                    }],
+                    "on_exit": [
+                        "/event entity @s xp:remove_attacking"
+                    ]
+                },
+                "prepare_slam_attack": {
+                    "on_entry": [
+                        "v.hoe_attack_cooldown = query.life_time + 1.6;"
+                    ],
+                    "animations": [
+                        "prepare_slam_attack"
+                    ],
+                    "transitions": [
+                        { "slam_attack": "v.hoe_attack_cooldown < query.life_time" }
+                    ]
+                },  
+                "slam_attack": {
+                    "on_entry": [
+                        "/event entity @s xp:attacking",
+                        "/function endboss/position_hitboxes_slam_attack"
+                    ],
+                    "animations": [
+                        "slam_attack"
+                    ],
+                    "transitions": [{
+                        "determine_next_attack": "q.all_animations_finished"
+                    }],
+                    "on_exit": [
+                        "/event entity @s xp:remove_attacking"
+                    ]
+                },
+                "prepare_beam_attack": {
+                    "on_entry": [
+                        "v.hoe_attack_cooldown = query.life_time + 1.2;"
+                    ],
+                    "transitions": [
+                        { "beam_attack": "v.hoe_attack_cooldown < query.life_time" }
+                    ]
+                },
+                "beam_attack": {
+                    "on_entry": [
+                        "/event entity @s xp:attacking",
+                        "/function endboss/position_hitboxes_beam_attack"
+                    ],
+                    "animations": [
+                        "beam_attack"
+                    ],
+                    "transitions": [{
+                        "determine_next_attack": "q.all_animations_finished"
+                    }]
+                },
+                "summon_units": {
+                    "on_entry": [
+                        "/event entity @s xp:attacking"
+                    ],
+                    "animations": [
+                        "summon_units"
+                    ],
+                    "on_exit": [
+                        "/event entity @s xp:remove_attacking"
+                    ],
+                    "transitions": [{
+                        "determine_next_attack": "q.all_animations_finished"
+                    }]
+                }
+            }
+        }
+    }
+}

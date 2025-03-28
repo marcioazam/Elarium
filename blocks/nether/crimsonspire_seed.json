@@ -1,0 +1,42 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:crimsonspire_seed"
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:crimsonspire_seed"],
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0
+            },
+			
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": {
+				"origin": [-2, 0, -2],
+				"size": [4, 4, 4]
+			  },
+			  "minecraft:geometry": "geometry.crimsonspire_seed",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "crimsonspire_seed",
+							"render_method": "alpha_test",
+							"face_dimming": false,
+							"ambient_occlusion": false 
+						}
+				},
+			"tag:no_silktouch": {},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": ["crimson_nylium"]
+					}
+				]
+			},
+			"minecraft:light_dampening": 0
+		}
+	}
+}

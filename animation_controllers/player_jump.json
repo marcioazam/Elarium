@@ -1,0 +1,28 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_jump": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @s remove jump"
+					  ],
+					"transitions":[
+						{"bow1":"query.is_jumping == 1.0"}
+					]
+				},
+				"bow1": {
+					"on_entry": [
+						"/tag @s add jump",
+						"/tag @s[tag=purpur_socks,tag=jump,tag=sneak] add fly",
+						"/tag @s[tag=purpur_socks,tag=jump,tag=fly] remove sneak"
+					  ],
+					"transitions":[
+						
+						{"default":"query.is_jumping == 0.0"}
+				 ]
+				}
+	 	}
+		}
+	}
+}

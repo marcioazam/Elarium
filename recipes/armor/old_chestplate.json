@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:old_chestplate"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "X X",
+      "XXX",
+      "XXX"
+    
+    ],
+    "key": {
+      "X": {
+        "item": "edx:ancient_armor_debris"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherstar"
+      }
+    ],
+    "result": {
+      "item": "edx:restored_old_chestplate"
+    }
+  }
+}

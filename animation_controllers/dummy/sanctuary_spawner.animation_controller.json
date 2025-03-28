@@ -1,0 +1,62 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.sanctuary_spawner.spawn_controller": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "spawn_mobs_5x5": "q.is_illager_captain && q.variant == 1" },
+                        { "spawn_mobs_7x7": "q.is_illager_captain && q.variant == 2" },
+                        { "spawn_mobs_9x9": "q.is_illager_captain && q.variant == 3" },
+                        { "spawn_mobs_3x3_ruins": "q.is_illager_captain && q.variant == 4" }
+                    ]
+                },
+                "spawn_mobs_5x5": {
+                    "on_entry": [
+                        "/function mob_spawning/broken_sanctuary_spawner/5x5"
+                    ],
+                    "animations": [
+                        "spawn_cooldown"
+                    ],
+                    "transitions": [
+                        { "default": "!q.is_illager_captain" }
+                    ]
+                },
+                "spawn_mobs_7x7": {
+                    "on_entry": [
+                        "/function mob_spawning/broken_sanctuary_spawner/7x7"
+                    ],
+                    "animations": [
+                        "spawn_cooldown"
+                    ],
+                    "transitions": [
+                        { "default": "!q.is_illager_captain" }
+                    ]
+                },
+                "spawn_mobs_9x9": {
+                    "on_entry": [
+                        "/function mob_spawning/broken_sanctuary_spawner/9x9"
+                    ],
+                    "animations": [
+                        "spawn_cooldown"
+                    ],
+                    "transitions": [
+                        { "default": "!q.is_illager_captain" }
+                    ]
+                },
+                "spawn_mobs_3x3_ruins": {
+                    "on_entry": [
+                        "/function mob_spawning/broken_sanctuary_spawner/3x3_ruins"
+                    ],
+                    "animations": [
+                        "spawn_cooldown"
+                    ],
+                    "transitions": [
+                        { "default": "!q.is_illager_captain" }
+                    ]
+                }
+            }
+        }
+    }
+}

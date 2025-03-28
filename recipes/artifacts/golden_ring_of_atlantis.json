@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:groa"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:ring_of_atlantis"
+      },
+      "#": {
+        "item": "edx:golden_ring"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:totem_of_undying"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:ring_of_atlantis"
+      },
+      {
+        "item": "edx:golden_ring"
+      }
+    ],
+    "result": {
+      "item": "edx:golden_ring_of_atlantis"
+    }
+  }
+  
+}

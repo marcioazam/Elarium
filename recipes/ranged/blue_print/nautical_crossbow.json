@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_nautical_crossbow"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:nautical_crossbow"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:nautical_crossbow"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:nautical_crossbow", "count": 1 },
+      { "item": "dungeons:nautical_crossbow", "count": 1 }
+    ]
+  }
+}

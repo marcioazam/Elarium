@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:lava_blackstone"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " P ",
+      "PDP",
+      " P "
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:polished_blackstone_bricks",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:lava_bucket"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:polished_blackstone_bricks"
+      },
+      {
+        "item": "minecraft:lava_bucket"
+      }
+    ],
+    "result": {
+      "item": "edx:fire_blackstone_brick",
+      "count": 4
+    }
+  }
+  
+}

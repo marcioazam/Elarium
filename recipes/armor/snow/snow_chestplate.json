@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "snow_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "B B",
+      "III",
+      "BBB"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:ice"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:ice"
+      },
+     "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:snow_chestplate",
+      "count": 1
+    }
+  }
+}

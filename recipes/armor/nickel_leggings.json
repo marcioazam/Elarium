@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:nickel_leggings"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "XXX",
+      "XPX",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "edx:nickel_ingot"
+      },
+      "P": {
+        "item": "minecraft:blaze_powder"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:nickel_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:nickel_leggings"
+    }
+  }
+}

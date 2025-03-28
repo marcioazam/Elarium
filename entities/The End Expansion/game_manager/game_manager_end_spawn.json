@@ -1,0 +1,63 @@
+{
+  "format_version": "1.17.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:game_manager.end_spawn",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "scripts": {
+        "animate": [
+          "wilds_leaves",
+          "wilds_aura"
+        ]
+      },
+      "animations": {
+        //Ambients
+        "wilds_leaves": "animation.game_manager.end_spawn.wilds_leaves",
+        "wilds_aura": "animation.game_manager.end_spawn.wilds_aura"
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "game_manager", "dev", "dummy" ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      },
+      "minecraft:tick_world": {
+        "never_despawn": true,
+        "radius": 2
+      }
+    },
+
+    "component_groups": {
+      "xp:despawn": { "minecraft:instant_despawn": {} },
+      "xp:reset": {
+        "minecraft:skin_id": { "value": 0 },
+        "minecraft:variant": { "value": 0 },
+        "minecraft:mark_variant": { "value": 0 }
+      },
+      "xp:eye_placed": { "minecraft:skin_id": { "value": 1 } }
+    },
+
+    "events": {
+      "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } },
+      "xp:reset": { "add": { "component_groups": ["xp:reset"] }, "remove": { "component_groups": [ "xp:eye_placed" ] } },
+      "xp:eye_placed": { "add": { "component_groups": ["xp:eye_placed"] } }
+    }
+  }
+}

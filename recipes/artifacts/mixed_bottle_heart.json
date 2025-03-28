@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:mixed_bottle_heart"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:heart_in_a_bottle"
+      },
+      "#": {
+        "item": "edx:golden_heart_bottle"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:glowstone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:heart_in_a_bottle"
+      },
+     {
+        "item": "edx:golden_heart_bottle"
+      }
+    ],
+    "result": {
+      "item": "edx:mixed_bottle_heart"
+    }
+  }
+  
+}

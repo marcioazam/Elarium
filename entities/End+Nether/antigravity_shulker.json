@@ -1,0 +1,169 @@
+{
+   "format_version": "1.16.0",
+   "minecraft:entity": {
+      "description": {
+         "identifier": "edx:antigravity_shulker",
+         "is_spawnable": true,
+         "is_summonable": true,
+         "is_experimental": false
+      },
+      "component_groups": {
+         "shock":{
+            "minecraft:behavior.knockback_roar": {
+               "priority": 0,
+               "duration": 0.2,
+               "attack_time": 0.1,
+               "knockback_damage": 10,
+               "knockback_strength": 5,
+               "knockback_range": 7,
+               "knockback_filters": {
+                 "all_of": [
+                   { "test": "is_family", "subject": "other", "operator": "==", "value": "player" }
+                 ]
+               },
+               "on_roar_end": {
+                  "event": "noshock"
+                },
+               "damage_filters": {
+                 "all_of": [
+                   { "test": "is_family", "subject": "other", "operator": "==", "value": "player" }
+                 ]
+               }
+             }
+         },
+         "noshock":{
+            "minecraft:entity_sensor": {
+               "sensor_range": 4,
+               "relative_range": false,
+               "minimum_count": 1,
+               "event_filters": {
+                 "any_of": [
+                   { "all_of": [
+                     { "test": "is_family", "subject": "other", "value": "player" }
+                   ]}
+                 ]
+               },
+               "event": "shock"
+             }
+         }
+      },
+      "components": {
+         "minecraft:experience_reward": {
+            "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
+         },
+         "minecraft:loot": {
+            "table": "loot_tables/entities/shulker.json"
+         },
+         "minecraft:type_family": {
+            "family": [ "shulker", "monster", "mob" ]
+          },
+         "minecraft:behavior.random_stroll": {
+            "priority": 5,
+            "speed_multiplier": 1
+         },
+         "minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+           "minecraft:behavior.nearest_attackable_target": {
+            "priority": 1,
+            "scan_interval": 20,
+            "within_radius": 32.0,
+            "target_search_height": 80.0,
+      
+            "entity_types": [
+              {
+               "filters": { "test": "is_family", "subject": "other", "value": "player" },
+               "max_dist": 32
+              }
+            ]
+           },
+         "minecraft:behavior.float": {
+            "priority": 15
+         },
+         "minecraft:behavior.ranged_attack": {
+            "priority": 1,
+            "burst_shots": 5,
+            "burst_interval": 0.5,
+            "attack_interval_min": 5.0,
+            "attack_interval_max": 5.0,
+            "attack_radius": 16.0
+          },
+         "minecraft:breathable": {
+            "total_supply": 20,
+            "suffocate_time": 0
+         },
+         "minecraft:collision_box": {
+            "width": 1,
+            "height": 1
+         },
+         "minecraft:health": {
+            "value": 150,
+            "max": 150
+         },
+         "minecraft:movement": {
+            "value": 0.25
+         },
+         "minecraft:flying_speed": {
+            "value": 0.25
+         },
+         "minecraft:navigation.hover": {
+            "can_path_over_water": true,
+				"can_sink": true,
+				"can_pass_doors": false,
+				"can_path_from_air": true,
+				"avoid_water": false,
+				"avoid_damage_blocks": false,
+				"avoid_sun": false,
+				"can_swim": true
+         },
+         "minecraft:movement.hover": {},
+         "minecraft:jump.static": {},
+         "minecraft:can_fly": {},
+        
+         "minecraft:nameable": {},
+         "minecraft:physics": {
+				"has_collision": true
+			 },
+          "minecraft:shooter": {
+            "def": "minecraft:shulker_bullet"
+           },
+         "minecraft:pushable": {
+            "is_pushable": true,
+            "is_pushable_by_piston": true
+         }
+      },
+      "events": {
+         "minecraft:entity_spawned": {
+            "add": {
+              "component_groups": [
+               "noshock"
+              ]
+            }
+         },
+         "shock": {
+            "add": {
+               "component_groups": [
+                  "shock"
+               ]
+            },
+            "remove": {
+               "component_groups": [
+                  "noshock"
+               ]
+            }
+         },
+         "noshock": { 
+            "remove": {
+               "component_groups": [
+                  "shock"
+               ]
+            },
+            "add": {
+               "component_groups": [
+                  "noshock"
+               ]
+            }
+         } 
+      }
+   }
+}

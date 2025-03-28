@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "anchor"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "III",
+      " i ",
+      "nin"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_block"
+      },
+      "i": {
+        "item": "minecraft:iron_ingot"
+      },
+      "n": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "item": "dungeons:anchor",
+      "count": 1
+    }
+  }
+}

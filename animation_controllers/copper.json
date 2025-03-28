@@ -1,0 +1,42 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.copper": {
+			"states": {
+				"default": {
+					
+					"transitions":[
+						{"light":"q.relative_block_has_any_tag(0,-1,0, 'charged_copper')==1 || q.relative_block_has_any_tag(0,0,-1, 'charged_copper_up')==1  || q.relative_block_has_any_tag(0,0,1, 'charged_copper_up')==1 || q.relative_block_has_any_tag(1,0,0, 'charged_copper_up')==1  || q.relative_block_has_any_tag(-1,0,0, 'charged_copper_up')==1 "} 
+					]
+				},
+				"light": {
+					"on_exit": [
+						"/event entity @s off"
+					  ],
+					"on_entry": [
+						"/event entity @s on"
+					  ],
+					"transitions":[{"default":"!(q.relative_block_has_any_tag(0,-1,0, 'charged_copper')==1 || q.relative_block_has_any_tag(0,0,-1, 'charged_copper_up')==1  || q.relative_block_has_any_tag(0,0,1, 'charged_copper_up')==1 || q.relative_block_has_any_tag(1,0,0, 'charged_copper_up')==1  || q.relative_block_has_any_tag(-1,0,0, 'charged_copper_up')==1 )"} ]
+			}
+	 	}
+		},
+		"controller.animation.block_breaker": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @s remove block_breaker"
+					  ],
+					"transitions":[
+						{"light":"q.relative_block_has_any_tag(0,1,0, 'block_breaker')==1 || q.relative_block_has_any_tag(1,0,0, 'block_breaker')==1 || q.relative_block_has_any_tag(0,-1,0, 'block_breaker')==1 || q.relative_block_has_any_tag(0,0,-1, 'block_breaker')==1 || q.relative_block_has_any_tag(0,0,1, 'block_breaker')==1 || q.relative_block_has_any_tag(-1,0,0, 'block_breaker')==1"} 
+					]
+				},
+				"light": {
+					"on_entry": [
+						"/tag @s add block_breaker"
+					  ],
+					"transitions":[{"default":"!(q.relative_block_has_any_tag(0,1,0, 'block_breaker')==1 || q.relative_block_has_any_tag(1,0,0, 'block_breaker')==1 || q.relative_block_has_any_tag(0,-1,0, 'block_breaker')==1 || q.relative_block_has_any_tag(0,0,-1, 'block_breaker')==1 || q.relative_block_has_any_tag(1,0,0, 'block_breaker')==1 || q.relative_block_has_any_tag(-1,0,0, 'block_breaker')==1)"} ]
+			}
+	 	}
+		}
+	}
+}

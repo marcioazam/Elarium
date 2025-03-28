@@ -1,0 +1,42 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "edx:spawner_table",
+            "menu_category":
+			{
+				"category": "construction"
+			}
+        },
+        "components": {
+            "tag:edx:stone": {},
+            "minecraft:geometry": "geometry.spawner_table",
+            "minecraft:loot": "loot_tables/blocks/spawner_table.json" ,
+            "minecraft:collision_box": {
+                "origin": [-8,0,-8],
+                "size": [16,16,16]
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "spawner_table", 
+					"render_method": "alpha_test"
+				}
+			},
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 2
+            },
+              "minecraft:crafting_table": {
+                "grid_size": 3,
+                "table_name": "Spawner table",
+                "crafting_tags": [
+                    "spawner"
+                ]
+            }
+	}
+
+    
+}
+}

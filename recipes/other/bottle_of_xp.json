@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:xp"
+    },
+
+    
+    "tags": [ "crafting_table","workbench" ],
+    "pattern": [
+      "RXR",
+      "XDX",
+      " X "
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:lapis_lazuli"
+      },
+      "D": {
+        "item": "minecraft:glass_bottle"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:redstone"
+      },
+      {
+        "item": "minecraft:lapis_lazuli"
+      }
+    ],
+    "result": {
+      "item": "minecraft:experience_bottle",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:deepslate_cabin_random"
+    },
+    "features": [
+      [ "edx:deepslatec1", 1 ],
+      [ "edx:deepslatec2", 1 ],
+      [ "edx:nothing_feature", 20 ]
+    ]
+  }
+}

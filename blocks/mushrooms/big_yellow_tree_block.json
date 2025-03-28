@@ -1,0 +1,46 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:big_yellow_tree_block",
+		"menu_category": {
+		  "category": "none"
+		}
+	  },
+	  "components": {
+		"minecraft:light_dampening": 0, 
+		"minecraft:light_emission": 0,
+		"minecraft:collision_box": false,
+		"minecraft:selection_box": {
+			"origin": [-8,0,-8],
+			"size": [16,1,16]
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.cross"
+		},
+		
+		"minecraft:material_instances": {
+			"*": {
+				"texture": "mycelium_vine",
+				"render_method": "alpha_test",
+				"face_dimming": false,
+				"ambient_occlusion": false
+			}
+		},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  }, 
+		"minecraft:placement_filter": {
+		  "conditions": [
+			{
+			  "allowed_faces": ["up","down"],
+			  "block_filter": ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_vine"]
+			}
+		  ]
+		},
+        "minecraft:custom_components": [
+            "big_yellow_tree_block:tick"
+          ]
+	  }
+	}
+}

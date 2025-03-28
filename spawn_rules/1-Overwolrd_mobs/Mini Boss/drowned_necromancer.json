@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "dungeons:drowned_necromancer",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underwater": {},
+
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 8,
+          "adjust_for_weather": true
+        },
+
+        "minecraft:difficulty_filter": {
+ 
+          "max": "hard"
+        },
+
+        "minecraft:weight": {
+          "default": 5
+        },
+
+        "minecraft:density_limit": {
+          "underground": 1,
+          "surface": 1
+        },
+
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag", "operator": "==", "value": "deep" 
+        }
+      }
+    ]
+  }
+}

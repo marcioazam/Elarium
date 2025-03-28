@@ -1,0 +1,68 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "edx:fungus_vine",
+            "states": {
+                "propertie:connect": [ 0, 1 ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.cross",
+            "minecraft:loot": "loot_tables/blocks/fungus_vine.json" ,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.1
+            },
+            "minecraft:selection_box": {
+                "origin": [ -8.0, 0.0, -8.0 ], 
+                "size": [ 16, 16, 16 ]
+            },
+            "minecraft:collision_box": false,
+            "minecraft:placement_filter": {
+                "conditions": [
+                  {
+                    "allowed_faces": [
+                      "down"
+                    ],
+                    "block_filter": [
+                      "edx:fungus_vine","edx:endshroom_block","edx:endshroom_stem"
+                    ]
+                  }
+                ]
+              }
+              ,
+        "minecraft:custom_components": [
+            "fungus_vine:on_place",
+            "fungus_vine:on_destroy"
+          ]
+        },
+        "permutations": [
+        {
+                "condition": "query.block_state('propertie:connect') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "vine0",
+                            "render_method": "alpha_test",
+                            "face_dimming": false,
+					        "ambient_occlusion": false 
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('propertie:connect') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "vine1",
+                            "render_method": "alpha_test",
+                            "face_dimming": false,
+					        "ambient_occlusion": false 
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

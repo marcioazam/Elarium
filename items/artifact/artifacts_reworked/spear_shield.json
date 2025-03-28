@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:explosive_scroll",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"shield_spear"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "explosive_scroll"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dSpartan knowledge scroll \n§5Artifact\n§6When sneaking with a shield, the cooldown of spears are reduced by half"
+			  }
+		}
+	}
+}

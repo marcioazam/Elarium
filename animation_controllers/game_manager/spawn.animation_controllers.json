@@ -1,0 +1,133 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    //End Travel
+    "controller.animation.game_manager.spawn.send_player_to_travel": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": ["tags"],
+          "transitions": [ { "tf_player": "q.skin_id > 0" } ]
+        },
+        "tf_player": {
+          "animations": [
+            "send_player_to_end",
+            "send_player_to_overworld"
+          ],
+          "transitions": [ { "default": "q.skin_id == 0" } ]
+        }
+      }
+    },
+
+    "controller.animation.game_manager.ender_eye_placement": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "eye_tf" ],
+          "transitions": [ { "portal_idle": "q.skin_id > 0 && (q.life_time - (v.cutscene_time ?? 0)) > 4" } ],
+          "on_entry": [
+            "/execute at @s[tag=first_run] run scoreboard objectives add eyes_placed dummy eyes_placed",
+            "/execute at @s[tag=first_run] run scoreboard players set @s eyes_placed 0"
+          ],
+          "on_exit": [
+            "/execute at @s[tag=first_run] run event entity @s xp:cutscene.end_portal"
+          ]
+        },
+        "portal_idle": {
+          "animations": ["end_portal.sfx_loop"],
+          "transitions": [ { "default": "q.skin_id == 0" } ],
+          "on_entry": [
+          ]
+        }
+      }
+    },
+    "controller.animation.game_manager.spawn.music": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "play_music": "(q.life_time - (v.play_music ?? 0)) >= 9.0 && q.skin_id == 0" } ],
+          "on_entry": ["v.play_music = q.life_time;"]
+        },
+        "play_music": {
+          "transitions": [ { "default": "q.skin_id != 0" } ],
+          "on_entry": [
+            "/scoreboard objectives add endboss dummy",
+            "/scoreboard players add ongoing_battle endboss 0",
+            "/execute if score ongoing_battle endboss matches 0 run music play spawn_ambient 1 1 loop",
+            "/execute if score ongoing_battle endboss matches 1 in the_end positioned -166 182 2060 if entity @p[r=100] run music play heart_of_ender_boss_music 1 2 loop"
+          ]
+        }
+      }
+    },
+    "controller.animation.game_manager.spawn.lava_smoke": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "lava_smoke", "lava_fog", "eye_movement" ]
+        }
+      }
+    },
+    "controller.animation.game_manager.spawn.leaves": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+					"transitions": [
+						{ "leaves": "(v.randomize ?? 0) == 1" },
+						{ "leaves_1": "(q.life_time - (v.tick_delay ?? 0)) >= 2 && (v.randomize ?? 0) == 2" },
+						{ "leaves_2": "(q.life_time - (v.tick_delay ?? 0)) >= 1 && (v.randomize ?? 0) == 3" },
+						{ "leaves_3": "(q.life_time - (v.tick_delay ?? 0)) >= 3 && (v.randomize ?? 0) == 4" }
+					],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.randomize = math.random_integer(1, 4);"
+          ]
+        },
+        "leaves": {
+					"transitions": [
+						{ "default": "(q.life_time - v.tick_delay) >= 3" }
+					],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.randomize = math.random_integer(1, 4);",
+            "/execute if block -1362 6 -1402 leaves -1 run particle xp:green_leaf_dark -1362 6 -1402",
+            "/execute if block -1360 9 -1402 leaves -1 run particle xp:green_leaf_dark -1360 9 -1402"
+          ]
+        },
+        "leaves_1": {
+					"transitions": [
+						{ "default": "(q.life_time - v.tick_delay) >= 1" }
+					],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.randomize = math.random_integer(1, 4);",
+            "/execute if block -1366 5 -1403 leaves -1 run particle xp:green_leaf_dark -1366 5 -1403",
+            "/execute if block -1365 7 -1421 leaves -1 run particle xp:green_leaf_dark -1365 7 -1421",
+            "/execute if block -1362 7 -1420 leaves -1 run particle xp:green_leaf_dark -1362 7 -1420"
+          ]
+        },
+        "leaves_2": {
+					"transitions": [
+						{ "default": "(q.life_time - v.tick_delay) >= 2" }
+					],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.randomize = math.random_integer(1, 4);",
+            "/execute if block -1363 6 -1406 leaves -1 run particle xp:green_leaf_dark -1363 6 -1406",
+            "/execute if block -1366 7 -1420 leaves -1 run particle xp:green_leaf_dark -1366 7 -1420"
+          ]
+        },
+        "leaves_3": {
+					"transitions": [
+						{ "default": "(q.life_time - v.tick_delay) >= 1" }
+					],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "v.randomize = math.random_integer(1, 4);",
+            "/execute if block -1363 7 -1418 leaves -1 run particle xp:green_leaf_dark -1363 7 -1418",
+            "/execute if block -1363 6 -1404 leaves -1 run particle xp:green_leaf_dark -1363 6 -1404"
+          ]
+        }
+      }
+    }
+  }
+}

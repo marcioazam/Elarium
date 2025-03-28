@@ -1,0 +1,38 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:blaze"
+    },
+
+    
+    "tags": [ "spawner" ],
+    "pattern": [
+      "RFR",
+      "FSF",
+      "RFR"
+    ],
+    "unlock": [
+      {
+        "item": "edx:ruby"
+      },
+      {
+        "item": "edx:spawner_fragment"
+      }
+    ],
+    "key": {
+      "R": {
+        "item": "edx:ruby"
+      },
+      "F": {
+        "item": "edx:spawner_fragment"
+      },
+      "S": {
+        "item": "edx:blaze_soul"
+      }
+    },
+    "result": {
+      "item": "edx:blaze_spawner"
+    }
+  }
+}

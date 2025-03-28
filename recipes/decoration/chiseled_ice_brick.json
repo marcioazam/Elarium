@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:chiseled_ice_brick"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "P",
+      "P"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:ice_brick_slab",
+        "data": 0
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:ice_brick",
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "edx:frozen_stone_bricks",
+      "count": 1
+    }
+  }
+  
+}

@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:crimsonspire_stem_0",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:crimsonspire_stem_break"],
+			"minecraft:collision_box": {
+                "origin": [-4,0,-4],
+                "size": [8,16,8]
+            },
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+			"minecraft:loot": "loot_tables/blocks/crimsonspire_stem_1.json",
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 10
+            },
+			"minecraft:geometry": "geometry.crimsonspire_stem",
+		
+			"minecraft:selection_box": {
+                "origin": [-4,0,-4],
+                "size": [8,16,8]
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "crimsonspire_stem_0",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

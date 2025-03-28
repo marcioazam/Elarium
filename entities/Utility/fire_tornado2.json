@@ -1,0 +1,215 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:fire_tornado",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "despawn": {
+        "minecraft:instant_despawn": {
+         "remove_child_entities": true
+        }
+     },
+      "easy_timer":{
+        "minecraft:timer": {
+          "time": [ 7, 7.0 ],
+          "looping": true,
+          "time_down_event": {
+            "event": "despawn",
+            "target": "self"
+          }
+        }
+      },
+      "normal_timer":{
+        "minecraft:timer": {
+          "time": [ 10, 10.0 ],
+          "looping": true,
+          "time_down_event": {
+            "event": "despawn",
+            "target": "self"
+          }
+        }
+      },
+      "hard_timer":{
+        "minecraft:timer": {
+          "time": [ 15, 15.0 ],
+          "looping": true,
+          "time_down_event": {
+            "event": "despawn",
+            "target": "self"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:movement.generic": {
+        "max_turn": 4.0
+      },
+     "minecraft:environment_sensor": {
+      "triggers": [
+        {
+        "filters": {
+          "test": "in_water",
+          "subject": "self",
+          "operator": "==",
+          "value": true
+        },
+        "event": "minecraft:despawn"
+        }
+    ]
+    },
+    "minecraft:damage_sensor": {
+      "triggers": {
+         "on_damage": {
+            "filters": {}
+         },
+         "deals_damage": false
+      }
+   },
+     "minecraft:scale": {
+      "value": 2.5
+    },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "fire_tornado" ]
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.1
+      }, 
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+      "minecraft:movement": {
+        "value": 0.32
+      },
+      "minecraft:navigation.generic": {
+        "is_amphibious": true,
+        "can_path_over_water": false,
+        "can_swim": false,
+        "can_walk": true,
+        "can_sink": false,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:attack": {
+        "damage": 1
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:area_attack":{
+        "cause": "fire",
+        "damage_cooldown":0.5,
+        "damage_per_tick":7,
+        "damage_range":0.7,
+        "entity_filter":
+        {
+          "all_of": [
+          { "test": "is_family", "subject": "other", "value": "player" }
+        ]
+      }
+      },
+      "minecraft:fire_immune":{},
+      "minecraft:behavior.move_towards_target": {
+        "priority": 2,
+        "speed_multiplier": 1.0,
+        "within_radius": 64
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 0,
+        "must_see": false,
+        "reselect_targets": false,
+        "within_radius": 55.0,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "value": "player" }
+              ]
+            },
+            "max_dist": 55
+          }
+        ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:follow_range": {
+        "value": 64
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence":[
+          {
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"hard"
+							   }
+							]
+						 },
+             "add": {
+              "component_groups": [
+                "hard_timer"
+              ]
+            }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"normal"
+							   }
+							]
+						 },
+             "add": {
+              "component_groups": [
+                "normal_timer"
+              ]
+            }
+					},
+					{
+						"filters":{
+							"all_of":[
+							   {
+								  "test":"is_difficulty",
+								  "value":"easy"
+							   }
+							]
+						 },
+             "add": {
+              "component_groups": [
+                "easy_timer"
+              ]
+            }
+					}
+        ]
+        
+      },
+      "despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			}
+    }
+  }
+}

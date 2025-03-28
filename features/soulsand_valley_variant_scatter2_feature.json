@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:soulsand_valley_variant_scatter2_feature"
+		},
+		"places_feature": "edx:soulsand_valley_variant_feature",
+		"iterations": "t.biome_idx == 5",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

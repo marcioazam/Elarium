@@ -1,0 +1,1957 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.dev.broken_sanctuary_placement": {
+            "loop": false,
+            "animation_length": 94,
+            "timeline": {
+                "0.05": [
+                    "/tp @a 249 78 536"
+                ],
+                "0.35": [
+                    "/execute positioned 249 78 536 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 249 78 536 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 249 78 536 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "0.4": [
+                    "/tp @a 246 75 534"
+                ],
+                "0.7": [
+                    "/execute positioned 246 75 534 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "0.75": [
+                    "/tp @a 250 51 534"
+                ],
+                "1.05": [
+                    "/execute positioned 250 51 534 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 250 51 534 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 250 51 534 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "1.1": [
+                    "/tp @a 249 105 536"
+                ],
+                "1.4": [
+                    "/fill 248 104 535 250 106 537 air",
+                    "/execute positioned 249 105 536 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 249 105 536"
+                ],
+                "1.45": [
+                    "/tp @a 311 75 538"
+                ],
+                "1.75": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger 311 75 538"
+                ],
+                "1.8": [
+                    "/tp @a 310 110 582"
+                ],
+                "2.1": [
+                    "/execute positioned 310 110 582 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "2.15": [
+                    "/tp @a 307 67 580"
+                ],
+                "2.45": [
+                    "/execute positioned 307 67 580 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 307 67 580 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 307 67 580 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "2.5": [
+                    "/tp @a 307 91 580"
+                ],
+                "2.8": [
+                    "/execute positioned 307 91 580 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 307 91 580 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 307 91 580 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "2.85": [
+                    "/tp @a 307 113 580"
+                ],
+                "3.15": [
+                    "/execute positioned 307 113 580 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 307 113 580 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 307 113 580 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "3.2": [
+                    "/tp @a 287 76 568"
+                ],
+                "3.5": [
+                    "/execute positioned 287 76 568 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 287 76 568 run setblock ~ ~ ~ air",
+                    "/execute positioned 287 76 568 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 287 76 568 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "3.55": [
+                    "/tp @a 296 105 594"
+                ],
+                "3.85": [
+                    "/execute positioned 296 105 594 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 296 105 594 run setblock ~ ~ ~ air",
+                    "/execute positioned 296 105 594 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 296 105 594 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "3.9": [
+                    "/tp @a 323 89 606"
+                ],
+                "4.2": [
+                    "/execute positioned 323 89 606 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 323 89 606"
+                ],
+                "4.25": [
+                    "/tp @a 341 68 594"
+                ],
+                "4.55": [
+                    "/execute positioned 341 68 594 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 341 68 594"
+                ],
+                "4.6": [
+                    "/tp @a 313 110 620"
+                ],
+                "4.9": [
+                    "/execute positioned 313 110 620 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 313 110 620"
+                ],
+                "4.95": [
+                    "/tp @a 306 82 610"
+                ],
+                "5.25": [
+                    "/execute positioned 306 82 610 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 306 82 610"
+                ],
+                "5.3": [
+                    "/tp @a 323 75 515"
+                ],
+                "5.6": [
+                    "/execute positioned 323 75 515 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 323 75 515"
+                ],
+                "5.65": [
+                    "/tp @a 339 90 619"
+                ],
+                "5.95": [
+                    "/execute positioned 339 90 619 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 339 90 619 run setblock ~ ~ ~ air",
+                    "/execute positioned 339 90 619 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 339 90 619 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "6.0": [
+                    "/tp @a 374 94 634"
+                ],
+                "6.3": [
+                    "/execute positioned 374 94 634 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 374 94 634 run setblock ~ ~ ~ air",
+                    "/execute positioned 374 94 634 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 374 94 634 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "6.35": [
+                    "/tp @a 384 89 616"
+                ],
+                "6.65": [
+                    "/execute positioned 384 89 616 run event entity @e[dx=0,type=xp:sanctuary_encounter_spawner] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_spawner 384 89 616"
+                ],
+                "6.7": [
+                    "/tp @a 373 89 616"
+                ],
+                "7.0": [
+                    "/execute positioned 373 89 616 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 373 89 616"
+                ],
+                "7.05": [
+                    "/tp @a 383 89 606"
+                ],
+                "7.35": [
+                    "/execute positioned 383 89 606 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 383 89 606"
+                ],
+                "7.4": [
+                    "/tp @a 397 89 616"
+                ],
+                "7.7": [
+                    "/execute positioned 397 89 616 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 397 89 616"
+                ],
+                "7.75": [
+                    "/tp @a 356 68 601"
+                ],
+                "8.05": [
+                    "/execute positioned 356 68 601 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 356 68 601"
+                ],
+                "8.1": [
+                    "/tp @a 371 75 632"
+                ],
+                "8.4": [
+                    "/execute positioned 371 75 632 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 371 75 632"
+                ],
+                "8.45": [
+                    "/tp @a 389 47 606"
+                ],
+                "8.75": [
+                    "/execute positioned 389 47 606 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 389 47 606"
+                ],
+                "8.8": [
+                    "/tp @a 374 47 613"
+                ],
+                "9.1": [
+                    "/execute positioned 374 47 613 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 374 47 613"
+                ],
+                "9.15": [
+                    "/tp @a 417 68 591"
+                ],
+                "9.45": [
+                    "/execute positioned 417 68 591 run event entity @e[dx=0,type=xp:sanctuary_encounter_spawner] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_spawner 417 68 591"
+                ],
+                "9.5": [
+                    "/tp @a 393 61 599"
+                ],
+                "9.8": [
+                    "/execute positioned 393 61 599 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 393 61 599"
+                ],
+                "9.85": [
+                    "/tp @a 417 68 600"
+                ],
+                "10.15": [
+                    "/execute positioned 417 68 600 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 417 68 600"
+                ],
+                "10.2": [
+                    "/tp @a 406 68 591"
+                ],
+                "10.5": [
+                    "/execute positioned 406 68 591 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 406 68 591"
+                ],
+                "10.55": [
+                    "/tp @a 417 68 581"
+                ],
+                "10.85": [
+                    "/execute positioned 417 68 581 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 417 68 581"
+                ],
+                "10.9": [
+                    "/tp @a 429 68 591"
+                ],
+                "11.2": [
+                    "/execute positioned 429 68 591 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 429 68 591"
+                ],
+                "11.25": [
+                    "/tp @a 451 69 589"
+                ],
+                "11.55": [
+                    "/execute positioned 451 69 589 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 451 69 589 run setblock ~ ~ ~ air",
+                    "/execute positioned 451 69 589 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 451 69 589 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "11.6": [
+                    "/tp @a 414 71 611"
+                ],
+                "11.9": [
+                    "/execute positioned 414 71 611 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 414 71 611 run setblock ~ ~ ~ air",
+                    "/execute positioned 414 71 611 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 414 71 611 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "11.95": [
+                    "/tp @a 436 75 629"
+                ],
+                "12.25": [
+                    "/execute positioned 436 75 629 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 436 75 629"
+                ],
+                "12.3": [
+                    "/tp @a 441 68 556"
+                ],
+                "12.6": [
+                    "/execute positioned 441 68 556 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 441 68 556"
+                ],
+                "12.65": [
+                    "/tp @a 475 76 564"
+                ],
+                "12.95": [
+                    "/execute positioned 475 76 564 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 475 76 564"
+                ],
+                "13.0": [
+                    "/tp @a 499 85 598"
+                ],
+                "13.3": [
+                    "/execute positioned 499 85 598 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 499 85 598"
+                ],
+                "13.35": [
+                    "/tp @a 454 54 540"
+                ],
+                "13.65": [
+                    "/execute positioned 454 54 540 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "13.7": [
+                    "/tp @a 456 54 538"
+                ],
+                "14.0": [
+                    "/execute positioned 456 54 538 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "14.05": [
+                    "/tp @a 466 49 572"
+                ],
+                "14.35": [
+                    "/execute positioned 466 49 572 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 466 49 572 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 466 49 572 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "14.4": [
+                    "/tp @a 467 92 572"
+                ],
+                "14.7": [
+                    "/execute positioned 467 92 572 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 467 92 572 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 467 92 572 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "14.75": [
+                    "/tp @a 463 89 569"
+                ],
+                "15.05": [
+                    "/execute positioned 463 89 569 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "15.1": [
+                    "/tp @a 467 119 572"
+                ],
+                "15.4": [
+                    "/fill 466 118 571 468 120 573 air",
+                    "/execute positioned 467 119 572 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 467 119 572"
+                ],
+                "15.45": [
+                    "/tp @a 500 101 581"
+                ],
+                "15.75": [
+                    "/execute positioned 500 101 581 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 500 101 581 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 500 101 581 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "15.8": [
+                    "/tp @a 503 98 579"
+                ],
+                "16.1": [
+                    "/execute positioned 503 98 579 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "16.15": [
+                    "/tp @a 500 82 579"
+                ],
+                "16.45": [
+                    "/execute positioned 500 82 579 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 500 82 579 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 500 82 579 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "16.5": [
+                    "/tp @a 500 78 585"
+                ],
+                "16.8": [
+                    "/execute positioned 500 78 585 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "16.85": [
+                    "/tp @a 504 78 586"
+                ],
+                "17.15": [
+                    "/execute positioned 504 78 586 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "17.2": [
+                    "/tp @a 514 75 596"
+                ],
+                "17.5": [
+                    "/execute positioned 514 75 596 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 514 75 596 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 514 75 596 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "17.55": [
+                    "/tp @a 515 71 596"
+                ],
+                "17.85": [
+                    "/execute positioned 515 71 596 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "17.9": [
+                    "/tp @a 515 71 600"
+                ],
+                "18.2": [
+                    "/execute positioned 515 71 600 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "18.25": [
+                    "/tp @a 501 71 594"
+                ],
+                "18.55": [
+                    "/execute positioned 501 71 594 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "18.6": [
+                    "/tp @a 505 71 601"
+                ],
+                "18.9": [
+                    "/execute positioned 505 71 601 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "18.95": [
+                    "/tp @a 489 72 599"
+                ],
+                "19.25": [
+                    "/execute positioned 489 72 599 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 489 72 599 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 489 72 599 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "19.3": [
+                    "/tp @a 436 75 655"
+                ],
+                "19.6": [
+                    "/execute positioned 436 75 655 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "19.65": [
+                    "/tp @a 438 75 661"
+                ],
+                "19.95": [
+                    "/execute positioned 438 75 661 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 438 75 661"
+                ],
+                "20.0": [
+                    "/tp @a 454 89 659"
+                ],
+                "20.3": [
+                    "/execute positioned 454 89 659 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 454 89 659"
+                ],
+                "20.35": [
+                    "/tp @a 436 75 661"
+                ],
+                "20.65": [
+                    "/execute positioned 436 75 661 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 436 75 661 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 436 75 661 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "20.7": [
+                    "/tp @a 454 79 652"
+                ],
+                "21.0": [
+                    "/execute positioned 454 79 652 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 454 79 652 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 454 79 652 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "21.05": [
+                    "/tp @a 435 105 668"
+                ],
+                "21.35": [
+                    "/execute positioned 435 105 668 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 435 105 668 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 435 105 668 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "21.4": [
+                    "/tp @a 433 93 685"
+                ],
+                "21.7": [
+                    "/execute positioned 433 93 685 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 433 93 685 run setblock ~ ~ ~ air",
+                    "/execute positioned 433 93 685 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 433 93 685 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "21.75": [
+                    "/tp @a 409 89 668"
+                ],
+                "22.05": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger 409 89 668"
+                ],
+                "22.1": [
+                    "/tp @a 417 82 669"
+                ],
+                "22.4": [
+                    "/execute positioned 417 82 669 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "22.45": [
+                    "/tp @a 361 82 666"
+                ],
+                "22.75": [
+                    "/execute positioned 361 82 666 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 361 82 666 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9"
+                ],
+                "22.8": [
+                    "/tp @a 361 82 666"
+                ],
+                "23.1": [
+                    "/execute positioned 361 82 666 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "23.15": [
+                    "/tp @a 371 98 651"
+                ],
+                "23.45": [
+                    "/execute positioned 371 98 651 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 371 98 651 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 371 98 651 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "23.5": [
+                    "/tp @a 363 87 690"
+                ],
+                "23.8": [
+                    "/execute positioned 363 87 690 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 363 87 690"
+                ],
+                "23.85": [
+                    "/tp @a 265 105 644"
+                ],
+                "24.15": [
+                    "/setblock 265 105 644 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 265 105 644"
+                ],
+                "24.2": [
+                    "/tp @a 265 115 658"
+                ],
+                "24.5": [
+                    "/setblock 265 115 658 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 265 115 658"
+                ],
+                "24.55": [
+                    "/tp @a 265 105 670"
+                ],
+                "24.85": [
+                    "/setblock 265 105 670 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 265 105 670"
+                ],
+                "24.9": [
+                    "/tp @a 268 85 674"
+                ],
+                "25.2": [
+                    "/setblock 268 85 674 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 268 85 674"
+                ],
+                "25.25": [
+                    "/tp @a 262 85 674"
+                ],
+                "25.55": [
+                    "/setblock 262 85 674 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 262 85 674"
+                ],
+                "25.6": [
+                    "/tp @a 263 85 678"
+                ],
+                "25.9": [
+                    "/execute positioned 263 85 678 run function loot/end_city_treasure"
+                ],
+                "25.95": [
+                    "/tp @a 267 85 678"
+                ],
+                "26.25": [
+                    "/execute positioned 267 85 678 run function loot/end_city_treasure"
+                ],
+                "26.3": [
+                    "/tp @a 265 82 668"
+                ],
+                "26.6": [
+                    "/setblock 265 82 668 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 265 82 668"
+                ],
+                "26.65": [
+                    "/tp @a 262 79 654"
+                ],
+                "26.95": [
+                    "/setblock 262 79 654 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 262 79 654"
+                ],
+                "27.0": [
+                    "/tp @a 268 79 654"
+                ],
+                "27.3": [
+                    "/setblock 268 79 654 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 268 79 654"
+                ],
+                "27.35": [
+                    "/tp @a 261 82 639"
+                ],
+                "27.65": [
+                    "/setblock 261 82 639 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 261 82 639"
+                ],
+                "27.7": [
+                    "/tp @a 269 82 639"
+                ],
+                "28.0": [
+                    "/setblock 269 82 639 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 269 82 639"
+                ],
+                "28.05": [
+                    "/tp @a 265 74 648"
+                ],
+                "28.35": [
+                    "/setblock 265 74 648 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 265 74 648"
+                ],
+                "28.4": [
+                    "/tp @a 265 78 635"
+                ],
+                "28.7": [
+                    "/setblock 265 78 635 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 265 78 635"
+                ],
+                "28.75": [
+                    "/tp @a 262 78 634"
+                ],
+                "29.05": [
+                    "/execute positioned 262 78 634 run function loot/end_city_treasure"
+                ],
+                "29.1": [
+                    "/tp @a 265 78 633"
+                ],
+                "29.4": [
+                    "/execute positioned 265 78 633 run function loot/end_city_treasure"
+                ],
+                "29.45": [
+                    "/tp @a 268 78 634"
+                ],
+                "29.75": [
+                    "/execute positioned 268 78 634 run function loot/end_city_treasure"
+                ],
+                "29.8": [
+                    "/tp @a 357 89 635"
+                ],
+                "30.1": [
+                    "/execute positioned 357 89 635 run event entity @e[dx=0,type=xp:sanctuary_encounter_spawner] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_spawner 357 89 635"
+                ],
+                "30.15": [
+                    "/tp @a 357 89 646"
+                ],
+                "30.45": [
+                    "/execute positioned 357 89 646 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 357 89 646"
+                ],
+                "30.5": [
+                    "/tp @a 347 89 636"
+                ],
+                "30.8": [
+                    "/execute positioned 347 89 636 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 347 89 636"
+                ],
+                "30.85": [
+                    "/tp @a 357 89 619"
+                ],
+                "31.15": [
+                    "/execute positioned 357 89 619 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 357 89 619"
+                ],
+                "31.2": [
+                    "/tp @a 401 61 726"
+                ],
+                "31.5": [
+                    "/execute positioned 401 61 726 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 401 61 726"
+                ],
+                "31.55": [
+                    "/tp @a 394 61 741"
+                ],
+                "31.85": [
+                    "/execute positioned 394 61 741 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 394 61 741"
+                ],
+                "31.9": [
+                    "/tp @a 423 63 757"
+                ],
+                "32.2": [
+                    "/execute positioned 423 63 757 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 423 63 757 run setblock ~ ~ ~ air",
+                    "/execute positioned 423 63 757 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 423 63 757 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "32.25": [
+                    "/tp @a 401 61 756"
+                ],
+                "32.55": [
+                    "/execute positioned 401 61 756 run event entity @e[dx=0,type=xp:sanctuary_encounter_spawner] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_spawner 401 61 756"
+                ],
+                "32.6": [
+                    "/tp @a 401 61 745"
+                ],
+                "32.9": [
+                    "/execute positioned 401 61 745 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 401 61 745"
+                ],
+                "32.95": [
+                    "/tp @a 401 61 768"
+                ],
+                "33.25": [
+                    "/execute positioned 401 61 768 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 401 61 768"
+                ],
+                "33.3": [
+                    "/tp @a 411 61 764"
+                ],
+                "33.6": [
+                    "/execute positioned 411 61 764 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 411 61 764"
+                ],
+                "33.65": [
+                    "/tp @a 408 54 780"
+                ],
+                "33.95": [
+                    "/execute positioned 408 54 780 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 408 54 780"
+                ],
+                "34.0": [
+                    "/tp @a 416 40 784"
+                ],
+                "34.3": [
+                    "/execute positioned 416 40 784 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 416 40 784"
+                ],
+                "34.35": [
+                    "/tp @a 423 40 799"
+                ],
+                "34.65": [
+                    "/execute positioned 423 40 799 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 423 40 799"
+                ],
+                "34.7": [
+                    "/tp @a 411 61 817"
+                ],
+                "35.0": [
+                    "/execute positioned 411 61 817 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 411 61 817"
+                ],
+                "35.05": [
+                    "/tp @a 404 61 832"
+                ],
+                "35.35": [
+                    "/execute positioned 404 61 832 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 404 61 832"
+                ],
+                "35.4": [
+                    "/tp @a 486 102 772"
+                ],
+                "35.7": [
+                    "/setblock 486 102 772 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 486 102 772"
+                ],
+                "35.75": [
+                    "/tp @a 486 112 784"
+                ],
+                "36.05": [
+                    "/setblock 486 112 784 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 486 112 784"
+                ],
+                "36.1": [
+                    "/tp @a 486 102 798"
+                ],
+                "36.4": [
+                    "/setblock 486 102 798 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 486 102 798"
+                ],
+                "36.45": [
+                    "/tp @a 483 82 768"
+                ],
+                "36.75": [
+                    "/setblock 483 82 768 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 483 82 768"
+                ],
+                "36.8": [
+                    "/tp @a 489 82 768"
+                ],
+                "37.1": [
+                    "/setblock 489 82 768 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 489 82 768"
+                ],
+                "37.15": [
+                    "/tp @a 484 82 764"
+                ],
+                "37.45": [
+                    "/execute positioned 484 82 764 run function loot/end_city_treasure"
+                ],
+                "37.5": [
+                    "/tp @a 488 82 764"
+                ],
+                "37.8": [
+                    "/execute positioned 488 82 764 run function loot/end_city_treasure"
+                ],
+                "37.85": [
+                    "/tp @a 486 79 774"
+                ],
+                "38.15": [
+                    "/setblock 486 79 774 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 486 79 774"
+                ],
+                "38.2": [
+                    "/tp @a 489 76 788"
+                ],
+                "38.5": [
+                    "/setblock 489 76 788 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 489 76 788"
+                ],
+                "38.55": [
+                    "/tp @a 483 76 788"
+                ],
+                "38.85": [
+                    "/setblock 483 76 788 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 483 76 788"
+                ],
+                "38.9": [
+                    "/tp @a 482 79 803"
+                ],
+                "39.2": [
+                    "/setblock 482 79 803 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 482 79 803"
+                ],
+                "39.25": [
+                    "/tp @a 490 79 803"
+                ],
+                "39.55": [
+                    "/setblock 490 79 803 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 490 79 803"
+                ],
+                "39.6": [
+                    "/tp @a 486 71 794"
+                ],
+                "39.9": [
+                    "/setblock 486 71 794 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 486 71 794"
+                ],
+                "39.95": [
+                    "/tp @a 486 75 807"
+                ],
+                "40.25": [
+                    "/setblock 486 75 807 air",
+                    "/tp @e[type=shulker,r=1,c=1] ~ 0 ~",
+                    "/execute positioned ~ 0 ~ run kill @e[type=shulker,r=1,c=1]",
+                    "/summon minecraft:shulker 486 75 807"
+                ],
+                "40.3": [
+                    "/tp @a 436 75 844"
+                ],
+                "40.6": [
+                    "/execute positioned 436 75 844 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 436 75 844"
+                ],
+                "40.65": [
+                    "/tp @a 494 89 861"
+                ],
+                "40.95": [
+                    "/execute positioned 494 89 861 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 494 89 861"
+                ],
+                "41.0": [
+                    "/tp @a 489 75 808"
+                ],
+                "41.3": [
+                    "/execute positioned 489 75 808 run function loot/end_city_treasure"
+                ],
+                "41.35": [
+                    "/tp @a 486 75 809"
+                ],
+                "41.65": [
+                    "/execute positioned 486 75 809 run function loot/end_city_treasure"
+                ],
+                "41.7": [
+                    "/tp @a 483 75 808"
+                ],
+                "42.0": [
+                    "/execute positioned 483 75 808 run function loot/end_city_treasure"
+                ],
+                "42.05": [
+                    "/tp @a 426 85 837"
+                ],
+                "42.35": [
+                    "/execute positioned 426 85 837 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 426 85 837 run setblock ~ ~ ~ air",
+                    "/execute positioned 426 85 837 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 426 85 837 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "42.4": [
+                    "/tp @a 475 75 872"
+                ],
+                "42.7": [
+                    "/execute positioned 475 75 872 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 475 75 872"
+                ],
+                "42.75": [
+                    "/tp @a 490 75 865"
+                ],
+                "43.05": [
+                    "/execute positioned 490 75 865 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 490 75 865"
+                ],
+                "43.1": [
+                    "/tp @a 487 98 867"
+                ],
+                "43.4": [
+                    "/execute positioned 487 98 867 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 487 98 867 run setblock ~ ~ ~ air",
+                    "/execute positioned 487 98 867 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 487 98 867 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "43.45": [
+                    "/tp @a 518 96 865"
+                ],
+                "43.75": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger 518 96 865"
+                ],
+                "43.8": [
+                    "/tp @a 529 99 851"
+                ],
+                "44.1": [
+                    "/execute positioned 529 99 851 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 529 99 851 run setblock ~ ~ ~ air",
+                    "/execute positioned 529 99 851 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 529 99 851 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "44.15": [
+                    "/tp @a 541 96 865"
+                ],
+                "44.45": [
+                    "/execute positioned 541 96 865 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 541 96 865"
+                ],
+                "44.5": [
+                    "/tp @a 570 110 872"
+                ],
+                "44.8": [
+                    "/execute positioned 570 110 872 run event entity @e[dx=0,type=xp:sanctuary_tower_activator] xp:instant_despawn",
+                    "/execute positioned 570 110 872 run function broken_sanctuary/summon/activator"
+                ],
+                "44.85": [
+                    "/tp @a 553 96 872"
+                ],
+                "45.15": [
+                    "/execute positioned 553 96 872 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 553 96 872"
+                ],
+                "45.2": [
+                    "/tp @a 513 117 850"
+                ],
+                "45.5": [
+                    "/execute positioned 513 117 850 run event entity @e[dx=0,type=xp:sanctuary_encounter_spawner] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_spawner 513 117 850"
+                ],
+                "45.55": [
+                    "/tp @a 503 117 850"
+                ],
+                "45.85": [
+                    "/execute positioned 503 117 850 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 503 117 850"
+                ],
+                "45.9": [
+                    "/tp @a 526 117 850"
+                ],
+                "46.2": [
+                    "/execute positioned 526 117 850 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 526 117 850"
+                ],
+                "46.25": [
+                    "/tp @a 514 117 860"
+                ],
+                "46.55": [
+                    "/execute positioned 514 117 860 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 514 117 860"
+                ],
+                "46.6": [
+                    "/tp @a 575 110 854"
+                ],
+                "46.9": [
+                    "/execute positioned 575 110 854 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 575 110 854 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9"
+                ],
+                "46.95": [
+                    "/tp @a 579 96 864"
+                ],
+                "47.25": [
+                    "/execute positioned 579 96 864 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 579 96 864"
+                ],
+                "47.3": [
+                    "/tp @a 572 117 858"
+                ],
+                "47.6": [
+                    "/execute positioned 572 117 858 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 572 117 858"
+                ],
+                "47.65": [
+                    "/tp @a 567 139 901"
+                ],
+                "47.95": [
+                    "/execute positioned 567 139 901 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 567 139 901"
+                ],
+                "48.0": [
+                    "/tp @a 565 161 877"
+                ],
+                "48.3": [
+                    "/execute positioned 565 161 877 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 565 161 877"
+                ],
+                "48.35": [
+                    "/tp @a 575 180 892"
+                ],
+                "48.65": [
+                    "/fill 574 179 891 576 181 893 air",
+                    "/execute positioned 575 180 892 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 575 180 892"
+                ],
+                "48.7": [
+                    "/tp @a 571 96 869"
+                ],
+                "49.0": [
+                    "/execute positioned 571 96 869 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "49.05": [
+                    "/tp @a 571 96 869"
+                ],
+                "49.35": [
+                    "/execute positioned 571 96 869 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "49.4": [
+                    "/tp @a 576 96 854"
+                ],
+                "49.7": [
+                    "/execute positioned 576 96 854 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "49.75": [
+                    "/tp @a 586 103 858"
+                ],
+                "50.05": [
+                    "/execute positioned 586 103 858 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "50.1": [
+                    "/tp @a 593 123 857"
+                ],
+                "50.4": [
+                    "/execute positioned 593 123 857 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "50.45": [
+                    "/tp @a 570 155 872"
+                ],
+                "50.75": [
+                    "/execute positioned 570 155 872 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 570 155 872 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9"
+                ],
+                "50.8": [
+                    "/tp @a 570 119 872"
+                ],
+                "51.1": [
+                    "/execute positioned 570 119 872 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 570 119 872 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 570 119 872 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "51.15": [
+                    "/tp @a 565 179 872"
+                ],
+                "51.45": [
+                    "/execute positioned 565 179 872 run event entity @e[r=5,type=xp:broken_sanctuary_wall] xp:instant_despawn",
+                    "/execute positioned 565 179 872 run summon xp:broken_sanctuary_wall ~ ~ ~",
+                    "/execute positioned 565 179 872 as @e[r=5,type=xp:broken_sanctuary_wall] at @s run tp @s ~ ~ ~ -90 0"
+                ],
+                "51.5": [
+                    "/tp @a 570 180 872"
+                ],
+                "51.8": [
+                    "/execute positioned 570 180 872 run event entity @e[r=5,type=xp:broken_sanctuary_beacon_no_laser] xp:instant_despawn",
+                    "/execute positioned 570 180 872 run setblock ~ ~ ~ stone_slab2 1",
+                    "/execute positioned 570 180 872 run setblock ~ ~1 ~ air",
+                    "/execute positioned 570 180 872 run summon xp:broken_sanctuary_beacon_no_laser ~ ~.5 ~",
+                    "/execute positioned 570 180 872 as @e[r=5,type=xp:broken_sanctuary_beacon_no_laser] at @s run tp @s ~ ~ ~ 90 0"
+                ],
+                "51.85": [
+                    "/tp @a 557 178 872"
+                ],
+                "52.15": [
+                    "/execute positioned 557 178 872 run event entity @e[r=5,type=xp:broken_sanctuary_ring] xp:despawn",
+                    "/fill 558 184 875 556 178 869 air",
+                    "/execute positioned 557 178 872 run summon xp:broken_sanctuary_ring ~ ~ ~"
+                ],
+                "52.2": [
+                    "/tp @a 389 84 886"
+                ],
+                "52.5": [
+                    "/execute positioned 389 84 886 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "52.55": [
+                    "/tp @a 395 90 908"
+                ],
+                "52.85": [
+                    "/execute positioned 395 90 908 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 395 90 908"
+                ],
+                "52.9": [
+                    "/tp @a 413 92 928"
+                ],
+                "53.2": [
+                    "/execute positioned 413 92 928 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 413 92 928 run setblock ~ ~ ~ air",
+                    "/execute positioned 413 92 928 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 413 92 928 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "53.25": [
+                    "/tp @a 409 96 974"
+                ],
+                "53.55": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger 409 96 974"
+                ],
+                "53.6": [
+                    "/tp @a 396 99 985"
+                ],
+                "53.9": [
+                    "/execute positioned 396 99 985 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 396 99 985 run setblock ~ ~ ~ air",
+                    "/execute positioned 396 99 985 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 396 99 985 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "53.95": [
+                    "/tp @a 409 96 997"
+                ],
+                "54.25": [
+                    "/execute positioned 409 96 997 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 409 96 997"
+                ],
+                "54.3": [
+                    "/tp @a 399 96 961"
+                ],
+                "54.6": [
+                    "/execute positioned 399 96 961 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 399 96 961"
+                ],
+                "54.65": [
+                    "/tp @a 402 117 1028"
+                ],
+                "54.95": [
+                    "/execute positioned 402 117 1028 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 402 117 1028"
+                ],
+                "55.0": [
+                    "/tp @a 417 131 1034"
+                ],
+                "55.3": [
+                    "/execute positioned 417 131 1034 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 417 131 1034"
+                ],
+                "55.35": [
+                    "/tp @a 416 110 1026"
+                ],
+                "55.65": [
+                    "/execute positioned 416 110 1026 run event entity @e[dx=0,type=xp:sanctuary_tower_activator] xp:instant_despawn",
+                    "/execute positioned 416 110 1026 run function broken_sanctuary/summon/activator"
+                ],
+                "55.7": [
+                    "/tp @a 394 117 969"
+                ],
+                "56.0": [
+                    "/execute positioned 394 117 969 run event entity @e[dx=0,type=xp:sanctuary_encounter_spawner] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_spawner 394 117 969"
+                ],
+                "56.05": [
+                    "/tp @a 394 117 959"
+                ],
+                "56.35": [
+                    "/execute positioned 394 117 959 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 394 117 959"
+                ],
+                "56.4": [
+                    "/tp @a 394 117 981"
+                ],
+                "56.7": [
+                    "/execute positioned 394 117 981 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 394 117 981"
+                ],
+                "56.75": [
+                    "/tp @a 404 117 970"
+                ],
+                "57.05": [
+                    "/execute positioned 404 117 970 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 404 117 970"
+                ],
+                "57.1": [
+                    "/tp @a 396 117 1028"
+                ],
+                "57.4": [
+                    "/execute positioned 396 117 1028 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 396 117 1028 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9"
+                ],
+                "57.45": [
+                    "/tp @a 398 102 1041"
+                ],
+                "57.75": [
+                    "/execute positioned 398 102 1041 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "57.8": [
+                    "/tp @a 413 96 1027"
+                ],
+                "58.1": [
+                    "/execute positioned 413 96 1027 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "58.15": [
+                    "/tp @a 413 96 1027"
+                ],
+                "58.45": [
+                    "/execute positioned 413 96 1027 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "58.5": [
+                    "/tp @a 402 96 1032"
+                ],
+                "58.8": [
+                    "/execute positioned 402 96 1032 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "58.85": [
+                    "/tp @a 403 96 1027"
+                ],
+                "59.15": [
+                    "/execute positioned 403 96 1027 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "59.2": [
+                    "/tp @a 403 96 1027"
+                ],
+                "59.5": [
+                    "/execute positioned 403 96 1027 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "59.55": [
+                    "/tp @a 416 100 1031"
+                ],
+                "59.85": [
+                    "/execute positioned 416 100 1031 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 416 100 1031 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9"
+                ],
+                "59.9": [
+                    "/tp @a 416 146 1026"
+                ],
+                "60.2": [
+                    "/execute positioned 416 146 1026 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 416 146 1026 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 416 146 1026 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "60.25": [
+                    "/tp @a 436 180 1031"
+                ],
+                "60.55": [
+                    "/fill 435 179 1030 437 181 1032 air",
+                    "/execute positioned 436 180 1031 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 436 180 1031"
+                ],
+                "60.6": [
+                    "/tp @a 416 179 1021"
+                ],
+                "60.9": [
+                    "/execute positioned 416 179 1021 run event entity @e[r=5,type=xp:broken_sanctuary_wall] xp:instant_despawn",
+                    "/execute positioned 416 179 1021 run summon xp:broken_sanctuary_wall ~ ~ ~"
+                ],
+                "60.95": [
+                    "/tp @a 416 180 1026"
+                ],
+                "61.25": [
+                    "/execute positioned 416 180 1026 run event entity @e[r=5,type=xp:broken_sanctuary_beacon_no_laser] xp:instant_despawn",
+                    "/execute positioned 416 180 1026 run setblock ~ ~ ~ stone_slab2 1",
+                    "/execute positioned 416 180 1026 run setblock ~ ~1 ~ air",
+                    "/execute positioned 416 180 1026 run summon xp:broken_sanctuary_beacon_no_laser ~ ~.5 ~",
+                    "/execute positioned 416 180 1026 as @e[r=5,type=xp:broken_sanctuary_beacon_no_laser] at @s run tp @s ~ ~ ~ 180 0"
+                ],
+                "61.3": [
+                    "/tp @a 416 178 1013"
+                ],
+                "61.6": [
+                    "/execute positioned 416 178 1013 run event entity @e[r=5,type=xp:broken_sanctuary_ring] xp:despawn",
+                    "/fill 419 178 1012 413 184 1014 air",
+                    "/execute positioned 416 178 1013 run summon xp:broken_sanctuary_ring ~ ~ ~",
+                    "/execute positioned 416 178 1013 as @e[r=5,type=xp:broken_sanctuary_ring] at @s run tp @s ~ ~ ~ 90 0"
+                ],
+                "61.65": [
+                    "/tp @a 354 75 868"
+                ],
+                "61.95": [
+                    "/execute positioned 354 75 868 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 354 75 868"
+                ],
+                "62.0": [
+                    "/tp @a 342 75 861"
+                ],
+                "62.3": [
+                    "/execute positioned 342 75 861 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 342 75 861"
+                ],
+                "62.35": [
+                    "/tp @a 342 98 864"
+                ],
+                "62.65": [
+                    "/execute positioned 342 98 864 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 342 98 864 run setblock ~ ~ ~ air",
+                    "/execute positioned 342 98 864 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 342 98 864 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "62.7": [
+                    "/tp @a 314 96 865"
+                ],
+                "63.0": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger 314 96 865"
+                ],
+                "63.05": [
+                    "/tp @a 262 110 872"
+                ],
+                "63.35": [
+                    "/execute positioned 262 110 872 run event entity @e[dx=0,type=xp:sanctuary_tower_activator] xp:instant_despawn",
+                    "/execute positioned 262 110 872 run function broken_sanctuary/summon/activator"
+                ],
+                "63.4": [
+                    "/tp @a 319 117 850"
+                ],
+                "63.7": [
+                    "/execute positioned 319 117 850 run event entity @e[dx=0,type=xp:sanctuary_encounter_spawner] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_spawner 319 117 850"
+                ],
+                "63.75": [
+                    "/tp @a 329 117 850"
+                ],
+                "64.05": [
+                    "/execute positioned 329 117 850 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 329 117 850"
+                ],
+                "64.1": [
+                    "/tp @a 308 117 850"
+                ],
+                "64.4": [
+                    "/execute positioned 308 117 850 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 308 117 850"
+                ],
+                "64.45": [
+                    "/tp @a 318 117 860"
+                ],
+                "64.75": [
+                    "/execute positioned 318 117 860 run event entity @e[dx=0,type=xp:sanctuary_encounter_activator] xp:instant_despawn",
+                    "/summon xp:sanctuary_encounter_activator 318 117 860"
+                ],
+                "64.8": [
+                    "/tp @a 291 117 871"
+                ],
+                "65.1": [
+                    "/execute positioned 291 117 871 run event entity @e[r=5,type=xp:endergob] xp:instant_despawn",
+                    "/execute positioned 291 117 871 run setblock ~ ~ ~ air",
+                    "/execute positioned 291 117 871 run summon xp:endergob ~ ~ ~",
+                    "/execute positioned 291 117 871 run tag @e[type=xp:endergob,r=3] add no_tp"
+                ],
+                "65.15": [
+                    "/tp @a 264 110 853"
+                ],
+                "65.45": [
+                    "/execute positioned 264 110 853 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 264 110 853"
+                ],
+                "65.5": [
+                    "/tp @a 249 96 857"
+                ],
+                "65.8": [
+                    "/execute positioned 249 96 857 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 249 96 857"
+                ],
+                "65.85": [
+                    "/tp @a 270 137 869"
+                ],
+                "66.15": [
+                    "/execute positioned 270 137 869 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 270 137 869"
+                ],
+                "66.2": [
+                    "/tp @a 291 96 865"
+                ],
+                "66.5": [
+                    "/execute positioned 291 96 865 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 291 96 865"
+                ],
+                "66.55": [
+                    "/tp @a 279 96 872"
+                ],
+                "66.85": [
+                    "/execute positioned 279 96 872 run event entity @e[dx=0,type=xp:slime_jumppad] xp:instant_despawn",
+                    "/summon xp:slime_jumppad 279 96 872"
+                ],
+                "66.9": [
+                    "/tp @a 260 117 852"
+                ],
+                "67.2": [
+                    "/execute positioned 260 117 852 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 260 117 852 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9"
+                ],
+                "67.25": [
+                    "/tp @a 246 102 858"
+                ],
+                "67.55": [
+                    "/execute positioned 246 102 858 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "67.6": [
+                    "/tp @a 261 96 869"
+                ],
+                "67.9": [
+                    "/execute positioned 261 96 869 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "67.95": [
+                    "/tp @a 261 96 869"
+                ],
+                "68.25": [
+                    "/execute positioned 261 96 869 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "68.3": [
+                    "/tp @a 255 96 855"
+                ],
+                "68.6": [
+                    "/execute positioned 255 96 855 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "68.65": [
+                    "/tp @a 257 96 869"
+                ],
+                "68.95": [
+                    "/execute positioned 257 96 869 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "69.0": [
+                    "/tp @a 242 126 854"
+                ],
+                "69.3": [
+                    "/execute positioned 242 126 854 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 242 126 854 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 242 126 854 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "69.35": [
+                    "/tp @a 262 143 872"
+                ],
+                "69.65": [
+                    "/execute positioned 262 143 872 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 262 143 872 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 262 143 872 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "69.7": [
+                    "/tp @a 257 138 892"
+                ],
+                "70.0": [
+                    "/execute positioned 257 138 892 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 257 138 892 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 257 138 892 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "70.05": [
+                    "/tp @a 257 180 892"
+                ],
+                "70.35": [
+                    "/fill 256 179 891 258 181 893 air",
+                    "/execute positioned 257 180 892 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 257 180 892"
+                ],
+                "70.4": [
+                    "/tp @a 267 179 872"
+                ],
+                "70.7": [
+                    "/execute positioned 267 179 872 run event entity @e[r=5,type=xp:broken_sanctuary_wall] xp:instant_despawn",
+                    "/execute positioned 267 179 872 run summon xp:broken_sanctuary_wall ~ ~ ~",
+                    "/execute positioned 267 179 872 as @e[r=5,type=xp:broken_sanctuary_wall] at @s run tp @s ~ ~ ~ 90 0"
+                ],
+                "70.75": [
+                    "/tp @a 262 180 872"
+                ],
+                "71.05": [
+                    "/execute positioned 262 180 872 run event entity @e[r=5,type=xp:broken_sanctuary_beacon_no_laser] xp:instant_despawn",
+                    "/execute positioned 262 180 872 run setblock ~ ~ ~ stone_slab2 1",
+                    "/execute positioned 262 180 872 run setblock ~ ~1 ~ air",
+                    "/execute positioned 262 180 872 run summon xp:broken_sanctuary_beacon_no_laser ~ ~.5 ~",
+                    "/execute positioned 262 180 872 as @e[r=5,type=xp:broken_sanctuary_beacon_no_laser] at @s run tp @s ~ ~ ~ -90 0"
+                ],
+                "71.1": [
+                    "/tp @a 275 178 872"
+                ],
+                "71.4": [
+                    "/execute positioned 275 178 872 run event entity @e[r=5,type=xp:broken_sanctuary_ring] xp:despawn",
+                    "/fill 276 178 875 274 184 869 air",
+                    "/execute positioned 275 178 872 run summon xp:broken_sanctuary_ring ~ ~ ~",
+                    "/execute positioned 275 178 872 as @e[r=5,type=xp:broken_sanctuary_ring] at @s run tp @s ~ ~ ~ 180 0"
+                ],
+                "71.45": [
+                    "/tp @a 416 158 872"
+                ],
+                "71.75": [
+                    "/execute positioned 416 158 872 run event entity @e[dx=0,type=xp:healingpool_column] xp:instant_despawn",
+                    "/summon xp:healingpool_column 416 158 872"
+                ],
+                "71.8": [
+                    "/tp @a 416 158 892"
+                ],
+                "72.1": [
+                    "/execute positioned 416 158 892 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 416 158 892"
+                ],
+                "72.15": [
+                    "/tp @a 397 158 872"
+                ],
+                "72.45": [
+                    "/execute positioned 397 158 872 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 397 158 872"
+                ],
+                "72.5": [
+                    "/tp @a 408 177 880"
+                ],
+                "72.8": [
+                    "/execute positioned 408 177 880 run event entity @e[dx=0,type=xp:end_chestloot] xp:instant_despawn",
+                    "/summon xp:end_chestloot 408 177 880"
+                ],
+                "72.85": [
+                    "/tp @a 384 68 861"
+                ],
+                "73.15": [
+                    "/execute positioned 384 68 861 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "73.2": [
+                    "/tp @a 387 70 869"
+                ],
+                "73.5": [
+                    "/execute positioned 387 70 869 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 387 70 869 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 387 70 869 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "73.55": [
+                    "/tp @a 383 115 872"
+                ],
+                "73.85": [
+                    "/execute positioned 383 115 872 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 383 115 872 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 383 115 872 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "73.9": [
+                    "/tp @a 393 114 871"
+                ],
+                "74.2": [
+                    "/execute positioned 393 114 871 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "74.25": [
+                    "/tp @a 416 75 874"
+                ],
+                "74.55": [
+                    "/event entity @e[type=xp:respawn_auger,c=1,r=1] xp:instant_despawn",
+                    "/summon xp:respawn_auger 416 75 874"
+                ],
+                "74.6": [
+                    "/tp @a 417 75 889"
+                ],
+                "74.9": [
+                    "/execute positioned 417 75 889 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "74.95": [
+                    "/tp @a 412 75 864"
+                ],
+                "75.25": [
+                    "/execute positioned 412 75 864 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "75.3": [
+                    "/tp @a 413 107 887"
+                ],
+                "75.6": [
+                    "/execute positioned 413 107 887 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 413 107 887 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 413 107 887 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "75.65": [
+                    "/tp @a 411 85 887"
+                ],
+                "75.95": [
+                    "/execute positioned 411 85 887 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 411 85 887 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 411 85 887 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "76.0": [
+                    "/tp @a 427 58 901"
+                ],
+                "76.3": [
+                    "/execute positioned 427 58 901 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "76.35": [
+                    "/tp @a 434 59 902"
+                ],
+                "76.65": [
+                    "/execute positioned 434 59 902 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 434 59 902 run summon xp:sanctuary_spawner ~ ~ ~ xp:7x7",
+                    "/execute positioned 434 59 902 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "76.7": [
+                    "/tp @a 435 105 901"
+                ],
+                "77.0": [
+                    "/execute positioned 435 105 901 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 435 105 901 run summon xp:sanctuary_spawner ~ ~ ~ xp:9x9",
+                    "/execute positioned 435 105 901 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "77.05": [
+                    "/tp @a 431 101 903"
+                ],
+                "77.35": [
+                    "/execute positioned 431 101 903 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "77.4": [
+                    "/tp @a 431 101 907"
+                ],
+                "77.7": [
+                    "/execute positioned 431 101 907 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "77.75": [
+                    "/tp @a 447 126 867"
+                ],
+                "78.05": [
+                    "/fill 446 125 866 448 127 868 air",
+                    "/execute positioned 447 126 867 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 447 126 867"
+                ],
+                "78.1": [
+                    "/tp @a 434 131 902"
+                ],
+                "78.4": [
+                    "/fill 433 130 901 435 132 903 air",
+                    "/execute positioned 434 131 902 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 434 131 902"
+                ],
+                "78.45": [
+                    "/tp @a 388 144 868"
+                ],
+                "78.75": [
+                    "/fill 387 143 867 389 145 869 air",
+                    "/execute positioned 388 144 868 run event entity @e[dx=0,type=xp:eye_of_guardian] xp:instant_despawn",
+                    "/summon xp:eye_of_guardian 388 144 868"
+                ],
+                "78.8": [
+                    "/tp @a 430 137 869"
+                ],
+                "79.1": [
+                    "/execute positioned 430 137 869 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 430 137 869 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 430 137 869 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "79.15": [
+                    "/tp @a 434 151 880"
+                ],
+                "79.45": [
+                    "/execute positioned 434 151 880 run function mob_spawning/broken_sanctuary/spawn_cage_animal"
+                ],
+                "79.5": [
+                    "/tp @a 423 177 864"
+                ],
+                "79.8": [
+                    "/execute positioned 423 177 864 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 423 177 864 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 423 177 864 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "79.85": [
+                    "/tp @a 409 177 880"
+                ],
+                "80.15": [
+                    "/execute positioned 409 177 880 run event entity @e[dx=0,type=xp:sanctuary_spawner] xp:instant_despawn",
+                    "/execute positioned 409 177 880 run summon xp:sanctuary_spawner ~ ~ ~ xp:5x5",
+                    "/execute positioned 409 177 880 run tag @e[dx=0,type=xp:sanctuary_spawner] add no_ripplings_or_endergobs"
+                ],
+                "80.2": [
+                    "/tp @a 416 193.5 898.0"
+                ],
+                "80.5": [
+                    "/execute positioned 416 193.5 898.0 run event entity @e[r=5,type=xp:broken_sanctuary_ring] xp:despawn",
+                    "/execute positioned 416 193.5 898.0 run summon xp:broken_sanctuary_ring ~ ~ ~",
+                    "/execute positioned 416 193.5 898.0 as @e[r=5,type=xp:broken_sanctuary_ring] at @s run tp @s ~ ~ ~ 90 0"
+                ],
+                "80.55": [
+                    "/tp @a 442.5 193.5 872.5"
+                ],
+                "80.85": [
+                    "/execute positioned 442.5 193.5 872.5 run event entity @e[r=5,type=xp:broken_sanctuary_ring] xp:despawn",
+                    "/execute positioned 442.5 193.5 872.5 run summon xp:broken_sanctuary_ring ~ ~ ~"
+                ],
+                "80.9": [
+                    "/tp @a 390 193.5 872.5"
+                ],
+                "81.2": [
+                    "/execute positioned 390 193.5 872.5 run event entity @e[r=5,type=xp:broken_sanctuary_ring] xp:despawn",
+                    "/execute positioned 390 193.5 872.5 run summon xp:broken_sanctuary_ring ~ ~ ~",
+                    "/execute positioned 390 193.5 872.5 as @e[r=5,type=xp:broken_sanctuary_ring] at @s run tp @s ~ ~ ~ 180 0"
+                ],
+                "81.25": [
+                    "/tp @a 361 61 586"
+                ],
+                "81.55": [
+                    "/execute positioned 361 61 586 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 361 61 586"
+                ],
+                "81.6": [
+                    "/tp @a 389 70 622"
+                ],
+                "81.9": [
+                    "/execute positioned 389 70 622 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 389 70 622"
+                ],
+                "81.95": [
+                    "/tp @a 325 78 635"
+                ],
+                "82.25": [
+                    "/execute positioned 325 78 635 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 325 78 635"
+                ],
+                "82.3": [
+                    "/tp @a 403 77 680"
+                ],
+                "82.6": [
+                    "/execute positioned 403 77 680 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 403 77 680"
+                ],
+                "82.65": [
+                    "/tp @a 424 77 712"
+                ],
+                "82.95": [
+                    "/execute positioned 424 77 712 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 424 77 712"
+                ],
+                "83.0": [
+                    "/tp @a 389 53 777"
+                ],
+                "83.3": [
+                    "/execute positioned 389 53 777 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 389 53 777"
+                ],
+                "83.35": [
+                    "/tp @a 427 59 786"
+                ],
+                "83.65": [
+                    "/execute positioned 427 59 786 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 427 59 786"
+                ],
+                "83.7": [
+                    "/tp @a 426 63 841"
+                ],
+                "84.0": [
+                    "/execute positioned 426 63 841 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 426 63 841"
+                ],
+                "84.05": [
+                    "/tp @a 478 77 858"
+                ],
+                "84.35": [
+                    "/execute positioned 478 77 858 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 478 77 858"
+                ],
+                "84.4": [
+                    "/tp @a 503 97 880"
+                ],
+                "84.7": [
+                    "/execute positioned 503 97 880 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 503 97 880"
+                ],
+                "84.75": [
+                    "/tp @a 554 109 862"
+                ],
+                "85.05": [
+                    "/execute positioned 554 109 862 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 554 109 862"
+                ],
+                "85.1": [
+                    "/tp @a 448 68 827"
+                ],
+                "85.4": [
+                    "/execute positioned 448 68 827 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 448 68 827"
+                ],
+                "85.45": [
+                    "/tp @a 359 74 842"
+                ],
+                "85.75": [
+                    "/execute positioned 359 74 842 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 359 74 842"
+                ],
+                "85.8": [
+                    "/tp @a 326 94 878"
+                ],
+                "86.1": [
+                    "/execute positioned 326 94 878 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 326 94 878"
+                ],
+                "86.15": [
+                    "/tp @a 303 93 842"
+                ],
+                "86.45": [
+                    "/execute positioned 303 93 842 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 303 93 842"
+                ],
+                "86.5": [
+                    "/tp @a 329 65 581"
+                ],
+                "86.8": [
+                    "/execute positioned 329 65 581 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 329 65 581"
+                ],
+                "86.85": [
+                    "/tp @a 269 51 544"
+                ],
+                "87.15": [
+                    "/execute positioned 269 51 544 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 269 51 544"
+                ],
+                "87.2": [
+                    "/tp @a 296 70 527"
+                ],
+                "87.5": [
+                    "/execute positioned 296 70 527 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 296 70 527"
+                ],
+                "87.55": [
+                    "/tp @a 305 70 561"
+                ],
+                "87.85": [
+                    "/execute positioned 305 70 561 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 305 70 561"
+                ],
+                "87.9": [
+                    "/tp @a 417 82 912"
+                ],
+                "88.2": [
+                    "/execute positioned 417 82 912 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 417 82 912"
+                ],
+                "88.25": [
+                    "/tp @a 381 86 951"
+                ],
+                "88.55": [
+                    "/execute positioned 381 86 951 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 381 86 951"
+                ],
+                "88.6": [
+                    "/tp @a 403 87 984"
+                ],
+                "88.9": [
+                    "/execute positioned 403 87 984 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 403 87 984"
+                ],
+                "88.95": [
+                    "/tp @a 433 90 1019"
+                ],
+                "89.25": [
+                    "/execute positioned 433 90 1019 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 433 90 1019"
+                ],
+                "89.3": [
+                    "/tp @a 380 92 1019"
+                ],
+                "89.6": [
+                    "/execute positioned 380 92 1019 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 380 92 1019"
+                ],
+                "89.65": [
+                    "/tp @a 373 78 900"
+                ],
+                "89.95": [
+                    "/execute positioned 373 78 900 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 373 78 900"
+                ],
+                "90.0": [
+                    "/tp @a 340 69 879"
+                ],
+                "90.3": [
+                    "/execute positioned 340 69 879 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 340 69 879"
+                ],
+                "90.35": [
+                    "/tp @a 389 58 830"
+                ],
+                "90.65": [
+                    "/execute positioned 389 58 830 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 389 58 830"
+                ],
+                "90.7": [
+                    "/tp @a 382 54 731"
+                ],
+                "91.0": [
+                    "/execute positioned 382 54 731 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 382 54 731"
+                ],
+                "91.05": [
+                    "/tp @a 427 34 765"
+                ],
+                "91.35": [
+                    "/execute positioned 427 34 765 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 427 34 765"
+                ],
+                "91.4": [
+                    "/tp @a 425 56 567"
+                ],
+                "91.7": [
+                    "/execute positioned 425 56 567 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 425 56 567"
+                ],
+                "91.75": [
+                    "/tp @a 452 61 607"
+                ],
+                "92.05": [
+                    "/execute positioned 452 61 607 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 452 61 607"
+                ],
+                "92.1": [
+                    "/tp @a 475 50 546"
+                ],
+                "92.4": [
+                    "/execute positioned 475 50 546 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 475 50 546"
+                ],
+                "92.45": [
+                    "/tp @a 292 78 598"
+                ],
+                "92.75": [
+                    "/execute positioned 292 78 598 run event entity @e[dx=0,type=xp:echoing_forest_void_particle] xp:instant_despawn",
+                    "/summon xp:echoing_forest_void_particle 292 78 598"
+                ],
+                "92.8": [
+                    "/tp @a ~ ~ ~"
+                ],
+                "93.1": [
+                    "/scoreboard objectives add sanctuary dummy",
+                    "/gamemode creative @a",
+                    "/event entity @s xp:despawn"
+                ]
+            }
+        }
+    }
+}

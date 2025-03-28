@@ -1,0 +1,37 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:gargoyle_3",
+      "register_to_creative_menu": true,
+      "menu_category": { 
+        "category": "construction",
+				"group": "itemGroup.name.stoneBrick"
+      }
+    },
+    "components": {
+			"minecraft:collision_box": {
+				"origin": [ -8.0, 0, -8.0 ],
+				"size": [ 14, 13, 14 ]
+			},
+      "minecraft:geometry": "geometry.gargoyle_3",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": true,
+          "face_dimming": false,
+          "texture": "gargoyle",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:map_color": "#624067",
+      "minecraft:light_dampening": 5,
+      "minecraft:loot": "loot_tables/dark_purpur/gargoyle_3.json",
+			"minecraft:destructible_by_mining": { "seconds_to_destroy": 1.75 },
+			"minecraft:destructible_by_explosion": { "explosion_resistance": 42 },
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      }
+    }
+  }
+}

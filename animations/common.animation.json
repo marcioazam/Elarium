@@ -1,0 +1,37 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.common.broken_sanctuary_fast_despawn": {
+            "loop": false,
+            "animation_length": 31,
+            "timeline": {
+                "0.0": [
+                    "/execute if entity @p[scores={currentBiome=5..8}] run tag @s add fast_despawn"
+                ],
+                "30.0": [
+                    "/tag @s[tag=no_tp] remove fast_despawn",
+                    "/event entity @s[tag=!no_tp,type=xp:endergob] xp:can_despawn",
+                    "/event entity @s[tag=fast_despawn] xp:instant_despawn"
+                ]
+            }
+        },
+        "animation.common.ender_ruins_despawn_on_boss_arena": {
+            "loop": true,
+            "animation_length": 0.5,
+            "timeline": {
+                "0.0": [
+                    "/event entity @s[x=294,dx=37,y=216,dy=10,z=-556,dz=37] xp:instant_despawn"
+                ]
+            }
+        },
+        "animation.common.endboss_arena.despawn_outside_arena": {
+            "loop": true,
+            "animation_length": 0.5,
+            "timeline": {
+                "0.0": [
+                    "/execute positioned -166 182.25 2060.5 run event entity @s[rm=60] xp:instant_despawn"
+                ]
+            }
+        }
+    }
+}

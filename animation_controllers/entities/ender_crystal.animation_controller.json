@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ender_crystal.death": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "death": "q.variant == 1" }
+          ],
+          "on_exit": [
+            "/event entity @e[type=xp:waypoint,c=1] xp:remove_waypoint",
+            "/execute in the_end unless entity @e[type=ender_crystal,x=0,y=63,z=0,r=64] run execute in the_end as @a[x=0,y=63,z=0,r=128] run function objectives/04",
+
+            "/summon xp:end_crystal ~~-0.5~",
+            "/camerashake add @a[r=5] 0.25 0.35 rotational",
+            "/camerashake add @a[r=10] 0.1 0.25 rotational",
+            "/damage @e[r=5] 15 entity_explosion",
+            "/particle xp:end_crystal.1 ~~~",
+            "/particle xp:end_crystal.2 ~~~",
+            "/particle xp:end_crystal.3 ~~~",
+            "/particle xp:end_crystal.4 ~~~",
+            "/particle xp:end_crystal.5 ~~~",
+
+            "/playsound ender_crystal.pre_explode @a[r=32] ~~~ 2 0.75 0.05",
+            "/playsound ender_crystal.explode @a[r=32] ~~~ 2 0.75 0.05",
+            "/playsound ender_crystal.explode_1 @a[r=32] ~~~ 2 1 0.05",
+            "/playsound ender_crystal.explode_2 @a[r=32] ~~~ 2 1 0.05",
+            "/playsound ender_crystal.explode_3 @a[r=32] ~~~ 2 1 0.05",
+
+            "/playsound ender_crystal.pre_explode @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+            "/playsound ender_crystal.explode @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+            "/playsound ender_crystal.explode_1 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+            "/playsound ender_crystal.explode_2 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+            "/playsound ender_crystal.explode_3 @a[r=48,rm=32] ~~~ 3 0.75 0.02",
+
+            "/playsound ender_crystal.pre_explode @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+            "/playsound ender_crystal.explode @a[r=80,rm=48] ~~~ 5 0.75 0.02",
+            "/playsound ender_crystal.explode_1 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+            "/playsound ender_crystal.explode_2 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+            "/playsound ender_crystal.explode_3 @a[r=80,rm=48] ~~~ 5 0.65 0.02",
+
+            "/playsound ender_crystal.pre_explode @a[r=160,rm=80] ~~~ 10 0.5 0.01",
+            "/playsound ender_crystal.explode @a[r=160,rm=80] ~~~ 10 0.75 0.01",
+            "/playsound ender_crystal.explode_1 @a[r=160,rm=80] ~~~ 10 0.65 0.01",
+            "/playsound ender_crystal.explode_2 @a[r=160,rm=80] ~~~ 10 0.65 0.01",
+            "/playsound ender_crystal.explode_3 @a[r=160,rm=80] ~~~ 10 0.65 0.01"
+          ]
+        },
+        "death": {
+        }
+      }
+    }
+  }
+}

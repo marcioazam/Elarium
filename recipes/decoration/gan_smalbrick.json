@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:small_granite_brick"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:granite_brick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:granite_brick"
+      }
+    ],
+    "result": {
+      "item": "edx:small_granitebrick",
+      "count": 4
+    }
+  }
+  
+}

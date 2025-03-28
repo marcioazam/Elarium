@@ -1,0 +1,137 @@
+{
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:immortal_skeleton_down",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {		
+      "revive":{
+      "minecraft:timer": {
+        "looping": false,
+        "time": 10,
+        "time_down_event": {
+          "event": "become_skeleton"
+        }
+      }
+    },
+    "become_skeleton": {
+      "minecraft:transformation": {
+        "into": "edx:immortal_skeleton", 
+        "transformation_sound" : "convert_to_stray",
+        "keep_level": true,
+        "drop_inventory": true,
+        "preserve_equipment": true
+      }
+    }
+  },
+    "components": {
+      "minecraft:mob_effect": {
+		  "effect_range": 5,
+		  "mob_effect": "weakness",
+		  "effect_time": 10,
+		  "entity_filter": {
+			"test": "is_family",
+			"subject": "other",
+			"operator": "!=",
+			"value": "monster"
+		  },
+		  "cooldown_time": 1
+		},
+      "minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/skeleton.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:collision_box": {
+        "width": 0.7,
+        "height": 0.4
+      },
+      "minecraft:type_family": {
+        "family": [ "skeleton", "undead", "monster", "mob" ]
+      },
+      	
+      "minecraft:health": {
+        "value": 200,
+        "max": 200
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 200 
+          },
+          {
+            "filters": {
+              "test": "on_fire",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "fire",
+            "damage_per_tick": 50  
+          }
+        ]
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:nameable": {
+      },
+
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:scheduler": {
+        "min_delay_secs": 0,
+        "max_delay_secs": 0,
+        "scheduled_events" : [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "hourly_clock_time", "operator": ">=", "value": 13000 },
+                { "test": "hourly_clock_time", "operator": "<", "value": 23000 }
+              ]
+            },
+            "event": "revive"
+          }
+        ]
+      }
+    },
+    "events": {
+      "revive": {
+          "add": {
+            "component_groups": ["revive"]
+          }
+        },
+      "become_skeleton": {
+        "add": {
+          "component_groups": [
+            "become_skeleton"
+          ]
+        }
+      }
+    }
+  }
+}

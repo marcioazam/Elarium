@@ -1,0 +1,42 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:shulk_grass2_rule",
+			"places_feature": "edx:shulk_grass2_scatter"
+		},
+
+		"conditions": {
+			"placement_pass": "after_sky_pass",
+
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"any_of": [
+							{
+								"test": "has_biome_tag",
+								"operator": "==",
+								"value": "the_end"
+							}
+						]
+					}
+				]
+			}
+		},
+
+		"distribution": {
+			"iterations": 256,
+
+			"x": {
+				"distribution": "fixed_grid",
+				"extent": [ 0, 15 ]
+			  },
+			"z": {
+				"distribution": "fixed_grid",
+				"extent": [ 0, 15 ]
+			  },
+			"y": "query.heightmap(variable.originx , variable.originz)"
+		}
+	}
+}

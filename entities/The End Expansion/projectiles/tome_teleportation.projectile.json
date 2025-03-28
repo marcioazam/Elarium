@@ -1,0 +1,151 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:tome_teleportation.projectile",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+
+      "scripts": {
+        "animate": [
+          "root.tome_teleportation_projectile",
+          {"tome_teleport.warning": "q.is_saddled"}
+        ]
+      },
+
+      "animations": {
+        "root.tome_teleportation_projectile": "controller.animation.tome_teleportation.projectile",
+
+        "tome_teleport.warning": "animation.tome_teleport.warning"
+      }
+    },
+
+    "component_groups": {
+      "xp:despawn_delay":{
+        "minecraft:is_saddled": {},
+        "minecraft:timer": {
+          "time": 0.1,
+          "looping": true,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        }
+      },
+      "xp:instant_despawn":{
+        "minecraft:instant_despawn":{}
+      },
+      "xp:stage.release":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:stage_teleport",
+                "target": "self"
+              }
+            },
+            "freeze_on_hit": {}
+          },
+          "stop_on_hurt": false,
+          "power": 1,
+          "gravity": 0,
+          "inertia": 1,
+          "liquid_inertia": 0,
+          "anchor": 0,
+          "offset": [
+            0,
+            0.1,
+            0
+          ],
+          "uncertainty_base": 2,
+          "reflect_on_hurt": true
+        },
+        "minecraft:timer": {
+          "time": 1.6,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:despawn_delay",
+            "target": "self"
+          }
+        }
+      },
+      "xp:stage.teleport":{
+        "minecraft:skin_id": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "time": 2,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:instant_despawn",
+            "target": "self"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "projectile" ]
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      }
+    },
+
+    "events": {
+      "xp:despawn_delay":{
+        "add": {
+          "component_groups": [
+            "xp:despawn_delay"
+          ]
+        }
+      },
+      "xp:instant_despawn":{
+        "add": {
+          "component_groups": [
+              "xp:instant_despawn"
+          ]
+       }
+			},
+      "xp:stage_release":{
+        "add": {
+          "component_groups": [
+            "xp:stage.release"
+          ]
+        }
+      },
+      "xp:stage_teleport":{
+        "filters": {
+          "test": "has_component",
+          "subject": "self",
+          "operator": "!=",
+          "value": "minecraft:is_saddled"
+        },
+        "add": {
+          "component_groups": [
+            "xp:stage.teleport"
+          ]
+        }
+      }
+    }
+
+  }
+}

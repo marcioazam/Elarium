@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:broken_helmet"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:broken_old_helmet"
+      }
+    ],
+    "tags": ["furnace", "blast_furnace"],
+    "input": "edx:broken_old_helmet",
+    "output": "edx:ancient_armor_debris"
+  }
+  
+}

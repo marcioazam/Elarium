@@ -1,0 +1,10 @@
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~
+particle edx:blue_spore_particles ~~1~

@@ -1,0 +1,48 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "dungeons:lone_fortress"
+    },
+    "biome_filters": [{
+      "all_of": [{
+          "any_of": [{
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "cold"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "frozen"
+            }
+          ]
+        },
+        {
+          "none_of": [{
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "ocean"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "river"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "mountain"
+            }
+          ]
+        }
+      ]
+    }],
+    "heightmap_projection": "world_surface",
+    "max_depth": 1,
+    "start_height": 1,
+    "start_pool": "dungeons:lone_fortress",
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin"
+  }
+}

@@ -1,0 +1,20 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.hook_ride": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"despawn":"!query.has_rider"} 
+					]
+				},
+				"despawn": {
+					"on_exit": [
+						"/event entity @s minecraft:despawn"
+					  ],
+					"transitions":[{"default":"query.is_riding"} ]
+			}
+	 	}
+		}
+	}
+}

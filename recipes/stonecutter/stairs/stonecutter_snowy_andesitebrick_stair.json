@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_snowy_andesitebrick_stairs"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "edx:snowy_andesitebrick"
+      }
+    ],
+    "result": {
+      "item": "edx:snowy_andesitebrick_stairs",
+      "count": 1
+    }
+  }
+}

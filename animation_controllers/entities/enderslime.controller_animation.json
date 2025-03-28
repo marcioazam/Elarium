@@ -1,0 +1,65 @@
+{
+   "format_version": "1.10.0",
+   "animation_controllers": {
+      "controller.animation.enderslime.launch":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "launch": "q.skin_id == 2 && q.is_on_ground"
+                  }
+               ]
+            },
+            "launch":{
+               "on_entry": [
+                  "v.tick_delay = q.life_time;",
+                  "/event entity @e[type=player,r=1,c=1] xp:levitation_value_70",
+                  "/playsound entity.slimejumppad.jump @a[r=1,c=1]"
+               ],
+               "on_exit": [
+                  "@s xp:stage_remove_jumppad"
+               ],
+               "transitions": [
+                  {
+                     "default": "(q.life_time - v.tick_delay) >= 0.5"
+                  }
+               ]
+            }
+
+         }
+      },
+      "controller.animation.enderslime.death":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "death": "query.health <= 15 && !q.is_baby"
+                  }
+               ]
+            },
+            "death":{
+               "on_entry": [
+                  "v.tick_delay = q.life_time;",
+                  "/particle xp:big_enderslime.death ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "/summon minecraft:xp_orb ~ ~ ~",
+                  "@s xp:stage_death"
+               ],
+               "on_exit": [
+                  "@s xp:instant_despawn"
+               ],
+               "transitions": [
+                  {
+                     "death_end": "(q.life_time - v.tick_delay) >= 0.5"
+                  }
+               ]
+            },
+            "death_end":{
+            }
+         }
+      }
+   }
+}

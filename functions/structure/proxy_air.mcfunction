@@ -1,0 +1,2 @@
+summon dungeons:boss_proxy
+function structure/air

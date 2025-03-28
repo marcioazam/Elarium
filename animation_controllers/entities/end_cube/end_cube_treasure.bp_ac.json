@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube_treasure.on_item_pickup": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [ { "on_item_pickup": "q.variant == 2" } ]
+        },
+
+        "on_item_pickup": {
+          "transitions": [ { "on_despawn": "q.life_time - v.t > 1.0" } ],
+          "on_entry": [
+            "v.t = q.life_time;",
+
+            "/give @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] xp:enders_smite 1",
+            "/execute as @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run particle xp:end_cube_mob_spawn.4 ~~0.05~",
+            "/execute as @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run particle xp:end_cube_mob_spawn.5 ~~0.05~",
+            "/execute as @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] at @s run playsound ender_staff.attack @a ~~~"
+          ]
+        },
+
+        "on_despawn": {
+          "on_entry": [
+            "/tag @e[type=xp:end_cube_boss_activator,r=64] remove ender_eye_boss_blocked",
+            "/function end_cube/boss/respawn",
+            "@s xp:instant_despawn"
+          ]
+        }
+      }
+    }
+  }
+}

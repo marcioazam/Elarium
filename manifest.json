@@ -1,0 +1,42 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Elarium Behavior Pack",
+    "name": "Elarium Behavior Pack",
+    "uuid": "aa19e62c-29bf-42b6-a8d3-2e9251b79789",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 70]
+  },
+  "modules": [
+    {
+      "description": "Comportamentos de Elarium",
+      "type": "data",
+      "uuid": "ff29dc9e-8cae-43b3-990a-7e8a5738dc23",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "28c546ea-12eb-42c2-b5e1-ad1c118cead8",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.2.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.3.0"
+    },
+    {
+        "uuid": "eb4528a0-158b-49f4-a38c-e2ba52198ca6",
+        "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Marcio"]
+  }
+}

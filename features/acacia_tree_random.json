@@ -1,0 +1,13 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+	  "description": {
+		"identifier": "edx:acacia_tree_random"
+	  },
+	  "features": [
+		[ "edx:big_acacia_tree_feature", 1 ],
+		[ "minecraft:savanna_tree_feature", 1 ],
+		[ "edx:nothing_feature", 20 ]
+	  ]
+	}
+  }

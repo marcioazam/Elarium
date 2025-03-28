@@ -1,0 +1,24 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:spider_egg_feature"
+      },
+      "places_block": "edx:spider_egg",
+      "enforce_placement_rules": true,
+      "enforce_survivability_rules": true,
+      "may_attach_to": {
+        "bottom":  [
+          "minecraft:sand",
+          "minecraft:stone",
+          "minecraft:tuff",
+          "minecraft:dirt",
+          "minecraft:sandstone",
+          "minecraft:planks"
+      ]
+    },
+      "may_replace": [
+        "minecraft:air"
+      ]
+    }
+  }

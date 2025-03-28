@@ -1,0 +1,76 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_chestloot.loot_choice": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "loot_bad": "q.skin_id == 2" },
+            { "loot_good": "q.skin_id == 3" },
+            //{ "loot_sky": "q.skin_id == 4" },
+            { "loot_explode": "q.skin_id == 5" }
+          ]
+        },
+        "loot_bad":{
+          "animations": [ "loot_bad" ]
+        },
+        "loot_good":{
+          "animations": [ "loot_good" ]
+        },
+        //"loot_sky":{ "animations": [ "loot_sky" ] },
+        "loot_explode":{
+          "animations": [ "explode_loot" ]
+        }
+      }
+    },
+
+    "controller.animation.end_chestloot.facing":{
+      "initial_state": "default",
+      "states": {
+        "default":{
+          "transitions": [
+            { "north": "q.mark_variant == 1" },
+            { "south": "q.mark_variant == 2" },
+            { "west": "q.mark_variant == 3" },
+            { "east": "q.mark_variant == 4" }
+          ]
+        },
+
+        "north":{
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing ~ ~ -180"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        },
+        "south":{
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing ~ ~ 180"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        },
+
+        "west":{
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing -180 ~ ~"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        },
+        "east":{
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing 180 ~ ~"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        }
+      }
+    }
+  }
+}

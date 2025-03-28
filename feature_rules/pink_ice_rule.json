@@ -1,0 +1,42 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:pink_ice_rule",
+			"places_feature": "edx:pink_ice_feature"
+		},
+
+		"conditions": {
+			"placement_pass": "before_sky_pass",
+
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"any_of": [
+							{
+								"test": "has_biome_tag",
+								"operator": "==",
+								"value": "the_end"
+							}
+						]
+					}
+				]
+			}
+		},
+
+		"distribution": {
+			"iterations": 20,
+
+			"x": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ]
+			  },
+			"z": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ]
+			  },
+			"y":  "(q.noise((v.originx / 1024), (v.originz / 1024)) + q.noise(v.originx, v.originz) * 0.05 > -0.2 && q.noise((v.originx / 1024), (v.originz / 1024)) + q.noise(v.originx, v.originz) * 0.05 < 0.4 && (math.abs(v.originx) > 200 || math.abs(v.originz) > 200)) ? (q.heightmap(v.originx, v.originz)-math.random(4,50))  : -1"
+		}
+	}
+}

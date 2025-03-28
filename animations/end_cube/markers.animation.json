@@ -1,0 +1,117 @@
+{
+  "format_version": "1.8.0",
+
+  "animations": {
+
+    "animation.end_cube_marker.spawners": {
+      "loop": true,
+      "animation_length": 150,
+      "timeline": {
+        "0.0": [
+          "/kill @e[type=xp_orb,r=128]",
+          "/kill @e[type=item,r=128]",
+          "/function clearmobs"
+        ],
+
+        "8.5": [ "/summon xp:end_cube_marker 312.53 118.00 -539.39 xp:marker_type.spawner_handler" ],
+        "9.5": [ "/summon xp:end_cube_marker 317.49 118.00 -540.69 xp:marker_type.spawner_handler" ],
+        
+        "12.66": [ "/summon xp:end_cube_marker 318.38 123.50 -529.98 xp:marker_type.spawner_handler" ],
+        "13.66": [ "/summon xp:end_cube_marker 317.55 130.00 -536.31 xp:marker_type.spawner_handler" ],
+        "14.66": [ "/summon xp:end_cube_marker 316.44 133.00 -541.48 xp:marker_type.spawner_handler" ],
+        "15.66": [
+          "/summon xp:end_cube_marker 307.63 139.00 -540.38 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 317.31 147.00 -531.95 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 312.00 153.00 -557.43 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 309.43 153.00 -575.04 xp:marker_type.spawner_handler"
+        ],
+
+        "41.60": [
+          "/summon xp:end_cube_marker 306.46 176.00 -548.53 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 326.86 176.00 -550.62 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 327.05 176.00 -531.45 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 312.97 176.00 -531.39 xp:marker_type.spawner_handler"
+        ],
+
+        "49.35": [
+          "/summon xp:end_cube_marker 306.71 191.00 -530.99 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 317.51 198.00 -528.45 xp:marker_type.spawner_handler"
+        ],
+        "51.50": [
+          "/summon xp:end_cube_marker 307.92 205.00 -541.35 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 317.54 203.00 -541.07 xp:marker_type.spawner_handler"
+        ],
+
+        "53.50": [ "/summon xp:end_cube_marker 324.51 203.00 -525.17 xp:marker_type.spawner_handler" ]
+      }
+    },
+
+    "animation.end_cube_marker.cinematics.arena.intro_camera": {
+      "loop": true,
+      "animation_length": 0.005,
+      "timeline": {
+        "0.0": [
+          "/scoreboard players add @s frame1 1",
+          "/function end_cube/arena/cutscenes/a",
+          "/event entity @s[scores={frame1=1600..}] xp:cinematics_handler.cutscene_positioning_true"
+        ],
+        "0.0025": "/function end_cube/arena/cutscenes/a"
+      }
+    },
+
+    "animation.end_cube_marker.cinematics.arena.intro_effects": {
+      "loop": true,
+      "animation_length": 56.07,
+      "timeline": {
+        "8.5": [ "/summon xp:end_cube_marker 312.53 118.00 -539.39 xp:marker_type.spawner_handler" ],
+        "9.5": [ "/summon xp:end_cube_marker 317.49 118.00 -540.69 xp:marker_type.spawner_handler" ],
+        
+        "12.66": [ "/summon xp:end_cube_marker 318.38 123.50 -529.98 xp:marker_type.spawner_handler" ],
+        "13.66": [ "/summon xp:end_cube_marker 317.55 130.00 -536.31 xp:marker_type.spawner_handler" ],
+        "14.66": [ "/summon xp:end_cube_marker 316.44 133.00 -541.48 xp:marker_type.spawner_handler" ],
+        "15.66": [
+          "/summon xp:end_cube_marker 307.63 139.00 -540.38 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 317.31 147.00 -531.95 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 312.00 153.00 -557.43 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 309.43 153.00 -575.04 xp:marker_type.spawner_handler"
+        ],
+
+        "41.60": [
+          "/summon xp:end_cube_marker 306.46 176.00 -548.53 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 326.86 176.00 -550.62 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 327.05 176.00 -531.45 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 312.97 176.00 -531.39 xp:marker_type.spawner_handler"
+        ],
+
+        "49.35": [
+          "/summon xp:end_cube_marker 306.71 191.00 -530.99 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 317.51 198.00 -528.45 xp:marker_type.spawner_handler"
+        ],
+        "51.50": [
+          "/summon xp:end_cube_marker 307.92 205.00 -541.35 xp:marker_type.spawner_handler",
+          "/summon xp:end_cube_marker 317.54 203.00 -541.07 xp:marker_type.spawner_handler"
+        ],
+
+        "53.50": [ "/summon xp:end_cube_marker 324.51 203.00 -525.17 xp:marker_type.spawner_handler" ]
+      }
+    },
+
+    "animation.end_cube_marker.cinematics.boss.stage_transition": {
+      "loop": true,
+      "animation_length": 0.005,
+      "timeline": {
+        "0.0": [ "/tp @a[tag=\"ender_sanctuary_cutscene\"] 336.5 229.5 -536.5 facing @e[type=xp:end_cube,c=1]" ],
+        "0.0025": [ "/tp @a[tag=\"ender_sanctuary_cutscene\"] 336.5 229.5 -536.5 facing @e[type=xp:end_cube,c=1]" ]
+      }
+    },
+    "animation.end_cube_marker.cinematics.boss.final_death": {
+      "loop": true,
+      "animation_length": 0.005,
+      "timeline": {
+        "0.0": [
+          "/tp @a[tag=\"ender_sanctuary_cutscene\"] 320.50 224.67 -536.50 90 -13"
+        ]
+      }
+    }
+  }
+}

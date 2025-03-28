@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "emerald_boots"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "E E",
+      "I I"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:emerald"
+      }
+    ],
+    "key": {
+      "E": {
+        "item": "minecraft:emerald"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:emerald_boots",
+      "count": 1
+    }
+  }
+}

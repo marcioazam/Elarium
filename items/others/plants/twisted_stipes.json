@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:twisted_stipes",
+			
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.flower"
+			}
+			
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"twisted_stipes"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:twisted_stipes",
+				"use_on" : ["netherrack","crimson_nylium","warped_nylium"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

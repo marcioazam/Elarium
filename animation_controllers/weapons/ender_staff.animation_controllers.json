@@ -1,0 +1,234 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ender_staff.remove_first_user": {
+      "initial_state": "no_weapon",
+      "states": {
+        "no_weapon": {
+          "transitions": [
+            { "has_weapon": "q.get_equipped_item_name == 'ender_staff'" }
+          ]
+        },
+        "has_weapon": {
+          "on_entry": [
+            "v.ender_staff_cd == 0;",
+            "@s xp:ender_staff_teleport_remove_cooldown",
+            "/execute as @s[scores={ender_staff_cd=..9999}] at @s run scoreboard players set @s ender_staff_cd 0"
+          ]
+        }
+      }
+    },
+    "controller.animation.ender_staff": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [
+            "@s xp:attack_value_1",
+            "/tag @s remove ender_staff_user",
+            "/stopsound @s ender_staff.teleport_loop",
+            "/stopsound @s ender_staff.teleport_loop_1",
+            "/stopsound @s ender_staff.idle",
+            "/stopsound @s ender_smite.eye_idle"
+          ], 
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'ender_staff'" }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s add ender_staff_user",
+            "@s xp:attack_value_0",
+            "/execute as @s[scores={ender_staff_cd=..0}] at @s run scoreboard players set @s ender_staff_cd 0",
+            "/event entity @e[type=xp:ender_staff_mark,r=31,c=1] xp:despawn_delay",
+            "/stopsound @s ender_staff.teleport_loop"
+          ],
+          "transitions": [
+            { "ender_staff_release": "q.get_equipped_item_name == 'ender_staff' && v.attack_time > 0.1" },
+            { "ender_staff_teleport_charge": "!q.is_sneaking && q.get_equipped_item_name == 'ender_staff' && q.is_using_item && v.ender_staff_cd == 0" },
+            { "ender_staff_teleport_cooldown_show": "q.get_equipped_item_name == 'ender_staff' && q.is_using_item && v.ender_staff_cd >= 1" },
+            { "default": "q.get_equipped_item_name != 'ender_staff'" }
+          ]
+        },
+
+        "ender_staff_release": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/stopsound @s ender_staff.teleport_loop",
+            "/stopsound @s ender_staff.teleport_loop_1",
+            "/execute at @s run playsound respawn_anchor.deplete @a[r=12] ~~~ 0.95 2.75 0.1",
+            "/execute at @s run playsound ender_staff.shock @a[r=12] ~~~ ",
+            "@s xp:ender_staff_release",
+            "@s xp:set_attack"
+          ],
+          "transitions": [
+            { "ender_staff_release1": "(q.life_time - v.tick_delay) >= 0.05" }
+          ]
+        },
+        "ender_staff_release1": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:ender_staff_attack_cooldown",
+            "@s xp:ender_staff_release"
+          ],
+          "transitions": [
+            { "ender_staff_release2": "(q.life_time - v.tick_delay) >= 0.05" }
+          ]
+        },
+        "ender_staff_release2": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:ender_staff_attack_cooldown",
+            "@s xp:ender_staff_release"
+          ],
+          "transitions": [
+            { "ender_staff_cooldown": "(q.life_time - v.tick_delay) >= 0.75" }
+          ]
+        },
+        "ender_staff_cooldown": {
+          "on_entry": [
+            "@s xp:ender_staff_attack_cooldown",
+            "/stopsound @s ender_staff.teleport_loop",
+            "/stopsound @s ender_staff.teleport_loop_1",
+            "v.tick_delay = q.life_time;"
+          ],
+          "on_exit": ["@s xp:ender_staff_remove_attack_cooldown", "@s xp:unset_attack"],
+          "transitions": [
+            { "hold": "(q.life_time - v.tick_delay) >= 0.25" }
+          ]
+        },
+
+        "ender_staff_teleport_cooldown_show": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/playsound note.bassattack @s[tag=ender_staff_user] ~~~ 0.9 0.5 0.01",
+            "/playsound note.bassattack @s[tag=ender_staff_user] ~~~ 0.75 0.25 0.01",
+            "/playsound note.iron_xylophone @s[tag=ender_staff_user] ~~~ 0.5 0.5 0.01"
+          ],
+          "transitions": [
+            { "hold": "(q.life_time - v.tick_delay) >= 0.75 && !q.is_using_item" }
+          ]
+        },
+        "ender_staff_teleport_charge": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run camerashake add @s 0.0175 99999 rotational",
+            "/stopsound @s ender_staff.idle"
+          ],
+          "on_exit": [
+            "/execute at @s run particle xp:hammer_impact ~~~",
+            "/execute at @s run particle xp:hammer_impact ~~1~",
+            "/stopsound @s ender_staff.teleport_loop",
+            "/stopsound @s ender_staff.teleport_loop_1",
+            "/camerashake stop @s"
+          ],
+          "animations": ["ender_staff_teleport"],
+          "transitions": [
+            { "ender_staff_teleport_user": "(!q.is_sneaking && q.get_equipped_item_name == 'ender_staff' && !q.is_using_item && q.skin_id != 13 && (q.life_time - v.tick_delay) >= 3) || q.all_animations_finished" },
+            { "hold": "(q.is_sneaking && q.get_equipped_item_name == 'ender_staff') || q.skin_id == 13 || ((q.life_time - v.tick_delay) < 3 && !q.is_using_item)" },
+            { "default": "q.get_equipped_item_name != 'ender_staff'" }
+          ]
+        },
+        "ender_staff_teleport_user": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/stopsound @s ender_staff.teleport_loop",
+            "/stopsound @s ender_staff.teleport_loop_1",
+            "/playsound tp @s ~~~ 0.75 0.5 0.0001",
+            "/playsound tp1 @s ~~~ 0.75 0.5 0.0001",
+            "/playsound tp.shriek @s ~~~ 0.35 0.5 0.0001",
+            "/playsound xp:summon @s ~~~ 0.75 0.5 0.0001",
+            "/playsound respawn_anchor.set_spawn @s ~~~ 0.65 1.5 0.0001",
+            "/execute at @s run scoreboard players set @s ender_staff_cd 20"
+          ],
+          "transitions": [
+            { "ender_staff_teleport_user_after": "(q.life_time - v.tick_delay) >= 0.05" }
+          ]
+        },
+        "ender_staff_teleport_user_after": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tp @s @e[type=xp:ender_staff_mark]",
+            "/title @s actionbar xp_hud.barrier_vignette",
+            "/execute at @s run camerashake add @s 0.25 0.25 rotational",
+            "/stopsound @s ender_staff.teleport_loop",
+            "/stopsound @s ender_staff.teleport_loop_1",
+            "@s xp:ender_staff_teleport_cooldown",
+            // "/execute as @a[tag=ender_staff_user] at @s run function clearchat",
+            "/execute as @e[type=xp:ender_staff_mark] at @s run particle xp:heart_impact_sprout ~~~",
+            "/execute as @e[type=xp:ender_staff_mark] at @s run particle xp:hammer_impact ~~~",
+            "/execute as @e[type=xp:ender_staff_mark] at @s run particle xp:hammer_impact ~~~",
+            "/event entity @e[type=xp:ender_staff_mark,r=2,c=1] xp:despawn_delay",
+            "/effect @s blindness 1 1 true",
+            "/effect @s darkness 4 1 true",
+            "/effect @s nausea 8 2 true",
+            "v.ender_staff_cd = 20;"
+          ],
+          "transitions": [
+            { "hold": "(q.life_time - v.tick_delay) >= 1" }
+          ]
+        }
+      }
+    },
+    "controller.animation.ender_staff.cooldown_controller": {
+      "initial_state": "no_cooldown",
+      "states": {
+        "no_cooldown": {
+          "on_entry": [
+            "v.ender_staff_cd = 0;",
+            "@s xp:ender_staff_teleport_remove_cooldown",
+            "/execute as @s[scores={ender_staff_cd=..20}] at @s run scoreboard players set @s ender_staff_cd 0"
+          ],
+          "transitions": [
+            { "cooldown": "v.ender_staff_cd >= 1 || q.skin_id == 13" }
+          ]
+        },
+        "cooldown": {
+          "animations": [
+            "ender_staff_teleport_cooldown_decrease",
+            "ender_staff_teleport_cooldown_display"
+          ],
+          "on_entry": [
+            "v.ender_staff_cd = 20;",
+            "@s xp:ender_staff_teleport_cooldown"
+          ],
+          "on_exit": [
+            "v.ender_staff_cd = 0;",
+            "/scoreboard players set @s ender_staff_cd 0",
+            "/execute as @s[scores={ender_staff_cd=..20}] at @s run scoreboard players set @s ender_staff_cd 0",
+            "/execute at @s run playsound ender_smite.mana_recharged @a[r=20] ~~~ 0.5 1.5 0.01"
+          ],
+          "transitions": [
+            { "no_cooldown": "v.ender_staff_cd == 0 || q.skin_id != 13" }
+          ]
+        }
+      }
+    },
+    "controller.animation.ender_staff.bullet_impact":{
+       "initial_state": "default",
+       "states": {
+          "default":{
+             "transitions": [
+                {
+                   "impact": "q.skin_id == 1"
+                }
+             ]
+          },
+          "impact":{
+             "on_entry": [
+                "v.tick_delay = q.life_time;",
+                "/particle xp:ender_staff.impact ~~~",
+                "/particle xp:hammer_impact1 ~~0.25~",
+                "/particle xp:ender_curved_blade.flash ~ ~ ~",
+                "/camerashake add @a[r=5] 0.2 0.3 rotational",
+                "/execute at @s run playsound mob.warden.attack @a[r=5] ~~~ 0.85 0.65 0.05",
+                "/execute at @s run playsound mob.warden.attack @a[r=50] ~~~ 0.65 0.5 0.025",
+                "/execute at @s run playsound mob.warden.attack @a[r=100] ~~~ 0.5 0.5 0.025",
+                "/title @a[r=5] actionbar xp_hud.barrier_vignette"
+             ]
+          }
+       }
+    }
+  }
+}

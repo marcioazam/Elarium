@@ -1,0 +1,110 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.stalker.hide": {
+      "animation_length": 0.1,
+      "loop": false,
+      "timeline": {
+        "0.0": [ "/ride @s start_riding @e[type=xp:echoing_wart,r=5,c=1] teleport_rider" ]
+      }
+    },
+    "animation.stalker.force_hide": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/ride @s start_riding @e[type=xp:echoing_wart,r=5,c=1] teleport_rider", "@s xp:find_hiding" ]
+      }
+    },
+    "animation.stalker.hide_vfx": {
+      "animation_length": 0.1,
+      "loop": false,
+      "timeline": {
+        "0.0": [ "/effect @s invisibility 9999 1 true" ]
+      }
+    },
+    "animation.stalker.hide_remove_vfx": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/effect @s invisibility 0 0 true"]
+      }
+    },
+    "animation.stalker.hide_stop": {
+      "animation_length": 0.1,
+      "loop": false,
+      "timeline": {
+        "0.0": [ "/ride @s stop_riding", "/tp ~ ~1 ~"]
+      }
+    },
+    "animation.stalker.hide_timer": {
+      "animation_length": 7,
+      "loop": false,
+      "timeline": {
+        "5": ["@s xp:player_attack" ],
+        "5.1": ["/ride @s stop_riding" ]
+      }
+    },
+
+    "animation.stalker.tired_timer": {
+      "animation_length": 60,
+      "loop": false,
+      "timeline": {
+        "58": ["@s xp:find_bed" ]
+      }
+    },
+    "animation.stalker.sleep": {
+      "animation_length": 0.1,
+      "loop": false,
+      "timeline": {
+        "0.0": [ "/ride @s start_riding @e[type=xp:echoing_wart,r=5,c=1] teleport_rider" ]
+      }
+    },
+    "animation.stalker.sleep_vfx": {
+      "animation_length": 0.1,
+      "loop": false,
+      "timeline": {
+        "0.0": [ "/effect @s invisibility 9999 1 true" ]
+      }
+    },
+    "animation.stalker.sleep_remove_vfx": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/effect @s invisibility 0 0 true"]
+      }
+    },
+    "animation.stalker.sleep_stop": {
+      "animation_length": 0.1,
+      "loop": false,
+      "timeline": {
+        "0.0": [ "/ride @s stop_riding", "@s xp:remove_sleep", "/tag @s remove sleep", "/tp ~ ~1 ~"]
+      }
+    },
+    "animation.stalker.sleep_timer": {
+      "animation_length": 60,
+      "loop": false,
+      "timeline": {
+        "0": [ "/tag @s add sleep"],
+        "58": ["@s xp:player_attack", "@s xp:remove_sleep", "/tag @s remove sleep"],
+        "59": ["/ride @s stop_riding" ]
+      }
+    },
+    "animation.stalker.sleep_sensor": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ 
+          "/execute as @a[r=8,tag=!sneaking,m=!c] at @s run event entity @e[type=xp:stalker,tag=sleep,r=8] xp:player_attack",
+          "/execute as @a[r=3,m=!c] at @s run event entity @e[type=xp:stalker,tag=!sleep,r=3] xp:player_attack"
+        ]
+      }
+    },
+    "animation.stalker.scary_timer": {
+      "animation_length": 15,
+      "loop": false,
+      "timeline": {
+        "15": ["/effect @s fatal_poison 40 2 true"]
+      }
+    }
+  }
+}

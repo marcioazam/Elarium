@@ -1,0 +1,33 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "xp:blunum_crystal_cluster",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.grass"
+			}
+		},
+		"components": {
+			"minecraft:loot": "loot_tables/biomes/crystal_cluster_medium.json",
+			"minecraft:light_emission": 8,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:geometry": "geometry.blunum_crystal_cluster",
+			"minecraft:material_instances": {
+				"*": {
+					"ambient_occlusion": false,
+					"face_dimming": false,
+					"texture": "blunum_crystal_cluster",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:map_color": "#3936c9"
+		}
+	}
+}

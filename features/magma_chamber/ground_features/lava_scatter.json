@@ -1,0 +1,22 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:magma_chamber/ground_features/lava_scatter"
+    },
+    "iterations": 200,
+    "x": {
+      "distribution": "gaussian",
+      "extent": [ -10, 10 ]
+    },
+    "y": {
+      "distribution": "gaussian",
+      "extent": [ -3, 3 ]
+    },
+    "z": {
+      "distribution": "gaussian",
+      "extent": [ -10, 10 ]
+    },
+    "places_feature": "edx:magma_chamber/ground_features/lava_feature"
+  }
+}

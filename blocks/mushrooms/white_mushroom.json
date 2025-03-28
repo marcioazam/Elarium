@@ -1,0 +1,45 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:white_mushroom",
+			"category": "none"
+		},
+		"components": {
+			"minecraft:custom_components": [
+                "edx:white_mushroom"
+            ],
+			"minecraft:loot": "loot_tables/blocks/white_mushroom.json",
+			"minecraft:geometry": "geometry.big_mushroom",
+            "minecraft:collision_box": false,
+			"minecraft:selection_box": {
+                "origin": [-5,0,-5],
+                "size": [10,16,10]
+            },
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "white_mushroom",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:destructible_by_mining": { 
+                "seconds_to_destroy": 0
+            },
+            "minecraft:destructible_by_explosion": { 
+                "explosion_resistance": 2
+            },
+			"minecraft:light_dampening": 0.0,
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": ["up"],
+						"block_filter": ["minecraft:mycelium","edx:cave_mycelium","minecraft:dirt","minecraft:grass",
+						"minecraft:podzol","minecraft:dirt_with_roots","minecraft:moss_block"]
+                    }
+                ]
+            }
+		}
+	}
+}

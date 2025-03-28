@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:void_smooth_bricks_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:void_smooth_bricks"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:void_smooth_bricks"
+            }
+        ],
+        "result": {
+            "item": "edx:void_smooth_bricks_slab",
+            "count": 6
+        }
+    }
+}

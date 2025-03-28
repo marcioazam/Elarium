@@ -1,0 +1,36 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.enderslime_small.rider": {
+			"animation_length": 0.1,
+			"loop": false,
+			"timeline": {
+				"0": [ "/ride @s start_riding @e[type=xp:enderslime,c=1,r=3]"]
+			}
+		},
+		"animation.enderslime_small.jump_boost": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0": [ "/effect @a[r=2,c=1] jump_boost 1 2 true"]
+			}
+		},
+		"animation.enderslime.avoid_sensor": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0": [
+					"/execute as @s[x=0,y=12,z=0,dx=10000,dy=5,dz=10000] at @s run /playsound mob.shulker.teleport @a[r=30] ~ ~ ~",
+					"/execute as @s[x=0,y=12,z=0,dx=-10000,dy=5,dz=10000] at @s run /playsound mob.shulker.teleport @a[r=30] ~ ~ ~",
+					"/execute as @s[x=0,y=12,z=0,dx=10000,dy=5,dz=-10000] at @s run /playsound mob.shulker.teleport @a[r=30] ~ ~ ~",
+					"/execute as @s[x=0,y=12,z=0,dx=-10000,dy=5,dz=-10000] at @s run /playsound mob.shulker.teleport @a[r=30] ~ ~ ~",
+					
+					"/execute as @s[x=0,y=12,z=0,dx=10000,dy=5,dz=10000] at @s run /spreadplayers ~3 ~3 1 8 @s",
+					"/execute as @s[x=0,y=12,z=0,dx=-10000,dy=5,dz=10000] at @s run /spreadplayers ~3 ~3 1 8 @s",
+					"/execute as @s[x=0,y=12,z=0,dx=10000,dy=5,dz=-10000] at @s run /spreadplayers ~3 ~3 1 8 @s",
+					"/execute as @s[x=0,y=12,z=0,dx=-10000,dy=5,dz=-10000] at @s run /spreadplayers ~3 ~3 1 8 @s"
+				]
+			}
+		}
+	}
+}

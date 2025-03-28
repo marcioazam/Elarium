@@ -1,0 +1,42 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:lab_rule",
+			"places_feature": "edx:lab_proxy"
+		},
+
+		"conditions": {
+			"placement_pass": "final_pass",
+
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"any_of": [
+							{
+								"test": "has_biome_tag",
+								"operator": "==",
+								"value": "the_end"
+							}
+						]
+					}
+				]
+			}
+		},
+
+		"distribution": {
+			"iterations": "(q.noise((v.originx / 1024), (v.originz / 1024)) + q.noise(v.originx, v.originz) * 0.05 < -0.55 && (math.abs(v.originx) > 200 || math.abs(v.originz) > 200)) ? (q.heightmap(v.originx, v.originz) - math.random(-1,-4)) : -1",
+
+			"x": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ]
+			  },
+			"z": {
+				"distribution": "uniform",
+				"extent": [ 0, 16 ] 
+			  },
+			"y": "query.heightmap(variable.originx , variable.originz) -2"
+		}
+	}
+}

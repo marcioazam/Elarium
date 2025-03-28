@@ -1,0 +1,17 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:ore_feature": {
+    "description": {
+      "identifier": "edx:water_swamp_feature"
+    },
+  "count": 12,
+  "replace_rules": [
+    {
+      "places_block": "minecraft:water",
+      "may_replace": [
+        "minecraft:grass"
+      ]
+    }
+  ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:mud_feature"
+        },
+        "count": 35,
+        "replace_rules": [
+            {
+                "places_block": "minecraft:mud",
+                "may_replace": [
+                    {
+                        "name": "minecraft:dirt"
+                    }
+                ]
+            },
+            {
+                "places_block": "minecraft:mud",
+                "may_replace": [
+                    {
+                        "name": "minecraft:grass"
+                    }
+                ]
+            }
+        ]
+    }
+}

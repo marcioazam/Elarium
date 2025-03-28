@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:yellow_energy_stew",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.miscFood"
+			}
+		},
+		"components": {
+		"minecraft:icon": {
+			"textures": {
+				"default": "yellow_energy_stew"
+			}
+		},
+		"minecraft:max_stack_size": 1,
+		"minecraft:hand_equipped": false,
+		"minecraft:food": {
+			"nutrition": 4,
+			"saturation_modifier": 3,
+			"can_always_eat": false
+		},
+		"minecraft:use_modifiers":{
+			"use_duration": 1.6,
+			"movement_modifier": 0.35
+		},
+		"minecraft:use_animation": "eat"
+		}
+	}
+}

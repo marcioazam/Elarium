@@ -1,0 +1,54 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:sanctuary_mob_spawn",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "xp:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:physics": {},
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:timer": {
+                "time": 1,
+                "looping": true,
+                "time_down_event": {
+                    "event": "xp:instant_despawn",
+                    "target": "self"
+                }
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+        "events": {
+            "xp:instant_despawn": {
+                "add": {
+                    "component_groups": [
+                        "xp:instant_despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

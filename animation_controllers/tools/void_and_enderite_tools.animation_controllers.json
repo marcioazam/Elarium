@@ -1,0 +1,299 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    //sword
+    "controller.animation.void_and_enderite_sword.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [ 
+            "@s xp:attack_value_1",
+            "/tag @s remove void_crystal_sword"
+          ],
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'void_crystal_sword'" }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [
+            "/tag @s add void_crystal_sword",
+            "@s xp:attack_value_20"
+          ],
+          "transitions": [ 
+            { "default": "q.get_equipped_item_name != 'void_crystal_sword'" },
+            { "basic_attack": "v.attack_time > 0.0" }
+          ]
+        },
+        
+        "basic_attack": {
+          "on_entry": [
+            "/tag @s add void_crystal_sword",
+            "/effect @s weakness 1 20 true", /* We don't want players spamming this sword and inflicting so much damage */
+            "@s xp:attack_value_20"
+          ],
+          "transitions": [ 
+            { "hold": "!v.attack_time && q.get_equipped_item_name == 'void_crystal_sword'" }, 
+            { "default": "q.get_equipped_item_name != 'void_crystal_sword'" } 
+          ]
+        }
+      }
+    },
+    "controller.animation.enderite_sword.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [ 
+            "@s xp:attack_value_1",
+            "/tag @s remove enderite_sword"
+          ],
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'enderite_sword'" }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [ 
+            "/tag @s add enderite_sword",
+            "@s xp:attack_value_7"
+          ],
+          "transitions": [ 
+            {
+              "default": "q.get_equipped_item_name != 'enderite_sword'"
+            },
+            {
+              "basic_attack": "v.attack_time > 0.0"
+            }
+          ]
+        },
+        
+        "basic_attack": {
+          "transitions": [ 
+            {
+              "hold": "q.get_equipped_item_name == 'enderite_sword'"
+            }, 
+            {
+              "default": "q.get_equipped_item_name != 'enderite_sword'"
+            } 
+          ]
+        }
+      }
+    },
+
+    //axe
+    "controller.animation.void_and_enderite_axe.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "hold": "q.get_equipped_item_name == 'void_crystal_axe' || q.get_equipped_item_name == 'enderite_axe'"
+            }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [ 
+            "/tag @s add void_crystal_axe",
+            "@s xp:attack_value_12",
+            "@s xp:haste_value_1"
+          ],
+          "on_exit": [ 
+            "@s xp:attack_value_1",
+            "@s xp:haste_value_0",
+            "/tag @s remove void_crystal_axe"
+          ],
+          "transitions": [ 
+            {
+              "default": "q.get_equipped_item_name != 'void_crystal_axe' && q.get_equipped_item_name != 'enderite_axe'"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.void_and_enderite_axe.tree_capitator": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [ 
+            "/tag @s remove void_crystal_axe"
+          ],
+          "transitions": [
+            {
+              "hold": "q.get_equipped_item_name == 'void_crystal_axe' || q.get_equipped_item_name == 'enderite_axe'"
+            }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [ 
+            "/tag @s add void_crystal_axe"
+          ],
+          "transitions": [ 
+            {
+              "default": "q.get_equipped_item_name != 'void_crystal_axe' && q.get_equipped_item_name != 'enderite_axe'"
+            },
+            {
+              "break_blocks": "v.attack_time > 0.0"
+            }
+          ]
+        },
+        
+        "break_blocks":{
+          "animations": [
+            "a.void_and_enderite_axe.tree_capitator"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'void_crystal_axe' && q.get_equipped_item_name != 'enderite_axe'"
+            },
+            {
+              "hold": "q.get_equipped_item_name == 'void_crystal_axe' || q.get_equipped_item_name == 'enderite_axe'"
+            }
+          ]
+        }
+      }
+    },
+
+    //pickaxe
+    "controller.animation.void_and_enderite_pickaxe.attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "hold": "q.get_equipped_item_name == 'void_crystal_pickaxe' || q.get_equipped_item_name == 'enderite_pickaxe'"
+            }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [ 
+            "/tag @s add void_crystal_pickaxe",
+            "@s xp:attack_value_3",
+            "@s xp:haste_value_7"
+          ],
+          "on_exit": [ 
+            "@s xp:attack_value_1",
+            "@s xp:haste_value_0",
+            "/tag @s remove void_crystal_pickaxe"
+          ],
+          "transitions": [ 
+            {
+              "default": "q.get_equipped_item_name != 'void_crystal_pickaxe' && q.get_equipped_item_name != 'enderite_pickaxe'"
+            }
+          ]
+        }
+      }
+    },
+
+    //shovel
+    "controller.animation.void_and_enderite_shovel.normal": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [ 
+            "@s xp:attack_value_1",
+            "@s xp:haste_value_0",
+            "/tag @s remove void_crystal_shovel"
+          ],
+          "transitions": [
+            {
+              "hold": "q.get_equipped_item_name == 'void_crystal_shovel' || q.get_equipped_item_name == 'enderite_shovel'"
+            }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [ 
+            "/tag @s add void_crystal_shovel",
+            "@s xp:attack_value_2",
+            "@s xp:haste_value_2"
+          ],
+          "transitions": [ 
+            {
+              "default": "q.get_equipped_item_name != 'void_crystal_shovel' && q.get_equipped_item_name != 'enderite_shovel'"
+            }
+          ]
+        }
+      }
+    },
+
+    //hoe
+    "controller.animation.void_and_enderite_hoe.normal": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [ 
+            "@s xp:attack_value_1",
+            "@s xp:haste_value_0",
+            "/tag @s remove void_crystal_hoe"
+          ],
+          "transitions": [
+            {
+              "hold": "q.get_equipped_item_name == 'void_crystal_hoe' || q.get_equipped_item_name == 'enderite_hoe'"
+            }
+          ]
+        },
+
+        "hold": {
+          "on_entry": [ 
+            "/tag @s add void_crystal_hoe",
+            "@s xp:attack_value_1",
+            "@s xp:haste_value_2"
+          ],
+          "transitions": [ 
+            {
+              "default": "q.get_equipped_item_name != 'void_crystal_hoe' && q.get_equipped_item_name != 'enderite_hoe'"
+            },
+            {
+              "farmland": "(q.get_equipped_item_name == 'void_crystal_hoe' || q.get_equipped_item_name == 'enderite_hoe') && q.is_using_item"
+            }
+          ]
+        },
+
+        "farmland":{
+          "on_entry": [
+            "/execute if block ~ ~-1 ~ grass run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+            "/execute if block ~ ~-1 ~ dirt run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+            "/execute if block ~ ~-1 ~ grass_path run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+
+            "/execute if block ~ ~-1 ~ xp:abyss_grass run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+            "/execute if block ~ ~-1 ~ xp:abyss_rooted_grass run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+            "/execute if block ~ ~-1 ~ xp:abyss_grass_full run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+
+            "/execute if block ~ ~-1 ~ xp:echoing_grass run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+            "/execute if block ~ ~-1 ~ xp:echoing_grass_full run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+            "/execute if block ~ ~-1 ~ xp:echoing_rooted_grass run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+
+            "/execute if block ~ ~-1 ~ xp:wilds_grass run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+            "/execute if block ~ ~-1 ~ xp:wilds_sediment_grass run playsound use.gravel @e[type=player,r=8] ~ ~ ~",
+
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace dirt",
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace grass",
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace grass_path",
+
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:abyss_grass",
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:abyss_rooted_grass",
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:abyss_grass_full",
+
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:echoing_grass",
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:echoing_grass_full",
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:echoing_rooted_grass",
+
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:wilds_grass",
+            "/fill ~ ~-1 ~ ~ ~-1 ~ farmland 0 replace xp:wilds_sediment_grass"
+          ],
+          "transitions": [
+            {
+              "hold": "(q.get_equipped_item_name == 'void_crystal_hoe' || q.get_equipped_item_name == 'enderite_hoe') && !q.is_using_item"
+            },
+            {
+              "default": "q.get_equipped_item_name != 'void_crystal_hoe' && q.get_equipped_item_name != 'enderite_hoe'"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

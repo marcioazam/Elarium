@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "book_of_heroes"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " G ",
+      "GBG",
+      " G "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:gold_ingot"
+      },
+      {
+        "item": "minecraft:book"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:book"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:book_of_heroes",
+      "count": 1
+    }
+  }
+}

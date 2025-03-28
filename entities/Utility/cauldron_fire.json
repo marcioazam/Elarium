@@ -1,0 +1,76 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:cauldron_fire",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+	"dungeons:despawn": {
+		"minecraft:instant_despawn": {}
+	  }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate"
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:timer": {
+                "looping": false,
+                "time": 3,
+                "time_down_event": {
+                  "event": "dungeons:despawn"
+                }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "pivot": [0, 1000, 0],
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      "minecraft:tick_world": {},
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      }
+    },
+		"events": {
+			"dungeons:despawn": {
+				"add": {
+					"component_groups": [
+						"dungeons:despawn"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.spooky_monstrosity.attack": {
+      "initial_state": "default",
+      "states": {
+        "attacking": {
+          "animations": [
+            "attack"
+          ],
+          "on_entry": [
+            "/effect @s slowness 3 9 true"
+          ],
+          "transitions": [
+            {
+              "finish": "query.all_animations_finished"
+            }
+          ]
+        },
+        "default": {
+          "on_entry": [
+          ],
+          "transitions": [
+            {
+              "attacking": "query.is_delayed_attacking == 1.0"
+            }
+          ]
+        },
+        "finish": {
+          "on_entry": [
+            "/summon dungeons:spooky_knockback"
+          ],
+          "transitions": [
+            {
+              "default": "query.is_delayed_attacking == 0.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

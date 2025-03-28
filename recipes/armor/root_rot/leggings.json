@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "root_rot_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "WWW",
+      "S S",
+      "S S"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:moss_block"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:vine"
+      },
+      "W": {
+        "item": "minecraft:moss_block"
+      }
+    },
+    "result": {
+      "item": "dungeons:root_rot_leggings",
+      "count": 1
+    }
+  }
+}

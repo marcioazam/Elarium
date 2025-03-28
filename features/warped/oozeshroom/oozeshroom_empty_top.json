@@ -1,0 +1,28 @@
+{
+	"format_version": "1.13.0",
+	  "minecraft:single_block_feature": {
+		"description": {
+		  "identifier": "edx:warped/oozeshroom/oozeshroom_empty_top"
+		},
+		"places_block": {
+            "name": "edx:oozeshroom",
+            "states": {
+                "edx:type": "top",
+				"edx:juice": "empty"
+            }
+        },
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_replace": [
+		  "minecraft:air"
+		],
+		"may_attach_to": {
+				"bottom":  {
+					"name": "edx:oozeshroom",
+					"states": {
+					  "edx:type": "bottom"
+					}
+				}
+    	}
+	  }
+	}

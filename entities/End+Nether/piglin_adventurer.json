@@ -1,0 +1,310 @@
+{
+	//nether
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:piglin_adventurer",
+			"runtime_identifier": "minecraft:piglin",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"zombification_sensor": {
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+							"test": "in_nether",
+							"subject": "self",
+							"operator": "==",
+							"value": false
+						},
+						"event": "start_zombification_event"
+					}
+				}
+			},
+			"start_zombification": {
+				"minecraft:is_shaking": {},
+				"minecraft:environment_sensor": {
+					"triggers": {
+						"filters": {
+							"test": "in_nether",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"event": "stop_zombification_event"
+					}
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"time": 15,
+					"time_down_event": {
+						"event": "become_zombie_event"
+					}
+				}
+			},
+			"become_zombie": {
+				"minecraft:transformation": {
+					"into": "minecraft:zombie_pigman",
+					"transformation_sound": "converted_to_zombified",
+					"keep_level": true,
+					"drop_inventory": true,
+					"preserve_equipment": true
+				}
+			},
+			"melee_unit": {
+				"minecraft:behavior.melee_attack": {
+					"priority": 8,
+					"speed_multiplier": 1,
+					"track_target": true
+				},
+				"minecraft:attack": {
+					"damage": 5
+				},
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"piglin_baby": {
+				"minecraft:is_baby": {},
+				"minecraft:scale": {
+					"value": 0.7
+				},
+				"minecraft:movement": {
+					"value": 0.40
+				},
+				"minecraft:experience_reward": {
+					"on_death": "query.last_hit_by_player ? 1 + (query.equipment_count * Math.Random(1,2)) : 0"
+				},
+				"minecraft:behavior.panic": {
+					"priority": 1,
+					"speed_multiplier": 1.1
+				}
+			},
+			"piglin_adult": {
+				"minecraft:movement": {
+					"value": 0.35
+				},
+				"minecraft:experience_reward": {
+					"on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
+				}
+				
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:health": {
+				"value": 46,
+				"max": 46
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/piglin_adventurer.json"
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"can_open_doors": true
+			},
+			"minecraft:annotation.open_door": {},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:nameable": {},
+			"minecraft:inventory": {
+				"inventory_size": 8
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 1,
+				"remove_target": true,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "zombie_pigman"
+								}
+							]
+						},
+						"max_dist": 6
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								}
+							]
+						},
+						"max_dist": 25,
+						"sprint_speed_multiplier": 1.5
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "zoglin"
+								}
+							]
+						},
+						"max_dist": 6
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "hoglin"
+								}
+							]
+						},
+						"sprint_speed_multiplier": 1.2
+					}
+				],
+				"on_escape_event": {
+					"event": "become_calm_event",
+					"target": "self"
+				},
+				"avoid_mob_sound": "retreat",
+				"sound_interval": {
+					"range_min": 2,
+					"range_max": 5
+				}
+			},
+			"minecraft:behavior.pickup_items": {
+				"priority": 6,
+				"max_dist": 10,
+				"goal_radius": 2,
+				"speed_multiplier": 0.8,
+				"pickup_based_on_chance": false,
+				"can_pickup_any_item": false,
+				"cooldown_after_being_attacked": 20
+			},
+			"minecraft:behavior.avoid_block": {
+				"priority": 9,
+				"tick_interval": 5,
+				"search_range": 8,
+				"search_height": 4,
+				"sprint_speed_modifier": 1.1,
+				"target_selection_method": "nearest",
+				"target_blocks": ["minecraft:soul_fire", "minecraft:soul_lantern", "minecraft:soul_torch", "minecraft:item.soul_campfire"],
+				"avoid_block_sound": "retreat",
+				"sound_interval": {
+					"range_min": 2,
+					"range_max": 5
+				}
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 10,
+				"speed_multiplier": 0.6
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 11,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 12
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:follow_range": {
+				"value": 64
+			}
+			
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"randomize": [
+					{
+						"weight": 5,
+						"trigger": "spawn_baby"
+					},
+					{
+						"weight": 95,
+						"trigger": "spawn_adult"
+					}
+				]
+			},
+			"minecraft:entity_born": {
+				"trigger": "spawn_baby"
+			},
+			"spawn_adult": {
+				"randomize": [
+					{
+						"weight": 1,
+						"trigger": "spawn_adult_melee"
+					}
+				]
+			},
+			"spawn_adult_melee": {
+				"add": {
+					"component_groups": ["piglin_adult", "zombification_sensor", "melee_unit"]
+				}
+			},
+			"spawn_baby": {
+				"randomize": [
+					{
+						"weight": 9,
+						"add": {
+							"component_groups": ["piglin_baby", "zombification_sensor"]
+						}
+					}
+				]
+			},
+			"stop_zombification_event": {
+				"add": {
+					"component_groups": ["zombification_sensor"]
+				},
+				"remove": {
+					"component_groups": ["start_zombification"]
+				}
+			},
+			"start_zombification_event": {
+				"add": {
+					"component_groups": ["start_zombification"]
+				},
+				"remove": {
+					"component_groups": ["zombification_sensor"]
+				}
+			}
+			
+			
+		}
+	}
+}

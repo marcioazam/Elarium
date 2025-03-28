@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:active_shield"
+		,"menu_category":
+			{
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["edx:active_shield"],
+			"tag:no_silktouch": {},
+			"tag:edx:wooden_pick": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 10
+			},
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:loot": "loot_tables/blocks/unact_shield.json" ,
+			"minecraft:tick": {
+  				"looping": true,
+  				"interval_range": [5,5]
+			}
+		}
+	}
+}

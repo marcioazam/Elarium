@@ -1,0 +1,99 @@
+{
+    "pools": [
+      {
+        "rolls": {
+          "min": 1,
+          "max": 1
+        },
+        "entries": [
+          {
+            "type": "item",
+            "name": "edx:crystal_of_rage",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "edx:magnetic_firework",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "edx:crystal_of_bravery",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "edx:crystal_of_fear",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "edx:crystal_of_youth",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "edx:enchanted_socks",
+         
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "edx:heart_in_a_bottle",
+           
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "minecraft:explorer_pottery_sherd",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "minecraft:mourner_pottery_sherd",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "minecraft:plenty_pottery_sherd",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "minecraft:blade_pottery_sherd",
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "name": "minecraft:iron_axe",
+            "weight": 1
+          },
+          {
+              "type": "item",
+              "name": "minecraft:emerald",
+              "weight": 2
+          },
+          {
+              "type": "item",
+              "name": "minecraft:wheat",
+              "weight": 2
+          },
+          {
+              "type": "item",
+              "name": "minecraft:wooden_hoe",
+              "weight": 2
+          },
+          {
+              "type": "item",
+              "name": "minecraft:coal",
+              "weight": 2
+          },
+          {
+            "type": "item",
+            "name": "minecraft:gold_nugget",
+            "weight": 2
+        }
+        ]
+      }
+    ]
+  }

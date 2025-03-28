@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "coral_blade"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "I",
+      "I",
+      "S"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:brain_coral"
+      }
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:brain_coral"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:coral_blade",
+      "count": 1
+    }
+  }
+}

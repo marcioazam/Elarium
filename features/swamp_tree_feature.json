@@ -1,0 +1,184 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "minecraft:swamp_tree_feature"
+    },
+    "mangrove_roots": {
+      "max_root_width": 5,
+      "max_root_length": 5,
+      "y_offset": {
+        "range_min": 1,
+        "range_max": 4
+      },
+      "root_block": {
+        "name": "minecraft:log",
+        "states": {
+          "old_log_type": "oak"
+        }
+      },
+      "muddy_root_block": {
+        "name": "minecraft:log",
+        "states": {
+          "old_log_type": "oak"
+        }
+      },
+      "mud_block": {
+        "name": "minecraft:mud"
+      },
+      "above_root": {
+        "above_root_block": "minecraft:brown_mushroom",
+        "above_root_chance": {
+          "numerator": 1,
+          "denominator": 60
+        }
+      },
+      "roots_may_grow_through": [
+        "minecraft:mud",
+        "minecraft:muddy_mangrove_roots",
+        "minecraft:mangrove_roots",
+        "minecraft:moss_carpet",
+        "minecraft:vine",
+        "minecraft:mangrove_propagule",
+        "minecraft:snow_layer",
+        "minecraft:grass",
+        "minecraft:water"
+      ]
+    },
+    "mangrove_trunk": {
+      "trunk_width": 1,
+      "trunk_height": {
+        "base": 4,
+        "height_rand_a": 1,
+        "height_rand_b": 5
+      },
+      "trunk_block": {
+        "name": "minecraft:log",
+        "states": {
+          "old_log_type": "oak"
+        }
+      },
+      "branches": {
+        "branch_chance": 10.0,
+        "branch_length": {
+          "range_min": 0,
+          "range_max": 1
+        },
+        "branch_steps": {
+          "range_min": 1,
+          "range_max": 1
+        }
+      }
+    },
+    "canopy": {
+      "canopy_offset": {
+        "min": -3,
+        "max": 0
+      },
+      "variation_chance": [
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 2
+        },
+        {
+          "numerator": 1,
+          "denominator": 1
+        }
+      ],
+      "min_width": 3,
+      "leaf_block": {
+        "name": "minecraft:leaves",
+        "states": {
+          "old_leaf_type": "oak"
+        }
+      },
+      "canopy_decoration": {
+        "decoration_block": "minecraft:vine",
+        "decoration_chance": {
+          "numerator": 1,
+          "denominator": 4
+        },
+        "num_steps": 4,
+        "step_direction": "down"
+      }
+    },
+    "base_block": "minecraft:air",
+    "may_grow_on": [
+      "minecraft:clay",
+      "minecraft:dirt",
+      {
+        "name": "minecraft:dirt",
+        "states": {
+          "dirt_type": "coarse"
+        }
+      },
+      "minecraft:dirt_with_roots",
+      "minecraft:farmland",
+      "minecraft:grass",
+      "minecraft:moss_block",
+      "minecraft:mycelium",
+      "minecraft:mud",
+      "minecraft:seagrass",
+      "minecraft:podzol"
+    ],
+    "may_replace": [
+      "minecraft:mangrove_leaves",
+      "minecraft:azalea_leaves",
+      "minecraft:azalea_leaves_flowered",
+      "minecraft:water",
+      "minecraft:flowing_water",
+      "minecraft:air",
+      "minecraft:mud",
+      "minecraft:muddy_mangrove_roots",
+      "minecraft:vine",
+      "minecraft:moss_carpet",
+      "minecraft:mangrove_propagule",
+      "minecraft:seagrass",
+      "minecraft:waterlily",
+      {
+        "name": "minecraft:leaves",
+        "states": {
+          "old_leaf_type": "oak"
+        }
+      },
+      {
+        "name": "minecraft:leaves",
+        "states": {
+          "old_leaf_type": "spruce"
+        }
+      },
+      {
+        "name": "minecraft:leaves",
+        "states": {
+          "old_leaf_type": "birch"
+        }
+      },
+      {
+        "name": "minecraft:leaves",
+        "states": {
+          "old_leaf_type": "jungle"
+        }
+      },
+      {
+        "name": "minecraft:leaves2",
+        "states": {
+          "new_leaf_type": "acacia"
+        }
+      },
+      {
+        "name": "minecraft:leaves2",
+        "states": {
+          "new_leaf_type": "dark_oak"
+        }
+      }
+    ]
+  }
+}

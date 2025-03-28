@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "thief_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "SsS",
+      "s s"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:gunpowder"
+      },
+      "s": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:thief_helmet",
+      "count": 1
+    }
+  }
+}

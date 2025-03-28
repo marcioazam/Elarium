@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:crimson/dense/crimsonspire_second_biome_check"
+		},
+		"places_feature": "edx:crimson/dense/crimsonspire_dense_snap",
+		"iterations": "t.biome_idx <= 3 && t.biome_idx >= 1",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "edx:nether_vase_f_rule",
+      "places_feature": "edx:nether_vase_feature"
+    },
+    "conditions": {
+      "placement_pass": "final_pass",
+      "minecraft:biome_filter": [
+        {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "nether"
+            }
+          ]
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 30,
+      "coordinate_eval_order": "zyx",
+      "x": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      },
+      "y": {
+        "distribution": "uniform",
+        "extent": [ 30, 140 ]
+      },
+      "z": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      }
+    }
+  }
+}

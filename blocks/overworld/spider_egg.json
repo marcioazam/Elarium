@@ -1,0 +1,37 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:spider_egg",
+			"menu_category":
+			{
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "spider_egg",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": ["edx:spider_egg"],
+			"minecraft:geometry": "geometry.spider_egg",
+            "minecraft:selection_box": {
+                "origin": [-5,0,-5],
+                "size": [10,16,10] 
+            },
+			"minecraft:collision_box": {
+                "origin": [-5,0,-5],
+                "size": [10,16,10]
+            },
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 5
+            },
+			"minecraft:loot": "loot_tables/blocks/spider_egg_loot.json"
+		}
+	}
+}

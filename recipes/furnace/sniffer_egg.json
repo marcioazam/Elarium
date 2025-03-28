@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:sniffer_egg"
+    },
+
+    "unlock": [
+      {
+        "item": "minecraft:sniffer_egg"
+      }
+    ],
+    "tags": ["furnace", "smoker"],
+    "input": "minecraft:sniffer_egg",
+    "output": "edx:large_fried_egg"
+  }
+  
+}

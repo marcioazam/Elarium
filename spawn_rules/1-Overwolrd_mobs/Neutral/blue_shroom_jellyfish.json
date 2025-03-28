@@ -1,0 +1,40 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:blue_shroom_jellyfish",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        
+        "minecraft:spawns_underground": {},
+        "minecraft:biome_filter": [
+          
+            {
+            "test": "has_biome_tag", "operator": "==", "value": "caves"
+          },
+          {
+              "test": "has_biome_tag", "operator": "==", "value": "lush_caves"
+          },
+          {
+              "test": "has_biome_tag", "operator": "==", "value": "dripstone_caves"
+          }],
+        "minecraft:weight": {
+          "default": 40
+        },
+"minecraft:height_filter": {
+            "min": 1,
+            "max": 63
+          },
+        "minecraft:herd": {
+          "min_size": 3,
+          "max_size": 8
+        },
+        "minecraft:density_limit": {
+          "surface": 20
+        }
+      }
+    ]
+  }
+}

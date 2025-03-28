@@ -1,0 +1,28 @@
+{
+   "format_version": "1.20.80",
+   "minecraft:item": {
+      "description": {
+         "identifier": "edx:treasure_chest",
+         "menu_category": {
+				"category":"items"
+			}
+		},
+      "components": {
+         "minecraft:custom_components": ["edx:treasure_chest"],
+         "minecraft:max_stack_size": 1,
+         "minecraft:hand_equipped": false,
+         "minecraft:icon": {
+            "textures":{
+               "default":"treasure_chest"
+         }
+         },
+         "minecraft:display_name": {
+            "value": "Treasure chest"
+         },
+         "minecraft:cooldown": {
+            "duration": 0.5,
+            "category": "chest"
+         }
+      }
+   }
+}

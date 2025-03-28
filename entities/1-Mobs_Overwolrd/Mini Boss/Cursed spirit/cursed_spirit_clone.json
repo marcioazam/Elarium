@@ -1,0 +1,287 @@
+{
+   "format_version": "1.16.0",
+   "minecraft:entity": {
+      "description": {
+         "identifier": "edx:cursed_spirit_clone",
+         "is_spawnable": false,
+         "is_summonable": true,
+         "is_experimental": false
+      },
+      "component_groups": {
+         "minecraft:despawn": {
+            "minecraft:instant_despawn": {
+               "remove_child_entities": true
+            }
+         }
+      },
+      "components": {
+         "minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+     
+      "minecraft:fire_immune": {},
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"undead"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "undead"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "breeze"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "undead"
+          }
+        ]
+      }
+    }
+  ]
+},
+         "minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+         "minecraft:attack": {
+            "damage": {
+               "range_min": 4,
+               "range_max": 5
+             },
+            "effect_name": "slowness",
+            "effect_duration": 15
+           },
+           "minecraft:behavior.melee_attack": {
+            "priority": 1,
+            "speed_multiplier": 1,
+            "track_target": true,
+            "require_complete_path": false
+           },
+           "minecraft:behavior.nearest_attackable_target": {
+            "priority": 1,
+            "reselect_targets": true,
+            "scan_interval": 20,
+            "within_radius": 64.0,
+            "must_see_forget_duration": 0.5,
+            "target_search_height": 80.0,
+      
+            "entity_types": [
+              {
+               "filters": { "test": "is_family", "subject": "other", "value": "player" },
+               "max_dist": 50
+              }
+            ]
+           },
+         "minecraft:behavior.float": {
+            "priority": 15
+         },
+        
+         "minecraft:breathable": {
+            "total_supply": 20,
+            "suffocate_time": 0
+         },
+         "minecraft:scale": {
+            "value": 0.6
+          },
+         "minecraft:collision_box": {
+            "width": 1.8,
+            "height": 0.9
+         },
+         "minecraft:health": {
+            "value": 1,
+            "max": 1
+         },
+         "minecraft:environment_sensor": {
+            "triggers": [
+              {
+                "filters": {
+                  "all_of": [
+                    { "test": "weather_at_position", "operator": "!=", "value": "thunderstorm" },
+                    { "test": "is_daytime", "value": true }
+                  ]
+                },
+                "event": "minecraft:despawn"
+              }
+            ]
+          },
+         "minecraft:movement": {
+            "value": 0.32
+         },
+         "minecraft:flying_speed": {
+            "value": 0.27
+         },
+         "minecraft:navigation.hover": {
+            "can_path_over_water": true,
+				"can_sink": true,
+				"can_pass_doors": false,
+				"can_path_from_air": true,
+				"avoid_water": false,
+				"avoid_damage_blocks": false,
+				"avoid_sun": false,
+				"can_swim": true
+         },
+         "minecraft:movement.hover": {},
+         "minecraft:jump.static": {},
+         "minecraft:can_fly": {},
+        
+         "minecraft:nameable": {}
+        
+			  
+      },
+      "events": {
+         "minecraft:despawn": {
+            "add": {
+               "component_groups": [
+                  "minecraft:despawn"
+               ]
+            }
+         }
+      }
+   }
+}

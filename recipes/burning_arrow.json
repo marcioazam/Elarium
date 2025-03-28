@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "burning_arrow"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:arrow"
+      },
+      {
+        "item": "minecraft:arrow"
+      },
+      {
+        "item": "minecraft:arrow"
+      },
+      {
+        "item": "minecraft:arrow"
+      },
+      {
+        "item": "minecraft:blaze_powder"
+      }
+    ],
+	"unlock": [
+      {
+        "item": "minecraft:arrow"
+      }
+    ],
+    "result": {
+      "item": "dungeons:burning_arrow",
+      "count": 4
+    }
+  }
+}

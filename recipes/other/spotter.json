@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:spotter"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "BBB",
+      "BSB",
+      "BDB"
+    ],
+    "unlock": [
+      {
+         "item": "minecraft:soul_sand"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:smooth_basalt"
+      },
+      "S": {
+        "item": "minecraft:soul_sand"
+      },
+      "D": {
+        "item": "minecraft:observer"
+      }
+    },
+    "result": {
+      "item": "edx:spotter"
+    }
+  }
+}

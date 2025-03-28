@@ -1,0 +1,57 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "edx:botanist_plant",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.9,
+				"height": 1.9
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			  },
+			  "minecraft:health": {
+				"value": 25,
+				"max": 25
+			},
+			"minecraft:timer":{
+				"looping": true,
+				"randomInterval":false,
+				"time": 1,
+				"time_down_event": {
+					"event":"effect"
+				}
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": false
+				}
+			}
+		},
+		"events": {
+			"effect": {
+				"sequence": [{
+				"queue_command": {
+					"command": [
+					  "effect @e[r=4,family=illager] regeneration 10 4 false",
+					  "particle edx:botanist ~~1~"
+					]}
+				
+			}]
+		}
+		
+	}
+}
+}

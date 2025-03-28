@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:abomination_it",
+			"menu_category": {
+				"category": "items",
+				"group": "itemGroup.name.skull"
+			}
+			
+		},
+		"components": {
+			
+			"minecraft:icon": {
+				"textures":{
+               "default":"abomination_it"
+         }
+			},
+			"minecraft:wearable": {
+				"slot": "slot.armor.head"
+			  },
+			"minecraft:block_placer":{
+				"block": "edx:abomination_head"
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

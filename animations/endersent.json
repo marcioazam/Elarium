@@ -1,0 +1,11 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.endersent.teleport_timer": {
+      "loop": false,
+      "animation_length": 0.1168,
+      "timeline": {
+      }
+    }
+  }
+}

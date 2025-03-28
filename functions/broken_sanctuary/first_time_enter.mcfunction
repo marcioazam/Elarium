@@ -1,0 +1,1 @@
+scoreboard players set entered sanctuary 1

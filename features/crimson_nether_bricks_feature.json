@@ -1,0 +1,19 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:crimson_nether_bricks_feature"
+        },
+        "count": 25,
+        "replace_rules": [
+            {
+                "places_block": "edx:crimson_nether_brick",
+                "may_replace": [
+                    {
+                        "name": "minecraft:nether_brick"
+                    }
+                ]
+            }
+        ]
+    }
+}

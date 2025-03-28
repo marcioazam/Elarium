@@ -1,0 +1,16 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:bigmush_in_mush_biome_random_feature"
+    },
+    "features": [
+      [ "edx:big_white1_feature", 1 ],
+      [ "edx:big_white2_feature", 1 ],
+      [ "edx:big_white3_feature", 1 ],
+      [ "edx:big_cordyceps1_feature", 1 ],
+      [ "edx:big_cordyceps2_feature", 1 ],
+      [ "edx:big_cordyceps3_feature", 1 ]
+    ]
+  }
+}

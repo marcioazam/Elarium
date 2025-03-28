@@ -1,0 +1,21 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "xp:end_frame_up"
+		},
+		"components": {
+			"minecraft:collision_box": true,
+			"minecraft:destructible_by_mining": false,
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:geometry": "geometry.end_frame_up",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "end_frame_up",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:map_color": "#c9c495"
+		}
+	}
+}

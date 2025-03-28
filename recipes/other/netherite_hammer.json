@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:netherite_hammer"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      " GN",
+      " SG",
+      "S  "
+    ],
+    "key": {
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "N": {
+        "item": "minecraft:netherite_scrap"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gold_ingot"
+      },
+      {
+        "item": "minecraft:netherite_scrap"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": {
+      "item": "edx:netherite_hammer"
+    }
+  }
+}

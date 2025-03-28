@@ -1,0 +1,32 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.void_and_enderite_axe.tree_capitator": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0": [ "/function tools/enderite_axe" ]
+			 }
+		},
+		"animation.tome_teleport.mark": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute at @s run tp @e[type=xp:tome_teleport_mark,c=1] ^ ^1.5 ^30"
+				]
+			}
+		},
+		"animation.tome_teleport.warning": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @a[tag=tome_teleport,r=40] at @s run playsound note.bassattack @s ~~~ 0.9 0.5 0.01",
+					"/execute as @a[tag=tome_teleport,r=40] at @s run playsound note.bassattack @s ~~~ 0.75 0.25 0.01",
+					"/execute as @a[tag=tome_teleport,r=40] at @s run playsound note.iron_xylophone @s ~~~ 0.5 0.5 0.01"
+				]
+			}
+		}
+	}
+}

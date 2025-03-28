@@ -1,0 +1,20 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:chorus_grass2_scatter"
+    },
+    "places_feature": "edx:chorus_grass2_feature",
+    "iterations": 20,
+    "scatter_chance": 60.0,
+    "x": {
+      "distribution": "uniform",
+      "extent": [ 0, 16 ]
+    },
+    "y": 0,
+    "z": {
+      "distribution": "uniform",
+      "extent": [ 0, 16 ]
+    }
+  }
+}

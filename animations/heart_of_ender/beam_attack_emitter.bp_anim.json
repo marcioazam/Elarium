@@ -1,0 +1,45 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.beam_attack_emitter.die": {
+            "animation_length": 10,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard objectives add endboss_blind dummy",
+                    "/scoreboard players set @a endboss_blind 0"
+                ],
+                "8.0": [
+                    "/event entity @s xp:instant_despawn"
+                ]
+            }
+        },
+        "animation.beam_attack_emitter.loop": {
+            "loop": true,
+            "animation_length": 0.01,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @a[tag=endboss_blinded,scores={endboss_blind=..19}] endboss_blind 1",
+                    "/scoreboard players remove @a[tag=!endboss_blinded,scores={endboss_blind=1..}] endboss_blind 1",
+                    "/title @a[tag=endboss_blinded,scores={endboss_blind=1}] actionbar xp_hud.endboss_blindness",
+                    "/title @a[scores={endboss_blind=5..}] actionbar xp_hud.endboss_blindness_instant",
+                    
+                    "/tag @a remove endboss_blinded",
+                    "/execute at @s run tp @s ~ ~ ~ ~1 ~",
+                    "/scoreboard players set offset_beam endboss 0",
+                    "/execute if score direction endboss matches 1 run scoreboard players set offset_beam endboss 1",
+                    "/execute if score direction endboss matches 3 run scoreboard players set offset_beam endboss 1",
+                    "/execute if score direction endboss matches 5 run scoreboard players set offset_beam endboss 1",
+                    "/execute if score direction endboss matches 7 run scoreboard players set offset_beam endboss 1",
+                    "/execute if score offset_beam endboss matches 0 rotated ~0 0 run function endboss/attacks/beam_attack_ray",
+                    "/execute if score offset_beam endboss matches 0 rotated ~90 0 run function endboss/attacks/beam_attack_ray",
+                    "/execute if score offset_beam endboss matches 0 rotated ~180 0 run function endboss/attacks/beam_attack_ray",
+                    "/execute if score offset_beam endboss matches 0 rotated ~270 0 run function endboss/attacks/beam_attack_ray",
+                    "/execute if score offset_beam endboss matches 1 rotated ~45 0 run function endboss/attacks/beam_attack_ray",
+                    "/execute if score offset_beam endboss matches 1 rotated ~135 0 run function endboss/attacks/beam_attack_ray",
+                    "/execute if score offset_beam endboss matches 1 rotated ~225 0 run function endboss/attacks/beam_attack_ray",
+                    "/execute if score offset_beam endboss matches 1 rotated ~315 0 run function endboss/attacks/beam_attack_ray"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:emerald_inlaid_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:emerald_inlaid"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:emerald_inlaid"
+            }
+        ],
+        "result": {
+            "item": "edx:emerald_inlaid_slab",
+            "count": 6
+        }
+    }
+}

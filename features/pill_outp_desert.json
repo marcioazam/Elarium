@@ -1,0 +1,15 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "edx:pill_outp_desert"
+    },
+    "structure_name": "mystructure:Pillager_desert",
+    "adjustment_radius": 0,
+		"facing_direction": "random",
+		"constraints": {
+			"grounded": {},
+			"unburied": {}
+		}
+  }
+}

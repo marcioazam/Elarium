@@ -1,0 +1,12 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "xp:furnace_dark_purpur_pillar"
+    },
+    "tags": ["furnace"],
+    "input": "xp:dark_purpur_pillar",
+    "output": "xp:dark_purpur_pillar_cracked"
+  }
+  
+}

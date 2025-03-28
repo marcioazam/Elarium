@@ -1,0 +1,83 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "edx:white_mushroom_stem",
+            "menu_category": {
+                "category": "none"
+            }, 
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            -90
+                        ]
+                    }
+                }
+            }
+        ],
+        "components": {
+			"minecraft:map_color": "#c7c1b4" ,
+            "minecraft:destructible_by_mining": { 
+                "seconds_to_destroy": 2
+            },
+            "minecraft:destructible_by_explosion": { 
+                "explosion_resistance": 2
+            },
+			"tag:wood": {},
+		"minecraft:loot": "loot_tables/blocks/white_mushroom_stem.json",
+            "minecraft:flammable": {
+                "catch_chance_modifier": 5,
+                "destroy_chance_modifier": 20
+            }
+        }
+    }
+}

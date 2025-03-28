@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:desert_skeleton_it",
+			"menu_category": {
+				"category": "items",
+				"group": "itemGroup.name.skull"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"desert_skeleton_it"
+         }
+			},
+			"minecraft:wearable": {
+				"slot": "slot.armor.head"
+			  },
+			"minecraft:block_placer":{
+				"block": "edx:desert_skeleton_head"
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

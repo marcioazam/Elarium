@@ -1,0 +1,23 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:end_ship_proxy"
+		},
+
+		"places_feature": "edx:end_ship",
+
+		"iterations": 1,
+
+		"x": 16,
+		"z": -16,
+		"y": {
+			"extent": [
+				110,
+				130
+			],
+			"distribution": "uniform"
+		}
+	}
+}

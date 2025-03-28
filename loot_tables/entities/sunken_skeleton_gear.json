@@ -1,0 +1,36 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:bow",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "enchant_random_gear",
+              "chance": 0.10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "random_chance",
+          "chance": 0.08
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:nautilus_shell",
+          "weight": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.elderman.grab_player": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [ "/ride @e[type=player,r=5,c=1,tag=hold] start_riding @s teleport_rider" ],
+        "0.02": [ "/ride @e[type=player,r=5,c=1,tag=hold] start_riding @s teleport_rider" ],
+        "0.05": [ "/ride @e[type=player,r=5,c=1,tag=hold] start_riding @s teleport_rider" ],
+        "0.08": [ "/ride @e[type=player,r=5,c=1,tag=hold] start_riding @s teleport_rider" ],
+        "0.1": [ "/ride @e[type=player,r=5,c=1,tag=hold] start_riding @s teleport_rider" ]
+      }
+    },
+    "animation.elderman.hold_player": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/tp @e[type=player,r=1,c=1] @s",
+          "/tag @e[type=player,r=0.8,c=1] add hold"
+        ],
+        "0.07": [ "/tp @e[type=player,r=1,c=1] @s", "/tag @e[type=player,r=0.8,c=1] add hold"],
+        "0.08": [ "/ride @e[type=player,r=1,c=1,tag=hold] start_riding @e[type=xp:elderman,r=5,c=1]" ]
+      }
+    },
+    "animation.elderman.player_damage":{
+      "animation_length": 0.2,
+      "loop": true,
+      "timeline": {
+        "0.05":[ "/damage @e[type=player,r=1,c=1] 2 entity_attack" ]
+      }
+    },
+    "animation.elderman.jumpscare_timer":{
+      "animation_length": 2.0,
+      "loop": false,
+      "timeline": {
+        "0": ["/effect @s slowness 2 255 true"],
+        "2.0": [ "@s xp:stage_pre_attack_force" ]
+      }
+    },
+    "animation.elderman_trap.disengage":{
+      "animation_length": 0.1,
+      "loop": false,
+      "timeline": {
+        "0.0": [ "/tag @e[type=player,r=0.8,c=1] remove hold" ]
+      }
+    },
+    
+    "animation.elderman.blocks":{
+      "animation_length": 0.04,
+      "loop": true,
+      "timeline": {
+        "0.0":[
+          "/execute at @s if block ~ ~-1 ~ xp:wilds_grass 0 run effect @s wither 1 1 true"
+        ],
+        "0.001":[ "/execute at @s if block ~ ~-1 ~ xp:wilds_sediment_grass 0 run effect @s wither 1 1 true" ],
+        "0.0011":[ "/execute at @s if block ~ ~-1 ~ xp:wilds_grass_bushy 0 run effect @s wither 1 1 true" ],
+        "0.002":[ "/execute at @s if block ~ ~-1 ~ xp:riftstone_strip 0 run effect @s wither 1 1 true" ],
+        "0.003":[ "/execute at @s if block ~ ~-1 ~ xp:riftland_fortified_block 0 run effect @s wither 1 1 true" ],
+
+        "0.004":[ "/execute at @s if block ~ ~-1 ~ xp:wilds_grass 0 run event entity @s xp:in_blocks" ],
+        "0.0041":[ "/execute at @s if block ~ ~-1 ~ xp:wilds_grass_bushy 0 run event entity @s xp:in_blocks" ],
+        "0.005":[ "/execute at @s if block ~ ~-1 ~ xp:wilds_sediment_grass 0 run event entity @s xp:in_blocks" ],
+        "0.006":[ "/execute at @s if block ~ ~-1 ~ xp:riftstone_strip 0 run event entity @s xp:in_blocks" ],
+        "0.007":[ "/execute at @s if block ~ ~-1 ~ xp:riftland_fortified_block 0 run event entity @s xp:in_blocks" ]
+      }
+    },
+    "animation.elderman.avoid_blocks":{
+      "animation_length": 0.04,
+      "loop": true,
+      "timeline": {
+        "0.0":[
+          "/execute at @s if block ~ ~-1 ~ xp:echoing_vines run spreadplayers ~~ 1 8 @s",
+          "/execute at @s if block ~ ~-1 ~ xp:rooted_echoing_vines_bottom run spreadplayers ~~ 1 8 @s",
+          "/execute at @s if block ~ ~-1 ~ xp:rooted_echoing_vines_top run spreadplayers ~~ 1 8 @s"
+        ]
+      }
+    },
+    "animation.elderman.remove_in_blocks":{
+      "animation_length": 10,
+      "loop": true,
+      "timeline": {
+        "0":[
+          "/execute at @s unless block ~ ~-1 ~ xp:wilds_grass unless block ~ ~-1 ~ xp:wilds_sediment_grass unless block ~ ~-1 ~ xp:wilds_grass_bushy unless block ~ ~-1 ~ xp:riftstone_strip unless block ~ ~-1 ~ xp:riftland_fortified_block run event entity @s xp:remove_in_blocks"
+
+        ]
+      }
+    },
+    "animation.enderman.avoid_sensor": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0": [
+          "/execute at @s if entity @s[y=12,dy=5] run playsound mob.shulker.teleport @a[r=12] ~ ~ ~",
+          "/execute at @s run spreadplayers ~3 ~3 1 8 @s[y=12,dy=5]"
+				]
+			}
+		}
+  }
+}

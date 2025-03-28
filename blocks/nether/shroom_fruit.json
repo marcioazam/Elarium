@@ -1,0 +1,346 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "edx:shroom_fruit",
+            "menu_category": {
+                "category": "none"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            },
+            "states": {
+				"edx:stage": [0,1,2]
+			}
+        }, 
+        "components": {
+            "minecraft:material_instances": {
+                "*": {
+                      "texture": "shroom_fruit",
+                      "render_method": "alpha_test",
+                      "ambient_occlusion": false,
+                      "face_dimming": false
+                }
+            },
+            "minecraft:geometry": "geometry.shroom_fruit",
+            "minecraft:custom_components": ["edx:shroom_fruit_tick"],
+            "minecraft:selection_box": {
+              "origin": [-8, 4, -4],
+              "size": [3, 8, 8]
+            },
+            "minecraft:placement_filter": { 
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "side"
+                        ],
+                        "block_filter": [ 
+                            "minecraft:warped_stem","minecraft:crimson_stem"
+                          ]
+                    }
+                ]
+            },
+            "minecraft:collision_box": false,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+            "minecraft:destructible_by_explosion": { // Blast resistance
+                "explosion_resistance": 3
+            },
+            "minecraft:light_emission": 8, // Makes the torch emit light
+            "minecraft:light_dampening": 0
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('edx:stage') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit0",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+                    "minecraft:transformation": {
+                      "rotation": [
+                          0,
+                          90,
+                          0
+                      ]
+                    },
+
+                        "minecraft:geometry": "geometry.shroom_fruit0",
+                    "minecraft:selection_box": {
+                        "origin": [7, 6, -2],
+                        "size": [1, 4, 4]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('edx:stage') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit0",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    },
+"minecraft:geometry": "geometry.shroom_fruit0",
+                    "minecraft:selection_box": {
+                        "origin": [7, 6, -2],
+                        "size": [1, 4, 4]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('edx:stage') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit0",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+"minecraft:geometry": "geometry.shroom_fruit0",
+                    "minecraft:selection_box": {
+                        "origin": [7, 6, -2],
+                        "size": [1, 4, 4]
+                  }
+              }
+          },
+          {
+                "condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('edx:stage') == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit0",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+"minecraft:geometry": "geometry.shroom_fruit0",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [7, 6, -2],
+                        "size": [1, 4, 4]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('edx:stage') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit1",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+"minecraft:geometry": "geometry.shroom_fruit1",
+                    "minecraft:transformation": {
+                      "rotation": [
+                          0,
+                          90,
+                          0
+                      ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [6, 5, -3],
+                        "size": [2, 6, 6]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('edx:stage') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit1",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+"minecraft:geometry": "geometry.shroom_fruit1",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [6, 5, -3],
+                        "size": [2, 6, 6]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('edx:stage') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit1",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+"minecraft:geometry": "geometry.shroom_fruit1",
+                    "minecraft:selection_box": {
+                        "origin": [6, 5, -3],
+                        "size": [2, 6, 6]
+                  }
+              }
+          },
+          {
+                "condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('edx:stage') == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit1",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+"minecraft:geometry": "geometry.shroom_fruit1",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [6, 5, -3],
+                        "size": [2, 6, 6]
+                  }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('edx:stage') == 2",
+                "components": {
+                    "minecraft:loot": "loot_tables/blocks/shroom_fruit.json",
+                      "minecraft:material_instances": {
+                          "*": {
+                                "texture": "shroom_fruit",
+                                "render_method": "alpha_test",
+                                "ambient_occlusion": false,
+                                "face_dimming": false
+                          }
+                      },
+                      "minecraft:geometry": "geometry.shroom_fruit",
+                    "minecraft:transformation": {
+                      "rotation": [
+                          0,
+                          90,
+                          0
+                      ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [5, 4, -4],
+                        "size": [3, 8, 8]
+                  }
+                }
+            },
+            {
+                "minecraft:loot": "loot_tables/blocks/shroom_fruit.json",
+                "condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('edx:stage') == 2",
+                "components": {
+                    "minecraft:loot": "loot_tables/blocks/shroom_fruit.json",
+                      "minecraft:material_instances": {
+                          "*": {
+                                "texture": "shroom_fruit",
+                                "render_method": "alpha_test",
+                                "ambient_occlusion": false,
+                                "face_dimming": false
+                          }
+                      },
+                      "minecraft:geometry": "geometry.shroom_fruit",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [5, 4, -4],
+                        "size": [3, 8, 8]
+                  }
+                }
+            },
+            {
+                "minecraft:loot": "loot_tables/blocks/shroom_fruit.json",
+                "condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('edx:stage') == 2",
+                "components": {  "minecraft:loot": "loot_tables/blocks/shroom_fruit.json",
+                      "minecraft:material_instances": {
+                          "*": {
+                                "texture": "shroom_fruit",
+                                "render_method": "alpha_test",
+                                "ambient_occlusion": false,
+                                "face_dimming": false
+                          }
+                      },
+                      "minecraft:geometry": "geometry.shroom_fruit",
+                  "minecraft:selection_box": {
+                    "origin": [5, 4, -4],
+                    "size": [3, 8, 8]
+                  }
+              }
+          },
+          {
+            "minecraft:loot": "loot_tables/blocks/shroom_fruit.json",
+                "condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('edx:stage') == 2",
+                "components": {  "minecraft:loot": "loot_tables/blocks/shroom_fruit.json",
+                    "minecraft:material_instances": {
+                        "*": {
+                              "texture": "shroom_fruit",
+                              "render_method": "alpha_test",
+                              "ambient_occlusion": false,
+                              "face_dimming": false
+                        }
+                    },
+                    
+                    "minecraft:geometry": "geometry.shroom_fruit",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    },
+                    "minecraft:selection_box": {
+                      "origin": [5, 4, -4],
+                      "size": [3, 8, 8]
+                  }
+                }
+            }
+        ]
+    }
+}

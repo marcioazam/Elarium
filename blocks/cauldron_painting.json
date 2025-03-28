@@ -1,0 +1,109 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:block": {
+        "description": {
+            "identifier": "dungeons:cauldron_painting_block",
+            "menu_category": {
+                "category": "none"
+            },
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": false,
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0
+            },
+            "minecraft:geometry": {
+                "identifier": "geometry.dungeons_painting"
+            },
+            "minecraft:light_dampening": 0,
+            "minecraft:loot": "loot_tables/blocks/cauldron_painting.json",
+            "minecraft:map_color": "#A97E66",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "cauldron_painting",
+                    "render_method": "alpha_test",
+                    "face_dimming": false,
+                    "ambient_occlusion": false
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [{
+                    "allowed_faces": [
+                        "side"
+                    ]
+                }]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8,
+                    0,
+                    7
+                ],
+                "size": [
+                    16,
+                    16,
+                    1
+                ]
+            }
+        },
+        "permutations": [{
+                "condition": "query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            270,
+                            0
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

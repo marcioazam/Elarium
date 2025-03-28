@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "emerald_chestplate"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "E E",
+      "IEI",
+      "IEI"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:emerald"
+      }
+    ],
+    "key": {
+      "E": {
+        "item": "minecraft:emerald"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:emerald_chestplate",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:heart_of_ender.eye_1",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "death"
+        ]
+      },
+      "animations": {
+        "death": "controller.animation.heart_of_ender.eye.death",
+        "idle_sfx": "animation.heart_of_ender.eye.idle_sfx"
+      }
+    },
+    "components": {
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": false
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 2,
+        "look_distance": 16,
+        "look_time":[10,15],
+        "angle_of_view_vertical": 360,
+        "angle_of_view_horizontal": 360
+      },
+      "minecraft:behavior.look_at_entity": {
+        "priority": 5,
+        "look_distance": 32,
+        "probability": 0.01,
+        "look_time":[8,10],
+        "angle_of_view_vertical": 360,
+        "angle_of_view_horizontal": 360
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 3,
+        "look_distance": 32,
+        "probability": 0.01,
+        "look_time":[8,12],
+        "angle_of_view_vertical": 360,
+        "angle_of_view_horizontal": 360
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 1,
+        "angle_of_view_vertical": 360,
+        "angle_of_view_horizontal": 360,
+        "look_distance": 24,
+        "probability": 0.01,
+        "look_time":[5,8],
+        "target_distance": 32
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 : 0"
+      },
+      "minecraft:type_family": {
+        "family": [ "enderman", "monster", "mob", "ambient" ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:health": {
+        "min": 1,
+        "value": 2,
+        "max": 2
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          },
+          {
+            "filters": { "test": "in_contact_with_water", "operator": "==", "value": true },
+            "cause": "drowning",
+            "damage_per_tick": 1
+          }
+        ]
+      },
+      "minecraft:behavior.float": {"priority": 0},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "component_groups": {
+      "xp:look_at":{ 
+        "minecraft:behavior.look_at_player": {
+          "angle_of_view_vertical": 360,
+          "angle_of_view_horizontal": 360,
+          "look_distance": 64,
+          "probability": 0.02,
+          "look_time": [1,5],
+          "target_distance": 24
+        },
+        "minecraft:behavior.look_at_entity": {
+          "priority": 1,
+          "look_distance": 150,
+          "probability": 1,
+          "angle_of_view_vertical": 360,
+          "angle_of_view_horizontal": 360,
+          "filters": {"test": "is_family", "subject": "other", "value": "look_at"}
+        }
+      },
+      "xp:look_at_boss":{ 
+        "minecraft:behavior.look_at_entity": {
+          "priority": 1,
+          "look_distance": 150,
+          "probability": 1,
+          "angle_of_view_vertical": 360,
+          "angle_of_view_horizontal": 360,
+          "filters": {"test": "is_family", "subject": "other", "value": "boss"}
+        }
+      },
+      "xp:despawn":{"minecraft:instant_despawn": {}},
+      "xp:scale.1":{
+        "minecraft:scale": { "value": 1 },
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": false
+        },
+        "minecraft:custom_hit_test": {
+          "hitboxes": [
+            {
+              "width": 1.25,
+              "height": 1.25,
+              "pivot": [ 0, 1.75, 0 ]
+            }
+          ]
+        }
+      },
+      "xp:scale.2":{"minecraft:scale": { "value": 1.5 }},
+      "xp:scale.3":{"minecraft:scale": { "value": 2 }},
+      "xp:scale.4":{"minecraft:scale": { "value": 2.5 }},
+      "xp:scale.5":{"minecraft:scale": { "value": 1.75 }},
+      "xp:scale.6":{
+        "minecraft:scale": { "value": 0.75 },
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": false
+        },
+        "minecraft:custom_hit_test": {
+          "hitboxes": [
+            {
+              "width":  0.75,
+              "height":  0.75,
+              "pivot": [ 0, 1.25, 0 ]
+            }
+          ]
+        }
+      },
+      "xp:scale.7":{"minecraft:scale": { "value": 2.25 }}
+    },
+
+    "events": {
+      "xp:despawn":{ "add": { "component_groups": [ "xp:despawn" ] } },
+      "xp:look_at":{ "add": { "component_groups": [ "xp:look_at" ] }, "remove": { "component_groups": [ "xp:look_at_boss" ] } },
+      "xp:look_at_boss":{ "add": { "component_groups": [ "xp:look_at_boss" ] }, "remove": { "component_groups": [ "xp:look_at" ] } },
+      "xp:scale.1":{ "add": { "component_groups": [ "xp:scale.1" ] } },
+      "xp:scale.2":{ "add": { "component_groups": [ "xp:scale.2" ] } },
+      "xp:scale.3":{ "add": { "component_groups": [ "xp:scale.3" ] } },
+      "xp:scale.4":{ "add": { "component_groups": [ "xp:scale.4" ] } },
+      "xp:scale.5":{ "add": { "component_groups": [ "xp:scale.5" ] } },
+      "xp:scale.6":{ "add": { "component_groups": [ "xp:scale.6" ] } },
+      "xp:scale.7":{ "add": { "component_groups": [ "xp:scale.7" ] } }
+    }
+  }
+}

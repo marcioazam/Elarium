@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:eme_inlaid"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " P ",
+      "PDP",
+      " P "
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:deepslate_bricks",
+        "data": 0
+      },
+      "D": {
+        "item": "minecraft:emerald",
+        "data": 0
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:deepslate_bricks",
+        "data": 0
+      },
+      {
+        "item": "minecraft:emerald",
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "edx:emerald_inlaid",
+      "count": 4
+    }
+  }
+  
+}

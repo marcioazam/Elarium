@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.heart_of_ender.eye.death": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["idle_sfx"],
+          "transitions": [
+            { "pre_death": "q.health == 1" }
+          ],
+          "on_entry": [ "v.eye_time = q.life_time;" ],
+          "on_exit": [ "v.eye_time = q.life_time;" ]
+        },
+        "pre_death": {
+          "transitions": [
+            { "death": "(q.life_time - v.eye_time) > 0.5" }
+          ],
+          "on_entry": [ 
+            "/playsound ender_smite.laser_impact @a[r=40] ~~~ 0.85 1 0.05",
+            "v.eye_time = q.life_time;"
+          ]
+        },
+        "death": {
+          "on_entry": [
+            "@s xp:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

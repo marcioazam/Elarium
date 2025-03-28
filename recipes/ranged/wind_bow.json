@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "wind_bow"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " /-",
+      "/ S",
+      " /-"
+    ],
+    "key": {
+      "-": {
+        "item": "minecraft:wind_charge"
+      },
+      "/": {
+        "item": "minecraft:stick"
+      },
+      "S": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:wind_charge"
+      }
+    ],
+    "result": {
+      "item": "dungeons:wind_bow",
+      "count": 1
+    }
+  }
+}

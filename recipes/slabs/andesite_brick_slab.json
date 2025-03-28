@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:andesite_brick_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:andesite_brick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:andesite_brick"
+            }
+        ],
+        "result": {
+            "item": "edx:andesite_brick_slab",
+            "count": 6
+        }
+    }
+}

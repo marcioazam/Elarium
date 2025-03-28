@@ -1,0 +1,45 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:chlorobulbus",
+		"menu_category": {
+		  "category": "none"
+		}
+	  },
+	  "components": {
+		"minecraft:light_dampening": 0,
+		"minecraft:light_emission": 0,
+		"minecraft:collision_box": false,
+		"tag:no_silktouch": {},
+		"minecraft:selection_box": {
+			"origin": [-5,0,-5],
+			"size": [10,16,10]
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.chlorobulbus"
+		},
+		"minecraft:loot": "loot_tables/blocks/chlorobulbus.json",
+		"minecraft:material_instances": {
+		  "*": {
+			"texture": "chlorobulbus",
+			"render_method": "alpha_test",
+			"ambient_occlusion": false,
+			"face_dimming": false
+		  }
+		},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  }, 
+		"minecraft:placement_filter": {
+		  "conditions": [
+			{
+			  "allowed_faces": [
+				"up"
+			  ]
+			}
+		  ]
+		}
+	  }
+	}
+}

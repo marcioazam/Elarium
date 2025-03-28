@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:netherite_plate_block2"
+    }, 
+    "tags": [ "workbench" ],
+    "pattern": [
+      "T"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:netherite_plate_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherite_ingot"
+      }
+    ],
+    "result": {
+      "item": "edx:netherite_plate",
+      "count": 4
+    }
+  }
+}

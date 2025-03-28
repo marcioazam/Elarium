@@ -1,0 +1,21 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "edx:sulfur_biome/yellowstone"
+        },
+        "count":50,
+        "replace_rules": [
+            {
+                "places_block": {
+                    "name": "edx:yellowstone"
+                },
+                "may_replace": [
+                    {
+                        "name": "minecraft:netherrack"
+                    }
+                ]
+            }
+        ]
+    }
+}

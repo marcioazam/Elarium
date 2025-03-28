@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "dungeons:overgrown_temple"
+    },
+    "biome_filters": [{
+      "all_of": [{
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "jungle"
+        },
+        {
+          "test": "has_biome_tag",
+          "operator": "not",
+          "value": "edge"
+        }
+      ]
+    }],
+    "heightmap_projection": "world_surface",
+    "max_depth": 1,
+    "start_height": 0,
+    "start_pool": "dungeons:overgrown_temple",
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin"
+  }
+}

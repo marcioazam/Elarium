@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "snow_bow"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " /S",
+      "- S",
+      " /S"
+    ],
+    "key": {
+      "-": {
+        "item": "minecraft:packed_ice"
+      },
+      "/": {
+        "item": "minecraft:stick"
+      },
+      "S": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:packed_ice"
+      }
+    ],
+    "result": {
+      "item": "dungeons:snow_bow",
+      "count": 1
+    }
+  }
+}

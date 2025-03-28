@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+	"identifier": "edx:tin_block",
+	"menu_category":
+	{
+		"group": "itemGroup.name.metalblock",
+		"category": "construction"
+	}
+  },
+  "components": {
+	"minecraft:map_color": "#b1925f" ,
+	"minecraft:loot": "loot_tables/blocks/tib.json" ,
+	  "minecraft:destructible_by_mining": {
+		"seconds_to_destroy": 10
+	  }, 
+	  "minecraft:destructible_by_explosion": {
+		"explosion_resistance": 30
+	  },			
+	  "tag:edx:tin_pick": {},
+	  "minecraft:collision_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  },
+	  "minecraft:selection_box": {
+		"origin": [-8, 0, -8],
+		"size": [16, 16, 16]
+	  }
+  }
+	}
+}

@@ -1,0 +1,422 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.enders_heart_blast.remove_first_user": {
+      "initial_state": "no_weapon",
+      "states": {
+        "no_weapon": {
+          "transitions": [
+            {
+              "has_weapon": "q.get_equipped_item_name == 'heart_of_enders_blast'"
+            }
+          ],
+          "on_entry": [
+            "/scoreboard objectives add ender_heart_mana dummy ender_heart_mana",
+            "/scoreboard objectives add charge_timer dummy charge_timer"
+          ],
+          "on_exit": [
+            "/scoreboard players reset @s ender_heart_mana",
+            "/scoreboard players reset @s charge_timer"
+          ]
+        },
+        "has_weapon": {
+          "on_entry": [
+            "v.ender_heart_mana = 100;",
+            "/scoreboard players set @s ender_heart_mana 100",
+            "/scoreboard players set @s charge_timer 27"
+          ]
+        }
+      }
+    },
+    "controller.animation.enders_heart_blast": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            {
+              "enders_heart_blast.mana_regen": "t.i = 0; loop(27, {(q.is_item_name_any('slot.inventory', t.i, 'xp:heart_of_enders_blast') || q.is_item_name_any('slot.hotbar', t.i, 'xp:heart_of_enders_blast')) ? {return true;}; t.i = t.i+1;});"
+            }
+          ],
+          "transitions": [
+            { "draw": "q.get_equipped_item_name == 'heart_of_enders_blast'" }
+          ],
+          "on_entry": [
+            "@s xp:attack_value_1",
+            "/tag @s remove enders_heart_blast",
+            "/tag @s remove from_charging",
+            "/scoreboard objectives remove charge_timer"
+          ]
+        },
+        "draw": {
+          "animations": [
+            "enders_heart_blast.mana_regen",
+            "enders_heart_blast.mana_display"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'heart_of_enders_blast'"
+            },
+            {
+              "hold": "q.get_equipped_item_name == 'heart_of_enders_blast' && (q.life_time - v.tick_delay) >= 3.15"
+            },
+            {
+              "no_mana": "q.is_using_item && v.ender_heart_mana <= 24 && (q.life_time - v.tick_delay) >= 0.35"
+            },
+            {
+              "charge": "v.ender_heart_mana >= 25 && q.get_equipped_item_name == 'heart_of_enders_blast' && q.is_using_item && (q.life_time - v.tick_delay) >= 0.35"
+            }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"]
+        },
+
+        "hold": {
+          "animations": [
+            "enders_heart_blast.mana_regen",
+            "enders_heart_blast.mana_display"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'heart_of_enders_blast'"
+            },
+            {
+              "no_mana": "q.is_using_item && v.ender_heart_mana <= 24 && (q.life_time - v.tick_delay) >= 0.25"
+            },
+            {
+              "charge": "q.is_using_item && v.ender_heart_mana >= 25 && (q.life_time - v.tick_delay) >= 0.25"
+            }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s add enders_heart_blast",
+            "/stopsound @a[r=15] ender_heart.charge",
+            "/scoreboard objectives add charge_timer dummy charge_timer",
+            "/scoreboard players set @s charge_timer 27",
+            "/execute as @s[tag=from_charging] at @s run playsound ender_heart.fire_1 @a[r=15] ~~~ 0.25 0.75 0.01",
+            "/execute as @s[tag=from_charging] at @s run playsound ender_heart.fire_1 @a[r=15] ~~~ 0.15 0.5 0.01",
+            "/execute as @s[tag=from_charging] at @s run playsound ender_heart.fire_1 @a[r=15] ~~~ 0.05 0.35 0.01",
+            "/execute as @s[tag=from_charging] at @s run playsound ender_heart.draw @a[r=15] ~~~ 0.75 1.2 0.01"
+          ],
+          "on_exit": ["/tag @s remove from_charging"]
+        },
+        "no_mana": {
+          "animations": [
+            "enders_heart_blast.mana_regen",
+            "enders_heart_blast.mana_display"
+          ],
+          "transitions": [
+            { "hold": "(q.life_time - v.tick_delay) >= 2.5" },
+            {
+              "charge": "v.ender_heart_mana >= 25 && q.is_using_item && (q.life_time - v.tick_delay) >= 2.45"
+            }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/execute at @s run playsound ender_heart.draw @a[r=15] ~~~ 0.9 1.85 0.01",
+            "/execute at @s run playsound ender_heart.draw @a[r=15] ~~~ 0.75 1.5 0.01"
+          ]
+        },
+        "charge": {
+          "animations": [
+            "enders_heart_blast.charge",
+            "enders_heart_blast.charge_timer_display",
+            "enders_heart_blast.charge_timer_countdown",
+            "enders_heart_blast.heart_beat_charge",
+            {
+              "enders_heart_blast.charge_sfx": "(q.life_time - v.tick_delay) >= 0.25"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'heart_of_enders_blast'"
+            },
+            { "hold": "!q.is_using_item" },
+            {
+              "fire": "q.is_using_item && (q.life_time - v.tick_delay) >= 2.75"
+            }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:enders_heart.charging"
+          ],
+          "on_exit": ["@s xp:enders_heart.not_charging"]
+        },
+
+        "fire": {
+          "animations": [
+            {
+              "enders_heart_blast.mana_display": "(q.life_time - v.tick_delay) >= 0.25"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'heart_of_enders_blast'"
+            },
+            { "hold": "(q.life_time - v.tick_delay) >= 0.65" }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:enders_heart_blast.laser",
+            "v.ender_heart_mana = v.ender_heart_mana - 25;",
+            "/scoreboard players add @s[scores={ender_heart_mana=0..}] ender_heart_mana -25",
+            "/execute at @s run camerashake add @a[r=2] 0.175 0.25 rotational",
+            "/execute at @s run camerashake add @a[r=5] 0.1 0.15 rotational",
+            "/summon xp:knock_back ^^^0.5",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=45] ~~~ 0.3 0.75 0.1",
+            "/execute at @s run playsound ender_heart.fire_0 @a[r=45] ~~~ 0.9 1 0.1",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=45] ~~~ 0.9 1 0.1",
+            "/execute at @s run playsound ender_heart.fire_0 @a[r=45] ~~~ 0.75 0.75 0.1",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=45] ~~~ 0.75 0.75 0.1",
+            "/tag @s remove from_charging"
+          ]
+        }
+      }
+    },
+    "controller.animation.enders_heart_blast.projectile": {
+      "initial_state": "in_air",
+      "states": {
+        "in_air": {
+          "transitions": [
+            { "hit": "q.variant == 1" },
+            { "hit_ground_0": "q.is_on_ground && q.life_time < 1.75" },
+            {
+              "hit_ground_1": "q.is_on_ground && q.life_time >= 1.75 && q.life_time < 4"
+            },
+            {
+              "hit_ground_2": "(q.is_on_ground && q.life_time >= 4) || q.life_time >= 13.5"
+            },
+            { "hit_water": "q.is_in_water" }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"]
+        },
+        "hit": {
+          "transitions": [
+            { "hit_ground_0": "q.is_on_ground && q.life_time < 1.75" },
+            {
+              "hit_ground_1": "q.is_on_ground && q.life_time >= 1.75 && q.life_time < 4"
+            },
+            {
+              "hit_ground_2": "(q.is_on_ground && q.life_time >= 4) || q.life_time >= 13.5"
+            },
+            {
+              "in_air": "!q.is_on_ground && (q.life_time - v.tick_delay) >= 0.1"
+            }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "@s xp:reset_impact",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=40] ~~~ 0.95 1.35 0.01",
+            "/particle xp:heart_impact_bits ~~~",
+            "/particle xp:electric_heart1 ~~~",
+            "/particle xp:electric3 ~~~"
+          ]
+        },
+        "hit_ground_0": {
+          "on_entry": [
+            "/camerashake add @a[r=3] 0.15 0.2 rotational",
+            "/camerashake add @a[r=5] 0.1 0.2 rotational",
+            "/camerashake add @a[r=7] 0.075 0.2 rotational",
+            "/camerashake add @a[r=9] 0.05 0.2 rotational",
+            "/camerashake add @a[r=11] 0.025 0.1 rotational",
+            "/camerashake add @a[r=15] 0.01 0.1 rotational",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.95 1.35 0.05",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.75 0.35 0.05",
+            "/execute at @s run playsound mob.warden.angry @a[r=90] ~~~ 0.25 0.35 0.05",
+            "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.5 0.75 0.05",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=90] ~~~ 0.35 0.85 0.05",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.75 1.1 0.05",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.5 0.75 0.05",
+            "/particle xp:heart_impact_pulse ~~0.1~",
+            "/particle xp:heart_impact_ripple ~~0.1~",
+            "/particle xp:heart_impact_flash ~~-0.2~",
+            "/particle xp:heart_impact_glow ~~-0.2~",
+            "/particle xp:heart_impact_sprout ~~~",
+            "/particle xp:electric_heart2 ~~~",
+            "/particle xp:electric3 ~~~",
+            "/particle xp:heart_smoke3 ~~~",
+            "/damage @e[tag=!enders_heart_blast,r=4] 4",
+            "/damage @e[tag=!enders_heart_blast,r=3] 7",
+            "/damage @e[tag=!enders_heart_blast,r=2] 10",
+            "@s xp:despawn"
+          ]
+        },
+        "hit_ground_1": {
+          "on_entry": [
+            "/camerashake add @a[r=7] 0.2 0.2 rotational",
+            "/camerashake add @a[r=9] 0.175 0.2 rotational",
+            "/camerashake add @a[r=11] 0.15 0.2 rotational",
+            "/camerashake add @a[r=13] 0.1 0.2 rotational",
+            "/camerashake add @a[r=15] 0.05 0.1 rotational",
+            "/camerashake add @a[r=17] 0.01 0.1 rotational",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.95 1.35 0.075",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=90] ~~~ 0.75 0.35 0.075",
+            "/execute at @s run playsound mob.warden.angry @a[r=90] ~~~ 0.75 0.35 0.075",
+            "/execute at @s run playsound mob.warden.attack @a[r=90] ~~~ 0.95 0.5 0.075",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=90] ~~~ 0.85 0.65 0.075",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.75 1.1 0.075",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.5 0.75 0.075",
+            "/particle xp:heart_impact_pulse1 ~~0.1~",
+            "/particle xp:heart_impact_ripple1 ~~0.1~",
+            "/particle xp:heart_impact_flash1 ~~-0.2~",
+            "/particle xp:heart_impact_glow1 ~~-0.2~",
+            "/particle xp:heart_impact_sprout1 ~~0.15~",
+            "/particle xp:electric_heart2 ~~~",
+            "/particle xp:electric_heart3 ~~~",
+            "/particle xp:electric4 ~~~",
+            "/particle xp:heart_smoke2 ~~~",
+            "/damage @e[tag=!enders_heart_blast,r=5.5] 6",
+            "/damage @e[tag=!enders_heart_blast,r=4.5] 9",
+            "/damage @e[tag=!enders_heart_blast,r=3] 13",
+            "@s xp:despawn"
+          ]
+        },
+        "hit_ground_2": {
+          "animations": ["enders_heart_blast.attack_stage_1"],
+          "on_entry": [
+            "/camerashake add @a[r=9] 0.25 0.2 rotational",
+            "/camerashake add @a[r=11] 0.2 0.2 rotational",
+            "/camerashake add @a[r=13] 0.15 0.2 rotational",
+            "/camerashake add @a[r=15] 0.1 0.2 rotational",
+            "/camerashake add @a[r=17] 0.05 0.1 rotational",
+            "/camerashake add @a[r=20] 0.01 0.1 rotational",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=120] ~~~ 0.95 1.35 0.125",
+            "/execute at @s run playsound ender_smite.laser_impact @a[r=120] ~~~ 0.75 0.35 0.125",
+            "/execute at @s run playsound mob.warden.angry @a[r=120] ~~~ 0.85 0.35 0.075",
+            "/execute at @s run playsound mob.warden.attack @a[r=120] ~~~ 0.75 0.75 0.075",
+            "/execute at @s run playsound mob.warden.sonic_boom @a[r=120] ~~~ 0.5 0.85 0.075",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.75 1.1 0.1",
+            "/execute at @s run playsound ender_heart.fire_1 @a[r=120] ~~~ 0.5 0.75 0.1",
+            "/particle xp:heart_impact_pulse2 ~~0.1~",
+            "/particle xp:heart_impact_ripple2 ~~0.1~",
+            "/particle xp:heart_impact_flash2 ~~-0.2~",
+            "/particle xp:heart_impact_glow2 ~~-0.2~",
+            "/particle xp:heart_impact_sprout2 ~~0.15~",
+            "/particle xp:heart_impact_sprout1 ~~0.1~",
+            "/particle xp:electric_heart2 ~~~",
+            "/particle xp:electric_heart3 ~~~",
+            "/particle xp:electric_heart4 ~~~",
+            "/particle xp:electric3 ~~~",
+            "/particle xp:electric5 ~~~",
+            "/particle xp:heart_smoke1 ~~~",
+            "/damage @e[tag=!enders_heart_blast,r=6.5] 7",
+            "/damage @e[tag=!enders_heart_blast,r=5] 12",
+            "/damage @e[tag=!enders_heart_blast,r=4] 15"
+          ]
+        },
+        "hit_water": {
+          "on_entry": [
+            "/execute at @s run playsound mob.axolotl.splash @a[r=20] ~~~ 0.9 1.0 0.01",
+            "@s xp:despawn"
+          ]
+        }
+      }
+    },
+    "controller.animation.heart_blast_shocker": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "stage_0": "(q.life_time - v.tick_delay) >= 0.15" }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"]
+        },
+        "stage_0": {
+          "transitions": [{ "stage_1": "(q.life_time - v.tick_delay) >= 1.0" }],
+          "on_entry": ["v.tick_delay = q.life_time;", "/tag @s add stage_0"],
+          "on_exit": ["/tag @s remove stage_0"]
+        },
+        "stage_1": {
+          "transitions": [{ "stage_2": "(q.life_time - v.tick_delay) >= 1.0" }],
+          "on_entry": ["v.tick_delay = q.life_time;", "/tag @s add stage_1"],
+          "on_exit": ["/tag @s remove stage_1"]
+        },
+        "stage_2": {
+          "transitions": [{ "stage_3": "(q.life_time - v.tick_delay) >= 1.0" }],
+          "on_entry": ["v.tick_delay = q.life_time;", "/tag @s add stage_2"],
+          "on_exit": ["/tag @s remove stage_2"]
+        },
+        "stage_3": {
+          "transitions": [{ "stage_4": "(q.life_time - v.tick_delay) >= 1.0" }],
+          "on_entry": ["v.tick_delay = q.life_time;", "/tag @s add stage_3"],
+          "on_exit": ["/tag @s remove stage_3"]
+        },
+        "stage_4": {
+          "on_entry": ["/tag @s add stage_4"]
+        }
+      }
+    },
+    "controller.animation.enders_heart_blast.idle_sfx": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'heart_of_enders_blast'" }
+          ],
+          "on_entry": [
+            "/stopsound @s ender_heart.idle",
+            "/stopsound @s ender_heart.draw"
+          ]
+        },
+
+        "hold": {
+          "animations": ["enders_heart_blast.idle_sfx"],
+          "transitions": [
+            { "default": "q.get_equipped_item_name != 'heart_of_enders_blast'" }
+          ],
+          "on_entry": [
+            "/execute at @s run playsound ender_heart.draw @a[r=15] ~~~ 1 1 0.01"
+          ]
+        }
+      }
+    },
+    "controller.animation.enders_heart_blast.heart_beat_sfx": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "hold": "q.get_equipped_item_name == 'heart_of_enders_blast'" }
+          ],
+          "on_entry": ["@s xp:remove_enders_heart.heart_beat"]
+        },
+
+        "hold": {
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'heart_of_enders_blast'"
+            },
+            { "charge": "q.is_using_item" }
+          ],
+          "on_entry": ["@s xp:enders_heart.heart_beat"]
+        },
+
+        "charge": {
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'heart_of_enders_blast'"
+            },
+            { "hold": "!q.is_using_item" },
+            {
+              "fire": "q.is_using_item && (q.life_time - v.tick_delay) >= 2.75"
+            }
+          ],
+          "on_entry": [
+            "v.tick_delay = q.life_time;"
+            // "@s xp:remove_enders_heart.heart_beat"
+          ]
+        },
+
+        "fire": {
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name != 'heart_of_enders_blast'"
+            },
+            { "hold": "(q.life_time - v.tick_delay) >= 1.75" },
+            {
+              "charge": "q.is_using_item && (q.life_time - v.tick_delay) >= 0.25"
+            }
+          ],
+          "on_entry": ["v.tick_delay = q.life_time;"]
+        }
+      }
+    }
+  }
+}

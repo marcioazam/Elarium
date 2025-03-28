@@ -1,0 +1,337 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    
+    "controller.animation.player.tick": {
+      "initial_state": "default",
+      "states": {
+        "default": {}
+      }
+    },
+
+    "controller.animation.player.command": {
+      "states": {
+        "default": {
+          "transitions": [{ "death": "q.property('xp:command') == 1" }],
+          "on_entry": ["@s xp:reset_command"],
+          "on_exit": ["@s xp:reset_command"]
+        },
+        "death": {
+          "transitions": [{ "default": "1" }],
+          "on_entry": ["/function respawn_auger/death"]
+        }
+      }
+    },
+
+    //entity controller player
+
+    "controller.animation.player.enderbug_damage": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "enderbug_damage": "query.is_riding && variable.attack_time>0"
+            }
+          ]
+        },
+        "enderbug_damage": {
+          "on_entry": ["/damage @e[r=2,type=xp:enderbug,family=enderbug_special] 2 entity_attack"],
+          "transitions": [
+            {
+              "default": "variable.attack_time==0"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.eye_of_guardian_pull": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "eye_of_guardian_unpull": "q.is_alive"
+            }
+          ]
+        },
+        "eye_of_guardian_unpull": {
+          "on_entry": ["/tag @s remove pullEntity"],
+          "transitions": [
+            {
+              "eye_of_guardian_pull": "q.skin_id == 3"
+            }
+          ]
+        },
+        "eye_of_guardian_pull": {
+          "on_entry": ["/tag @s add pullEntity"],
+          "transitions": [
+            {
+              "default": "q.skin_id == 2 || !q.is_alive"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.slime_jumppad": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "launch": "q.skin_id == 6 && !q.is_on_ground"
+            }
+          ]
+        },
+        "launch": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;",
+            "/tag @s add slime_jumppad_launch",
+            "/title @s actionbar xp_hud.barrier_vignette",
+            "/playsound entity.slimejumppad.jump @s",
+            "@s xp:stage_launch"
+          ],
+          "transitions": [
+            {
+              "launch_end": "(q.life_time - v.tick_delay) >= 0.2"
+            }
+          ]
+        },
+        "launch_end": {
+          "on_entry": ["v.tick_delay = q.life_time;", "@s xp:stage_launch_end", "/effect @s slow_falling 10 0 true"],
+          "on_exit": ["@s xp:stage_remove_launch", "/tag @s remove slime_jumppad_launch"],
+          "transitions": [
+            {
+              "default": "(q.life_time - v.tick_delay) >= 2"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.elderman_launched": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "launch": "q.skin_id == 9 && !q.is_on_ground"
+            }
+          ]
+        },
+        "launch": {
+          "on_entry": ["v.tick_delay = q.life_time;", "/tag @s add elderman_launch", "@s xp:levitation_value_40"],
+          "transitions": [
+            {
+              "launch_end": "(q.life_time - v.tick_delay) >= 0.1"
+            }
+          ]
+        },
+        "launch_end": {
+          "on_entry": ["v.tick_delay = q.life_time;", "@s xp:levitation_value_0", "/tag @s remove elderman_launch"],
+          "transitions": [
+            {
+              "default": "(1.0)"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.movement_state": {
+      "initial_state": "init",
+      "states": {
+        "init": {
+          "transitions": [ { "default": "v.speed = 0; return true;" } ]
+        },
+
+        "default": {
+          "transitions": [{ "idle": "q.is_alive" }],
+          "on_exit": ["/tag @s remove sprint", "/tag @s remove walk", "/tag @s remove idle"]
+        },
+        "idle": {
+          "transitions": [{ "sprint": "q.is_sprinting" }, { "walk": "!q.is_sprinting && v.speed > 0.01" }],
+          "on_entry": ["/tag @s add idle"],
+          "on_exit": ["/tag @s remove idle"]
+        },
+        "sprint": {
+          "transitions": [{ "idle": "v.speed <= 0.01" }, { "walk": "!q.is_sprinting && v.speed > 0.01" }],
+          "on_entry": ["/tag @s add sprint"],
+          "on_exit": ["/tag @s remove sprint"]
+        },
+        "walk": {
+          "transitions": [{ "idle": "v.speed <= 0.01" }, { "sprint": "q.is_sprinting" }],
+          "on_entry": ["/tag @s add walk"],
+          "on_exit": ["/tag @s remove walk"]
+        }
+      }
+    },
+
+    "controller.animation.player.enderslug_fire": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": ["@s xp:stage_remove_enderslug_fire"],
+          "transitions": [
+            {
+              "on_fire": "q.is_sheared"
+            }
+          ]
+        },
+        "on_fire": {
+          "on_entry": ["v.tick_delay = q.life_time;"],
+          "animations": ["player.enderslug_fire"],
+          "on_exit": ["@s xp:stage_remove_enderslug_fire"],
+          "transitions": [
+            {
+              "default": "!q.is_sheared || q.is_in_water_or_rain || (q.life_time - v.tick_delay) >= 5"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.healingpool_move": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "on_move": "q.is_ignited && q.is_moving"
+            }
+          ]
+        },
+        "on_move": {
+          "on_entry": ["v.tick_delay = q.life_time;", "/playsound jump.slime @s ~ ~ ~ 0.7"],
+          "transitions": [
+            {
+              "on_move_repeat": "q.is_moving && (q.life_time - v.tick_delay) >= 1.3"
+            },
+            {
+              "default": "!q.is_ignited && (q.life_time - v.tick_delay) >= 1"
+            }
+          ]
+        },
+        "on_move_repeat": {
+          "on_entry": ["v.tick_delay = q.life_time;", "/playsound jump.slime @s ~ ~ ~ 0.7"],
+          "transitions": [
+            {
+              "on_move": "q.is_moving && (q.life_time - v.tick_delay) >= 1.3"
+            },
+            {
+              "default": "!q.is_ignited && (q.life_time - v.tick_delay) >= 1"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.elytra_fly": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "flying": "q.is_gliding"
+            }
+          ]
+        },
+        "flying": {
+          "on_entry": ["v.tick_delay = q.life_time;", "/tag @s add elytra_flying"],
+          "on_exit": ["/tag @s remove elytra_flying"],
+          "transitions": [
+            {
+              "default": "!q.is_gliding"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.elytra_fly_firework": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "boost": "q.get_equipped_item_name == 'firework_rocket' && v.attack_time > 0"
+            }
+          ]
+        },
+        "boost": {
+          "on_entry": ["v.tick_delay = q.life_time;", "/tag @s add elytra_flying_boost"],
+          "on_exit": ["/tag @s remove elytra_flying_boost"],
+          "transitions": [
+            {
+              "default": "(q.life_time - v.tick_delay) >= 3.3"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.riding": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "flying": "q.is_riding"
+            }
+          ]
+        },
+        "flying": {
+          "on_entry": ["/tag @s add riding"],
+          "on_exit": ["/tag @s remove riding"],
+          "transitions": [
+            {
+              "default": "!q.is_riding"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.sneaking": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "is_sneaking": "q.is_sneaking"
+            }
+          ]
+        },
+        "is_sneaking": {
+          "on_entry": ["/tag @s add sneaking"],
+          "on_exit": ["/tag @s remove sneaking"],
+          "transitions": [
+            {
+              "default": "!q.is_sneaking"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.pulled": {
+      "states": {
+        
+        "default": {
+          "on_entry": [ "@s xp:pulled_0" ],
+          "transitions": [
+            { "pulled_1": "q.property('xp:pulled') == 1" }
+          ]
+        },
+
+        "pulled_1": {
+          "animations": [ "pulled_1" ],
+          "transitions": [ { "default": "q.property('xp:pulled') != 1" } ]
+        }
+
+      }
+    }
+
+  }
+}

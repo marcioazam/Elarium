@@ -1,0 +1,59 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "edx:wood_boots",
+      "menu_category": {
+        "category": "equipment",
+				"group": "itemGroup.name.boots"
+			}
+		},
+		"components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 2,
+        "slot": "armor_feet"
+      },
+      "minecraft:fuel": {
+        "duration": 10
+      },
+      "minecraft:icon": {
+        "textures":{
+               "default":"wood_boots"
+         }
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items":[
+              "edx:wood_boots"
+            ],
+            "repair_amount": "context.other->query.remaining_durability + 0.05 * context.other->query.remaining_durability"
+          },
+          {
+            "items":[
+              "edx:tree_bark"
+            ],
+            "repair_amount": "q.max_durability/4"
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "Wood Boots"
+      },
+      "minecraft:tags": {
+				"tags": [
+					"minecraft:trimmable_armors",
+          "minecraft:is_armor"
+				]
+			},
+      "minecraft:durability": {
+        "max_durability": 50
+      },
+      "minecraft:wearable": {
+        "protection": 1,
+        "slot": "slot.armor.feet"
+      }
+    }
+  }
+}

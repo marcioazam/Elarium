@@ -1,0 +1,125 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:elderman_trap.ground",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "xp:eldeman_trap.summon":{
+        "minecraft:transformation": {
+          "into": "xp:elderman_trap<minecraft:entity_spawned>"
+        }
+      },
+      "xp:eldeman_trap.summon_90":{
+        "minecraft:transformation": {
+          "into": "xp:elderman_trap<minecraft:entity_spawned_90>"
+        }
+      },
+
+      "xp:on_ground":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:eldeman_trap.summon"
+              }
+            }
+          },
+          "power": 1.6,
+          "gravity": 300
+        }
+      },
+      "xp:on_ground_90":{
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:eldeman_trap.summon_90"
+              }
+            }
+          },
+          "power": 1.6,
+          "gravity": 300
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 1,
+        "max": 0
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "xp:eldeman_trap.summon"
+            }
+          }
+        },
+        "power": 1.6,
+        "gravity": 300
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "trigger": "xp:on_ground"
+      },
+      "xp:on_ground":{
+        "add": {
+          "component_groups": [
+            "xp:on_ground"
+          ]
+        }
+      },
+      "xp:on_ground_90":{
+        "add": {
+          "component_groups": [
+            "xp:on_ground_90"
+          ]
+        }
+      },
+      "xp:eldeman_trap.summon":{
+        "add": {
+          "component_groups": [
+            "xp:eldeman_trap.summon"
+          ]
+        }
+      },
+      "xp:eldeman_trap.summon_90":{
+        "add": {
+          "component_groups": [
+            "xp:eldeman_trap.summon_90"
+          ]
+        }
+      }
+    }
+
+  }
+}

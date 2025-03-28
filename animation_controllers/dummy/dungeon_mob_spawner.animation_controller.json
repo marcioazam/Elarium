@@ -1,0 +1,40 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.dungeon_mob_spawner.controller": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "spawn_mob": "q.is_stunned"
+                    }]
+                },
+                "spawn_mob": {
+                    "transitions": [
+                        { "spawn_echoing_forest_mob": "q.variant == 1" },
+                        { "spawn_ender_wilds_mob": "q.variant == 1" }
+                    ]
+                },
+
+                "spawn_echoing_forest_mob": {
+                    "on_entry": [
+                        "@s xp:remove_spawn_mobs",
+                        "/function dungeon_mobs/echoing_forest"
+                    ],
+                    "transitions": [{
+                        "default": "!q.is_stunned"
+                    }]
+                },
+                "spawn_ender_wilds_mob": {
+                    "on_entry": [
+                        "@s xp:remove_spawn_mobs",
+                        "/function dungeon_mobs/ender_wilds"
+                    ],
+                    "transitions": [{
+                        "default": "!q.is_stunned"
+                    }]
+                }
+            }
+        }
+    }
+}

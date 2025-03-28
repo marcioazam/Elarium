@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_cursed_axe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:cursed_axe"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:cursed_axe"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:cursed_axe", "count": 1 },
+      { "item": "dungeons:cursed_axe", "count": 1 }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "squid_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "BBB",
+      "B B",
+      "B B"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:ink_sac"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:ink_sac"
+      }
+    },
+    "result": {
+      "item": "dungeons:squid_leggings",
+      "count": 1
+    }
+  }
+}

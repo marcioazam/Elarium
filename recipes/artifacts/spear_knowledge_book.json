@@ -1,0 +1,54 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:skb"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "DG ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:explosive_scroll"
+      },
+      "G": {
+        "item": "edx:long_spear_scroll"
+      },
+      "#": {
+        "item": "edx:sharper_spear_scroll"
+      },
+      "D": {
+        "item": "edx:electrik_spear_scroll"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "edx:diamond_book"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:explosive_scroll"
+      },
+      {
+        "item": "edx:long_spear_scroll"
+      },
+      {
+        "item": "edx:sharper_spear_scroll"
+      },
+      {
+        "item": "edx:electrik_spear_scroll"
+      }
+    ],
+    "result": {
+      "item": "edx:spear_knowledge_book"
+    }
+  }
+  
+}

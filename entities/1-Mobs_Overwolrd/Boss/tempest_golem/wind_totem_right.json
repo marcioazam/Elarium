@@ -1,0 +1,205 @@
+ {
+    "format_version": "1.21.30",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "dungeons:wind_totem_right",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "dungeons:default": {
+                "minecraft:variant": {
+                    "value": 0
+                }
+            },
+            "dungeons:activated": {
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:boss": {
+                    "should_darken_sky": false,
+                    "hud_range": 6,
+                    "name": "§9Wind Totem§r"
+                },
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 0.125,
+                    "time_down_event": {
+                        "event": "dungeons:totem_timer"
+                    }
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "actor_health",
+                                        "subject": "self",
+                                        "operator": "<=",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            "event": "dungeons:cooldown"
+                        }
+                    ]
+                }
+            },
+            "dungeons:cooldown": {
+                "minecraft:variant": {
+                    "value": 0
+                },
+                "minecraft:boss": {
+                    "should_darken_sky": false,
+                    "hud_range": 0,
+                    "name": "§9Wind Totem§r"
+                }
+            },
+            "dungeons:despawn_timer": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": 0.25,
+                    "time_down_event": {
+                        "event": "dungeons:despawn"
+                    }
+                }
+            },
+            "dungeons:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:scale": {
+                "value": 1.05
+            },
+            "minecraft:movement": {
+                "value": 0
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "wind_totem",
+                    "inanimate",
+                    "gravity_immune"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 1,
+                "height": 3
+            },
+            "minecraft:health": {
+                "value": 100,
+                "max": 100
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+            "minecraft:knockback_resistance": {
+                "value": 1
+            },
+            "minecraft:persistent": {},
+      "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:default"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "dungeons:cooldown",
+                        "dungeons:activated"
+                    ]
+                }
+            },
+            "dungeons:activated": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:activated"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "dungeons:default",
+                        "dungeons:cooldown"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "particle dungeons:wind_totem_on ~~~",
+                        "playsound beacon.activate @a ~~~ 1.0 1.5"
+                    ]
+                }
+            },
+            "dungeons:cooldown": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:cooldown"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "dungeons:default",
+                        "dungeons:activated"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "event entity @e[type=dungeons:tempest_golem,c=1] dungeons:disable_right_arm",
+                        "effect @s instant_health 1 255 true",
+                        "particle dungeons:wind_totem_off ~~~",
+                        "playsound beacon.deactivate @a ~~~ 1.0 1.5"
+                    ]
+                }
+            },
+            "dungeons:totem_timer": {
+            },
+            "dungeons:despawn_timer": {
+                "queue_command": {
+                    "command": ["fill ~~-1~ ~~-1~ deepslate_tiles replace bedrock", "particle dungeons:wind_totem_off ~~~"]
+                },
+                "add": {
+                    "component_groups": [
+                        "dungeons:despawn_timer"
+                    ]
+                }
+            },
+            "dungeons:despawn": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

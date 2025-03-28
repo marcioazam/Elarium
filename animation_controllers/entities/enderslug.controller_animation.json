@@ -1,0 +1,89 @@
+{
+   "format_version": "1.10.0",
+   "animation_controllers": {
+      "controller.animation.enderslug_projectile.impact":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "impact": "q.skin_id == 1"
+                  }
+               ]
+            },
+            "impact":{
+               "on_entry": [
+                  "/particle xp:ender_curved_blade.flash ~ ~ ~",
+                  "/event entity @e[type=player,c=1,r=2] xp:stage_enderslug_fire"
+               ]
+            }
+         }
+      },
+      "controller.animation.enderslug.avoid":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "avoid": "q.skin_id == 1"
+                  }
+               ]
+            },
+            "avoid":{
+               "on_entry": [
+                  "v.tick_delay = q.life_time;",
+                  "/stopsound @a[r=8] entity.enderslug.walk",
+                  "/stopsound @a[r=8] entity.enderslug.pre_attack",
+                  "/stopsound @a[r=8] entity.enderslug.attack"
+               ],
+               "on_exit": [
+                  "@s xp:stage_scream"
+               ],
+               "transitions": [
+                  {
+                     "default": "(q.life_time - v.tick_delay) >= 2 && !q.is_moving "
+                  }
+               ]
+            }
+         }
+      },
+      "controller.animation.enderslug.death":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "death": "query.health <= 28"
+                  }
+               ]
+            },
+            "death":{
+               "on_entry": [
+                  "v.tick_delay = q.life_time;",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "/summon minecraft:xp_orb ~ ~1 ~",
+                  "@s xp:stage_death"
+               ],
+               "on_exit": [
+                  "@s xp:instant_despawn"
+               ],
+               "transitions": [
+                  {
+                     "death_end": "(q.life_time - v.tick_delay) >= 1.8"
+                  }
+               ]
+            },
+            "death_end":{
+            }
+         }
+      }
+   }
+}

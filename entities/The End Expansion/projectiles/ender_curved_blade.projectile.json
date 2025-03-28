@@ -1,0 +1,142 @@
+{
+  "format_version": "1.17.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:ender_curved_blade.projectile",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": { 
+        "animate": [ 
+          "impact", 
+          { "enchanted_tf": "q.out_of_control" }, 
+          { "sfx": "!q.out_of_control && !q.is_on_ground" }, 
+          { "sfx1": "q.out_of_control && !q.is_on_ground" }, 
+          { "pick_up": "!q.out_of_control && q.is_on_ground && q.life_time > 1" }, 
+          { "pick_up1": "q.out_of_control && q.is_on_ground && q.life_time > 1" } 
+          ] 
+        },
+      "animations": { 
+        "impact": "controller.animation.ender_curved_blade.projectile",
+        "enchanted_tf": "animation.ender_curved_blade.enchanted_tf",
+        "sfx": "animation.ender_curved_blade.projectile.sfx",
+        "sfx1": "animation.ender_curved_blade.projectile.sfx1",
+        "pick_up": "animation.ender_curved_blade.projectile.pick_up",
+        "pick_up1": "animation.ender_curved_blade.projectile.pick_up1"
+       }
+    },
+    "component_groups": {
+      "xp:impact": { "minecraft:variant": { "value": 1 } },
+      "xp:regular": { 
+        "minecraft:projectile": {
+          "on_hit": {
+            "stick_in_ground": {
+              "shake_time" : 99999
+            },
+            "impact_damage": {
+              "damage": 12,
+              "knockback": true,
+              "catch_fire": true,
+              "semi_random_diff_damage": false
+            },
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:impact",
+                "target": "self"
+              }
+            }
+          },
+          "should_bounce": true,
+          "stop_on_hurt": true,
+          "power": 2.2,
+          "gravity": 0.035,
+          "inertia": 1,
+          "liquid_inertia": 0,
+          "anchor": 2,
+          "offset": [
+            0,
+            -0.5,
+            0
+          ],
+          "uncertainty_base": 2,
+          "reflect_on_hurt": false
+        },
+        "minecraft:timer": {
+          "time": 3000,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:despawn"
+          }
+        }
+    },
+      "xp:enchanted": { 
+        "minecraft:out_of_control": {},
+        "minecraft:projectile": {
+          "on_hit": {
+            "stick_in_ground": {
+              "shake_time" : 99999
+            },
+            "impact_damage": {
+              "damage": 17,
+              "knockback": true,
+              "catch_fire": true,
+              "semi_random_diff_damage": false
+            },
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "xp:impact",
+                "target": "self"
+              }
+            }
+          },
+          "power": 2.2,
+          "gravity": 0.035,
+          "inertia": 1,
+          "liquid_inertia": 0,
+          "anchor": 2,
+          "offset": [
+            0,
+            -0.5,
+            0
+          ],
+          "uncertainty_base": 2,
+          "reflect_on_hurt": false
+        },
+        "minecraft:timer": {
+          "time": 3000,
+          "looping": false,
+          "time_down_event": {
+            "event": "xp:despawn"
+          }
+        }
+    },
+      "xp:despawn": { "minecraft:instant_despawn": {} }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "projectile" ]
+      },
+      "minecraft:physics": {},
+      "minecraft:collision_box": {
+        "width": 0.35,
+        "height": 0.25
+      },
+      "minecraft:timer": {
+        "time": 3000,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:despawn"
+        }
+      }
+    },
+    "events": {
+      "xp:impact": { "add": { "component_groups": [ "xp:impact" ] } },
+      "xp:regular": { "add": { "component_groups": [ "xp:regular" ] } },
+      "xp:enchanted": { "add": { "component_groups": [ "xp:enchanted" ] } },
+      "xp:despawn": { "add": { "component_groups": [ "xp:despawn" ] } }
+    }
+  }
+}

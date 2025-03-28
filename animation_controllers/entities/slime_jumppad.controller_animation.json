@@ -1,0 +1,33 @@
+{
+   "format_version": "1.10.0",
+   "animation_controllers": {
+      "controller.animation.slime_jumppad.launch":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "launch": "q.skin_id == 1"
+                  }
+               ]
+            },
+            "launch":{
+               "on_entry": [
+                  "/event entity @e[type=!xp:slime_jumppad,family=!inanimate,r=2,c=1] xp:stage_launch",
+                  "/effect @e[type=!xp:slime_jumppad,type=!player,tag=!slime_jumppad_launch,r=2] levitation 1 32 true",
+                  "/effect @e[type=!xp:slime_jumppad,type=!player,tag=!slime_jumppad_launch,r=2] slow_falling 4 1 true",
+
+                  "/event entity @a[tag=!\"ach_118\",m=!c,r=2] xp:achievements.118"
+               ],
+               "transitions": [
+                  {
+                     "default": "q.skin_id == 0"
+                  }
+               ]
+            }
+
+         }
+      }
+
+   }
+}

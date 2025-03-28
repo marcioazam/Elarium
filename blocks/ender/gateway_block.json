@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:gateway_block",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:friction": 0.9,
+      "minecraft:map_color": "#1a393f",
+      "minecraft:loot": "loot_tables/ender/gateway_block.json",
+			"minecraft:destructible_by_mining": { "seconds_to_destroy": 99999 },
+			"minecraft:destructible_by_explosion": { "explosion_resistance": 500 },
+      "minecraft:block_light_emission": 0.35,
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      }
+    }
+  }
+}

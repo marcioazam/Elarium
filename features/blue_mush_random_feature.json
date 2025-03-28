@@ -1,0 +1,16 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:blue_mush_random_feature"
+    },
+    "features": [
+      [ "edx:large_blue_mush1_feature", 1 ],
+      [ "edx:large_blue_mush2_feature", 1 ],
+      [ "edx:large_blue_mush3_feature", 1 ],
+      [ "edx:big_blue_mush1_feature", 1 ],
+      [ "edx:big_blue_mush2_feature", 1 ],
+      [ "edx:big_blue_mush3_feature", 1 ]
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:broken_boots"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:broken_old_boots"
+      }
+    ],
+    "tags": ["furnace", "blast_furnace"],
+    "input": "edx:broken_old_boots",
+    "output": "edx:ancient_armor_debris"
+  }
+  
+}

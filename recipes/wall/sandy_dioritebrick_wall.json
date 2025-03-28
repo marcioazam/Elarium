@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:sandy_dioritebrick_wall"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW",
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:sandy_dioritebrick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:sandy_dioritebrick"
+            }
+        ],
+        "result": {
+            "item": "edx:sandy_dioritebrick_wall",
+            "count": 6
+        }
+    }
+}

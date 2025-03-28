@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "evocation_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " B ",
+      "LGL",
+      "BBB"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:wool"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:wool"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "L": {
+        "item": "minecraft:leather"
+      }
+    },
+    "result": {
+      "item": "dungeons:evocation_helmet",
+      "count": 1
+    }
+  }
+}

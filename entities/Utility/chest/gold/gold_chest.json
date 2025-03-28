@@ -1,0 +1,159 @@
+{
+  "format_version": "1.16.210",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:gold_chest",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "dungeons:opened": {
+        "minecraft:is_baby": {},
+        "minecraft:timer": {
+          "looping": true,
+          "time": 120,
+          "time_down_event": {
+            "event": "dungeons:despawn"
+          }
+        }
+      },
+      "dungeons:illager_camp_chest": {
+        "minecraft:entity_sensor": {
+          "sensor_range": 32,
+          "maximum_count": 0,
+          "minimum_count": 0,
+          "require_all": false,
+          "event_filters": {
+            "any_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "operator": "not",
+                "value": "illager"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "operator": "not",
+                "value": "ravager"
+              }
+            ]
+          },
+          "event": "dungeons:unlock"
+        },
+        "minecraft:interact": {
+          "interactions": [{
+              "on_interact": {
+                "filters": {
+                  "all_of": [{
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_tag",
+                      "subject": "self",
+                      "value": "dungeons:unlocked"
+                    }
+                  ]
+                },
+                "event": "dungeons:open_illager_camp",
+                "target": "self"
+              },
+              "interact_text": "action.interact.open_chest",
+              "cooldown": 10,
+              "spawn_entities": "dungeons:illager_camp_loot"
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [{
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_tag",
+                      "subject": "self",
+                      "operator": "not",
+                      "value": "dungeons:unlocked"
+                    }
+                  ]
+                },
+                "event": "dungeons:locked",
+                "target": "self"
+              },
+              "interact_text": "action.interact.locked_chest",
+              "cooldown": 1
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "ignore",
+          "inanimate",
+          "gravity_immune"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 0.9375
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+          "cause": "all",
+          "deals_damage": false
+        }]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:unlock": {
+        "queue_command": {
+          "command": ["tag @s add dungeons:unlocked"]
+        }
+      },
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      },
+      "dungeons:open_illager_camp": {
+        "add": {
+          "component_groups": [
+            "dungeons:opened"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:illager_camp_chest"
+          ]
+        }
+      },
+      "dungeons:spawn_illager_camp": {
+        "add": {
+          "component_groups": [
+            "dungeons:illager_camp_chest"
+          ]
+        }
+      }
+    }
+  }
+}

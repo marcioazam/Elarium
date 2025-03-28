@@ -1,0 +1,27 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.variables.setup": {
+      "loop": true,
+      "animation_length": 0.0,
+      "timeline": {
+        "0.0": [
+          "v.item_xp_equipped_any = (q.get_equipped_item_name == 'void_striker_enchanted' || q.get_equipped_item_name == 'void_striker' || q.get_equipped_item_name == 'hammer_of_void_enchanted' || q.get_equipped_item_name == 'hammer_of_void' || q.get_equipped_item_name == 'heart_of_enders_blast' || q.get_equipped_item_name == 'enders_smite' || q.get_equipped_item_name == 'void_blade_enchanted' || q.get_equipped_item_name == 'void_blade' || q.get_equipped_item_name == 'obsidian_blade' || q.get_equipped_item_name == 'obsidian_blade_enchanted' || q.get_equipped_item_name == 'enderite_cutter' || q.get_equipped_item_name == 'enderite_cutter_enchanted' || q.get_equipped_item_name == 'ender_curved_blade' || q.get_equipped_item_name == 'ender_curved_blade_enchanted' || q.get_equipped_item_name == 'the_touched_ends' || q.get_equipped_item_name == 'ender_staff' || q.get_equipped_item_name == 'the_touched_ends_enchanted');"
+        ]
+      }
+    },
+    "animation.variables.mana_start": {
+      "loop": true,
+      "animation_length": 99999.0,
+      "timeline": {
+        "0.0": [
+          "v.ender_smite_mana = 180;",
+          "v.ender_heart_mana = 100;",
+          "v.hammer_mana = 201;",
+          "v.hammer1_mana = 201;",
+          "v.ender_staff_cd = 0;"
+        ]
+      }
+    }
+  }
+}

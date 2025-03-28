@@ -1,0 +1,15 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "edx:bunker_tower"
+    },
+    "structure_name": "mystructure:Bunker_tower",
+    "adjustment_radius": 0,
+		"facing_direction": "random",
+		"constraints": { 
+			"grounded": {},
+			"unburied": {}
+		}
+  }
+}

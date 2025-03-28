@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:sculk_quiver",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"sculk_quiver"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "sculk_quiver"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dSculk quiver \n§5Artifact\n§6Your arrows are faster and\ngo through blocks but it does -2 damage and doesn't deal damage if\nyou're too close to your target\nDo not equip any other quiver"
+			  }
+		}
+	}
+}

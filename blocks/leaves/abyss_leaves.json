@@ -1,0 +1,30 @@
+{
+  "format_version": "1.19.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:abyss_leaves",
+      "register_to_creative_menu": true,
+      "menu_category": { 
+        "category": "nature",
+				"group": "itemGroup.name.leaves"
+      }
+    },
+    "components": {
+      "minecraft:loot": "loot_tables/leaves/abyss.json",
+      "minecraft:geometry": "geometry.xp_leaves2",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": true,
+          "face_dimming": true,
+          "texture": "abyss_leaves",
+          "render_method": "blend"
+        }
+      },
+      "minecraft:map_color": "#3c334c",
+      "minecraft:light_dampening": 0,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.4
+      }
+    }
+  }
+}

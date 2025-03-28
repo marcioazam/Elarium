@@ -1,0 +1,12 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:aggregate_feature": {
+      "description": {
+        "identifier": "edx:warped/twisted_stipes_aggreg"
+      },
+      "features": [
+        "edx:warped/twisted_stipes_bottom",
+        "edx:warped/twisted_stipes_top_offset"
+      ]
+    }
+  }

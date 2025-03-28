@@ -1,0 +1,93 @@
+{
+    "format_version": "1.14.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:obsidian_blade.enchanted_attack",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "xp:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:timer": {
+                "time": 1.5,
+                "looping": false,
+                "time_down_event": {
+                  "event": "xp:despawn"
+                }
+              },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 1,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "obsidian_blade_target"
+                                }
+                            ]
+                        },
+                        "max_dist": 20
+                    }
+                ],
+                "must_see": false
+            },
+            "minecraft:behavior.summon_entity": {
+                "priority": 2,
+                "summon_choices": [
+                    {
+                        "min_activation_range": 1.0,
+                        "weight": 1,
+                        "cooldown_time": 9999.0,
+                        "cast_duration": 0.0,
+                        "sequence": [
+                            {
+                                "shape": "line",
+                                "target": "self",
+                                "base_delay": 0.0,
+                                "delay_per_summon": 0.05,
+                                "num_entities_spawned": 13,
+                                "entity_type": "xp:obsidian_blade.enchanted_attack.explode",
+                                "size": 12,
+                                "entity_lifespan": 0.25
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:health": {
+                "min": 1,
+                "max": 1
+            }
+        },
+        "events": {
+            "xp:despawn": {
+                "add": {
+                    "component_groups": [
+                        "xp:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

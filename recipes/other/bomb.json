@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:bomb"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      " b ",
+      "bpb",
+      " b "
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:cobblestone"
+      },
+      "p": {
+        "item": "edx:sulfur"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:sulfur"
+      }
+    ],
+    "result": {
+      "item": "edx:bomb"
+    }
+  }
+}

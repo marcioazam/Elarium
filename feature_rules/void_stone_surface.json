@@ -1,0 +1,42 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:void_stone_surface",
+			"places_feature": "edx:void_stone_surface"
+		},
+
+		"conditions": {
+			"placement_pass": "after_surface_pass",
+
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"any_of": [
+							{
+								"test": "has_biome_tag",
+								"operator": "==",
+								"value": "the_end"
+							}
+						]
+					}
+				]
+			}
+		},
+
+		"distribution": {
+			"iterations": "((math.abs(v.worldx) > 200 || math.abs(v.worldz) > 200) )*256 ",
+
+			"x": {
+				"distribution": "fixed_grid",
+				"extent": [0, 15]
+			},
+			"z": {
+				"distribution": "fixed_grid",
+				"extent": [0, 15]
+			}, 
+			"y": 0
+		}
+	}
+}

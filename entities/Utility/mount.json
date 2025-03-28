@@ -1,0 +1,199 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "pod_rpg:mount",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+      "pod_rpg:speed0": {
+        "minecraft:movement": {
+          "value": {
+            "range_min": 0.3,
+            "range_max": 0.3
+          }
+        }
+      },
+      "pod_rpg:speed1": {
+        "minecraft:movement": {
+          "value": {
+            "range_min": 0.325,
+            "range_max": 0.325
+          }
+        }
+      },
+      "pod_rpg:speed2": {
+        "minecraft:movement": {
+          "value": {
+            "range_min": 0.35,
+            "range_max": 0.35
+          }
+        }
+      },
+      "pod_rpg:speed3": {
+        "minecraft:movement": {
+          "value": {
+            "range_min": 0.375,
+            "range_max": 0.375
+          }
+        }
+      },
+      "pod_rpg:jump0": {
+        "minecraft:horse.jump_strength": {
+          "value": {
+            "range_min": 0.5,
+            "range_max": 0.5
+          }
+        }
+      },
+      "pod_rpg:jump1": {
+        "minecraft:horse.jump_strength": {
+          "value": {
+            "range_min": 0.65,
+            "range_max": 0.65
+          }
+        }
+      },
+      "pod_rpg:jump2": {
+        "minecraft:horse.jump_strength": {
+          "value": {
+            "range_min": 0.8,
+            "range_max": 0.8
+          }
+        }
+      },
+      "pod_rpg:despawn": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:is_tamed": {},
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "crouching_skip_interact": true,
+        "family_types": ["player"],
+        "interact_text": "action.interact.ride.horse",
+        "seats": {
+          "position": [0.0, 1.1, -0.2]
+        }
+      },
+      "minecraft:is_saddled": {},
+      "minecraft:input_ground_controlled": {},
+      "minecraft:can_power_jump": {},
+      "minecraft:behavior.player_ride_tamed": {},
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": ["pod_rpg_mount", "horse", "mob"]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 1.4,
+        "height": 1.6
+      },
+      "minecraft:health": {
+        "value": {
+          "range_min": 20,
+          "range_max": 20
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": {
+          "range_min": 0.1,
+          "range_max": 0.1
+        }
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:horse.jump_strength": {
+        "value": {
+          "range_min": 0.2,
+          "range_max": 0.2
+        }
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 6.0,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+
+    "events": {
+      "pod_rpg:speed0": {
+        "add": {
+          "component_groups": ["pod_rpg:speed0"]
+        }
+      },
+      "pod_rpg:speed1": {
+        "add": {
+          "component_groups": ["pod_rpg:speed1"]
+        }
+      },
+      "pod_rpg:speed2": {
+        "add": {
+          "component_groups": ["pod_rpg:speed2"]
+        }
+      },
+      "pod_rpg:speed3": {
+        "add": {
+          "component_groups": ["pod_rpg:speed3"]
+        }
+      },
+      "pod_rpg:jump0": {
+        "add": {
+          "component_groups": ["pod_rpg:jump0"]
+        }
+      },
+      "pod_rpg:jump1": {
+        "add": {
+          "component_groups": ["pod_rpg:jump1"]
+        }
+      },
+      "pod_rpg:jump2": {
+        "add": {
+          "component_groups": ["pod_rpg:jump2"]
+        }
+      },
+      "pod_rpg:despawn": {
+        "add": {
+          "component_groups": ["pod_rpg:despawn"]
+        }
+      }
+    }
+  }
+}

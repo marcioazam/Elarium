@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:husk_it",
+			"menu_category": {
+				"category": "items",
+				"group": "itemGroup.name.skull"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"husk_it"
+         }
+			},
+			"minecraft:wearable": {
+				"slot": "slot.armor.head"
+			  },
+			"minecraft:block_placer":{
+				"block": "edx:husk_head"
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

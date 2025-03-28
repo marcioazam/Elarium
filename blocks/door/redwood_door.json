@@ -1,0 +1,146 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "edx:redwood_door_b",
+      "menu_category": {
+        "category": "none"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        }
+      },
+      "states": {
+        "edx:open_bit": [false, true],
+        "edx:upper_block_bit": [false, true],
+        "edx:door_hinge_bit": [false, true]
+      }
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:open_bit') && !q.block_state('edx:door_hinge_bit')",
+        "components": {
+          "minecraft:collision_box": {
+            "origin": [5, 0, -8],
+            "size": [3, 16, 16]
+          },
+          "minecraft:selection_box": {
+            "origin": [5, 0, -8],
+            "size": [3, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:open_bit') && q.block_state('edx:door_hinge_bit')",
+        "components": {
+          "minecraft:collision_box": {
+            "origin": [-8, 0, -8],
+            "size": [3, 16, 16]
+          },
+          "minecraft:selection_box": {
+            "origin": [-8, 0, -8],
+            "size": [3, 16, 16]
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('edx:upper_block_bit')",
+        "components": {
+          "minecraft:custom_components": [
+            "door:on_place",
+            "door:on_interact",
+            "door:beforeOnPlayerPlace"
+
+          ],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "redwood_bottom_door",
+              "render_method": "blend"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('edx:upper_block_bit')",
+        "components": {
+          "minecraft:custom_components": ["door:on_interact"],
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "redwood_top_door",
+              "render_method": "blend"
+            }
+          }
+        }
+      }
+    ],
+    "components": {
+      "tag:wood": {},
+      "minecraft:custom_components": ["door:on_interact"],
+      "minecraft:collision_box": {
+        "origin": [-8, 0, 5],
+        "size": [16, 16, 3]
+      },
+      "minecraft:selection_box": {
+        "origin": [-8, 0, 5],
+        "size": [16, 16, 3]
+      },
+      "minecraft:placement_filter": {
+        "conditions": [
+        {
+          "allowed_faces": [
+          "up"
+          ]
+        }
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 3
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.door",
+        "bone_visibility": {
+          "door_open": "q.block_state('edx:open_bit') && !q.block_state('edx:door_hinge_bit')",
+          "door_closed": "!q.block_state('edx:open_bit') && !q.block_state('edx:door_hinge_bit')",
+          "door_open_flipped": "q.block_state('edx:open_bit') && q.block_state('edx:door_hinge_bit')",
+          "door_closed_flipped": "!q.block_state('edx:open_bit') && q.block_state('edx:door_hinge_bit')"
+        }
+      }
+    }
+  }
+}

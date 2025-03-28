@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "connected_glasses:connected_purple_stained_glass"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:purple_stained_glass"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:purple_stained_glass"
+      }
+    ],
+    "result": {
+      "item": "connected_glasses:connected_purple_stained_glass"
+    }
+  }
+}

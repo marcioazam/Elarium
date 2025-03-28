@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:explorer_socks"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:agility_socks"
+      },
+      "#": {
+        "item": "edx:magma_socks"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:mycelium"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:agility_socks"
+      },
+      {
+        "item": "edx:magma_socks"
+      }
+    ],
+    "result": {
+      "item": "edx:explorer_socks"
+    }
+  }
+  
+}

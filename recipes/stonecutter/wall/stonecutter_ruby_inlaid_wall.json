@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_ruby_inlaid_wall"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "edx:ruby_inlaid"
+      }
+    ],
+    "result": {
+      "item": "edx:ruby_inlaid_wall",
+      "count": 1
+    }
+  }
+}

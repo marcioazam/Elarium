@@ -1,0 +1,19 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:growing_plant_feature": {
+	  "description": {
+		"identifier": "edx:warped/dense/vines"
+	  },
+	  "height_distribution":  [
+		[{"range_min": 2, "range_max": 18},1],
+		[{"range_min": 1, "range_max": 8},1]
+	  ],
+	  "growth_direction": "UP",
+	  "body_blocks" : [
+		["minecraft:twisting_vines", 2]
+	  ],
+	  "head_blocks" : [
+		["minecraft:twisting_vines", 1]
+	  ]
+	}
+  }

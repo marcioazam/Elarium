@@ -1,0 +1,42 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.sanctuary_tower_activator.activate_tower": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "detect_end_frames_filled": "q.variant == 0" },
+                        { "done": "q.variant == 1" }
+                    ]
+                },
+                "detect_end_frames_filled": {
+                    "animations": [
+                        "detect_end_frames_filled"
+                    ],
+                    "transitions": [
+                        { "done": "query.variant == 1" },
+                        { "found_end_frames_filled": "q.is_illager_captain" }
+                    ]
+                },
+                "found_end_frames_filled": {
+                    "on_entry": [
+                        "/scoreboard players add towers_activated sanctuary 1",
+                        "/execute positioned 570 110 872 if entity @s[r=5] if score towers_activated sanctuary matches ..2 run summon xp:broken_sanctuary_cutscene ~ ~ ~ xp:east_tower",
+                        "/execute positioned 416 110 1026 if entity @s[r=5] if score towers_activated sanctuary matches ..2 run summon xp:broken_sanctuary_cutscene ~ ~ ~ xp:south_tower",
+                        "/execute positioned 262 110 872 if entity @s[r=5] if score towers_activated sanctuary matches ..2 run summon xp:broken_sanctuary_cutscene ~ ~ ~ xp:west_tower",
+
+                        "/execute positioned 570 110 872 if entity @s[r=5] if score towers_activated sanctuary matches 3 run summon xp:broken_sanctuary_cutscene ~ ~ ~ xp:east_tower_last",
+                        "/execute positioned 416 110 1026 if entity @s[r=5] if score towers_activated sanctuary matches 3 run summon xp:broken_sanctuary_cutscene ~ ~ ~ xp:south_tower_last",
+                        "/execute positioned 262 110 872 if entity @s[r=5] if score towers_activated sanctuary matches 3 run summon xp:broken_sanctuary_cutscene ~ ~ ~ xp:west_tower_last",
+                        "/event entity @s xp:done"
+                    ],
+                    "transitions": [
+                        { "done": "query.variant == 1" }
+                    ]
+                },
+                "done": { }
+            }
+        }
+    }
+}

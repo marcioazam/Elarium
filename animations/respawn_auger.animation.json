@@ -1,0 +1,102 @@
+{
+  "format_version": "1.19.50",
+  "animations": {
+    "animation.respawn_auger.display_tellraw": {
+      "animation_length": 2,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/tag @a[r=10] remove just_respawned_with_auger",
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.1": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.2": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.3": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.4": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.5": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.6": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.7": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.8": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.85": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "0.9": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "1.0": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "1.1": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "1.2": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "1.3": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ],
+        "1.4": [
+          "/titleraw @a[r=10] actionbar {\"rawtext\":[{\"text\":\" \"},{\"translate\":\"xp.respawn_auger.uses\"},{\"score\":{\"objective\":\"auger_values\",\"name\":\"*\"}}]}"
+        ]
+      }
+    },
+    "animation.respawn_auger.check_active": {
+      "animation_length": 1,
+      "loop": true,
+      "timeline": {
+        "0.05": [
+          "/function respawn_auger/check_active",
+          "/execute if entity @a[r=10,tag=just_respawned_with_auger] run event entity @s xp:display_tellraw"
+        ]
+      }
+    },
+    "animation.respawn_auger.keep_mobs_away": {
+      "animation_length": 1,
+      "loop": true,
+      "timeline": {
+        "0": [
+          "/summon xp:respawn_auger_knockback ~ ~ ~",
+          "/spreadplayers ~ ~ 1 32 @e[type=xp:elderman,r=8]"
+        ]
+      }
+    },
+    "animation.respawn_auger.sounds.idle_active": {
+      "animation_length": 7,
+      "loop": true,
+      "timeline": {
+        "0.05": ["/function respawn_auger/sounds/idle_active"]
+      }
+    },
+    "animation.respawn_auger.sounds.idle_inactive": {
+      "animation_length": 9,
+      "loop": true,
+      "timeline": {
+        "0.05": ["/function respawn_auger/sounds/idle_inactive"]
+      }
+    },
+    "animation.respawn_auger.sounds.activate": {
+      "animation_length": 1.5,
+      "loop": false,
+      "timeline": {
+        "0.5": ["/function respawn_auger/sounds/activate"],
+        "0.75":[ "/particle xp:heart_drip.burst ~~1.9~" ]
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:crimsonspire_slice"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "edx:crimsonspire_cap"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "edx:crimsonspire_cap"
+      }
+    ],
+    "result":  {
+      "item": "edx:crimsonspire_slice",
+      "count":3
+    }
+  }
+}

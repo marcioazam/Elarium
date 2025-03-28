@@ -1,0 +1,61 @@
+
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "edx:labyrinthe_top",
+			"places_feature": "edx:labyrinthe_top_random"
+		},
+		"conditions": {
+			"placement_pass": "final_pass",
+			"minecraft:biome_filter": [
+				{
+					"any_of": [
+						
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "jungle"
+						  },
+						  {
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "jungle_hills"
+						  },
+						  {
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "jungle_mutated"
+						  },
+						  {
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "jungle_edge"
+						  },
+						  {
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "jungle_edge_mutated"
+						  },
+						  {
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "bamboo_jungle"
+						  },
+						  {
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "bamboo_jungle_hills"
+						  }
+					]
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": -16,
+			"y": "query.heightmap(variable.worldx, variable.worldz) - 18",
+			"z": -16
+		}
+	}
+}

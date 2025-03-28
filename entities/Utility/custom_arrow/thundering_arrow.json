@@ -1,0 +1,197 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:thundering_arrow",
+      "runtime_identifier": "minecraft:arrow",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:no_charged_particles": {
+	"minecraft:variant": {
+	"value": 0
+	},
+        "minecraft:is_baby": {}
+      },
+      "dungeons:charged_arrow": {
+	"minecraft:variant": {
+	"value": 1
+	},
+        "minecraft:is_baby": {},
+        "minecraft:projectile": {
+          "on_hit": {
+     "definition_event": {
+      "affect_projectile": true,
+      "event_trigger": {
+            "event": "dungeons:lightning",
+            "target": "self"
+      }
+     },
+            "impact_damage": {
+              "damage": 4,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 10,
+              "min_critical_damage": 9,
+              "power_multiplier": 0.97
+            },
+            "stick_in_ground": {
+              "shake_time" : 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets":  false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 5.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+
+      "minecraft:player_arrow": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 1,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 10,
+              "min_critical_damage": 9,
+              "power_multiplier": 0.97
+            },
+            "stick_in_ground": {
+              "shake_time" : 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets":  false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 5.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      }
+    },
+
+    "components": {
+			"minecraft:type_family": {
+				"family": [
+					"arrow"
+				]
+			},
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": [ 1, 5 ],
+            "knockback": true,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": false
+          },
+          "stick_in_ground": {
+            "shake_time" : 0.35
+          },
+          "arrow_effect": {
+            "apply_effect_to_blocking_targets": false
+          }
+        },
+        "hit_sound": "bow.hit",
+        "power": 1.6,
+        "gravity": 0.05,
+        "uncertainty_base": 16,
+        "uncertainty_multiplier": 4,
+        "anchor": 1,
+        "should_bounce": true,
+        "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:scale": { "value": 1 },
+      "minecraft:type_family": { "family": [ "arrow", "ignore" ] },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "dungeons:lightning": {
+        "queue_command":{
+              "command":[
+                "particle dungeons:lightning_burst",
+                "execute as @e[family=!inanimate,family=!ignore,type=!item,c=1,rm=0.1,r=2] at @s run summon lightning_bolt ~~~"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:no_charged_particles",
+                    "dungeons:player_arrow"
+          ]
+        },
+                "remove": {
+                  "component_groups": [
+                    "dungeons:charged_arrow"
+                  ]
+                }
+      },
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "randomize": [
+              {
+                "weight": 1,
+                "add": {
+                  "component_groups": [
+                    "dungeons:charged_arrow"
+                  ]
+                }
+              },
+              {
+                "weight": 1,
+                "add": {
+                  "component_groups": [
+                    "minecraft:player_arrow"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+
+  }
+}

@@ -1,0 +1,184 @@
+{
+	"format_version": "1.18.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:slime_jumppad",
+			"is_spawnable": true,
+			"is_summonable": true,
+
+			"scripts": {
+				"animate": [
+					"root.slime_jumppad_launch"
+				]
+			},
+			"animations": {
+				"root.slime_jumppad_launch": "controller.animation.slime_jumppad.launch"
+			}
+		},
+		"component_groups": {
+			//jumppad action
+			"xp:stage.unjumppad":{
+				"minecraft:skin_id": {
+					"value": 0
+				}
+			},
+			"xp:stage.jumppad":{
+				"minecraft:skin_id": {
+					"value": 1
+				}
+			},
+
+			//death
+			"xp:stage.dissaper":{
+				"minecraft:transformation": {
+					"into": "xp:slime_jumppad.death"
+				}
+			},
+			"xp:instant_despawn": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"slime_jumppad",
+					"block",
+					"inanimate"
+				]
+			},
+			"minecraft:health": {
+				"value": 99999
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"width": 1.3,
+						"height": 1.3,
+						"pivot": [0, -0.95, 0]
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"totalSupply": 0,
+				"suffocateTime": 0,
+				"generates_bubbles": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"must_see": false,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of":[
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "==",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "mob"
+								}
+						  ]
+						},
+						"max_dist": 2
+					}
+				]
+			},
+			"minecraft:target_nearby_sensor": {
+				"must_see": false,
+				"inside_range": 0.5,
+				"on_inside_range": {
+					"event": "xp:stage_jumppad",
+					"target": "self"
+				},
+
+				"outside_range": 1.3,
+				"on_outside_range": {
+					"event": "xp:stage_remove_jumppad",
+					"target": "self"
+				}
+			},
+			"minecraft:on_target_escape": {
+				"target": "self",
+				"event": "xp:stage_remove_jumppad"
+			},
+			"minecraft:fire_immune": false,
+			"minecraft:knockback_resistance": {
+				"value": 100
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			//jumppad event
+			"xp:stage_jumppad":{
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"xp:stage.jumppad"
+							]
+						},
+						"remove": {
+							"component_groups": [
+								"xp:stage.unjumppad"
+							]
+						}
+					}
+				]
+			},
+			"xp:stage_remove_jumppad":{
+				"remove": {
+					"component_groups": [
+						"xp:stage.jumppad"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"xp:stage.unjumppad"
+					]
+				}
+			},
+
+			//death
+			"xp:stage_dissaper":{
+				"add": {
+					"component_groups": [
+						"xp:stage.dissaper"
+					]
+				}
+			},
+			"xp:instant_despawn": {
+				"add": {
+				  "component_groups": [ "xp:instant_despawn" ]
+				}
+			 }
+		}
+	}
+ }

@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:light_crystal"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "DDD",
+      "DED",
+      "DDD"
+    ],
+    "key": {
+      "D": {
+        "item": "edx:liquid_light"
+      },
+      "E": {
+        "item": "minecraft:amethyst_shard"
+      }
+      
+    },
+    "unlock": [
+      {
+        "item": "edx:liquid_light"
+      },
+      {
+        "item": "minecraft:amethyst_shard"
+      }
+    ],
+    "result": {
+      "item": "edx:light_crystal"
+    }
+  }
+}

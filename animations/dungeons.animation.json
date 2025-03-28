@@ -1,0 +1,100 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    //Echoing Forest
+
+    //Wilds
+    "animation.dungeon.wilds.particles": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] if block -77 82 -205 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group -77 82 -205",
+          "/execute in the_end if entity @p[r=200] if block -201 64 -240 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group -201 64 -240",
+          "/execute in the_end if entity @p[r=200] if block -111 47 -253 minecraft:end_stone -1 run particle xp:normal_landslide.small_group -111 47 -253",
+          "/execute in the_end if entity @p[r=200] if block -25 121 -219 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -25 121 -219",
+          "/execute in the_end if entity @p[r=200] if block -105 55 -260 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -105 55 -260",
+          "/execute in the_end if entity @p[r=200] if block -122 52 -235 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -122 52 -235",
+          "/execute in the_end if entity @p[r=200] if block -128 50 -241 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -128 50 -241",
+          "/execute in the_end if entity @p[r=200] if block -127 55 -238 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -127 55 -238",
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_yellow_smoke.5 -110 38.5 -258",
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_yellow_smoke.5 -107 30 -256",
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_yellow_smoke.5 -121 27 -258"
+        ],
+        "3.0": [
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_yellow_smoke.6 -110 38.5 -258",
+          "/execute in the_end if entity @p[r=200] if block -91 82 -193 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group -91 82 -193",
+          "/execute in the_end if entity @p[r=200] if block -36 76 -242 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -36 76 -242",
+          "/execute in the_end if entity @p[r=200] if block -35 81 -239 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -35 81 -239",
+          "/execute in the_end if entity @p[r=200] if block -30 78 -236 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -30 78 -236",
+          "/execute in the_end if entity @p[r=200] if block -127 55 -238 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -127 55 -238"
+        ],
+        "6.0": [
+          "/execute in the_end if entity @p[r=200] if block -77 82 -205 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group_2 -77 82 -205",
+          "/execute in the_end if entity @p[r=200] if block -105 47 -260 minecraft:end_stone -1 run particle xp:normal_landslide.small_group_2 -105 47 -260",
+          "/execute in the_end if entity @p[r=200] if block -169 53 -273 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -169 53 -273",
+          "/execute in the_end if entity @p[r=200] if block -172 59 -290 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -172 59 -290",
+          "/execute in the_end if entity @p[r=200] if block -172 59 -290 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -170 56 -286"
+        ],
+        "7.0": [
+          "/execute in the_end if entity @p[r=200] if block -70 110 -201 xp:end_stone_sediment_thick -1 run particle xp:normal_landslide.small_group -70 110 -201"
+        ],
+        "8.0": [
+          "/execute in the_end if entity @p[r=200] if block -103 47 -258 minecraft:end_stone -1 run particle xp:normal_landslide.small_group -103 47 -258",
+          "/execute in the_end if entity @p[r=200] if block -180 60 -269 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -180 60 -269",
+          "/execute in the_end if entity @p[r=200] if block -180 60 -269 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -187 55 -273",
+          "/execute in the_end if entity @p[r=200] if block -180 60 -269 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -189 58 -277"
+        ],
+        "10.0": [
+          "/execute in the_end if entity @p[r=200] if block -84 82 -201 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group -84 82 -201",
+          "/execute in the_end if entity @p[r=200] if block -192 64 -262 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group -192 64 -262",
+          "/execute in the_end if entity @p[r=200] if block -171 58 -221 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -171 58 -221",
+          "/execute in the_end if entity @p[r=200] if block -170 63 -218 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -170 63 -218",
+          "/execute in the_end if entity @p[r=200] if block -165 60 -215 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -165 60 -215",
+          "/execute in the_end if entity @p[r=200] if block -170 55 -205 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -170 55 -205"
+        ],
+        "12.0": [
+          "/execute in the_end if entity @p[r=200] if block -98 82 -187 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group -97 82 -188",
+          "/execute in the_end if entity @p[r=200] if block -175 64 -240 xp:end_stone_sediment -1 run particle xp:normal_landslide.small_group -175 64 -240",
+          "/execute in the_end if entity @p[r=200] if block -78 91 -204 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -78 91 -204",
+          "/execute in the_end if entity @p[r=200] if block -70 95 -204 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -70 95 -204",
+          "/execute in the_end if entity @p[r=200] if block -65 98 -201 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -65 98 -201",
+          "/execute in the_end if entity @p[r=200] if block -64 93 -198 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -64 93 -198"
+        ],
+        "14.0": [
+          "/execute in the_end if entity @p[r=200] if block -62 110 -208 xp:end_stone_sediment_thick -1 run particle xp:normal_landslide.small_group_2 -62 110 -208"
+        ]
+      }
+    },
+    "animation.dungeon.wilds.particles_2": {
+      "animation_length": 15,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] if block 27 103 -345 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 27 103 -345",
+          "/execute in the_end if entity @p[r=200] if block 36 56 -283 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 36 56 -283",
+          "/execute in the_end if entity @p[r=200] if block 56 56 -282 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 56 56 -282",
+          "/execute in the_end if entity @p[r=200] if block 44 61 -288 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 44 61 -288",
+          "/execute in the_end if entity @p[r=200] if block 66 56 -291 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 66 56 -291",
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_yellow_smoke.6 14 50 -256"
+        ],
+        "2": [
+          "/execute in the_end if entity @p[r=200] run particle xp:biome_yellow_smoke.6 98 50 -193",
+          "/execute in the_end if entity @p[r=200] if block 131 60 -260 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 131 60 -260",
+          "/execute in the_end if entity @p[r=200] if block 125 58 -254 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 125 58 -254",
+          "/execute in the_end if entity @p[r=200] if block 128 63 -255 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 128 63 -255",
+          "/execute in the_end if entity @p[r=200] if block -11 59 -270 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -11 59 -270",
+          "/execute in the_end if entity @p[r=200] if block -16 57 -270 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -16 57 -270"
+        ],
+        "6": [
+          "/execute in the_end if entity @p[r=200] if block 96 57 -187 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 96 57 -187",
+          "/execute in the_end if entity @p[r=200] if block 90 59 -193 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 90 59 -193",
+          "/execute in the_end if entity @p[r=200] if block 95 62 -190 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 95 62 -190",
+          "/execute in the_end if entity @p[r=200] if block 127 52 -282 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 127 52 -282",
+          "/execute in the_end if entity @p[r=200] if block 121 52 -267 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 121 52 -267",
+          "/execute in the_end if entity @p[r=200] if block 116 50 -267 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 116 50 -267"
+        ]
+      }
+    }
+  }
+}

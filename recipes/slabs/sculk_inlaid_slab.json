@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:sculk_inlaid_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:sculk_inlaid"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:sculk_inlaid"
+            }
+        ],
+        "result": {
+            "item": "edx:sculk_inlaid_slab",
+            "count": 6
+        }
+    }
+}

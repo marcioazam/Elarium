@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:gabbro",
+			"menu_category":
+			{
+				"category": "nature",
+				"group": "itemGroup.name.stone"
+			}
+		},
+		"components": {
+			"tag:edx:stone": {},
+			"minecraft:map_color": "#1c1212" ,
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 7.5
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 6
+            },
+			"minecraft:loot": "loot_tables/blocks/gabbro.json" 
+			
+		}
+	}
+}

@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:great_hammer",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_tool",
+          "minecraft:is_sword"
+        ]
+      },
+  
+      "minecraft:icon": "great_hammer",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:durability": {
+        "max_durability": 500
+      },
+      "minecraft:repairable": {
+        "repair_items": [{
+            "items": [
+              "minecraft:cobblestone"
+            ],
+            "repair_amount": "q.max_durability * 0.125"
+          },
+          {
+            "items": [
+              "dungeons:great_hammer"
+            ],
+            "repair_amount": "c.other -> q.remaining_durability + 0.12 * c.other -> q.max_durability"
+          }
+        ]
+      }
+     
+    }
+  }
+}

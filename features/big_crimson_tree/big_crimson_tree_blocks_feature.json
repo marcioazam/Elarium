@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:aggregate_feature": {
+		"description": {
+		  "identifier": "edx:big_crimson_tree/big_crimson_tree_blocks_feature"
+		},
+		"features": [
+			"edx:big_crimson_tree/nether_wart_block_snap_to_ceiling_scatter_feature",
+			"edx:big_crimson_tree/weeping_vines_snap_to_ceiling_scatter_feature",
+			"edx:big_crimson_tree/shroomlight_crimson_tree_scatter_feature",
+			"edx:big_crimson_tree/crimson_stem_random_scatter_feature" 
+		]
+	}
+}

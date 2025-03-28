@@ -1,0 +1,17 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:magma_chamber/ground_features/spike_proxy"
+		},
+
+		"places_feature": "edx:magma_chamber/spikes/random_spike",
+
+		"iterations": 1,
+		"scatter_chance": 100.0,
+		"x": -4,
+		"y": "math.random(-6, -9)",
+		"z": -4
+	}
+}

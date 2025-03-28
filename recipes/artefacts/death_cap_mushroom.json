@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "death_cap"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "PDB",
+      "DED",
+      "BDP"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "B": {
+        "item": "minecraft:sugar"
+      },
+      "P": {
+        "item": "minecraft:blaze_powder"
+      },
+      "E": {
+        "item": "minecraft:red_mushroom"
+      }
+    },
+    "result": {
+      "item": "dungeons:death_cap_mushroom",
+      "count": 1
+    }
+  }
+}

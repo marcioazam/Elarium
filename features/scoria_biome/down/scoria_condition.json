@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.20",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:scoria_biome/down/scoria_condition"
+		},
+		"places_feature": "edx:scoria_biome/down/scoria",
+		"iterations": "t.biome_idx == 0",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

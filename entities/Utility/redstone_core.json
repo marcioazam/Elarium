@@ -1,0 +1,164 @@
+{
+  "format_version": "1.16.210",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:redstone_core",
+      "runtime_identifier": "minecraft:vex",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+	"dungeons:despawn": {
+		"minecraft:instant_despawn": {}
+	},
+      "dungeons:primed": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "dungeons:active": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 5,
+          "time_down_event": {
+            "event": "dungeons:explode"
+          }
+        }
+      },
+      "dungeons:reloading": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 10,
+          "time_down_event": {
+            "event": "dungeons:prime"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:scale": {
+        "value": 1
+      },
+      "minecraft:movement": {
+        "value": 0
+      },
+      "minecraft:type_family": {
+        "family": [
+          "ignore",
+          "gravity_immune"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
+      },
+      "minecraft:health": {
+        "value": 2000,
+        "max": 2000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [{
+          "cause": "all",
+          "deals_damage": false
+        }]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {
+         "has_collision": false,
+	  "has_gravity": false
+	},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "test": "in_block",
+                "subject": "self",
+                "operator": "!=",
+                "value": "dungeons:redstone_core_block"
+              },
+              "event": "dungeons:despawn"
+            }
+          ]
+        },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:despawn": {
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:primed"
+          ]
+        },
+        "queue_command": {
+          "command": ["tag @s add core:ready"]
+        }
+      },
+      "dungeons:activate_core": {
+        "add": {
+          "component_groups": [
+            "dungeons:active"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:primed"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "tag @s remove core:ready",
+            "event entity @e[r=0.2,tag=core:ready,rm=0.01] dungeons:despawn"
+          ]
+        }
+      },
+      "dungeons:explode": {
+        "add": {
+          "component_groups": [
+            "dungeons:reloading"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:active"
+          ]
+        }
+      },
+      "dungeons:prime": {
+        "add": {
+          "component_groups": [
+            "dungeons:primed"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:reloading"
+          ]
+        },
+        "queue_command": {
+          "command": ["tag @s add core:ready"]
+        }
+      }
+    }
+  }
+}

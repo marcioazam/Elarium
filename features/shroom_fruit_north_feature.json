@@ -1,0 +1,39 @@
+{
+    "format_version": "1.13.0",
+      "minecraft:single_block_feature": {
+        "description": {
+          "identifier": "edx:shroom_fruit_north_feature"
+        },
+        "places_block": {
+          "name": "edx:shroom_fruit",
+          "states": {
+              "edx:stage": 2
+          }
+      },
+        "enforce_placement_rules": false,
+        "enforce_survivability_rules": false,
+        "may_attach_to": {
+          "top":  [
+            "minecraft:air"
+          ],
+          "east":  [
+            "minecraft:crimson_stem","minecraft:warped_stem"
+          ],
+          "south":  [
+            "minecraft:air"
+          ],
+          "north":  [
+            "minecraft:air"
+          ],
+          "west":  [
+            "minecraft:air"
+          ],
+          "bottom":  [
+            "minecraft:air"
+          ]
+      },
+        "may_replace": [
+          "minecraft:air"
+        ]
+      }
+    }

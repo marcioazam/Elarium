@@ -1,0 +1,20 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "edx:ruby",
+					"weight":100
+				},
+				{
+					"type": "item",
+					"name": "edx:bloody_ruby",
+					"weight":1
+				}
+			]
+		}
+		
+	]
+}

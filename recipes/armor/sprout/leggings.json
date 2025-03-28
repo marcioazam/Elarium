@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "sprout_leggings"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "WWW",
+      "S S",
+      "S S"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:nether_wart"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:nether_sprouts"
+      },
+      "W": {
+        "item": "minecraft:nether_wart"
+      }
+    },
+    "result": {
+      "item": "dungeons:sprout_leggings",
+      "count": 1
+    }
+  }
+}

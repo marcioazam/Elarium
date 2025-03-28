@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "edx:guard_enderman",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underground": {},
+        "minecraft:weight": {
+          "default": 50
+        },
+        "minecraft:spawns_on_block_filter": ["edx:void_dust", "edx:void_grass"],
+        "minecraft:herd": {
+          "min_size": 2,
+          "max_size": 3
+        },
+        "minecraft:biome_filter": [
+          {
+            "test": "has_biome_tag", "operator": "==", "value": "the_end"
+          }
+        ]
+      }
+    ]
+  }
+}

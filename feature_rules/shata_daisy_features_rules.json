@@ -1,0 +1,39 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "edx:shata_daisy_features_rules",
+      "places_feature": "edx:shata_daisy_feature"
+    },
+    "conditions": {
+      "placement_pass": "final_pass",
+      "minecraft:biome_filter": [
+        {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "birch"
+            }
+          ]
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 255,
+      "coordinate_eval_order": "zyx",
+      "x": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      },
+      "y": {
+        "distribution": "uniform",
+        "extent": [ 45, 200 ]
+      },
+      "z": {
+        "distribution": "uniform",
+        "extent": [ 0, 16 ]
+      }
+    }
+  }
+}

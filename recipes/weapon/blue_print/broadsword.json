@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_broadsword"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:broadsword"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:broadsword"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:broadsword", "count": 1 },
+      { "item": "dungeons:broadsword", "count": 1 }
+    ]
+  }
+}

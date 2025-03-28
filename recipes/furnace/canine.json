@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_canine"
+    }, 
+    "unlock": [
+      {
+        "item": "edx:canina_meat_raw"
+      }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "edx:canine_meat_raw",
+    "output": "edx:canine_meat_cooked"
+  }
+  
+}

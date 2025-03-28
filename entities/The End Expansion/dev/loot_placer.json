@@ -1,0 +1,82 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:loot_placer",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "place_loot": "controller.animation.dev.place_loot",
+                "echoing_forest_placement": "animation.dev.echoing_forest_placement",
+                "ender_wilds_placement": "animation.dev.ender_wilds_placement",
+                "broken_sanctuary_placement": "animation.dev.broken_sanctuary_placement"
+            },
+            "scripts": {
+                "animate": [
+                    "place_loot"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:tick_world": {
+                "never_despawn": true,
+                "radius": 2
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "xp:echoing_forest_placement": { "minecraft:variant": { "value": 1 } },
+            "xp:ender_wilds_placement": { "minecraft:variant": { "value": 2 } },
+            "xp:broken_sanctuary_placement": { "minecraft:variant": { "value": 3 } }
+        },
+
+        "events": {
+            "xp:despawn": {
+                "add": {
+                    "component_groups": ["xp:despawn"]
+                }
+            },
+            "xp:echoing_forest_placement": {
+                "add": {
+                    "component_groups": ["xp:echoing_forest_placement"]
+                }
+            },
+            "xp:ender_wilds_placement": {
+                "add": {
+                    "component_groups": ["xp:ender_wilds_placement"]
+                }
+            },
+            "xp:broken_sanctuary_placement": {
+                "add": {
+                    "component_groups": ["xp:broken_sanctuary_placement"]
+                }
+            }
+        }
+    }
+}

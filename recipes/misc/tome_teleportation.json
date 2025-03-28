@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:tome_teleportation_recipe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "N N",
+      "CEC",
+      " N "
+    ],
+    "key": {
+      "E": {
+        "item": "minecraft:ender_pearl"
+      },
+      "C": {
+        "item": "xp:ender_chips"
+      },
+      "N": {
+        "item": "xp:enderite_ingot"
+      }
+    },
+    "result": {
+      "item": "xp:tome_teleportation"
+    }
+  }
+}

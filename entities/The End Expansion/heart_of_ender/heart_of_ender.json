@@ -1,0 +1,320 @@
+{
+	"format_version": "1.19.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:heart_of_ender_boss",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"turn_right": "animation.heart_of_ender_boss.turn_right",
+				"turn_left": "animation.heart_of_ender_boss.turn_left",
+				"bossbar_hurt": "animation.heart_of_ender_boss.bossbar_hurt",
+				"death": "animation.heart_of_ender_boss.death",
+				"spawn_delay": "animation.heart_of_ender_boss.spawn_delay",
+				"wait_before_lasthittable": "animation.heart_of_ender_boss.wait_before_lasthittable",
+				"splatter_attack": "animation.heart_of_ender_boss.splatter_attack",
+				"prepare_slam_attack": "animation.heart_of_ender_boss.prepare_slam_attack",
+				"slam_attack": "animation.heart_of_ender_boss.slam_attack",
+				"beam_attack": "animation.heart_of_ender_boss.beam",
+				"summon_units": "animation.heart_of_ender_boss.summon_units",
+				"attack_controller": "controller.animation.heart_of_ender_boss.attack_controller",
+				"stage_controller": "controller.animation.heart_of_ender_boss.stage_controller"
+			},
+			"scripts": {
+				"animate": [
+					"stage_controller",
+					{ "bossbar_hurt": "q.property('xp:is_hurt')" }
+				]
+			},
+			"properties": {
+				"xp:stage": {
+					"type": "int",
+					"client_sync": true,
+					"default": 0,
+					"range": [0, 4]
+				},
+				"xp:direction": {
+					"type": "int",
+					"client_sync": true,
+					"default": 0,
+					"range": [0, 7]
+				},
+				"xp:attack_state": {
+					"type": "enum",
+					"client_sync": true,
+					"default": "none",
+					"values": [ "none", "splatter", "slam", "beam", "summon_units", "turn" ]
+				},
+				"xp:turn": {
+					"type": "enum",
+					"client_sync": true,
+					"default": "none",
+					"values": [ "none", "right", "left" ]
+				},
+				"xp:attacking": {
+					"type": "bool",
+					"client_sync": true,
+					"default": false
+				},
+				"xp:is_hurt": {
+					"type": "bool",
+					"client_sync": true,
+					"default": false
+				}
+			}
+		},
+		"component_groups": {
+			"xp:instant_despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"xp:show_bossbar": {
+				"minecraft:boss": {
+					"hud_range": 55,
+					"name": "xp_ui.custom_bossbar.heart_of_ender_boss",
+					"should_darken_sky": false
+				}
+			},
+			"xp:cant_touch_this": {
+				"minecraft:behavior.knockback_roar": {
+					"attack_time": 0.1,
+					"cooldown_time": 0,
+					"duration": 0.1,
+					"knockback_damage": 8,
+					"knockback_horizontal_strength": 1,
+					"knockback_range": 6,
+					"knockback_vertical_strength": 1,
+					"knockback_filters": {
+						"test": "is_family",
+						"subject": "other",
+						"value": "player"
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:scale": {
+				"value": 2.5
+			},
+			"minecraft:type_family": {
+				"family": ["heart_of_ender_boss", "xp_boss", "boss", "mob", "endboss_hitbox"]
+			},
+			"minecraft:collision_box": {
+				"width": 0,
+				"height": 0
+			},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_tag",
+                    "subject": "damager",
+                    "value": "enders_heart_blast"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "event": "xp:achievements.054",
+              "target": "other"
+            },
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "is_family",
+                "value": "cant_damage_endboss",
+                "subject": "other"
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "has_equipment",
+                "subject": "other",
+                "domain": "hand",
+                "value": "xp:the_touched_ends"
+              }
+            },
+            "deals_damage": true,
+            "damage_modifier": 6
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "has_equipment",
+                "subject": "other",
+                "domain": "hand",
+                "value": "xp:hammer_of_void"
+              }
+            },
+            "deals_damage": true,
+            "damage_modifier": 7
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "test": "has_equipment",
+                "subject": "other",
+                "domain": "hand",
+                "value": "xp:hammer_of_void_enchanted"
+              }
+            },
+            "deals_damage": true,
+            "damage_modifier": 10
+          }
+        ]
+      },
+			"minecraft:health": {
+				"value": 1100,
+				"max": 1100,
+				"min": 1
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:physics": {}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"set_property": { "xp:stage": 0 }
+			},
+			"xp:instant_despawn": {
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			},
+			"xp:cant_touch_this": {
+				"add": {
+					"component_groups": [
+						"xp:cant_touch_this"
+					]
+				}
+			},
+			"xp:remove_cant_touch_this": {
+				"remove": {
+					"component_groups": [
+						"xp:cant_touch_this"
+					]
+				}
+			},
+			"xp:stage_0" : {
+				"set_property": { "xp:stage": 0 }
+			},
+			"xp:stage_1" : {
+				"set_property": { "xp:stage": 1 },
+				"add": {
+					"component_groups": [
+						"xp:cant_touch_this",
+						"xp:show_bossbar"
+					]
+				}
+			},
+			"xp:stage_2" : {
+				"set_property": { "xp:stage": 2 },
+				"add": {
+					"component_groups": [
+						"xp:show_bossbar"
+					]
+				}
+			},
+			"xp:stage_3" : {
+				"set_property": { "xp:stage": 3 },
+				"add": {
+					"component_groups": [
+						"xp:show_bossbar"
+					]
+				}
+			},
+			"xp:stage_4" : {
+				"set_property": { "xp:stage": 4 },
+				"remove": {
+					"component_groups": [
+						"xp:show_bossbar"
+					]
+				}
+			},
+			"xp:show_bossbar": {
+				"add": {
+					"component_groups": [
+						"xp:show_bossbar"
+					]
+				}
+			},
+			"xp:attack_state_none" : {
+				"set_property": { "xp:attack_state": "none" }
+			},
+			"xp:attack_state_splatter" : {
+				"set_property": { "xp:attack_state": "splatter" }
+			},
+			"xp:attack_state_slam" : {
+				"set_property": { "xp:attack_state": "slam" }
+			},
+			"xp:attack_state_beam" : {
+				"set_property": { "xp:attack_state": "beam" }
+			},
+			"xp:attack_state_summon_units" : {
+				"set_property": { "xp:attack_state": "summon_units" }
+			},
+			"xp:attack_state_turn" : {
+				"set_property": { "xp:attack_state": "turn" }
+			},
+			"xp:attacking": {
+				"set_property": { "xp:attacking": true }
+			},
+			"xp:remove_attacking": {
+				"set_property": { "xp:attacking": false }
+			},
+			"xp:got_hurt": {
+				"set_property": { "xp:is_hurt": true }
+			},
+			"xp:remove_got_hurt": {
+				"set_property": { "xp:is_hurt": false }
+			},
+			"xp:dir0": {
+				"set_property": { "xp:direction": 0 }
+			},
+			"xp:dir1": {
+				"set_property": { "xp:direction": 1 }
+			},
+			"xp:dir2": {
+				"set_property": { "xp:direction": 2 }
+			},
+			"xp:dir3": {
+				"set_property": { "xp:direction": 3 }
+			},
+			"xp:dir4": {
+				"set_property": { "xp:direction": 4 }
+			},
+			"xp:dir5": {
+				"set_property": { "xp:direction": 5 }
+			},
+			"xp:dir6": {
+				"set_property": { "xp:direction": 6 }
+			},
+			"xp:dir7": {
+				"set_property": { "xp:direction": 7 }
+			},
+			"xp:turn_none": {
+				"set_property": { "xp:turn": "none" }
+			},
+			"xp:turn_right": {
+				"set_property": { "xp:turn": "right" }
+			},
+			"xp:turn_left": {
+				"set_property": { "xp:turn": "left" }
+			}
+		}
+	}
+}

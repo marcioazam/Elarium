@@ -1,0 +1,123 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:enderman.cutscene",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "xp:despawn":{"minecraft:instant_despawn": {}},
+      "xp:attack_mite": {
+        "minecraft:collision_box": {
+          "width": 0.6,
+          "height": 2.9
+        },
+        "minecraft:movement": { "value": 0.25 },
+        "minecraft:attack": { "damage": 24 },
+        "minecraft:behavior.delayed_attack": {
+          "priority": 1,
+          "attack_once": false,
+          "track_target": true,
+          "require_complete_path": false,
+          "random_stop_interval": 0,
+          "reach_multiplier": 1.75,
+          "speed_multiplier": 1.0,
+          "attack_duration": 0.9,
+          "hit_delay_pct": 1
+        },
+        "minecraft:behavior.nearest_attackable_target": {
+          "priority": 2,
+          "must_see": true,
+          "within_radius": 12.0,
+          "must_see_forget_duration": 40.0,
+          "entity_types": {
+            "filters": {
+              "any_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "endermite"
+                }
+              ]
+            },
+            "max_dist": 120
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:behavior.look_at_entity": {
+        "priority": 4,
+        "look_distance": 6,
+        "probability": 1,
+        "angle_of_view_vertical": 360,
+        "angle_of_view_horizontal": 360
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 3,
+        "look_distance": 8,
+        "probability": 1,
+        "angle_of_view_vertical": 360,
+        "angle_of_view_horizontal": 360
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 : 0"
+      },
+      "minecraft:type_family": {
+        "family": [ "enderman", "monster", "mob", "ambient" ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:health": {
+        "value": 10,
+        "max": 10
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          },
+          {
+            "filters": { "test": "in_contact_with_water", "operator": "==", "value": true },
+            "cause": "drowning",
+            "damage_per_tick": 1
+          }
+        ]
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:behavior.float": {"priority": 0},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "xp:despawn":{ "add": { "component_groups": [ "xp:despawn" ] } },
+      "xp:attack_mite":{ "add": { "component_groups": [ "xp:attack_mite" ] } }
+    }
+  }
+}

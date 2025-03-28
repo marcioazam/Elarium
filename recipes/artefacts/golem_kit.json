@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "golem_kit"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "IDI",
+      "DPD",
+      "IDI"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "I": {
+        "item": "minecraft:iron_block"
+      },
+      "P": {
+        "item": "minecraft:carved_pumpkin"
+      }
+    },
+    "result": {
+      "item": "dungeons:golem_kit",
+      "count": 1
+    }
+  }
+}

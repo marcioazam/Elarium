@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:crystal_of_youth",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"crystal_of_youth"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "crystal_of_youth"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dCrystal of youth \n§5Artifact\n§6Grant regeneration 1 when you have less than 3 hearts"
+			  }
+		}
+	}
+}

@@ -1,0 +1,235 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:stone_axe",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:wooden_axe",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:stone_pickaxe",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:wooden_pickaxe",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:apple",
+          "weight": 1
+         
+        }
+      ]
+    },        
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:bread",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:salmon",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:stick",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:planks",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:log2",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:log2",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:log",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:log",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:log",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:log",
+          "weight": 1
+        }
+      ]
+    },    
+    {
+      "rolls": 1,
+      "entries": [    
+        {
+          "type": "item",
+          "name": "minecraft:potato",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:carrot",
+          "weight": 3
+        }        
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:sapling",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sapling",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sapling",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sapling",
+          "weight": 4
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sapling",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "minecraft:sapling",
+          "weight": 2
+        }
+      ]
+    },    
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:melon_seeds",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:pumpkin_seeds",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:beetroot_seeds",
+          "weight": 3
+        }        
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:cactus",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:dye",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:brown_mushroom",
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "rolls": 5,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:copper_coin",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "edx:tin_coin",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

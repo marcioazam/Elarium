@@ -1,0 +1,243 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 5
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "minecraft:diamond_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:copper_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "minecraft:iron_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "minecraft:netherite_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:tin_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:platinium_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:crimson_nickel_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "edx:warped_nickel_pickaxe",
+					"count": 1,
+					"enchantments":[
+						{
+							"enchantement": "fortune",
+							"levels":{
+								"max_range" : 3
+							}
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:lapis_lazuli",
+					"count": {
+						"min": 4,
+						"max": 8
+					}
+					
+				}
+			]
+		}
+		
+	]
+}

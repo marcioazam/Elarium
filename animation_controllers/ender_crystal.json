@@ -1,0 +1,20 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.crystal": {
+			"states": {
+				"default": {
+					"transitions":[
+						{"light":"query.is_riding"} 
+					]
+				},
+				"light": {
+					"on_exit": [
+						"/event entity @s minecraft:crystal_explode"
+					  ],
+					"transitions":[{"default":"!query.is_riding"} ]
+			}
+	 	}
+		}
+	}
+}

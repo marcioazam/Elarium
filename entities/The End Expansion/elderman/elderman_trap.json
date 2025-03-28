@@ -1,0 +1,275 @@
+{
+	"format_version": "1.17.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "xp:elderman_trap",
+			"is_summonable": true,
+			"scripts": {
+				"animate": [
+					"root.elderman_trap",
+					"elderman_trap.facing",
+
+					{ "elderman_trap.disengage": "q.skin_id == 2" },
+					"elderman.hold_player"
+				]
+			},
+			"animations": {
+				"root.elderman_trap": "controller.animation.elderman_trap.root",
+				"elderman_trap.facing": "controller.animation.elderman_trap.facing",
+
+				"elderman_trap.disengage": "animation.elderman_trap.disengage",
+				"elderman.hold_player":"animation.elderman.hold_player"
+			}
+		},
+		"component_groups": {
+			"xp:stage.stock":{
+				"minecraft:skin_id": {
+					"value": 0
+				},
+				"minecraft:timer": {
+					"time": 0.24,
+					"looping": true,
+					"time_down_event": {
+						"event": "xp:stage_attack_hold",
+						"target": "self"
+					}
+				}
+			},
+			"xp:stage.attack_hold":{
+				"minecraft:skin_id": {
+					"value": 1
+				},
+				"minecraft:timer": {
+					"time": 6,
+					"looping": false,
+					"time_down_event": {
+						"event": "xp:disengage",
+						"target": "self"
+					}
+				},
+				"minecraft:damage_sensor": {
+					"triggers": [
+						{
+							"on_damage": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "has_damage",
+											"value": "fatal"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								},
+								"event": "xp:disengage",
+								"target": "self"
+							}
+						},
+						{
+							"cause": "all",
+							"on_damage": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "elderman"
+										}
+									]
+								},
+								"event": "xp:disengage",
+								"target": "self"
+							},
+							"deals_damage": true
+						}
+					]
+				},
+				"minecraft:behavior.send_event": {
+					"cast_duration": 0,
+					"event_choices": [
+						{
+							"weight": 100,
+							"max_activation_range": 22,
+							"cast_duration": 0,
+							"cooldown_time": 0,
+							"filters": {
+								"all_of":[
+									{
+										"test": "is_family",
+										"subject": "other",
+										"operator": "==",
+										"value": "elderman"
+									},
+									{
+										"test": "distance_to_nearest_player",
+										"subject": "self",
+										"operator": "<=",
+										"value": 2
+									}
+								]
+							},
+							"sequence": [
+								{
+									"base_delay": 1,
+									"event": "xp:stage_jumpscare"
+								}
+							]
+	
+						}
+					]
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 0,
+					"must_see": false,
+					"reselect_targets": true,
+					"within_radius": 25,
+					"must_see_forget_duration": 17,
+					"entity_types": [
+					  {
+						 "filters": {
+							"all_of": [
+							  {
+								 "test": "is_family",
+								 "subject": "other",
+								 "value": "elderman"
+							  }
+							]
+						 },
+						 "max_dist": 20
+					  }
+					]
+				 },
+				 "minecraft:target_nearby_sensor": {
+					"must_see": false,
+					"inside_range": 3,
+					"on_inside_range": {
+					  "event": "xp:disengage_elderman",
+					  "target": "self"
+					}
+				 }
+			},
+			"xp:stage.disengage":{
+				"minecraft:transformation": {
+					"into": "xp:elderman_trap.death<xp:disengage>"
+				}
+			},
+			"xp:stage.disengage_elderman":{
+				"minecraft:skin_id": {
+					"value": 3
+				},
+				"minecraft:timer": {
+					"time": 1,
+					"looping": false,
+					"time_down_event": {
+						"event": "xp:disengage",
+						"target": "self"
+					}
+				}
+
+			},
+			"xp:instant_despawn":{
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			},
+			"xp:facing_90":{
+				"minecraft:is_saddled": {}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.9,
+				"height": 1.7
+			},
+			"minecraft:type_family": {
+				"family": [
+					"elderman_trap",
+					"inanimate"
+				]
+			},
+			"minecraft:health": {
+				"value": 12
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:knockback_resistance": {
+				"value": 100
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+				  {
+					 "event": "xp:disengage",
+					 "target": "self",
+					 "filters": {
+						"test": "distance_to_nearest_player",
+						"subject": "self",
+						"operator": "<=",
+						"value": 1
+					 }
+	 
+				  }
+				]
+			 }
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": [
+						"xp:stage.stock"
+					]
+				}
+			},
+			"minecraft:entity_spawned_90": {
+				"add": {
+					"component_groups": [
+						"xp:stage.stock",
+						"xp:facing_90"
+					]
+				}
+			},
+			"xp:stage_attack_hold":{
+				"add": {
+					"component_groups": [
+						"xp:stage.attack_hold"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"xp:stage.stock"
+					]
+				}
+			},
+			"xp:disengage":{
+				"add": {
+					"component_groups": [
+						"xp:stage.disengage"
+					]
+				}
+			},
+			"xp:disengage_elderman":{
+				"add": {
+					"component_groups": [
+						"xp:stage.disengage_elderman"
+					]
+				}
+			},
+			"xp:instant_despawn":{
+				"add": {
+					"component_groups": [
+						"xp:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}

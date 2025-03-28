@@ -1,0 +1,19 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:netherite_plate",
+			"menu_category": {
+				"category":"items"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"netherite_plate"
+         }
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

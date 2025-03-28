@@ -1,0 +1,1 @@
+scoreboard objectives add mimic_timer dummy

@@ -1,0 +1,433 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+
+
+    "controller.animation.healingpool_barrier.facing": {
+      "initial_state": "no_shadown",
+      "states": {
+        "no_shadown": {
+          "transitions": [
+            {
+              "default": "q.is_alive"
+            }
+          ]
+        },
+        "default": {
+          "on_exit": [
+            "/tp @s ~ ~-0.01 ~"
+          ],
+          "transitions": [
+            {
+              "north": "q.mark_variant == 1"
+            },
+            {
+              "south": "q.mark_variant == 2"
+            },
+            {
+              "west": "q.mark_variant == 3"
+            },
+            {
+              "east": "q.mark_variant == 4"
+            }
+          ]
+        },
+
+        "north": {
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing ~ ~ -180"
+          ],
+          "transitions": [
+            {
+              "south": "q.mark_variant == 2"
+            },
+            {
+              "west": "q.mark_variant == 3"
+            },
+            {
+              "east": "q.mark_variant == 4"
+            }
+          ]
+        },
+        "south": {
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing ~ ~ 180"
+          ],
+          "transitions": [
+            {
+              "north": "q.mark_variant == 1"
+            },
+            {
+              "west": "q.mark_variant == 3"
+            },
+            {
+              "east": "q.mark_variant == 4"
+            }
+          ]
+        },
+
+        "west": {
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing -180 ~ ~"
+          ],
+          "transitions": [
+            {
+              "north": "q.mark_variant == 1"
+            },
+            {
+              "south": "q.mark_variant == 2"
+            },
+            {
+              "east": "q.mark_variant == 4"
+            }
+          ]
+        },
+        "east": {
+          "on_entry": [
+            "/tp @s ~ ~ ~ facing 180 ~ ~"
+          ],
+          "transitions": [
+            {
+              "north": "q.mark_variant == 1"
+            },
+            {
+              "south": "q.mark_variant == 2"
+            },
+            {
+              "west": "q.mark_variant == 3"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.healingpool_column.break": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "on_entry": [
+            "/execute at @s if block ~ ~ ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~1 ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~2 ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~3 ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~4 ~ minecraft:air 0 run event entity @s xp:instant_despawn"
+          ],
+          "transitions": [
+            {
+              "break_sensor": "(1.0)"
+            }
+          ]
+        },
+        "break_sensor": {
+          "on_entry": [
+            "/execute at @s if block ~ ~ ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~1 ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~2 ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~3 ~ minecraft:air 0 run event entity @s xp:instant_despawn",
+            "/execute at @s if block ~ ~4 ~ minecraft:air 0 run event entity @s xp:instant_despawn"
+          ],
+          "transitions": [
+            {
+              "default": "(1.0)"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.healingpool_column.level": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "level.05_static": "q.variant == 5"
+            },
+            {
+              "level.04_static": "q.variant == 4"
+            },
+            {
+              "level.03_static": "q.variant == 3"
+            },
+            {
+              "level.02_static": "q.variant == 2"
+            },
+            {
+              "level.01_static": "q.variant == 1"
+            },
+            {
+              "level.00_static": "q.variant == 0"
+            }
+          ]
+        },
+
+        "level.05_uncharged": {
+          "on_entry": [
+            "/playsound respawn_anchor.deplete @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~5.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.05_static": "(1.0)"
+            }
+          ]
+        },
+        "level.05_static": {
+          "transitions": [
+            {
+              "level.04_uncharged": "q.variant == 4"
+            }
+          ]
+        },
+        "level.05_charged": {
+          "on_entry": [
+            "/playsound respawn_anchor.charge @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~4.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.05_static": "(1.0)"
+            }
+          ]
+        },
+
+        "level.04_uncharged": {
+          "on_entry": [
+            "/playsound respawn_anchor.deplete @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~4.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.04_static": "(1.0)"
+            }
+          ]
+        },
+        "level.04_static": {
+          "transitions": [
+            {
+              "level.05_charged": "q.variant == 5"
+            },
+            {
+              "level.03_uncharged": "q.variant == 3"
+            }
+          ]
+        },
+        "level.04_charged": {
+          "on_entry": [
+            "/playsound respawn_anchor.charge @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~3.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.04_static": "(1.0)"
+            }
+          ]
+        },
+
+        "level.03_uncharged": {
+          "on_entry": [
+            "/playsound respawn_anchor.deplete @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~3.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.03_static": "(1.0)"
+            }
+          ]
+        },
+        "level.03_static": {
+          "transitions": [
+            {
+              "level.04_charged": "q.variant == 4"
+            },
+            {
+              "level.02_uncharged": "q.variant == 2"
+            }
+          ]
+        },
+        "level.03_charged": {
+          "on_entry": [
+            "/playsound respawn_anchor.charge @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~2.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.03_static": "(1.0)"
+            }
+          ]
+        },
+
+        "level.02_uncharged": {
+          "on_entry": [
+            "/playsound respawn_anchor.deplete @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~2.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.02_static": "(1.0)"
+            }
+          ]
+        },
+        "level.02_static": {
+          "transitions": [
+            {
+              "level.03_charged": "q.variant == 3"
+            },
+            {
+              "level.01_uncharged": "q.variant == 1"
+            }
+          ]
+        },
+        "level.02_charged": {
+          "on_entry": [
+            "/playsound respawn_anchor.charge @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~1.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.02_static": "(1.0)"
+            }
+          ]
+        },
+
+        "level.01_uncharged": {
+          "on_entry": [
+            "/playsound respawn_anchor.deplete @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~1.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.01_static": "(1.0)"
+            }
+          ]
+        },
+        "level.01_static": {
+          "transitions": [
+            {
+              "level.02_charged": "q.variant == 2"
+            },
+            {
+              "level.00_uncharged": "q.variant == 0"
+            }
+          ]
+        },
+        "level.01_charged": {
+          "on_entry": [
+            "/playsound respawn_anchor.charge @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~0.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.01_static": "(1.0)"
+            }
+          ]
+        },
+
+        "level.00_uncharged": {
+          "on_entry": [
+            "/playsound respawn_anchor.deplete @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~0.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.00_static": "(1.0)"
+            }
+          ]
+        },
+        "level.00_static": {
+          "transitions": [
+            {
+              "level.01_charged": "q.variant == 1"
+            }
+          ]
+        },
+        "level.00_charged": {
+          "on_entry": [
+            "/playsound respawn_anchor.deplete @e[type=player,r=10] ~ ~ ~",
+            "/particle xp:healingpool_column.level ~ ~0.5 ~"
+          ],
+          "transitions": [
+            {
+              "level.00_static": "(1.0)"
+            }
+          ]
+        }
+      }
+    },
+
+    "controller.animation.healingpool_column.active": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "active_tick": "q.skin_id == 1"
+            },
+            {
+              "desactive_tick": "q.skin_id == 3"
+            }
+          ]
+        },
+        "active_tick": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;"
+          ],
+          "transitions": [
+            {
+              "active": "(q.life_time - v.tick_delay) >= 1.0"
+            },
+            {
+              "desactive_tick": "q.skin_id == 3"
+            },
+            {
+              "default": "q.skin_id == 0"
+            }
+          ]
+        },
+        "active": {
+          "on_entry": [
+            "/camerashake add @a[r=5] 0.055 0.25 rotational"
+          ],
+          "transitions": [
+            {
+              "desactive_tick": "q.skin_id == 3"
+            },
+            {
+              "default": "q.skin_id == 0"
+            }
+          ]
+        },
+        "desactive_tick": {
+          "on_entry": [
+            "v.tick_delay = q.life_time;"
+          ],
+          "transitions": [
+            {
+              "desactive": "(q.life_time - v.tick_delay) >= 0.3"
+            },
+            {
+              "active_tick": "q.skin_id == 1"
+            },
+            {
+              "default": "q.skin_id == 0"
+            }
+          ]
+        },
+        "desactive": {
+          "on_entry": [
+            "/camerashake add @a[r=9] 0.055 0.25 rotational"
+          ],
+          "transitions": [
+            {
+              "active_tick": "q.skin_id == 1"
+            },
+            {
+              "default": "q.skin_id == 0"
+            }
+          ]
+        }
+      }
+    }
+
+  }
+}

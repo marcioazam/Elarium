@@ -1,0 +1,34 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:rooted_echoing_vines_bottom",
+      "register_to_creative_menu": true,
+      "menu_category": { 
+        "category": "nature",
+				"group": "itemGroup.name.grass"
+      }
+    },
+    "components": {
+			"minecraft:collision_box": {
+				"origin": [ -8.0, 0, -8.0 ],
+				"size": [ 0, 0, 1 ]
+			},
+      "minecraft:loot": "loot_tables/biomes/rooted_echoing_vines_bottom.json",
+      "minecraft:geometry": "geometry.xp_plant_2",
+      "minecraft:material_instances": {
+        "*": {
+          "ambient_occlusion": false,
+          "face_dimming": false,
+          "texture": "rooted_echoing_vines_bottom",
+          "render_method": "blend"
+        }
+      },
+      "minecraft:map_color": "#5a58d5",
+      "minecraft:light_dampening": 0,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0
+      }
+    }
+  }
+}

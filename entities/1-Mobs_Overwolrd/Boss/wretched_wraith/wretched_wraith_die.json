@@ -1,0 +1,207 @@
+{
+    "format_version": "1.16.210",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "dungeons:wretched_wraith_death",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "dungeons:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "dungeons:damaged": {
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "cause": "all",
+                            "deals_damage": false
+                        }
+                    ]
+                },
+                "minecraft:variant": {
+                    "value": 1
+                },
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": 2.25,
+                    "time_down_event": {
+                        "event": "dungeons:despawn"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:scale": {
+                "value": 1
+            },
+            "minecraft:movement": {
+                "value": 0
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "wretched_wraith_death",
+                    "inanimate",
+                    "gravity_immune"
+                ]
+            },
+            "minecraft:behavior.timer_flag_1": {
+                "priority": 0,
+                "cooldown_range": 8,
+                "duration_range": [
+                    100,
+                    100
+                ],
+                "on_end": {
+                    "event": "dungeons:begin_despawn",
+                    "target": "self"
+                }
+            },
+            "minecraft:variant": {
+                "value": 0
+            },
+            "minecraft:collision_box": {
+                "width": 1,
+                "height": 3.2
+            },
+            "minecraft:health": {
+                "value": 50000,
+                "max": 50000
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 0
+                                    },
+                                    {
+                                        "test": "inactivity_timer",
+                                        "subject": "self",
+                                        "operator": ">=",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            "event": "dungeons:damaged"
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "operator": "not",
+                                        "value": 0
+                                    },
+                                    {
+                                        "test": "inactivity_timer",
+                                        "subject": "self",
+                                        "operator": "<",
+                                        "value": 1
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    }
+                ]
+            },
+        "minecraft:boss": {
+          "should_darken_sky": false,
+          "hud_range": 48,
+          "name": " §bWretched Wraith§r "
+        },
+        "minecraft:movement.basic": {},
+        "minecraft:navigation.climb": {
+            "is_amphibious": true,
+            "avoid_water": true,
+            "can_break_doors": true,
+            "can_open_doors": true,
+            "can_pass_doors": true,
+            "can_swim": true,
+            "can_walk": true,
+            "can_jump": true,
+            "avoid_damage_blocks": true,
+            "avoid_portals": true,
+            "avoid_sun": true,
+            "can_sink": true
+    
+        },
+            "minecraft:knockback_resistance": {
+                "value": 1
+            },
+      "minecraft:fire_immune": {},
+            "minecraft:persistent": {},
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+},
+                  "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 750 : 375"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/wretched_wraith.json"
+      },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "particle dungeons:wretched_smoke ~~0.2~",
+            "particle dungeons:wretched_smoke ~~0~",
+            "particle dungeons:wretched_smoke ~~-0.2~",
+            "particle dungeons:stun_6s",
+            "kill @e[type=dungeons:wretched_pivot,c=1]"
+          ]
+        }
+            },
+            "dungeons:begin_despawn": {
+                "add": {
+                    "component_groups": [
+                        "dungeons:damaged"
+                    ]
+                },
+                "queue_command": {
+                    "command": []
+                }
+            },
+            "dungeons:despawn": {
+                "queue_command": {
+                    "command": ["kill @s"]
+                }
+            },
+            "dungeons:damaged": {
+                "queue_command": {
+                    "command": ["playsound mob.wretched_wraith.die @a ~~~ 1.0 1.0"]
+                },
+                "add": {
+                    "component_groups": [
+                        "dungeons:damaged"
+                    ]
+                }
+            }
+        }
+    }
+}

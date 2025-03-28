@@ -1,0 +1,20 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:growing_plant_feature": {
+	  "description": {
+		"identifier": "edx:crimson/dense/crimsonspire_tall_plant"
+	  },
+	  "height_distribution":  [
+		[{"range_min": 4, "range_max": 20},1]
+	  ],
+	  "growth_direction": "UP",
+	  "body_blocks" : [
+		["edx:crimsonspire_stem_0", 5],
+		["edx:crimsonspire_stem_1", 2],
+		["edx:crimsonspire_stem_2", 1]
+	  ],
+	  "head_blocks" : [
+		["edx:crimsonspire_cap", 1]
+	  ]
+	}
+  }

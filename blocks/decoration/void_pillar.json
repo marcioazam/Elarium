@@ -1,0 +1,93 @@
+
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:void_pillar",
+			"menu_category": {
+				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							90
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							90
+						]
+					}
+				}
+			}
+		],
+		"components": {
+		  "minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:destructible_by_mining": { 
+				"seconds_to_destroy": 7
+			},
+			"tag:edx:stone": {},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 4
+			},
+			"minecraft:material_instances": {
+				"up": {
+					"texture": "void_pillar_top",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "void_pillar_top",
+					"render_method": "opaque"
+				},
+				"*": {
+					"texture": "void_pillar",
+					"render_method": "opaque"
+				}
+			}
+		}
+	}
+  }

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:end_stone_sap",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:map_color": "#977834",
+      "minecraft:loot": "loot_tables/endstone/end_stone_sap.json",
+      "minecraft:friction": 0.9,
+			"minecraft:destructible_by_mining": { "seconds_to_destroy": 1.45 },
+			"minecraft:destructible_by_explosion": { "explosion_resistance": 45 },
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,484 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:gabbro_golem",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "shock": {
+        "minecraft:behavior.knockback_roar": {
+          "priority": 0,
+          "duration": 0.2,
+          "attack_time": 0.1,
+          "knockback_damage": 4,
+          "knockback_range": 5,
+          "knockback_filters": {
+            "any_of": [
+              { "test": "is_family", "subject": "other", "value": "player" }
+            ]
+          },
+          "on_roar_end": {
+            "event": "noshock"
+          },
+          "damage_filters": {
+            "any_of": [
+              { "test": "is_family", "subject": "other", "value": "player" }
+            ]
+          }
+        }
+      },
+      "noshock": {
+        "minecraft:entity_sensor": {
+          "sensor_range": 2,
+          "relative_range": false,
+          "minimum_count": 5,
+          "event_filters": {
+            "any_of": [
+              {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "monster"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "operator": "!=",
+                    "value": "creeper"
+                  }
+                ]
+              }
+            ]
+          },
+          "event": "shock"
+        }
+      }
+    },
+    "components": {
+      "minecraft:break_blocks": {
+				"breakable_blocks": [
+"redstone_torch",
+"torch",
+"glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 64
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+						
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 3
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4 
+          }
+        ]
+      },
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"golem"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "golem"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "breeze"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "golem"
+          }
+        ]
+      }
+    }
+  ]
+},
+      "minecraft:on_death": {
+        "event": "minecraft:on_death",
+        "target": "self"
+      },
+      "minecraft:type_family": {
+        "family": ["golem", "mob", "monster"]
+      },
+      "minecraft:collision_box": {
+        "width": 1.9,
+        "height": 2.9
+      },
+ 
+      "minecraft:attack": {
+        "damage": {
+          "range_max": 12,
+          "range_min": 8
+        }
+      },
+      "minecraft:nameable": {},
+      "minecraft:on_hurt_by_player": {
+        "event": "shock_attack",
+        "target": "self"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/molten_gabbro.json"
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 : 0"
+      },
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 3,
+        "within_radius": 32,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "undead"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "inanimate"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "creeper"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "monster"
+                },
+				{
+					"test": "is_family",
+					"subject": "other",
+					"operator": "!=",
+					"value": "mob"
+				  }
+              ]
+            },
+            "max_dist": 32
+          }
+        ],
+        "must_see": true
+      },
+	  "minecraft:behavior.melee_box_attack": {
+		"priority": 4,
+        "speed_multiplier": 1.2,
+        "track_target": true,
+        "on_attack": {
+          "event": "take_fire",
+          "target": "self"
+        }
+      },
+      "minecraft:movement": {
+        "value": 0.22
+      },
+      "minecraft:navigation.walk": {
+        "is_amphibious": true,
+        "can_path_over_water": false,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+	  "minecraft:fire_immune": {  },
+      "minecraft:navigation.swim": {
+        "can_path_over_lava": true,
+        "can_path_over_water": false,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+     
+     
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+
+    "events": {
+		"ignite_and_heal": {
+  "randomize": [
+    {
+      "weight": 100,
+      "queue_command": {
+        "command": [
+			"say regenerando",
+          "effect @e regeneration 5 1 true"
+        ]
+      }
+    }
+  ]
+},
+      "take_fire": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": ["execute at @e[c=1,type=!edx:gabbro_golem] run fill ~0 ~0 ~0 ~0 ~0 ~0 minecraft:fire replace air"]
+            }
+          }
+        ]
+      },
+      "minecraft:on_death": {
+        "randomize": [
+          {
+            "weight": 100,
+            "queue_command": {
+              "command": [
+                "setblock ~1 ~ ~1 minecraft:lava",
+                "setblock ~1 ~ ~-1 minecraft:lava",
+                "setblock ~-1 ~ ~1 minecraft:lava",
+                "setblock ~-1 ~ ~-1 minecraft:lava",
+                "setblock ~1 ~ ~0 minecraft:lava",
+                "setblock ~-1 ~ ~0 minecraft:lava",
+                "setblock ~0 ~ ~1 minecraft:lava",
+                "setblock ~0 ~ ~-1 minecraft:lava",
+                "setblock ~0 ~ ~0 minecraft:lava",
+                "setblock ~2 ~ ~2 minecraft:lava",
+                "setblock ~2 ~ ~1 minecraft:lava",
+                "setblock ~2 ~ ~0 minecraft:lava",
+                "setblock ~2 ~ ~-1 minecraft:lava",
+                "setblock ~2 ~ ~-2 minecraft:lava",
+                "setblock ~1 ~ ~2 minecraft:lava",
+                "setblock ~1 ~ ~-2 minecraft:lava",
+                "setblock ~0 ~ ~2 minecraft:lava",
+                "setblock ~0 ~ ~-2 minecraft:lava",
+                "setblock ~-1 ~ ~2 minecraft:lava",
+                "setblock ~-1 ~ ~-2 minecraft:lava",
+                "setblock ~-2 ~ ~2 minecraft:lava",
+                "setblock ~-2 ~ ~1 minecraft:lava",
+                "setblock ~-2 ~ ~0 minecraft:lava",
+                "setblock ~-2 ~ ~-1 minecraft:lava",
+                "setblock ~-2 ~ ~-2 minecraft:lava"
+              ]
+            }
+          }
+        ]
+      },
+      "shock": {
+        "add": {
+          "component_groups": ["shock"]
+        },
+        "remove": {
+          "component_groups": ["noshock"]
+        }
+      },
+      "shock_attack": {
+        "randomize": [
+          {
+            "weight": 100,
+            "add": {
+              "component_groups": ["shock"]
+            },
+            "remove": {
+              "component_groups": ["noshock"]
+            }
+          }
+        ]
+      },
+      "noshock": {
+        "remove": {
+          "component_groups": ["shock"]
+        },
+        "add": {
+          "component_groups": ["noshock"]
+        }
+      }
+    }
+  }
+}

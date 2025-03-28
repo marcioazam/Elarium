@@ -1,0 +1,36 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:bicolor_lichen_it",
+			"menu_category": {
+				"category": "Nature",
+				"group": "itemGroup.name.flower"
+			}
+		},
+		"components": {
+			"menu_category": {
+				"parent": "itemGroup.name.grass"
+		},
+			"minecraft:icon": {
+				"textures":{
+               "default":"bicolor_lichen"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:bicolor_lichen",
+				"use_on" : ["edx:shulk_grass"]
+			},
+			"minecraft:food": {
+                "nutrition": 4,
+                "saturation_modifier": 4,
+                "can_always_eat": false
+            },
+            "minecraft:use_modifiers":{
+                "use_duration": 1.4,
+                "movement_modifier": 0.35
+            },
+			"minecraft:display_name": {}
+		}
+	}
+}

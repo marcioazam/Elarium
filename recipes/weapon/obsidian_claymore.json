@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "obsidian_claymore"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " OO",
+      "OEO",
+      "SO "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:obsidian"
+      }
+    ],
+    "key": {
+      "O": {
+        "item": "minecraft:obsidian"
+      },
+      "E": {
+        "item": "minecraft:crying_obsidian"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "dungeons:obsidian_claymore",
+      "count": 1
+    }
+  }
+}

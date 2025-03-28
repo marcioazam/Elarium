@@ -1,0 +1,71 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.ghast_fly": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"flying": "q.is_saddled && q.has_rider"
+						}
+					]
+					
+				},
+				"flying": { 
+					"transitions": [
+						{
+							"default": "(1.0)"
+						}
+					],
+					"on_entry": [
+						"/function ghast_move"
+					]
+				}
+			}
+		},
+		"controller.animation.ghast_ground": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"d": "query.is_on_ground"
+						}
+					]
+				},
+				"d": {
+					"transitions": [
+						{
+							"default": "(1.0)"
+						}
+					],
+					"on_entry": [
+						"/effect @s slowness 1 1 true"
+					]
+				}
+			}
+		},
+		"controller.animation.abomination_phase2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"d": "!query.is_alive"
+						}
+					]
+				},
+				"d": {
+					"transitions": [
+						{
+							"default": "(1.0)"
+						}
+					],
+					"on_entry": [
+						"/event entity @s death"
+					]
+				}
+			}
+		}
+	}
+}

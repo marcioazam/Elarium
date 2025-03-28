@@ -1,0 +1,18 @@
+{
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "item",
+            "name": "edx:fire_agave_leaf",
+            "weight": 1
+          },
+          {
+            "type": "empty",
+            "weight": 1
+          }
+        ]
+      }
+    ]
+  }

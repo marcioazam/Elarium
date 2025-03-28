@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+  "identifier": "edx:copper_dropper_locked"
+},
+"components": { 
+  "minecraft:tick": {
+    "interval_range": [
+      200,
+      200
+    ]
+  },
+
+    "minecraft:destructible_by_mining": {
+      "seconds_to_destroy": 10
+    },
+    "minecraft:geometry": {
+      "identifier": "geometry.block"
+    },
+    "minecraft:map_color": "#c87456",
+    "tag:no_silktouch": {},
+    "tag:stone": {},
+    "minecraft:collision_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:selection_box": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+    },
+    "minecraft:material_instances": {
+      "*": {
+        "texture": "copper_dropper_locked"
+      }
+    },
+    "minecraft:custom_components": [
+      "edx:copper_dropper_unlock"
+    ]
+}
+  }
+}

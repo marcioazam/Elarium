@@ -1,0 +1,98 @@
+{
+  "tiers": [
+    {
+      "groups": [
+        {
+          "num_to_select": 3,
+          "trades": [
+            {
+              "max_uses": 5,
+              "wants": [
+                {
+                  "item": "xp:enderite_ingot",
+                  "quantity": 2
+                }
+              ],
+              "gives": [
+                {
+                  "item": "xp:ender_chips",
+                  "functions": [
+                    {
+                      "function": "set_count",
+                      "count": {
+                        "min": 2,
+                        "max": 8
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "max_uses": 4,
+              "wants": [
+                {
+                  "item": "xp:enderite_ingot",
+                  "functions": [
+                    {
+                      "function": "set_count",
+                      "count": {
+                        "min": 2,
+                        "max": 4
+                      }
+                    }
+                  ]
+                }
+              ],
+              "gives": [
+                {
+                  "item": "xp:enderite_dust",
+                  "functions": [
+                    {
+                      "function": "set_count",
+                      "count": {
+                        "min": 2,
+                        "max": 6
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "max_uses": 5,
+              "wants": [
+                {
+                  "item": "xp:enderite_ingot",
+                  "functions": [
+                    {
+                      "function": "set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 3
+                      }
+                    }
+                  ]
+                }
+              ],
+              "gives": [
+                {
+                  "item": "xp:conduits_heart",
+                  "functions": [
+                    {
+                      "function": "set_count",
+                      "count": {
+                        "min": 1,
+                        "max": 2
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

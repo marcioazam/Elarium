@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:crimsonspire_slice",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.mushroom"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"crimsonspire_slice"
+         	}
+			},
+			"minecraft:block_placer":{
+				"block": "edx:crimsonspire_seed"
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:food": {
+                "nutrition": 1,
+                "saturation_modifier": 2
+            },
+			"minecraft:tags": {
+                "tags": [ "minecraft:is_food" ]
+            },
+            "minecraft:use_modifiers":{
+                "use_duration": 1.0,
+                "movement_modifier": 0.35
+            },
+			"minecraft:display_name": {}
+		}
+	}
+}

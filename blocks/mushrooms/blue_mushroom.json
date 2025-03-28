@@ -1,0 +1,47 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+	  "description": {
+		"identifier": "edx:blue_mushroom",
+		"menu_category": {
+		  "category": "none"
+		}
+	  },
+	  "components": {
+		"minecraft:custom_components": [
+                "edx:blue_mushroom"
+            ],
+		"minecraft:light_dampening": 0, 
+		"minecraft:light_emission": 7,
+		"minecraft:collision_box": false,
+		"minecraft:selection_box": {
+			"origin": [-5,0,-5],
+			"size": [10,16,10]
+		},
+		"minecraft:geometry": {
+		  "identifier": "geometry.mushroom"
+		},
+		"minecraft:loot": "loot_tables/blocks/blue_mushroom_it.json",
+		"minecraft:material_instances": {
+			"*": {
+				"texture": "blue_mushroom",
+				"render_method": "alpha_test",
+				"face_dimming": false,
+				"ambient_occlusion": false
+			}
+		},
+		"tag:no_silktouch": {},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 0
+		  }, 
+		  "minecraft:placement_filter": {
+			"conditions": [
+				{
+					"allowed_faces": ["up"],
+					"block_filter": ["minecraft:mycelium","edx:cave_mycelium","edx:mycelium_vine","edx:mycelium_grass"]
+				}
+			]
+		}
+	  }
+	}
+}

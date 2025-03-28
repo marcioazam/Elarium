@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:bone_meal_from_solid_bone"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "group": "bonemeal",
+    "ingredients": [
+      {
+        "item": "edx:solid_bone"
+      }
+    ],
+    "result": {
+      "item": "minecraft:dye",
+      "data": 15,
+      "count": 6
+    }
+  }
+}

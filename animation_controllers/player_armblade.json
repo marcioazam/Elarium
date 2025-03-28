@@ -1,0 +1,39 @@
+{
+	"format_version":"1.10.0",
+	"animation_controllers": {
+		"controller.animation.player_armblade": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @s remove light_block",
+						"/tag @s remove void_block",
+						"/tag @s remove normal_block"
+					  ],
+					"transitions":[
+						{"light":"query.is_sneaking && query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:light') && query.is_item_name_any('off_hand') != 'shield'"},
+						{"normal":"query.is_sneaking && query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:normal') && query.is_item_name_any('off_hand') != 'shield'"},
+						{"void":"query.is_sneaking && query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:void') && query.is_item_name_any('off_hand') != 'shield'"} 
+					]
+				},
+				"light": {
+					"on_entry": [
+						"/tag @s add light_block"
+					  ],
+					"transitions":[{"default":"!query.is_sneaking || !query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:light') || query.is_item_name_any('off_hand') == 'shield'"} ]
+			},
+			"void": {
+				"on_entry": [
+					"/tag @s add void_block"
+				  ],
+				"transitions":[{"default":"!query.is_sneaking || !query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:void') || query.is_item_name_any('off_hand') == 'shield'"} ]
+		},
+		"normal": {
+			"on_entry": [
+				"/tag @s add normal_block"
+			  ],
+			"transitions":[{"default":"!query.is_sneaking || !query.equipped_item_any_tag('slot.weapon.mainhand', 'edx:normal') || query.is_item_name_any('off_hand') == 'shield'"} ]
+	    }
+	 	}
+		}
+	}
+}

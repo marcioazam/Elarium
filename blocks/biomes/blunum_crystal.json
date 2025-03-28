@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "xp:blunum_crystal",
+      "is_experimental": false,
+      "register_to_creative_menu": true,
+      "menu_category": { "category": "nature" }
+    },
+    "components": {
+      "minecraft:light_emission": 10,
+      "minecraft:map_color": "#323cd8",
+      "minecraft:loot": "loot_tables/biomes/blunum_crystal_block.json",
+      "minecraft:destroy_time": 0.7,
+      "minecraft:explosion_resistance": 50,
+      "minecraft:flammable": {
+        "flame_odds": 0,
+        "burn_odds": 0
+      }
+    }
+  }
+}

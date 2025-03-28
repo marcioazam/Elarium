@@ -1,0 +1,307 @@
+{
+  //ver depois
+    "format_version": "1.18.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "edx:shulkers_king_bullet",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+          "1":{
+            "minecraft:flying_speed": {
+              "value": 0.2
+             }
+          },
+          "2":{
+            "minecraft:flying_speed": {
+              "value": 0.25
+             }
+          },
+          "3":{
+            "minecraft:flying_speed": {
+              "value": 0.3
+             }
+          },
+          "4":{
+            "minecraft:flying_speed": {
+              "value": 0.35
+             }
+          },
+          "5":{
+            "minecraft:flying_speed": {
+              "value": 0.28
+             }
+          },
+          "6":{
+            "minecraft:flying_speed": {
+              "value": 0.23
+             }
+          },
+            "despawn": {
+                "minecraft:instant_despawn": {
+                   "remove_child_entities": true
+                }
+             
+           },
+            "explode": {
+                "minecraft:area_attack" : {
+                    "damage_range": 2.5,
+                    "damage_per_tick": 7,
+                    "cause": "contact",
+                    "entity_filter": {
+                      "any_of": [
+                        { "test": "is_family", "subject": "other", "value": "player" }
+                      ]
+                    }
+                  },
+                  "minecraft:mob_effect": {
+                    "effect_range": 2.5,
+                    "mob_effect": "levitation",
+                    "effect_time": 10,
+                    "entity_filter": {
+                      "any_of": [
+                        { "test": "is_family", "subject": "other", "value": "player" }
+                      ] 
+                    }
+                  },
+                  "minecraft:timer": {
+                    "looping": true,
+                    "time": 0.03,
+                    "randomInterval": false,
+                    "time_down_event": {
+                      "event": "despawn"
+                    }
+                  }
+            },
+            "hurt_explode": {
+              "minecraft:area_attack" : {
+                  "damage_range": 2.5,
+                  "damage_per_tick": 1,
+                  "cause": "contact",
+                  "entity_filter": {
+                    "any_of": [
+                      { "test": "is_family", "subject": "other", "value": "player" }
+                    ]
+                  }
+                },
+                "minecraft:mob_effect": {
+                  "effect_range": 2.5,
+                  "mob_effect": "levitation",
+                  "effect_time": 5,
+                  "entity_filter": {
+                    "any_of": [
+                      { "test": "is_family", "subject": "other", "value": "player" }
+                    ] 
+                  }
+                },
+                "minecraft:timer": {
+                  "looping": true,
+                  "time": 0.03,
+                  "randomInterval": false,
+                  "time_down_event": {
+                    "event": "despawn"
+                  }
+                }
+          }
+        },
+        "components": {
+          "minecraft:navigation.hover": {
+            "can_path_over_water": true,
+            "can_sink": true,
+            "can_pass_doors":  true,
+            "can_path_from_air": true,
+            "avoid_water": false,
+            "avoid_damage_blocks": false,
+            "avoid_sun": false,
+            "can_swim": false
+           },
+       "minecraft:movement.hover": {},
+          "minecraft:behavior.float": {
+            "priority": 15
+           },
+          
+       "minecraft:can_fly": {},
+         
+          "minecraft:timer": {
+            "looping": true,
+            "time": 20,
+            "randomInterval": false,
+            "time_down_event": {
+              "event": "hurt"
+            }
+          },
+          "minecraft:knockback_resistance": {
+            "value": 1.0
+            },
+            "minecraft:behavior.look_at_target": {
+            "priority": 10,
+            "look_distance": 8
+          },
+          "minecraft:physics": {
+            "has_gravity": true,
+            "has_collision": true
+          },
+          "minecraft:pushable": {
+            "is_pushable": false
+          },
+           
+           "minecraft:attack": {
+            "damage": 1
+             },
+             "minecraft:behavior.melee_attack": {
+              "priority": 4,
+              "speed_multiplier": 1,
+              "track_target": true,
+              "reach_multiplier":  0.0
+            },
+           "minecraft:breathable": {
+            "total_supply": 20,
+            "suffocate_time": 0
+           },
+           "minecraft:collision_box": {
+            "width": 0.45,
+            "height": 0.45
+           },
+           "minecraft:movement": {
+            "value": 0.25
+           },
+           "minecraft:follow_range": {
+            "value": 172
+          },
+           "minecraft:behavior.nearest_attackable_target": {
+            "priority": 0,
+            "entity_types": [
+              {
+              "filters": {  
+                "any_of": [
+                  { "test" :  "is_family", "subject" : "other", "value" :  "player"}
+                ] 
+              },
+              "max_dist": 172,
+              
+        "persist_time": 1000
+              }
+             
+            ],
+            "must_see": false
+            },
+         
+           "minecraft:on_hurt_by_player": {
+            "event": "hurt",
+            "target": "self"
+            },
+           "minecraft:game_event_movement_tracking": {
+            "emit_move": false,
+            "emit_swim": false
+            },
+           "minecraft:jump.static": {},
+           "minecraft:type_family": {
+            "family": ["monster","undead"]
+          },
+          
+      "minecraft:scale": {
+        "value": 2
+      },
+          "minecraft:despawn": {
+            "despawn_from_distance": {}
+            },
+           "minecraft:nameable": {},
+           
+            "minecraft:entity_sensor": {
+                "sensor_range": 2, 
+                "relative_range": false,
+                "require_all": true,
+                "event_filters": {
+                  "any_of": [
+                    { "test": "is_family", "subject": "other", "value": "player" }
+                   
+                  ]
+                },
+                "event": "explode"
+              }
+           
+          
+        },
+        "events": {
+          "minecraft:entity_spawned": {
+            "randomize": [
+              {
+                "weight": 5,
+                "remove": {},
+                "add": {
+                  "component_groups": ["1"]
+                }
+              },
+              {
+                "weight": 5,
+                "remove": {},
+                "add": {
+                  "component_groups": ["2"]
+                }
+              },
+              {
+                "weight": 5,
+                "remove": {},
+                "add": {
+                  "component_groups": ["3"]
+                }
+              },
+              {
+                "weight": 5,
+                "remove": {},
+                "add": {
+                  "component_groups": ["4"]
+                }
+              },
+              {
+                "weight": 5,
+                "remove": {},
+                "add": {
+                  "component_groups": ["5"]
+                }
+              },
+              {
+                "weight": 5,
+                "remove": {},
+                "add": {
+                  "component_groups": ["6"]
+                }
+              }
+            ]
+         },
+            "explode": {
+                                "add": {
+                                    "component_groups": [
+                                        "explode"
+                                    ]
+                                }
+            },
+            "despawn": {
+                "add": {
+                   "component_groups": [
+                      "despawn"
+                   ]
+                },
+                "queue_command": {
+                  "command": [
+                    "playsound random.explode @a[r=30] ~~~ 0.5 1",
+                    "particle minecraft:camera_shoot_explosion ~~~"
+                  ]}
+             },
+             "hurt": {
+              "add":  {
+                 "component_groups": [
+                    "hurt_explode"
+                 ]
+              },
+              "queue_command": {
+                "command": [
+                  "playsound random.explode @a[r=30] ~~~ 0.5 1",
+                  "particle minecraft:camera_shoot_explosion ~~~"
+                ]}
+           }
+        }
+    }
+}

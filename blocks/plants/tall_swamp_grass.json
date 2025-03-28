@@ -1,0 +1,36 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:tall_swamp_grass",
+			"category": "none"
+		},
+		"components": {
+			"minecraft:loot": "loot_tables/blocks/cattails3.json",
+			"minecraft:geometry": "geometry.big_mushroom",
+            "minecraft:collision_box": false,
+			
+			"minecraft:selection_box": {
+                "origin": [-7,0,-7],
+                "size": [14,14,14]
+            },
+			"tag:no_silktouch": {},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "tall_swamp_grass",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": ["up"],
+						"block_filter": ["grass", "dirt", "podzol", "mycelium", "dirt_with_roots", "moss_block", "mud", "farmland", "muddy_mangrove_roots"] 
+                    }
+                ]
+            }
+		}
+	}
+}

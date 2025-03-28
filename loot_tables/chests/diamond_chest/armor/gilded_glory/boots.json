@@ -1,0 +1,56 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:gilded_glory_boots",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:gilded_glory_chestplate",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:gilded_glory_leggings",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "dungeons:gilded_glory_helmet",
+          "weight": 1,
+          "conditions": [{
+            "condition": "random_chance",
+            "chance": 0.7
+          }]
+        }
+      ]
+    }
+  ]
+}

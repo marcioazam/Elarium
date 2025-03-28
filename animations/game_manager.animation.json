@@ -1,0 +1,263 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    //Spawn
+    "animation.game_manager.spawn.eye_tf": {
+      "loop": true,
+      "animation_length": 0.01,
+      "timeline": {
+        "0.0": [
+          "/execute if block -1354 4 -1410 end_portal_frame 6 if entity @s[tag=!1_placed] run summon xp:eyes_glow -1354 4 -1410",
+          "/execute if block -1356 4 -1411 end_portal_frame 7 if entity @s[tag=!2_placed] run  summon xp:eyes_glow -1356 4 -1411",
+          "/execute if block -1352 4 -1412 end_portal_frame 7 if entity @s[tag=!3_placed] run  summon xp:eyes_glow -1352 4 -1412",
+          "/execute if block -1355 4 -1414 end_portal_frame 6 if entity @s[tag=!4_placed] run  summon xp:eyes_glow -1355 4 -1414",
+          "/execute if block -1353 4 -1414 end_portal_frame 6 if entity @s[tag=!5_placed] run  summon xp:eyes_glow -1353 4 -1414",
+
+          "/execute if block -1354 4 -1410 end_portal_frame 6 run scoreboard players add @s[scores={eyes_placed=0}] eyes_placed 1",
+          "/execute if block -1356 4 -1411 end_portal_frame 7 run scoreboard players add @s[scores={eyes_placed=1}] eyes_placed 1",
+          "/execute if block -1352 4 -1412 end_portal_frame 7 run scoreboard players add @s[scores={eyes_placed=2}] eyes_placed 1",
+          "/execute if block -1355 4 -1414 end_portal_frame 6 run scoreboard players add @s[scores={eyes_placed=3}] eyes_placed 1",
+          "/execute if block -1353 4 -1414 end_portal_frame 6 run scoreboard players add @s[scores={eyes_placed=4}] eyes_placed 1",
+
+          //"/execute if entity @s[tag=1_placed,tag=2_placed,tag=3_placed,tag=4_placed,tag=5_placed,scores={eyes_placed=4}] run title @a actionbar xp_hud.end_portal_fade",
+
+          "/execute if block -1354 4 -1410 end_portal_frame 6 run tag @s add 1_placed",
+          "/execute if block -1356 4 -1411 end_portal_frame 7 run tag @s add 2_placed",
+          "/execute if block -1352 4 -1412 end_portal_frame 7 run tag @s add 3_placed",
+          "/execute if block -1355 4 -1414 end_portal_frame 6 run tag @s add 4_placed",
+          "/execute if block -1353 4 -1414 end_portal_frame 6 run tag @s add 5_placed",
+
+          "/execute at @s[scores={eyes_placed=5}] run event entity @s xp:eye_placed"
+        ]
+      }
+    },
+    "animation.game_manager.spawn.eye_movement": {
+      "loop": true,
+      "animation_length": 0.01,
+      "timeline": {
+        "0.0": [
+          "/execute as @e[type=eye_of_ender_signal] at @s run tp @s ^^^0.4 facing -1354 11 -1412"
+        ]
+      }
+    },
+    "animation.game_manager.spawn.end_portal_sfx_loop": {
+      "loop": true,
+      "animation_length": 2.75,
+      "timeline": {
+        "0.0": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.65 0.75 0.05",
+          
+          "/playsound shriek.sculk_shrieker @a[r=15] ~~6~ 0.625 0.25 1",
+          "/playsound respawn_anchor.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.3 0.5 0.01"
+        ],
+        "0.25": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational"
+        ],
+        "0.5": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational"
+        ],
+        "0.75": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.65 0.75 0.05"
+        ],
+        "1": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational"
+        ],
+        "1.25": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational"
+        ],
+        "1.5": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.65 0.75 0.05"
+        ],
+        "1.75": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational"
+        ],
+        "2": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational"
+        ],
+        "2.25": [
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.85 1 0.05",
+          "/playsound conduit.ambient @a[x=~,y=~5,z=~,r=30] ~~6~ 0.65 0.75 0.05"
+        ],
+        "2.5": [
+          "/event entity @e[type=xp:eyes_glow] xp:despawn",
+          "/camerashake add @a[x=~,y=~5,z=~,r=5,tag=!in_cutscene] 0.0035 0.25 rotational",
+          "/camerashake add @a[x=~,y=~5,z=~,r=9,tag=!in_cutscene] 0.0035 0.25 rotational"
+        ]
+      }
+    },
+    "animation.game_manager.spawn.lava_smoke": {
+      "loop": true,
+      "animation_length": 1,
+      "timeline": {
+        "0.0": [
+          // "/particle xp:lava_steam -1348 0.75 -1402",
+          // "/particle xp:lava_steam -1360 0.75 -1402",
+          // "/particle xp:lava_steam -1348 0.75 -1418",
+          // "/particle xp:lava_steam -1360 0.75 -1418",
+          "/execute at @s[scores={eyes_placed=..4}] run particle xp:lava_steam -1354 -3.5 -1412",
+          "/execute at @s[scores={eyes_placed=..4}] run particle xp:lava_steam -1354 -3 -1412",
+
+          // "/particle xp:lava_steam.2 -1348 -3.75 -1424",
+          // "/particle xp:lava_steam.2 -1344 -3.75 -1419",
+          // "/particle xp:lava_steam.2 -1344 -3.75 -1404",
+
+          "/particle xp:spawn_fog.2 -1339 -2 -1424"
+        ],
+        "0.75": [
+          "/particle xp:spawn_fog.2 -1341 -1 -1423"
+        ]
+      }
+    },
+    "animation.game_manager.spawn.waterfall": {
+      "loop": true,
+      "animation_length": 1,
+      "timeline": {
+        "0.0": [
+          "/particle xp:waterfall_impact -1369.05 0 -1399.1",
+          "/particle xp:waterfall_impact1 -1342.1 -2 -1410.25",
+          "/particle xp:waterfall_impact1 -1341.25 -2 -1409.25",
+          "/particle xp:waterfall_impact2 -1336.25 7.95 -1411.75",
+          "/particle xp:waterfall_impact3 -1347.5 -1 -1398"
+        ]
+      }
+    },
+    "animation.game_manager.spawn.waterfall.sfx": {
+      "loop": true,
+      "animation_length": 0.4,
+      "timeline": {
+        "0.0": [
+          "/execute at @a[x=-1369,y=0,z=-1399,r=13] run playsound random.fizz @a[tag=!in_cutscene] -1369.25 0 -1399.25 0.25 0.35 0.01",
+          "/execute at @a[x=-1342,y=-2,z=-1410,r=13] run playsound random.fizz @a[tag=!in_cutscene] -1342.25 -3 -1410.25 0.25 0.3 0.01",
+          "/execute at @a[x=-1336,y=8,z=-1411,r=15] run playsound random.fizz @a[tag=!in_cutscene] -1336.5 8.15 -1411.25 0.2 0.365 0.01",
+          "/execute at @a[x=-1348,y=-3,z=-1398,r=10] run playsound random.fizz @a[tag=!in_cutscene] -1348 -3 -1398 0.15 0.315 0.01"
+        ]
+      }
+    },
+    "animation.game_manager.spawn.lava_fog": {
+      "loop": true,
+      "animation_length": 10,
+      "timeline": {
+        "0.0": [
+          "/particle xp:spawn_fog.1 -1345 -7.5 -1415",
+          "/particle xp:spawn_fog.1 -1344 -7 -1400"
+        ]
+      }
+    },
+
+    //End Spawn
+    "animation.game_manager.end_spawn.player_tf": {
+      "loop": true,
+      "animation_length": 0.01,
+      "timeline": {
+        "0.0": [
+          "/execute at @a[x=100,y=50,z=0,r=7] run tp @a[x=100,y=50,z=0,r=7] -151 61 15 facing -130 40 15"
+        ]
+      }
+    },
+
+    //End Ambients
+    "animation.game_manager.end_spawn.wilds_leaves": {
+      "loop": true,
+      "animation_length": 15,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=200] if block -4 64 -101 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -4 64 -101",
+          "/execute in the_end if entity @p[r=200] if block 2 66 -107 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 2 66 -107",
+          "/execute in the_end if entity @p[r=200] if block -1 69 -102 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -1 69 -102"
+        ],
+        "1": [
+          "/execute in the_end if entity @p[r=200] if block 1 64 -130 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 1 64 -130",
+          "/execute in the_end if entity @p[r=200] if block -5 62 -136 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -5 62 -136",
+          "/execute in the_end if entity @p[r=200] if block -4 67 -133 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 -4 67 -133"
+        ],
+        "4": [
+          "/execute in the_end if entity @p[r=500] if block 133 63 -106 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 133 63 -106",
+          "/execute in the_end if entity @p[r=500] if block 130 60 -101 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 130 60 -101",
+          "/execute in the_end if entity @p[r=500] if block 136 58 -107 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 136 58 -107"
+        ],
+        "6": [
+          "/execute in the_end if entity @p[r=500] if block 133 41 -74 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 133 41 -74",
+          "/execute in the_end if entity @p[r=500] if block 160 56 -42 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 160 56 -42",
+          "/execute in the_end if entity @p[r=500] if block 157 61 -41 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 157 61 -41",
+          "/execute in the_end if entity @p[r=500] if block 154 58 -36 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 154 58 -36"
+        ],
+        "8": [
+          "/execute in the_end if entity @p[r=500] if block 185 74 -83 xp:wilds_thick_leaves -1 run particle xp:biome_yellow_leaf.2 185 74 -83"
+        ]
+      }
+    },
+    "animation.game_manager.end_spawn.wilds_aura": {
+      "loop": true,
+      "animation_length": 15,
+      "timeline": {
+        "1.0": [
+          "/execute in the_end run particle xp:aurora.2 -225 65 -100",
+          "/execute in the_end run particle xp:aurora.2 4 45 -111",
+          "/execute in the_end run particle xp:aurora.2 -6 59 -100",
+          "/execute in the_end run particle xp:aurora.2 174 65 -234",
+          "/execute in the_end run particle xp:aurora.2 135 60 170"
+        ],
+        "5": [
+          "/execute in the_end run particle xp:aurora.2 -325 55 -150",
+          "/execute in the_end run particle xp:aurora.2 71 69 -102",
+          "/execute in the_end run particle xp:aurora.2 29 69 -169",
+          "/execute in the_end run particle xp:aurora.2 150 45 -90",
+          "/execute in the_end run particle xp:aurora.2 -26 71 -340"
+        ],
+        "10.0": [
+          "/execute in the_end run particle xp:aurora.2 14 71 131",
+          "/execute in the_end run particle xp:aurora.2 135 60 170"
+        ]
+      }
+    },
+
+    //End Travel
+    
+    "animation.game_manager.spawn.give_tags": {
+      "loop": true,
+      "animation_length": 0.1,
+      "timeline": {
+        "0.0": [
+          "/tag @a add first_tp",
+          "/tag @a add first_run"
+        ]
+      }
+    },
+    
+    "animation.game_manager.spawn.player_tf.send_player_to_end": {
+      "loop": true,
+      "animation_length": 0.01,
+      "timeline": {
+        "0.0": [
+          "/event entity @a[x=-1355,y=4,z=-1413,dx=2,dy=2,dz=2,tag=!in_cutscene,tag=!first_tp] xp:end_travel.to_end"
+        ]
+      }
+    },
+    "animation.game_manager.spawn.player_tf.send_player_to_overworld": {
+      "loop": true,
+      "animation_length": 0.01,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end run event entity @a[x=-152,y=61,z=16,dx=-2,dy=3,dz=-2,tag=!in_cutscene] xp:end_travel.to_overworld"
+        ]
+      }
+    }
+  }
+}

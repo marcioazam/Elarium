@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:snowy_stonebrick_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:snowy_stonebrick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:snowy_stonebrick"
+            }
+        ],
+        "result": {
+            "item": "edx:snowy_stonebrick_slab",
+            "count": 6
+        }
+    }
+}

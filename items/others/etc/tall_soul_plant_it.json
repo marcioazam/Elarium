@@ -1,0 +1,22 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:item": {
+    "description": {
+      "identifier": "edx:tall_soul_plant_it",
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.grass"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "tall_soul_plant_it"
+        }
+      },
+      "minecraft:block_placer": {
+        "block": "edx:tall_soul_plant"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:island_random_feature"
+    },
+    "features": [
+      [ "edx:island1_feature", 1 ],
+      [ "edx:island2_feature", 1 ],
+      [ "edx:island3_feature", 1 ],
+      [ "edx:nothing_feature", 10500 ]
+    ]
+  }
+}

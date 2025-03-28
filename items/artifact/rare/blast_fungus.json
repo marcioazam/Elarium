@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:rare_blast_fungus",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "blast_fungus",
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:custom_components": [
+        "dungeons:dynamic_cooldown",
+        "dungeons:use_artefact"
+      ],
+      "minecraft:cooldown": {
+        "category": "blast_fungus_rare",
+        "duration": 14
+      },
+      "minecraft:interact_button": "item.use.artefact",
+      "minecraft:use_modifiers": {
+        "use_duration": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:book_of_heroes",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:bookshelf_books"
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:stacked_by_data": false,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:icon": "book_of_heroes",
+      "minecraft:custom_components": [
+        "dungeons:book_of_heroes"
+      ],
+      "minecraft:interact_button": "item.use.book_of_heroes",
+      "minecraft:use_modifiers": {
+        "use_duration": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.heart_of_enders_head.sensor": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "transitions": [
+            { "on_wall": "!q.is_on_ground || q.skin_id == 2" },
+            { "on_ground": "q.is_on_ground" }
+          ]
+        },
+        "on_ground": {
+          "animations": ["tf","tf2"],
+          "transitions": [ 
+            { "drop_item": "!q.is_on_ground" }
+        ],
+          "on_entry": [ "@s xp:on_ground" ]
+        },
+        "on_wall": { 
+          "animations": ["tf2"],
+          "transitions": [ 
+            { "drop_item": "!q.is_on_ground" }
+        ],
+          "on_entry": [ "@s xp:on_wall" ] 
+        },
+        "drop_item": { 
+          "on_entry": [ "@s xp:item_drop" ] 
+        }
+      }
+    },
+    "controller.animation.heart_of_enders_head.drop": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["tf2"],
+          "transitions": [
+            { "drop_item": "q.variant == 1 || q.health <= 1" }
+          ]
+        },
+        "drop_item": {
+          "on_entry": [
+            "/particle xp:heart_drip.burst ~~0.35~",
+            "/particle xp:ender_head.poof ~~~",
+            "/execute at @s run playsound ender_smite.eye_hurt @a[r=15] ~~~ 0.85 0.5 0.01",
+            "/execute at @s run playsound ender_smite.eye_hurt @a[r=15] ~~~ 0.85 0.25 0.01",
+            "/execute at @s run playsound ender_smite.eye_hurt @a[r=15] ~~~ 0.5 1.0 0.01",
+            "/structure load mystructure:heart_of_enders_head ~~~",
+            "@s xp:despawn"
+          ]
+        }
+      }
+    },
+    "controller.animation.enders_head.drop": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["tf2"],
+          "transitions": [
+            { "drop_item": "q.variant == 1 || q.health <= 1" }
+          ]
+        },
+        "drop_item": {
+          "on_entry": [
+            "/particle xp:enders_head.burst ~~0.35~",
+            "/particle xp:ender_head.poof1 ~~~",
+            "/execute at @s run playsound ender_smite.eye_hurt @a[r=15] ~~~ 0.85 0.45 0.01",
+            "/execute at @s run playsound ender_smite.eye_hurt @a[r=15] ~~~ 0.85 0.25 0.01",
+            "/structure load mystructure:enders_head ~~~",
+            "@s xp:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

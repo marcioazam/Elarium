@@ -1,0 +1,216 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:heart_of_the_sea"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "edx:crystal_of_rage",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_bravery",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:magnet",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_fear",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:crystal_of_youth",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:enchanted_socks",
+        
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "edx:ring_of_atlantis",
+        
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "edx:heart_in_a_bottle",
+         
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 5,
+        "max": 12
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:prismarine_crystals",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:tnt",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 15
+        },
+    
+        {
+          "type": "item",
+          "name": "minecraft:name_tag",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "edx:tin_chestplate",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "edx:tin_helmet",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "edx:tin_leggings",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "edx:tin_boots",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:writable_book",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:lead",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:experience_bottle",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 19
+            }
+          ],
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "set_data",
+              "data": 28
+            }
+          ],
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cake",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

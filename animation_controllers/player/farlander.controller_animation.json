@@ -1,0 +1,120 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+
+    "controller.animation.player.farlander_dialogue": {
+      "initial_state": "idle",
+      
+      "states": {
+        "idle": {
+          "transitions": [
+            { "open_initial": "v.open_time = q.life_time; return q.property('xp:farlander_dialogue');" },
+            { "close_quick_travel": "q.property('xp:farlander_quick_travel') == 100" }
+          ],
+          "on_entry": [ "@s xp:reset_farlander_dialogue" ]
+        },
+
+        "open_initial": {
+          "transitions": [
+            { "idle": "q.life_time - v.open_time > 0.2" },
+            { "open_initial_tick": "1" }
+          ],
+          "on_entry": [ "/function farlander/ui/open_initial" ]
+        },
+        "open_initial_tick": {
+          "transitions": [ { "open_initial": "1" } ]
+        },
+
+        "close_quick_travel": {
+          "transitions": [ { "idle": "q.life_time - v.close_time > 0.1" } ],
+          "on_entry": [ "v.close_time = q.life_time;" ],
+          "on_exit": [
+            "@s xp:farlander.quick_travel.reset",
+            "/execute as @s[scores={uiSceneState=1..},tag=!\"to_ender_wilds\",tag=!\"to_echoing_forest\",tag=!\"to_ender_arena\",tag=!\"to_ender_abyss\",tag=!\"to_riftlands\",tag=!\"to_broken_sanctuary\"] run function farlander/quick_travel/ui/close"
+          ]
+        }
+      }
+    },
+
+    "controller.animation.player.farlander_quick_travel": {
+      "initial_state": "default",
+      
+      "states": {
+        "default": {
+          "transitions": [
+            { "ender_wilds": "q.property('xp:farlander_quick_travel') == 1" },
+            { "echoing_forest": "q.property('xp:farlander_quick_travel') == 2" },
+            { "ender_arena": "q.property('xp:farlander_quick_travel') == 3" },
+            { "ender_abyss": "q.property('xp:farlander_quick_travel') == 4" },
+            { "riftlands": "q.property('xp:farlander_quick_travel') == 5" },
+            { "broken_sanctuary": "q.property('xp:farlander_quick_travel') == 6" }
+          ]
+        },
+
+        "ender_wilds":{
+          "transitions": [ { "randomize": "q.life_time - v.teleport_interval_delay > 1.0" } ],
+          "on_entry": [ "v.teleport_interval_delay = q.life_time;", "/function farlander/quick_travel/teleport/0" ]
+        },
+        "echoing_forest":{
+          "transitions": [ { "randomize": "q.life_time - v.teleport_interval_delay > 1.0" } ],
+          "on_entry": [ "v.teleport_interval_delay = q.life_time;", "/function farlander/quick_travel/teleport/1" ]
+        },
+        "ender_arena":{
+          "transitions": [ { "afterwarp": "q.life_time - v.teleport_interval_delay > 1.25" } ],
+          "on_entry": [ "v.teleport_interval_delay = q.life_time;", "/function farlander/quick_travel/teleport/2" ]
+        },
+        "ender_abyss":{
+          "transitions": [ { "randomize": "q.life_time - v.teleport_interval_delay > 1.0" } ],
+          "on_entry": [ "v.teleport_interval_delay = q.life_time;", "/function farlander/quick_travel/teleport/3" ]
+        },
+        "riftlands":{
+          "transitions": [ { "randomize": "q.life_time - v.teleport_interval_delay > 1.0" } ],
+          "on_entry": [ "v.teleport_interval_delay = q.life_time;", "/function farlander/quick_travel/teleport/4" ]
+        },
+        "broken_sanctuary":{
+          "transitions": [ { "randomize": "q.life_time - v.teleport_interval_delay > 1.0" } ],
+          "on_entry": [ "v.teleport_interval_delay = q.life_time;", "/function farlander/quick_travel/teleport/5" ]
+        },
+
+        "randomize": {
+          "transitions": [ { "afterwarp": "q.life_time - v.teleport_interval_delay > 0.25" } ],
+          "on_entry": [
+            "v.teleport_interval_delay = q.life_time;",
+            "/spreadplayers ~ ~ 2 20 @s[tag=!\"to_ender_arena\",tag=!\"to_broken_sanctuary\"]"
+          ]
+        },
+        "afterwarp": {
+          "transitions": [ { "reset": "1" } ],
+          "on_entry": [
+            "/particle xp:respawn.2 ~~~",
+            "/particle xp:respawn.3 ~~1~",
+            "/playsound mob.endermen.portal @a ~~~ 1.0 0.75",
+
+            "/execute at @s unless entity @e[type=xp:farlander,r=32] run tag @s add resummon_farlander",
+            "/execute as @s[tag=\"resummon_farlander\"] at @s run summon xp:farlander \"\" ~~~",
+            "/execute as @s[tag=\"resummon_farlander\"] at @s run spreadplayers ~ ~ 2 5 @e[type=xp:farlander,c=1]",
+            "/tag @s remove resummon_farlander",
+
+            "/gamemode s",
+            "/inputpermission set @s camera enabled",
+
+            "/effect @s resistance 10 255 true",
+            "/effect @s invisibility 10 255 true",
+
+            "/tag @s remove to_ender_wilds",
+            "/tag @s remove to_echoing_forest",
+            "/tag @s remove to_ender_arena",
+            "/tag @s remove to_ender_abyss",
+            "/tag @s remove to_riftlands",
+            "/tag @s remove to_broken_sanctuary"
+          ]
+        },
+
+        "reset": {
+          "transitions": [ { "default": "q.property('xp:farlander_quick_travel') == 0" } ],
+          "on_entry": [ "@s xp:farlander.quick_travel.reset" ]
+        }
+      }
+    }
+  }
+}

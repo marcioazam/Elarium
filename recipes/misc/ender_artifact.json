@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "xp:ender_artifact_recipe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "XGX",
+      "XXX"
+    ],
+    "key": {
+      "X": {
+        "item": "purpur_block"
+      },
+      "G": {
+        "item": "xp:rift_goop"
+      }
+    },
+    "result": {
+      "item": "xp:ender_artifact"
+    }
+  }
+}

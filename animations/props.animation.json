@@ -1,0 +1,52 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.trophy_sensor": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": { "0.0": [ "/execute at @s if block ~ ~-1 ~ air 0 run event entity @s xp:on_wall" ] }
+		},
+		"animation.trophy_sensor1": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": { "0.0": [ "/execute at @s if block ~ ~-1 ~ air 0 run tag @s add no_block_below", "/execute @s ~~~ detect ~~-1~ air 0 event entity @s xp:item_drop" ] }
+		},
+		"animation.trophy_sensor2": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": { "0.0": [ "/execute as @s[tag=no_block_below] at @s run detect ^^^-1 air 0 event entity @s xp:item_drop" ] }
+		},
+        "animation.torch.light": {
+            "animation_length": 1,
+            "loop": false,
+            "timeline": {
+                "0.1": [
+                    "/setblock ~~~ light_block 12"
+                ]
+            }
+        },
+        "animation.torch.sfx": {
+            "animation_length": 1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/playsound block.campfire.crackle @a[r=7] ~~~ 0.5 1 0.01",
+                    "/playsound fire.fire @a[r=7] ~~~ 0.25 1 0.01"
+                ]
+            }
+        },
+        "animation.fire_pit.sfx": {
+            "animation_length": 1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute as @e[tag=!fire_sword,x=~,y=~0.5,z=~,r=0.95] at @s run summon xp:fire_sword.defense ^^^",
+                    "/playsound block.campfire.crackle @a[r=10] ~~~ 0.65 0.5 0.01",
+                    "/playsound block.campfire.crackle @a[r=10] ~~~ 0.5 1 0.01",
+                    "/playsound fire.fire @a[r=10] ~~~ 0.65 0.5 0.01",
+                    "/playsound fire.fire @a[r=10] ~~~ 0.5 1 0.01"
+                ]
+            }
+        }
+	}
+}

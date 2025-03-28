@@ -1,0 +1,21 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "xp:wilds_planks.recipe"
+        },
+        "tags": [
+            "crafting_table",
+            "crafting"
+        ],
+        "ingredients": [
+            {
+                "item": "xp:wilds_log"
+            }
+        ],
+        "result": {
+            "item": "xp:wilds_planks",
+            "count": 4
+        }
+    }
+}

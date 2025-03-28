@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "edx:sulfur_ore",
+			"menu_category":
+			{
+				"group": "itemGroup.name.ore",
+				"category": "nature"
+			}
+		},
+		"components": {
+			"tag:edx:wooden_pick": {},
+			"minecraft:map_color": "#723232",
+			"minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 9
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 2
+            },
+			"minecraft:loot": "loot_tables/blocks/sulfur_ore.json"
+		}
+	}
+}

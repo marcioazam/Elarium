@@ -1,0 +1,53 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:pure_crystal"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "PD ",
+      "RG ",
+      "FIF"
+    ],
+    "key": {
+      "D": {
+        "item": "edx:crystal_of_bravery"
+      },
+      "P": {
+        "item": "edx:crystal_of_youth"
+      },
+      "R": {
+        "item": "edx:crystal_of_rage"
+      },
+      "G": {
+        "item": "edx:crystal_of_fear"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "edx:ruby"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:crystal_of_bravery"
+      },
+      {
+        "item": "edx:crystal_of_youth"
+      },
+      {
+        "item": "edx:crystal_of_rage"
+      },
+      {
+        "item": "edx:crystal_of_fear"
+      }
+    ],
+    "result": {
+      "item": "edx:pure_crystal"
+    }
+  }
+  
+}

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "edx:end_city"
+    },
+    "structure_name": "mystructure:end_city_spawn",
+    "adjustment_radius": 0,
+    "facing_direction": "random",
+    "constraints": {
+      "grounded": {},
+      "block_intersection": {
+				"block_whitelist": [
+          "edx:purple_lycaephytus",
+          "edx:purple_lycaephytus_small",
+          "edx:purple_lycaephytus_small_ball",
+          "edx:purple_lycaephytus_no_ball",
+          "edx:blue_lycaephytus",
+          "edx:blue_lycaephytus_small",
+          "edx:blue_lycaephytus_small_ball",
+          "edx:blue_lycaephytus_no_ball", 
+          "edx:bicolor_lichen", 
+          "edx:luminescent_blossom_feature", 
+          "edx:luminescent_bamboo_feature",
+          "edx:shulk_grass" 
+				]
+			}
+     
+    }
+  }
+}

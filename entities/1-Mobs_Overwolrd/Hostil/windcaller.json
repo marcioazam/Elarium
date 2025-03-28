@@ -1,0 +1,544 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:windcaller",
+      "spawn_category": "monster",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+
+    "component_groups": {
+      "dungeons:has_home": {
+        "minecraft:home": {
+          "restriction_radius": 8,
+          "restriction_type": "random_movement"
+        }
+      },
+      "minecraft:celebrate": {
+        "minecraft:behavior.celebrate": {
+          "priority": 5,
+          "celebration_sound": "celebrate",
+          "sound_interval": {
+            "range_min": 2.0,
+            "range_max": 7.0
+          },
+          "jump_interval": {
+            "range_min": 1.0,
+            "range_max": 3.5
+          },
+          "duration": 30.0,
+          "on_celebration_end_event": {
+            "event": "minecraft:stop_celebrating",
+            "target": "self"
+          }
+        }
+      },
+      "minecraft:raid_configuration": {
+        "minecraft:dweller": {
+          "dwelling_type": "village",
+          "dweller_role": "hostile",
+          "update_interval_base": 60,
+          "update_interval_variant": 40,
+          "can_find_poi": false,
+          "can_migrate": true,
+          "first_founding_reward": 0
+        },
+        "minecraft:behavior.move_to_village": {
+          "priority": 6,
+          "speed_multiplier": 1.0
+        },
+        "minecraft:ambient_sound_interval": {
+          "value": 2.0,
+          "range": 4.0,
+          "event_name": "ambient.in.raid"
+        }
+      },
+      "minecraft:raid_persistence": {
+        "minecraft:persistent": {}
+      },
+      "minecraft:raid_despawn": {
+        "minecraft:despawn": {
+          "despawn_from_distance": {}
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:break_blocks": {
+				"breakable_blocks": [
+          "redstone_torch",
+          "torch",
+          "glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door",
+          "minecraft:glass",
+          "minecraft:glass_pane",
+          "minecraft:chest",
+          "minecraft:trapdoor",
+          "minecraft:sea_lantern",
+          "minecraft:beacon",
+          "minecraft:light_block"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": "no"
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 32
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 3
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4 
+          }
+        ]
+      },
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"illager"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "illager"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "breeze"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "illager"
+          }
+        ]
+      }
+    }
+  ]
+},
+      "minecraft:mob_effect": {
+        "mob_effect": "levitation",
+        "effect_range": 3,
+        "effect_time": 3,
+        "cooldown_time": 10
+       
+      },
+      "minecraft:equip_item": {
+      },
+      "minecraft:shareables": {
+        "items": [
+          {
+            "item": "minecraft:banner:15",
+            "want_amount": 1,
+            "surplus_amount": 1,
+            "priority": 0
+          }
+        ]
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 8 : 0"
+      },
+      "minecraft:type_family": {
+        "family": [ "windcaller", "monster", "illager", "mob" ]
+      },
+       "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/windcaller.json"
+      },
+      "minecraft:health": {
+        "value": 40,
+        "max": 40
+      },
+     
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 2.6
+      },
+      "minecraft:movement": {
+        "value": 0.50
+      },
+
+      "minecraft:movement.basic": {
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.summon_entity": {
+        "priority": 2,
+        "summon_choices": [
+          {
+            "min_activation_range": 1,
+            "max_activation_range": 16,
+            "weight": 1,
+            "cooldown_time": 5.0,
+            "cast_duration": 2.0,
+            "particle_color": "#ffffe603",
+            "sequence": [
+              {
+                "shape": "line",
+                "target": "self",
+                "base_delay": 2.0,
+                "delay_per_summon": 0.5,
+                "num_entities_spawned": 4,
+                "entity_type": "dungeons:wind_push_burst",
+                "size": 16,
+                "entity_lifespan": 5
+              }
+            ]
+          },
+          {
+            "min_activation_range": 6,
+            "max_activation_range": 24,
+            "cooldown_time": 5.0,
+            "weight": 3,
+            "cast_duration": 2.0,
+            "particle_color": "#FF664D59",
+            "sequence": [
+              {
+                "shape": "circle",
+                "target": "target",
+                "base_delay": 0.05,
+                "delay_per_summon": 0.0,
+                "num_entities_spawned": 1,
+                "entity_type": "dungeons:wind_pillar_circle",
+                "size": 1,
+                "entity_lifespan": 5
+              },
+              {
+                "shape": "circle",
+                "target": "target",
+                "base_delay": 2,
+                "delay_per_summon": 0.0,
+                "num_entities_spawned": 1,
+                "entity_type": "dungeons:wind_pillar_burst",
+                "size": 1,
+                "entity_lifespan": 5
+              }
+            ]
+          }
+        ]
+      },
+      "minecraft:behavior.send_event": {
+        "priority": 3,
+        "event_choices": [
+          {
+            "min_activation_range": 0.0,
+            "max_activation_range": 16.0,
+            "cooldown_time": 5.0,
+            "cast_duration": 2.0,
+            "particle_color": "#FFB38033",
+            "weight": 3,
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "value": "sheep" },
+                { "test": "is_color", "subject": "other", "value": "blue" }
+              ]
+            },
+            "start_sound_event": "cast.spell",
+            "sequence": [
+              {
+                "base_delay": 2.0,
+                "event": "wololo",
+                "sound_event": "prepare.wololo"
+              }
+            ]
+          }
+        ]
+      },
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 5,
+        "entity_types": [
+          {
+            "filters": { "test": "is_family", "subject": "other", "value": "player" },
+            "max_dist": 8,
+            "walk_speed_multiplier": 1.0,
+            "sprint_speed_multiplier": 1.0
+          },
+          {
+            "filters": { "test": "is_family", "subject": "other", "value": "creaking" },
+            "max_dist": 8,
+            "sprint_speed_multiplier": 1.2
+          }
+        ]
+      },
+     
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" },
+                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+              ]
+            },
+            "max_dist": 20
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "value": "villager" },
+                { "test": "has_component", "subject": "other", "operator": "!=", "value": "minecraft:is_baby" }
+              ]
+            },
+            "max_dist": 20
+          }
+        ],
+        "must_see": true
+      },
+   
+      "minecraft:behavior.equip_item": {
+        "priority": 3
+      },
+     
+      "minecraft:persistent": {
+      },
+      
+            "minecraft:spell_effects": {
+                "add_effects": [
+                    {
+                        "effect": "slow_falling",
+                        "duration": 999999,
+                        "visible": false
+                    }
+                ]
+            },
+      
+      "minecraft:can_join_raid": {
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "dungeons:spawn_structure": {
+        "add": {
+          "component_groups": [
+            "dungeons:has_home"
+          ]
+        }
+      },
+      "minecraft:spawn_for_raid": {
+        "add": {
+          "component_groups": [
+            "minecraft:raid_configuration",
+            "minecraft:raid_despawn",
+            "minecraft:raid_persistence"
+          ]
+        }
+      },
+      "minecraft:start_celebrating": { 
+        "sequence": [
+          {
+            "add": { "component_groups": [ "minecraft:celebrate" ] }
+          },
+          {
+            "filters": { "test": "has_nametag", "value": false },
+            "remove": { "component_groups": [ "minecraft:raid_persistence" ] }
+          }
+        ]
+      },
+      "minecraft:stop_celebrating": {
+        "remove": { "component_groups": [ "minecraft:celebrate" ] }
+      },
+      "minecraft:raid_expired": {
+        "sequence": [
+          {
+            "filters": { "test": "has_nametag", "value": false },
+            "remove": { "component_groups": [ "minecraft:raid_persistence" ] }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  //ver depois
+  "format_version": "1.18.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:dean_enderman",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "edx:wolf_angry": {
+        "minecraft:angry": {
+          "duration": 50,
+          "broadcast_anger": true,
+          "broadcast_range": 20,
+          "calm_event": {
+            "event": "edx:on_calm",
+            "target": "self"
+          }
+        },
+        "minecraft:on_target_acquired": {
+        }
+    }
+  },
+
+    "components": {
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 4,
+        "track_target": true,
+        "speed_multiplier": 1.25
+      },
+      "minecraft:scale": {
+        "value": 3
+      },
+      "minecraft:attack": {
+        "damage": 20
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 2.9
+      },
+      "minecraft:type_family": {
+        "family": [ "monster", "mob" ]
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }, 
+          {
+            "filters": { "test": "in_contact_with_water", "operator": "==", "value": true },
+            "cause": "drowning",
+            "damage_per_tick": 1
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 100,
+        "max": 100
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+                },
+                {
+                  "test": "has_equipment",
+                  "domain": "head",
+                  "subject": "other",
+                  "operator": "not",
+                  "value": "carved_pumpkin"
+                }
+              ]
+            },
+            "max_dist": 16
+          }
+        ]    
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/dean_enderman.json"
+      },
+      "minecraft:movement": {
+        "value": 0.10
+      },
+      "minecraft:navigation.walk": {
+        "is_amphibious": false,
+        "avoid_water": true
+      },
+      "minecraft:movement.basic": {
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+
+      "minecraft:behavior.avoid_mob_type": {
+        "priority": 4,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "endermite"
+            },
+            "max_dist": 16,
+            "walk_speed_multiplier": 1.2,
+            "sprint_speed_multiplier": 1.2
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1
+      },
+      "minecraft:on_target_acquired": {
+        "event": "minecraft:become_angry",
+        "target": "self"
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "edx:on_calm": {
+        "remove": {
+          "component_groups": [
+            "edx:wolf_angry"
+          ]
+        }
+      },
+      "edx:become_angry": {
+        "add": {
+          "component_groups": [
+            "edx:wolf_angry"
+          ]
+        }
+      }
+    }
+    }
+}

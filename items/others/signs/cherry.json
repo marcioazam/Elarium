@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:cherry_sign_it",
+			"menu_category": {
+				"category": "items",
+				"group": "itemGroup.name.sign"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"cherry_sign_it"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:cherry_sign"
+			},
+			"minecraft:display_name": {
+				"value": "Cherry direction sign\nRight click to change the direction\nUse a stick to tilt them"
+			}
+		}
+	}
+}

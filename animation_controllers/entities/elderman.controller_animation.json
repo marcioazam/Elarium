@@ -1,0 +1,219 @@
+{
+   "format_version": "1.10.0",
+   "animation_controllers": {
+      "controller.animation.elderman.rider_player":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "player.rider": "query.has_rider"
+                  }
+               ]
+            },
+            "player.rider":{
+               "on_exit": [
+                  "@s xp:stage_calm",
+                  "/ride @e[type=player,r=2.5,c=1] stop_riding",
+                  "/tag @e[type=player,r=2.5,c=1] remove hold"
+               ],
+               "animations": [
+                  "player.rider"
+               ],
+               "transitions": [
+                  {
+                     "default": "query.skin_id != 5 || !query.has_target"
+                  }
+               ]
+            }
+         }
+      },
+      "controller.animation.elderman.jumpscare":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "jumpscare": "query.has_rider"
+                  }
+               ]
+            },
+            "jumpscare":{
+               "animations": [
+                  "elderman.jumpscare_timer"
+               ],
+               "on_entry": [
+                  "/effect @a[r=4.5,c=1] blindness 8 1 true",
+                  "/playsound mob.endermen.scream @a[r=4.5,c=1] ~ ~ ~",
+                  "/playsound mob.endermen.scream @a[r=4.5,c=1] ~ ~ ~",
+                  "/playsound mob.endermen.scream @a[r=4.5,c=1] ~ ~ ~",
+                  "/playsound mob.endermen.scream @a[r=4.5,c=1] ~ ~ ~"
+               ],
+               "on_exit": [
+                  "/effect @a[r=4.5,c=1] blindness 0 0 true",
+                  "/ride @a[r=2.5,c=1] stop_riding",
+                  "/effect @a[r=4.5,c=1] darkness 14 4 true",
+                  "/event entity @a[r=4.5,c=1] xp:levitation_value_40"
+               ],
+               "transitions": [
+                  {
+                     "default": "query.skin_id == 2 || !q.has_target"
+                  }
+               ]
+            }
+         }
+      },
+      "controller.animation.elderman.damage":{
+         "initial_state": "default",
+         "states": {
+            "default":{
+               "transitions": [
+                  {
+                     "damage": "query.has_rider"
+                  }
+               ]
+            },
+            "damage":{
+               "animations": [
+                  "elderman.damage_player"
+               ],
+               "transitions": [
+                  {
+                     "default": "!query.has_rider || !query.has_target"
+                  }
+               ]
+            }
+         }
+      },
+
+      
+      "controller.animation.elderman_trap.root": {
+       "initial_state": "default",
+       "states": {
+         "default":{
+            "transitions": [
+               {
+                  "hold_player": "query.skin_id == 1 && query.is_alive"
+               },
+               {
+                  "give_player": "query.skin_id == 3 && query.is_alive"
+               }
+            ]
+         },
+         //hold player
+         "hold_player":{
+            "animations": [
+               "elderman.hold_player"
+            ],
+            "transitions": [
+               {
+                  "give_player": "query.skin_id == 1 && query.is_alive"
+               }
+            ]
+         },
+         //give player to elderman
+         "give_player":{
+            "on_entry": [
+               "/ride @e[type=player,r=1,c=1] start_riding @e[type=xp:elderman,r=5,c=1]"
+            ]
+         }
+       }
+     },
+     "controller.animation.elderman_trap.facing": {
+      "initial_state": "default",
+      "states": {
+        "default":{
+           "transitions": [
+              {
+                 "facing_90": "q.is_saddled"
+              }
+           ]
+        },
+        //give player to elderman
+        "facing_90":{
+           "on_entry": [
+              "/tp @s ~ ~ ~ facing ~ ~ ~-90"
+           ],
+           "transitions": [
+            {
+               "facing_90_repeat": "(1.0)"
+            }
+           ]
+        },
+        "facing_90_repeat":{
+         "on_entry": [
+            "/tp @s ~ ~ ~ facing ~ ~ ~-90"
+         ],
+         "transitions": [
+          {
+             "facing_90": "(1.0)"
+          }
+         ]
+      }
+      }
+    },
+
+     //death
+     "controller.animation.elderman.death":{
+      "initial_state": "default",
+      "states": {
+         "default":{
+            "transitions": [
+               {
+                  "death": "query.health <= 40 && q.skin_id != 5 && q.health > 0"
+               }
+            ]
+         },
+         "death":{
+            "on_entry": [
+               "v.tick_delay = q.life_time;",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "/summon minecraft:xp_orb ~ ~1 ~",
+               "@s xp:stage_death"
+            ],
+            "on_exit": [
+               "@s xp:instant_despawn"
+            ],
+            "transitions": [
+               {
+                  "death_end": "(q.life_time - v.tick_delay) >= 1.45"
+               }
+            ]
+         },
+         "death_end":{
+         }
+      }
+    }
+   }
+}

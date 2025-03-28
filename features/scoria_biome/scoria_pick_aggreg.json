@@ -1,0 +1,11 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:aggregate_feature": {
+      "description": {
+        "identifier": "edx:scoria_biome/scoria_pick_aggreg"
+      },
+      "features": [
+        "edx:scoria_biome/scoria_column_stack_down"
+      ]
+    }
+  }

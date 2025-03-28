@@ -1,0 +1,21 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "edx:chorus1_feature"
+    },
+    "structure_name": "mystructure:Chorus1",
+    "adjustment_radius": 5,
+    "facing_direction": "random",
+    "constraints": {
+      "grounded": {},
+      "block_intersection": {
+				"block_whitelist": [
+					"minecraft:air",
+          "edx:chorus_grass"
+				]
+			}
+     
+    }
+  }
+}

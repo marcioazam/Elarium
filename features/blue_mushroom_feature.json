@@ -1,0 +1,20 @@
+{
+  "format_version": "1.13.0",
+    "minecraft:single_block_feature": {
+      "description": {
+        "identifier": "edx:blue_mushroom_feature"
+      },
+      "places_block": "edx:blue_mushroom",
+      "enforce_placement_rules": true,
+      "enforce_survivability_rules": true,
+      "may_attach_to": {
+        "bottom":  [
+          "edx:cave_mycelium",
+          "edx:mycelium_grass"
+      ]
+    },
+      "may_replace": [
+        "minecraft:air" 
+      ]
+    }
+  }

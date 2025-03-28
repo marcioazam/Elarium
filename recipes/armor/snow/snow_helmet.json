@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "snow_helmet"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "B B",
+      "BIB",
+      "I I"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:ice"
+      }
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:ice"
+      },
+     "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "dungeons:snow_helmet",
+      "count": 1
+    }
+  }
+}

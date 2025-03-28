@@ -1,0 +1,27 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    //End Portal
+    "animation.dummy_particle.eyes_glow_place": {
+      "loop": false,
+      "animation_length": 1,
+      "timeline": {
+        "0.0": [
+          "/playsound end_portal.eye_place @a[r=25] ~~~ 0.85 1.5 0.1",
+          "/playsound end_portal.eye_place @a[r=25] ~~~ 0.75 0.75 0.1"
+        ]
+      }
+    },
+
+    //Wilds
+    "animation.wilds.purple_rocks": {
+      "loop": true,
+      "animation_length": 15,
+      "timeline": {
+        "0.0": [
+          "/execute in the_end if entity @p[r=300] run particle xp:wilds.purple_smoke ~~7~"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:magic_axe_axe",
+		"menu_category": {
+				"category":"none"
+			}
+			
+		},
+		"components": {
+		"minecraft:hand_equipped": true,
+			"minecraft:icon": {
+				"textures":{
+               "default":"magic_axe"
+         }
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "kill"
+			  }
+		}
+	}
+}

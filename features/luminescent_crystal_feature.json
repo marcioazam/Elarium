@@ -1,0 +1,20 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:luminescent_crystal_feature"
+		},
+		"iterations": "t.height =q.heightmap(v.worldx, v.worldz) > 10 && q.heightmap(v.worldx, v.worldz) < 75 ? q.heightmap(v.worldx, v.worldz) +math.random(1,5) :-1 ; return t.height;",
+		
+		"x": 0,
+		"z": 0,
+		"y": {
+			"extent": [
+				"q.heightmap(v.worldx, v.worldz)",
+				"t.height"
+			],
+			"distribution": "fixed_grid"
+		},
+		"places_feature": "edx:luminescent_crystal"
+	}
+}

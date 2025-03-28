@@ -1,0 +1,20 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "edx:crying_obsidian_scatter2"
+    },
+    "places_feature": "edx:crying_obsidian",
+    "iterations": 20,
+    "scatter_chance": 60.0,
+    "x": {
+      "distribution": "uniform",
+      "extent": [ 0, 16 ]
+    },
+    "y": 0,
+    "z": {
+      "distribution": "uniform",
+      "extent": [ 0, 16 ]
+    }
+  }
+}

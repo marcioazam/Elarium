@@ -1,0 +1,20 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dungeons:nameless_key",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:hover_text_color": {
+        "value": "yellow"
+      },
+      "minecraft:icon": "nameless_key",
+      "minecraft:should_despawn": {
+        "value": false
+      }
+    }
+  }
+}

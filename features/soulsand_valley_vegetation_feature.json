@@ -1,0 +1,15 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:weighted_random_feature": {
+    "description": {
+      "identifier": "edx:soulsand_valley_vegetation_feature"
+    },
+    "features": [
+      [ "edx:eye_feature", 3 ],
+      [ "edx:organic_vase_feature", 1 ],
+      [ "edx:soul_plant_scatter_feature", 30 ],
+      [ "edx:soul_torchflower_feature", 16 ],
+      [ "edx:tall_soul_plant_scatter_feature", 30 ] 
+    ]
+  }
+}

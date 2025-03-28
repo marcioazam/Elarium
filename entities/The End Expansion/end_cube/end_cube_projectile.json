@@ -1,0 +1,239 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_projectile",
+      "runtime_identifier": "minecraft:arrow",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [ "runtime" ]
+      },
+      "animations": {
+        "runtime": "controller.animation.end_cube_eye.runtime"
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "xp:remove_projectile": {
+        "minecraft:out_of_control": {}
+      },
+
+      "xp:on_impact": {
+        "minecraft:is_charged": {}
+      }
+    },
+
+    "components": {
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "lantern",
+          "glass",
+          "glass_pane",
+          "stained_glass",
+          "stained_glass_pane",
+          "bamboo",
+          "cocoa",
+          "carved_pumpkin",
+          "chorus_flower",
+          "chorus_plant",
+          "lit_pumpkin",
+          "melon_block",
+          "pumpkin",
+          "turtle_egg",
+          "waterlily",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf",
+
+          "log",
+          "log2",
+          "blackstone_wall",
+          "cobbled_deepslate_wall",
+          "cobblestone_wall",
+          "cobblestone",
+          "stone_slab",
+          "stone_slab2",
+          "stone_slab3",
+          "stone_slab4",
+          "stone_stairs",
+          "stonebrick",
+          "end_brick_stairs",
+          "end_bricks",
+          "crafting_table",
+          "end_stone",
+          "stone",
+          "planks",
+          "wooden_slab",
+          "warped_planks",
+          "warped_slab",
+          "warped_stairs",
+          "oak_fence",
+          "spruce_fence",
+          "spruce_fence_gate",
+          "warped_fence",
+          "warped_fence_gate",
+          "acacia_fence",
+          "acacia_fence_gate",
+          "birch_fence",
+          "birch_fence_gate",
+          "crimson_fence",
+          "crimson_fence_gate",
+          "dark_oak_fence",
+          "dark_oak_fence_gate",
+          "fence",
+          "fence_gate",
+          "jungle_fence",
+          "jungle_fence_gate",
+          "mangrove_fence",
+          "mangrove_fence_gate",
+          "nether_brick_fence",
+
+          "xp:echoing_planks",
+          "xp:abyssal_planks",
+          "xp:wilds_planks",
+          "xp:echoing_log",
+          "xp:abyssal_log",
+          "xp:wilds_log",
+          "xp:echoing_log_full",
+          "xp:abyssal_log_full",
+          "xp:wilds_log_full",
+
+          "xp:enderfig_thick_leaves",
+          "xp:wilds_flower_thick_leaves",
+          "xp:wilds_thick_leaves",
+          "xp:echoing_pome_thick_leaves",
+          "xp:echoing_thick_mite_leaves",
+          "xp:echoing_thick_leaves",
+
+          "xp:wilds_leaves",
+          "xp:abyss_leaves",
+          "xp:echoing_leaves",
+          "xp:echoing_pome_leaves",
+          "xp:echoing_mite_leaves",
+          "xp:enderfig_leaves",
+
+          "xp:end_stone_cluster",
+          "xp:end_stone_crushed",
+          "xp:end_stone_heavy",
+          "xp:end_stone_sap",
+          "xp:end_stone_sediment",
+          "xp:end_stone_sediment_slim",
+          "xp:end_stone_sediment_thick",
+          "xp:end_stone_iron_ore",
+          "xp:end_stone_lapis_ore",
+          "xp:end_stone_diamond_ore",
+
+          "xp:riftstone_strip",
+          "xp:riftland_void_block",
+          "xp:riftland_fortified_block",
+          "xp:riftstone_diamond_ore",
+          "xp:void_crystal_ore_riftstone",
+          "xp:void_crystal_ore",
+          "xp:enderite_ore_riftstone",
+          "xp:enderite_ore",
+          "xp:enderite_crystalized",
+
+          "xp:wilds_grass",
+          "xp:sparse_wilds_grass",
+          "xp:wilds_sediment_grass",
+          "xp:abyss_grass_thick_roots",
+          "xp:abyss_rooted_grass",
+          "xp:abyss_rooted",
+          "xp:abyss_grass_full",
+          "xp:abyss_grass",
+          "xp:echoing_grass",
+          "xp:echoing_grass_full",
+          "xp:echoing_rooted_grass",
+          "xp:sparse_echoing_grass",
+          "xp:chorus_plant_block",
+          "xp:end_stone_tiles",
+          "xp:end_stone_headstone"
+        ]
+      },
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:health": {
+        "min": 1,
+        "max": 2,
+        "value": 2
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "minecraft:type_family": {
+        "family": [ "end_cube", "flying_eye", "projectile" ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 2,
+            "knockback": false,
+            "semi_random_diff_damage": false
+          },
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "xp:projectile_on_impact",
+              "target": "self"
+            }
+          },
+          "stick_in_ground": {
+            "shake_time": 0.1
+          },
+          "arrow_effect": {
+          }
+        },
+        "power": 0.8,
+        "gravity": 0.0,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "offset": [ 0, 1.25, 0 ],
+        "reflect_on_hurt": true,
+        "multiple_targets": true
+      },
+      "minecraft:physics": {
+        "has_collision": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:timer": {
+        "time": 2.8,
+        "looping": false,
+        "time_down_event": {
+          "event": "xp:projectile_on_impact",
+          "target": "self"
+        }
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+      "xp:projectile_on_impact": {
+        "add": {
+          "component_groups": [ "xp:on_impact" ]
+        }
+      }
+    }
+  }
+}

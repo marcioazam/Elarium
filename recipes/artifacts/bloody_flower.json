@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:bloody_flower"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:bloody_bramble"
+      },
+      "#": {
+        "item": "edx:undying_flower"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:redstone_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:bloody_bramble"
+      },
+      {
+        "item": "edx:undying_flower"
+      }
+    ],
+    "result": {
+      "item": "edx:bloody_flower"
+    }
+  }
+  
+}

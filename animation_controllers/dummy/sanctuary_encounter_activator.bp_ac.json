@@ -1,0 +1,23 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.sanctuary_encounter_activator.activate_encounter": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "detection": "q.is_stunned" }
+                    ]
+                },
+                "detection": {
+                    "on_entry": [
+                        "/event entity @e[type=xp:sanctuary_encounter_spawner,c=1,r=64] xp:detection"
+                    ],
+                    "transitions": [
+                        { "default": "!q.is_stunned" }
+                    ]
+                }
+            }
+        }
+    }
+}

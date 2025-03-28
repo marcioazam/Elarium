@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:lava_chiseled_blackstone"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:fire_blackstone_brick"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:polished_blackstone_bricks"
+      },
+      {
+        "item": "minecraft:lava_bucket"
+      }
+    ],
+    "result": {
+      "item": "edx:fire_polished_blackstone",
+      "count": 4
+    }
+  }
+  
+}

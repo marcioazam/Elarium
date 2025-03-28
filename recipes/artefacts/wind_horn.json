@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "wind_horn"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "IDW",
+      "DHD",
+      "WDI"
+    ],
+    "unlock": [
+      {
+        "item": "dungeons:diamond_dust"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "dungeons:diamond_dust"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "W": {
+        "item": "minecraft:wind_charge"
+      },
+      "H": {
+        "item": "minecraft:goat_horn"
+      }
+    },
+    "result": {
+      "item": "dungeons:wind_horn",
+      "count": 1
+    }
+  }
+}

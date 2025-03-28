@@ -1,0 +1,48 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:void_shovel"
+    },
+
+    "tags": [ "void_catalyst" ],
+    "pattern": [
+      "CLC",
+      "LEL",
+      "CDC"
+    ],
+    "unlock": [
+      {
+        "item": "edx:void_crystal"
+      },
+      {
+        "item": "edx:dragon_essence"
+      },
+      {
+        "item": "edx:void_essence"
+      },
+      {
+        "item": "edx:old_shovel"
+      }
+    ],
+    "key": {
+      "C": {
+        "item": "edx:void_crystal"
+      },
+      "D": {
+        "item": "edx:dragon_essence"
+      },
+      "L": {
+        "item": "edx:void_essence"
+      },
+      "E": {
+        "item": "edx:old_shovel"
+      }
+      
+    },
+    "result": {
+      "item": "edx:void_shovel"
+    }
+  }
+  
+}

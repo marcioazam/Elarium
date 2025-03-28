@@ -1,0 +1,574 @@
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:drowned_necromancer",
+      "runtime_identifier": "minecraft:zombie",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:shockwave_cooldown": {
+        "minecraft:behavior.avoid_mob_type": {
+          "priority": 1,
+          "entity_types": [{
+            "filters": {
+              "any_of": [{
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "snowgolem"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "irongolem"
+                }
+              ]
+            },
+            "max_dist": 5,
+            "max_flee": 5,
+            "walk_speed_multiplier": 1.4,
+            "sprint_speed_multiplier": 1.4
+          }]
+        },
+        "minecraft:behavior.timer_flag_1": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            5,
+            9
+          ],
+          "on_end": {
+            "event": "dungeons:end_cooldown",
+            "target": "self"
+          }
+        }
+      },
+      "dungeons:shockwave_ready": {
+        "minecraft:entity_sensor": {
+          "sensor_range": 3,
+          "maximum_count": -1,
+          "minimum_count": 1,
+          "require_all": false,
+          "event_filters": {
+            "any_of": [{
+                "all_of": [{
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "none_of": {
+                      "test": "has_ability",
+                      "subject": "other",
+                      "value": "instabuild"
+                    }
+                  }
+                ]
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              },
+              {
+                "test": "is_target",
+                "subject": "other"
+              }
+            ]
+          },
+          "event": "dungeons:begin_shockwave"
+        }
+      },
+      "dungeons:shockwave": {
+        "minecraft:behavior.knockback_roar": {
+          "priority": 1,
+          "duration": 0.3,
+          "attack_time": 0.1,
+          "knockback_damage": 6,
+          "knockback_horizontal_strength": 2.5,
+          "knockback_vertical_strength": 2,
+          "knockback_height_cap": 4,
+          "knockback_range": 4,
+          "knockback_filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "monster"
+          },
+          "damage_filters": {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "drowned"
+          },
+          "on_roar_end": {
+            "event": "dungeons:end_shockwave"
+          },
+          "cooldown_time": 0.1
+        }
+      },
+      "minecraft:hunter_mode": {
+        "minecraft:navigation.climb": {
+          "is_amphibious": true,
+          "avoid_water": true,
+          "can_break_doors": true,
+          "can_open_doors": true,
+          "can_pass_doors": true,
+          "can_swim": true,
+          "can_walk": true,
+          "can_jump": true,
+          "avoid_damage_blocks": true,
+          "avoid_portals": true,
+          "avoid_sun": true,
+          "can_sink": true
+      
+        }
+      },
+      "minecraft:wander_mode": {
+        "minecraft:navigation.climb": {
+          "is_amphibious": true,
+          "avoid_water": true,
+          "can_break_doors": true,
+          "can_open_doors": true,
+          "can_pass_doors": true,
+          "can_swim": true,
+          "can_walk": true,
+          "can_jump": true,
+          "avoid_damage_blocks": true,
+          "avoid_portals": true,
+          "avoid_sun": true,
+          "can_sink": true
+      
+        }
+      }
+    },
+    "components": {
+      "minecraft:break_blocks": {
+				"breakable_blocks": [
+"redstone_torch",
+"torch",
+"glowstone",
+					"minecraft:acacia_door",
+					"minecraft:bamboo_door",
+					"minecraft:birch_door",
+					"minecraft:crimson_door",
+					"minecraft:dark_oak_door",
+					"minecraft:jungle_door",
+					"minecraft:mangrove_door",
+					"minecraft:spruce_door",
+					"minecraft:warped_door",
+					"minecraft:wooden_door",
+					"minecraft:bed",
+					"minecraft:cherry_door",
+					"minecraft:iron_door",
+					"minecraft:copper_door",
+					"minecraft:exposed_copper_door",
+					"minecraft:oxidized_copper_door",
+					"minecraft:waxed_copper_door",
+					"minecraft:waxed_exposed_copper_door",
+					"minecraft:waxed_oxidized_copper_door",
+					"minecraft:waxed_weathered_copper_door",
+					"minecraft:weathered_copper_door"
+				]
+			},
+      "minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.25
+					},
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+      "minecraft:follow_range": {
+				"value": 64
+			},
+			"minecraft:on_target_acquired": {
+				"event": "angry",
+				"target": "self"
+			},
+      "minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 8
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+      "minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 32,
+						"priority": 0
+					},
+					{
+						"max_dist": 32,
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"priority": 1
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 32,
+						"priority": 3
+					},
+					{
+						"priority": 2,
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "animal"
+						},
+						"max_dist": 32
+					}
+				]
+			},
+      "minecraft:behavior.pickup_items": {
+				"priority": 5,
+				"max_dist": 3,
+				"goal_radius": 2,
+				"speed_multiplier": 1,
+				"pickup_based_on_chance": true,
+				"can_pickup_any_item": true
+			},
+            "minecraft:navigation.climb": {
+				"is_amphibious": true,
+				"avoid_water": true,
+				"can_break_doors": true,
+				"can_open_doors": true,
+				"can_pass_doors": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_jump": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true,
+				"avoid_sun": true,
+				"can_sink": true
+		
+			},
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4 
+          }
+        ]
+      },
+      "minecraft:angry": {
+					"broadcast_anger": true,
+					
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 16,
+					"duration": 20,
+					"broadcast_targets": [
+						"undead"
+					],
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"operator": "!=",
+						"value": "undead"
+					},
+					"calm_event": {
+						"event": "calm",
+						"target": "self"
+					}
+				},
+      "minecraft:behavior.hurt_by_target": {
+  "priority": 1,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "breeze"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "undead"
+          }
+        ]
+      }
+    }
+  ]
+},
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:nameable": {},
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:underwater_movement": {
+        "value": 0.1
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 50 : 0"
+      },
+      "minecraft:type_family": {
+        "family": ["necromancer", "drowned", "undead", "monster", "mob"]
+      },
+      "minecraft:equip_item": {},
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 24,
+        "name": " §eDrowned Necromancer§r "
+      },
+      "minecraft:movement.basic": {},
+ 
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:health": {
+        "value": 280,
+        "max": 280
+      },
+      "minecraft:scale": {
+        "value": 1.51
+      },
+      
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true,
+        "breathes_water": true
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/drowned_necromancer.json"
+      },
+      "minecraft:shooter": {
+        "def": "dungeons:drowned_necromancer_shot"
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 3,
+        "burst_shots": 6,
+        "burst_interval": 0.5,
+        "charge_charged_trigger": 0.1,
+        "charge_shoot_trigger": 1,
+        "attack_interval_min": 1.5,
+        "attack_interval_max": 3.0,
+        "attack_radius": 24
+      },
+      "minecraft:behavior.summon_entity": {
+        "priority": 2,
+        "summon_choices": [{
+          "cooldown_time": 15,
+          "weight": 1,
+          "do_casting": true,
+          "cast_duration": 1.25,
+          "particle_color": "#03ffcd",
+          "start_sound_event": "cast.spell",
+          "sequence": [{
+            "shape": "circle",
+            "target": "self",
+            "base_delay": 1,
+            "delay_per_summon": 0.1,
+            "num_entities_spawned": 2,
+            "entity_type": "dungeons:drowned_hunter",
+            "size": 1.0,
+            "summon_cap": 6,
+            "summon_cap_radius": 40,
+            "entity_lifespan": 40
+          }]
+        }]
+      },
+     
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": false,
+        "reselect_targets": true,
+        "within_radius": 25.0,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [{
+          "filters": {
+            "any_of": [{
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "snowgolem"
+              },
+              {
+                "test": "is_family",
+                "subject": "other",
+                "value": "irongolem"
+              }
+            ]
+          },
+          "max_dist": 64
+        }]
+      },
+   
+      "minecraft:on_target_escape": {
+        "event": "minecraft:lost_target",
+        "target": "self"
+      },
+   
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "dungeons:shockwave_ready"
+          ]
+        }
+      },
+      "dungeons:begin_shockwave": {
+        "add": {
+          "component_groups": [
+            "dungeons:shockwave"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shockwave_ready"
+          ]
+        },
+                "queue_command": {
+                    "command": [
+                        "playsound mob.drowned_necromancer.summon @a ~~~ 1.0 0.8",
+                        "effect @s slowness 2 9 true",
+                        "effect @s resistance 1 9 true",
+                        "effect @s instant_damage 1 0 true",
+                        "playanimation @s animation.drowned_necromancer.idle"
+                    ]
+               }
+      },
+      "dungeons:end_shockwave": {
+        "add": {
+          "component_groups": [
+            "dungeons:shockwave_cooldown"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shockwave"
+          ]
+        }
+      },
+      "dungeons:end_cooldown": {
+        "add": {
+          "component_groups": [
+            "dungeons:shockwave_ready"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "dungeons:shockwave_cooldown"
+          ]
+        }
+      },
+      "minecraft:has_target": {
+        "remove": {
+          "component_groups": [
+            "minecraft:wander_mode"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:hunter_mode"
+          ]
+        }
+      },
+      "minecraft:lost_target": {
+        "remove": {
+          "component_groups": [
+            "minecraft:hunter_mode"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:wander_mode"
+          ]
+        }
+      }
+    }
+  }
+}

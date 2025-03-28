@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:snow_cone"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "B",
+            "A"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:paper"
+            },
+            "B": {
+                "item": "minecraft:snowball"
+            }
+        },
+        "result": {
+            "item": "edx:snow_cone",
+            "count": 1
+        },
+        "unlock": [
+            {
+                "item": "minecraft:snowball"
+            }
+          ],
+        "priority": 0
+    }
+}

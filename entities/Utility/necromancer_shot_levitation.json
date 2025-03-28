@@ -1,0 +1,77 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:necromancer_shot_levitation",
+      "runtime_identifier": "minecraft:snowball",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval":true,
+          "time": [7, 14],
+          "time_down_event": {
+            "event": "dungeons:despawn"
+          }
+        },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 8,
+            "knockback": true
+          },
+          "remove_on_hit": { },
+          "mob_effect": {
+            "effect": "levitation",
+            "durationeasy": 21,
+            "durationnormal": 21,
+            "durationhard": 31,
+            "amplifier": 4
+          }
+        },
+        "anchor": 1,
+        "power": 0.49,
+        "gravity": 0.00001,
+        "angle_offset": 0.0,
+        "offset": [ 0, -0.1, 0 ]
+      },
+	    "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:type_family": {
+        "family": [ "necromancer_shot", "inanimate"]
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 100.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "dungeons:despawn": {
+          "add": {
+            "component_groups": [
+              "dungeons:despawn"
+            ]
+          }
+        }
+      }
+   }
+}

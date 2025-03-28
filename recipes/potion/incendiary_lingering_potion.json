@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "edx:incendiary_potion_lingering"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "edx:fire_potion",
+    "reagent": "minecraft:dragon_breath",
+    "output": "edx:incendiary_lingering_potion"
+  }
+}

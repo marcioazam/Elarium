@@ -1,0 +1,1 @@
+scoreboard players set active sanctuary 0

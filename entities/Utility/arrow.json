@@ -1,0 +1,695 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:arrow",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+
+    "component_groups": {
+      "minecraft:hard_arrow": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": [ 2, 4 ],
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true,
+              "max_critical_damage": 5,
+              "min_critical_damage": 6
+            },
+            "stick_in_ground": {
+              "shake_time": 0.4
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 2.0,
+          "gravity": 0.05,
+          "uncertainty_base": 16,
+          "uncertainty_multiplier": 6,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:abomination": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": [ 7, 9 ],
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true,
+              "max_critical_damage": 10,
+              "min_critical_damage": 10
+            },
+            "stick_in_ground": {
+              "shake_time": 0.4
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 2.5,
+          "gravity": 0.05,
+          "uncertainty_base": 16,
+          "uncertainty_multiplier": 6,
+          "crit_particle_on_hurt": true,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:elite_arrow": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": [ 4, 6 ],
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true,
+              "max_critical_damage": 7,
+              "min_critical_damage": 8
+            },
+            "stick_in_ground": {
+              "shake_time": 0.4
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 2.5,
+          "gravity": 0.05,
+          "uncertainty_base": 16,
+          "uncertainty_multiplier": 6,
+          "crit_particle_on_hurt": true,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:player_bow": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 1,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 5,
+              "min_critical_damage": 2,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 1.8,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:player_crossbow": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 1,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 4,
+              "min_critical_damage": 1,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 3.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:crossbow_damage_1": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 2,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 5,
+              "min_critical_damage": 2,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 3.5,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:crossbow_damage_2": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 3,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 6,
+              "min_critical_damage": 3,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 4.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:crossbow_damage_3": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 4,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 7,
+              "min_critical_damage": 4,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 5.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+
+      "minecraft:bow_damage_1": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 2,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 6,
+              "min_critical_damage": 3,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 2.5,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:bow_damage_2": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 3,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 7,
+              "min_critical_damage": 4,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 3.0,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:bow_damage_3": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 4,
+              "knockback": true,
+              "semi_random_diff_damage": true,
+              "destroy_on_hit": false,
+              "max_critical_damage": 8,
+              "min_critical_damage": 5,
+              "power_multiplier": 0.95
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 3.5,
+          "gravity": 0.05,
+          "uncertainty_base": 1,
+          "uncertainty_multiplier": 0,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      },
+      "minecraft:pillager_arrow": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": [ 4, 5 ],
+              "max_critical_damage": 6,
+              "min_critical_damage": 8,
+              "knockback": true,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "stick_in_ground": {
+              "shake_time": 0.35
+            },
+            "arrow_effect": {
+              "apply_effect_to_blocking_targets": false
+            }
+          },
+          "hit_sound": "bow.hit",
+          "power": 2.5,
+          "gravity": 0.05,
+          "uncertainty_base": 16,
+          "uncertainty_multiplier": 4,
+          "anchor": 1,
+          "should_bounce": true,
+          "offset": [ 0, -0.1, 0 ]
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava", "subject": "self", "operator": "==", "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": [ 1, 4 ],
+            "knockback": true,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": false
+          },
+          "stick_in_ground": {
+            "shake_time": 0.35
+          },
+          "arrow_effect": {
+            "apply_effect_to_blocking_targets": false
+          }
+        },
+        "hit_sound": "bow.hit",
+        "power": 1.6,
+        "gravity": 0.05,
+        "uncertainty_base": 16,
+        "uncertainty_multiplier": 4,
+        "anchor": 1,
+        "should_bounce": true,
+        "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:dimension_bound": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:scale": { "value": 1 },
+      "minecraft:type_family": { "family": [ "arrow", "ignore" ] },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+    
+      "minecraft:entity_spawned": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_family", "subject": "other", "value": "monster"
+            },
+            "add": {
+              "component_groups": [ "minecraft:hard_arrow" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_family", "subject": "other", "value": "player"
+            },
+            "add": {
+              "component_groups": [ "minecraft:player_bow" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "is_family", "subject": "other", "value": "pillager"
+            },
+            "add": {
+              "component_groups": [ "minecraft:pillager_arrow" ]
+            }
+          }, {
+            "filters": {
+              "test": "is_family", "subject": "other", "value": "elite"
+            },
+            "add": {
+              "component_groups": [ "minecraft:elite_arrow" ]
+            }
+          },{
+            "filters": {
+              "test": "is_family", "subject": "other", "value": "abomination"
+            },
+            "add": {
+              "component_groups": [ "minecraft:abomination"]
+            }
+          },{
+            "filters": {
+              "test": "has_tag", "subject": "self", "value": "longbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_1"]
+            }
+          },{
+            "filters": {
+              "test": "has_tag", "value": "snow_bow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_1"]
+            }
+          }
+          ,{
+            "filters": {
+              "test": "has_tag", "value": "twisting_vine_bow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_1"]
+            }
+          }
+          ,{
+            "filters": {
+              "test": "has_tag", "value": "wind_bow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_1"]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "bonebow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_2"]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "burst_gale_bow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_2"]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "guardian_bow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_2"]
+            }
+          }
+          ,
+          {
+            "filters": {
+              "test": "has_tag", "value": "red_snake"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_3"]
+            }
+          }
+          ,
+          {
+            "filters": {
+              "test": "has_tag", "value": "twin_bow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_3"]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "weeping_vine_bow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_2"]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "winters_touch"
+            },
+            "add": {
+              "component_groups": [ "minecraft:bow_damage_2"]
+            }
+          }
+
+
+          
+          
+          
+          
+          // crossbow
+          ,{
+            "filters": {
+              "test": "has_tag",   "value": "exploding_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_1" ]
+            }
+          }
+          ,{
+            "filters": {
+              "test": "has_tag", "value": "harpoon_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_1" ]
+            }
+          }
+          ,{
+            "filters": {
+              "test": "has_tag", "value": "heavy_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_1" ]
+            }
+          }
+          ,{
+            "filters": {
+              "test": "has_tag", "value": "soul_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_1" ]
+            }
+          }
+
+          ,{
+            "filters": {
+              "test": "has_tag", "value": "burst_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_1" ]
+            }
+          }
+          ,{
+            "filters": {
+              "test": "has_tag", "value": "cog_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_1" ]
+            }
+          },
+
+
+          
+
+
+
+          {
+            "filters": {
+              "test": "has_tag", "value": "doom_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_2" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "feral_soul_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_2" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "firebolt_thrower"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_2" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "imploding_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_3" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "nautical_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_2" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "pride_of_the_piglins"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_3" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "slayer_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_2" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "soul_hunter_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_3" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "voidcaller"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_3" ]
+            }
+          },
+          {
+            "filters": {
+              "test": "has_tag", "value": "corrupted_crossbow"
+            },
+            "add": {
+              "component_groups": [ "minecraft:crossbow_damage_2" ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

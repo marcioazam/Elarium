@@ -1,0 +1,1 @@
+execute as @e[family=spear_ground,r=60,c=1] at @s run playsound random.break @a ~~~ 10 0.2

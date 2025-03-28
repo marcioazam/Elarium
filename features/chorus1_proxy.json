@@ -1,0 +1,26 @@
+{
+	"format_version": "1.13.0",
+
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:chorus1_proxy"
+		},
+
+		"places_feature": "edx:chorus1_feature",
+
+		"iterations": 1,
+    "scatter_chance": 100.0,
+    "x": {
+      "distribution": "uniform",
+      "extent": [ 0, 16 ]
+    },
+    "y": {
+      "distribution": "uniform",
+      "extent": [ 0,2 ]
+    },
+    "z": {
+      "distribution": "uniform",
+      "extent": [ 0, 16 ]
+    }
+	}
+}

@@ -1,0 +1,218 @@
+{
+  "format_version": "1.16.210",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:jungle_abomination_resting",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:finish_waking": {
+        "minecraft:transformation": {
+          "into": "dungeons:jungle_abomination"
+        }
+      },
+      "dungeons:start_waking": {
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "bamboo",
+          "bamboo_sapling",
+          "beetroot",
+          "brown_mushroom",
+          "carrots",
+          "carved_pumpkin",
+          "chorus_flower",
+          "chorus_plant",
+          "deadbush",
+          "double_plant",
+          "leaves",
+          "leaves2",
+          "lit_pumpkin",
+          "melon_block",
+          "melon_stem",
+          "potatoes",
+          "pumpkin",
+          "pumpkin_stem",
+          "red_flower",
+          "red_mushroom",
+          "crimson_fungus",
+          "warped_fungus",
+          "reeds",
+          "sapling",
+          "snow_layer",
+          "sweet_berry_bush",
+          "tallgrass",
+          "turtle_egg",
+          "vine",
+          "waterlily",
+          "wheat",
+          "yellow_flower",
+          "azalea",
+          "flowering_azalea",
+          "azalea_leaves",
+          "azalea_leaves_flowered",
+          "cave_vines",
+          "cave_vines_body_with_berries",
+          "cave_vines_head_with_berries",
+          "small_dripleaf_block",
+          "big_dripleaf",
+          "spore_blossom",
+          "hanging_roots",
+          "mangrove_leaves"
+        ]
+      },
+      "minecraft:type_family": {
+        "family": [
+          "boss",
+          "monster",
+          "monstrosity",
+          "gravity_immune"
+        ]
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 48,
+        "name": " §qJungle Abomination§r "
+      },
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": 1.125,
+          "time_down_event": {
+            "event": "dungeons:finish_waking"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "boss",
+          "monstrosity",
+          "gravity_immune",
+          "boss_proxy"
+        ]
+      },
+      "minecraft:reflect_projectiles": {
+        "reflected_projectiles": [
+          "experience_bottle",
+          "thrown_trident",
+          "shulker_bullet",
+          "dragon_fireball",
+          "arrow",
+          "snowball",
+          "thrownegg",
+          "fireball",
+          "splash_potion",
+          "ender_pearl",
+          "thrownenderpearl",
+          "wither_skull",
+          "small_fireball",
+          "lingering_potion",
+          "llama_spit",
+          "evocation_fang",
+          "ice_bomb",
+          "thrownicebomb"
+        ],
+        "azimuth_angle": "180.0 + Math.random(-20.0, 20.0)",
+        "reflection_scale": "0.25"
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_variant",
+                    "subject": "self",
+                    "value": 0
+                  },
+                  {
+                    "test": "is_difficulty",
+                    "operator": "!=",
+                    "value": "peaceful"
+                  }
+                ]
+              },
+              "event": "dungeons:start_waking",
+              "target": "self"
+            },
+            "interact_text": "action.interact.jungle_abomination",
+            "cooldown": 10
+          }
+        ]
+      },
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:collision_box": {
+        "width": 3,
+        "height": 6.5
+      },
+      "minecraft:health": {
+        "value": 2000,
+        "max": 2000
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "dungeons:boss_proxy": {
+        "queue_command": {
+          "command": [
+            "tp @s ~~~ facing @e[type=dungeons:boss_proxy,c=1]"
+          ]
+        }
+      },
+      "dungeons:start_waking": {
+        "add": {
+          "component_groups": [
+            "dungeons:start_waking"
+          ]
+        },
+        "queue_command": {
+          "command": [
+            "function camerashake"
+          ]
+        }
+      },
+      "dungeons:finish_waking": {
+        "queue_command": {
+          "command": [
+            "summon dungeons:jungle_abomination_awaken_boom ~~2~"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:finish_waking"
+          ]
+        }
+      }
+    }
+  }
+}

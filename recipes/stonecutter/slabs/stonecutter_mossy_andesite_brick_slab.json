@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "edx:stonecutter_mossy_andesite_brick_slab"
+    },
+    "tags": [ "stonecutter" ],
+    "priority": 3,
+    "ingredients": [
+      {
+        "item": "edx:mossy_andesite_brick"
+      }
+    ],
+    "result": {
+      "item": "edx:mossy_andesite_brick_slab",
+      "count": 2
+    }
+  }
+}

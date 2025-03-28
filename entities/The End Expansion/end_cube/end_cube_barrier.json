@@ -1,0 +1,120 @@
+{
+  "format_version": "1.18.20",
+
+  "minecraft:entity": {
+    "description": {
+      "identifier": "xp:end_cube_barrier",
+
+      "is_summonable": true,
+
+      "scripts": {
+        "animate": [
+          "barrier",
+          { "spawners": "!(q.out_of_control && q.is_powered)" }
+        ]
+      },
+      "animations": {
+        "barrier": "controller.animation.end_cube_barrier.barrier",
+
+        "spawners": "animation.end_cube_marker.spawners"
+      }
+    },
+
+    "component_groups": {
+      "xp:instant_despawn": {
+        "minecraft:instant_despawn": {}
+      },
+      "xp:remove_barrier": {
+        "minecraft:out_of_control": {}
+      },
+
+      "xp:apply_barrier": {
+        "minecraft:is_charged": {}
+      },
+      "xp:damaged_barrier": {
+        "minecraft:is_saddled": {},
+        "minecraft:timer": {
+          "looping": false,
+          "time": 0.1,
+          "time_down_event": {
+            "event": "xp:remove_damaged_barrier",
+            "target": "self"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "end_cube", "barrier", "inanimate" ]
+      },
+      "minecraft:health": {
+        "max": 1,
+        "value": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:is_stackable": {
+      },
+      "minecraft:persistent": {
+      },
+	    "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "xp:instant_despawn": {
+        "add": {
+          "component_groups": [ "xp:instant_despawn" ]
+        }
+      },
+      "xp:remove_barrier": {
+        "add": {
+          "component_groups": [ "xp:remove_barrier" ]
+        }
+      },
+
+      "xp:activate_barrier": {
+        "add": {
+          "component_groups": [ "xp:apply_barrier" ]
+        }
+      },
+      "xp:deactivate_barrier": {
+        "add": {
+          "component_groups": [ "xp:remove_barrier" ]
+        },
+        "remove": {
+          "component_groups": [ "xp:apply_barrier" ]
+        }
+      },
+      "xp:damaged_barrier": {
+        "add": {
+          "component_groups": [ "xp:damaged_barrier" ]
+        }
+      },
+      "xp:remove_damaged_barrier": {
+        "remove": {
+          "component_groups": [ "xp:damaged_barrier" ]
+        }
+      }
+    }
+  }
+}

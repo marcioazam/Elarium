@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:chorus_stew"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "XDX",
+      " B "
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:chorus_fruit"
+      },
+      "D": {
+        "item": "edx:chorus_mushroom"
+      },
+      "B": {
+      "item": "minecraft:bowl"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:chorus_mushroom"
+      },
+      {
+        "item": "minecraft:chorus_fruit"
+      }
+    ],
+    "result": {
+      "item": "edx:chorus_stew",
+      "count": 1
+    }
+  }
+}

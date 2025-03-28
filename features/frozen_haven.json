@@ -1,0 +1,15 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "edx:frozen_haven"
+    },
+    "structure_name": "mystructure:Frozen_haven_top",
+    "adjustment_radius": 0,
+		"facing_direction": "south",
+		"constraints": {
+			"grounded": {},
+			"unburied": {}
+		}
+  }
+}

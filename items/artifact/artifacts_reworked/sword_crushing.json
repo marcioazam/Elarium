@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:crushing_scroll",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"crushing_scroll"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "crushing_scroll"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dCrushing knowledge scroll \n§5Artifact\n§6Hitting a mob in the air with a sword do more damage and throw it to the ground"
+			  }
+		}
+	}
+}

@@ -1,0 +1,83 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.use_enchant_artifacts": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "use_void_blast_i": "q.is_item_name_any('slot.weapon.mainhand', 'xp:void_blast_enchant_i') && q.is_using_item" },
+            { "use_void_blast_ii": "q.is_item_name_any('slot.weapon.mainhand', 'xp:void_blast_enchant_ii') && q.is_using_item" },
+            { "use_void_blast_iii": "q.is_item_name_any('slot.weapon.mainhand', 'xp:void_blast_enchant_iii') && q.is_using_item" },
+            { "use_stinging_warders_i": "q.is_item_name_any('slot.weapon.mainhand', 'xp:stinging_warders_enchant_i') && q.is_using_item" },
+            { "use_stinging_warders_ii": "q.is_item_name_any('slot.weapon.mainhand', 'xp:stinging_warders_enchant_ii') && q.is_using_item" },
+            { "use_stinging_warders_iii": "q.is_item_name_any('slot.weapon.mainhand', 'xp:stinging_warders_enchant_iii') && q.is_using_item" }
+          ]
+        },
+        "use_void_blast_i": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "/effect @s strength 180 1 true",
+            "/replaceitem entity @s slot.weapon.mainhand 0 air",
+            "/summon xp:sanctuary_mob_spawn ~ ~ ~",
+            "/playsound item.enchant_artifact.use @a ~ ~ ~"
+          ]
+        },
+        "use_void_blast_ii": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "/effect @s strength 180 2 true",
+            "/replaceitem entity @s slot.weapon.mainhand 0 air",
+            "/summon xp:sanctuary_mob_spawn ~ ~ ~",
+            "/playsound item.enchant_artifact.use @a ~ ~ ~"
+          ]
+        },
+        "use_void_blast_iii": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "/effect @s strength 180 3 true",
+            "/replaceitem entity @s slot.weapon.mainhand 0 air",
+            "/summon xp:sanctuary_mob_spawn ~ ~ ~",
+            "/playsound item.enchant_artifact.use @a ~ ~ ~"
+          ]
+        },
+        "use_stinging_warders_i": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "/replaceitem entity @s slot.weapon.mainhand 0 air",
+            "/summon xp:sanctuary_mob_spawn ~ ~ ~",
+            "/summon xp:sanctuary_mob_spawn ^ ^ ^2",
+            "/summon xp:friendly_warder ^ ^ ^2",
+            "/playsound item.enchant_artifact.use @a ~ ~ ~"
+          ]
+        },
+        "use_stinging_warders_ii": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "/replaceitem entity @s slot.weapon.mainhand 0 air",
+            "/summon xp:sanctuary_mob_spawn ~ ~ ~",
+            "/summon xp:sanctuary_mob_spawn ^1 ^ ^2",
+            "/summon xp:sanctuary_mob_spawn ^-1 ^ ^2",
+            "/summon xp:friendly_warder ^1 ^ ^2",
+            "/summon xp:friendly_warder ^-1 ^ ^2",
+            "/playsound item.enchant_artifact.use @a ~ ~ ~"
+          ]
+        },
+        "use_stinging_warders_iii": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            "/replaceitem entity @s slot.weapon.mainhand 0 air",
+            "/summon xp:sanctuary_mob_spawn ~ ~ ~",
+            "/summon xp:sanctuary_mob_spawn ^1 ^ ^2",
+            "/summon xp:sanctuary_mob_spawn ^ ^ ^2",
+            "/summon xp:sanctuary_mob_spawn ^-1 ^ ^2",
+            "/summon xp:friendly_warder ^1 ^ ^2",
+            "/summon xp:friendly_warder ^ ^ ^2",
+            "/summon xp:friendly_warder ^-1 ^ ^2",
+            "/playsound item.enchant_artifact.use @a ~ ~ ~"
+          ]
+        }
+      }
+    }
+  }
+}

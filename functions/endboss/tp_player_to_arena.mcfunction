@@ -1,0 +1,1 @@
+event entity @s xp:end_travel.to_endboss

@@ -1,0 +1,88 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 6,
+        "max": 10 
+      },
+      "entries": [
+        {
+          "type": "item",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ],
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "name": "edx:nickel_ingot"
+        },
+        {
+          "type": "item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "name": "edx:tin_coin"
+        },
+        {
+          "type": "item",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ],
+          "name": "minecraft:iron_ingot"
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ],
+          "name": "minecraft:gold_ingot"
+        },
+        {
+          "type": "item",
+          "weight": 5,
+          "name": "edx:platinium_shovel"
+        },
+        {
+          "type": "item",
+          "weight": 5,
+          "name": "edx:platinium_pickaxe"
+        }
+      ]
+    }
+  ]
+}

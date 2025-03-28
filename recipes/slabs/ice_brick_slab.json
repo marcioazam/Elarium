@@ -1,0 +1,28 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "edx:ice_brick_slab"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "WWW"
+        ],
+        "key": {
+            "W": {
+                "item": "edx:ice_brick"
+            }
+        },
+        "unlock": [
+            {
+                "item": "edx:ice_brick"
+            }
+        ],
+        "result": {
+            "item": "edx:ice_brick_slab",
+            "count": 6
+        }
+    }
+}

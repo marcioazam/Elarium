@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "bp_resolute_tempest_knife"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "key": {
+      "B": {
+        "item": "dungeons:blue_print"
+      },
+      "W": {
+        "item": "dungeons:resolute_tempest_knife"
+      }
+    },
+    "unlock": [
+      {
+        "item": "dungeons:resolute_tempest_knife"
+      }
+    ],
+    "pattern": [
+      "B",
+      "W"
+    ],
+    "result": [
+      { "item": "dungeons:resolute_tempest_knife", "count": 1 },
+      { "item": "dungeons:resolute_tempest_knife", "count": 1 }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "edx:furnace_tin"
+    },
+
+    "unlock": [
+      {
+        "item": "edx:raw_tin"
+      }
+    ],
+    "tags": ["furnace", "blast_furnace"],
+    "input": "edx:raw_tin",
+    "output": "edx:tin_ingot"
+  }
+  
+}

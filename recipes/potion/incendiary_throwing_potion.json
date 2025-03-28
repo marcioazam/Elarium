@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "edx:incendiary_potion_throw"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "edx:fire_potion",
+    "reagent": "minecraft:gunpowder",
+    "output": "edx:incendiary_throwing_potion"
+  }
+}

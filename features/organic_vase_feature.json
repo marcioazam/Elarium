@@ -1,0 +1,24 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:single_block_feature": {
+        "description": {
+          "identifier": "edx:organic_vase_feature"
+        },
+        "places_block":{
+            "name": "edx:organic_vase",
+            "states": {
+                "edx:stage": 4
+            }
+        },
+        "enforce_placement_rules": true,
+        "enforce_survivability_rules": true,
+        "may_attach_to": {
+          "bottom":  [
+            "minecraft:soul_soil"
+        ]
+      },
+        "may_replace": [
+          "minecraft:air"
+        ]
+      }
+}

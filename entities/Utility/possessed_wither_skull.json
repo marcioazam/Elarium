@@ -1,0 +1,253 @@
+{
+    "format_version": "1.18.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "edx:possessed_wither_skull",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {
+                   "remove_child_entities": true
+                }
+             },
+            "explode": {
+                "minecraft:area_attack" : {
+                    "damage_range": 2.5,
+                    "damage_per_tick": 1,
+                    "cause": "contact",
+                    "entity_filter": {
+                      "any_of": [
+                        { "test": "is_family", "subject": "other", "value": "player" }
+                      ]
+                    }
+                  },
+                  "minecraft:mob_effect": {
+                    "effect_range": 2.5,
+                    "mob_effect": "wither",
+                    "effect_time": 10,
+                    "entity_filter": {
+                      "any_of": [
+                        { "test": "is_family", "subject": "other", "value": "player" }
+                      ] 
+                    }
+                  },
+                  "minecraft:timer": {
+                    "looping": true,
+                    "time": 0.01,
+                    "randomInterval": false,
+                    "time_down_event": {
+                      "event": "despawn"
+                    }
+                  }
+            },
+            "hurt_explode": {
+              "minecraft:area_attack" : {
+                  "damage_range": 2.5,
+                  "damage_per_tick": 1,
+                  "cause": "contact",
+                  "entity_filter": {
+                    "any_of": [
+                      { "test": "is_family", "subject": "other", "value": "player" }
+                    ]
+                  }
+                },
+                "minecraft:mob_effect": {
+                  "effect_range": 2.5,
+                  "mob_effect": "wither",
+                  "effect_time": 5,
+                  "entity_filter": {
+                    "any_of": [
+                      { "test": "is_family", "subject": "other", "value": "player" }
+                    ] 
+                  }
+                },
+                "minecraft:timer": {
+                  "looping": true,
+                  "time": 0.01,
+                  "randomInterval": false,
+                  "time_down_event": {
+                    "event": "kill"
+                  }
+                }
+          }
+        },
+        "components": {
+
+          "minecraft:damage_sensor": {
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "operator": "!=",
+              "value": "player"
+            }
+          },
+          "deals_damage": false
+        }
+      },
+          "minecraft:knockback_resistance": {
+            "value": 1.0
+            },
+            "minecraft:behavior.look_at_target": {
+            "priority": 10,
+            "look_distance": 8
+          },
+          "minecraft:physics": {
+            "has_gravity": false,
+            "has_collision": true
+          },
+          "minecraft:pushable": {
+            "is_pushable": false
+          },
+          "minecraft:behavior.look_at_player": {
+            "priority": 9,
+            "look_distance": 6.0
+            },
+            "minecraft:behavior.float": {
+            "priority": 15
+           },
+           "minecraft:attack": {
+            "damage": 1
+             },
+             "minecraft:behavior.melee_attack": {
+              "priority": 1,
+              "speed_multiplier": 1,
+              "track_target": true,
+              "reach_multiplier":  0.0,
+              "require_complete_path": false
+               },
+           "minecraft:behavior.random_stroll": {
+            "priority": 4,
+            "speed_multiplier": 1.0
+            },
+            "minecraft:behavior.random_look_around": {
+            "priority": 5
+            },
+           "minecraft:breathable": {
+            "total_supply": 20,
+            "suffocate_time": 0
+           },
+           "minecraft:collision_box": {
+            "width": 0.45,
+            "height": 0.45
+           },
+           "minecraft:movement": {
+            "value": 0.20
+           },
+           "minecraft:flying_speed": {
+            "value": 0.15
+           },
+           "minecraft:navigation.hover": {
+            "can_path_over_water": true,
+            "can_sink": true,
+            "can_pass_doors":  true,
+            "can_path_from_air": true,
+            "avoid_water": false,
+            "avoid_damage_blocks": false,
+            "avoid_sun": false,
+            "can_swim": false
+           },
+           "minecraft:on_hurt_by_player": {
+            "event": "hurt",
+            "target": "self"
+            },
+           "minecraft:game_event_movement_tracking": {
+            "emit_move": false,
+            "emit_swim": false
+            },
+           "minecraft:movement.hover": {},
+           "minecraft:jump.static": {},
+           "minecraft:can_fly": {},
+           "minecraft:type_family": {
+            "family": ["monster","undead"]
+          },
+          "minecraft:despawn": {
+            "despawn_from_distance": {}
+            },
+            "minecraft:behavior.random_hover": {
+              "priority": 12,
+              "xz_dist": 10,
+              "y_dist": 8,
+              "y_offset": -1,
+              "interval": 1,
+              "hover_height": [1, 4]
+          },
+           "minecraft:nameable": {},
+            "minecraft:behavior.nearest_attackable_target": {
+            "priority": 1,
+            "entity_types": [
+              {
+              "filters": {  
+                "any_of": [
+                  { "test" :  "is_family", "subject" : "other", "value" :  "player"}
+                ] 
+              },
+              "max_dist": 50
+              }
+             
+            ],
+            "must_see": false
+            },
+            "minecraft:entity_sensor": {
+                "sensor_range": 2, 
+                "relative_range": false,
+                "require_all": true,
+                "event_filters": {
+                  "any_of": [
+                    { "test": "is_family", "subject": "other", "value": "player" }
+                   
+                  ]
+                },
+                "event": "explode"
+              },
+            "minecraft:fire_immune": {
+            },
+            "minecraft:loot": {
+              "table": "loot_tables/entities/possessed_w_skull.json"
+              }
+        },
+        "events": {
+            "explode": {
+                                "add": {
+                                    "component_groups": [
+                                        "explode"
+                                    ]
+                                }
+            },
+            "despawn": {
+                "add": {
+                   "component_groups": [
+                      "despawn"
+                   ]
+                },
+                "queue_command": {
+                  "command": [
+                    "playsound random.explode @a[r=30] ~~~ 0.5 1",
+                    "particle minecraft:camera_shoot_explosion ~~~"
+                  ]}
+             },
+             "hurt": {
+              "add":  {
+                 "component_groups": [
+                    "hurt_explode"
+                 ]
+              },
+              "queue_command": {
+                "command": [
+                  "playsound random.explode @a[r=30] ~~~ 0.5 1",
+                  "particle minecraft:camera_shoot_explosion ~~~"
+                ]}
+           },
+           "kill": {
+            "queue_command": {
+              "command": [
+                "kill @s"
+              ]}
+         }
+        }
+    }
+}

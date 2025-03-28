@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:saddle"
+    },
+
+    
+    "tags": [ "workbench" ],
+    "pattern": [
+      "LLL",
+      "PLP",
+      " C "
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:leather"
+      },
+      "P": {
+        "item": "edx:platinium_ingot"
+      },
+      "C": {
+        "item": "minecraft:tripwire_hook"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:leather"
+      },
+      {
+        "item": "edx:platinium_ingot"
+      },
+      {
+        "item": "minecraft:tripwire_hook"
+      }
+    ],
+    "result": {
+      "item": "minecraft:saddle",
+      "count": 1
+    }
+  }
+}

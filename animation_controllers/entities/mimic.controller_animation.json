@@ -1,0 +1,114 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.mimic.timer_control": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "reset_timer": "q.is_baby" }
+          ]
+        },
+        "reset_timer": {
+          "transitions": [{ "default": "1.0" }],
+          "on_entry": [
+            // 40 -> 20 seconds (tick function runs every 1/2 second)
+            "/scoreboard players set @s mimic_timer 40",
+            "@s xp:stop_reset_timer"
+          ]
+        }
+      }
+    },
+    "controller.animation.mimic.charge": {
+      "states": {
+        "default": {
+          "transitions": [{ "charge": "q.has_target" }]
+        },
+        "charge": {
+          "animations": ["charge"],
+          "transitions": [{ "charged": "q.any_animation_finished" }],
+          "on_entry": ["@s xp:start_charge"],
+          "on_exit": ["@s xp:end_charge"]
+        },
+        "charged": {
+          "transitions": [{ "default": "q.is_stunned" }]
+        }
+      }
+    },
+    "controller.animation.mimic.active_state": {
+      "states": {
+        "default": {
+          "transitions": [{ "active": "!q.is_stunned" }],
+          "on_entry": ["/function align_position"]
+        },
+        "active": {
+          "transitions": [{ "default": "q.is_stunned" }]
+        }
+      }
+    },
+    "controller.animation.mimic.speed_control": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "untransform": "q.is_stunned" },
+            { "transform": "!q.is_stunned && !(v.transformed ?? 0)" },
+            { "no_move": "v.transformed && (q.mark_variant == 1 || q.is_sheared || q.is_chested || q.skin_id == 1 || q.is_charged)" },
+            { "move": "v.transformed && (q.mark_variant == 2 || q.mark_variant == 0)" },
+            { "speed_move": "!q.is_stunned && q.mark_variant == 3" }
+          ],
+          "on_entry": ["v.transformed = 0;"]
+        },
+        "no_move": {
+          "transitions": [
+            { "untransform": "q.is_stunned" },
+            { "transform": "!q.is_stunned && !v.transformed" },
+            { "move": "v.transformed && (q.mark_variant == 2 || q.mark_variant == 0)" },
+            { "speed_move": "v.transformed && q.mark_variant == 3" }
+          ],
+          "on_entry": ["@s xp:no_move"]
+        },
+        "move": {
+          "transitions": [
+            { "untransform": "q.is_stunned" },
+            { "transform": "!q.is_stunned && !v.transformed" },
+            { "no_move": "v.transformed && (q.mark_variant == 1 || q.is_sheared || q.is_chested || q.skin_id == 1 || q.is_charged)" },
+            { "speed_move": "v.transformed && q.mark_variant == 3" }
+          ],
+          "on_entry": ["@s xp:move"]
+        },
+        "speed_move": {
+          "transitions": [
+            { "untransform": "q.is_stunned" },
+            { "transform": "!q.is_stunned && !v.transformed" },
+            { "no_move": "!v.transformed && (q.mark_variant == 1 || q.is_sheared || q.is_chested || q.skin_id == 1 || q.is_charged)" },
+            { "move": "!v.transformed && (q.mark_variant == 2 || q.mark_variant == 0)" }
+          ],
+          "on_entry": ["@s xp:speed_move"]
+        },
+        "transform": {
+          "transitions": [{ "move": "q.life_time-v.start>1" }],
+          "on_entry": ["@s xp:no_move", "v.start=q.life_time;"],
+          "on_exit": ["v.transformed=1;"]
+        },
+        "untransform": {
+          "transitions": [{ "no_move": "1.0" }],
+          "on_entry": ["v.transformed=0;"]
+        }
+      }
+    },
+    "controller.animation.mimic.collision": {
+      "states": {
+        "default": {
+          "transitions": [{ "reset_collision": "q.variant == 0" }]
+        },
+        "reset_collision": {
+          "transitions": [{ "default": "q.variant == 1" }, { "reset": "q.variant == 0" }],
+          "on_entry": ["/function mimic/reset_collision"]
+        },
+        "reset": {
+          "transitions": [{ "default": "q.variant == 1" }, { "reset_collision": "q.variant == 0" }],
+          "on_entry": ["/function mimic/reset_collision"]
+        }
+      }
+    }
+  }
+}

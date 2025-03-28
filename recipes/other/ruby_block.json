@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:ruby_block"
+    },
+
+    
+    "tags": [ "crafting_table","workbench" ],
+    "pattern": [
+      "TTT",
+      "TTT",
+      "TTT"
+    ],
+    "key": {
+      "T": {
+        "item": "edx:ruby"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:ruby"
+      }
+    ],
+    "result": {
+      "item": "edx:ruby_block"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "xp:end_boat.abyss_3",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "scripts": {
+              "animate": [
+                "particles"
+              ]
+            },
+            "animations": {
+              "particles": "animation.end_boat.abyss.particles_3"
+            }
+        },
+        "components": {
+            "minecraft:breathable": {
+                "total_supply": 99999,
+                "suffocate_time": -99999,
+                "inhale_time": 0,
+                "breathes_air": true,
+                "breathes_water": true,
+                "breathes_lava": true,
+                "breathes_solids": true,
+                "generates_bubbles": false,
+                "breathe_blocks": [],
+                "non_breathe_blocks": []
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:type_family": { "family": [ "dummy", "ambient" ] },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            }
+        },
+
+        "component_groups": {
+            "xp:despawn": { "minecraft:instant_despawn": {} }
+        },
+
+        "events": {
+            "xp:despawn": { "add": { "component_groups": ["xp:despawn"] } }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dungeons:boss_proxy",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "dungeons:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "ignore"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:tick_world": {},
+      "minecraft:timer": {
+        "looping": false,
+        "time": 0.5,
+        "time_down_event": {
+          "event": "minecraft:entity_spawned"
+        }
+      },
+        "minecraft:behavior.timer_flag_1": {
+          "priority": 0,
+          "cooldown_range": 0,
+          "duration_range": [
+            30,
+            30
+          ],
+          "on_end": {
+            "event": "dungeons:despawn",
+            "target": "self"
+          }
+        },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "event entity @e[family=boss_proxy,c=2,r=32] dungeons:boss_proxy"
+          ]
+        }
+      },
+      "dungeons:despawn": {
+        "queue_command": {
+          "command": [
+            "event entity @e[family=boss_proxy,c=2,r=32] dungeons:boss_proxy"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "dungeons:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

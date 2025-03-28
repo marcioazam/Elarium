@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:warped_nether_brick"
+    },
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "PF"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:nether_brick"
+      },
+      "F": {
+        "item": "minecraft:warped_wart_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:nether_wart_block"
+      },
+      {
+        "item": "minecraft:nether_brick"
+      }
+    ],
+    "result": {
+      "item": "edx:warped_nether_brick"
+    }
+  }
+  
+}

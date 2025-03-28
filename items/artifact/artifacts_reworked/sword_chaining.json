@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:chaining_scroll",
+			"menu_category": {
+        	"category": "equipment",
+        	"group": "itemGroup.name.artifacts"
+      		}
+			
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+				"chaining_scroll"
+				]
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "chaining_scroll"
+				} 
+			},
+      		"minecraft:max_stack_size": 1,
+			  "minecraft:display_name": {
+				"value": "§dChaining knowledge scroll \n§5Artifact\n§6Chaining sweep attack on mobs without taking damage increase sweep attack damage (up to 60%)"
+			  }
+		}
+	}
+}

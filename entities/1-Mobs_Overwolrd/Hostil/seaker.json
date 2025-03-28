@@ -1,0 +1,347 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "edx:seaker",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "components": {
+		"minecraft:break_blocks": {
+			"breakable_blocks": [
+"redstone_torch",
+"torch",
+"glowstone",
+				"minecraft:acacia_door",
+				"minecraft:bamboo_door",
+				"minecraft:birch_door",
+				"minecraft:crimson_door",
+				"minecraft:dark_oak_door",
+				"minecraft:jungle_door",
+				"minecraft:mangrove_door",
+				"minecraft:spruce_door",
+				"minecraft:warped_door",
+				"minecraft:wooden_door",
+				"minecraft:bed",
+				"minecraft:cherry_door",
+				"minecraft:iron_door",
+				"minecraft:copper_door",
+				"minecraft:exposed_copper_door",
+				"minecraft:oxidized_copper_door",
+				"minecraft:waxed_copper_door",
+				"minecraft:waxed_exposed_copper_door",
+				"minecraft:waxed_oxidized_copper_door",
+				"minecraft:waxed_weathered_copper_door",
+				"minecraft:weathered_copper_door"
+			]
+		},
+  "minecraft:damage_sensor": {
+			"triggers": [
+				{
+					"cause": "block_explosion",
+					"damage_multiplier": 0.25
+				},
+				{
+					"cause": "entity_explosion",
+					"damage_multiplier": 0.25
+				},
+				{
+					"cause": "fall",
+					"deals_damage": false
+				}
+			]
+		},
+  "minecraft:follow_range": {
+			"value": 64
+		},
+		"minecraft:on_target_acquired": {
+			"event": "angry",
+			"target": "self"
+		},
+  "minecraft:behavior.random_stroll": {
+			"priority": 6,
+			"speed_multiplier": 1
+		},
+		"minecraft:behavior.look_at_player": {
+			"priority": 7,
+			"look_distance": 8
+		},
+		"minecraft:behavior.random_look_around": {
+			"priority": 8
+		},
+		"minecraft:physics": {},
+		"minecraft:pushable": {
+			"is_pushable": true,
+			"is_pushable_by_piston": true
+		},
+  "minecraft:behavior.nearest_prioritized_attackable_target": {
+			"priority": 2,
+			"reselect_targets": true,
+			"entity_types": [
+				{
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"value": "player"
+					},
+					"max_dist": 32,
+					"priority": 0
+				},
+				{
+					"max_dist": 32,
+					"filters": {
+						"any_of": [
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "irongolem"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "snowgolem"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "villager"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "wandering_trader"
+							}
+						]
+					},
+					"priority": 1
+				},
+				{
+					"filters": {
+						"all_of": [
+							{
+								"test": "is_family",
+								"subject": "other",
+								"value": "baby_turtle"
+							},
+							{
+								"test": "in_water",
+								"subject": "other",
+								"operator": "!=",
+								"value": true
+							}
+						]
+					},
+					"max_dist": 32,
+					"priority": 3
+				},
+				{
+					"priority": 2,
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"value": "animal"
+					},
+					"max_dist": 32
+				}
+			]
+		},
+  "minecraft:behavior.pickup_items": {
+			"priority": 5,
+			"max_dist": 3,
+			"goal_radius": 2,
+			"speed_multiplier": 1,
+			"pickup_based_on_chance": true,
+			"can_pickup_any_item": true
+		},
+
+  "minecraft:hurt_on_condition": {
+	"damage_conditions": [
+	  {
+		"filters": {
+		  "test": "in_lava",
+		  "subject": "self",
+		  "operator": "==",
+		  "value": true
+		},
+		"cause": "lava",
+		"damage_per_tick": 4 
+	  },
+	  {
+		"filters": {
+		  "test": "on_fire",
+		  "subject": "self",
+		  "operator": "==",
+		  "value": true
+		},
+		"cause": "fire",
+		"damage_per_tick": 2 
+	  }
+	]
+  },
+  "minecraft:angry": {
+				"broadcast_anger": true,
+				
+				"broadcast_anger_on_attack": true,
+				"broadcast_anger_on_being_attacked": true,
+				"broadcast_range": 16,
+				"duration": 20,
+				"broadcast_targets": [
+					"seaker"
+				],
+				"filters": {
+					"test": "is_family",
+					"subject": "other",
+					"operator": "!=",
+					"value": "seaker"
+				},
+				"calm_event": {
+					"event": "calm",
+					"target": "self"
+				}
+			},
+  "minecraft:behavior.hurt_by_target": {
+"priority": 1,
+"entity_types": [
+{
+  "filters": {
+	"all_of": [
+	  {
+		"test": "is_family",
+		"subject": "other",
+		"operator": "!=",
+		"value": "breeze"
+	  },
+	  {
+		"test": "is_family",
+		"subject": "other",
+		"operator": "!=",
+		"value": "seaker"
+	  }
+	]
+  }
+}
+]
+},
+		"minecraft:attack": {
+			"damage": {
+				"range_min": 3,
+				"range_max": 7
+			},
+			"effect_name": "slowness",
+			"effect_duration": 10
+		  },
+		  "minecraft:behavior.melee_attack": {
+			"priority": 6,
+			"speed_multiplier": 1,
+			"track_target": true,
+			"require_complete_path": true
+		  },
+      "minecraft:underwater_movement": {
+				"value": 0.26
+			},
+			"minecraft:behavior.move_to_water": {
+				"priority": 12,
+				"search_range": 15,
+				"search_height": 5,
+				"goal_radius": 0.1,
+				"search_count": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.9,
+				"height": 0.6
+			},
+			"minecraft:health": {
+				"value": 40,
+				"max": 40
+			},
+			"minecraft:flocking": {
+				"in_water": false,
+				"match_variants": false,
+				"use_center_of_mass": false,
+				"low_flock_limit": 4,
+				"high_flock_limit": 8,
+				"goal_weight": 2.0,
+				"loner_chance": 0.1,
+				"influence_radius": 12.0,
+				"breach_influence": 0.0,
+				"separation_weight": 1.75,
+				"separation_threshold": 3.0,
+				"cohesion_weight": 1.85,
+				"cohesion_threshold": 6.5,
+				"innner_cohesion_threshold": 3.5,
+				"min_height": 2.0,
+				"max_height": 10.0,
+				"block_distance": 1.0,
+				"block_weight": 0.0
+			  },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "reselect_targets": true,
+        "scan_interval": 20,
+        "within_radius": 64.0,
+        "entity_types": [
+          {
+            "filters": {
+				"any_of": [
+				  { "test": "is_family", "subject": "other", "value": "dolphin" },
+				  { "test": "is_family", "subject": "other", "value": "fish" },
+				  { "test": "is_family", "subject": "other", "value": "animal" },
+				  { "test": "is_family", "subject": "other", "value": "inanimate" },
+				  { "test": "is_family", "subject": "other", "value": "player" },
+				  { "test": "is_family", "subject": "other", "value": "boat" }
+				]
+			  },
+            "max_dist": 64
+          }
+        ]
+      },
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_air": false,
+				"breathes_water": true
+			},
+		
+			"minecraft:scale": {
+				"value": 1.3
+			},
+			"minecraft:movement.amphibious": {
+				"max_turn": 30
+			},
+			"minecraft:behavior.swim_wander": {
+				"priority": 8,
+				"interval": 0.1,
+				"look_ahead": 2,
+				"wander_time": 5
+			},
+		
+			  "minecraft:behavior.eat_carried_item": {
+				"priority": 12,
+				"delay_before_eating": 28
+			  },
+			"minecraft:navigation.generic": {
+				"is_amphibious": true,
+				"can_path_over_water": true,
+				"can_swim": true,
+				"can_walk": false,
+				"can_sink": false,
+				"avoid_damage_blocks": true
+			},
+	
+			"minecraft:type_family": {
+				"family": [
+					"seaker","monster"
+				]
+			},
+			"minecraft:behavior.run_around_like_crazy": {
+				"priority": 7,
+				"speed_multiplier": 1.25
+			}
+
+    }
+
+   
+  }
+}

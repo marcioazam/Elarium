@@ -1,0 +1,1091 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.end_cube.boss_actions.stage_one": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [
+            { "chain_projectile_sequence": "((q.health / q.max_health) > 0.24)" },
+            { "death_sequence": "1" }
+          ]
+        },
+
+        "chain_projectile_sequence": {
+          "transitions": [
+            { "death_sequence": "((q.health / q.max_health) < 0.25)" },
+            { "chain_projectile.blink_to_center": "(q.life_time - v.t6) > 0.1" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t9 = 0;",
+            "v.t13 = 0;",
+            "v.t14 = math.random_integer(5,10);",
+
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] add in_ender_boss_arena"
+          ]
+        },
+        "chain_projectile.blink_to_center": {
+          "transitions": [ { "chain_projectile.blink_to_center_end": "(q.life_time - v.t6) > 0.7" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/playanimation @s tp_flash_start"
+          ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] 312 235 -537 facing ~10~~" ]
+        },
+        "chain_projectile.blink_to_center_end": {
+          "transitions": [ { "summon_platforms.prepare_stance": "(q.life_time - v.t6) > 0.5" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/tp @s[tag=!\"sticky\"] ~~~ facing ~10~~",
+            "/playanimation @s tp_flash_end"
+          ]
+        },
+
+        "summon_platforms.prepare_stance": {
+          "transitions": [
+            { "chain_projectile.prepare_stance": "!q.is_powered" },
+            { "summon_platforms.regenerate_path_to_towers": "(q.life_time - v.t6) > 0.4" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/tp @s[tag=!\"sticky\"] ~~~ facing ~10~~"
+          ]
+        },
+        "summon_platforms.regenerate_path_to_towers": {
+          "animations": [ "summon_platforms" ],
+          "transitions": [ { "summon_platforms.return_stance": "q.any_animation_finished" } ],
+          "on_entry": [
+            "/playanimation @s summon_attack",
+            "@s xp:boss_summon_platforms"
+          ]
+        },
+        "summon_platforms.return_stance": {
+          "transitions": [ { "chain_projectile.prepare_stance": "(q.life_time - v.t6) > 1.0" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_movement.staying"
+          ]
+        },
+
+        "chain_projectile.prepare_stance": {
+          "transitions": [ { "chain_projectile.aim_towards_target": "(q.life_time - v.t6) > 2.0" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/tag @s add performing_action",
+            "@s xp:boss_invoke_projectile",
+            "/playanimation @s pre_shoot",
+            "/tag @r[r=128] add ender_boss_target"
+          ]
+        },
+        "chain_projectile.aim_towards_target": {
+          "animations": [ "look_at_target" ],
+          "transitions": [ { "chain_projectile.shoot_towards_target": "(q.life_time - v.t6) > 0.624749" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t22 = q.life_time;",
+
+            "@s xp:shoot_projectile",
+            "/scoreboard objectives add end_cube_boss1 dummy",
+            "/scoreboard players set @s end_cube_boss1 -2"
+          ]
+        },
+        "chain_projectile.shoot_towards_target": {
+          "transitions": [
+            { "death_sequence": "((q.health / q.max_health) < 0.25)" },
+            { "chain_projectile.end_stance": "((q.life_time - v.t22) >= 1.249498 && !q.has_target) || ((q.life_time - v.t22) >= 3.6 && q.is_illager_captain) || (q.life_time - v.t22) >= 12.49498" },
+            { "chain_projectile.reload_shoot_towards_target": "(q.life_time - v.t6) > 0.50" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/playanimation @s shoot",
+
+            "/scoreboard players add @s end_cube_boss1 1",
+            "/scoreboard players set @s[scores={end_cube_boss1=2..}] end_cube_boss1 0"
+          ]
+        },
+        "chain_projectile.reload_shoot_towards_target": {
+          "transitions": [
+            { "death_sequence": "((q.health / q.max_health) < 0.25)" },
+            { "chain_projectile.end_stance": "((q.life_time - v.t22) >= 1.249498 && !q.has_target) || ((q.life_time - v.t22) >= 3.6 && q.is_illager_captain) || (q.life_time - v.t22) >= 12.49498" },
+            { "chain_projectile.shoot_towards_target": "(q.life_time - v.t6) > 0.3333" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/playanimation @s reload_shoot",
+
+            "/tag @a remove ender_boss_target",
+            "/execute as @s[scores={end_cube_boss1=0}] at @s run tag @r[r=128] add ender_boss_target",
+            "/execute as @s[scores={end_cube_boss1=1}] at @s run tag @r[r=128] add ender_boss_target",
+
+            "/tp @s[tag=!\"sticky\",scores={end_cube_boss1=0}] ^-6^^",
+            "/tp @s[tag=!\"sticky\",scores={end_cube_boss1=1}] ^6^^"
+          ]
+        },
+        "chain_projectile.end_stance": {
+          "transitions": [ { "chain_projectile.end_stance_blink_to_center": "(q.life_time - v.t6) >= 0.3333" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t9 = 0;",
+
+            "@s xp:boss_remove_invoke_projectile",
+            "@s xp:remove_shoot_projectile",
+
+            "/playanimation @s end_shoot",
+
+            "/tag @s remove performing_action",
+            "/tag @a remove ender_boss_target",
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] add in_ender_boss_arena",
+            "/scoreboard objectives remove end_cube_boss1"
+          ]
+        },
+        "chain_projectile.end_stance_blink_to_center": {
+          "transitions": [ { "chain_projectile.end_stance_blink_to_center_end": "(q.life_time - v.t6) > 0.7" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/playanimation @s tp_flash_start"
+          ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] 312 235 -537 facing ~10~~" ]
+        },
+        "chain_projectile.end_stance_blink_to_center_end": {
+          "transitions": [ { "hover_sequence": "(q.life_time - v.t6) > 0.5" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/tp @s[tag=!\"sticky\"] ~~~ facing ~10~~",
+            "/playanimation @s tp_flash_end"
+          ]
+        },
+
+        "hover_sequence": {
+          "transitions": [
+            { "death_sequence": "((q.health / q.max_health) < 0.25)" },
+            { "chain_projectile_sequence": "(q.skin_id > 0 || v.t13 >= v.t14 || q.is_illager_captain)" },
+
+            { "hover.move_north": "v.t7 == 1" },
+            { "hover.move_south": "v.t7 == 0" },
+            { "hover.move_west": "v.t7 == 2" },
+            { "hover.move_east": "v.t7 == 3" }
+          ],
+          "on_entry": [
+            "v.t10 = math.random_integer(0,1);",
+            "v.t7 = (v.t9 == 0 ? (v.t10 == 0 ? 1 : math.random_integer(2,3)) : (v.t9 == 1 ? (v.t10 == 0 ? 0 : math.random_integer(2,3)) : ( v.t9 == 2 ? (v.t10 == 0 ? 3 : math.random_integer(0,1)) : (v.t9 == 3 ? (v.t10 == 0 ? 2 : math.random_integer(0,1)) : math.random_integer(0,3)))));",
+            "v.t8 = math.random(1.0,1.50);",
+            "v.t11 = v.t8 * math.random(0.0,0.1);",
+
+            "/event entity @e[type=xp:end_cube_boss_activator,r=64] xp:end_cube_boss_activator_hiding",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn",
+            "@s xp:boss_state_not_near_player"
+          ]
+        },
+        "hover.move_north": {
+          "transitions": [ { "hover.move_north_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.north" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 1;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_north_tick_0": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) <= -550" },
+            { "hover.move_north_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~-0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~-0.25" ]
+        },
+        "hover.move_north_tick_1": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) <= -550" },
+            { "hover.move_north_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~-0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~-0.25" ]
+        },
+
+        "hover.move_south": {
+          "transitions": [ { "hover.move_south_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.south" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 0;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_south_tick_0": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) >= -524" },
+            { "hover.move_south_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~0.25" ]
+        },
+        "hover.move_south_tick_1": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) >= -524" },
+            { "hover.move_south_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~0.25" ]
+        },
+
+        "hover.move_west": {
+          "transitions": [ { "hover.move_west_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.west" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 2;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_west_tick_0": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) >= 325" },
+            { "hover.move_west_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~0.25~~" ]
+        },
+        "hover.move_west_tick_1": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) >= 325" },
+            { "hover.move_west_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~0.25~~" ]
+        },
+
+        "hover.move_east": {
+          "transitions": [ { "hover.move_east_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.east" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 3;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_east_tick_0": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) <= 299" },
+            { "hover.move_east_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~-0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~-0.25~~" ]
+        },
+        "hover.move_east_tick_1": {
+          "transitions": [
+            { "chain_projectile_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) <= 299" },
+            { "hover.move_east_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~-0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~-0.25~~" ]
+        },
+
+        "death_sequence": {
+          "transitions": [ { "death.move_tick": "(q.life_time - v.t6) > 0.1" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_movement.staying",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn"
+          ]
+        },
+        "death.move_tick": {
+          "transitions": [ { "death.move_tick_0": "1" } ],
+          "on_entry": [
+            "/summon xp:end_cube_marker 312 231.5 -537 xp:marker_type.center_point",
+            "/summon xp:end_cube_marker ~ 235 ~ xp:marker_type.center_path",
+            "/playanimation @s fake_death1",
+            "@s xp:boss_state_start_teleporting"
+          ],
+          "on_exit": [ "v.t6 = q.life_time;" ]
+        },
+        "death.move_tick_0": {
+          "transitions": [
+            { "terminate_stance": "(q.life_time - v.t6) >= 2.5" },
+            { "death.move_tick_1": "1" }
+          ],
+          "on_entry": [
+            "/effect @s instant_health 1 2 true",
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+        "death.move_tick_1": {
+          "transitions": [
+            { "terminate_stance": "(q.life_time - v.t6) >= 2.5" },
+            { "death.move_tick_0": "1" }
+          ],
+          "on_entry": [
+            "/effect @s instant_health 1 2 true",
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+
+        "terminate_stance": {
+          "transitions": [ { "terminate_stance.to_next_stage": "(q.life_time - v.t6) >= 1.0" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/effect @s invisibility 10 255 true",
+            "/effect @s resistance 10 255 true",
+
+            "/event entity @e[type=xp:end_cube_crystal,family=crystal_1] xp:on_damage",
+            "/event entity @e[type=xp:end_cube_crystal,family=crystal_2] xp:on_damage",
+            "/event entity @e[type=xp:end_cube_crystal,family=crystal_3] xp:on_damage",
+            "@s xp:boss_state_end_teleporting",
+
+            "/tag @a remove shown_tip_3"
+          ]
+        },
+        "terminate_stance.to_next_stage": {
+          "on_entry": [ "@s xp:boss_stage.two" ],
+          "on_exit": [ "v.t6 = q.life_time;" ]
+        }
+      }
+    },
+
+    "controller.animation.end_cube.boss_actions.stage_two": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [
+            { "attack_sequence": "((q.health / q.max_health) > 0.24)" },
+            { "death_sequence": "1" }
+          ]
+        },
+
+        "attack_sequence": {
+          "transitions": [
+            { "death_sequence": "((q.health / q.max_health) < 0.25)" },
+
+            { "continuous_laser_sequence": "q.is_saddled" },
+            { "blink_laser_sequence": "!q.is_saddled" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t9 = 0;",
+            "v.t13 = 0;",
+            "v.t14 = math.random_integer(2,3);",
+            "v.t20 = 0;",
+
+            "/execute at @s positioned ~ 223 ~ run execute as @a[tag=\"in_ender_boss_arena\",r=12] at @s run event entity @e[type=xp:end_cube,c=1] xp:boss_state_near_player"
+          ]
+        },
+
+        "blink_laser_sequence": {
+          "transitions": [
+            { "blink_laser.prepare_stance": "q.is_saddled" },
+            { "hover_sequence": "!q.is_saddled" }
+          ],
+          "on_entry": [
+            "v.t20 = v.t20 + 1;",
+
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] add in_ender_boss_arena",
+
+            "/execute if entity @a[tag=\"in_ender_boss_arena\"] run event entity @s xp:boss_state_near_player"
+          ],
+          "on_exit": [ "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn" ]
+        },
+        "blink_laser.prepare_stance": {
+          "transitions": [ { "blink_laser.tp_start": "(q.life_time - v.t6) >= 0.9" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_movement.staying",
+            "/playanimation @s tp_start"
+          ],
+          "on_exit": [
+            "/effect @s invisibility 3 255 true",
+            "/effect @s resistance 3 255 true"
+          ]
+        },
+        "blink_laser.tp_start": {
+          "transitions": [ { "blink_laser.tp_above": "(q.life_time - v.t6) > 0.1" } ],
+          "on_entry": [ "v.t6 = q.life_time;" ],
+          "on_exit": [
+            "@s xp:boss_state_start_teleporting",
+
+            "/execute as @a[tag=\"in_ender_boss_arena\",c=1] at @s positioned ~ 231.5 ~ run summon xp:end_cube_marker ~~~ xp:marker_type.blink_point",
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_blink_point] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~"
+          ]
+        },
+        "blink_laser.tp_above": {
+          "transitions": [ { "blink_laser.single_laser_attack": "(q.life_time - v.t6) > 1.0" } ],
+          "on_entry": [ "v.t6 = q.life_time;" ]
+        },
+        "blink_laser.single_laser_attack": {
+          "transitions": [ { "blink_laser.tp_end": "(q.life_time - v.t6) >= 1.50" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/playanimation @s laser_attack",
+
+            "/effect @s invisibility 0",
+            "/effect @s resistance 0",
+
+            "/execute at @s positioned ~ 223 ~ run title @a[r=4] actionbar xp_hud.laser_vignette1",
+
+            "/particle xp:end_cube32 ~~-2~",
+            "/particle xp:end_cube32 ~~-4~",
+            "/particle xp:end_cube32 ~~-6~"
+          ],
+          "on_exit": [
+            "/execute at @s positioned ~ 223 ~ run particle xp:end_cube52 ~~0.05~",
+            "/execute at @s positioned ~1 223 ~ run particle xp:end_cube53 ~~0.05~",
+            "/execute at @s positioned ~-1 223 ~ run particle xp:end_cube53 ~~0.05~",
+            "/execute at @s positioned ~ 223 ~1 run particle xp:end_cube53 ~~0.05~",
+            "/execute at @s positioned ~ 223 ~-1 run particle xp:end_cube53 ~~0.05~",
+
+            "/execute at @s positioned ~ 223 ~ run damage @a[r=1.5] 15 entity_attack entity @s",
+            "/execute at @s positioned ~ 223 ~ run damage @a[rm=1.5,r=3.0] 12 entity_attack entity @s",
+            "/execute at @s positioned ~ 223 ~ run camerashake add @a[r=4] 0.1 0.1 rotational",
+
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~~~ light_block -1 run setblock ~~~ air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~1~~ light_block -1 run setblock ~1~~ air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~-1~~ light_block -1 run setblock ~-1~~ air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~~~1 light_block -1 run setblock ~~~1 air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~~~-1 light_block -1 run setblock ~~~-1 air 0 destroy",
+            "/execute if entity @s[x=301,y=223,z=-548,dx=22,dy=20,dz=22] at @s align xyz positioned ~ 223 ~ run fill ~1~1~1~-1~8~-1 air 0 destroy"
+          ]
+        },
+        "blink_laser.tp_end": {
+          "transitions": [ { "blink_laser.tp_back_interval": "(q.life_time - v.t6) >= 1.425" } ],
+          "on_entry": [ "v.t6 = q.life_time;" ],
+          "on_exit": [
+            "/effect @s invisibility 10 255 true",
+            "/effect @s resistance 10 255 true"
+          ]
+        },
+        "blink_laser.tp_back_interval": {
+          "transitions": [ { "blink_laser.tp_back": "(q.life_time - v.t6) > 1.0" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=23,dz=24] add in_ender_boss_arena",
+
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn",
+
+            "/execute as @a[tag=\"in_ender_boss_arena\",c=1] at @s positioned ~ 231.5 ~ run summon xp:end_cube_marker ~~~ xp:marker_type.blink_point",
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_blink_point] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~"
+          ],
+          "on_exit": [
+            "/effect @s invisibility 0",
+            "/effect @s resistance 0"
+          ]
+        },
+        "blink_laser.tp_back": {
+          "transitions": [ { "blink_laser.end_sequence": "(q.life_time - v.t6) >= 0.9" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/playanimation @s tp_end",
+            "@s xp:boss_state_not_near_player"
+          ],
+          "on_exit": [ "@s xp:boss_state_end_teleporting" ]
+        },
+        "blink_laser.end_sequence": {
+          "transitions": [
+            { "blink_laser_sequence": "!q.is_saddled && v.t20 < 2" },
+            { "continuous_laser_sequence": "1" }
+          ],
+          "on_entry": [
+            "/execute at @s positioned ~ 223 ~ run execute as @a[tag=\"in_ender_boss_arena\",r=14] at @s run event entity @e[type=xp:end_cube,c=1] xp:boss_state_near_player",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn"
+          ]
+        },
+
+        "continuous_laser_sequence": {
+          "transitions": [ { "continuous_laser.move_tick": "(q.life_time - v.t6) > 1.55" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/playanimation @s special_laser_attack",
+
+            "/particle xp:end_cube32 ~~-2~",
+            "/particle xp:end_cube32 ~~-4~",
+            "/particle xp:end_cube32 ~~-6~"
+          ],
+          "on_exit": [
+            "/execute at @s positioned ~ 223 ~ run title @a[r=14] actionbar xp_hud.laser_vignette",
+            "/execute at @s positioned ~ 223 ~ run camerashake add @a[r=14] 0.1 2.5 rotational"
+          ]
+        },
+        "continuous_laser.move_tick": {
+          "transitions": [ { "continuous_laser.move_tick_0": "1" } ],
+          "on_entry": [
+            "@s xp:boss_movement.still",
+            "/execute as @a[tag=\"in_ender_boss_arena\",c=1] at @s positioned ~ 231.5 ~ run summon xp:end_cube_marker ~~~ xp:marker_type.center_point",
+            "/execute unless entity @a[tag=\"in_ender_boss_arena\",c=1] run summon xp:end_cube_marker 312 231.5 -537 xp:marker_type.center_point",
+
+            "/summon xp:end_cube_marker ~ 231.5 ~ xp:marker_type.center_path"
+          ],
+          "on_exit": [
+            "v.t6 = q.life_time;"
+          ]
+        },
+        "continuous_laser.move_tick_0": {
+          "transitions": [
+            { "continuous_laser.end_stance": "(q.life_time - v.t6) >= 1.5" },
+            { "continuous_laser.move_tick_1": "1" }
+          ],
+          "on_entry": [
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~",
+            "/execute at @s positioned ~ 223 ~ run damage @a[r=2] 10 entity_attack entity @s",
+
+            "/execute at @s align xyz positioned ~-0.5 223 ~0.5 run particle xp:end_cube52 ~~0.05~"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+        "continuous_laser.move_tick_1": {
+          "transitions": [
+            { "continuous_laser.end_stance": "(q.life_time - v.t6) >= 1.5" },
+            { "continuous_laser.move_tick_0": "1" }
+          ],
+          "on_entry": [
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~",
+            "/execute at @s positioned ~ 223 ~ run damage @a[r=2] 10 entity_attack entity @s",
+
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~~~ light_block -1 run setblock ~~~ air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~1~~ light_block -1 run setblock ~1~~ air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~-1~~ light_block -1 run setblock ~-1~~ air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~~~1 light_block -1 run setblock ~~~1 air 0 destroy",
+            "/execute at @s align xyz positioned ~ 223 ~ unless block ~~~-1 light_block -1 run setblock ~~~-1 air 0 destroy",
+            "/execute if entity @s[x=301,y=223,z=-548,dx=22,dy=20,dz=22] at @s align xyz positioned ~ 223 ~ run fill ~1~1~1~-1~8~-1 air 0 destroy"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+        "continuous_laser.end_stance": {
+          "transitions": [
+            { "death_sequence": "((q.health / q.max_health) < 0.25)" },
+            { "hover_sequence": "(q.life_time - v.t6) >= v.t15" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t15 = 0.875 + math.random(1.5, 3.0);",
+
+            "@s xp:boss_movement.staying",
+            "@s xp:boss_state_end_teleporting",
+            "/event entity @e[type=xp:end_cube_marker,c=1,family=marker_center_point] xp:instant_despawn",
+
+            "/particle xp:end_cube6 ~~1.7~",
+            "/particle xp:end_cube54 ~~~",
+            "/playsound random.fizz @a[r=14]"
+          ]
+        },
+
+        "hover_sequence": {
+          "transitions": [
+            { "death_sequence": "((q.health / q.max_health) < 0.25)" },
+            { "attack_sequence": "(q.skin_id > 0 || v.t13 >= v.t14)" },
+
+            { "hover.move_north": "v.t7 == 1" },
+            { "hover.move_south": "v.t7 == 0" },
+            { "hover.move_west": "v.t7 == 2" },
+            { "hover.move_east": "v.t7 == 3" }
+          ],
+          "on_entry": [
+            "v.t10 = math.random_integer(0,1);",
+            "v.t7 = (v.t9 == 0 ? (v.t10 == 0 ? 1 : math.random_integer(2,3)) : (v.t9 == 1 ? (v.t10 == 0 ? 0 : math.random_integer(2,3)) : ( v.t9 == 2 ? (v.t10 == 0 ? 3 : math.random_integer(0,1)) : (v.t9 == 3 ? (v.t10 == 0 ? 2 : math.random_integer(0,1)) : math.random_integer(0,3)))));",
+            "v.t8 = math.random(1.0,1.50);",
+            "v.t11 = v.t8*math.random(0.0,0.1);",
+
+            "/event entity @e[type=xp:end_cube_boss_activator,r=64] xp:end_cube_boss_activator_hidden",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn",
+            "@s xp:boss_state_not_near_player",
+
+            "/effect @s invisibility 0",
+            "/effect @s resistance 0",
+            "@s xp:boss_state_end_teleporting"
+          ]
+        },
+        "hover.move_north": {
+          "transitions": [ { "hover.move_north_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.north" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 1;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_north_tick_0": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) <= -550" },
+            { "hover.move_north_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~-0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~-0.25" ]
+        },
+        "hover.move_north_tick_1": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) <= -550" },
+            { "hover.move_north_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~-0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~-0.25" ]
+        },
+
+        "hover.move_south": {
+          "transitions": [ { "hover.move_south_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.south" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 0;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_south_tick_0": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) >= -524" },
+            { "hover.move_south_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~0.25" ]
+        },
+        "hover.move_south_tick_1": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(2) >= -524" },
+            { "hover.move_south_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~~~0.25" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~~~0.25" ]
+        },
+
+        "hover.move_west": {
+          "transitions": [ { "hover.move_west_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.west" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 2;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_west_tick_0": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) >= 325" },
+            { "hover.move_west_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~0.25~~" ]
+        },
+        "hover.move_west_tick_1": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) >= 325" },
+            { "hover.move_west_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~0.25~~" ]
+        },
+
+        "hover.move_east": {
+          "transitions": [ { "hover.move_east_tick_0": "1" } ],
+          "on_entry": [ "@s xp:boss_movement.east" ],
+          "on_exit": [ "v.t6 = q.life_time;", "v.t9 = 3;", "v.t13 = v.t13 + 1;" ]
+        },
+        "hover.move_east_tick_0": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) <= 299" },
+            { "hover.move_east_tick_1": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~-0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~-0.25~~" ]
+        },
+        "hover.move_east_tick_1": {
+          "transitions": [
+            { "attack_sequence": "q.skin_id > 0" },
+            { "hover_sequence": "((q.life_time - v.t6) > v.t8) || q.position(0) <= 299" },
+            { "hover.move_east_tick_0": "(q.life_time - v.t12) >= v.t11" }
+          ],
+          "on_entry": [ "v.t12 = q.life_time;", "/tp @s[tag=!\"sticky\"] ~-0.25~~" ],
+          "on_exit": [ "/tp @s[tag=!\"sticky\"] ~-0.25~~" ]
+        },
+
+        "death_sequence": {
+          "transitions": [ { "death.move_tick": "(q.life_time - v.t6) > 0.1" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_movement.staying",
+            "/event entity @e[type=xp:end_cube_barrier] xp:deactivate_barrier",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn",
+            "@s xp:boss_state_start_teleporting"
+          ]
+        },
+        "death.move_tick": {
+          "transitions": [ { "death.move_tick_0": "1" } ],
+          "on_entry": [
+            "/summon xp:end_cube_marker 312 223 -537 xp:marker_type.center_point",
+            "/summon xp:end_cube_marker ~~~ xp:marker_type.center_path",
+            "/playanimation @s fake_death2"
+          ],
+          "on_exit": [ "v.t6 = q.life_time;" ]
+        },
+        "death.move_tick_0": {
+          "transitions": [
+            { "terminate_stance": "(q.life_time - v.t6) >= 4.65" },
+            { "death.move_tick_1": "1" }
+          ],
+          "on_entry": [
+            "/effect @s instant_health 1 2 true",
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+        "death.move_tick_1": {
+          "transitions": [
+            { "terminate_stance": "(q.life_time - v.t6) >= 4.65" },
+            { "death.move_tick_0": "1" }
+          ],
+          "on_entry": [
+            "/effect @s instant_health 1 2 true",
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+
+        "terminate_stance": {
+          "transitions": [ { "terminate_stance.to_next_stage": "(q.life_time - v.t6) >= 1.0" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/effect @s invisibility 10 255 true",
+            "/effect @s resistance 10 255 true",
+
+            "@s xp:boss_state_end_teleporting"
+          ]
+        },
+        "terminate_stance.to_next_stage": {
+          "on_entry": [ "@s xp:boss_stage.three" ]
+        }
+      }
+    },
+
+    "controller.animation.end_cube.boss_actions.stage_three": {
+      "initial_state": "on_detect",
+      "states": {
+        "on_detect": {
+          "transitions": [
+            { "attack_sequence": "((q.health / q.max_health) > 0.04)" },
+            { "final_death_sequence": "1" }
+          ]
+        },
+
+        "attack_sequence": {
+          "transitions": [
+            { "final_death_sequence": "((q.health / q.max_health) < 0.1)" },
+
+            { "ground_attack_sequence": "v.t18 <= 3 && q.is_saddled" },
+            { "fly_attack_sequence": "v.t18 == 4 && q.is_saddled" },
+            { "waiting_stance": "!q.is_saddled" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t18 = math.random_integer(0,4);",
+
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=302,y=222,z=-547,dx=20,dy=2,dz=20] add in_ender_boss_arena",
+
+            "/event entity @e[type=xp:end_cube_boss_activator,r=64] xp:end_cube_boss_activator_hidden",
+            "/execute if entity @e[type=player,tag=\"in_ender_boss_arena\"] run event entity @s xp:boss_state_near_player"
+          ],
+          "on_exit": [
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn",
+            "@s xp:boss_state_not_near_player"
+          ]
+        },
+
+        "waiting_stance": {
+          "transitions": [
+            { "final_death_sequence": "((q.health / q.max_health) < 0.1)" },
+            { "attack_sequence": "(q.life_time - v.t6) > 1.0" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_state_not_near_player"
+          ]
+        },
+
+        "ground_attack_sequence": {
+          "transitions": [ { "ground_attack.prepare_stance": "(q.life_time - v.t6) > 0.1" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_movement.staying",
+            "@s xp:boss_state_is_not_dazed",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn"
+          ]
+        },
+        "ground_attack.prepare_stance": {
+          "transitions": [ { "ground_attack.charged_movement_tick_0a": "(q.life_time - v.t6) >= 1.2" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=24,dz=24] add in_ender_boss_arena",
+
+            "/execute as @e[type=player,tag=\"in_ender_boss_arena\",c=1] at @s positioned ~ 223 ~ run summon xp:end_cube_marker ~~~ xp:marker_type.ground_point",
+            "/execute at @s positioned ~ 223 ~ run tp @s ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]",
+            "@s xp:boss_ram"
+          ],
+          "on_exit": [
+            "v.t6 = q.life_time;",
+
+            "/event entity @e[type=xp:end_cube_marker,c=1,family=marker_ground_point] xp:instant_despawn",
+            "/execute as @e[type=player,tag=\"in_ender_boss_arena\",c=1] at @s positioned ~ 223 ~ run summon xp:end_cube_marker ~~~ xp:marker_type.ground_point",
+            "/execute at @s positioned ~ 223 ~ run tp @s ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]",
+
+            "/summon xp:end_cube_marker ~ 223 ~ xp:marker_type.ground_path",
+            "@s xp:boss_state_become_invulnerable"
+          ]
+        },
+        "ground_attack.charged_movement_tick_0a": {
+          "transitions": [
+            { "ground_attack.return_interval": "!q.is_saddled" },
+            { "ground_attack.charged_movement_tick_1b": "(q.life_time - v.t6) > 0.3" },
+            { "ground_attack.charged_movement_tick_1a": "1" }
+          ],
+          "on_entry": [
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=302,y=222,z=-547,dx=20,dy=2,dz=20] add in_ender_boss_arena",
+            "/execute if entity @a[tag=\"in_ender_boss_arena\"] run event entity @s xp:boss_state_near_player",
+
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]" ]
+        },
+        "ground_attack.charged_movement_tick_0b": {
+          "transitions": [
+            { "ground_attack.on_block_collision": "q.is_chested" },
+            { "ground_attack.return_interval": "(!q.is_chested && q.skin_id != 6) || (q.life_time - v.t6) >= 4.8" },
+            { "ground_attack.charged_movement_tick_1b": "1" }
+          ],
+          "on_entry": [
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]",
+            "/execute if entity @s[x=301,y=223,z=-548,dx=22,dy=6,dz=22] at @s positioned ~ 223 ~ run fill ~1~1~1 ~-1~~-1 air 0 destroy",
+            "/function end_cube/boss/collision_test"
+          ],
+          "on_exit": [
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]",
+            "/execute if entity @s[x=301,y=223,z=-548,dx=22,dy=6,dz=22] at @s positioned ~ 223 ~ run fill ~1~1~1 ~-1~~-1 air 0 destroy",
+            "/function end_cube/boss/collision_test"
+          ]
+        },
+        "ground_attack.charged_movement_tick_1a": {
+          "transitions": [
+            { "ground_attack.return_interval": "!q.is_saddled" },
+            { "ground_attack.charged_movement_tick_1b": "(q.life_time - v.t6) > 0.3" },
+            { "ground_attack.charged_movement_tick_0a": "1" }
+          ],
+          "on_entry": [
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=302,y=222,z=-547,dx=20,dy=2,dz=20] add in_ender_boss_arena",
+            "/execute if entity @a[tag=\"in_ender_boss_arena\"] run event entity @s xp:boss_state_near_player",
+
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]"
+          ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]" ]
+        },
+        "ground_attack.charged_movement_tick_1b": {
+          "transitions": [
+            { "ground_attack.on_block_collision": "q.is_chested" },
+            { "ground_attack.return_interval": "(!q.is_chested && q.skin_id != 6) || (q.life_time - v.t6) >= 4.8" },
+            { "ground_attack.charged_movement_tick_0b": "1" }
+          ],
+          "on_entry": [
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]",
+            "/execute if entity @s[x=301,y=223,z=-548,dx=22,dy=6,dz=22] at @s positioned ~ 223 ~ run fill ~1~1~1 ~-1~~-1 air 0 destroy",
+            "/function end_cube/boss/collision_test"
+          ],
+          "on_exit": [
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_ground_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing @e[type=xp:end_cube_marker,c=1,family=marker_ground_point]",
+            "/execute if entity @s[x=301,y=223,z=-548,dx=22,dy=6,dz=22] at @s positioned ~ 223 ~ run fill ~1~1~1 ~-1~~-1 air 0 destroy",
+            "/function end_cube/boss/collision_test"
+          ]
+        },
+        "ground_attack.on_block_collision": {
+          "transitions": [ { "re_attack_sequence": "(q.life_time - v.t6) >= v.t19" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t19 = math.min(0.75, math.random(0.75, 1.5)*(1.0 - (q.health / q.max_health))) * 2;",
+
+            "@s xp:boss_remove_ram",
+            "@s xp:boss_state_become_vulnerable",
+            "/damage @s 50 entity_attack entity @s"
+          ],
+          "on_exit": [
+            "@s xp:boss_state_is_not_dazed",
+            "/execute at @s run tp ~ 223 ~ facing @e[type=player,tag=\"in_ender_boss_arena\",c=1]"
+          ]
+        },
+        "ground_attack.return_interval": {
+          "transitions": [
+            { "final_death_sequence": "((q.health / q.max_health) < 0.1)" },
+            { "attack_sequence": "(q.life_time - v.t6) >= v.t19" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t19 = math.min(0.75, math.random(0.75, 1.5)*(1.0 - (q.health / q.max_health)));",
+
+            "@s xp:boss_state_not_near_player",
+            "@s xp:boss_remove_ram",
+            "@s xp:boss_state_become_vulnerable",
+
+            "/summon xp:end_cube_marker ^^1^-2.5 xp:marker_type.knockback_point",
+            "/camerashake add @a[r=2.5] 0.05 0.25 rotational",
+            "/damage @a[r=2.5] 15 entity_attack entity @s",
+            "/effect @a[r=2.5] weakness 5 3"
+          ],
+          "on_exit": [ "/execute at @s run tp ~ 223 ~ facing @e[type=player,tag=\"in_ender_boss_arena\",c=1]" ]
+        },
+
+        "re_attack_sequence": {
+          "transitions": [
+            { "final_death_sequence": "((q.health / q.max_health) < 0.25)" },
+
+            { "ground_attack_sequence": "q.is_saddled" },
+            { "fly_attack_sequence": "!q.is_saddled" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_state_not_near_player",
+            "/execute at @s positioned ~ 223 ~ run execute as @e[type=player,tag=\"in_ender_boss_arena\",r=16] at @s run event entity @e[type=xp:end_cube,c=1] xp:boss_state_near_player"
+          ]
+        },
+
+        "fly_attack_sequence": {
+          "transitions": [ { "fly_attack.prepare_stance": "(q.life_time - v.t6) > 0.9" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "@s xp:boss_movement.staying",
+            "@s xp:boss_state_is_not_dazed",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn",
+            "/playanimation @s tp_start"
+          ],
+          "on_exit": [
+            "/effect @s invisibility 10 255 true",
+            "/effect @s resistance 10 255 true"
+          ]
+        },
+        "fly_attack.prepare_stance": {
+          "transitions": [ { "fly_attack.tp_above": "(q.life_time - v.t6) > 0.1" } ],
+          "on_entry": [ "v.t6 = q.life_time;" ],
+          "on_exit": [
+            "@s xp:boss_state_become_invulnerable",
+
+            "/tag @a remove in_ender_boss_arena",
+            "/tag @a[x=300,y=222,z=-549,dx=24,dy=24,dz=24] add in_ender_boss_arena",
+
+            "/execute if entity @a[tag=\"in_ender_boss_arena\"] run execute as @e[type=player,tag=\"in_ender_boss_arena\",c=1] at @s run summon xp:end_cube_marker ~ 223 ~ xp:marker_type.blink_point",
+            "/execute unless entity @a[tag=\"in_ender_boss_arena\",c=1] run summon xp:end_cube_marker 312 223 -537 xp:marker_type.blink_point"
+          ]
+        },
+        "fly_attack.tp_above": {
+          "transitions": [ { "fly_attack.overhead_ram": "(q.life_time - v.t6) > 1.1" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_blink_point] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~"
+          ]
+        },
+        "fly_attack.overhead_ram": {
+          "transitions": [ { "fly_attack.on_impact": "(q.life_time - v.t6) >= 1.25" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/effect @s invisibility 0",
+            "/effect @s resistance 0",
+
+            "@s xp:boss_state_start_teleporting",
+            "@s xp:boss_ram_special"
+          ],
+          "on_exit": [ "v.t6 = q.life_time;" ]
+        },
+        "fly_attack.on_impact": {
+          "transitions": [ { "fly_attack.return_interval": "(q.life_time - v.t6) > 0.1" } ],
+          "on_entry": [
+            "v.t21 = q.life_time;",
+            "/summon xp:end_cube_marker ~~~ xp:marker_type.knockback_point_big"
+          ],
+          "on_exit": [
+            "/playsound random.explode @a ~~~ 1.0 0.5",
+            "/playsound random.anvil_land @a ~~~ 1.0 0.75",
+            "/particle xp:end_cube38 ~~~",
+            "/particle xp:end_cube39 ~~~",
+            "/particle xp:end_cube40 ~~~"
+          ]
+        },
+        "fly_attack.return_interval": {
+          "transitions": [
+            { "final_death_sequence": "((q.health / q.max_health) < 0.1)" },
+            { "attack_sequence": "(q.life_time - v.t6) >= v.t19" }
+          ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+            "v.t19 = math.random(1.5,3.0);",
+
+            "@s xp:boss_state_end_teleporting",
+            "@s xp:boss_remove_ram_special",
+            "@s xp:boss_state_become_vulnerable"
+          ],
+          "on_exit": [ "/execute at @s run tp ~ 223 ~ facing @e[type=player,tag=\"in_ender_boss_arena\",c=1]" ]
+        },
+
+        "final_death_sequence": {
+          "transitions": [ { "final_death.move_tick": "(q.life_time - v.t6) > 0.1" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/effect @s invisibility 10 255 true",
+            "/event entity @e[type=xp:end_cube_marker,family=!marker_cinematics,family=!marker_spawner,r=256] xp:instant_despawn",
+
+            "@s xp:is_dying",
+            "@s xp:boss_movement.staying",
+            "@s xp:boss_state_start_teleporting"
+          ],
+          "on_exit": [ "/effect @s invisibility 0" ]
+        },
+        "final_death.move_tick": {
+          "transitions": [ { "final_death.move_tick_0": "1" } ],
+          "on_entry": [
+            "/execute as @a[r=128] run music stop 6",
+
+            "/summon xp:end_cube_marker 312 223 -537 xp:marker_type.center_point",
+            "/summon xp:end_cube_marker ~~~ xp:marker_type.center_path",
+            "/playanimation @s final_death",
+            "/camerashake add @a[tag=\"in_ender_boss_arena\"] 0.05 4.0 rotational"
+          ],
+          "on_exit": [ "v.t6 = q.life_time;" ]
+        },
+        "final_death.move_tick_0": {
+          "transitions": [
+            { "terminate_stance": "(q.life_time - v.t6) >= 7.0" },
+            { "final_death.move_tick_1": "1" }
+          ],
+          "on_entry": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+        "final_death.move_tick_1": {
+          "transitions": [
+            { "terminate_stance": "(q.life_time - v.t6) >= 7.0" },
+            { "final_death.move_tick_0": "1" }
+          ],
+          "on_entry": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ],
+          "on_exit": [ "/execute as @e[type=xp:end_cube_marker,c=1,family=marker_center_path] at @s run tp @e[type=xp:end_cube,tag=!\"sticky\",c=1] ~~~ facing ~10~~" ]
+        },
+
+        "terminate_stance": {
+          "transitions": [ { "terminate_stance.to_next_stage": "(q.life_time - v.t6) >= 1.0" } ],
+          "on_entry": [
+            "v.t6 = q.life_time;",
+
+            "/function end_cube/boss/on_death",
+
+            "/effect @s invisibility 10 255 true",
+            "/effect @s resistance 10 255 true",
+
+            "/summon xp:end_cube_treasure 312 224 -537 xp:become_interactable",
+
+            "/execute as @a[r=72] at @s run playsound achievement @s ~~~ 1.0 0.7 1",
+            "/playsound xp_intro_jinggle @a[r=72]",
+
+            "@s xp:boss_state_end_teleporting"
+          ]
+        },
+        "terminate_stance.to_next_stage": {
+          "on_entry": [
+            "/tag @e[type=xp:end_cube_boss_activator,r=64] add ender_eye_boss_blocked",
+            "/tag @a remove in_ender_boss_arena",
+
+            "@s xp:instant_despawn"
+          ]
+        }
+      }
+    }
+  }
+}

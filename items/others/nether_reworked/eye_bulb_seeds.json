@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "edx:eye_bulb_seeds",
+			"menu_category": {
+				"category":"nature"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures":{
+               "default":"eye_bulb_seeds"
+         }
+			},
+			"minecraft:block_placer":{
+				"block": "edx:eye_bulb",
+				"use_on" : ["soul_soil"]
+			},
+			"minecraft:display_name": {}
+		}
+	}
+}

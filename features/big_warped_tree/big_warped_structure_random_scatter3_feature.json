@@ -1,0 +1,13 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "edx:big_warped_tree/big_warped_structure_random_scatter3_feature"
+		},
+		"places_feature": "edx:big_warped_tree/big_warped_structure_random_feature",
+		"iterations": "t.biome_idx == 6",
+		"x": 0,
+		"z": 0,
+		"y": 0
+	}
+}

@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "edx:sticky_shield"
+    },
+
+    "tags": [ "artifacts" ],
+    "pattern": [
+      "#P ",
+      "   ",
+      "FIF"
+    ],
+    "key": {
+      "P": {
+        "item": "edx:ancient_shield"
+      },
+      "#": {
+        "item": "edx:poisonous_mucus"
+      },
+      "F": {
+        "item": "edx:fusion_powder"
+      },
+      "I": {
+        "item": "minecraft:slime"
+      }
+    },
+    "unlock": [
+      {
+        "item": "edx:ancient_shield"
+      },
+      {
+        "item": "edx:poisonous_mucus"
+      }
+    ],
+    "result": {
+      "item": "edx:sticky_shield"
+    }
+  }
+  
+}
